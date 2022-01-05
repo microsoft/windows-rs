@@ -5,3 +5,5 @@ pub mod Holographic;
 pub mod InkWorkspace;
 #[cfg(feature = "ApplicationModel_Preview_Notes")]
 pub mod Notes;
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

@@ -931,3 +931,5 @@ impl ::core::default::Default for PSAPI_WS_WATCH_INFORMATION_EX {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

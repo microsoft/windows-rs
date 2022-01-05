@@ -2181,9 +2181,6 @@ unsafe impl ::windows::core::Interface for IActivateAudioInterfaceAsyncOperation
     type Vtable = IActivateAudioInterfaceAsyncOperationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x72a22d78_cde4_431d_b8cc_843a71199b6d);
 }
-pub trait IActivateAudioInterfaceAsyncOperationImpl {
-    fn GetActivateResult();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IActivateAudioInterfaceAsyncOperationVtbl(
@@ -2240,9 +2237,6 @@ impl ::core::fmt::Debug for IActivateAudioInterfaceCompletionHandler {
 unsafe impl ::windows::core::Interface for IActivateAudioInterfaceCompletionHandler {
     type Vtable = IActivateAudioInterfaceCompletionHandlerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x41d949ab_9862_444a_80f6_c261334da5eb);
-}
-pub trait IActivateAudioInterfaceCompletionHandlerImpl {
-    fn ActivateCompleted();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2310,12 +2304,6 @@ impl ::core::fmt::Debug for IAudioAmbisonicsControl {
 unsafe impl ::windows::core::Interface for IAudioAmbisonicsControl {
     type Vtable = IAudioAmbisonicsControlVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x28724c91_df35_4856_9f76_d6a26413f3df);
-}
-pub trait IAudioAmbisonicsControlImpl {
-    fn SetData();
-    fn SetHeadTracking();
-    fn GetHeadTracking();
-    fn SetRotation();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2385,10 +2373,6 @@ impl ::core::fmt::Debug for IAudioAutoGainControl {
 unsafe impl ::windows::core::Interface for IAudioAutoGainControl {
     type Vtable = IAudioAutoGainControlVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x85401fd4_6de4_4b9d_9869_2d6753a82f3c);
-}
-pub trait IAudioAutoGainControlImpl {
-    fn GetEnabled();
-    fn SetEnabled();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2492,7 +2476,6 @@ unsafe impl ::windows::core::Interface for IAudioBass {
     type Vtable = IAudioBassVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa2b1a1d9_4db3_425d_a2b2_bd335cb3e2e5);
 }
-pub trait IAudioBassImpl: IPerChannelDbLevelImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAudioBassVtbl(
@@ -2564,11 +2547,6 @@ unsafe impl ::windows::core::Interface for IAudioCaptureClient {
     type Vtable = IAudioCaptureClientVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc8adbd64_e71e_48a0_a4de_185c395cd317);
 }
-pub trait IAudioCaptureClientImpl {
-    fn GetBuffer();
-    fn ReleaseBuffer();
-    fn GetNextPacketSize();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAudioCaptureClientVtbl(
@@ -2632,10 +2610,6 @@ impl ::core::fmt::Debug for IAudioChannelConfig {
 unsafe impl ::windows::core::Interface for IAudioChannelConfig {
     type Vtable = IAudioChannelConfigVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbb11c46f_ec28_493c_b88a_5db88062ce98);
-}
-pub trait IAudioChannelConfigImpl {
-    fn SetChannelConfig();
-    fn GetChannelConfig();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2744,20 +2718,6 @@ impl ::core::fmt::Debug for IAudioClient {
 unsafe impl ::windows::core::Interface for IAudioClient {
     type Vtable = IAudioClientVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1cb9ad4c_dbfa_4c32_b178_c2f568a703b2);
-}
-pub trait IAudioClientImpl {
-    fn Initialize();
-    fn GetBufferSize();
-    fn GetStreamLatency();
-    fn GetCurrentPadding();
-    fn IsFormatSupported();
-    fn GetMixFormat();
-    fn GetDevicePeriod();
-    fn Start();
-    fn Stop();
-    fn Reset();
-    fn SetEventHandle();
-    fn GetService();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2913,11 +2873,6 @@ impl ::core::fmt::Debug for IAudioClient2 {
 unsafe impl ::windows::core::Interface for IAudioClient2 {
     type Vtable = IAudioClient2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x726778cd_f60a_4eda_82de_e47610cd78aa);
-}
-pub trait IAudioClient2Impl: IAudioClientImpl {
-    fn IsOffloadCapable();
-    fn SetClientProperties();
-    fn GetBufferSizeLimits();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3112,11 +3067,6 @@ unsafe impl ::windows::core::Interface for IAudioClient3 {
     type Vtable = IAudioClient3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7ed4ee07_8e67_4cd4_8c1a_2b7a5987ad42);
 }
-pub trait IAudioClient3Impl: IAudioClient2Impl + IAudioClientImpl {
-    fn GetSharedModeEnginePeriod();
-    fn GetCurrentSharedModeEnginePeriod();
-    fn InitializeSharedAudioStream();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAudioClient3Vtbl(
@@ -3195,9 +3145,6 @@ unsafe impl ::windows::core::Interface for IAudioClientDuckingControl {
     type Vtable = IAudioClientDuckingControlVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc789d381_a28c_4168_b28f_d3a837924dc3);
 }
-pub trait IAudioClientDuckingControlImpl {
-    fn SetDuckingOptionsForCurrentStream();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAudioClientDuckingControlVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, options: AUDIO_DUCKING_OPTIONS) -> ::windows::core::HRESULT);
@@ -3260,11 +3207,6 @@ unsafe impl ::windows::core::Interface for IAudioClock {
     type Vtable = IAudioClockVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcd63314f_3fba_4a1b_812c_ef96358728e7);
 }
-pub trait IAudioClockImpl {
-    fn GetFrequency();
-    fn GetPosition();
-    fn GetCharacteristics();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAudioClockVtbl(
@@ -3324,9 +3266,6 @@ unsafe impl ::windows::core::Interface for IAudioClock2 {
     type Vtable = IAudioClock2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6f49ff73_6727_49ac_a008_d98cf5e70048);
 }
-pub trait IAudioClock2Impl {
-    fn GetDevicePosition();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAudioClock2Vtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, deviceposition: *mut u64, qpcposition: *mut u64) -> ::windows::core::HRESULT);
@@ -3379,9 +3318,6 @@ unsafe impl ::windows::core::Interface for IAudioClockAdjustment {
     type Vtable = IAudioClockAdjustmentVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf6e4c0a0_46d9_4fb8_be21_57a3ef2b626c);
 }
-pub trait IAudioClockAdjustmentImpl {
-    fn SetSampleRate();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAudioClockAdjustmentVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, flsamplerate: f32) -> ::windows::core::HRESULT);
@@ -3433,9 +3369,6 @@ impl ::core::fmt::Debug for IAudioEffectsChangedNotificationClient {
 unsafe impl ::windows::core::Interface for IAudioEffectsChangedNotificationClient {
     type Vtable = IAudioEffectsChangedNotificationClientVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa5ded44f_3c5d_4b2b_bd1e_5dc1ee20bbf6);
-}
-pub trait IAudioEffectsChangedNotificationClientImpl {
-    fn OnAudioEffectsChanged();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3501,12 +3434,6 @@ impl ::core::fmt::Debug for IAudioEffectsManager {
 unsafe impl ::windows::core::Interface for IAudioEffectsManager {
     type Vtable = IAudioEffectsManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4460b3ae_4b44_4527_8676_7548a8acd260);
-}
-pub trait IAudioEffectsManagerImpl {
-    fn RegisterAudioEffectsChangedNotificationCallback();
-    fn UnregisterAudioEffectsChangedNotificationCallback();
-    fn GetAudioEffects();
-    fn SetAudioEffectState();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3575,10 +3502,6 @@ unsafe impl ::windows::core::Interface for IAudioFormatEnumerator {
     type Vtable = IAudioFormatEnumeratorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdcdaa858_895a_4a22_a5eb_67bda506096d);
 }
-pub trait IAudioFormatEnumeratorImpl {
-    fn GetCount();
-    fn GetFormat();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAudioFormatEnumeratorVtbl(
@@ -3641,10 +3564,6 @@ impl ::core::fmt::Debug for IAudioInputSelector {
 unsafe impl ::windows::core::Interface for IAudioInputSelector {
     type Vtable = IAudioInputSelectorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4f03dc02_5e6e_4653_8f72_a030c123d598);
-}
-pub trait IAudioInputSelectorImpl {
-    fn GetSelection();
-    fn SetSelection();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3710,10 +3629,6 @@ impl ::core::fmt::Debug for IAudioLoudness {
 unsafe impl ::windows::core::Interface for IAudioLoudness {
     type Vtable = IAudioLoudnessVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7d8b1437_dd53_4350_9c1b_1ee2890bd938);
-}
-pub trait IAudioLoudnessImpl {
-    fn GetEnabled();
-    fn SetEnabled();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3817,7 +3732,6 @@ unsafe impl ::windows::core::Interface for IAudioMidrange {
     type Vtable = IAudioMidrangeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5e54b6d7_b44b_40d9_9a9e_e691d9ce6edf);
 }
-pub trait IAudioMidrangeImpl: IPerChannelDbLevelImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAudioMidrangeVtbl(
@@ -3887,10 +3801,6 @@ unsafe impl ::windows::core::Interface for IAudioMute {
     type Vtable = IAudioMuteVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdf45aeea_b74a_4b6b_afad_2366b6aa012e);
 }
-pub trait IAudioMuteImpl {
-    fn SetMute();
-    fn GetMute();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAudioMuteVtbl(
@@ -3956,10 +3866,6 @@ unsafe impl ::windows::core::Interface for IAudioOutputSelector {
     type Vtable = IAudioOutputSelectorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbb515f69_94a7_429e_8b9c_271b3f11a3ab);
 }
-pub trait IAudioOutputSelectorImpl {
-    fn GetSelection();
-    fn SetSelection();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAudioOutputSelectorVtbl(
@@ -4024,10 +3930,6 @@ unsafe impl ::windows::core::Interface for IAudioPeakMeter {
     type Vtable = IAudioPeakMeterVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdd79923c_0599_45e0_b8b6_c8df7db6e796);
 }
-pub trait IAudioPeakMeterImpl {
-    fn GetChannelCount();
-    fn GetLevel();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAudioPeakMeterVtbl(
@@ -4090,10 +3992,6 @@ impl ::core::fmt::Debug for IAudioRenderClient {
 unsafe impl ::windows::core::Interface for IAudioRenderClient {
     type Vtable = IAudioRenderClientVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf294acfc_3146_4483_a7bf_addca7c260e2);
-}
-pub trait IAudioRenderClientImpl {
-    fn GetBuffer();
-    fn ReleaseBuffer();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4192,17 +4090,6 @@ impl ::core::fmt::Debug for IAudioSessionControl {
 unsafe impl ::windows::core::Interface for IAudioSessionControl {
     type Vtable = IAudioSessionControlVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf4b1a599_7266_4319_a8ca_e70acb11e8cd);
-}
-pub trait IAudioSessionControlImpl {
-    fn GetState();
-    fn GetDisplayName();
-    fn SetDisplayName();
-    fn GetIconPath();
-    fn SetIconPath();
-    fn GetGroupingParam();
-    fn SetGroupingParam();
-    fn RegisterAudioSessionNotification();
-    fn UnregisterAudioSessionNotification();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4359,13 +4246,6 @@ unsafe impl ::windows::core::Interface for IAudioSessionControl2 {
     type Vtable = IAudioSessionControl2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbfb7ff88_7239_4fc9_8fa2_07c950be9c6d);
 }
-pub trait IAudioSessionControl2Impl: IAudioSessionControlImpl {
-    fn GetSessionIdentifier();
-    fn GetSessionInstanceIdentifier();
-    fn GetProcessId();
-    fn IsSystemSoundsSession();
-    fn SetDuckingPreference();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAudioSessionControl2Vtbl(
@@ -4448,10 +4328,6 @@ impl ::core::fmt::Debug for IAudioSessionEnumerator {
 unsafe impl ::windows::core::Interface for IAudioSessionEnumerator {
     type Vtable = IAudioSessionEnumeratorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe2f5bb11_0570_40ca_acdd_3aa01277dee8);
-}
-pub trait IAudioSessionEnumeratorImpl {
-    fn GetCount();
-    fn GetSession();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4538,15 +4414,6 @@ unsafe impl ::windows::core::Interface for IAudioSessionEvents {
     type Vtable = IAudioSessionEventsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x24918acc_64b3_37c1_8ca9_74a66e9957a8);
 }
-pub trait IAudioSessionEventsImpl {
-    fn OnDisplayNameChanged();
-    fn OnIconPathChanged();
-    fn OnSimpleVolumeChanged();
-    fn OnChannelVolumeChanged();
-    fn OnGroupingParamChanged();
-    fn OnStateChanged();
-    fn OnSessionDisconnected();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAudioSessionEventsVtbl(
@@ -4618,10 +4485,6 @@ impl ::core::fmt::Debug for IAudioSessionManager {
 unsafe impl ::windows::core::Interface for IAudioSessionManager {
     type Vtable = IAudioSessionManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbfa971f1_4d5e_40bb_935e_967039bfbee4);
-}
-pub trait IAudioSessionManagerImpl {
-    fn GetAudioSessionControl();
-    fn GetSimpleAudioVolume();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4729,13 +4592,6 @@ unsafe impl ::windows::core::Interface for IAudioSessionManager2 {
     type Vtable = IAudioSessionManager2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x77aa99a0_1bd6_484f_8bc7_2c654c9a9b6f);
 }
-pub trait IAudioSessionManager2Impl: IAudioSessionManagerImpl {
-    fn GetSessionEnumerator();
-    fn RegisterSessionNotification();
-    fn UnregisterSessionNotification();
-    fn RegisterDuckNotification();
-    fn UnregisterDuckNotification();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAudioSessionManager2Vtbl(
@@ -4800,9 +4656,6 @@ unsafe impl ::windows::core::Interface for IAudioSessionNotification {
     type Vtable = IAudioSessionNotificationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x641dd20b_4d41_49cc_aba3_174b9477bb08);
 }
-pub trait IAudioSessionNotificationImpl {
-    fn OnSessionCreated();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAudioSessionNotificationVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newsession: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
@@ -4863,11 +4716,6 @@ impl ::core::fmt::Debug for IAudioStateMonitor {
 unsafe impl ::windows::core::Interface for IAudioStateMonitor {
     type Vtable = IAudioStateMonitorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x63bd8738_e30d_4c77_bf5c_834e87c657e2);
-}
-pub trait IAudioStateMonitorImpl {
-    fn RegisterCallback();
-    fn UnregisterCallback();
-    fn GetSoundLevel();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4946,13 +4794,6 @@ unsafe impl ::windows::core::Interface for IAudioStreamVolume {
     type Vtable = IAudioStreamVolumeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x93014887_242d_4068_8a15_cf5e93b90fe3);
 }
-pub trait IAudioStreamVolumeImpl {
-    fn GetChannelCount();
-    fn SetChannelVolume();
-    fn GetChannelVolume();
-    fn SetAllVolumes();
-    fn GetAllVolumes();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAudioStreamVolumeVtbl(
@@ -5014,9 +4855,6 @@ impl ::core::fmt::Debug for IAudioSystemEffectsPropertyChangeNotificationClient 
 unsafe impl ::windows::core::Interface for IAudioSystemEffectsPropertyChangeNotificationClient {
     type Vtable = IAudioSystemEffectsPropertyChangeNotificationClientVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x20049d40_56d5_400e_a2ef_385599feed49);
-}
-pub trait IAudioSystemEffectsPropertyChangeNotificationClientImpl {
-    fn OnPropertyChanged();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5105,15 +4943,6 @@ impl ::core::fmt::Debug for IAudioSystemEffectsPropertyStore {
 unsafe impl ::windows::core::Interface for IAudioSystemEffectsPropertyStore {
     type Vtable = IAudioSystemEffectsPropertyStoreVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x302ae7f9_d7e0_43e4_971b_1f8293613d2a);
-}
-pub trait IAudioSystemEffectsPropertyStoreImpl {
-    fn OpenDefaultPropertyStore();
-    fn OpenUserPropertyStore();
-    fn OpenVolatilePropertyStore();
-    fn ResetUserPropertyStore();
-    fn ResetVolatilePropertyStore();
-    fn RegisterPropertyChangeNotification();
-    fn UnregisterPropertyChangeNotification();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5223,7 +5052,6 @@ unsafe impl ::windows::core::Interface for IAudioTreble {
     type Vtable = IAudioTrebleVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0a717812_694e_4907_b74b_bafa5cfdca7b);
 }
-pub trait IAudioTrebleImpl: IPerChannelDbLevelImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAudioTrebleVtbl(
@@ -5291,10 +5119,6 @@ impl ::core::fmt::Debug for IAudioVolumeDuckNotification {
 unsafe impl ::windows::core::Interface for IAudioVolumeDuckNotification {
     type Vtable = IAudioVolumeDuckNotificationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc3b284d4_6d39_4359_b3cf_b56ddb3bb39c);
-}
-pub trait IAudioVolumeDuckNotificationImpl {
-    fn OnVolumeDuckNotification();
-    fn OnVolumeUnduckNotification();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5398,7 +5222,6 @@ unsafe impl ::windows::core::Interface for IAudioVolumeLevel {
     type Vtable = IAudioVolumeLevelVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7fb7b48f_531d_44a2_bcb3_5ad5a134b3dc);
 }
-pub trait IAudioVolumeLevelImpl: IPerChannelDbLevelImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAudioVolumeLevelVtbl(
@@ -5478,13 +5301,6 @@ impl ::core::fmt::Debug for IChannelAudioVolume {
 unsafe impl ::windows::core::Interface for IChannelAudioVolume {
     type Vtable = IChannelAudioVolumeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1c158861_b533_4b30_b1cf_e853e51c59b8);
-}
-pub trait IChannelAudioVolumeImpl {
-    fn GetChannelCount();
-    fn SetChannelVolume();
-    fn GetChannelVolume();
-    fn SetAllVolumes();
-    fn GetAllVolumes();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5584,16 +5400,6 @@ unsafe impl ::windows::core::Interface for IConnector {
     type Vtable = IConnectorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9c2c4058_23f5_41de_877a_df3af236a09e);
 }
-pub trait IConnectorImpl {
-    fn GetType();
-    fn GetDataFlow();
-    fn ConnectTo();
-    fn Disconnect();
-    fn IsConnected();
-    fn GetConnectedTo();
-    fn GetConnectorIdConnectedTo();
-    fn GetDeviceIdConnectedTo();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IConnectorVtbl(
@@ -5661,9 +5467,6 @@ unsafe impl ::windows::core::Interface for IControlChangeNotify {
     type Vtable = IControlChangeNotifyVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa09513ed_c709_4d21_bd7b_5f34c47f3947);
 }
-pub trait IControlChangeNotifyImpl {
-    fn OnNotify();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IControlChangeNotifyVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwsenderprocessid: u32, pguideventcontext: *const ::windows::core::GUID) -> ::windows::core::HRESULT);
@@ -5722,10 +5525,6 @@ impl ::core::fmt::Debug for IControlInterface {
 unsafe impl ::windows::core::Interface for IControlInterface {
     type Vtable = IControlInterfaceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x45d37c3f_5140_444a_ae24_400789f3cbf3);
-}
-pub trait IControlInterfaceImpl {
-    fn GetName();
-    fn GetIID();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5798,12 +5597,6 @@ impl ::core::fmt::Debug for IDeviceSpecificProperty {
 unsafe impl ::windows::core::Interface for IDeviceSpecificProperty {
     type Vtable = IDeviceSpecificPropertyVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3b22bcbf_2586_4af0_8583_205d391b807c);
-}
-pub trait IDeviceSpecificPropertyImpl {
-    fn GetType();
-    fn GetValue();
-    fn SetValue();
-    fn Get4BRange();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5898,15 +5691,6 @@ unsafe impl ::windows::core::Interface for IDeviceTopology {
     type Vtable = IDeviceTopologyVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2a07407e_6497_4a18_9787_32f79bd0d98f);
 }
-pub trait IDeviceTopologyImpl {
-    fn GetConnectorCount();
-    fn GetConnector();
-    fn GetSubunitCount();
-    fn GetSubunit();
-    fn GetPartById();
-    fn GetDeviceId();
-    fn GetSignalPath();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDeviceTopologyVtbl(
@@ -5990,12 +5774,6 @@ unsafe impl ::windows::core::Interface for IMMDevice {
     type Vtable = IMMDeviceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd666063f_1587_4e43_81f1_b948e807363f);
 }
-pub trait IMMDeviceImpl {
-    fn Activate();
-    fn OpenPropertyStore();
-    fn GetId();
-    fn GetState();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMMDeviceVtbl(
@@ -6060,9 +5838,6 @@ unsafe impl ::windows::core::Interface for IMMDeviceActivator {
     type Vtable = IMMDeviceActivatorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3b0d0ea4_d0a9_4b0e_935b_09516746fac0);
 }
-pub trait IMMDeviceActivatorImpl {
-    fn Activate();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMMDeviceActivatorVtbl(
@@ -6126,10 +5901,6 @@ impl ::core::fmt::Debug for IMMDeviceCollection {
 unsafe impl ::windows::core::Interface for IMMDeviceCollection {
     type Vtable = IMMDeviceCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0bd7a1be_7a1a_44db_8397_cc5392387b5e);
-}
-pub trait IMMDeviceCollectionImpl {
-    fn GetCount();
-    fn Item();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6209,13 +5980,6 @@ unsafe impl ::windows::core::Interface for IMMDeviceEnumerator {
     type Vtable = IMMDeviceEnumeratorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa95664d2_9614_4f35_a746_de8db63617e6);
 }
-pub trait IMMDeviceEnumeratorImpl {
-    fn EnumAudioEndpoints();
-    fn GetDefaultAudioEndpoint();
-    fn GetDevice();
-    fn RegisterEndpointNotificationCallback();
-    fn UnregisterEndpointNotificationCallback();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMMDeviceEnumeratorVtbl(
@@ -6278,9 +6042,6 @@ impl ::core::fmt::Debug for IMMEndpoint {
 unsafe impl ::windows::core::Interface for IMMEndpoint {
     type Vtable = IMMEndpointVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1be09788_6894_4089_8586_9a2a6c265ac5);
-}
-pub trait IMMEndpointImpl {
-    fn GetDataFlow();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6354,13 +6115,6 @@ impl ::core::fmt::Debug for IMMNotificationClient {
 unsafe impl ::windows::core::Interface for IMMNotificationClient {
     type Vtable = IMMNotificationClientVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7991eec9_7e89_4d85_8390_6c703cec60c0);
-}
-pub trait IMMNotificationClientImpl {
-    fn OnDeviceStateChanged();
-    fn OnDeviceAdded();
-    fn OnDeviceRemoved();
-    fn OnDefaultDeviceChanged();
-    fn OnPropertyValueChanged();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6436,11 +6190,6 @@ impl ::core::fmt::Debug for IMessageFilter {
 unsafe impl ::windows::core::Interface for IMessageFilter {
     type Vtable = IMessageFilterVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000016_0000_0000_c000_000000000046);
-}
-pub trait IMessageFilterImpl {
-    fn HandleInComingCall();
-    fn RetryRejectedCall();
-    fn MessagePending();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6562,21 +6311,6 @@ unsafe impl ::windows::core::Interface for IPart {
     type Vtable = IPartVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xae2de0e4_5bca_4f2d_aa46_5d13f8fdb3a9);
 }
-pub trait IPartImpl {
-    fn GetName();
-    fn GetLocalId();
-    fn GetGlobalId();
-    fn GetPartType();
-    fn GetSubType();
-    fn GetControlInterfaceCount();
-    fn GetControlInterface();
-    fn EnumPartsIncoming();
-    fn EnumPartsOutgoing();
-    fn GetTopologyObject();
-    fn Activate();
-    fn RegisterControlChangeCallback();
-    fn UnregisterControlChangeCallback();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPartVtbl(
@@ -6653,10 +6387,6 @@ impl ::core::fmt::Debug for IPartsList {
 unsafe impl ::windows::core::Interface for IPartsList {
     type Vtable = IPartsListVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6daa848c_5eb0_45cc_aea5_998a2cda1ffb);
-}
-pub trait IPartsListImpl {
-    fn GetCount();
-    fn GetPart();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6738,14 +6468,6 @@ unsafe impl ::windows::core::Interface for IPerChannelDbLevel {
     type Vtable = IPerChannelDbLevelVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc2f8e001_f205_4bc9_99bc_c13b1e048ccb);
 }
-pub trait IPerChannelDbLevelImpl {
-    fn GetChannelCount();
-    fn GetLevelRange();
-    fn GetLevel();
-    fn SetLevel();
-    fn SetLevelUniform();
-    fn SetLevelAllChannels();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPerChannelDbLevelVtbl(
@@ -6823,12 +6545,6 @@ impl ::core::fmt::Debug for ISimpleAudioVolume {
 unsafe impl ::windows::core::Interface for ISimpleAudioVolume {
     type Vtable = ISimpleAudioVolumeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x87ce5498_68d6_44e5_9215_6da47ef883d8);
-}
-pub trait ISimpleAudioVolumeImpl {
-    fn SetMasterVolume();
-    fn GetMasterVolume();
-    fn SetMute();
-    fn GetMute();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6926,16 +6642,6 @@ impl ::core::fmt::Debug for ISpatialAudioClient {
 unsafe impl ::windows::core::Interface for ISpatialAudioClient {
     type Vtable = ISpatialAudioClientVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbbf8e066_aaaa_49be_9a4d_fd2a858ea27f);
-}
-pub trait ISpatialAudioClientImpl {
-    fn GetStaticObjectPosition();
-    fn GetNativeStaticObjectTypeMask();
-    fn GetMaxDynamicObjectCount();
-    fn GetSupportedAudioObjectFormatEnumerator();
-    fn GetMaxFrameCount();
-    fn IsAudioObjectFormatSupported();
-    fn IsSpatialAudioStreamAvailable();
-    fn ActivateSpatialAudioStream();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7070,10 +6776,6 @@ unsafe impl ::windows::core::Interface for ISpatialAudioClient2 {
     type Vtable = ISpatialAudioClient2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcaabe452_a66a_4bee_a93e_e320463f6a53);
 }
-pub trait ISpatialAudioClient2Impl: ISpatialAudioClientImpl {
-    fn IsOffloadCapable();
-    fn GetMaxFrameCountForCategory();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpatialAudioClient2Vtbl(
@@ -7164,13 +6866,6 @@ unsafe impl ::windows::core::Interface for ISpatialAudioMetadataClient {
     type Vtable = ISpatialAudioMetadataClientVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x777d4a3b_f6ff_4a26_85dc_68d7cdeda1d4);
 }
-pub trait ISpatialAudioMetadataClientImpl {
-    fn ActivateSpatialAudioMetadataItems();
-    fn GetSpatialAudioMetadataItemsBufferLength();
-    fn ActivateSpatialAudioMetadataWriter();
-    fn ActivateSpatialAudioMetadataCopier();
-    fn ActivateSpatialAudioMetadataReader();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpatialAudioMetadataClientVtbl(
@@ -7240,11 +6935,6 @@ impl ::core::fmt::Debug for ISpatialAudioMetadataCopier {
 unsafe impl ::windows::core::Interface for ISpatialAudioMetadataCopier {
     type Vtable = ISpatialAudioMetadataCopierVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd224b233_e251_4fd0_9ca2_d5ecf9a68404);
-}
-pub trait ISpatialAudioMetadataCopierImpl {
-    fn Open();
-    fn CopyMetadataForFrames();
-    fn Close();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7326,13 +7016,6 @@ unsafe impl ::windows::core::Interface for ISpatialAudioMetadataItems {
     type Vtable = ISpatialAudioMetadataItemsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbcd7c78f_3098_4f22_b547_a2f25a381269);
 }
-pub trait ISpatialAudioMetadataItemsImpl {
-    fn GetFrameCount();
-    fn GetItemCount();
-    fn GetMaxItemCount();
-    fn GetMaxValueBufferLength();
-    fn GetInfo();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpatialAudioMetadataItemsVtbl(
@@ -7401,11 +7084,6 @@ impl ::core::fmt::Debug for ISpatialAudioMetadataItemsBuffer {
 unsafe impl ::windows::core::Interface for ISpatialAudioMetadataItemsBuffer {
     type Vtable = ISpatialAudioMetadataItemsBufferVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x42640a16_e1bd_42d9_9ff6_031ab71a2dba);
-}
-pub trait ISpatialAudioMetadataItemsBufferImpl {
-    fn AttachToBuffer();
-    fn AttachToPopulatedBuffer();
-    fn DetachBuffer();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7478,12 +7156,6 @@ unsafe impl ::windows::core::Interface for ISpatialAudioMetadataReader {
     type Vtable = ISpatialAudioMetadataReaderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb78e86a2_31d9_4c32_94d2_7df40fc7ebec);
 }
-pub trait ISpatialAudioMetadataReaderImpl {
-    fn Open();
-    fn ReadNextItem();
-    fn ReadNextItemCommand();
-    fn Close();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpatialAudioMetadataReaderVtbl(
@@ -7555,12 +7227,6 @@ impl ::core::fmt::Debug for ISpatialAudioMetadataWriter {
 unsafe impl ::windows::core::Interface for ISpatialAudioMetadataWriter {
     type Vtable = ISpatialAudioMetadataWriterVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1b17ca01_2955_444d_a430_537dc589a844);
-}
-pub trait ISpatialAudioMetadataWriterImpl {
-    fn Open();
-    fn WriteNextItem();
-    fn WriteNextItemCommand();
-    fn Close();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7665,10 +7331,6 @@ unsafe impl ::windows::core::Interface for ISpatialAudioObject {
     type Vtable = ISpatialAudioObjectVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdde28967_521b_46e5_8f00_bd6f2bc8ab1d);
 }
-pub trait ISpatialAudioObjectImpl: ISpatialAudioObjectBaseImpl {
-    fn SetPosition();
-    fn SetVolume();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpatialAudioObjectVtbl(
@@ -7746,12 +7408,6 @@ impl ::core::fmt::Debug for ISpatialAudioObjectBase {
 unsafe impl ::windows::core::Interface for ISpatialAudioObjectBase {
     type Vtable = ISpatialAudioObjectBaseVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcce0b8f2_8d4d_4efb_a8cf_3d6ecf1c30e0);
-}
-pub trait ISpatialAudioObjectBaseImpl {
-    fn GetBuffer();
-    fn SetEndOfStream();
-    fn IsActive();
-    fn GetAudioObjectType();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7873,14 +7529,6 @@ unsafe impl ::windows::core::Interface for ISpatialAudioObjectForHrtf {
     type Vtable = ISpatialAudioObjectForHrtfVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd7436ade_1978_4e14_aba0_555bd8eb83b4);
 }
-pub trait ISpatialAudioObjectForHrtfImpl: ISpatialAudioObjectBaseImpl {
-    fn SetPosition();
-    fn SetGain();
-    fn SetOrientation();
-    fn SetEnvironment();
-    fn SetDistanceDecay();
-    fn SetDirectivity();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpatialAudioObjectForHrtfVtbl(
@@ -7987,9 +7635,6 @@ unsafe impl ::windows::core::Interface for ISpatialAudioObjectForMetadataCommand
     type Vtable = ISpatialAudioObjectForMetadataCommandsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0df2c94b_f5f9_472d_af6b_c46e0ac9cd05);
 }
-pub trait ISpatialAudioObjectForMetadataCommandsImpl: ISpatialAudioObjectBaseImpl {
-    fn WriteNextMetadataCommand();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpatialAudioObjectForMetadataCommandsVtbl(
@@ -8091,9 +7736,6 @@ impl ::core::fmt::Debug for ISpatialAudioObjectForMetadataItems {
 unsafe impl ::windows::core::Interface for ISpatialAudioObjectForMetadataItems {
     type Vtable = ISpatialAudioObjectForMetadataItemsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xddea49ff_3bc0_4377_8aad_9fbcfd808566);
-}
-pub trait ISpatialAudioObjectForMetadataItemsImpl: ISpatialAudioObjectBaseImpl {
-    fn GetSpatialAudioMetadataItems();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8208,9 +7850,6 @@ unsafe impl ::windows::core::Interface for ISpatialAudioObjectRenderStream {
     type Vtable = ISpatialAudioObjectRenderStreamVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbab5f473_b423_477b_85f5_b5a332a04153);
 }
-pub trait ISpatialAudioObjectRenderStreamImpl: ISpatialAudioObjectRenderStreamBaseImpl {
-    fn ActivateSpatialAudioObject();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpatialAudioObjectRenderStreamVtbl(
@@ -8300,15 +7939,6 @@ impl ::core::fmt::Debug for ISpatialAudioObjectRenderStreamBase {
 unsafe impl ::windows::core::Interface for ISpatialAudioObjectRenderStreamBase {
     type Vtable = ISpatialAudioObjectRenderStreamBaseVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfeaaf403_c1d8_450d_aa05_e0ccee7502a8);
-}
-pub trait ISpatialAudioObjectRenderStreamBaseImpl {
-    fn GetAvailableDynamicObjectCount();
-    fn GetService();
-    fn Start();
-    fn Stop();
-    fn Reset();
-    fn BeginUpdatingAudioObjects();
-    fn EndUpdatingAudioObjects();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8423,9 +8053,6 @@ impl ::core::fmt::Debug for ISpatialAudioObjectRenderStreamForHrtf {
 unsafe impl ::windows::core::Interface for ISpatialAudioObjectRenderStreamForHrtf {
     type Vtable = ISpatialAudioObjectRenderStreamForHrtfVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe08deef9_5363_406e_9fdc_080ee247bbe0);
-}
-pub trait ISpatialAudioObjectRenderStreamForHrtfImpl: ISpatialAudioObjectRenderStreamBaseImpl {
-    fn ActivateSpatialAudioObjectForHrtf();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8547,10 +8174,6 @@ unsafe impl ::windows::core::Interface for ISpatialAudioObjectRenderStreamForMet
     type Vtable = ISpatialAudioObjectRenderStreamForMetadataVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbbc9c907_48d5_4a2e_a0c7_f7f0d67c1fb1);
 }
-pub trait ISpatialAudioObjectRenderStreamForMetadataImpl: ISpatialAudioObjectRenderStreamBaseImpl {
-    fn ActivateSpatialAudioObjectForMetadataCommands();
-    fn ActivateSpatialAudioObjectForMetadataItems();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpatialAudioObjectRenderStreamForMetadataVtbl(
@@ -8616,9 +8239,6 @@ unsafe impl ::windows::core::Interface for ISpatialAudioObjectRenderStreamNotify
     type Vtable = ISpatialAudioObjectRenderStreamNotifyVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdddf83e6_68d7_4c70_883f_a1836afb4a50);
 }
-pub trait ISpatialAudioObjectRenderStreamNotifyImpl {
-    fn OnAvailableDynamicObjectCountChange();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpatialAudioObjectRenderStreamNotifyVtbl(
@@ -8671,7 +8291,6 @@ unsafe impl ::windows::core::Interface for ISubunit {
     type Vtable = ISubunitVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x82149a85_dba6_4487_86bb_ea8f7fefcc71);
 }
-pub trait ISubunitImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISubunitVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32);
@@ -13914,3 +13533,5 @@ pub unsafe fn waveOutWrite<'a, Param0: ::windows::core::IntoParam<'a, HWAVEOUT>>
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

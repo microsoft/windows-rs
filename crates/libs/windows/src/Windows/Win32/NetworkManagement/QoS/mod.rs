@@ -5073,3 +5073,5 @@ impl ::core::default::Default for tag_SIPAEVENT_VSM_IDK_RSA_INFO {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

@@ -6,15 +6,6 @@ unsafe impl ::windows::core::Interface for IWebViewControlAcceleratorKeyPressedE
     type Vtable = IWebViewControlAcceleratorKeyPressedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x77a2a53e_7c74_437d_a290_3ac0d8cd5655);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IWebViewControlAcceleratorKeyPressedEventArgsImpl {
-    fn EventType();
-    fn VirtualKey();
-    fn KeyStatus();
-    fn RoutingStage();
-    fn Handled();
-    fn SetHandled();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWebViewControlAcceleratorKeyPressedEventArgsVtbl(
@@ -41,10 +32,6 @@ unsafe impl ::windows::core::Interface for IWebViewControlMoveFocusRequestedEven
     type Vtable = IWebViewControlMoveFocusRequestedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6b2a340d_4bd0_405e_b7c1_1e72a492f446);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IWebViewControlMoveFocusRequestedEventArgsImpl {
-    fn Reason();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWebViewControlMoveFocusRequestedEventArgsVtbl(
@@ -62,17 +49,6 @@ pub struct IWebViewControlProcess(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IWebViewControlProcess {
     type Vtable = IWebViewControlProcessVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x02c723ec_98d6_424a_b63e_c6136c36a0f2);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IWebViewControlProcessImpl {
-    fn ProcessId();
-    fn EnterpriseId();
-    fn IsPrivateNetworkClientServerCapabilityEnabled();
-    fn CreateWebViewControlAsync();
-    fn GetWebViewControls();
-    fn Terminate();
-    fn ProcessExited();
-    fn RemoveProcessExited();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -103,10 +79,6 @@ unsafe impl ::windows::core::Interface for IWebViewControlProcessFactory {
     type Vtable = IWebViewControlProcessFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x47b65cf9_a2d2_453c_b097_f6779d4b8e02);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IWebViewControlProcessFactoryImpl {
-    fn CreateWithOptions();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWebViewControlProcessFactoryVtbl(
@@ -124,13 +96,6 @@ pub struct IWebViewControlProcessOptions(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IWebViewControlProcessOptions {
     type Vtable = IWebViewControlProcessOptionsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1cca72a7_3bd6_4826_8261_6c8189505d89);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IWebViewControlProcessOptionsImpl {
-    fn SetEnterpriseId();
-    fn EnterpriseId();
-    fn SetPrivateNetworkClientServerCapability();
-    fn PrivateNetworkClientServerCapability();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -152,22 +117,6 @@ pub struct IWebViewControlSite(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IWebViewControlSite {
     type Vtable = IWebViewControlSiteVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x133f47c6_12dc_4898_bd47_04967de648ba);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IWebViewControlSiteImpl {
-    fn Process();
-    fn SetScale();
-    fn Scale();
-    fn SetBounds();
-    fn Bounds();
-    fn SetIsVisible();
-    fn IsVisible();
-    fn Close();
-    fn MoveFocus();
-    fn MoveFocusRequested();
-    fn RemoveMoveFocusRequested();
-    fn AcceleratorKeyPressed();
-    fn RemoveAcceleratorKeyPressed();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -204,13 +153,6 @@ pub struct IWebViewControlSite2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IWebViewControlSite2 {
     type Vtable = IWebViewControlSite2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd13b2e3f_48ee_4730_8243_d2ed0c05606a);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IWebViewControlSite2Impl {
-    fn GotFocus();
-    fn RemoveGotFocus();
-    fn LostFocus();
-    fn RemoveLostFocus();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1442,3 +1384,5 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &WebV
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

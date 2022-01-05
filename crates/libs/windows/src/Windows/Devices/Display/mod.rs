@@ -425,29 +425,6 @@ unsafe impl ::windows::core::Interface for IDisplayMonitor {
     type Vtable = IDisplayMonitorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1f6b15d4_1d01_4c51_87e2_6f954a772b59);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IDisplayMonitorImpl {
-    fn DeviceId();
-    fn DisplayName();
-    fn ConnectionKind();
-    fn PhysicalConnector();
-    fn DisplayAdapterDeviceId();
-    fn DisplayAdapterId();
-    fn DisplayAdapterTargetId();
-    fn UsageKind();
-    fn NativeResolutionInRawPixels();
-    fn PhysicalSizeInInches();
-    fn RawDpiX();
-    fn RawDpiY();
-    fn RedPrimary();
-    fn GreenPrimary();
-    fn BluePrimary();
-    fn WhitePoint();
-    fn MaxLuminanceInNits();
-    fn MinLuminanceInNits();
-    fn MaxAverageFullFrameLuminanceInNits();
-    fn GetDescriptor();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDisplayMonitorVtbl(
@@ -492,10 +469,6 @@ unsafe impl ::windows::core::Interface for IDisplayMonitor2 {
     type Vtable = IDisplayMonitor2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x023018e6_cb23_5830_96df_a7bf6e602577);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IDisplayMonitor2Impl {
-    fn IsDolbyVisionSupportedInHdrMode();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDisplayMonitor2Vtbl(
@@ -514,12 +487,6 @@ unsafe impl ::windows::core::Interface for IDisplayMonitorStatics {
     type Vtable = IDisplayMonitorStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6eae698f_a228_4c05_821d_b695d667de8e);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IDisplayMonitorStaticsImpl {
-    fn GetDeviceSelector();
-    fn FromIdAsync();
-    fn FromInterfaceIdAsync();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDisplayMonitorStaticsVtbl(
@@ -535,3 +502,5 @@ pub struct IDisplayMonitorStaticsVtbl(
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, deviceinterfaceid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
 );
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

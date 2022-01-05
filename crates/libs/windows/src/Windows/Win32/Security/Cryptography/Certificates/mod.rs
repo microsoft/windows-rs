@@ -2904,16 +2904,6 @@ unsafe impl ::windows::core::Interface for IAlternativeName {
     type Vtable = IAlternativeNameVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x728ab313_217d_11da_b2a4_000e7bbb2b09);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IAlternativeNameImpl: IDispatchImpl {
-    fn InitializeFromString();
-    fn InitializeFromRawData();
-    fn InitializeFromOtherName();
-    fn Type();
-    fn StrValue();
-    fn ObjectId();
-    fn RawData();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAlternativeNameVtbl(
@@ -3059,15 +3049,6 @@ unsafe impl ::windows::core::Interface for IAlternativeNames {
     type Vtable = IAlternativeNamesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x728ab314_217d_11da_b2a4_000e7bbb2b09);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IAlternativeNamesImpl: IDispatchImpl {
-    fn ItemByIndex();
-    fn Count();
-    fn _NewEnum();
-    fn Add();
-    fn Remove();
-    fn Clear();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAlternativeNamesVtbl(
@@ -3197,12 +3178,6 @@ impl ::core::fmt::Debug for IBinaryConverter {
 unsafe impl ::windows::core::Interface for IBinaryConverter {
     type Vtable = IBinaryConverterVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x728ab302_217d_11da_b2a4_000e7bbb2b09);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IBinaryConverterImpl: IDispatchImpl {
-    fn StringToString();
-    fn VariantByteArrayToString();
-    fn StringToVariantByteArray();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3365,11 +3340,6 @@ impl ::core::fmt::Debug for IBinaryConverter2 {
 unsafe impl ::windows::core::Interface for IBinaryConverter2 {
     type Vtable = IBinaryConverter2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8d7928b4_4e17_428d_9a17_728df00d1b2b);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IBinaryConverter2Impl: IBinaryConverterImpl + IDispatchImpl {
-    fn StringArrayToVariantArray();
-    fn VariantArrayToStringArray();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3778,65 +3748,6 @@ impl ::core::fmt::Debug for ICEnroll {
 unsafe impl ::windows::core::Interface for ICEnroll {
     type Vtable = ICEnrollVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x43f8f288_7a20_11d0_8f06_00c04fc295e1);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait ICEnrollImpl: IDispatchImpl {
-    fn createFilePKCS10();
-    fn acceptFilePKCS7();
-    fn createPKCS10();
-    fn acceptPKCS7();
-    fn getCertFromPKCS7();
-    fn enumProviders();
-    fn enumContainers();
-    fn freeRequestInfo();
-    fn MyStoreName();
-    fn SetMyStoreName();
-    fn MyStoreType();
-    fn SetMyStoreType();
-    fn MyStoreFlags();
-    fn SetMyStoreFlags();
-    fn CAStoreName();
-    fn SetCAStoreName();
-    fn CAStoreType();
-    fn SetCAStoreType();
-    fn CAStoreFlags();
-    fn SetCAStoreFlags();
-    fn RootStoreName();
-    fn SetRootStoreName();
-    fn RootStoreType();
-    fn SetRootStoreType();
-    fn RootStoreFlags();
-    fn SetRootStoreFlags();
-    fn RequestStoreName();
-    fn SetRequestStoreName();
-    fn RequestStoreType();
-    fn SetRequestStoreType();
-    fn RequestStoreFlags();
-    fn SetRequestStoreFlags();
-    fn ContainerName();
-    fn SetContainerName();
-    fn ProviderName();
-    fn SetProviderName();
-    fn ProviderType();
-    fn SetProviderType();
-    fn KeySpec();
-    fn SetKeySpec();
-    fn ProviderFlags();
-    fn SetProviderFlags();
-    fn UseExistingKeySet();
-    fn SetUseExistingKeySet();
-    fn GenKeyFlags();
-    fn SetGenKeyFlags();
-    fn DeleteRequestCert();
-    fn SetDeleteRequestCert();
-    fn WriteCertToCSP();
-    fn SetWriteCertToCSP();
-    fn SPCFileName();
-    fn SetSPCFileName();
-    fn PVKFileName();
-    fn SetPVKFileName();
-    fn HashAlgorithm();
-    fn SetHashAlgorithm();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4383,15 +4294,6 @@ impl ::core::fmt::Debug for ICEnroll2 {
 unsafe impl ::windows::core::Interface for ICEnroll2 {
     type Vtable = ICEnroll2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x704ca730_c90b_11d1_9bec_00c04fc295e1);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait ICEnroll2Impl: ICEnrollImpl + IDispatchImpl {
-    fn addCertTypeToRequest();
-    fn addNameValuePairToSignature();
-    fn WriteCertToUserDS();
-    fn SetWriteCertToUserDS();
-    fn EnableT61DNEncoding();
-    fn SetEnableT61DNEncoding();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5043,23 +4945,6 @@ impl ::core::fmt::Debug for ICEnroll3 {
 unsafe impl ::windows::core::Interface for ICEnroll3 {
     type Vtable = ICEnroll3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc28c2d95_b7de_11d2_a421_00c04f79fe8e);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait ICEnroll3Impl: ICEnroll2Impl + ICEnrollImpl + IDispatchImpl {
-    fn InstallPKCS7();
-    fn Reset();
-    fn GetSupportedKeySpec();
-    fn GetKeyLen();
-    fn EnumAlgs();
-    fn GetAlgName();
-    fn SetReuseHardwareKeyIfUnableToGenNew();
-    fn ReuseHardwareKeyIfUnableToGenNew();
-    fn SetHashAlgID();
-    fn HashAlgID();
-    fn SetLimitExchangeKeyToEncipherment();
-    fn LimitExchangeKeyToEncipherment();
-    fn SetEnableSMIMECapabilities();
-    fn EnableSMIMECapabilities();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5928,42 +5813,6 @@ unsafe impl ::windows::core::Interface for ICEnroll4 {
     type Vtable = ICEnroll4Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc1f1188a_2eb5_4a80_841b_7e729a356d90);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait ICEnroll4Impl: ICEnroll3Impl + ICEnroll2Impl + ICEnrollImpl + IDispatchImpl {
-    fn SetPrivateKeyArchiveCertificate();
-    fn PrivateKeyArchiveCertificate();
-    fn SetThumbPrint();
-    fn ThumbPrint();
-    fn binaryToString();
-    fn stringToBinary();
-    fn addExtensionToRequest();
-    fn addAttributeToRequest();
-    fn addNameValuePairToRequest();
-    fn resetExtensions();
-    fn resetAttributes();
-    fn createRequest();
-    fn createFileRequest();
-    fn acceptResponse();
-    fn acceptFileResponse();
-    fn getCertFromResponse();
-    fn getCertFromFileResponse();
-    fn createPFX();
-    fn createFilePFX();
-    fn setPendingRequestInfo();
-    fn enumPendingRequest();
-    fn removePendingRequest();
-    fn GetKeyLenEx();
-    fn InstallPKCS7Ex();
-    fn addCertTypeToRequestEx();
-    fn getProviderType();
-    fn SetSignerCertificate();
-    fn SetClientId();
-    fn ClientId();
-    fn addBlobPropertyToCertificate();
-    fn resetBlobProperties();
-    fn SetIncludeSubjectKeyID();
-    fn IncludeSubjectKeyID();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICEnroll4Vtbl(
@@ -6319,19 +6168,6 @@ unsafe impl ::windows::core::Interface for ICertAdmin {
     type Vtable = ICertAdminVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x34df6950_7fb6_11d0_8817_00a0c903b83c);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait ICertAdminImpl: IDispatchImpl {
-    fn IsValidCertificate();
-    fn GetRevocationReason();
-    fn RevokeCertificate();
-    fn SetRequestAttributes();
-    fn SetCertificateExtension();
-    fn DenyRequest();
-    fn ResubmitRequest();
-    fn PublishCRL();
-    fn GetCRL();
-    fn ImportCertificate();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICertAdminVtbl(
@@ -6593,20 +6429,6 @@ unsafe impl ::windows::core::Interface for ICertAdmin2 {
     type Vtable = ICertAdmin2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf7c3ac41_b8ce_4fb4_aa58_3d1dc0e36b39);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait ICertAdmin2Impl: ICertAdminImpl + IDispatchImpl {
-    fn PublishCRLs();
-    fn GetCAProperty();
-    fn SetCAProperty();
-    fn GetCAPropertyFlags();
-    fn GetCAPropertyDisplayName();
-    fn GetArchivedKey();
-    fn GetConfigEntry();
-    fn SetConfigEntry();
-    fn ImportKey();
-    fn GetMyRoles();
-    fn DeleteRow();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICertAdmin2Vtbl(
@@ -6776,13 +6598,6 @@ unsafe impl ::windows::core::Interface for ICertConfig {
     type Vtable = ICertConfigVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x372fce34_4324_11d0_8810_00a0c903b83c);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait ICertConfigImpl: IDispatchImpl {
-    fn Reset();
-    fn Next();
-    fn GetField();
-    fn GetConfig();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICertConfigVtbl(
@@ -6942,10 +6757,6 @@ unsafe impl ::windows::core::Interface for ICertConfig2 {
     type Vtable = ICertConfig2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7a18edde_7e78_4163_8ded_78e2c9cee924);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait ICertConfig2Impl: ICertConfigImpl + IDispatchImpl {
-    fn SetSharedFolder();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICertConfig2Vtbl(
@@ -7095,16 +6906,6 @@ impl ::core::fmt::Debug for ICertEncodeAltName {
 unsafe impl ::windows::core::Interface for ICertEncodeAltName {
     type Vtable = ICertEncodeAltNameVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1c9a8c70_1271_11d1_9bd4_00c04fb683fa);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait ICertEncodeAltNameImpl: IDispatchImpl {
-    fn Decode();
-    fn GetNameCount();
-    fn GetNameChoice();
-    fn GetName();
-    fn Reset();
-    fn SetNameEntry();
-    fn Encode();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7301,13 +7102,6 @@ unsafe impl ::windows::core::Interface for ICertEncodeAltName2 {
     type Vtable = ICertEncodeAltName2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf67fe177_5ef1_4535_b4ce_29df15e2e0c3);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait ICertEncodeAltName2Impl: ICertEncodeAltNameImpl + IDispatchImpl {
-    fn DecodeBlob();
-    fn EncodeBlob();
-    fn GetNameBlob();
-    fn SetNameEntryBlob();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICertEncodeAltName2Vtbl(
@@ -7454,13 +7248,6 @@ impl ::core::fmt::Debug for ICertEncodeBitString {
 unsafe impl ::windows::core::Interface for ICertEncodeBitString {
     type Vtable = ICertEncodeBitStringVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6db525be_1278_11d1_9bd4_00c04fb683fa);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait ICertEncodeBitStringImpl: IDispatchImpl {
-    fn Decode();
-    fn GetBitCount();
-    fn GetBitString();
-    fn Encode();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7634,12 +7421,6 @@ unsafe impl ::windows::core::Interface for ICertEncodeBitString2 {
     type Vtable = ICertEncodeBitString2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe070d6e7_23ef_4dd2_8242_ebd9c928cb30);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait ICertEncodeBitString2Impl: ICertEncodeBitStringImpl + IDispatchImpl {
-    fn DecodeBlob();
-    fn EncodeBlob();
-    fn GetBitStringBlob();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICertEncodeBitString2Vtbl(
@@ -7803,18 +7584,6 @@ impl ::core::fmt::Debug for ICertEncodeCRLDistInfo {
 unsafe impl ::windows::core::Interface for ICertEncodeCRLDistInfo {
     type Vtable = ICertEncodeCRLDistInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x01958640_bbff_11d0_8825_00a0c903b83c);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait ICertEncodeCRLDistInfoImpl: IDispatchImpl {
-    fn Decode();
-    fn GetDistPointCount();
-    fn GetNameCount();
-    fn GetNameChoice();
-    fn GetName();
-    fn Reset();
-    fn SetNameCount();
-    fn SetNameEntry();
-    fn Encode();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8011,11 +7780,6 @@ unsafe impl ::windows::core::Interface for ICertEncodeCRLDistInfo2 {
     type Vtable = ICertEncodeCRLDistInfo2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb4275d4b_3e30_446f_ad36_09d03120b078);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait ICertEncodeCRLDistInfo2Impl: ICertEncodeCRLDistInfoImpl + IDispatchImpl {
-    fn DecodeBlob();
-    fn EncodeBlob();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICertEncodeCRLDistInfo2Vtbl(
@@ -8167,15 +7931,6 @@ impl ::core::fmt::Debug for ICertEncodeDateArray {
 unsafe impl ::windows::core::Interface for ICertEncodeDateArray {
     type Vtable = ICertEncodeDateArrayVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2f9469a0_a470_11d0_8821_00a0c903b83c);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait ICertEncodeDateArrayImpl: IDispatchImpl {
-    fn Decode();
-    fn GetCount();
-    fn GetValue();
-    fn Reset();
-    fn SetValue();
-    fn Encode();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8351,11 +8106,6 @@ unsafe impl ::windows::core::Interface for ICertEncodeDateArray2 {
     type Vtable = ICertEncodeDateArray2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x99a4edb5_2b8e_448d_bf95_bba8d7789dc8);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait ICertEncodeDateArray2Impl: ICertEncodeDateArrayImpl + IDispatchImpl {
-    fn DecodeBlob();
-    fn EncodeBlob();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICertEncodeDateArray2Vtbl(
@@ -8502,15 +8252,6 @@ impl ::core::fmt::Debug for ICertEncodeLongArray {
 unsafe impl ::windows::core::Interface for ICertEncodeLongArray {
     type Vtable = ICertEncodeLongArrayVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x15e2f230_a0a2_11d0_8821_00a0c903b83c);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait ICertEncodeLongArrayImpl: IDispatchImpl {
-    fn Decode();
-    fn GetCount();
-    fn GetValue();
-    fn Reset();
-    fn SetValue();
-    fn Encode();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8686,11 +8427,6 @@ unsafe impl ::windows::core::Interface for ICertEncodeLongArray2 {
     type Vtable = ICertEncodeLongArray2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4efde84a_bd9b_4fc2_a108_c347d478840f);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait ICertEncodeLongArray2Impl: ICertEncodeLongArrayImpl + IDispatchImpl {
-    fn DecodeBlob();
-    fn EncodeBlob();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICertEncodeLongArray2Vtbl(
@@ -8844,16 +8580,6 @@ impl ::core::fmt::Debug for ICertEncodeStringArray {
 unsafe impl ::windows::core::Interface for ICertEncodeStringArray {
     type Vtable = ICertEncodeStringArrayVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x12a88820_7494_11d0_8816_00a0c903b83c);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait ICertEncodeStringArrayImpl: IDispatchImpl {
-    fn Decode();
-    fn GetStringType();
-    fn GetCount();
-    fn GetValue();
-    fn Reset();
-    fn SetValue();
-    fn Encode();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9039,11 +8765,6 @@ unsafe impl ::windows::core::Interface for ICertEncodeStringArray2 {
     type Vtable = ICertEncodeStringArray2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9c680d93_9b7d_4e95_9018_4ffe10ba5ada);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait ICertEncodeStringArray2Impl: ICertEncodeStringArrayImpl + IDispatchImpl {
-    fn DecodeBlob();
-    fn EncodeBlob();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICertEncodeStringArray2Vtbl(
@@ -9180,12 +8901,6 @@ impl ::core::fmt::Debug for ICertExit {
 unsafe impl ::windows::core::Interface for ICertExit {
     type Vtable = ICertExitVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe19ae1a0_7364_11d0_8816_00a0c903b83c);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait ICertExitImpl: IDispatchImpl {
-    fn Initialize();
-    fn Notify();
-    fn GetDescription();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9339,10 +9054,6 @@ unsafe impl ::windows::core::Interface for ICertExit2 {
     type Vtable = ICertExit2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0abf484b_d049_464d_a7ed_552e7529b0ff);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait ICertExit2Impl: ICertExitImpl + IDispatchImpl {
-    fn GetManageModule();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICertExit2Vtbl(
@@ -9460,10 +9171,6 @@ impl ::core::fmt::Debug for ICertGetConfig {
 unsafe impl ::windows::core::Interface for ICertGetConfig {
     type Vtable = ICertGetConfigVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc7ea09c0_ce17_11d0_8833_00a0c903b83c);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait ICertGetConfigImpl: IDispatchImpl {
-    fn GetConfig();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9588,12 +9295,6 @@ impl ::core::fmt::Debug for ICertManageModule {
 unsafe impl ::windows::core::Interface for ICertManageModule {
     type Vtable = ICertManageModuleVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe7d7ad42_bd3d_11d1_9a4d_00c04fc297eb);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait ICertManageModuleImpl: IDispatchImpl {
-    fn GetProperty();
-    fn SetProperty();
-    fn Configure();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9727,13 +9428,6 @@ impl ::core::fmt::Debug for ICertPolicy {
 unsafe impl ::windows::core::Interface for ICertPolicy {
     type Vtable = ICertPolicyVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x38bb5a00_7636_11d0_b413_00a0c91bbf8c);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait ICertPolicyImpl: IDispatchImpl {
-    fn Initialize();
-    fn VerifyRequest();
-    fn GetDescription();
-    fn ShutDown();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9894,10 +9588,6 @@ unsafe impl ::windows::core::Interface for ICertPolicy2 {
     type Vtable = ICertPolicy2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3db4910e_8001_4bf1_aa1b_f43a808317a0);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait ICertPolicy2Impl: ICertPolicyImpl + IDispatchImpl {
-    fn GetManageModule();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICertPolicy2Vtbl(
@@ -10043,16 +9733,6 @@ impl ::core::fmt::Debug for ICertProperties {
 unsafe impl ::windows::core::Interface for ICertProperties {
     type Vtable = ICertPropertiesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x728ab32f_217d_11da_b2a4_000e7bbb2b09);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait ICertPropertiesImpl: IDispatchImpl {
-    fn ItemByIndex();
-    fn Count();
-    fn _NewEnum();
-    fn Add();
-    fn Remove();
-    fn Clear();
-    fn InitializeFromCertificate();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -10202,16 +9882,6 @@ impl ::core::fmt::Debug for ICertProperty {
 unsafe impl ::windows::core::Interface for ICertProperty {
     type Vtable = ICertPropertyVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x728ab32e_217d_11da_b2a4_000e7bbb2b09);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait ICertPropertyImpl: IDispatchImpl {
-    fn InitializeFromCertificate();
-    fn InitializeDecode();
-    fn PropertyId();
-    fn SetPropertyId();
-    fn RawData();
-    fn RemoveFromCertificate();
-    fn SetValueOnCertificate();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -10394,11 +10064,6 @@ impl ::core::fmt::Debug for ICertPropertyArchived {
 unsafe impl ::windows::core::Interface for ICertPropertyArchived {
     type Vtable = ICertPropertyArchivedVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x728ab337_217d_11da_b2a4_000e7bbb2b09);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait ICertPropertyArchivedImpl: ICertPropertyImpl + IDispatchImpl {
-    fn Initialize();
-    fn Archived();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -10585,11 +10250,6 @@ impl ::core::fmt::Debug for ICertPropertyArchivedKeyHash {
 unsafe impl ::windows::core::Interface for ICertPropertyArchivedKeyHash {
     type Vtable = ICertPropertyArchivedKeyHashVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x728ab33b_217d_11da_b2a4_000e7bbb2b09);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait ICertPropertyArchivedKeyHashImpl: ICertPropertyImpl + IDispatchImpl {
-    fn Initialize();
-    fn ArchivedKeyHash();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -10778,11 +10438,6 @@ impl ::core::fmt::Debug for ICertPropertyAutoEnroll {
 unsafe impl ::windows::core::Interface for ICertPropertyAutoEnroll {
     type Vtable = ICertPropertyAutoEnrollVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x728ab332_217d_11da_b2a4_000e7bbb2b09);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait ICertPropertyAutoEnrollImpl: ICertPropertyImpl + IDispatchImpl {
-    fn Initialize();
-    fn TemplateName();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -10979,13 +10634,6 @@ unsafe impl ::windows::core::Interface for ICertPropertyBackedUp {
     type Vtable = ICertPropertyBackedUpVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x728ab338_217d_11da_b2a4_000e7bbb2b09);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait ICertPropertyBackedUpImpl: ICertPropertyImpl + IDispatchImpl {
-    fn InitializeFromCurrentTime();
-    fn Initialize();
-    fn BackedUpValue();
-    fn BackedUpTime();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICertPropertyBackedUpVtbl(
@@ -11173,11 +10821,6 @@ impl ::core::fmt::Debug for ICertPropertyDescription {
 unsafe impl ::windows::core::Interface for ICertPropertyDescription {
     type Vtable = ICertPropertyDescriptionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x728ab331_217d_11da_b2a4_000e7bbb2b09);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait ICertPropertyDescriptionImpl: ICertPropertyImpl + IDispatchImpl {
-    fn Initialize();
-    fn Description();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -11383,14 +11026,6 @@ impl ::core::fmt::Debug for ICertPropertyEnrollment {
 unsafe impl ::windows::core::Interface for ICertPropertyEnrollment {
     type Vtable = ICertPropertyEnrollmentVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x728ab339_217d_11da_b2a4_000e7bbb2b09);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait ICertPropertyEnrollmentImpl: ICertPropertyImpl + IDispatchImpl {
-    fn Initialize();
-    fn RequestId();
-    fn CADnsName();
-    fn CAName();
-    fn FriendlyName();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -11623,18 +11258,6 @@ unsafe impl ::windows::core::Interface for ICertPropertyEnrollmentPolicyServer {
     type Vtable = ICertPropertyEnrollmentPolicyServerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x728ab34a_217d_11da_b2a4_000e7bbb2b09);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait ICertPropertyEnrollmentPolicyServerImpl: ICertPropertyImpl + IDispatchImpl {
-    fn Initialize();
-    fn GetPolicyServerUrl();
-    fn GetPolicyServerId();
-    fn GetEnrollmentServerUrl();
-    fn GetRequestIdString();
-    fn GetPropertyFlags();
-    fn GetUrlFlags();
-    fn GetAuthentication();
-    fn GetEnrollmentServerAuthentication();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICertPropertyEnrollmentPolicyServerVtbl(
@@ -11833,11 +11456,6 @@ unsafe impl ::windows::core::Interface for ICertPropertyFriendlyName {
     type Vtable = ICertPropertyFriendlyNameVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x728ab330_217d_11da_b2a4_000e7bbb2b09);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait ICertPropertyFriendlyNameImpl: ICertPropertyImpl + IDispatchImpl {
-    fn Initialize();
-    fn FriendlyName();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICertPropertyFriendlyNameVtbl(
@@ -12023,11 +11641,6 @@ impl ::core::fmt::Debug for ICertPropertyKeyProvInfo {
 unsafe impl ::windows::core::Interface for ICertPropertyKeyProvInfo {
     type Vtable = ICertPropertyKeyProvInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x728ab336_217d_11da_b2a4_000e7bbb2b09);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait ICertPropertyKeyProvInfoImpl: ICertPropertyImpl + IDispatchImpl {
-    fn Initialize();
-    fn PrivateKey();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -12219,12 +11832,6 @@ impl ::core::fmt::Debug for ICertPropertyRenewal {
 unsafe impl ::windows::core::Interface for ICertPropertyRenewal {
     type Vtable = ICertPropertyRenewalVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x728ab33a_217d_11da_b2a4_000e7bbb2b09);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait ICertPropertyRenewalImpl: ICertPropertyImpl + IDispatchImpl {
-    fn Initialize();
-    fn InitializeFromCertificateHash();
-    fn Renewal();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -12420,12 +12027,6 @@ unsafe impl ::windows::core::Interface for ICertPropertyRequestOriginator {
     type Vtable = ICertPropertyRequestOriginatorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x728ab333_217d_11da_b2a4_000e7bbb2b09);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait ICertPropertyRequestOriginatorImpl: ICertPropertyImpl + IDispatchImpl {
-    fn Initialize();
-    fn InitializeFromLocalRequestOriginator();
-    fn RequestOriginator();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICertPropertyRequestOriginatorVtbl(
@@ -12615,11 +12216,6 @@ unsafe impl ::windows::core::Interface for ICertPropertySHA1Hash {
     type Vtable = ICertPropertySHA1HashVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x728ab334_217d_11da_b2a4_000e7bbb2b09);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait ICertPropertySHA1HashImpl: ICertPropertyImpl + IDispatchImpl {
-    fn Initialize();
-    fn SHA1Hash();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICertPropertySHA1HashVtbl(
@@ -12781,16 +12377,6 @@ impl ::core::fmt::Debug for ICertRequest {
 unsafe impl ::windows::core::Interface for ICertRequest {
     type Vtable = ICertRequestVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x014e4840_5523_11d0_8812_00a0c903b83c);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait ICertRequestImpl: IDispatchImpl {
-    fn Submit();
-    fn RetrievePending();
-    fn GetLastStatus();
-    fn GetRequestId();
-    fn GetDispositionMessage();
-    fn GetCACertificate();
-    fn GetCertificate();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -13005,15 +12591,6 @@ impl ::core::fmt::Debug for ICertRequest2 {
 unsafe impl ::windows::core::Interface for ICertRequest2 {
     type Vtable = ICertRequest2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa4772988_4a85_4fa9_824e_b5cf5c16405a);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait ICertRequest2Impl: ICertRequestImpl + IDispatchImpl {
-    fn GetIssuedCertificate();
-    fn GetErrorMessageText();
-    fn GetCAProperty();
-    fn GetCAPropertyFlags();
-    fn GetCAPropertyDisplayName();
-    fn GetFullResponseProperty();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -13283,13 +12860,6 @@ unsafe impl ::windows::core::Interface for ICertRequest3 {
     type Vtable = ICertRequest3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xafc8f92b_33a2_4861_bf36_2933b7cd67b3);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait ICertRequest3Impl: ICertRequest2Impl + ICertRequestImpl + IDispatchImpl {
-    fn SetCredential();
-    fn GetRequestIdString();
-    fn GetIssuedCertificate2();
-    fn GetRefreshPolicy();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICertRequest3Vtbl(
@@ -13396,11 +12966,6 @@ impl ::core::fmt::Debug for ICertRequestD {
 unsafe impl ::windows::core::Interface for ICertRequestD {
     type Vtable = ICertRequestDVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd99e6e70_fc88_11d0_b498_00a0c90312f3);
-}
-pub trait ICertRequestDImpl {
-    fn Request();
-    fn GetCACert();
-    fn Ping();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -13516,12 +13081,6 @@ impl ::core::fmt::Debug for ICertRequestD2 {
 unsafe impl ::windows::core::Interface for ICertRequestD2 {
     type Vtable = ICertRequestD2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5422fd3a_d4b8_4cef_a12e_e87d4ca22e90);
-}
-pub trait ICertRequestD2Impl: ICertRequestDImpl {
-    fn Request2();
-    fn GetCAProperty();
-    fn GetCAPropertyInfo();
-    fn Ping2();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -13695,21 +13254,6 @@ impl ::core::fmt::Debug for ICertServerExit {
 unsafe impl ::windows::core::Interface for ICertServerExit {
     type Vtable = ICertServerExitVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4ba9eb90_732c_11d0_8816_00a0c903b83c);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait ICertServerExitImpl: IDispatchImpl {
-    fn SetContext();
-    fn GetRequestProperty();
-    fn GetRequestAttribute();
-    fn GetCertificateProperty();
-    fn GetCertificateExtension();
-    fn GetCertificateExtensionFlags();
-    fn EnumerateExtensionsSetup();
-    fn EnumerateExtensions();
-    fn EnumerateExtensionsClose();
-    fn EnumerateAttributesSetup();
-    fn EnumerateAttributes();
-    fn EnumerateAttributesClose();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -13906,23 +13450,6 @@ unsafe impl ::windows::core::Interface for ICertServerPolicy {
     type Vtable = ICertServerPolicyVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaa000922_ffbe_11cf_8800_00a0c903b83c);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait ICertServerPolicyImpl: IDispatchImpl {
-    fn SetContext();
-    fn GetRequestProperty();
-    fn GetRequestAttribute();
-    fn GetCertificateProperty();
-    fn SetCertificateProperty();
-    fn GetCertificateExtension();
-    fn GetCertificateExtensionFlags();
-    fn SetCertificateExtension();
-    fn EnumerateExtensionsSetup();
-    fn EnumerateExtensions();
-    fn EnumerateExtensionsClose();
-    fn EnumerateAttributesSetup();
-    fn EnumerateAttributes();
-    fn EnumerateAttributesClose();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICertServerPolicyVtbl(
@@ -14087,17 +13614,6 @@ impl ::core::fmt::Debug for ICertView {
 unsafe impl ::windows::core::Interface for ICertView {
     type Vtable = ICertViewVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc3fac344_1e84_11d1_9bd6_00c04fb683fa);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait ICertViewImpl: IDispatchImpl {
-    fn OpenConnection();
-    fn EnumCertViewColumn();
-    fn GetColumnCount();
-    fn GetColumnIndex();
-    fn SetResultColumnCount();
-    fn SetResultColumn();
-    fn SetRestriction();
-    fn OpenView();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -14277,10 +13793,6 @@ unsafe impl ::windows::core::Interface for ICertView2 {
     type Vtable = ICertView2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd594b282_8851_4b61_9c66_3edadf848863);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait ICertView2Impl: ICertViewImpl + IDispatchImpl {
-    fn SetTable();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICertView2Vtbl(
@@ -14415,12 +13927,6 @@ impl ::core::fmt::Debug for ICertificateAttestationChallenge {
 unsafe impl ::windows::core::Interface for ICertificateAttestationChallenge {
     type Vtable = ICertificateAttestationChallengeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6f175a7c_4a3a_40ae_9dba_592fd6bbf9b8);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait ICertificateAttestationChallengeImpl: IDispatchImpl {
-    fn Initialize();
-    fn DecryptChallenge();
-    fn RequestID();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -14581,11 +14087,6 @@ unsafe impl ::windows::core::Interface for ICertificateAttestationChallenge2 {
     type Vtable = ICertificateAttestationChallenge2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4631334d_e266_47d6_bd79_be53cb2e2753);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait ICertificateAttestationChallenge2Impl: ICertificateAttestationChallengeImpl + IDispatchImpl {
-    fn SetKeyContainerName();
-    fn SetKeyBlob();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICertificateAttestationChallenge2Vtbl(
@@ -14729,15 +14230,6 @@ unsafe impl ::windows::core::Interface for ICertificatePolicies {
     type Vtable = ICertificatePoliciesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x728ab31f_217d_11da_b2a4_000e7bbb2b09);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait ICertificatePoliciesImpl: IDispatchImpl {
-    fn ItemByIndex();
-    fn Count();
-    fn _NewEnum();
-    fn Add();
-    fn Remove();
-    fn Clear();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICertificatePoliciesVtbl(
@@ -14863,12 +14355,6 @@ impl ::core::fmt::Debug for ICertificatePolicy {
 unsafe impl ::windows::core::Interface for ICertificatePolicy {
     type Vtable = ICertificatePolicyVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x728ab31e_217d_11da_b2a4_000e7bbb2b09);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait ICertificatePolicyImpl: IDispatchImpl {
-    fn Initialize();
-    fn ObjectId();
-    fn PolicyQualifiers();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -15016,17 +14502,6 @@ unsafe impl ::windows::core::Interface for ICertificationAuthorities {
     type Vtable = ICertificationAuthoritiesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x13b79005_2181_11da_b2a4_000e7bbb2b09);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait ICertificationAuthoritiesImpl: IDispatchImpl {
-    fn ItemByIndex();
-    fn Count();
-    fn _NewEnum();
-    fn Add();
-    fn Remove();
-    fn Clear();
-    fn ComputeSiteCosts();
-    fn ItemByName();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICertificationAuthoritiesVtbl(
@@ -15147,10 +14622,6 @@ impl ::core::fmt::Debug for ICertificationAuthority {
 unsafe impl ::windows::core::Interface for ICertificationAuthority {
     type Vtable = ICertificationAuthorityVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x835d1f61_1e95_4bc8_b4d3_976c42b968f7);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait ICertificationAuthorityImpl: IDispatchImpl {
-    fn Property();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -15277,13 +14748,6 @@ impl ::core::fmt::Debug for ICryptAttribute {
 unsafe impl ::windows::core::Interface for ICryptAttribute {
     type Vtable = ICryptAttributeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x728ab32c_217d_11da_b2a4_000e7bbb2b09);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait ICryptAttributeImpl: IDispatchImpl {
-    fn InitializeFromObjectId();
-    fn InitializeFromValues();
-    fn ObjectId();
-    fn Values();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -15430,17 +14894,6 @@ impl ::core::fmt::Debug for ICryptAttributes {
 unsafe impl ::windows::core::Interface for ICryptAttributes {
     type Vtable = ICryptAttributesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x728ab32d_217d_11da_b2a4_000e7bbb2b09);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait ICryptAttributesImpl: IDispatchImpl {
-    fn ItemByIndex();
-    fn Count();
-    fn _NewEnum();
-    fn Add();
-    fn Remove();
-    fn Clear();
-    fn IndexByObjectId();
-    fn AddRange();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -15608,19 +15061,6 @@ unsafe impl ::windows::core::Interface for ICspAlgorithm {
     type Vtable = ICspAlgorithmVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x728ab305_217d_11da_b2a4_000e7bbb2b09);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait ICspAlgorithmImpl: IDispatchImpl {
-    fn GetAlgorithmOid();
-    fn DefaultLength();
-    fn IncrementLength();
-    fn LongName();
-    fn Valid();
-    fn MaxLength();
-    fn MinLength();
-    fn Name();
-    fn Type();
-    fn Operations();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICspAlgorithmVtbl(
@@ -15776,17 +15216,6 @@ impl ::core::fmt::Debug for ICspAlgorithms {
 unsafe impl ::windows::core::Interface for ICspAlgorithms {
     type Vtable = ICspAlgorithmsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x728ab306_217d_11da_b2a4_000e7bbb2b09);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait ICspAlgorithmsImpl: IDispatchImpl {
-    fn ItemByIndex();
-    fn Count();
-    fn _NewEnum();
-    fn Add();
-    fn Remove();
-    fn Clear();
-    fn ItemByName();
-    fn IndexByObjectId();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -15989,26 +15418,6 @@ unsafe impl ::windows::core::Interface for ICspInformation {
     type Vtable = ICspInformationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x728ab307_217d_11da_b2a4_000e7bbb2b09);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait ICspInformationImpl: IDispatchImpl {
-    fn InitializeFromName();
-    fn InitializeFromType();
-    fn CspAlgorithms();
-    fn HasHardwareRandomNumberGenerator();
-    fn IsHardwareDevice();
-    fn IsRemovable();
-    fn IsSoftwareDevice();
-    fn Valid();
-    fn MaxKeyContainerNameLength();
-    fn Name();
-    fn Type();
-    fn Version();
-    fn KeySpec();
-    fn IsSmartCard();
-    fn GetDefaultSecurityDescriptor();
-    fn LegacyCsp();
-    fn GetCspStatusFromOperations();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICspInformationVtbl(
@@ -16193,21 +15602,6 @@ unsafe impl ::windows::core::Interface for ICspInformations {
     type Vtable = ICspInformationsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x728ab308_217d_11da_b2a4_000e7bbb2b09);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait ICspInformationsImpl: IDispatchImpl {
-    fn ItemByIndex();
-    fn Count();
-    fn _NewEnum();
-    fn Add();
-    fn Remove();
-    fn Clear();
-    fn AddAvailableCsps();
-    fn ItemByName();
-    fn GetCspStatusFromProviderName();
-    fn GetCspStatusesFromOperations();
-    fn GetEncryptionCspAlgorithms();
-    fn GetHashAlgorithms();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICspInformationsVtbl(
@@ -16361,16 +15755,6 @@ impl ::core::fmt::Debug for ICspStatus {
 unsafe impl ::windows::core::Interface for ICspStatus {
     type Vtable = ICspStatusVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x728ab309_217d_11da_b2a4_000e7bbb2b09);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait ICspStatusImpl: IDispatchImpl {
-    fn Initialize();
-    fn Ordinal();
-    fn SetOrdinal();
-    fn CspAlgorithm();
-    fn CspInformation();
-    fn EnrollmentStatus();
-    fn DisplayName();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -16534,19 +15918,6 @@ impl ::core::fmt::Debug for ICspStatuses {
 unsafe impl ::windows::core::Interface for ICspStatuses {
     type Vtable = ICspStatusesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x728ab30a_217d_11da_b2a4_000e7bbb2b09);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait ICspStatusesImpl: IDispatchImpl {
-    fn ItemByIndex();
-    fn Count();
-    fn _NewEnum();
-    fn Add();
-    fn Remove();
-    fn Clear();
-    fn ItemByName();
-    fn ItemByOrdinal();
-    fn ItemByOperations();
-    fn ItemByProvider();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -16948,78 +16319,6 @@ impl ::core::fmt::Debug for IEnroll {
 unsafe impl ::windows::core::Interface for IEnroll {
     type Vtable = IEnrollVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xacaa7838_4585_11d1_ab57_00c04fc295e1);
-}
-pub trait IEnrollImpl {
-    fn createFilePKCS10WStr();
-    fn acceptFilePKCS7WStr();
-    fn createPKCS10WStr();
-    fn acceptPKCS7Blob();
-    fn getCertContextFromPKCS7();
-    fn getMyStore();
-    fn getCAStore();
-    fn getROOTHStore();
-    fn enumProvidersWStr();
-    fn enumContainersWStr();
-    fn freeRequestInfoBlob();
-    fn MyStoreNameWStr();
-    fn SetMyStoreNameWStr();
-    fn MyStoreTypeWStr();
-    fn SetMyStoreTypeWStr();
-    fn MyStoreFlags();
-    fn SetMyStoreFlags();
-    fn CAStoreNameWStr();
-    fn SetCAStoreNameWStr();
-    fn CAStoreTypeWStr();
-    fn SetCAStoreTypeWStr();
-    fn CAStoreFlags();
-    fn SetCAStoreFlags();
-    fn RootStoreNameWStr();
-    fn SetRootStoreNameWStr();
-    fn RootStoreTypeWStr();
-    fn SetRootStoreTypeWStr();
-    fn RootStoreFlags();
-    fn SetRootStoreFlags();
-    fn RequestStoreNameWStr();
-    fn SetRequestStoreNameWStr();
-    fn RequestStoreTypeWStr();
-    fn SetRequestStoreTypeWStr();
-    fn RequestStoreFlags();
-    fn SetRequestStoreFlags();
-    fn ContainerNameWStr();
-    fn SetContainerNameWStr();
-    fn ProviderNameWStr();
-    fn SetProviderNameWStr();
-    fn ProviderType();
-    fn SetProviderType();
-    fn KeySpec();
-    fn SetKeySpec();
-    fn ProviderFlags();
-    fn SetProviderFlags();
-    fn UseExistingKeySet();
-    fn SetUseExistingKeySet();
-    fn GenKeyFlags();
-    fn SetGenKeyFlags();
-    fn DeleteRequestCert();
-    fn SetDeleteRequestCert();
-    fn WriteCertToUserDS();
-    fn SetWriteCertToUserDS();
-    fn EnableT61DNEncoding();
-    fn SetEnableT61DNEncoding();
-    fn WriteCertToCSP();
-    fn SetWriteCertToCSP();
-    fn SPCFileNameWStr();
-    fn SetSPCFileNameWStr();
-    fn PVKFileNameWStr();
-    fn SetPVKFileNameWStr();
-    fn HashAlgorithmWStr();
-    fn SetHashAlgorithmWStr();
-    fn RenewalCertificate();
-    fn SetRenewalCertificate();
-    fn AddCertTypeToRequestWStr();
-    fn AddNameValuePairToSignatureWStr();
-    fn AddExtensionsToRequest();
-    fn AddAuthenticatedAttributesToPKCS7Request();
-    fn CreatePKCS7RequestFromRequest();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -17620,26 +16919,6 @@ impl ::core::fmt::Debug for IEnroll2 {
 unsafe impl ::windows::core::Interface for IEnroll2 {
     type Vtable = IEnroll2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc080e199_b7df_11d2_a421_00c04f79fe8e);
-}
-pub trait IEnroll2Impl: IEnrollImpl {
-    fn InstallPKCS7Blob();
-    fn Reset();
-    fn GetSupportedKeySpec();
-    fn GetKeyLen();
-    fn EnumAlgs();
-    fn GetAlgNameWStr();
-    fn SetReuseHardwareKeyIfUnableToGenNew();
-    fn ReuseHardwareKeyIfUnableToGenNew();
-    fn SetHashAlgID();
-    fn HashAlgID();
-    fn SetHStoreMy();
-    fn SetHStoreCA();
-    fn SetHStoreROOT();
-    fn SetHStoreRequest();
-    fn SetLimitExchangeKeyToEncipherment();
-    fn LimitExchangeKeyToEncipherment();
-    fn SetEnableSMIMECapabilities();
-    fn EnableSMIMECapabilities();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -18435,40 +17714,6 @@ unsafe impl ::windows::core::Interface for IEnroll4 {
     type Vtable = IEnroll4Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf8053fe5_78f4_448f_a0db_41d61b73446b);
 }
-pub trait IEnroll4Impl: IEnroll2Impl + IEnrollImpl {
-    fn SetThumbPrintWStr();
-    fn ThumbPrintWStr();
-    fn SetPrivateKeyArchiveCertificate();
-    fn GetPrivateKeyArchiveCertificate();
-    fn binaryBlobToString();
-    fn stringToBinaryBlob();
-    fn addExtensionToRequestWStr();
-    fn addAttributeToRequestWStr();
-    fn addNameValuePairToRequestWStr();
-    fn resetExtensions();
-    fn resetAttributes();
-    fn createRequestWStr();
-    fn createFileRequestWStr();
-    fn acceptResponseBlob();
-    fn acceptFileResponseWStr();
-    fn getCertContextFromResponseBlob();
-    fn getCertContextFromFileResponseWStr();
-    fn createPFXWStr();
-    fn createFilePFXWStr();
-    fn setPendingRequestInfoWStr();
-    fn enumPendingRequestWStr();
-    fn removePendingRequestWStr();
-    fn GetKeyLenEx();
-    fn InstallPKCS7BlobEx();
-    fn AddCertTypeToRequestWStrEx();
-    fn getProviderTypeWStr();
-    fn addBlobPropertyToCertificateWStr();
-    fn SetSignerCertificate();
-    fn SetClientId();
-    fn ClientId();
-    fn SetIncludeSubjectKeyID();
-    fn IncludeSubjectKeyID();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnroll4Vtbl(
@@ -18791,15 +18036,6 @@ unsafe impl ::windows::core::Interface for IEnumCERTVIEWATTRIBUTE {
     type Vtable = IEnumCERTVIEWATTRIBUTEVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe77db656_7653_11d1_9bde_00c04fb683fa);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IEnumCERTVIEWATTRIBUTEImpl: IDispatchImpl {
-    fn Next();
-    fn GetName();
-    fn GetValue();
-    fn Skip();
-    fn Reset();
-    fn Clone();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumCERTVIEWATTRIBUTEVtbl(
@@ -18958,19 +18194,6 @@ unsafe impl ::windows::core::Interface for IEnumCERTVIEWCOLUMN {
     type Vtable = IEnumCERTVIEWCOLUMNVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9c735be2_57a5_11d1_9bdb_00c04fb683fa);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IEnumCERTVIEWCOLUMNImpl: IDispatchImpl {
-    fn Next();
-    fn GetName();
-    fn GetDisplayName();
-    fn GetType();
-    fn IsIndexed();
-    fn GetMaxLength();
-    fn GetValue();
-    fn Skip();
-    fn Reset();
-    fn Clone();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumCERTVIEWCOLUMNVtbl(
@@ -19120,16 +18343,6 @@ impl ::core::fmt::Debug for IEnumCERTVIEWEXTENSION {
 unsafe impl ::windows::core::Interface for IEnumCERTVIEWEXTENSION {
     type Vtable = IEnumCERTVIEWEXTENSIONVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe7dd1466_7653_11d1_9bde_00c04fb683fa);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IEnumCERTVIEWEXTENSIONImpl: IDispatchImpl {
-    fn Next();
-    fn GetName();
-    fn GetFlags();
-    fn GetValue();
-    fn Skip();
-    fn Reset();
-    fn Clone();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -19282,17 +18495,6 @@ unsafe impl ::windows::core::Interface for IEnumCERTVIEWROW {
     type Vtable = IEnumCERTVIEWROWVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd1157f4c_5af2_11d1_9bdc_00c04fb683fa);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IEnumCERTVIEWROWImpl: IDispatchImpl {
-    fn Next();
-    fn EnumCertViewColumn();
-    fn EnumCertViewAttribute();
-    fn EnumCertViewExtension();
-    fn Skip();
-    fn Reset();
-    fn Clone();
-    fn GetMaxIndex();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumCERTVIEWROWVtbl(
@@ -19412,13 +18614,6 @@ impl ::core::fmt::Debug for INDESPolicy {
 unsafe impl ::windows::core::Interface for INDESPolicy {
     type Vtable = INDESPolicyVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x13ca515d_431d_46cc_8c2e_1da269bbd625);
-}
-pub trait INDESPolicyImpl {
-    fn Initialize();
-    fn Uninitialize();
-    fn GenerateChallenge();
-    fn VerifyRequest();
-    fn Notify();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -19579,19 +18774,6 @@ impl ::core::fmt::Debug for IOCSPAdmin {
 unsafe impl ::windows::core::Interface for IOCSPAdmin {
     type Vtable = IOCSPAdminVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x322e830d_67db_4fe9_9577_4596d9f09294);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IOCSPAdminImpl: IDispatchImpl {
-    fn OCSPServiceProperties();
-    fn OCSPCAConfigurationCollection();
-    fn GetConfiguration();
-    fn SetConfiguration();
-    fn GetMyRoles();
-    fn Ping();
-    fn SetSecurity();
-    fn GetSecurity();
-    fn GetSigningCertificates();
-    fn GetHashAlgorithms();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -19845,33 +19027,6 @@ unsafe impl ::windows::core::Interface for IOCSPCAConfiguration {
     type Vtable = IOCSPCAConfigurationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaec92b40_3d46_433f_87d1_b84d5c1e790d);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IOCSPCAConfigurationImpl: IDispatchImpl {
-    fn Identifier();
-    fn CACertificate();
-    fn HashAlgorithm();
-    fn SetHashAlgorithm();
-    fn SigningFlags();
-    fn SetSigningFlags();
-    fn SigningCertificate();
-    fn SetSigningCertificate();
-    fn ReminderDuration();
-    fn SetReminderDuration();
-    fn ErrorCode();
-    fn CSPName();
-    fn KeySpec();
-    fn ProviderCLSID();
-    fn SetProviderCLSID();
-    fn ProviderProperties();
-    fn SetProviderProperties();
-    fn Modified();
-    fn LocalRevocationInformation();
-    fn SetLocalRevocationInformation();
-    fn SigningCertificateTemplate();
-    fn SetSigningCertificateTemplate();
-    fn CAConfig();
-    fn SetCAConfig();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IOCSPCAConfigurationVtbl(
@@ -20052,15 +19207,6 @@ unsafe impl ::windows::core::Interface for IOCSPCAConfigurationCollection {
     type Vtable = IOCSPCAConfigurationCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2bebea0b_5ece_4f28_a91c_86b4bb20f0d3);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IOCSPCAConfigurationCollectionImpl: IDispatchImpl {
-    fn _NewEnum();
-    fn Item();
-    fn Count();
-    fn ItemByName();
-    fn CreateCAConfiguration();
-    fn DeleteCAConfiguration();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IOCSPCAConfigurationCollectionVtbl(
@@ -20198,13 +19344,6 @@ impl ::core::fmt::Debug for IOCSPProperty {
 unsafe impl ::windows::core::Interface for IOCSPProperty {
     type Vtable = IOCSPPropertyVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x66fb7839_5f04_4c25_ad18_9ff1a8376ee0);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IOCSPPropertyImpl: IDispatchImpl {
-    fn Name();
-    fn Value();
-    fn SetValue();
-    fn Modified();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -20362,17 +19501,6 @@ impl ::core::fmt::Debug for IOCSPPropertyCollection {
 unsafe impl ::windows::core::Interface for IOCSPPropertyCollection {
     type Vtable = IOCSPPropertyCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2597c18d_54e6_4b74_9fa9_a6bfda99cbbe);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IOCSPPropertyCollectionImpl: IDispatchImpl {
-    fn _NewEnum();
-    fn Item();
-    fn Count();
-    fn ItemByName();
-    fn CreateProperty();
-    fn DeleteProperty();
-    fn InitializeFromProperties();
-    fn GetAllProperties();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -20536,17 +19664,6 @@ unsafe impl ::windows::core::Interface for IObjectId {
     type Vtable = IObjectIdVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x728ab300_217d_11da_b2a4_000e7bbb2b09);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IObjectIdImpl: IDispatchImpl {
-    fn InitializeFromName();
-    fn InitializeFromValue();
-    fn InitializeFromAlgorithmName();
-    fn Name();
-    fn FriendlyName();
-    fn SetFriendlyName();
-    fn Value();
-    fn GetAlgorithmName();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IObjectIdVtbl(
@@ -20698,16 +19815,6 @@ unsafe impl ::windows::core::Interface for IObjectIds {
     type Vtable = IObjectIdsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x728ab301_217d_11da_b2a4_000e7bbb2b09);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IObjectIdsImpl: IDispatchImpl {
-    fn ItemByIndex();
-    fn Count();
-    fn _NewEnum();
-    fn Add();
-    fn Remove();
-    fn Clear();
-    fn AddRange();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IObjectIdsVtbl(
@@ -20847,14 +19954,6 @@ impl ::core::fmt::Debug for IPolicyQualifier {
 unsafe impl ::windows::core::Interface for IPolicyQualifier {
     type Vtable = IPolicyQualifierVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x728ab31c_217d_11da_b2a4_000e7bbb2b09);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IPolicyQualifierImpl: IDispatchImpl {
-    fn InitializeEncode();
-    fn ObjectId();
-    fn Qualifier();
-    fn Type();
-    fn RawData();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -20996,15 +20095,6 @@ impl ::core::fmt::Debug for IPolicyQualifiers {
 unsafe impl ::windows::core::Interface for IPolicyQualifiers {
     type Vtable = IPolicyQualifiersVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x728ab31d_217d_11da_b2a4_000e7bbb2b09);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IPolicyQualifiersImpl: IDispatchImpl {
-    fn ItemByIndex();
-    fn Count();
-    fn _NewEnum();
-    fn Add();
-    fn Remove();
-    fn Clear();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -21189,20 +20279,6 @@ unsafe impl ::windows::core::Interface for ISignerCertificate {
     type Vtable = ISignerCertificateVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x728ab33d_217d_11da_b2a4_000e7bbb2b09);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait ISignerCertificateImpl: IDispatchImpl {
-    fn Initialize();
-    fn Certificate();
-    fn PrivateKey();
-    fn Silent();
-    fn SetSilent();
-    fn ParentWindow();
-    fn SetParentWindow();
-    fn UIContextMessage();
-    fn SetUIContextMessage();
-    fn SetPin();
-    fn SignatureInformation();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISignerCertificateVtbl(
@@ -21357,16 +20433,6 @@ unsafe impl ::windows::core::Interface for ISignerCertificates {
     type Vtable = ISignerCertificatesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x728ab33e_217d_11da_b2a4_000e7bbb2b09);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait ISignerCertificatesImpl: IDispatchImpl {
-    fn ItemByIndex();
-    fn Count();
-    fn _NewEnum();
-    fn Add();
-    fn Remove();
-    fn Clear();
-    fn Find();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISignerCertificatesVtbl(
@@ -21515,17 +20581,6 @@ unsafe impl ::windows::core::Interface for ISmimeCapabilities {
     type Vtable = ISmimeCapabilitiesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x728ab31a_217d_11da_b2a4_000e7bbb2b09);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait ISmimeCapabilitiesImpl: IDispatchImpl {
-    fn ItemByIndex();
-    fn Count();
-    fn _NewEnum();
-    fn Add();
-    fn Remove();
-    fn Clear();
-    fn AddFromCsp();
-    fn AddAvailableSmimeCapabilities();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISmimeCapabilitiesVtbl(
@@ -21653,12 +20708,6 @@ impl ::core::fmt::Debug for ISmimeCapability {
 unsafe impl ::windows::core::Interface for ISmimeCapability {
     type Vtable = ISmimeCapabilityVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x728ab319_217d_11da_b2a4_000e7bbb2b09);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait ISmimeCapabilityImpl: IDispatchImpl {
-    fn Initialize();
-    fn ObjectId();
-    fn BitCount();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -21791,13 +20840,6 @@ unsafe impl ::windows::core::Interface for IX500DistinguishedName {
     type Vtable = IX500DistinguishedNameVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x728ab303_217d_11da_b2a4_000e7bbb2b09);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IX500DistinguishedNameImpl: IDispatchImpl {
-    fn Decode();
-    fn Encode();
-    fn Name();
-    fn EncodedName();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IX500DistinguishedNameVtbl(
@@ -21927,12 +20969,6 @@ impl ::core::fmt::Debug for IX509Attribute {
 unsafe impl ::windows::core::Interface for IX509Attribute {
     type Vtable = IX509AttributeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x728ab322_217d_11da_b2a4_000e7bbb2b09);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IX509AttributeImpl: IDispatchImpl {
-    fn Initialize();
-    fn ObjectId();
-    fn RawData();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -22107,14 +21143,6 @@ unsafe impl ::windows::core::Interface for IX509AttributeArchiveKey {
     type Vtable = IX509AttributeArchiveKeyVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x728ab327_217d_11da_b2a4_000e7bbb2b09);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IX509AttributeArchiveKeyImpl: IX509AttributeImpl + IDispatchImpl {
-    fn InitializeEncode();
-    fn InitializeDecode();
-    fn EncryptedKeyBlob();
-    fn EncryptionAlgorithm();
-    fn EncryptionStrength();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IX509AttributeArchiveKeyVtbl(
@@ -22285,12 +21313,6 @@ impl ::core::fmt::Debug for IX509AttributeArchiveKeyHash {
 unsafe impl ::windows::core::Interface for IX509AttributeArchiveKeyHash {
     type Vtable = IX509AttributeArchiveKeyHashVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x728ab328_217d_11da_b2a4_000e7bbb2b09);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IX509AttributeArchiveKeyHashImpl: IX509AttributeImpl + IDispatchImpl {
-    fn InitializeEncodeFromEncryptedKeyBlob();
-    fn InitializeDecode();
-    fn EncryptedKeyHashBlob();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -22478,15 +21500,6 @@ unsafe impl ::windows::core::Interface for IX509AttributeClientId {
     type Vtable = IX509AttributeClientIdVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x728ab325_217d_11da_b2a4_000e7bbb2b09);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IX509AttributeClientIdImpl: IX509AttributeImpl + IDispatchImpl {
-    fn InitializeEncode();
-    fn InitializeDecode();
-    fn ClientId();
-    fn MachineDnsName();
-    fn UserSamName();
-    fn ProcessName();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IX509AttributeClientIdVtbl(
@@ -22672,14 +21685,6 @@ unsafe impl ::windows::core::Interface for IX509AttributeCspProvider {
     type Vtable = IX509AttributeCspProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x728ab32b_217d_11da_b2a4_000e7bbb2b09);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IX509AttributeCspProviderImpl: IX509AttributeImpl + IDispatchImpl {
-    fn InitializeEncode();
-    fn InitializeDecode();
-    fn KeySpec();
-    fn ProviderName();
-    fn Signature();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IX509AttributeCspProviderVtbl(
@@ -22850,12 +21855,6 @@ unsafe impl ::windows::core::Interface for IX509AttributeExtensions {
     type Vtable = IX509AttributeExtensionsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x728ab324_217d_11da_b2a4_000e7bbb2b09);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IX509AttributeExtensionsImpl: IX509AttributeImpl + IDispatchImpl {
-    fn InitializeEncode();
-    fn InitializeDecode();
-    fn X509Extensions();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IX509AttributeExtensionsVtbl(
@@ -23022,12 +22021,6 @@ impl ::core::fmt::Debug for IX509AttributeOSVersion {
 unsafe impl ::windows::core::Interface for IX509AttributeOSVersion {
     type Vtable = IX509AttributeOSVersionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x728ab32a_217d_11da_b2a4_000e7bbb2b09);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IX509AttributeOSVersionImpl: IX509AttributeImpl + IDispatchImpl {
-    fn InitializeEncode();
-    fn InitializeDecode();
-    fn OSVersion();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -23198,12 +22191,6 @@ unsafe impl ::windows::core::Interface for IX509AttributeRenewalCertificate {
     type Vtable = IX509AttributeRenewalCertificateVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x728ab326_217d_11da_b2a4_000e7bbb2b09);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IX509AttributeRenewalCertificateImpl: IX509AttributeImpl + IDispatchImpl {
-    fn InitializeEncode();
-    fn InitializeDecode();
-    fn RenewalCertificate();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IX509AttributeRenewalCertificateVtbl(
@@ -23347,15 +22334,6 @@ impl ::core::fmt::Debug for IX509Attributes {
 unsafe impl ::windows::core::Interface for IX509Attributes {
     type Vtable = IX509AttributesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x728ab323_217d_11da_b2a4_000e7bbb2b09);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IX509AttributesImpl: IDispatchImpl {
-    fn ItemByIndex();
-    fn Count();
-    fn _NewEnum();
-    fn Add();
-    fn Remove();
-    fn Clear();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -23586,34 +22564,6 @@ impl ::core::fmt::Debug for IX509CertificateRequest {
 unsafe impl ::windows::core::Interface for IX509CertificateRequest {
     type Vtable = IX509CertificateRequestVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x728ab341_217d_11da_b2a4_000e7bbb2b09);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IX509CertificateRequestImpl: IDispatchImpl {
-    fn Initialize();
-    fn Encode();
-    fn ResetForEncode();
-    fn GetInnerRequest();
-    fn Type();
-    fn EnrollmentContext();
-    fn Silent();
-    fn SetSilent();
-    fn ParentWindow();
-    fn SetParentWindow();
-    fn UIContextMessage();
-    fn SetUIContextMessage();
-    fn SuppressDefaults();
-    fn SetSuppressDefaults();
-    fn RenewalCertificate();
-    fn SetRenewalCertificate();
-    fn ClientId();
-    fn SetClientId();
-    fn CspInformations();
-    fn SetCspInformations();
-    fn HashAlgorithm();
-    fn SetHashAlgorithm();
-    fn AlternateSignatureAlgorithm();
-    fn SetAlternateSignatureAlgorithm();
-    fn RawData();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -24100,20 +23050,6 @@ impl ::core::fmt::Debug for IX509CertificateRequestCertificate {
 unsafe impl ::windows::core::Interface for IX509CertificateRequestCertificate {
     type Vtable = IX509CertificateRequestCertificateVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x728ab343_217d_11da_b2a4_000e7bbb2b09);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IX509CertificateRequestCertificateImpl: IX509CertificateRequestPkcs10Impl + IX509CertificateRequestImpl + IDispatchImpl {
-    fn CheckPublicKeySignature();
-    fn Issuer();
-    fn SetIssuer();
-    fn NotBefore();
-    fn SetNotBefore();
-    fn NotAfter();
-    fn SetNotAfter();
-    fn SerialNumber();
-    fn SetSerialNumber();
-    fn SignerCertificate();
-    fn SetSignerCertificate();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -24690,13 +23626,6 @@ unsafe impl ::windows::core::Interface for IX509CertificateRequestCertificate2 {
     type Vtable = IX509CertificateRequestCertificate2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x728ab35a_217d_11da_b2a4_000e7bbb2b09);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IX509CertificateRequestCertificate2Impl: IX509CertificateRequestCertificateImpl + IX509CertificateRequestPkcs10Impl + IX509CertificateRequestImpl + IDispatchImpl {
-    fn InitializeFromTemplate();
-    fn InitializeFromPrivateKeyTemplate();
-    fn PolicyServer();
-    fn Template();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IX509CertificateRequestCertificate2Vtbl(
@@ -25198,32 +24127,6 @@ impl ::core::fmt::Debug for IX509CertificateRequestCmc {
 unsafe impl ::windows::core::Interface for IX509CertificateRequestCmc {
     type Vtable = IX509CertificateRequestCmcVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x728ab345_217d_11da_b2a4_000e7bbb2b09);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IX509CertificateRequestCmcImpl: IX509CertificateRequestPkcs7Impl + IX509CertificateRequestImpl + IDispatchImpl {
-    fn InitializeFromInnerRequestTemplateName();
-    fn TemplateObjectId();
-    fn NullSigned();
-    fn CryptAttributes();
-    fn NameValuePairs();
-    fn X509Extensions();
-    fn CriticalExtensions();
-    fn SuppressOids();
-    fn TransactionId();
-    fn SetTransactionId();
-    fn SenderNonce();
-    fn SetSenderNonce();
-    fn SignatureInformation();
-    fn ArchivePrivateKey();
-    fn SetArchivePrivateKey();
-    fn KeyArchivalCertificate();
-    fn SetKeyArchivalCertificate();
-    fn EncryptionAlgorithm();
-    fn SetEncryptionAlgorithm();
-    fn EncryptionStrength();
-    fn SetEncryptionStrength();
-    fn EncryptedKeyHash();
-    fn SignerCertificates();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -25760,15 +24663,6 @@ unsafe impl ::windows::core::Interface for IX509CertificateRequestCmc2 {
     type Vtable = IX509CertificateRequestCmc2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x728ab35d_217d_11da_b2a4_000e7bbb2b09);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IX509CertificateRequestCmc2Impl: IX509CertificateRequestCmcImpl + IX509CertificateRequestPkcs7Impl + IX509CertificateRequestImpl + IDispatchImpl {
-    fn InitializeFromTemplate();
-    fn InitializeFromInnerRequestTemplate();
-    fn PolicyServer();
-    fn Template();
-    fn CheckSignature();
-    fn CheckCertificateSignature();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IX509CertificateRequestCmc2Vtbl(
@@ -26231,37 +25125,6 @@ impl ::core::fmt::Debug for IX509CertificateRequestPkcs10 {
 unsafe impl ::windows::core::Interface for IX509CertificateRequestPkcs10 {
     type Vtable = IX509CertificateRequestPkcs10Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x728ab342_217d_11da_b2a4_000e7bbb2b09);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IX509CertificateRequestPkcs10Impl: IX509CertificateRequestImpl + IDispatchImpl {
-    fn InitializeFromTemplateName();
-    fn InitializeFromPrivateKey();
-    fn InitializeFromPublicKey();
-    fn InitializeFromCertificate();
-    fn InitializeDecode();
-    fn CheckSignature();
-    fn IsSmartCard();
-    fn TemplateObjectId();
-    fn PublicKey();
-    fn PrivateKey();
-    fn NullSigned();
-    fn ReuseKey();
-    fn OldCertificate();
-    fn Subject();
-    fn SetSubject();
-    fn CspStatuses();
-    fn SmimeCapabilities();
-    fn SetSmimeCapabilities();
-    fn SignatureInformation();
-    fn KeyContainerNamePrefix();
-    fn SetKeyContainerNamePrefix();
-    fn CryptAttributes();
-    fn X509Extensions();
-    fn CriticalExtensions();
-    fn SuppressOids();
-    fn RawDataToBeSigned();
-    fn Signature();
-    fn GetCspStatuses();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -26757,14 +25620,6 @@ impl ::core::fmt::Debug for IX509CertificateRequestPkcs10V2 {
 unsafe impl ::windows::core::Interface for IX509CertificateRequestPkcs10V2 {
     type Vtable = IX509CertificateRequestPkcs10V2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x728ab35b_217d_11da_b2a4_000e7bbb2b09);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IX509CertificateRequestPkcs10V2Impl: IX509CertificateRequestPkcs10Impl + IX509CertificateRequestImpl + IDispatchImpl {
-    fn InitializeFromTemplate();
-    fn InitializeFromPrivateKeyTemplate();
-    fn InitializeFromPublicKeyTemplate();
-    fn PolicyServer();
-    fn Template();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -27339,20 +26194,6 @@ impl ::core::fmt::Debug for IX509CertificateRequestPkcs10V3 {
 unsafe impl ::windows::core::Interface for IX509CertificateRequestPkcs10V3 {
     type Vtable = IX509CertificateRequestPkcs10V3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x54ea9942_3d66_4530_b76e_7c9170d3ec52);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IX509CertificateRequestPkcs10V3Impl: IX509CertificateRequestPkcs10V2Impl + IX509CertificateRequestPkcs10Impl + IX509CertificateRequestImpl + IDispatchImpl {
-    fn AttestPrivateKey();
-    fn SetAttestPrivateKey();
-    fn AttestationEncryptionCertificate();
-    fn SetAttestationEncryptionCertificate();
-    fn EncryptionAlgorithm();
-    fn SetEncryptionAlgorithm();
-    fn EncryptionStrength();
-    fn SetEncryptionStrength();
-    fn ChallengePassword();
-    fn SetChallengePassword();
-    fn NameValuePairs();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -27981,13 +26822,6 @@ unsafe impl ::windows::core::Interface for IX509CertificateRequestPkcs10V4 {
     type Vtable = IX509CertificateRequestPkcs10V4Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x728ab363_217d_11da_b2a4_000e7bbb2b09);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IX509CertificateRequestPkcs10V4Impl: IX509CertificateRequestPkcs10V3Impl + IX509CertificateRequestPkcs10V2Impl + IX509CertificateRequestPkcs10Impl + IX509CertificateRequestImpl + IDispatchImpl {
-    fn ClaimType();
-    fn SetClaimType();
-    fn AttestPrivateKeyPreferred();
-    fn SetAttestPrivateKeyPreferred();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IX509CertificateRequestPkcs10V4Vtbl(
@@ -28363,17 +27197,6 @@ unsafe impl ::windows::core::Interface for IX509CertificateRequestPkcs7 {
     type Vtable = IX509CertificateRequestPkcs7Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x728ab344_217d_11da_b2a4_000e7bbb2b09);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IX509CertificateRequestPkcs7Impl: IX509CertificateRequestImpl + IDispatchImpl {
-    fn InitializeFromTemplateName();
-    fn InitializeFromCertificate();
-    fn InitializeFromInnerRequest();
-    fn InitializeDecode();
-    fn RequesterName();
-    fn SetRequesterName();
-    fn SignerCertificate();
-    fn SetSignerCertificate();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IX509CertificateRequestPkcs7Vtbl(
@@ -28738,13 +27561,6 @@ unsafe impl ::windows::core::Interface for IX509CertificateRequestPkcs7V2 {
     type Vtable = IX509CertificateRequestPkcs7V2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x728ab35c_217d_11da_b2a4_000e7bbb2b09);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IX509CertificateRequestPkcs7V2Impl: IX509CertificateRequestPkcs7Impl + IX509CertificateRequestImpl + IDispatchImpl {
-    fn InitializeFromTemplate();
-    fn PolicyServer();
-    fn Template();
-    fn CheckCertificateSignature();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IX509CertificateRequestPkcs7V2Vtbl(
@@ -29045,40 +27861,6 @@ unsafe impl ::windows::core::Interface for IX509CertificateRevocationList {
     type Vtable = IX509CertificateRevocationListVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x728ab360_217d_11da_b2a4_000e7bbb2b09);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IX509CertificateRevocationListImpl: IDispatchImpl {
-    fn Initialize();
-    fn InitializeDecode();
-    fn Encode();
-    fn ResetForEncode();
-    fn CheckPublicKeySignature();
-    fn CheckSignature();
-    fn Issuer();
-    fn SetIssuer();
-    fn ThisUpdate();
-    fn SetThisUpdate();
-    fn NextUpdate();
-    fn SetNextUpdate();
-    fn X509CRLEntries();
-    fn X509Extensions();
-    fn CriticalExtensions();
-    fn SignerCertificate();
-    fn SetSignerCertificate();
-    fn CRLNumber();
-    fn SetCRLNumber();
-    fn CAVersion();
-    fn SetCAVersion();
-    fn BaseCRL();
-    fn NullSigned();
-    fn HashAlgorithm();
-    fn SetHashAlgorithm();
-    fn AlternateSignatureAlgorithm();
-    fn SetAlternateSignatureAlgorithm();
-    fn SignatureInformation();
-    fn RawData();
-    fn RawDataToBeSigned();
-    fn Signature();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IX509CertificateRevocationListVtbl(
@@ -29259,17 +28041,6 @@ unsafe impl ::windows::core::Interface for IX509CertificateRevocationListEntries
     type Vtable = IX509CertificateRevocationListEntriesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x728ab35f_217d_11da_b2a4_000e7bbb2b09);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IX509CertificateRevocationListEntriesImpl: IDispatchImpl {
-    fn ItemByIndex();
-    fn Count();
-    fn _NewEnum();
-    fn Add();
-    fn Remove();
-    fn Clear();
-    fn IndexBySerialNumber();
-    fn AddRange();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IX509CertificateRevocationListEntriesVtbl(
@@ -29420,16 +28191,6 @@ unsafe impl ::windows::core::Interface for IX509CertificateRevocationListEntry {
     type Vtable = IX509CertificateRevocationListEntryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x728ab35e_217d_11da_b2a4_000e7bbb2b09);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IX509CertificateRevocationListEntryImpl: IDispatchImpl {
-    fn Initialize();
-    fn SerialNumber();
-    fn RevocationDate();
-    fn RevocationReason();
-    fn SetRevocationReason();
-    fn X509Extensions();
-    fn CriticalExtensions();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IX509CertificateRevocationListEntryVtbl(
@@ -29550,10 +28311,6 @@ impl ::core::fmt::Debug for IX509CertificateTemplate {
 unsafe impl ::windows::core::Interface for IX509CertificateTemplate {
     type Vtable = IX509CertificateTemplateVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x54244a13_555a_4e22_896d_1b0e52f76406);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IX509CertificateTemplateImpl: IDispatchImpl {
-    fn Property();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -29687,14 +28444,6 @@ impl ::core::fmt::Debug for IX509CertificateTemplateWritable {
 unsafe impl ::windows::core::Interface for IX509CertificateTemplateWritable {
     type Vtable = IX509CertificateTemplateWritableVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf49466a7_395a_4e9e_b6e7_32b331600dc0);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IX509CertificateTemplateWritableImpl: IDispatchImpl {
-    fn Initialize();
-    fn Commit();
-    fn Property();
-    fn SetProperty();
-    fn Template();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -29847,17 +28596,6 @@ impl ::core::fmt::Debug for IX509CertificateTemplates {
 unsafe impl ::windows::core::Interface for IX509CertificateTemplates {
     type Vtable = IX509CertificateTemplatesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x13b79003_2181_11da_b2a4_000e7bbb2b09);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IX509CertificateTemplatesImpl: IDispatchImpl {
-    fn ItemByIndex();
-    fn Count();
-    fn _NewEnum();
-    fn Add();
-    fn Remove();
-    fn Clear();
-    fn ItemByName();
-    fn ItemByOid();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -30028,20 +28766,6 @@ impl ::core::fmt::Debug for IX509EndorsementKey {
 unsafe impl ::windows::core::Interface for IX509EndorsementKey {
     type Vtable = IX509EndorsementKeyVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb11cd855_f4c4_4fc6_b710_4422237f09e9);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IX509EndorsementKeyImpl: IDispatchImpl {
-    fn ProviderName();
-    fn SetProviderName();
-    fn Length();
-    fn Opened();
-    fn AddCertificate();
-    fn RemoveCertificate();
-    fn GetCertificateByIndex();
-    fn GetCertificateCount();
-    fn ExportPublicKey();
-    fn Open();
-    fn Close();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -30281,32 +29005,6 @@ impl ::core::fmt::Debug for IX509Enrollment {
 unsafe impl ::windows::core::Interface for IX509Enrollment {
     type Vtable = IX509EnrollmentVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x728ab346_217d_11da_b2a4_000e7bbb2b09);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IX509EnrollmentImpl: IDispatchImpl {
-    fn Initialize();
-    fn InitializeFromTemplateName();
-    fn InitializeFromRequest();
-    fn CreateRequest();
-    fn Enroll();
-    fn InstallResponse();
-    fn CreatePFX();
-    fn Request();
-    fn Silent();
-    fn SetSilent();
-    fn ParentWindow();
-    fn SetParentWindow();
-    fn NameValuePairs();
-    fn EnrollmentContext();
-    fn Status();
-    fn Certificate();
-    fn Response();
-    fn CertificateFriendlyName();
-    fn SetCertificateFriendlyName();
-    fn CertificateDescription();
-    fn SetCertificateDescription();
-    fn RequestId();
-    fn CAConfigString();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -30610,14 +29308,6 @@ unsafe impl ::windows::core::Interface for IX509Enrollment2 {
     type Vtable = IX509Enrollment2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x728ab350_217d_11da_b2a4_000e7bbb2b09);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IX509Enrollment2Impl: IX509EnrollmentImpl + IDispatchImpl {
-    fn InitializeFromTemplate();
-    fn InstallResponse2();
-    fn PolicyServer();
-    fn Template();
-    fn RequestIdString();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IX509Enrollment2Vtbl(
@@ -30784,13 +29474,6 @@ impl ::core::fmt::Debug for IX509EnrollmentHelper {
 unsafe impl ::windows::core::Interface for IX509EnrollmentHelper {
     type Vtable = IX509EnrollmentHelperVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x728ab351_217d_11da_b2a4_000e7bbb2b09);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IX509EnrollmentHelperImpl: IDispatchImpl {
-    fn AddPolicyServer();
-    fn AddEnrollmentServer();
-    fn Enroll();
-    fn Initialize();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -31028,33 +29711,6 @@ unsafe impl ::windows::core::Interface for IX509EnrollmentPolicyServer {
     type Vtable = IX509EnrollmentPolicyServerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x13b79026_2181_11da_b2a4_000e7bbb2b09);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IX509EnrollmentPolicyServerImpl: IDispatchImpl {
-    fn Initialize();
-    fn LoadPolicy();
-    fn GetTemplates();
-    fn GetCAsForTemplate();
-    fn GetCAs();
-    fn Validate();
-    fn GetCustomOids();
-    fn GetNextUpdateTime();
-    fn GetLastUpdateTime();
-    fn GetPolicyServerUrl();
-    fn GetPolicyServerId();
-    fn GetFriendlyName();
-    fn GetIsDefaultCEP();
-    fn GetUseClientId();
-    fn GetAllowUnTrustedCA();
-    fn GetCachePath();
-    fn GetCacheDir();
-    fn GetAuthFlags();
-    fn SetCredential();
-    fn QueryChanges();
-    fn InitializeImport();
-    fn Export();
-    fn Cost();
-    fn SetCost();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IX509EnrollmentPolicyServerVtbl(
@@ -31252,21 +29908,6 @@ unsafe impl ::windows::core::Interface for IX509EnrollmentStatus {
     type Vtable = IX509EnrollmentStatusVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x728ab304_217d_11da_b2a4_000e7bbb2b09);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IX509EnrollmentStatusImpl: IDispatchImpl {
-    fn AppendText();
-    fn Text();
-    fn SetText();
-    fn Selected();
-    fn SetSelected();
-    fn Display();
-    fn SetDisplay();
-    fn Status();
-    fn SetStatus();
-    fn Error();
-    fn SetError();
-    fn ErrorText();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IX509EnrollmentStatusVtbl(
@@ -31394,10 +30035,6 @@ impl ::core::fmt::Debug for IX509EnrollmentWebClassFactory {
 unsafe impl ::windows::core::Interface for IX509EnrollmentWebClassFactory {
     type Vtable = IX509EnrollmentWebClassFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x728ab349_217d_11da_b2a4_000e7bbb2b09);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IX509EnrollmentWebClassFactoryImpl: IDispatchImpl {
-    fn CreateObject();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -31531,14 +30168,6 @@ impl ::core::fmt::Debug for IX509Extension {
 unsafe impl ::windows::core::Interface for IX509Extension {
     type Vtable = IX509ExtensionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x728ab30d_217d_11da_b2a4_000e7bbb2b09);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IX509ExtensionImpl: IDispatchImpl {
-    fn Initialize();
-    fn ObjectId();
-    fn RawData();
-    fn Critical();
-    fn SetCritical();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -31711,12 +30340,6 @@ impl ::core::fmt::Debug for IX509ExtensionAlternativeNames {
 unsafe impl ::windows::core::Interface for IX509ExtensionAlternativeNames {
     type Vtable = IX509ExtensionAlternativeNamesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x728ab315_217d_11da_b2a4_000e7bbb2b09);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IX509ExtensionAlternativeNamesImpl: IX509ExtensionImpl + IDispatchImpl {
-    fn InitializeEncode();
-    fn InitializeDecode();
-    fn AlternativeNames();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -31895,12 +30518,6 @@ impl ::core::fmt::Debug for IX509ExtensionAuthorityKeyIdentifier {
 unsafe impl ::windows::core::Interface for IX509ExtensionAuthorityKeyIdentifier {
     type Vtable = IX509ExtensionAuthorityKeyIdentifierVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x728ab318_217d_11da_b2a4_000e7bbb2b09);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IX509ExtensionAuthorityKeyIdentifierImpl: IX509ExtensionImpl + IDispatchImpl {
-    fn InitializeEncode();
-    fn InitializeDecode();
-    fn AuthorityKeyIdentifier();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -32085,13 +30702,6 @@ unsafe impl ::windows::core::Interface for IX509ExtensionBasicConstraints {
     type Vtable = IX509ExtensionBasicConstraintsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x728ab316_217d_11da_b2a4_000e7bbb2b09);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IX509ExtensionBasicConstraintsImpl: IX509ExtensionImpl + IDispatchImpl {
-    fn InitializeEncode();
-    fn InitializeDecode();
-    fn IsCA();
-    fn PathLenConstraint();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IX509ExtensionBasicConstraintsVtbl(
@@ -32269,12 +30879,6 @@ unsafe impl ::windows::core::Interface for IX509ExtensionCertificatePolicies {
     type Vtable = IX509ExtensionCertificatePoliciesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x728ab320_217d_11da_b2a4_000e7bbb2b09);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IX509ExtensionCertificatePoliciesImpl: IX509ExtensionImpl + IDispatchImpl {
-    fn InitializeEncode();
-    fn InitializeDecode();
-    fn Policies();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IX509ExtensionCertificatePoliciesVtbl(
@@ -32450,12 +31054,6 @@ impl ::core::fmt::Debug for IX509ExtensionEnhancedKeyUsage {
 unsafe impl ::windows::core::Interface for IX509ExtensionEnhancedKeyUsage {
     type Vtable = IX509ExtensionEnhancedKeyUsageVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x728ab310_217d_11da_b2a4_000e7bbb2b09);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IX509ExtensionEnhancedKeyUsageImpl: IX509ExtensionImpl + IDispatchImpl {
-    fn InitializeEncode();
-    fn InitializeDecode();
-    fn EnhancedKeyUsage();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -32633,12 +31231,6 @@ unsafe impl ::windows::core::Interface for IX509ExtensionKeyUsage {
     type Vtable = IX509ExtensionKeyUsageVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x728ab30f_217d_11da_b2a4_000e7bbb2b09);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IX509ExtensionKeyUsageImpl: IX509ExtensionImpl + IDispatchImpl {
-    fn InitializeEncode();
-    fn InitializeDecode();
-    fn KeyUsage();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IX509ExtensionKeyUsageVtbl(
@@ -32815,12 +31407,6 @@ unsafe impl ::windows::core::Interface for IX509ExtensionMSApplicationPolicies {
     type Vtable = IX509ExtensionMSApplicationPoliciesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x728ab321_217d_11da_b2a4_000e7bbb2b09);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IX509ExtensionMSApplicationPoliciesImpl: IX509ExtensionImpl + IDispatchImpl {
-    fn InitializeEncode();
-    fn InitializeDecode();
-    fn Policies();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IX509ExtensionMSApplicationPoliciesVtbl(
@@ -32996,12 +31582,6 @@ impl ::core::fmt::Debug for IX509ExtensionSmimeCapabilities {
 unsafe impl ::windows::core::Interface for IX509ExtensionSmimeCapabilities {
     type Vtable = IX509ExtensionSmimeCapabilitiesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x728ab31b_217d_11da_b2a4_000e7bbb2b09);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IX509ExtensionSmimeCapabilitiesImpl: IX509ExtensionImpl + IDispatchImpl {
-    fn InitializeEncode();
-    fn InitializeDecode();
-    fn SmimeCapabilities();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -33180,12 +31760,6 @@ impl ::core::fmt::Debug for IX509ExtensionSubjectKeyIdentifier {
 unsafe impl ::windows::core::Interface for IX509ExtensionSubjectKeyIdentifier {
     type Vtable = IX509ExtensionSubjectKeyIdentifierVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x728ab317_217d_11da_b2a4_000e7bbb2b09);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IX509ExtensionSubjectKeyIdentifierImpl: IX509ExtensionImpl + IDispatchImpl {
-    fn InitializeEncode();
-    fn InitializeDecode();
-    fn SubjectKeyIdentifier();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -33375,14 +31949,6 @@ unsafe impl ::windows::core::Interface for IX509ExtensionTemplate {
     type Vtable = IX509ExtensionTemplateVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x728ab312_217d_11da_b2a4_000e7bbb2b09);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IX509ExtensionTemplateImpl: IX509ExtensionImpl + IDispatchImpl {
-    fn InitializeEncode();
-    fn InitializeDecode();
-    fn TemplateOid();
-    fn MajorVersion();
-    fn MinorVersion();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IX509ExtensionTemplateVtbl(
@@ -33563,12 +32129,6 @@ unsafe impl ::windows::core::Interface for IX509ExtensionTemplateName {
     type Vtable = IX509ExtensionTemplateNameVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x728ab311_217d_11da_b2a4_000e7bbb2b09);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IX509ExtensionTemplateNameImpl: IX509ExtensionImpl + IDispatchImpl {
-    fn InitializeEncode();
-    fn InitializeDecode();
-    fn TemplateName();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IX509ExtensionTemplateNameVtbl(
@@ -33724,17 +32284,6 @@ unsafe impl ::windows::core::Interface for IX509Extensions {
     type Vtable = IX509ExtensionsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x728ab30e_217d_11da_b2a4_000e7bbb2b09);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IX509ExtensionsImpl: IDispatchImpl {
-    fn ItemByIndex();
-    fn Count();
-    fn _NewEnum();
-    fn Add();
-    fn Remove();
-    fn Clear();
-    fn IndexByObjectId();
-    fn AddRange();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IX509ExtensionsVtbl(
@@ -33854,10 +32403,6 @@ impl ::core::fmt::Debug for IX509MachineEnrollmentFactory {
 unsafe impl ::windows::core::Interface for IX509MachineEnrollmentFactory {
     type Vtable = IX509MachineEnrollmentFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x728ab352_217d_11da_b2a4_000e7bbb2b09);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IX509MachineEnrollmentFactoryImpl: IDispatchImpl {
-    fn CreateObject();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -33983,12 +32528,6 @@ impl ::core::fmt::Debug for IX509NameValuePair {
 unsafe impl ::windows::core::Interface for IX509NameValuePair {
     type Vtable = IX509NameValuePairVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x728ab33f_217d_11da_b2a4_000e7bbb2b09);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IX509NameValuePairImpl: IDispatchImpl {
-    fn Initialize();
-    fn Value();
-    fn Name();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -34128,15 +32667,6 @@ impl ::core::fmt::Debug for IX509NameValuePairs {
 unsafe impl ::windows::core::Interface for IX509NameValuePairs {
     type Vtable = IX509NameValuePairsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x728ab340_217d_11da_b2a4_000e7bbb2b09);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IX509NameValuePairsImpl: IDispatchImpl {
-    fn ItemByIndex();
-    fn Count();
-    fn _NewEnum();
-    fn Add();
-    fn Remove();
-    fn Clear();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -34280,16 +32810,6 @@ impl ::core::fmt::Debug for IX509PolicyServerListManager {
 unsafe impl ::windows::core::Interface for IX509PolicyServerListManager {
     type Vtable = IX509PolicyServerListManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x884e204b_217d_11da_b2a4_000e7bbb2b09);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IX509PolicyServerListManagerImpl: IDispatchImpl {
-    fn ItemByIndex();
-    fn Count();
-    fn _NewEnum();
-    fn Add();
-    fn Remove();
-    fn Clear();
-    fn Initialize();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -34473,24 +32993,6 @@ impl ::core::fmt::Debug for IX509PolicyServerUrl {
 unsafe impl ::windows::core::Interface for IX509PolicyServerUrl {
     type Vtable = IX509PolicyServerUrlVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x884e204a_217d_11da_b2a4_000e7bbb2b09);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IX509PolicyServerUrlImpl: IDispatchImpl {
-    fn Initialize();
-    fn Url();
-    fn SetUrl();
-    fn Default();
-    fn SetDefault();
-    fn Flags();
-    fn SetFlags();
-    fn AuthFlags();
-    fn SetAuthFlags();
-    fn Cost();
-    fn SetCost();
-    fn GetStringProperty();
-    fn SetStringProperty();
-    fn UpdateRegistry();
-    fn RemoveFromRegistry();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -34898,67 +33400,6 @@ impl ::core::fmt::Debug for IX509PrivateKey {
 unsafe impl ::windows::core::Interface for IX509PrivateKey {
     type Vtable = IX509PrivateKeyVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x728ab30c_217d_11da_b2a4_000e7bbb2b09);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IX509PrivateKeyImpl: IDispatchImpl {
-    fn Open();
-    fn Create();
-    fn Close();
-    fn Delete();
-    fn Verify();
-    fn Import();
-    fn Export();
-    fn ExportPublicKey();
-    fn ContainerName();
-    fn SetContainerName();
-    fn ContainerNamePrefix();
-    fn SetContainerNamePrefix();
-    fn ReaderName();
-    fn SetReaderName();
-    fn CspInformations();
-    fn SetCspInformations();
-    fn CspStatus();
-    fn SetCspStatus();
-    fn ProviderName();
-    fn SetProviderName();
-    fn ProviderType();
-    fn SetProviderType();
-    fn LegacyCsp();
-    fn SetLegacyCsp();
-    fn Algorithm();
-    fn SetAlgorithm();
-    fn KeySpec();
-    fn SetKeySpec();
-    fn Length();
-    fn SetLength();
-    fn ExportPolicy();
-    fn SetExportPolicy();
-    fn KeyUsage();
-    fn SetKeyUsage();
-    fn KeyProtection();
-    fn SetKeyProtection();
-    fn MachineContext();
-    fn SetMachineContext();
-    fn SecurityDescriptor();
-    fn SetSecurityDescriptor();
-    fn Certificate();
-    fn SetCertificate();
-    fn UniqueContainerName();
-    fn Opened();
-    fn DefaultContainer();
-    fn Existing();
-    fn SetExisting();
-    fn Silent();
-    fn SetSilent();
-    fn ParentWindow();
-    fn SetParentWindow();
-    fn UIContextMessage();
-    fn SetUIContextMessage();
-    fn SetPin();
-    fn FriendlyName();
-    fn SetFriendlyName();
-    fn Description();
-    fn SetDescription();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -35499,19 +33940,6 @@ unsafe impl ::windows::core::Interface for IX509PrivateKey2 {
     type Vtable = IX509PrivateKey2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x728ab362_217d_11da_b2a4_000e7bbb2b09);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IX509PrivateKey2Impl: IX509PrivateKeyImpl + IDispatchImpl {
-    fn HardwareKeyUsage();
-    fn SetHardwareKeyUsage();
-    fn AlternateStorageLocation();
-    fn SetAlternateStorageLocation();
-    fn AlgorithmName();
-    fn SetAlgorithmName();
-    fn AlgorithmParameters();
-    fn SetAlgorithmParameters();
-    fn ParametersExportType();
-    fn SetParametersExportType();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IX509PrivateKey2Vtbl(
@@ -35752,16 +34180,6 @@ unsafe impl ::windows::core::Interface for IX509PublicKey {
     type Vtable = IX509PublicKeyVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x728ab30b_217d_11da_b2a4_000e7bbb2b09);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IX509PublicKeyImpl: IDispatchImpl {
-    fn Initialize();
-    fn InitializeFromEncodedPublicKeyInfo();
-    fn Algorithm();
-    fn Length();
-    fn EncodedKey();
-    fn EncodedParameters();
-    fn ComputeKeyIdentifier();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IX509PublicKeyVtbl(
@@ -35991,31 +34409,6 @@ impl ::core::fmt::Debug for IX509SCEPEnrollment {
 unsafe impl ::windows::core::Interface for IX509SCEPEnrollment {
     type Vtable = IX509SCEPEnrollmentVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x728ab361_217d_11da_b2a4_000e7bbb2b09);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IX509SCEPEnrollmentImpl: IDispatchImpl {
-    fn Initialize();
-    fn InitializeForPending();
-    fn CreateRequestMessage();
-    fn CreateRetrievePendingMessage();
-    fn CreateRetrieveCertificateMessage();
-    fn ProcessResponseMessage();
-    fn SetServerCapabilities();
-    fn FailInfo();
-    fn SignerCertificate();
-    fn SetSignerCertificate();
-    fn OldCertificate();
-    fn SetOldCertificate();
-    fn TransactionId();
-    fn SetTransactionId();
-    fn Request();
-    fn CertificateFriendlyName();
-    fn SetCertificateFriendlyName();
-    fn Status();
-    fn Certificate();
-    fn Silent();
-    fn SetSilent();
-    fn DeleteRequest();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -36322,15 +34715,6 @@ unsafe impl ::windows::core::Interface for IX509SCEPEnrollment2 {
     type Vtable = IX509SCEPEnrollment2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x728ab364_217d_11da_b2a4_000e7bbb2b09);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IX509SCEPEnrollment2Impl: IX509SCEPEnrollmentImpl + IDispatchImpl {
-    fn CreateChallengeAnswerMessage();
-    fn ProcessResponseMessage2();
-    fn ResultMessageText();
-    fn DelayRetry();
-    fn ActivityId();
-    fn SetActivityId();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IX509SCEPEnrollment2Vtbl(
@@ -36512,15 +34896,6 @@ unsafe impl ::windows::core::Interface for IX509SCEPEnrollmentHelper {
     type Vtable = IX509SCEPEnrollmentHelperVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x728ab365_217d_11da_b2a4_000e7bbb2b09);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IX509SCEPEnrollmentHelperImpl: IDispatchImpl {
-    fn Initialize();
-    fn InitializeForPending();
-    fn Enroll();
-    fn FetchPending();
-    fn X509SCEPEnrollment();
-    fn ResultMessageText();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IX509SCEPEnrollmentHelperVtbl(
@@ -36696,22 +35071,6 @@ impl ::core::fmt::Debug for IX509SignatureInformation {
 unsafe impl ::windows::core::Interface for IX509SignatureInformation {
     type Vtable = IX509SignatureInformationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x728ab33c_217d_11da_b2a4_000e7bbb2b09);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IX509SignatureInformationImpl: IDispatchImpl {
-    fn HashAlgorithm();
-    fn SetHashAlgorithm();
-    fn PublicKeyAlgorithm();
-    fn SetPublicKeyAlgorithm();
-    fn Parameters();
-    fn SetParameters();
-    fn AlternateSignatureAlgorithm();
-    fn SetAlternateSignatureAlgorithm();
-    fn AlternateSignatureAlgorithmSet();
-    fn NullSigned();
-    fn SetNullSigned();
-    fn GetSignatureAlgorithm();
-    fn SetDefaultValues();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -37719,3 +36078,5 @@ pub const wszCMM_PROP_ISMULTITHREADED: &'static str = "IsMultiThreaded";
 pub const wszCMM_PROP_NAME: &'static str = "Name";
 #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates'*"]
 pub const wszCMM_PROP_PRODUCTVER: &'static str = "Product Version";
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

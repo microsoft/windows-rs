@@ -6,10 +6,6 @@ unsafe impl ::windows::core::Interface for IInkAnalysisInkBullet {
     type Vtable = IInkAnalysisInkBulletVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xee049368_6110_4136_95f9_ee809fc20030);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IInkAnalysisInkBulletImpl: IInkAnalysisNodeImpl {
-    fn RecognizedText();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInkAnalysisInkBulletVtbl(
@@ -27,12 +23,6 @@ pub struct IInkAnalysisInkDrawing(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IInkAnalysisInkDrawing {
     type Vtable = IInkAnalysisInkDrawingVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6a85ed1f_1fe4_4e15_898c_8e112377e021);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IInkAnalysisInkDrawingImpl: IInkAnalysisNodeImpl {
-    fn DrawingKind();
-    fn Center();
-    fn Points();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -56,11 +46,6 @@ unsafe impl ::windows::core::Interface for IInkAnalysisInkWord {
     type Vtable = IInkAnalysisInkWordVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4bd228ad_83af_4034_8f3b_f8687dfff436);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IInkAnalysisInkWordImpl: IInkAnalysisNodeImpl {
-    fn RecognizedText();
-    fn TextAlternates();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInkAnalysisInkWordVtbl(
@@ -81,11 +66,6 @@ unsafe impl ::windows::core::Interface for IInkAnalysisLine {
     type Vtable = IInkAnalysisLineVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa06d048d_2b8d_4754_ad5a_d0871193a956);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IInkAnalysisLineImpl: IInkAnalysisNodeImpl {
-    fn RecognizedText();
-    fn IndentLevel();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInkAnalysisLineVtbl(
@@ -104,10 +84,6 @@ pub struct IInkAnalysisListItem(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IInkAnalysisListItem {
     type Vtable = IInkAnalysisListItemVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb4e3c23f_c4c3_4c3a_a1a6_9d85547ee586);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IInkAnalysisListItemImpl: IInkAnalysisNodeImpl {
-    fn RecognizedText();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -248,15 +224,6 @@ unsafe impl ::windows::core::Interface for IInkAnalysisNode {
     type Vtable = IInkAnalysisNodeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x30831f05_5f64_4a2c_ba37_4f4887879574);
 }
-pub trait IInkAnalysisNodeImpl {
-    fn Id();
-    fn Kind();
-    fn BoundingRect();
-    fn RotatedBoundingRect();
-    fn Children();
-    fn Parent();
-    fn GetStrokeIds();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInkAnalysisNodeVtbl(
@@ -285,10 +252,6 @@ unsafe impl ::windows::core::Interface for IInkAnalysisParagraph {
     type Vtable = IInkAnalysisParagraphVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd9ad045c_0cd1_4dd4_a68b_eb1f12b3d727);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IInkAnalysisParagraphImpl: IInkAnalysisNodeImpl {
-    fn RecognizedText();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInkAnalysisParagraphVtbl(
@@ -307,10 +270,6 @@ unsafe impl ::windows::core::Interface for IInkAnalysisResult {
     type Vtable = IInkAnalysisResultVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8948ba79_a243_4aa3_a294_1f98bd0ff580);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IInkAnalysisResultImpl {
-    fn Status();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInkAnalysisResultVtbl(
@@ -328,11 +287,6 @@ pub struct IInkAnalysisRoot(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IInkAnalysisRoot {
     type Vtable = IInkAnalysisRootVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3fb6a3c4_2fde_4061_8502_a90f32545b84);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IInkAnalysisRootImpl: IInkAnalysisNodeImpl {
-    fn RecognizedText();
-    fn FindNodes();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -354,10 +308,6 @@ unsafe impl ::windows::core::Interface for IInkAnalysisWritingRegion {
     type Vtable = IInkAnalysisWritingRegionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdd6d6231_bd16_4663_b5ae_941d3043ef5b);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IInkAnalysisWritingRegionImpl: IInkAnalysisNodeImpl {
-    fn RecognizedText();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInkAnalysisWritingRegionVtbl(
@@ -375,19 +325,6 @@ pub struct IInkAnalyzer(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IInkAnalyzer {
     type Vtable = IInkAnalyzerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf12b8f95_0866_4dc5_8c77_f88614dfe38c);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IInkAnalyzerImpl {
-    fn AnalysisRoot();
-    fn IsAnalyzing();
-    fn AddDataForStroke();
-    fn AddDataForStrokes();
-    fn ClearDataForAllStrokes();
-    fn RemoveDataForStroke();
-    fn RemoveDataForStrokes();
-    fn ReplaceDataForStroke();
-    fn SetStrokeDataKind();
-    fn AnalyzeAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -487,9 +424,6 @@ unsafe impl ::windows::core::RuntimeType for IInkAnalyzerFactory {
 unsafe impl ::windows::core::Interface for IInkAnalyzerFactory {
     type Vtable = IInkAnalyzerFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x29138686_1963_49d8_9589_e14384c769e3);
-}
-pub trait IInkAnalyzerFactoryImpl {
-    fn CreateAnalyzer();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2381,3 +2315,5 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &InkA
 }
 unsafe impl ::core::marker::Send for InkAnalyzer {}
 unsafe impl ::core::marker::Sync for InkAnalyzer {}
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

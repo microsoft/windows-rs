@@ -233,11 +233,6 @@ unsafe impl ::windows::core::Interface for IBackPressedEventArgs {
     type Vtable = IBackPressedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf6f555ff_64ec_42a2_b93b_2fbc0c36a121);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IBackPressedEventArgsImpl {
-    fn Handled();
-    fn SetHandled();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBackPressedEventArgsVtbl(
@@ -257,8 +252,6 @@ unsafe impl ::windows::core::Interface for ICameraEventArgs {
     type Vtable = ICameraEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb4063bda_201f_473d_bc69_e9e4ac57c9d0);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ICameraEventArgsImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICameraEventArgsVtbl(
@@ -275,11 +268,6 @@ pub struct IHardwareButtonsStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IHardwareButtonsStatics {
     type Vtable = IHardwareButtonsStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x594b8780_da66_4fd8_a776_7506bd0cbfa7);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IHardwareButtonsStaticsImpl {
-    fn BackPressed();
-    fn RemoveBackPressed();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -301,15 +289,6 @@ pub struct IHardwareButtonsStatics2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IHardwareButtonsStatics2 {
     type Vtable = IHardwareButtonsStatics2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x39c6c274_993f_40dd_854c_831a8934b92e);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IHardwareButtonsStatics2Impl {
-    fn CameraHalfPressed();
-    fn RemoveCameraHalfPressed();
-    fn CameraPressed();
-    fn RemoveCameraPressed();
-    fn CameraReleased();
-    fn RemoveCameraReleased();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -333,3 +312,5 @@ pub struct IHardwareButtonsStatics2Vtbl(
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
 );
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

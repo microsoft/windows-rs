@@ -8836,9 +8836,6 @@ unsafe impl ::windows::core::Interface for IDirectInput2A {
     type Vtable = IDirectInput2AVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5944e662_aa8a_11cf_bfc7_444553540000);
 }
-pub trait IDirectInput2AImpl: IDirectInputAImpl {
-    fn FindDevice();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectInput2AVtbl(
@@ -8948,9 +8945,6 @@ impl ::core::fmt::Debug for IDirectInput2W {
 unsafe impl ::windows::core::Interface for IDirectInput2W {
     type Vtable = IDirectInput2WVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5944e663_aa8a_11cf_bfc7_444553540000);
-}
-pub trait IDirectInput2WImpl: IDirectInputWImpl {
-    fn FindDevice();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9085,9 +9079,6 @@ impl ::core::fmt::Debug for IDirectInput7A {
 unsafe impl ::windows::core::Interface for IDirectInput7A {
     type Vtable = IDirectInput7AVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9a4cb684_236d_11d3_8e9d_00c04f6844ae);
-}
-pub trait IDirectInput7AImpl: IDirectInput2AImpl + IDirectInputAImpl {
-    fn CreateDeviceEx();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9224,9 +9215,6 @@ unsafe impl ::windows::core::Interface for IDirectInput7W {
     type Vtable = IDirectInput7WVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9a4cb685_236d_11d3_8e9d_00c04f6844ae);
 }
-pub trait IDirectInput7WImpl: IDirectInput2WImpl + IDirectInputWImpl {
-    fn CreateDeviceEx();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectInput7WVtbl(
@@ -9327,16 +9315,6 @@ impl ::core::fmt::Debug for IDirectInput8A {
 unsafe impl ::windows::core::Interface for IDirectInput8A {
     type Vtable = IDirectInput8AVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbf798030_483a_4da2_aa99_5d64ed369700);
-}
-pub trait IDirectInput8AImpl {
-    fn CreateDevice();
-    fn EnumDevices();
-    fn GetDeviceStatus();
-    fn RunControlPanel();
-    fn Initialize();
-    fn FindDevice();
-    fn EnumDevicesBySemantics();
-    fn ConfigureDevices();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9442,16 +9420,6 @@ unsafe impl ::windows::core::Interface for IDirectInput8W {
     type Vtable = IDirectInput8WVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbf798031_483a_4da2_aa99_5d64ed369700);
 }
-pub trait IDirectInput8WImpl {
-    fn CreateDevice();
-    fn EnumDevices();
-    fn GetDeviceStatus();
-    fn RunControlPanel();
-    fn Initialize();
-    fn FindDevice();
-    fn EnumDevicesBySemantics();
-    fn ConfigureDevices();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectInput8WVtbl(
@@ -9540,13 +9508,6 @@ impl ::core::fmt::Debug for IDirectInputA {
 unsafe impl ::windows::core::Interface for IDirectInputA {
     type Vtable = IDirectInputAVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x89521360_aa8a_11cf_bfc7_444553540000);
-}
-pub trait IDirectInputAImpl {
-    fn CreateDevice();
-    fn EnumDevices();
-    fn GetDeviceStatus();
-    fn RunControlPanel();
-    fn Initialize();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9733,17 +9694,6 @@ impl ::core::fmt::Debug for IDirectInputDevice2A {
 unsafe impl ::windows::core::Interface for IDirectInputDevice2A {
     type Vtable = IDirectInputDevice2AVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5944e682_c92e_11cf_bfc7_444553540000);
-}
-pub trait IDirectInputDevice2AImpl: IDirectInputDeviceAImpl {
-    fn CreateEffect();
-    fn EnumEffects();
-    fn GetEffectInfo();
-    fn GetForceFeedbackState();
-    fn SendForceFeedbackCommand();
-    fn EnumCreatedEffectObjects();
-    fn Escape();
-    fn Poll();
-    fn SendDeviceData();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9953,17 +9903,6 @@ impl ::core::fmt::Debug for IDirectInputDevice2W {
 unsafe impl ::windows::core::Interface for IDirectInputDevice2W {
     type Vtable = IDirectInputDevice2WVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5944e683_c92e_11cf_bfc7_444553540000);
-}
-pub trait IDirectInputDevice2WImpl: IDirectInputDeviceWImpl {
-    fn CreateEffect();
-    fn EnumEffects();
-    fn GetEffectInfo();
-    fn GetForceFeedbackState();
-    fn SendForceFeedbackCommand();
-    fn EnumCreatedEffectObjects();
-    fn Escape();
-    fn Poll();
-    fn SendDeviceData();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -10203,10 +10142,6 @@ impl ::core::fmt::Debug for IDirectInputDevice7A {
 unsafe impl ::windows::core::Interface for IDirectInputDevice7A {
     type Vtable = IDirectInputDevice7AVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x57d7c6bc_2356_11d3_8e9d_00c04f6844ae);
-}
-pub trait IDirectInputDevice7AImpl: IDirectInputDevice2AImpl + IDirectInputDeviceAImpl {
-    fn EnumEffectsInFile();
-    fn WriteEffectToFile();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -10451,10 +10386,6 @@ unsafe impl ::windows::core::Interface for IDirectInputDevice7W {
     type Vtable = IDirectInputDevice7WVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x57d7c6bd_2356_11d3_8e9d_00c04f6844ae);
 }
-pub trait IDirectInputDevice7WImpl: IDirectInputDevice2WImpl + IDirectInputDeviceWImpl {
-    fn EnumEffectsInFile();
-    fn WriteEffectToFile();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectInputDevice7WVtbl(
@@ -10672,37 +10603,6 @@ impl ::core::fmt::Debug for IDirectInputDevice8A {
 unsafe impl ::windows::core::Interface for IDirectInputDevice8A {
     type Vtable = IDirectInputDevice8AVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x54d41080_dc15_4833_a41b_748f73a38179);
-}
-pub trait IDirectInputDevice8AImpl {
-    fn GetCapabilities();
-    fn EnumObjects();
-    fn GetProperty();
-    fn SetProperty();
-    fn Acquire();
-    fn Unacquire();
-    fn GetDeviceState();
-    fn GetDeviceData();
-    fn SetDataFormat();
-    fn SetEventNotification();
-    fn SetCooperativeLevel();
-    fn GetObjectInfo();
-    fn GetDeviceInfo();
-    fn RunControlPanel();
-    fn Initialize();
-    fn CreateEffect();
-    fn EnumEffects();
-    fn GetEffectInfo();
-    fn GetForceFeedbackState();
-    fn SendForceFeedbackCommand();
-    fn EnumCreatedEffectObjects();
-    fn Escape();
-    fn Poll();
-    fn SendDeviceData();
-    fn EnumEffectsInFile();
-    fn WriteEffectToFile();
-    fn BuildActionMap();
-    fn SetActionMap();
-    fn GetImageInfo();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -10928,37 +10828,6 @@ unsafe impl ::windows::core::Interface for IDirectInputDevice8W {
     type Vtable = IDirectInputDevice8WVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x54d41081_dc15_4833_a41b_748f73a38179);
 }
-pub trait IDirectInputDevice8WImpl {
-    fn GetCapabilities();
-    fn EnumObjects();
-    fn GetProperty();
-    fn SetProperty();
-    fn Acquire();
-    fn Unacquire();
-    fn GetDeviceState();
-    fn GetDeviceData();
-    fn SetDataFormat();
-    fn SetEventNotification();
-    fn SetCooperativeLevel();
-    fn GetObjectInfo();
-    fn GetDeviceInfo();
-    fn RunControlPanel();
-    fn Initialize();
-    fn CreateEffect();
-    fn EnumEffects();
-    fn GetEffectInfo();
-    fn GetForceFeedbackState();
-    fn SendForceFeedbackCommand();
-    fn EnumCreatedEffectObjects();
-    fn Escape();
-    fn Poll();
-    fn SendDeviceData();
-    fn EnumEffectsInFile();
-    fn WriteEffectToFile();
-    fn BuildActionMap();
-    fn SetActionMap();
-    fn GetImageInfo();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectInputDevice8WVtbl(
@@ -11119,23 +10988,6 @@ unsafe impl ::windows::core::Interface for IDirectInputDeviceA {
     type Vtable = IDirectInputDeviceAVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5944e680_c92e_11cf_bfc7_444553540000);
 }
-pub trait IDirectInputDeviceAImpl {
-    fn GetCapabilities();
-    fn EnumObjects();
-    fn GetProperty();
-    fn SetProperty();
-    fn Acquire();
-    fn Unacquire();
-    fn GetDeviceState();
-    fn GetDeviceData();
-    fn SetDataFormat();
-    fn SetEventNotification();
-    fn SetCooperativeLevel();
-    fn GetObjectInfo();
-    fn GetDeviceInfo();
-    fn RunControlPanel();
-    fn Initialize();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectInputDeviceAVtbl(
@@ -11275,23 +11127,6 @@ unsafe impl ::windows::core::Interface for IDirectInputDeviceW {
     type Vtable = IDirectInputDeviceWVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5944e681_c92e_11cf_bfc7_444553540000);
 }
-pub trait IDirectInputDeviceWImpl {
-    fn GetCapabilities();
-    fn EnumObjects();
-    fn GetProperty();
-    fn SetProperty();
-    fn Acquire();
-    fn Unacquire();
-    fn GetDeviceState();
-    fn GetDeviceData();
-    fn SetDataFormat();
-    fn SetEventNotification();
-    fn SetCooperativeLevel();
-    fn GetObjectInfo();
-    fn GetDeviceInfo();
-    fn RunControlPanel();
-    fn Initialize();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectInputDeviceWVtbl(
@@ -11405,18 +11240,6 @@ unsafe impl ::windows::core::Interface for IDirectInputEffect {
     type Vtable = IDirectInputEffectVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe7e1f7c0_88d2_11d0_9ad0_00a0c9a06e35);
 }
-pub trait IDirectInputEffectImpl {
-    fn Initialize();
-    fn GetEffectGuid();
-    fn GetParameters();
-    fn SetParameters();
-    fn Start();
-    fn Stop();
-    fn GetEffectStatus();
-    fn Download();
-    fn Unload();
-    fn Escape();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectInputEffectVtbl(
@@ -11523,19 +11346,6 @@ impl ::core::fmt::Debug for IDirectInputEffectDriver {
 unsafe impl ::windows::core::Interface for IDirectInputEffectDriver {
     type Vtable = IDirectInputEffectDriverVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x02538130_898f_11d0_9ad0_00a0c9a06e35);
-}
-pub trait IDirectInputEffectDriverImpl {
-    fn DeviceID();
-    fn GetVersions();
-    fn Escape();
-    fn SetGain();
-    fn SendForceFeedbackCommand();
-    fn GetForceFeedbackState();
-    fn DownloadEffect();
-    fn DestroyEffect();
-    fn StartEffect();
-    fn StopEffect();
-    fn GetEffectStatus();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -11671,24 +11481,6 @@ impl ::core::fmt::Debug for IDirectInputJoyConfig {
 unsafe impl ::windows::core::Interface for IDirectInputJoyConfig {
     type Vtable = IDirectInputJoyConfigVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1de12ab1_c9f5_11cf_bfc7_444553540000);
-}
-pub trait IDirectInputJoyConfigImpl {
-    fn Acquire();
-    fn Unacquire();
-    fn SetCooperativeLevel();
-    fn SendNotify();
-    fn EnumTypes();
-    fn GetTypeInfo();
-    fn SetTypeInfo();
-    fn DeleteType();
-    fn GetConfig();
-    fn SetConfig();
-    fn DeleteConfig();
-    fn GetUserValues();
-    fn SetUserValues();
-    fn AddNewHardware();
-    fn OpenTypeKey();
-    fn OpenConfigKey();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -11838,24 +11630,6 @@ unsafe impl ::windows::core::Interface for IDirectInputJoyConfig8 {
     type Vtable = IDirectInputJoyConfig8Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeb0d7dfa_1990_4f27_b4d6_edf2eec4a44c);
 }
-pub trait IDirectInputJoyConfig8Impl {
-    fn Acquire();
-    fn Unacquire();
-    fn SetCooperativeLevel();
-    fn SendNotify();
-    fn EnumTypes();
-    fn GetTypeInfo();
-    fn SetTypeInfo();
-    fn DeleteType();
-    fn GetConfig();
-    fn SetConfig();
-    fn DeleteConfig();
-    fn GetUserValues();
-    fn SetUserValues();
-    fn AddNewHardware();
-    fn OpenTypeKey();
-    fn OpenAppStatusKey();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectInputJoyConfig8Vtbl(
@@ -11954,13 +11728,6 @@ impl ::core::fmt::Debug for IDirectInputW {
 unsafe impl ::windows::core::Interface for IDirectInputW {
     type Vtable = IDirectInputWVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x89521361_aa8a_11cf_bfc7_444553540000);
-}
-pub trait IDirectInputWImpl {
-    fn CreateDevice();
-    fn EnumDevices();
-    fn GetDeviceStatus();
-    fn RunControlPanel();
-    fn Initialize();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -13119,3 +12886,5 @@ pub unsafe fn joyConfigChanged(dwflags: u32) -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

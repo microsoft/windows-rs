@@ -3792,14 +3792,6 @@ unsafe impl ::windows::core::Interface for IChatCapabilities {
     type Vtable = IChatCapabilitiesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3aff77bc_39c9_4dd1_ad2d_3964dd9d403f);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IChatCapabilitiesImpl {
-    fn IsOnline();
-    fn IsChatCapable();
-    fn IsFileTransferCapable();
-    fn IsGeoLocationPushCapable();
-    fn IsIntegratedMessagingCapable();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IChatCapabilitiesVtbl(
@@ -3822,11 +3814,6 @@ unsafe impl ::windows::core::Interface for IChatCapabilitiesManagerStatics {
     type Vtable = IChatCapabilitiesManagerStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb57a2f30_7041_458e_b0cf_7c0d9fea333a);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IChatCapabilitiesManagerStaticsImpl {
-    fn GetCachedCapabilitiesAsync();
-    fn GetCapabilitiesFromNetworkAsync();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IChatCapabilitiesManagerStaticsVtbl(
@@ -3848,11 +3835,6 @@ unsafe impl ::windows::core::Interface for IChatCapabilitiesManagerStatics2 {
     type Vtable = IChatCapabilitiesManagerStatics2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe30d4274_d5c1_4ac9_9ffc_40e69184fec8);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IChatCapabilitiesManagerStatics2Impl {
-    fn GetCachedCapabilitiesForTransportAsync();
-    fn GetCapabilitiesFromNetworkForTransportAsync();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IChatCapabilitiesManagerStatics2Vtbl(
@@ -3873,27 +3855,6 @@ pub struct IChatConversation(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IChatConversation {
     type Vtable = IChatConversationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa58c080d_1a6f_46dc_8f3d_f5028660b6ee);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IChatConversationImpl {
-    fn HasUnreadMessages();
-    fn Id();
-    fn Subject();
-    fn SetSubject();
-    fn IsConversationMuted();
-    fn SetIsConversationMuted();
-    fn MostRecentMessageId();
-    fn Participants();
-    fn ThreadingInfo();
-    fn DeleteAsync();
-    fn GetMessageReader();
-    fn MarkAllMessagesAsReadAsync();
-    fn MarkMessagesAsReadAsync();
-    fn SaveAsync();
-    fn NotifyLocalParticipantComposing();
-    fn NotifyRemoteParticipantComposing();
-    fn RemoteParticipantComposingChanged();
-    fn RemoveRemoteParticipantComposingChanged();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3937,11 +3898,6 @@ unsafe impl ::windows::core::Interface for IChatConversation2 {
     type Vtable = IChatConversation2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0a030cd1_983a_47aa_9a90_ee48ee997b59);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IChatConversation2Impl {
-    fn CanModifyParticipants();
-    fn SetCanModifyParticipants();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IChatConversation2Vtbl(
@@ -3960,11 +3916,6 @@ pub struct IChatConversationReader(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IChatConversationReader {
     type Vtable = IChatConversationReaderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x055136d2_de32_4a47_a93a_b3dc0833852b);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IChatConversationReaderImpl {
-    fn ReadBatchAsync();
-    fn ReadBatchWithCountAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3986,18 +3937,6 @@ pub struct IChatConversationThreadingInfo(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IChatConversationThreadingInfo {
     type Vtable = IChatConversationThreadingInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x331c21dc_7a07_4422_a32c_24be7c6dab24);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IChatConversationThreadingInfoImpl {
-    fn ContactId();
-    fn SetContactId();
-    fn Custom();
-    fn SetCustom();
-    fn ConversationId();
-    fn SetConversationId();
-    fn Participants();
-    fn Kind();
-    fn SetKind();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4095,9 +4034,6 @@ unsafe impl ::windows::core::Interface for IChatItem {
     type Vtable = IChatItemVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8751d000_ceb1_4243_b803_15d45a1dd428);
 }
-pub trait IChatItemImpl {
-    fn ItemKind();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IChatItemVtbl(
@@ -4115,26 +4051,6 @@ pub struct IChatMessage(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IChatMessage {
     type Vtable = IChatMessageVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4b39052a_1142_5089_76da_f2db3d17cd05);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IChatMessageImpl {
-    fn Attachments();
-    fn Body();
-    fn SetBody();
-    fn From();
-    fn Id();
-    fn IsForwardingDisabled();
-    fn IsIncoming();
-    fn IsRead();
-    fn LocalTimestamp();
-    fn NetworkTimestamp();
-    fn Recipients();
-    fn RecipientSendStatuses();
-    fn Status();
-    fn Subject();
-    fn TransportFriendlyName();
-    fn TransportId();
-    fn SetTransportId();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4174,37 +4090,6 @@ pub struct IChatMessage2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IChatMessage2 {
     type Vtable = IChatMessage2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x86668332_543f_49f5_ac71_6c2afc6565fd);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IChatMessage2Impl: IChatMessageImpl + IChatMessage3Impl {
-    fn EstimatedDownloadSize();
-    fn SetEstimatedDownloadSize();
-    fn SetFrom();
-    fn IsAutoReply();
-    fn SetIsAutoReply();
-    fn SetIsForwardingDisabled();
-    fn IsReplyDisabled();
-    fn SetIsIncoming();
-    fn SetIsRead();
-    fn IsSeen();
-    fn SetIsSeen();
-    fn IsSimMessage();
-    fn SetLocalTimestamp();
-    fn MessageKind();
-    fn SetMessageKind();
-    fn MessageOperatorKind();
-    fn SetMessageOperatorKind();
-    fn SetNetworkTimestamp();
-    fn IsReceivedDuringQuietHours();
-    fn SetIsReceivedDuringQuietHours();
-    fn SetRemoteId();
-    fn SetStatus();
-    fn SetSubject();
-    fn ShouldSuppressNotification();
-    fn SetShouldSuppressNotification();
-    fn ThreadingInfo();
-    fn SetThreadingInfo();
-    fn RecipientsDeliveryInfos();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4254,10 +4139,6 @@ unsafe impl ::windows::core::Interface for IChatMessage3 {
     type Vtable = IChatMessage3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x74eb2fb0_3ba7_459f_8e0b_e8af0febd9ad);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IChatMessage3Impl: IChatMessageImpl {
-    fn RemoteId();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IChatMessage3Vtbl(
@@ -4275,11 +4156,6 @@ pub struct IChatMessage4(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IChatMessage4 {
     type Vtable = IChatMessage4Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2d144b0f_d2bf_460c_aa68_6d3f8483c9bf);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IChatMessage4Impl: IChatMessageImpl {
-    fn SyncId();
-    fn SetSyncId();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4299,17 +4175,6 @@ pub struct IChatMessageAttachment(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IChatMessageAttachment {
     type Vtable = IChatMessageAttachmentVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc7c4fd74_bf63_58eb_508c_8b863ff16b67);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IChatMessageAttachmentImpl {
-    fn DataStreamReference();
-    fn SetDataStreamReference();
-    fn GroupId();
-    fn SetGroupId();
-    fn MimeType();
-    fn SetMimeType();
-    fn Text();
-    fn SetText();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4338,15 +4203,6 @@ unsafe impl ::windows::core::Interface for IChatMessageAttachment2 {
     type Vtable = IChatMessageAttachment2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5ed99270_7dd1_4a87_a8ce_acdd87d80dc8);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IChatMessageAttachment2Impl: IChatMessageAttachmentImpl {
-    fn Thumbnail();
-    fn SetThumbnail();
-    fn TransferProgress();
-    fn SetTransferProgress();
-    fn OriginalFileName();
-    fn SetOriginalFileName();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IChatMessageAttachment2Vtbl(
@@ -4372,10 +4228,6 @@ unsafe impl ::windows::core::Interface for IChatMessageAttachmentFactory {
     type Vtable = IChatMessageAttachmentFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x205852a2_a356_5b71_6ca9_66c985b7d0d5);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IChatMessageAttachmentFactoryImpl {
-    fn CreateChatMessageAttachment();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IChatMessageAttachmentFactoryVtbl(
@@ -4394,10 +4246,6 @@ pub struct IChatMessageBlockingStatic(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IChatMessageBlockingStatic {
     type Vtable = IChatMessageBlockingStaticVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf6b9a380_cdea_11e4_8830_0800200c9a66);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IChatMessageBlockingStaticImpl {
-    fn MarkMessageAsBlockedAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4418,11 +4266,6 @@ unsafe impl ::windows::core::Interface for IChatMessageChange {
     type Vtable = IChatMessageChangeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1c18c355_421e_54b8_6d38_6b3a6c82fccc);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IChatMessageChangeImpl {
-    fn ChangeType();
-    fn Message();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IChatMessageChangeVtbl(
@@ -4441,12 +4284,6 @@ pub struct IChatMessageChangeReader(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IChatMessageChangeReader {
     type Vtable = IChatMessageChangeReaderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x14267020_28ce_5f26_7b05_9a5c7cce87ca);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IChatMessageChangeReaderImpl {
-    fn AcceptChanges();
-    fn AcceptChangesThrough();
-    fn ReadBatchAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4469,12 +4306,6 @@ unsafe impl ::windows::core::Interface for IChatMessageChangeTracker {
     type Vtable = IChatMessageChangeTrackerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x60b7f066_70a0_5224_508c_242ef7c1d06f);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IChatMessageChangeTrackerImpl {
-    fn Enable();
-    fn GetChangeReader();
-    fn Reset();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IChatMessageChangeTrackerVtbl(
@@ -4495,10 +4326,6 @@ unsafe impl ::windows::core::Interface for IChatMessageChangedDeferral {
     type Vtable = IChatMessageChangedDeferralVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfbc6b30c_788c_4dcc_ace7_6282382968cf);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IChatMessageChangedDeferralImpl {
-    fn Complete();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IChatMessageChangedDeferralVtbl(
@@ -4517,10 +4344,6 @@ unsafe impl ::windows::core::Interface for IChatMessageChangedEventArgs {
     type Vtable = IChatMessageChangedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb6b73e2d_691c_4edf_8660_6eb9896892e3);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IChatMessageChangedEventArgsImpl {
-    fn GetDeferral();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IChatMessageChangedEventArgsVtbl(
@@ -4538,11 +4361,6 @@ pub struct IChatMessageManager2Statics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IChatMessageManager2Statics {
     type Vtable = IChatMessageManager2StaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1d45390f_9f4f_4e35_964e_1b9ca61ac044);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IChatMessageManager2StaticsImpl: IChatMessageManagerStaticImpl {
-    fn RegisterTransportAsync();
-    fn GetTransportAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4564,13 +4382,6 @@ pub struct IChatMessageManagerStatic(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IChatMessageManagerStatic {
     type Vtable = IChatMessageManagerStaticVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf15c60f7_d5e8_5e92_556d_e03b60253104);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IChatMessageManagerStaticImpl {
-    fn GetTransportsAsync();
-    fn RequestStoreAsync();
-    fn ShowComposeSmsMessageAsync();
-    fn ShowSmsSettings();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4596,10 +4407,6 @@ unsafe impl ::windows::core::Interface for IChatMessageManagerStatics3 {
     type Vtable = IChatMessageManagerStatics3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x208b830d_6755_48cc_9ab3_fd03c463fc92);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IChatMessageManagerStatics3Impl: IChatMessageManagerStaticImpl {
-    fn RequestSyncManagerAsync();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IChatMessageManagerStatics3Vtbl(
@@ -4619,10 +4426,6 @@ unsafe impl ::windows::core::Interface for IChatMessageNotificationTriggerDetail
     type Vtable = IChatMessageNotificationTriggerDetailsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfd344dfb_3063_4e17_8586_c6c08262e6c0);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IChatMessageNotificationTriggerDetailsImpl {
-    fn ChatMessage();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IChatMessageNotificationTriggerDetailsVtbl(
@@ -4640,13 +4443,6 @@ pub struct IChatMessageNotificationTriggerDetails2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IChatMessageNotificationTriggerDetails2 {
     type Vtable = IChatMessageNotificationTriggerDetails2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6bb522e0_aa07_4fd1_9471_77934fb75ee6);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IChatMessageNotificationTriggerDetails2Impl: IChatMessageNotificationTriggerDetailsImpl {
-    fn ShouldDisplayToast();
-    fn ShouldUpdateDetailText();
-    fn ShouldUpdateBadge();
-    fn ShouldUpdateActionCenter();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4669,10 +4465,6 @@ unsafe impl ::windows::core::Interface for IChatMessageReader {
     type Vtable = IChatMessageReaderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb6ea78ce_4489_56f9_76aa_e204682514cf);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IChatMessageReaderImpl {
-    fn ReadBatchAsync();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IChatMessageReaderVtbl(
@@ -4692,10 +4484,6 @@ unsafe impl ::windows::core::Interface for IChatMessageReader2 {
     type Vtable = IChatMessageReader2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x89643683_64bb_470d_9df4_0de8be1a05bf);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IChatMessageReader2Impl {
-    fn ReadBatchWithCountAsync();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IChatMessageReader2Vtbl(
@@ -4714,21 +4502,6 @@ pub struct IChatMessageStore(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IChatMessageStore {
     type Vtable = IChatMessageStoreVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x31f2fd01_ccf6_580b_4976_0a07dd5d3b47);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IChatMessageStoreImpl {
-    fn ChangeTracker();
-    fn DeleteMessageAsync();
-    fn DownloadMessageAsync();
-    fn GetMessageAsync();
-    fn GetMessageReader1();
-    fn GetMessageReader2();
-    fn MarkMessageReadAsync();
-    fn RetrySendMessageAsync();
-    fn SendMessageAsync();
-    fn ValidateMessage();
-    fn MessageChanged();
-    fn RemoveMessageChanged();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4767,26 +4540,6 @@ pub struct IChatMessageStore2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IChatMessageStore2 {
     type Vtable = IChatMessageStore2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xad4dc4ee_3ad4_491b_b311_abdf9bb22768);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IChatMessageStore2Impl: IChatMessageStoreImpl {
-    fn ForwardMessageAsync();
-    fn GetConversationAsync();
-    fn GetConversationForTransportsAsync();
-    fn GetConversationFromThreadingInfoAsync();
-    fn GetConversationReader();
-    fn GetConversationForTransportsReader();
-    fn GetMessageByRemoteIdAsync();
-    fn GetUnseenCountAsync();
-    fn GetUnseenCountForTransportsReaderAsync();
-    fn MarkAsSeenAsync();
-    fn MarkAsSeenForTransportsAsync();
-    fn GetSearchReader();
-    fn SaveMessageAsync();
-    fn TryCancelDownloadMessageAsync();
-    fn TryCancelSendMessageAsync();
-    fn StoreChanged();
-    fn RemoveStoreChanged();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4837,10 +4590,6 @@ unsafe impl ::windows::core::Interface for IChatMessageStore3 {
     type Vtable = IChatMessageStore3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9adbbb09_4345_4ec1_8b74_b7338243719c);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IChatMessageStore3Impl: IChatMessageStoreImpl {
-    fn GetMessageBySyncIdAsync();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IChatMessageStore3Vtbl(
@@ -4860,11 +4609,6 @@ unsafe impl ::windows::core::Interface for IChatMessageStoreChangedEventArgs {
     type Vtable = IChatMessageStoreChangedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x65c66fac_fe8c_46d4_9119_57b8410311d5);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IChatMessageStoreChangedEventArgsImpl {
-    fn Id();
-    fn Kind();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IChatMessageStoreChangedEventArgsVtbl(
@@ -4883,14 +4627,6 @@ pub struct IChatMessageTransport(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IChatMessageTransport {
     type Vtable = IChatMessageTransportVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x63a9dbf8_e6b3_5c9a_5f85_d47925b9bd18);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IChatMessageTransportImpl {
-    fn IsAppSetAsNotificationProvider();
-    fn IsActive();
-    fn TransportFriendlyName();
-    fn TransportId();
-    fn RequestSetAsNotificationProviderAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4915,11 +4651,6 @@ unsafe impl ::windows::core::Interface for IChatMessageTransport2 {
     type Vtable = IChatMessageTransport2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x90a75622_d84a_4c22_a94d_544444edc8a1);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IChatMessageTransport2Impl: IChatMessageTransportImpl {
-    fn Configuration();
-    fn TransportKind();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IChatMessageTransport2Vtbl(
@@ -4938,14 +4669,6 @@ pub struct IChatMessageTransportConfiguration(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IChatMessageTransportConfiguration {
     type Vtable = IChatMessageTransportConfigurationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x879ff725_1a08_4aca_a075_3355126312e6);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IChatMessageTransportConfigurationImpl {
-    fn MaxAttachmentCount();
-    fn MaxMessageSizeInKilobytes();
-    fn MaxRecipientCount();
-    fn SupportedVideoFormat();
-    fn ExtendedProperties();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4971,13 +4694,6 @@ unsafe impl ::windows::core::Interface for IChatMessageValidationResult {
     type Vtable = IChatMessageValidationResultVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x25e93a03_28ec_5889_569b_7e486b126f18);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IChatMessageValidationResultImpl {
-    fn MaxPartCount();
-    fn PartCount();
-    fn RemainingCharacterCountInPart();
-    fn Status();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IChatMessageValidationResultVtbl(
@@ -5002,11 +4718,6 @@ unsafe impl ::windows::core::Interface for IChatQueryOptions {
     type Vtable = IChatQueryOptionsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2fd364a6_bf36_42f7_b7e7_923c0aabfe16);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IChatQueryOptionsImpl {
-    fn SearchString();
-    fn SetSearchString();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IChatQueryOptionsVtbl(
@@ -5025,20 +4736,6 @@ pub struct IChatRecipientDeliveryInfo(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IChatRecipientDeliveryInfo {
     type Vtable = IChatRecipientDeliveryInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xffc7b2a2_283c_4c0a_8a0e_8c33bdbf0545);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IChatRecipientDeliveryInfoImpl {
-    fn TransportAddress();
-    fn SetTransportAddress();
-    fn DeliveryTime();
-    fn SetDeliveryTime();
-    fn ReadTime();
-    fn SetReadTime();
-    fn TransportErrorCodeCategory();
-    fn TransportInterpretedErrorCode();
-    fn TransportErrorCode();
-    fn IsErrorPermanent();
-    fn Status();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5072,11 +4769,6 @@ unsafe impl ::windows::core::Interface for IChatSearchReader {
     type Vtable = IChatSearchReaderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4665fe49_9020_4752_980d_39612325f589);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IChatSearchReaderImpl {
-    fn ReadBatchAsync();
-    fn ReadBatchWithCountAsync();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IChatSearchReaderVtbl(
@@ -5098,13 +4790,6 @@ unsafe impl ::windows::core::Interface for IChatSyncConfiguration {
     type Vtable = IChatSyncConfigurationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x09f869b2_69f4_4aff_82b6_06992ff402d2);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IChatSyncConfigurationImpl {
-    fn IsSyncEnabled();
-    fn SetIsSyncEnabled();
-    fn RestoreHistorySpan();
-    fn SetRestoreHistorySpan();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IChatSyncConfigurationVtbl(
@@ -5125,15 +4810,6 @@ pub struct IChatSyncManager(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IChatSyncManager {
     type Vtable = IChatSyncManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7ba52c63_2650_486f_b4b4_6bd9d3d63c84);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IChatSyncManagerImpl {
-    fn Configuration();
-    fn AssociateAccountAsync();
-    fn UnassociateAccountAsync();
-    fn IsAccountAssociated();
-    fn StartSync();
-    fn SetConfigurationAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5162,16 +4838,6 @@ unsafe impl ::windows::core::Interface for IRcsEndUserMessage {
     type Vtable = IRcsEndUserMessageVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd7cda5eb_cbd7_4f3b_8526_b506dec35c53);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IRcsEndUserMessageImpl {
-    fn TransportId();
-    fn Title();
-    fn Text();
-    fn IsPinRequired();
-    fn Actions();
-    fn SendResponseAsync();
-    fn SendResponseWithPinAsync();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRcsEndUserMessageVtbl(
@@ -5199,10 +4865,6 @@ unsafe impl ::windows::core::Interface for IRcsEndUserMessageAction {
     type Vtable = IRcsEndUserMessageActionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x92378737_9b42_46d3_9d5e_3c1b2dae7cb8);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IRcsEndUserMessageActionImpl {
-    fn Label();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRcsEndUserMessageActionVtbl(
@@ -5220,11 +4882,6 @@ pub struct IRcsEndUserMessageAvailableEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IRcsEndUserMessageAvailableEventArgs {
     type Vtable = IRcsEndUserMessageAvailableEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2d45ae01_3f89_41ea_9702_9e9ed411aa98);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IRcsEndUserMessageAvailableEventArgsImpl {
-    fn IsMessageAvailable();
-    fn Message();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5245,11 +4902,6 @@ unsafe impl ::windows::core::Interface for IRcsEndUserMessageAvailableTriggerDet
     type Vtable = IRcsEndUserMessageAvailableTriggerDetailsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5b97742d_351f_4692_b41e_1b035dc18986);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IRcsEndUserMessageAvailableTriggerDetailsImpl {
-    fn Title();
-    fn Text();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRcsEndUserMessageAvailableTriggerDetailsVtbl(
@@ -5268,11 +4920,6 @@ pub struct IRcsEndUserMessageManager(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IRcsEndUserMessageManager {
     type Vtable = IRcsEndUserMessageManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3054ae5a_4d1f_4b59_9433_126c734e86a6);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IRcsEndUserMessageManagerImpl {
-    fn MessageAvailableChanged();
-    fn RemoveMessageAvailableChanged();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5294,13 +4941,6 @@ pub struct IRcsManagerStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IRcsManagerStatics {
     type Vtable = IRcsManagerStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7d270ac5_0abd_4f31_9b99_a59e71a7b731);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IRcsManagerStaticsImpl {
-    fn GetEndUserMessageManager();
-    fn GetTransportsAsync();
-    fn GetTransportAsync();
-    fn LeaveConversationAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5326,11 +4966,6 @@ unsafe impl ::windows::core::Interface for IRcsManagerStatics2 {
     type Vtable = IRcsManagerStatics2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcd49ad18_ad8a_42aa_8eeb_a798a8808959);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IRcsManagerStatics2Impl {
-    fn TransportListChanged();
-    fn RemoveTransportListChanged();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRcsManagerStatics2Vtbl(
@@ -5352,10 +4987,6 @@ unsafe impl ::windows::core::Interface for IRcsServiceKindSupportedChangedEventA
     type Vtable = IRcsServiceKindSupportedChangedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf47ea244_e783_4866_b3a7_4e5ccf023070);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IRcsServiceKindSupportedChangedEventArgsImpl {
-    fn ServiceKind();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRcsServiceKindSupportedChangedEventArgsVtbl(
@@ -5373,18 +5004,6 @@ pub struct IRcsTransport(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IRcsTransport {
     type Vtable = IRcsTransportVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfea34759_f37c_4319_8546_ec84d21d30ff);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IRcsTransportImpl {
-    fn ExtendedProperties();
-    fn IsActive();
-    fn TransportFriendlyName();
-    fn TransportId();
-    fn Configuration();
-    fn IsStoreAndForwardEnabled();
-    fn IsServiceKindSupported();
-    fn ServiceKindSupportedChanged();
-    fn RemoveServiceKindSupportedChanged();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5415,15 +5034,6 @@ unsafe impl ::windows::core::Interface for IRcsTransportConfiguration {
     type Vtable = IRcsTransportConfigurationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1fccb102_2472_4bb9_9988_c1211c83e8a9);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IRcsTransportConfigurationImpl {
-    fn MaxAttachmentCount();
-    fn MaxMessageSizeInKilobytes();
-    fn MaxGroupMessageSizeInKilobytes();
-    fn MaxRecipientCount();
-    fn MaxFileSizeInKilobytes();
-    fn WarningFileSizeInKilobytes();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRcsTransportConfigurationVtbl(
@@ -5446,12 +5056,6 @@ pub struct IRemoteParticipantComposingChangedEventArgs(::windows::core::IUnknown
 unsafe impl ::windows::core::Interface for IRemoteParticipantComposingChangedEventArgs {
     type Vtable = IRemoteParticipantComposingChangedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1ec045a7_cfc9_45c9_9876_449f2bc180f5);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IRemoteParticipantComposingChangedEventArgsImpl {
-    fn TransportId();
-    fn ParticipantAddress();
-    fn IsComposing();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6485,3 +6089,5 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Remo
 }
 unsafe impl ::core::marker::Send for RemoteParticipantComposingChangedEventArgs {}
 unsafe impl ::core::marker::Sync for RemoteParticipantComposingChangedEventArgs {}
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

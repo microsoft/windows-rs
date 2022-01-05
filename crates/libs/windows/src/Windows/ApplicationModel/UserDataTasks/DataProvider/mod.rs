@@ -6,20 +6,6 @@ unsafe impl ::windows::core::Interface for IUserDataTaskDataProviderConnection {
     type Vtable = IUserDataTaskDataProviderConnectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9ff39d1d_a447_428b_afe9_e5402bdeb041);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IUserDataTaskDataProviderConnectionImpl {
-    fn CreateOrUpdateTaskRequested();
-    fn RemoveCreateOrUpdateTaskRequested();
-    fn SyncRequested();
-    fn RemoveSyncRequested();
-    fn SkipOccurrenceRequested();
-    fn RemoveSkipOccurrenceRequested();
-    fn CompleteTaskRequested();
-    fn RemoveCompleteTaskRequested();
-    fn DeleteTaskRequested();
-    fn RemoveDeleteTaskRequested();
-    fn Start();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUserDataTaskDataProviderConnectionVtbl(
@@ -58,10 +44,6 @@ unsafe impl ::windows::core::Interface for IUserDataTaskDataProviderTriggerDetai
     type Vtable = IUserDataTaskDataProviderTriggerDetailsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xae273202_b1c9_453e_afc5_b30af3bd217d);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IUserDataTaskDataProviderTriggerDetailsImpl {
-    fn Connection();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUserDataTaskDataProviderTriggerDetailsVtbl(
@@ -79,13 +61,6 @@ pub struct IUserDataTaskListCompleteTaskRequest(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IUserDataTaskListCompleteTaskRequest {
     type Vtable = IUserDataTaskListCompleteTaskRequestVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf65e14a3_1a42_49da_8552_2873e52c55eb);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IUserDataTaskListCompleteTaskRequestImpl {
-    fn TaskListId();
-    fn TaskId();
-    fn ReportCompletedAsync();
-    fn ReportFailedAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -110,11 +85,6 @@ unsafe impl ::windows::core::Interface for IUserDataTaskListCompleteTaskRequestE
     type Vtable = IUserDataTaskListCompleteTaskRequestEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd77c393d_4cf2_48ad_87fd_963f0eaa7a95);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IUserDataTaskListCompleteTaskRequestEventArgsImpl {
-    fn Request();
-    fn GetDeferral();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUserDataTaskListCompleteTaskRequestEventArgsVtbl(
@@ -134,13 +104,6 @@ pub struct IUserDataTaskListCreateOrUpdateTaskRequest(::windows::core::IUnknown)
 unsafe impl ::windows::core::Interface for IUserDataTaskListCreateOrUpdateTaskRequest {
     type Vtable = IUserDataTaskListCreateOrUpdateTaskRequestVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2133772c_55c2_4300_8279_04326e07cce4);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IUserDataTaskListCreateOrUpdateTaskRequestImpl {
-    fn TaskListId();
-    fn Task();
-    fn ReportCompletedAsync();
-    fn ReportFailedAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -165,11 +128,6 @@ unsafe impl ::windows::core::Interface for IUserDataTaskListCreateOrUpdateTaskRe
     type Vtable = IUserDataTaskListCreateOrUpdateTaskRequestEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x12c55a52_e378_419b_ae38_a5e9e604476e);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IUserDataTaskListCreateOrUpdateTaskRequestEventArgsImpl {
-    fn Request();
-    fn GetDeferral();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUserDataTaskListCreateOrUpdateTaskRequestEventArgsVtbl(
@@ -189,13 +147,6 @@ pub struct IUserDataTaskListDeleteTaskRequest(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IUserDataTaskListDeleteTaskRequest {
     type Vtable = IUserDataTaskListDeleteTaskRequestVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4b863c68_7657_4f3d_b074_d47ec8df07e7);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IUserDataTaskListDeleteTaskRequestImpl {
-    fn TaskListId();
-    fn TaskId();
-    fn ReportCompletedAsync();
-    fn ReportFailedAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -220,11 +171,6 @@ unsafe impl ::windows::core::Interface for IUserDataTaskListDeleteTaskRequestEve
     type Vtable = IUserDataTaskListDeleteTaskRequestEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6063dad9_f562_4145_8efe_d50078c92b7f);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IUserDataTaskListDeleteTaskRequestEventArgsImpl {
-    fn Request();
-    fn GetDeferral();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUserDataTaskListDeleteTaskRequestEventArgsVtbl(
@@ -244,13 +190,6 @@ pub struct IUserDataTaskListSkipOccurrenceRequest(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IUserDataTaskListSkipOccurrenceRequest {
     type Vtable = IUserDataTaskListSkipOccurrenceRequestVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xab87e34d_1cd3_431c_9f58_089aa4338d85);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IUserDataTaskListSkipOccurrenceRequestImpl {
-    fn TaskListId();
-    fn TaskId();
-    fn ReportCompletedAsync();
-    fn ReportFailedAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -275,11 +214,6 @@ unsafe impl ::windows::core::Interface for IUserDataTaskListSkipOccurrenceReques
     type Vtable = IUserDataTaskListSkipOccurrenceRequestEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7a3b924a_cc2f_4e7b_aacd_a5b9d29cfa4e);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IUserDataTaskListSkipOccurrenceRequestEventArgsImpl {
-    fn Request();
-    fn GetDeferral();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUserDataTaskListSkipOccurrenceRequestEventArgsVtbl(
@@ -299,12 +233,6 @@ pub struct IUserDataTaskListSyncManagerSyncRequest(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IUserDataTaskListSyncManagerSyncRequest {
     type Vtable = IUserDataTaskListSyncManagerSyncRequestVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x40a73807_7590_4149_ae19_b211431a9f48);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IUserDataTaskListSyncManagerSyncRequestImpl {
-    fn TaskListId();
-    fn ReportCompletedAsync();
-    fn ReportFailedAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -327,11 +255,6 @@ pub struct IUserDataTaskListSyncManagerSyncRequestEventArgs(::windows::core::IUn
 unsafe impl ::windows::core::Interface for IUserDataTaskListSyncManagerSyncRequestEventArgs {
     type Vtable = IUserDataTaskListSyncManagerSyncRequestEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8ead1c12_768e_43bd_8385_5cdc351ffdea);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IUserDataTaskListSyncManagerSyncRequestEventArgsImpl {
-    fn Request();
-    fn GetDeferral();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1557,3 +1480,5 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &User
 }
 unsafe impl ::core::marker::Send for UserDataTaskListSyncManagerSyncRequestEventArgs {}
 unsafe impl ::core::marker::Sync for UserDataTaskListSyncManagerSyncRequestEventArgs {}
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

@@ -155,14 +155,6 @@ unsafe impl ::windows::core::Interface for ICompositorController {
     type Vtable = ICompositorControllerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2d75f35a_70a7_4395_ba2d_cef0b18399f9);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ICompositorControllerImpl {
-    fn Compositor();
-    fn Commit();
-    fn EnsurePreviousCommitCompletedAsync();
-    fn CommitNeeded();
-    fn RemoveCommitNeeded();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositorControllerVtbl(
@@ -181,3 +173,5 @@ pub struct ICompositorControllerVtbl(
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
 );
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

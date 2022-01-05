@@ -3544,30 +3544,6 @@ unsafe impl ::windows::core::Interface for IAllJoynAboutData {
     type Vtable = IAllJoynAboutDataVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe5a9bf00_1fa2_4839_93ef_f9df404890f7);
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
-pub trait IAllJoynAboutDataImpl {
-    fn IsEnabled();
-    fn SetIsEnabled();
-    fn DefaultAppName();
-    fn SetDefaultAppName();
-    fn AppNames();
-    fn DateOfManufacture();
-    fn SetDateOfManufacture();
-    fn DefaultDescription();
-    fn SetDefaultDescription();
-    fn Descriptions();
-    fn DefaultManufacturer();
-    fn SetDefaultManufacturer();
-    fn Manufacturers();
-    fn ModelNumber();
-    fn SetModelNumber();
-    fn SoftwareVersion();
-    fn SetSoftwareVersion();
-    fn SupportUrl();
-    fn SetSupportUrl();
-    fn AppId();
-    fn SetAppId();
-}
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
@@ -3630,25 +3606,6 @@ unsafe impl ::windows::core::Interface for IAllJoynAboutDataView {
     type Vtable = IAllJoynAboutDataViewVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6823111f_6212_4934_9c48_e19ca4984288);
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
-pub trait IAllJoynAboutDataViewImpl {
-    fn Status();
-    fn Properties();
-    fn AJSoftwareVersion();
-    fn AppId();
-    fn DateOfManufacture();
-    fn DefaultLanguage();
-    fn DeviceId();
-    fn HardwareVersion();
-    fn ModelNumber();
-    fn SoftwareVersion();
-    fn SupportedLanguages();
-    fn SupportUrl();
-    fn AppName();
-    fn Description();
-    fn DeviceName();
-    fn Manufacturer();
-}
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
@@ -3700,11 +3657,6 @@ pub struct IAllJoynAboutDataViewStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAllJoynAboutDataViewStatics {
     type Vtable = IAllJoynAboutDataViewStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x57edb688_0c5e_416e_88b5_39b32d25c47d);
-}
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
-pub trait IAllJoynAboutDataViewStaticsImpl {
-    fn GetDataBySessionPortAsync();
-    fn GetDataBySessionPortWithLanguageAsync();
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
@@ -3812,10 +3764,6 @@ unsafe impl ::windows::core::Interface for IAllJoynAcceptSessionJoiner {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4da817d2_cd1d_4023_a7c4_16def89c28df);
 }
 #[cfg(feature = "deprecated")]
-pub trait IAllJoynAcceptSessionJoinerImpl {
-    fn Accept();
-}
-#[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAllJoynAcceptSessionJoinerVtbl(
@@ -3836,15 +3784,6 @@ pub struct IAllJoynAcceptSessionJoinerEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAllJoynAcceptSessionJoinerEventArgs {
     type Vtable = IAllJoynAcceptSessionJoinerEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4efb5365_3e8a_4257_8f10_539ce0d56c0f);
-}
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
-pub trait IAllJoynAcceptSessionJoinerEventArgsImpl {
-    fn UniqueName();
-    fn SessionPort();
-    fn TrafficType();
-    fn SamePhysicalNode();
-    fn SameNetwork();
-    fn Accept();
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
@@ -3878,10 +3817,6 @@ unsafe impl ::windows::core::Interface for IAllJoynAcceptSessionJoinerEventArgsF
     type Vtable = IAllJoynAcceptSessionJoinerEventArgsFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb4435bc0_6145_429e_84db_d5bfe772b14f);
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
-pub trait IAllJoynAcceptSessionJoinerEventArgsFactoryImpl {
-    fn Create();
-}
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
@@ -3903,12 +3838,6 @@ pub struct IAllJoynAuthenticationCompleteEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAllJoynAuthenticationCompleteEventArgs {
     type Vtable = IAllJoynAuthenticationCompleteEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x97b4701c_15dc_4b53_b6a4_7d134300d7bf);
-}
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
-pub trait IAllJoynAuthenticationCompleteEventArgsImpl {
-    fn AuthenticationMechanism();
-    fn PeerUniqueName();
-    fn Succeeded();
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
@@ -3935,25 +3864,6 @@ pub struct IAllJoynBusAttachment(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAllJoynBusAttachment {
     type Vtable = IAllJoynBusAttachmentVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf309f153_1eed_42c3_a20e_436d41fe62f6);
-}
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
-pub trait IAllJoynBusAttachmentImpl {
-    fn AboutData();
-    fn ConnectionSpecification();
-    fn State();
-    fn UniqueName();
-    fn PingAsync();
-    fn Connect();
-    fn Disconnect();
-    fn StateChanged();
-    fn RemoveStateChanged();
-    fn AuthenticationMechanisms();
-    fn CredentialsRequested();
-    fn RemoveCredentialsRequested();
-    fn CredentialsVerificationRequested();
-    fn RemoveCredentialsVerificationRequested();
-    fn AuthenticationComplete();
-    fn RemoveAuthenticationComplete();
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
@@ -4007,15 +3917,6 @@ unsafe impl ::windows::core::Interface for IAllJoynBusAttachment2 {
     type Vtable = IAllJoynBusAttachment2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3474cb1e_2368_43b2_b43e_6a3ac1278d98);
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
-pub trait IAllJoynBusAttachment2Impl {
-    fn GetAboutDataAsync();
-    fn GetAboutDataWithLanguageAsync();
-    fn AcceptSessionJoinerRequested();
-    fn RemoveAcceptSessionJoinerRequested();
-    fn SessionJoined();
-    fn RemoveSessionJoined();
-}
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
@@ -4048,10 +3949,6 @@ unsafe impl ::windows::core::Interface for IAllJoynBusAttachmentFactory {
     type Vtable = IAllJoynBusAttachmentFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x642ef1a4_ad85_4ddf_90ae_604452b22288);
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
-pub trait IAllJoynBusAttachmentFactoryImpl {
-    fn Create();
-}
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
@@ -4073,11 +3970,6 @@ pub struct IAllJoynBusAttachmentStateChangedEventArgs(::windows::core::IUnknown)
 unsafe impl ::windows::core::Interface for IAllJoynBusAttachmentStateChangedEventArgs {
     type Vtable = IAllJoynBusAttachmentStateChangedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd82e75f4_c02a_41ec_a8d5_eab1558953aa);
-}
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
-pub trait IAllJoynBusAttachmentStateChangedEventArgsImpl {
-    fn State();
-    fn Status();
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
@@ -4103,11 +3995,6 @@ unsafe impl ::windows::core::Interface for IAllJoynBusAttachmentStatics {
     type Vtable = IAllJoynBusAttachmentStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x839d4d3d_1051_40d7_872a_8d0141115b1f);
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
-pub trait IAllJoynBusAttachmentStaticsImpl {
-    fn GetDefault();
-    fn GetWatcher();
-}
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
@@ -4131,16 +4018,6 @@ pub struct IAllJoynBusObject(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAllJoynBusObject {
     type Vtable = IAllJoynBusObjectVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe8fd825e_f73a_490c_8804_04e026643047);
-}
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
-pub trait IAllJoynBusObjectImpl {
-    fn Start();
-    fn Stop();
-    fn AddProducer();
-    fn BusAttachment();
-    fn Session();
-    fn Stopped();
-    fn RemoveStopped();
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
@@ -4176,11 +4053,6 @@ unsafe impl ::windows::core::Interface for IAllJoynBusObjectFactory {
     type Vtable = IAllJoynBusObjectFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2c2f9f0b_8e02_4f9c_ac27_ea6dad5d3b50);
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
-pub trait IAllJoynBusObjectFactoryImpl {
-    fn Create();
-    fn CreateWithBusAttachment();
-}
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
@@ -4205,10 +4077,6 @@ unsafe impl ::windows::core::Interface for IAllJoynBusObjectStoppedEventArgs {
     type Vtable = IAllJoynBusObjectStoppedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xde102115_ef8e_4d42_b93b_a2ae74519766);
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
-pub trait IAllJoynBusObjectStoppedEventArgsImpl {
-    fn Status();
-}
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
@@ -4231,10 +4099,6 @@ unsafe impl ::windows::core::Interface for IAllJoynBusObjectStoppedEventArgsFact
     type Vtable = IAllJoynBusObjectStoppedEventArgsFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6b22fd48_d0a3_4255_953a_4772b4028073);
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
-pub trait IAllJoynBusObjectStoppedEventArgsFactoryImpl {
-    fn Create();
-}
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
@@ -4256,16 +4120,6 @@ pub struct IAllJoynCredentials(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAllJoynCredentials {
     type Vtable = IAllJoynCredentialsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x824650f2_a190_40b1_abab_349ec244dfaa);
-}
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
-pub trait IAllJoynCredentialsImpl {
-    fn AuthenticationMechanism();
-    fn Certificate();
-    fn SetCertificate();
-    fn PasswordCredential();
-    fn SetPasswordCredential();
-    fn Timeout();
-    fn SetTimeout();
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
@@ -4301,14 +4155,6 @@ unsafe impl ::windows::core::Interface for IAllJoynCredentialsRequestedEventArgs
     type Vtable = IAllJoynCredentialsRequestedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6a87e34e_b069_4b80_9e1a_41bc837c65d2);
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
-pub trait IAllJoynCredentialsRequestedEventArgsImpl {
-    fn AttemptCount();
-    fn Credentials();
-    fn PeerUniqueName();
-    fn RequestedUserName();
-    fn GetDeferral();
-}
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
@@ -4338,17 +4184,6 @@ pub struct IAllJoynCredentialsVerificationRequestedEventArgs(::windows::core::IU
 unsafe impl ::windows::core::Interface for IAllJoynCredentialsVerificationRequestedEventArgs {
     type Vtable = IAllJoynCredentialsVerificationRequestedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x800a7612_b805_44af_a2e1_792ab655a2d0);
-}
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
-pub trait IAllJoynCredentialsVerificationRequestedEventArgsImpl {
-    fn AuthenticationMechanism();
-    fn PeerUniqueName();
-    fn PeerCertificate();
-    fn PeerCertificateErrorSeverity();
-    fn PeerCertificateErrors();
-    fn PeerIntermediateCertificates();
-    fn Accept();
-    fn GetDeferral();
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
@@ -4386,10 +4221,6 @@ unsafe impl ::windows::core::Interface for IAllJoynMessageInfo {
     type Vtable = IAllJoynMessageInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xff2b0127_2c12_4859_aa3a_c74461ee814c);
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
-pub trait IAllJoynMessageInfoImpl {
-    fn SenderUniqueName();
-}
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
@@ -4411,10 +4242,6 @@ pub struct IAllJoynMessageInfoFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAllJoynMessageInfoFactory {
     type Vtable = IAllJoynMessageInfoFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x34664c2a_8289_43d4_b4a8_3f4de359f043);
-}
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
-pub trait IAllJoynMessageInfoFactoryImpl {
-    fn Create();
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
@@ -4520,10 +4347,6 @@ unsafe impl ::windows::core::Interface for IAllJoynProducer {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9d084679_469b_495a_a710_ac50f123069f);
 }
 #[cfg(feature = "deprecated")]
-pub trait IAllJoynProducerImpl {
-    fn SetBusObject();
-}
-#[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAllJoynProducerVtbl(
@@ -4544,10 +4367,6 @@ pub struct IAllJoynProducerStoppedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAllJoynProducerStoppedEventArgs {
     type Vtable = IAllJoynProducerStoppedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x51309770_4937_492d_8080_236439987ceb);
-}
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
-pub trait IAllJoynProducerStoppedEventArgsImpl {
-    fn Status();
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
@@ -4571,10 +4390,6 @@ unsafe impl ::windows::core::Interface for IAllJoynProducerStoppedEventArgsFacto
     type Vtable = IAllJoynProducerStoppedEventArgsFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x56529961_b219_4d6e_9f78_fa3f99fa8fe5);
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
-pub trait IAllJoynProducerStoppedEventArgsFactoryImpl {
-    fn Create();
-}
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
@@ -4596,12 +4411,6 @@ pub struct IAllJoynServiceInfo(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAllJoynServiceInfo {
     type Vtable = IAllJoynServiceInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4cbe8209_b93e_4182_999b_ddd000f9c575);
-}
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
-pub trait IAllJoynServiceInfoImpl {
-    fn UniqueName();
-    fn ObjectPath();
-    fn SessionPort();
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
@@ -4629,10 +4438,6 @@ unsafe impl ::windows::core::Interface for IAllJoynServiceInfoFactory {
     type Vtable = IAllJoynServiceInfoFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7581dabd_fe03_4f4b_94a4_f02fdcbd11b8);
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
-pub trait IAllJoynServiceInfoFactoryImpl {
-    fn Create();
-}
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
@@ -4654,10 +4459,6 @@ pub struct IAllJoynServiceInfoRemovedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAllJoynServiceInfoRemovedEventArgs {
     type Vtable = IAllJoynServiceInfoRemovedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3057a95f_1d3f_41f3_8969_e32792627396);
-}
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
-pub trait IAllJoynServiceInfoRemovedEventArgsImpl {
-    fn UniqueName();
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
@@ -4681,10 +4482,6 @@ unsafe impl ::windows::core::Interface for IAllJoynServiceInfoRemovedEventArgsFa
     type Vtable = IAllJoynServiceInfoRemovedEventArgsFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0dbf8627_9aff_4955_9227_6953baf41569);
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
-pub trait IAllJoynServiceInfoRemovedEventArgsFactoryImpl {
-    fn Create();
-}
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
@@ -4707,10 +4504,6 @@ unsafe impl ::windows::core::Interface for IAllJoynServiceInfoStatics {
     type Vtable = IAllJoynServiceInfoStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5678570a_603a_49fc_b750_0ef13609213c);
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
-pub trait IAllJoynServiceInfoStaticsImpl {
-    fn FromIdAsync();
-}
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
@@ -4732,18 +4525,6 @@ pub struct IAllJoynSession(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAllJoynSession {
     type Vtable = IAllJoynSessionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe8d11b0c_c0d4_406c_88a9_a93efa85d4b1);
-}
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
-pub trait IAllJoynSessionImpl {
-    fn Id();
-    fn Status();
-    fn RemoveMemberAsync();
-    fn MemberAdded();
-    fn RemoveMemberAdded();
-    fn MemberRemoved();
-    fn RemoveMemberRemoved();
-    fn Lost();
-    fn RemoveLost();
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
@@ -4783,10 +4564,6 @@ unsafe impl ::windows::core::Interface for IAllJoynSessionJoinedEventArgs {
     type Vtable = IAllJoynSessionJoinedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9e9f5bd0_b5d7_47c5_8dab_b040cc192871);
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
-pub trait IAllJoynSessionJoinedEventArgsImpl {
-    fn Session();
-}
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
@@ -4808,10 +4585,6 @@ pub struct IAllJoynSessionJoinedEventArgsFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAllJoynSessionJoinedEventArgsFactory {
     type Vtable = IAllJoynSessionJoinedEventArgsFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6824d689_d6cb_4d9e_a09e_35806870b17f);
-}
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
-pub trait IAllJoynSessionJoinedEventArgsFactoryImpl {
-    fn Create();
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
@@ -4835,10 +4608,6 @@ unsafe impl ::windows::core::Interface for IAllJoynSessionLostEventArgs {
     type Vtable = IAllJoynSessionLostEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe766a48a_8bb8_4954_ae67_d2fa43d1f96b);
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
-pub trait IAllJoynSessionLostEventArgsImpl {
-    fn Reason();
-}
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
@@ -4860,10 +4629,6 @@ pub struct IAllJoynSessionLostEventArgsFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAllJoynSessionLostEventArgsFactory {
     type Vtable = IAllJoynSessionLostEventArgsFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x13bbfd32_d2f4_49c9_980e_2805e13586b1);
-}
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
-pub trait IAllJoynSessionLostEventArgsFactoryImpl {
-    fn Create();
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
@@ -4887,10 +4652,6 @@ unsafe impl ::windows::core::Interface for IAllJoynSessionMemberAddedEventArgs {
     type Vtable = IAllJoynSessionMemberAddedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x49a2798a_0dd1_46c1_9cd6_27190e503a5e);
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
-pub trait IAllJoynSessionMemberAddedEventArgsImpl {
-    fn UniqueName();
-}
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
@@ -4912,10 +4673,6 @@ pub struct IAllJoynSessionMemberAddedEventArgsFactory(::windows::core::IUnknown)
 unsafe impl ::windows::core::Interface for IAllJoynSessionMemberAddedEventArgsFactory {
     type Vtable = IAllJoynSessionMemberAddedEventArgsFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x341de352_1d33_40a1_a1d3_e5777020e1f1);
-}
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
-pub trait IAllJoynSessionMemberAddedEventArgsFactoryImpl {
-    fn Create();
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
@@ -4939,10 +4696,6 @@ unsafe impl ::windows::core::Interface for IAllJoynSessionMemberRemovedEventArgs
     type Vtable = IAllJoynSessionMemberRemovedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x409a219f_aa4a_4893_b430_baa1b63c6219);
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
-pub trait IAllJoynSessionMemberRemovedEventArgsImpl {
-    fn UniqueName();
-}
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
@@ -4965,10 +4718,6 @@ unsafe impl ::windows::core::Interface for IAllJoynSessionMemberRemovedEventArgs
     type Vtable = IAllJoynSessionMemberRemovedEventArgsFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc4d355e8_42b8_4b67_b757_d0cfcad59280);
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
-pub trait IAllJoynSessionMemberRemovedEventArgsFactoryImpl {
-    fn Create();
-}
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
@@ -4990,11 +4739,6 @@ pub struct IAllJoynSessionStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAllJoynSessionStatics {
     type Vtable = IAllJoynSessionStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9e05d604_a06c_46d4_b46c_0b0b54105b44);
-}
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
-pub trait IAllJoynSessionStaticsImpl {
-    fn GetFromServiceInfoAsync();
-    fn GetFromServiceInfoAndBusAttachmentAsync();
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
@@ -5019,27 +4763,6 @@ pub struct IAllJoynStatusStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAllJoynStatusStatics {
     type Vtable = IAllJoynStatusStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd0b7a17e_0d29_4da9_8ac6_54c554bedbc5);
-}
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
-pub trait IAllJoynStatusStaticsImpl {
-    fn Ok();
-    fn Fail();
-    fn OperationTimedOut();
-    fn OtherEndClosed();
-    fn ConnectionRefused();
-    fn AuthenticationFailed();
-    fn AuthenticationRejectedByUser();
-    fn SslConnectFailed();
-    fn SslIdentityVerificationFailed();
-    fn InsufficientSecurity();
-    fn InvalidArgument1();
-    fn InvalidArgument2();
-    fn InvalidArgument3();
-    fn InvalidArgument4();
-    fn InvalidArgument5();
-    fn InvalidArgument6();
-    fn InvalidArgument7();
-    fn InvalidArgument8();
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
@@ -5097,10 +4820,6 @@ unsafe impl ::windows::core::Interface for IAllJoynWatcherStoppedEventArgs {
     type Vtable = IAllJoynWatcherStoppedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc9fca03b_701d_4aa8_97dd_a2bb0a8f5fa3);
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
-pub trait IAllJoynWatcherStoppedEventArgsImpl {
-    fn Status();
-}
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
@@ -5123,10 +4842,6 @@ unsafe impl ::windows::core::Interface for IAllJoynWatcherStoppedEventArgsFactor
     type Vtable = IAllJoynWatcherStoppedEventArgsFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x878fa5a8_2d50_47e1_904a_20bf0d48c782);
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
-pub trait IAllJoynWatcherStoppedEventArgsFactoryImpl {
-    fn Create();
-}
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
@@ -5140,3 +4855,5 @@ pub struct IAllJoynWatcherStoppedEventArgsFactoryVtbl(
     #[cfg(feature = "deprecated")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, status: i32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "deprecated"))] usize,
 );
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

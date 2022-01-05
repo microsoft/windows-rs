@@ -101,3 +101,5 @@ pub unsafe fn OperationStart(operationstartparams: *const OPERATION_START_PARAME
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

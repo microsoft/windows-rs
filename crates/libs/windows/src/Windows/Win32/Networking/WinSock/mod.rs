@@ -14651,3 +14651,5 @@ impl ::core::default::Default for timeval {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

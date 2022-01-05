@@ -599,12 +599,6 @@ unsafe impl ::windows::core::Interface for IAudioBuffer {
     type Vtable = IAudioBufferVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x35175827_724b_4c6a_b130_f6537f9ae0d0);
 }
-#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IAudioBufferImpl: IClosableImpl + IMemoryBufferImpl {
-    fn Capacity();
-    fn Length();
-    fn SetLength();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAudioBufferVtbl(
@@ -625,10 +619,6 @@ unsafe impl ::windows::core::Interface for IAudioFrame {
     type Vtable = IAudioFrameVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe36ac304_aab2_4277_9ed0_43cedf8e29c6);
 }
-#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IAudioFrameImpl: IClosableImpl + IMediaFrameImpl {
-    fn LockBuffer();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAudioFrameVtbl(
@@ -646,10 +636,6 @@ pub struct IAudioFrameFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAudioFrameFactory {
     type Vtable = IAudioFrameFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x91a90ade_2422_40a6_b9ad_30d02404317d);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IAudioFrameFactoryImpl {
-    fn Create();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -669,10 +655,6 @@ unsafe impl ::windows::core::Interface for IAutoRepeatModeChangeRequestedEventAr
     type Vtable = IAutoRepeatModeChangeRequestedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xea137efa_d852_438e_882b_c990109a78f4);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IAutoRepeatModeChangeRequestedEventArgsImpl {
-    fn RequestedAutoRepeatMode();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAutoRepeatModeChangeRequestedEventArgsVtbl(
@@ -690,13 +672,6 @@ pub struct IImageDisplayProperties(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IImageDisplayProperties {
     type Vtable = IImageDisplayPropertiesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcd0bc7ef_54e7_411f_9933_f0e98b0a96d2);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IImageDisplayPropertiesImpl {
-    fn Title();
-    fn SetTitle();
-    fn Subtitle();
-    fn SetSubtitle();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -720,42 +695,6 @@ pub struct IMediaControl(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMediaControl {
     type Vtable = IMediaControlVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x98f1fbe1_7a8d_42cb_b6fe_8fe698264f13);
-}
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
-pub trait IMediaControlImpl {
-    fn SoundLevelChanged();
-    fn RemoveSoundLevelChanged();
-    fn PlayPressed();
-    fn RemovePlayPressed();
-    fn PausePressed();
-    fn RemovePausePressed();
-    fn StopPressed();
-    fn RemoveStopPressed();
-    fn PlayPauseTogglePressed();
-    fn RemovePlayPauseTogglePressed();
-    fn RecordPressed();
-    fn RemoveRecordPressed();
-    fn NextTrackPressed();
-    fn RemoveNextTrackPressed();
-    fn PreviousTrackPressed();
-    fn RemovePreviousTrackPressed();
-    fn FastForwardPressed();
-    fn RemoveFastForwardPressed();
-    fn RewindPressed();
-    fn RemoveRewindPressed();
-    fn ChannelUpPressed();
-    fn RemoveChannelUpPressed();
-    fn ChannelDownPressed();
-    fn RemoveChannelDownPressed();
-    fn SoundLevel();
-    fn SetTrackName();
-    fn TrackName();
-    fn SetArtistName();
-    fn ArtistName();
-    fn SetIsPlaying();
-    fn IsPlaying();
-    fn SetAlbumArt();
-    fn AlbumArt();
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
@@ -908,9 +847,6 @@ unsafe impl ::windows::core::Interface for IMediaExtension {
     type Vtable = IMediaExtensionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x07915118_45df_442b_8a3f_f7826a6370ab);
 }
-pub trait IMediaExtensionImpl {
-    fn SetProperties();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaExtensionVtbl(
@@ -929,21 +865,6 @@ pub struct IMediaExtensionManager(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMediaExtensionManager {
     type Vtable = IMediaExtensionManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4a25eaf5_242d_4dfb_97f4_69b7c42576ff);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IMediaExtensionManagerImpl {
-    fn RegisterSchemeHandler();
-    fn RegisterSchemeHandlerWithSettings();
-    fn RegisterByteStreamHandler();
-    fn RegisterByteStreamHandlerWithSettings();
-    fn RegisterAudioDecoder();
-    fn RegisterAudioDecoderWithSettings();
-    fn RegisterAudioEncoder();
-    fn RegisterAudioEncoderWithSettings();
-    fn RegisterVideoDecoder();
-    fn RegisterVideoDecoderWithSettings();
-    fn RegisterVideoEncoder();
-    fn RegisterVideoEncoderWithSettings();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -979,10 +900,6 @@ pub struct IMediaExtensionManager2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMediaExtensionManager2 {
     type Vtable = IMediaExtensionManager2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5bcebf47_4043_4fed_acaf_54ec29dfb1f7);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IMediaExtensionManager2Impl: IMediaExtensionManagerImpl {
-    fn RegisterMediaExtensionForAppService();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1179,20 +1096,6 @@ unsafe impl ::windows::core::Interface for IMediaFrame {
     type Vtable = IMediaFrameVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbfb52f8c_5943_47d8_8e10_05308aa5fbd0);
 }
-#[cfg(feature = "Foundation")]
-pub trait IMediaFrameImpl: IClosableImpl {
-    fn Type();
-    fn IsReadOnly();
-    fn SetRelativeTime();
-    fn RelativeTime();
-    fn SetSystemRelativeTime();
-    fn SystemRelativeTime();
-    fn SetDuration();
-    fn Duration();
-    fn SetIsDiscontinuous();
-    fn IsDiscontinuous();
-    fn ExtendedProperties();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaFrameVtbl(
@@ -1314,11 +1217,6 @@ unsafe impl ::windows::core::Interface for IMediaMarker {
     type Vtable = IMediaMarkerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1803def8_dca5_4b6f_9c20_e3d3c0643625);
 }
-pub trait IMediaMarkerImpl {
-    fn Time();
-    fn MediaMarkerType();
-    fn Text();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaMarkerVtbl(
@@ -1339,10 +1237,6 @@ pub struct IMediaMarkerTypesStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMediaMarkerTypesStatics {
     type Vtable = IMediaMarkerTypesStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbb198040_482f_4743_8832_45853821ece0);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IMediaMarkerTypesStaticsImpl {
-    fn Bookmark();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1432,9 +1326,6 @@ unsafe impl ::windows::core::Interface for IMediaMarkers {
     type Vtable = IMediaMarkersVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xafeab189_f8dd_466e_aa10_920b52353fdf);
 }
-pub trait IMediaMarkersImpl {
-    fn Markers();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaMarkersVtbl(
@@ -1454,10 +1345,6 @@ unsafe impl ::windows::core::Interface for IMediaProcessingTriggerDetails {
     type Vtable = IMediaProcessingTriggerDetailsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeb8564ac_a351_4f4e_b4f0_9bf2408993db);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IMediaProcessingTriggerDetailsImpl {
-    fn Arguments();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaProcessingTriggerDetailsVtbl(
@@ -1476,21 +1363,6 @@ pub struct IMediaTimelineController(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMediaTimelineController {
     type Vtable = IMediaTimelineControllerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8ed361f3_0b78_4360_bf71_0c841999ea1b);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IMediaTimelineControllerImpl {
-    fn Start();
-    fn Resume();
-    fn Pause();
-    fn Position();
-    fn SetPosition();
-    fn ClockRate();
-    fn SetClockRate();
-    fn State();
-    fn PositionChanged();
-    fn RemovePositionChanged();
-    fn StateChanged();
-    fn RemoveStateChanged();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1527,17 +1399,6 @@ unsafe impl ::windows::core::Interface for IMediaTimelineController2 {
     type Vtable = IMediaTimelineController2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xef74ea38_9e72_4df9_8355_6e90c81bbadd);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IMediaTimelineController2Impl {
-    fn Duration();
-    fn SetDuration();
-    fn IsLoopingEnabled();
-    fn SetIsLoopingEnabled();
-    fn Failed();
-    fn RemoveFailed();
-    fn Ended();
-    fn RemoveEnded();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaTimelineController2Vtbl(
@@ -1569,10 +1430,6 @@ unsafe impl ::windows::core::Interface for IMediaTimelineControllerFailedEventAr
     type Vtable = IMediaTimelineControllerFailedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8821f81d_3e77_43fb_be26_4fc87a044834);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IMediaTimelineControllerFailedEventArgsImpl {
-    fn ExtendedError();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaTimelineControllerFailedEventArgsVtbl(
@@ -1590,15 +1447,6 @@ pub struct IMusicDisplayProperties(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMusicDisplayProperties {
     type Vtable = IMusicDisplayPropertiesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6bbf0c59_d0a0_4d26_92a0_f978e1d18e7b);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IMusicDisplayPropertiesImpl {
-    fn Title();
-    fn SetTitle();
-    fn AlbumArtist();
-    fn SetAlbumArtist();
-    fn Artist();
-    fn SetArtist();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1623,14 +1471,6 @@ unsafe impl ::windows::core::Interface for IMusicDisplayProperties2 {
     type Vtable = IMusicDisplayProperties2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00368462_97d3_44b9_b00f_008afcefaf18);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IMusicDisplayProperties2Impl {
-    fn AlbumTitle();
-    fn SetAlbumTitle();
-    fn TrackNumber();
-    fn SetTrackNumber();
-    fn Genres();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMusicDisplayProperties2Vtbl(
@@ -1654,11 +1494,6 @@ unsafe impl ::windows::core::Interface for IMusicDisplayProperties3 {
     type Vtable = IMusicDisplayProperties3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4db51ac1_0681_4e8c_9401_b8159d9eefc7);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IMusicDisplayProperties3Impl {
-    fn AlbumTrackCount();
-    fn SetAlbumTrackCount();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMusicDisplayProperties3Vtbl(
@@ -1677,10 +1512,6 @@ pub struct IPlaybackPositionChangeRequestedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPlaybackPositionChangeRequestedEventArgs {
     type Vtable = IPlaybackPositionChangeRequestedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb4493f88_eb28_4961_9c14_335e44f3e125);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IPlaybackPositionChangeRequestedEventArgsImpl {
-    fn RequestedPlaybackPosition();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1701,10 +1532,6 @@ unsafe impl ::windows::core::Interface for IPlaybackRateChangeRequestedEventArgs
     type Vtable = IPlaybackRateChangeRequestedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2ce2c41f_3cd6_4f77_9ba7_eb27c26a2140);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IPlaybackRateChangeRequestedEventArgsImpl {
-    fn RequestedPlaybackRate();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPlaybackRateChangeRequestedEventArgsVtbl(
@@ -1723,10 +1550,6 @@ unsafe impl ::windows::core::Interface for IShuffleEnabledChangeRequestedEventAr
     type Vtable = IShuffleEnabledChangeRequestedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x49b593fe_4fd0_4666_a314_c0e01940d302);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IShuffleEnabledChangeRequestedEventArgsImpl {
-    fn RequestedShuffleEnabled();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IShuffleEnabledChangeRequestedEventArgsVtbl(
@@ -1744,39 +1567,6 @@ pub struct ISystemMediaTransportControls(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISystemMediaTransportControls {
     type Vtable = ISystemMediaTransportControlsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x99fa3ff4_1742_42a6_902e_087d41f965ec);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ISystemMediaTransportControlsImpl {
-    fn PlaybackStatus();
-    fn SetPlaybackStatus();
-    fn DisplayUpdater();
-    fn SoundLevel();
-    fn IsEnabled();
-    fn SetIsEnabled();
-    fn IsPlayEnabled();
-    fn SetIsPlayEnabled();
-    fn IsStopEnabled();
-    fn SetIsStopEnabled();
-    fn IsPauseEnabled();
-    fn SetIsPauseEnabled();
-    fn IsRecordEnabled();
-    fn SetIsRecordEnabled();
-    fn IsFastForwardEnabled();
-    fn SetIsFastForwardEnabled();
-    fn IsRewindEnabled();
-    fn SetIsRewindEnabled();
-    fn IsPreviousEnabled();
-    fn SetIsPreviousEnabled();
-    fn IsNextEnabled();
-    fn SetIsNextEnabled();
-    fn IsChannelUpEnabled();
-    fn SetIsChannelUpEnabled();
-    fn IsChannelDownEnabled();
-    fn SetIsChannelDownEnabled();
-    fn ButtonPressed();
-    fn RemoveButtonPressed();
-    fn PropertyChanged();
-    fn RemovePropertyChanged();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1829,24 +1619,6 @@ unsafe impl ::windows::core::Interface for ISystemMediaTransportControls2 {
     type Vtable = ISystemMediaTransportControls2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xea98d2f6_7f3c_4af2_a586_72889808efb1);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ISystemMediaTransportControls2Impl {
-    fn AutoRepeatMode();
-    fn SetAutoRepeatMode();
-    fn ShuffleEnabled();
-    fn SetShuffleEnabled();
-    fn PlaybackRate();
-    fn SetPlaybackRate();
-    fn UpdateTimelineProperties();
-    fn PlaybackPositionChangeRequested();
-    fn RemovePlaybackPositionChangeRequested();
-    fn PlaybackRateChangeRequested();
-    fn RemovePlaybackRateChangeRequested();
-    fn ShuffleEnabledChangeRequested();
-    fn RemoveShuffleEnabledChangeRequested();
-    fn AutoRepeatModeChangeRequested();
-    fn RemoveAutoRepeatModeChangeRequested();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISystemMediaTransportControls2Vtbl(
@@ -1887,10 +1659,6 @@ unsafe impl ::windows::core::Interface for ISystemMediaTransportControlsButtonPr
     type Vtable = ISystemMediaTransportControlsButtonPressedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb7f47116_a56f_4dc8_9e11_92031f4a87c2);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ISystemMediaTransportControlsButtonPressedEventArgsImpl {
-    fn Button();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISystemMediaTransportControlsButtonPressedEventArgsVtbl(
@@ -1908,21 +1676,6 @@ pub struct ISystemMediaTransportControlsDisplayUpdater(::windows::core::IUnknown
 unsafe impl ::windows::core::Interface for ISystemMediaTransportControlsDisplayUpdater {
     type Vtable = ISystemMediaTransportControlsDisplayUpdaterVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8abbc53e_fa55_4ecf_ad8e_c984e5dd1550);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ISystemMediaTransportControlsDisplayUpdaterImpl {
-    fn Type();
-    fn SetType();
-    fn AppMediaId();
-    fn SetAppMediaId();
-    fn Thumbnail();
-    fn SetThumbnail();
-    fn MusicProperties();
-    fn VideoProperties();
-    fn ImageProperties();
-    fn CopyFromFileAsync();
-    fn ClearAll();
-    fn Update();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1956,10 +1709,6 @@ unsafe impl ::windows::core::Interface for ISystemMediaTransportControlsProperty
     type Vtable = ISystemMediaTransportControlsPropertyChangedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd0ca0936_339b_4cb3_8eeb_737607f56e08);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ISystemMediaTransportControlsPropertyChangedEventArgsImpl {
-    fn Property();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISystemMediaTransportControlsPropertyChangedEventArgsVtbl(
@@ -1978,10 +1727,6 @@ unsafe impl ::windows::core::Interface for ISystemMediaTransportControlsStatics 
     type Vtable = ISystemMediaTransportControlsStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x43ba380a_eca4_4832_91ab_d415fae484c6);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ISystemMediaTransportControlsStaticsImpl {
-    fn GetForCurrentView();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISystemMediaTransportControlsStaticsVtbl(
@@ -1999,19 +1744,6 @@ pub struct ISystemMediaTransportControlsTimelineProperties(::windows::core::IUnk
 unsafe impl ::windows::core::Interface for ISystemMediaTransportControlsTimelineProperties {
     type Vtable = ISystemMediaTransportControlsTimelinePropertiesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5125316a_c3a2_475b_8507_93534dc88f15);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ISystemMediaTransportControlsTimelinePropertiesImpl {
-    fn StartTime();
-    fn SetStartTime();
-    fn EndTime();
-    fn SetEndTime();
-    fn MinSeekTime();
-    fn SetMinSeekTime();
-    fn MaxSeekTime();
-    fn SetMaxSeekTime();
-    fn Position();
-    fn SetPosition();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2050,13 +1782,6 @@ unsafe impl ::windows::core::Interface for IVideoDisplayProperties {
     type Vtable = IVideoDisplayPropertiesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5609fdb1_5d2d_4872_8170_45dee5bc2f5c);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IVideoDisplayPropertiesImpl {
-    fn Title();
-    fn SetTitle();
-    fn Subtitle();
-    fn SetSubtitle();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVideoDisplayPropertiesVtbl(
@@ -2078,10 +1803,6 @@ unsafe impl ::windows::core::Interface for IVideoDisplayProperties2 {
     type Vtable = IVideoDisplayProperties2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb410e1ce_ab52_41ab_a486_cc10fab152f9);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IVideoDisplayProperties2Impl {
-    fn Genres();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVideoDisplayProperties2Vtbl(
@@ -2101,10 +1822,6 @@ unsafe impl ::windows::core::Interface for IVideoEffectsStatics {
     type Vtable = IVideoEffectsStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1fcda5e8_baf1_4521_980c_3bcebb44cf38);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IVideoEffectsStaticsImpl {
-    fn VideoStabilization();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVideoEffectsStaticsVtbl(
@@ -2122,12 +1839,6 @@ pub struct IVideoFrame(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IVideoFrame {
     type Vtable = IVideoFrameVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0cc06625_90fc_4c92_bd95_7ded21819d1c);
-}
-#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IVideoFrameImpl: IClosableImpl + IMediaFrameImpl {
-    fn SoftwareBitmap();
-    fn CopyToAsync();
-    fn Direct3DSurface();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2152,10 +1863,6 @@ unsafe impl ::windows::core::Interface for IVideoFrame2 {
     type Vtable = IVideoFrame2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3837840d_336c_4366_8d46_060798736c5d);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IVideoFrame2Impl {
-    fn CopyToWithBoundsAsync();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVideoFrame2Vtbl(
@@ -2174,11 +1881,6 @@ pub struct IVideoFrameFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IVideoFrameFactory {
     type Vtable = IVideoFrameFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x014b6d69_2228_4c92_92ff_50c380d3e776);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IVideoFrameFactoryImpl {
-    fn Create();
-    fn CreateWithAlpha();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2200,13 +1902,6 @@ pub struct IVideoFrameStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IVideoFrameStatics {
     type Vtable = IVideoFrameStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xab2a556f_6111_4b33_8ec3_2b209a02e17a);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IVideoFrameStaticsImpl {
-    fn CreateAsDirect3D11SurfaceBacked();
-    fn CreateAsDirect3D11SurfaceBackedWithDevice();
-    fn CreateWithSoftwareBitmap();
-    fn CreateWithDirect3D11Surface();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5104,3 +4799,5 @@ impl<'a> ::windows::core::IntoParam<'a, IMediaFrame> for &VideoFrame {
 }
 unsafe impl ::core::marker::Send for VideoFrame {}
 unsafe impl ::core::marker::Sync for VideoFrame {}
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

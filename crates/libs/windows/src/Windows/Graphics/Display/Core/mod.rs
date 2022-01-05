@@ -493,17 +493,6 @@ unsafe impl ::windows::core::Interface for IHdmiDisplayInformation {
     type Vtable = IHdmiDisplayInformationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x130b3c0a_f565_476e_abd5_ea05aee74c69);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IHdmiDisplayInformationImpl {
-    fn GetSupportedDisplayModes();
-    fn GetCurrentDisplayMode();
-    fn SetDefaultDisplayModeAsync();
-    fn RequestSetCurrentDisplayModeAsync();
-    fn RequestSetCurrentDisplayModeWithHdrAsync();
-    fn RequestSetCurrentDisplayModeWithHdrAndMetadataAsync();
-    fn DisplayModesChanged();
-    fn RemoveDisplayModesChanged();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHdmiDisplayInformationVtbl(
@@ -536,10 +525,6 @@ unsafe impl ::windows::core::Interface for IHdmiDisplayInformationStatics {
     type Vtable = IHdmiDisplayInformationStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6ce6b260_f42a_4a15_914c_7b8e2a5a65df);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IHdmiDisplayInformationStaticsImpl {
-    fn GetForCurrentView();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHdmiDisplayInformationStaticsVtbl(
@@ -557,20 +542,6 @@ pub struct IHdmiDisplayMode(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IHdmiDisplayMode {
     type Vtable = IHdmiDisplayModeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0c06d5ad_1b90_4f51_9981_ef5a1c0ddf66);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IHdmiDisplayModeImpl {
-    fn ResolutionWidthInRawPixels();
-    fn ResolutionHeightInRawPixels();
-    fn RefreshRate();
-    fn StereoEnabled();
-    fn BitsPerPixel();
-    fn IsEqual();
-    fn ColorSpace();
-    fn PixelEncoding();
-    fn IsSdrLuminanceSupported();
-    fn IsSmpte2084Supported();
-    fn Is2086MetadataSupported();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -600,10 +571,6 @@ unsafe impl ::windows::core::Interface for IHdmiDisplayMode2 {
     type Vtable = IHdmiDisplayMode2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x07cd4e9f_4b3c_42b8_84e7_895368718af2);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IHdmiDisplayMode2Impl {
-    fn IsDolbyVisionLowLatencySupported();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHdmiDisplayMode2Vtbl(
@@ -615,3 +582,5 @@ pub struct IHdmiDisplayMode2Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
 );
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

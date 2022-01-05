@@ -12320,3 +12320,5 @@ impl ::core::default::Default for _MPR_VPN_SELECTOR {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

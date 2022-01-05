@@ -6,24 +6,6 @@ unsafe impl ::windows::core::Interface for IMediaTranscoder {
     type Vtable = IMediaTranscoderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x190c99d2_a0aa_4d34_86bc_eed1b12c2f5b);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IMediaTranscoderImpl {
-    fn SetTrimStartTime();
-    fn TrimStartTime();
-    fn SetTrimStopTime();
-    fn TrimStopTime();
-    fn SetAlwaysReencode();
-    fn AlwaysReencode();
-    fn SetHardwareAccelerationEnabled();
-    fn HardwareAccelerationEnabled();
-    fn AddAudioEffect();
-    fn AddAudioEffectWithSettings();
-    fn AddVideoEffect();
-    fn AddVideoEffectWithSettings();
-    fn ClearEffects();
-    fn PrepareFileTranscodeAsync();
-    fn PrepareStreamTranscodeAsync();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaTranscoderVtbl(
@@ -64,12 +46,6 @@ unsafe impl ::windows::core::Interface for IMediaTranscoder2 {
     type Vtable = IMediaTranscoder2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x40531d74_35e0_4f04_8574_ca8bc4e5a082);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IMediaTranscoder2Impl {
-    fn PrepareMediaStreamSourceTranscodeAsync();
-    fn SetVideoProcessingAlgorithm();
-    fn VideoProcessingAlgorithm();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaTranscoder2Vtbl(
@@ -90,12 +66,6 @@ pub struct IPrepareTranscodeResult(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPrepareTranscodeResult {
     type Vtable = IPrepareTranscodeResultVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x05f25dce_994f_4a34_9d68_97ccce1730d6);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IPrepareTranscodeResultImpl {
-    fn CanTranscode();
-    fn FailureReason();
-    fn TranscodeAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -480,3 +450,5 @@ unsafe impl ::windows::core::RuntimeType for TranscodeFailureReason {
 impl ::windows::core::DefaultType for TranscodeFailureReason {
     type DefaultType = Self;
 }
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

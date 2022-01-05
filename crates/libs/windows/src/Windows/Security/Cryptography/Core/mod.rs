@@ -1372,27 +1372,6 @@ unsafe impl ::windows::core::Interface for IAsymmetricAlgorithmNamesStatics {
     type Vtable = IAsymmetricAlgorithmNamesStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcaf6fce4_67c0_46aa_84f9_752e77449f9b);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IAsymmetricAlgorithmNamesStaticsImpl {
-    fn RsaPkcs1();
-    fn RsaOaepSha1();
-    fn RsaOaepSha256();
-    fn RsaOaepSha384();
-    fn RsaOaepSha512();
-    fn EcdsaP256Sha256();
-    fn EcdsaP384Sha384();
-    fn EcdsaP521Sha512();
-    fn DsaSha1();
-    fn DsaSha256();
-    fn RsaSignPkcs1Sha1();
-    fn RsaSignPkcs1Sha256();
-    fn RsaSignPkcs1Sha384();
-    fn RsaSignPkcs1Sha512();
-    fn RsaSignPssSha1();
-    fn RsaSignPssSha256();
-    fn RsaSignPssSha384();
-    fn RsaSignPssSha512();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAsymmetricAlgorithmNamesStaticsVtbl(
@@ -1428,12 +1407,6 @@ unsafe impl ::windows::core::Interface for IAsymmetricAlgorithmNamesStatics2 {
     type Vtable = IAsymmetricAlgorithmNamesStatics2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf141c0d6_4bff_4f23_ba66_6045b137d5df);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IAsymmetricAlgorithmNamesStatics2Impl {
-    fn EcdsaSha256();
-    fn EcdsaSha384();
-    fn EcdsaSha512();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAsymmetricAlgorithmNamesStatics2Vtbl(
@@ -1453,15 +1426,6 @@ pub struct IAsymmetricKeyAlgorithmProvider(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAsymmetricKeyAlgorithmProvider {
     type Vtable = IAsymmetricKeyAlgorithmProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe8d2ff37_6259_4e88_b7e0_94191fde699e);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IAsymmetricKeyAlgorithmProviderImpl {
-    fn AlgorithmName();
-    fn CreateKeyPair();
-    fn ImportDefaultPrivateKeyBlob();
-    fn ImportKeyPairWithBlobType();
-    fn ImportDefaultPublicKeyBlob();
-    fn ImportPublicKeyWithBlobType();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1490,11 +1454,6 @@ unsafe impl ::windows::core::Interface for IAsymmetricKeyAlgorithmProvider2 {
     type Vtable = IAsymmetricKeyAlgorithmProvider2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4e322a7e_7c4d_4997_ac4f_1b848b36306e);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IAsymmetricKeyAlgorithmProvider2Impl {
-    fn CreateKeyPairWithCurveName();
-    fn CreateKeyPairWithCurveParameters();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAsymmetricKeyAlgorithmProvider2Vtbl(
@@ -1514,10 +1473,6 @@ unsafe impl ::windows::core::Interface for IAsymmetricKeyAlgorithmProviderStatic
     type Vtable = IAsymmetricKeyAlgorithmProviderStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x425bde18_a7f3_47a6_a8d2_c48d6033a65c);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IAsymmetricKeyAlgorithmProviderStaticsImpl {
-    fn OpenAlgorithm();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAsymmetricKeyAlgorithmProviderStaticsVtbl(
@@ -1535,16 +1490,6 @@ pub struct ICryptographicEngineStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICryptographicEngineStatics {
     type Vtable = ICryptographicEngineStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9fea0639_6ff7_4c85_a095_95eb31715eb9);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ICryptographicEngineStaticsImpl {
-    fn Encrypt();
-    fn Decrypt();
-    fn EncryptAndAuthenticate();
-    fn DecryptAndAuthenticate();
-    fn Sign();
-    fn VerifySignature();
-    fn DeriveKeyMaterial();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1577,14 +1522,6 @@ unsafe impl ::windows::core::Interface for ICryptographicEngineStatics2 {
     type Vtable = ICryptographicEngineStatics2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x675948fe_df9f_4191_92c7_6ce6f58420e0);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ICryptographicEngineStatics2Impl {
-    fn SignHashedData();
-    fn VerifySignatureWithHashInput();
-    fn DecryptAsync();
-    fn SignAsync();
-    fn SignHashedDataAsync();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICryptographicEngineStatics2Vtbl(
@@ -1612,14 +1549,6 @@ unsafe impl ::windows::core::Interface for ICryptographicKey {
     type Vtable = ICryptographicKeyVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xed2a3b70_8e7b_4009_8401_ffd1a62eeb27);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ICryptographicKeyImpl {
-    fn KeySize();
-    fn ExportDefaultPrivateKeyBlobType();
-    fn ExportPrivateKeyWithBlobType();
-    fn ExportDefaultPublicKeyBlobType();
-    fn ExportPublicKeyWithBlobType();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICryptographicKeyVtbl(
@@ -1645,55 +1574,6 @@ pub struct IEccCurveNamesStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IEccCurveNamesStatics {
     type Vtable = IEccCurveNamesStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb3ff930c_aeeb_409e_b7d4_9b95295aaecf);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IEccCurveNamesStaticsImpl {
-    fn BrainpoolP160r1();
-    fn BrainpoolP160t1();
-    fn BrainpoolP192r1();
-    fn BrainpoolP192t1();
-    fn BrainpoolP224r1();
-    fn BrainpoolP224t1();
-    fn BrainpoolP256r1();
-    fn BrainpoolP256t1();
-    fn BrainpoolP320r1();
-    fn BrainpoolP320t1();
-    fn BrainpoolP384r1();
-    fn BrainpoolP384t1();
-    fn BrainpoolP512r1();
-    fn BrainpoolP512t1();
-    fn Curve25519();
-    fn Ec192wapi();
-    fn NistP192();
-    fn NistP224();
-    fn NistP256();
-    fn NistP384();
-    fn NistP521();
-    fn NumsP256t1();
-    fn NumsP384t1();
-    fn NumsP512t1();
-    fn SecP160k1();
-    fn SecP160r1();
-    fn SecP160r2();
-    fn SecP192k1();
-    fn SecP192r1();
-    fn SecP224k1();
-    fn SecP224r1();
-    fn SecP256k1();
-    fn SecP256r1();
-    fn SecP384r1();
-    fn SecP521r1();
-    fn Wtls7();
-    fn Wtls9();
-    fn Wtls12();
-    fn X962P192v1();
-    fn X962P192v2();
-    fn X962P192v3();
-    fn X962P239v1();
-    fn X962P239v2();
-    fn X962P239v3();
-    fn X962P256v1();
-    fn AllEccCurveNames();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1759,11 +1639,6 @@ unsafe impl ::windows::core::Interface for IEncryptedAndAuthenticatedData {
     type Vtable = IEncryptedAndAuthenticatedDataVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6fa42fe7_1ecb_4b00_bea5_60b83f862f17);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IEncryptedAndAuthenticatedDataImpl {
-    fn EncryptedData();
-    fn AuthenticationTag();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEncryptedAndAuthenticatedDataVtbl(
@@ -1784,14 +1659,6 @@ pub struct IHashAlgorithmNamesStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IHashAlgorithmNamesStatics {
     type Vtable = IHashAlgorithmNamesStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6b5e0516_de96_4f0a_8d57_dcc9dae36c76);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IHashAlgorithmNamesStaticsImpl {
-    fn Md5();
-    fn Sha1();
-    fn Sha256();
-    fn Sha384();
-    fn Sha512();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1815,13 +1682,6 @@ unsafe impl ::windows::core::Interface for IHashAlgorithmProvider {
     type Vtable = IHashAlgorithmProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbe9b3080_b2c3_422b_bce1_ec90efb5d7b5);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IHashAlgorithmProviderImpl {
-    fn AlgorithmName();
-    fn HashLength();
-    fn HashData();
-    fn CreateHash();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHashAlgorithmProviderVtbl(
@@ -1844,10 +1704,6 @@ unsafe impl ::windows::core::Interface for IHashAlgorithmProviderStatics {
     type Vtable = IHashAlgorithmProviderStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9fac9741_5cc4_4336_ae38_6212b75a915a);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IHashAlgorithmProviderStaticsImpl {
-    fn OpenAlgorithm();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHashAlgorithmProviderStaticsVtbl(
@@ -1865,11 +1721,6 @@ pub struct IHashComputation(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IHashComputation {
     type Vtable = IHashComputationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5904d1b6_ad31_4603_a3a4_b1bda98e2562);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IHashComputationImpl {
-    fn Append();
-    fn GetValueAndReset();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1891,24 +1742,6 @@ pub struct IKeyDerivationAlgorithmNamesStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IKeyDerivationAlgorithmNamesStatics {
     type Vtable = IKeyDerivationAlgorithmNamesStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7b6e363e_94d2_4739_a57b_022e0c3a402a);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IKeyDerivationAlgorithmNamesStaticsImpl {
-    fn Pbkdf2Md5();
-    fn Pbkdf2Sha1();
-    fn Pbkdf2Sha256();
-    fn Pbkdf2Sha384();
-    fn Pbkdf2Sha512();
-    fn Sp800108CtrHmacMd5();
-    fn Sp800108CtrHmacSha1();
-    fn Sp800108CtrHmacSha256();
-    fn Sp800108CtrHmacSha384();
-    fn Sp800108CtrHmacSha512();
-    fn Sp80056aConcatMd5();
-    fn Sp80056aConcatSha1();
-    fn Sp80056aConcatSha256();
-    fn Sp80056aConcatSha384();
-    fn Sp80056aConcatSha512();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1942,14 +1775,6 @@ unsafe impl ::windows::core::Interface for IKeyDerivationAlgorithmNamesStatics2 
     type Vtable = IKeyDerivationAlgorithmNamesStatics2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x57953fab_6044_466f_97f4_337b7808384d);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IKeyDerivationAlgorithmNamesStatics2Impl {
-    fn CapiKdfMd5();
-    fn CapiKdfSha1();
-    fn CapiKdfSha256();
-    fn CapiKdfSha384();
-    fn CapiKdfSha512();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IKeyDerivationAlgorithmNamesStatics2Vtbl(
@@ -1972,11 +1797,6 @@ unsafe impl ::windows::core::Interface for IKeyDerivationAlgorithmProvider {
     type Vtable = IKeyDerivationAlgorithmProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe1fba83b_4671_43b7_9158_763aaa98b6bf);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IKeyDerivationAlgorithmProviderImpl {
-    fn AlgorithmName();
-    fn CreateKey();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IKeyDerivationAlgorithmProviderVtbl(
@@ -1997,10 +1817,6 @@ unsafe impl ::windows::core::Interface for IKeyDerivationAlgorithmProviderStatic
     type Vtable = IKeyDerivationAlgorithmProviderStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0a22097a_0a1c_443b_9418_b9498aeb1603);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IKeyDerivationAlgorithmProviderStaticsImpl {
-    fn OpenAlgorithm();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IKeyDerivationAlgorithmProviderStaticsVtbl(
@@ -2018,12 +1834,6 @@ pub struct IKeyDerivationParameters(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IKeyDerivationParameters {
     type Vtable = IKeyDerivationParametersVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7bf05967_047b_4a8c_964a_469ffd5522e2);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IKeyDerivationParametersImpl {
-    fn KdfGenericBinary();
-    fn SetKdfGenericBinary();
-    fn IterationCount();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2047,11 +1857,6 @@ unsafe impl ::windows::core::Interface for IKeyDerivationParameters2 {
     type Vtable = IKeyDerivationParameters2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcd4166d1_417e_4f4c_b666_c0d879f3f8e0);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IKeyDerivationParameters2Impl {
-    fn Capi1KdfTargetAlgorithm();
-    fn SetCapi1KdfTargetAlgorithm();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IKeyDerivationParameters2Vtbl(
@@ -2070,12 +1875,6 @@ pub struct IKeyDerivationParametersStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IKeyDerivationParametersStatics {
     type Vtable = IKeyDerivationParametersStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xea961fbe_f37f_4146_9dfe_a456f1735f4b);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IKeyDerivationParametersStaticsImpl {
-    fn BuildForPbkdf2();
-    fn BuildForSP800108();
-    fn BuildForSP80056a();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2100,10 +1899,6 @@ unsafe impl ::windows::core::Interface for IKeyDerivationParametersStatics2 {
     type Vtable = IKeyDerivationParametersStatics2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa5783dd5_58e3_4efb_b283_a1653126e1be);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IKeyDerivationParametersStatics2Impl {
-    fn BuildForCapi1Kdf();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IKeyDerivationParametersStatics2Vtbl(
@@ -2121,15 +1916,6 @@ pub struct IMacAlgorithmNamesStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMacAlgorithmNamesStatics {
     type Vtable = IMacAlgorithmNamesStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x41412678_fb1e_43a4_895e_a9026e4390a3);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IMacAlgorithmNamesStaticsImpl {
-    fn HmacMd5();
-    fn HmacSha1();
-    fn HmacSha256();
-    fn HmacSha384();
-    fn HmacSha512();
-    fn AesCmac();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2154,12 +1940,6 @@ unsafe impl ::windows::core::Interface for IMacAlgorithmProvider {
     type Vtable = IMacAlgorithmProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4a3fc5c3_1cbd_41ce_a092_aa0bc5d2d2f5);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IMacAlgorithmProviderImpl {
-    fn AlgorithmName();
-    fn MacLength();
-    fn CreateKey();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMacAlgorithmProviderVtbl(
@@ -2181,10 +1961,6 @@ unsafe impl ::windows::core::Interface for IMacAlgorithmProvider2 {
     type Vtable = IMacAlgorithmProvider2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6da32a15_d931_42ed_8e7e_c301caee119c);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IMacAlgorithmProvider2Impl {
-    fn CreateHash();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMacAlgorithmProvider2Vtbl(
@@ -2204,10 +1980,6 @@ unsafe impl ::windows::core::Interface for IMacAlgorithmProviderStatics {
     type Vtable = IMacAlgorithmProviderStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc9bdc147_cc77_4df0_9e4e_b921e080644c);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IMacAlgorithmProviderStaticsImpl {
-    fn OpenAlgorithm();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMacAlgorithmProviderStaticsVtbl(
@@ -2225,11 +1997,6 @@ pub struct IPersistedKeyProviderStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPersistedKeyProviderStatics {
     type Vtable = IPersistedKeyProviderStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x77274814_d9d4_4cf5_b668_e0457df30894);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IPersistedKeyProviderStaticsImpl {
-    fn OpenKeyPairFromCertificateAsync();
-    fn OpenPublicKeyFromCertificate();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2251,28 +2018,6 @@ pub struct ISymmetricAlgorithmNamesStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISymmetricAlgorithmNamesStatics {
     type Vtable = ISymmetricAlgorithmNamesStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6870727b_c996_4eae_84d7_79b2aeb73b9c);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ISymmetricAlgorithmNamesStaticsImpl {
-    fn DesCbc();
-    fn DesEcb();
-    fn TripleDesCbc();
-    fn TripleDesEcb();
-    fn Rc2Cbc();
-    fn Rc2Ecb();
-    fn AesCbc();
-    fn AesEcb();
-    fn AesGcm();
-    fn AesCcm();
-    fn AesCbcPkcs7();
-    fn AesEcbPkcs7();
-    fn DesCbcPkcs7();
-    fn DesEcbPkcs7();
-    fn TripleDesCbcPkcs7();
-    fn TripleDesEcbPkcs7();
-    fn Rc2CbcPkcs7();
-    fn Rc2EcbPkcs7();
-    fn Rc4();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2310,12 +2055,6 @@ unsafe impl ::windows::core::Interface for ISymmetricKeyAlgorithmProvider {
     type Vtable = ISymmetricKeyAlgorithmProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3d7e4a33_3bd0_4902_8ac8_470d50d21376);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ISymmetricKeyAlgorithmProviderImpl {
-    fn AlgorithmName();
-    fn BlockLength();
-    fn CreateSymmetricKey();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISymmetricKeyAlgorithmProviderVtbl(
@@ -2336,10 +2075,6 @@ pub struct ISymmetricKeyAlgorithmProviderStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISymmetricKeyAlgorithmProviderStatics {
     type Vtable = ISymmetricKeyAlgorithmProviderStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8d3b2326_1f37_491f_b60e_f5431b26b483);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ISymmetricKeyAlgorithmProviderStaticsImpl {
-    fn OpenAlgorithm();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3217,3 +2952,5 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Symm
 }
 unsafe impl ::core::marker::Send for SymmetricKeyAlgorithmProvider {}
 unsafe impl ::core::marker::Sync for SymmetricKeyAlgorithmProvider {}
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

@@ -42,3 +42,5 @@ unsafe impl ::windows::core::RuntimeType for AudioRenderCategory {
 impl ::windows::core::DefaultType for AudioRenderCategory {
     type DefaultType = Self;
 }
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

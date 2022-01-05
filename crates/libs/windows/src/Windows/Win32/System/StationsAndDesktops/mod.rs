@@ -603,3 +603,5 @@ pub type WINSTAENUMPROCA = ::core::option::Option<unsafe extern "system" fn(para
 #[doc = "*Required features: 'Win32_System_StationsAndDesktops', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type WINSTAENUMPROCW = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::PWSTR, param1: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL>;
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

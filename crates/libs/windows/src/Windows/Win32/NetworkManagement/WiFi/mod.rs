@@ -9997,17 +9997,6 @@ unsafe impl ::windows::core::Interface for IDot11AdHocInterface {
     type Vtable = IDot11AdHocInterfaceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8f10cc2b_cf0d_42a0_acbe_e2de7007384d);
 }
-pub trait IDot11AdHocInterfaceImpl {
-    fn GetDeviceSignature();
-    fn GetFriendlyName();
-    fn IsDot11d();
-    fn IsAdHocCapable();
-    fn IsRadioOn();
-    fn GetActiveNetwork();
-    fn GetIEnumSecuritySettings();
-    fn GetIEnumDot11AdHocNetworks();
-    fn GetStatus();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDot11AdHocInterfaceVtbl(
@@ -10073,9 +10062,6 @@ impl ::core::fmt::Debug for IDot11AdHocInterfaceNotificationSink {
 unsafe impl ::windows::core::Interface for IDot11AdHocInterfaceNotificationSink {
     type Vtable = IDot11AdHocInterfaceNotificationSinkVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8f10cc2f_cf0d_42a0_acbe_e2de7007384d);
-}
-pub trait IDot11AdHocInterfaceNotificationSinkImpl {
-    fn OnConnectionStatusChange();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -10151,13 +10137,6 @@ unsafe impl ::windows::core::Interface for IDot11AdHocManager {
     type Vtable = IDot11AdHocManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8f10cc26_cf0d_42a0_acbe_e2de7007384d);
 }
-pub trait IDot11AdHocManagerImpl {
-    fn CreateNetwork();
-    fn CommitCreatedNetwork();
-    fn GetIEnumDot11AdHocNetworks();
-    fn GetIEnumDot11AdHocInterfaces();
-    fn GetNetwork();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDot11AdHocManagerVtbl(
@@ -10232,12 +10211,6 @@ impl ::core::fmt::Debug for IDot11AdHocManagerNotificationSink {
 unsafe impl ::windows::core::Interface for IDot11AdHocManagerNotificationSink {
     type Vtable = IDot11AdHocManagerNotificationSinkVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8f10cc27_cf0d_42a0_acbe_e2de7007384d);
-}
-pub trait IDot11AdHocManagerNotificationSinkImpl {
-    fn OnNetworkAdd();
-    fn OnNetworkRemove();
-    fn OnInterfaceAdd();
-    fn OnInterfaceRemove();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -10350,20 +10323,6 @@ unsafe impl ::windows::core::Interface for IDot11AdHocNetwork {
     type Vtable = IDot11AdHocNetworkVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8f10cc29_cf0d_42a0_acbe_e2de7007384d);
 }
-pub trait IDot11AdHocNetworkImpl {
-    fn GetStatus();
-    fn GetSSID();
-    fn HasProfile();
-    fn GetProfileName();
-    fn DeleteProfile();
-    fn GetSignalQuality();
-    fn GetSecuritySetting();
-    fn GetContextGuid();
-    fn GetSignature();
-    fn GetInterface();
-    fn Connect();
-    fn Disconnect();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDot11AdHocNetworkVtbl(
@@ -10439,10 +10398,6 @@ unsafe impl ::windows::core::Interface for IDot11AdHocNetworkNotificationSink {
     type Vtable = IDot11AdHocNetworkNotificationSinkVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8f10cc2a_cf0d_42a0_acbe_e2de7007384d);
 }
-pub trait IDot11AdHocNetworkNotificationSinkImpl {
-    fn OnStatusChange();
-    fn OnConnectFail();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDot11AdHocNetworkNotificationSinkVtbl(
@@ -10504,10 +10459,6 @@ impl ::core::fmt::Debug for IDot11AdHocSecuritySettings {
 unsafe impl ::windows::core::Interface for IDot11AdHocSecuritySettings {
     type Vtable = IDot11AdHocSecuritySettingsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8f10cc2e_cf0d_42a0_acbe_e2de7007384d);
-}
-pub trait IDot11AdHocSecuritySettingsImpl {
-    fn GetDot11AuthAlgorithm();
-    fn GetDot11CipherAlgorithm();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -10579,12 +10530,6 @@ impl ::core::fmt::Debug for IEnumDot11AdHocInterfaces {
 unsafe impl ::windows::core::Interface for IEnumDot11AdHocInterfaces {
     type Vtable = IEnumDot11AdHocInterfacesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8f10cc2c_cf0d_42a0_acbe_e2de7007384d);
-}
-pub trait IEnumDot11AdHocInterfacesImpl {
-    fn Next();
-    fn Skip();
-    fn Reset();
-    fn Clone();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -10659,12 +10604,6 @@ unsafe impl ::windows::core::Interface for IEnumDot11AdHocNetworks {
     type Vtable = IEnumDot11AdHocNetworksVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8f10cc28_cf0d_42a0_acbe_e2de7007384d);
 }
-pub trait IEnumDot11AdHocNetworksImpl {
-    fn Next();
-    fn Skip();
-    fn Reset();
-    fn Clone();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumDot11AdHocNetworksVtbl(
@@ -10737,12 +10676,6 @@ impl ::core::fmt::Debug for IEnumDot11AdHocSecuritySettings {
 unsafe impl ::windows::core::Interface for IEnumDot11AdHocSecuritySettings {
     type Vtable = IEnumDot11AdHocSecuritySettingsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8f10cc2d_cf0d_42a0_acbe_e2de7007384d);
-}
-pub trait IEnumDot11AdHocSecuritySettingsImpl {
-    fn Next();
-    fn Skip();
-    fn Reset();
-    fn Clone();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -14812,3 +14745,5 @@ impl ::core::default::Default for _DOT11_WME_AC_PARAMTERS_LIST {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

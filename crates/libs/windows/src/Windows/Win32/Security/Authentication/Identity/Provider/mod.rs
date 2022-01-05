@@ -81,14 +81,6 @@ unsafe impl ::windows::core::Interface for AsyncIAssociatedIdentityProvider {
     type Vtable = AsyncIAssociatedIdentityProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2834d6ed_297e_4e72_8a51_961e86f05152);
 }
-pub trait AsyncIAssociatedIdentityProviderImpl {
-    fn Begin_AssociateIdentity();
-    fn Finish_AssociateIdentity();
-    fn Begin_DisassociateIdentity();
-    fn Finish_DisassociateIdentity();
-    fn Begin_ChangeCredential();
-    fn Finish_ChangeCredential();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct AsyncIAssociatedIdentityProviderVtbl(
@@ -196,18 +188,6 @@ unsafe impl ::windows::core::Interface for AsyncIConnectedIdentityProvider {
     type Vtable = AsyncIConnectedIdentityProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9ce55141_bce9_4e15_824d_43d79f512f93);
 }
-pub trait AsyncIConnectedIdentityProviderImpl {
-    fn Begin_ConnectIdentity();
-    fn Finish_ConnectIdentity();
-    fn Begin_DisconnectIdentity();
-    fn Finish_DisconnectIdentity();
-    fn Begin_IsConnected();
-    fn Finish_IsConnected();
-    fn Begin_GetUrl();
-    fn Finish_GetUrl();
-    fn Begin_GetAccountState();
-    fn Finish_GetAccountState();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct AsyncIConnectedIdentityProviderVtbl(
@@ -282,10 +262,6 @@ unsafe impl ::windows::core::Interface for AsyncIIdentityAdvise {
     type Vtable = AsyncIIdentityAdviseVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3ab4c8da_d038_4830_8dd9_3253c55a127f);
 }
-pub trait AsyncIIdentityAdviseImpl {
-    fn Begin_IdentityUpdated();
-    fn Finish_IdentityUpdated();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct AsyncIIdentityAdviseVtbl(
@@ -358,12 +334,6 @@ impl ::core::fmt::Debug for AsyncIIdentityAuthentication {
 unsafe impl ::windows::core::Interface for AsyncIIdentityAuthentication {
     type Vtable = AsyncIIdentityAuthenticationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf9a2f918_feca_4e9c_9633_61cbf13ed34d);
-}
-pub trait AsyncIIdentityAuthenticationImpl {
-    fn Begin_SetIdentityCredential();
-    fn Finish_SetIdentityCredential();
-    fn Begin_ValidateIdentityCredential();
-    fn Finish_ValidateIdentityCredential();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -501,24 +471,6 @@ unsafe impl ::windows::core::Interface for AsyncIIdentityProvider {
     type Vtable = AsyncIIdentityProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc6fc9901_c433_4646_8f48_4e4687aae2a0);
 }
-pub trait AsyncIIdentityProviderImpl {
-    fn Begin_GetIdentityEnum();
-    fn Finish_GetIdentityEnum();
-    fn Begin_Create();
-    fn Finish_Create();
-    fn Begin_Import();
-    fn Finish_Import();
-    fn Begin_Delete();
-    fn Finish_Delete();
-    fn Begin_FindByUniqueID();
-    fn Finish_FindByUniqueID();
-    fn Begin_GetProviderPropertyStore();
-    fn Finish_GetProviderPropertyStore();
-    fn Begin_Advise();
-    fn Finish_Advise();
-    fn Begin_UnAdvise();
-    fn Finish_UnAdvise();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct AsyncIIdentityProviderVtbl(
@@ -650,20 +602,6 @@ unsafe impl ::windows::core::Interface for AsyncIIdentityStore {
     type Vtable = AsyncIIdentityStoreVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeefa1616_48de_4872_aa64_6e6206535a51);
 }
-pub trait AsyncIIdentityStoreImpl {
-    fn Begin_GetCount();
-    fn Finish_GetCount();
-    fn Begin_GetAt();
-    fn Finish_GetAt();
-    fn Begin_AddToCache();
-    fn Finish_AddToCache();
-    fn Begin_ConvertToSid();
-    fn Finish_ConvertToSid();
-    fn Begin_EnumerateIdentities();
-    fn Finish_EnumerateIdentities();
-    fn Begin_Reset();
-    fn Finish_Reset();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct AsyncIIdentityStoreVtbl(
@@ -750,12 +688,6 @@ unsafe impl ::windows::core::Interface for AsyncIIdentityStoreEx {
     type Vtable = AsyncIIdentityStoreExVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfca3af9a_8a07_4eae_8632_ec3de658a36a);
 }
-pub trait AsyncIIdentityStoreExImpl {
-    fn Begin_CreateConnectedIdentity();
-    fn Finish_CreateConnectedIdentity();
-    fn Begin_DeleteConnectedIdentity();
-    fn Finish_DeleteConnectedIdentity();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct AsyncIIdentityStoreExVtbl(
@@ -831,11 +763,6 @@ impl ::core::fmt::Debug for IAssociatedIdentityProvider {
 unsafe impl ::windows::core::Interface for IAssociatedIdentityProvider {
     type Vtable = IAssociatedIdentityProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2af066b3_4cbb_4cba_a798_204b6af68cc0);
-}
-pub trait IAssociatedIdentityProviderImpl {
-    fn AssociateIdentity();
-    fn DisassociateIdentity();
-    fn ChangeCredential();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -918,13 +845,6 @@ impl ::core::fmt::Debug for IConnectedIdentityProvider {
 unsafe impl ::windows::core::Interface for IConnectedIdentityProvider {
     type Vtable = IConnectedIdentityProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb7417b54_e08c_429b_96c8_678d1369ecb1);
-}
-pub trait IConnectedIdentityProviderImpl {
-    fn ConnectIdentity();
-    fn DisconnectIdentity();
-    fn IsConnected();
-    fn GetUrl();
-    fn GetAccountState();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1012,9 +932,6 @@ unsafe impl ::windows::core::Interface for IIdentityAdvise {
     type Vtable = IIdentityAdviseVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4e982fed_d14b_440c_b8d6_bb386453d386);
 }
-pub trait IIdentityAdviseImpl {
-    fn IdentityUpdated();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IIdentityAdviseVtbl(
@@ -1077,10 +994,6 @@ impl ::core::fmt::Debug for IIdentityAuthentication {
 unsafe impl ::windows::core::Interface for IIdentityAuthentication {
     type Vtable = IIdentityAuthenticationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5e7ef254_979f_43b5_b74e_06e4eb7df0f9);
-}
-pub trait IIdentityAuthenticationImpl {
-    fn SetIdentityCredential();
-    fn ValidateIdentityCredential();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1179,16 +1092,6 @@ unsafe impl ::windows::core::Interface for IIdentityProvider {
     type Vtable = IIdentityProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0d1b9e0c_e8ba_4f55_a81b_bce934b948f5);
 }
-pub trait IIdentityProviderImpl {
-    fn GetIdentityEnum();
-    fn Create();
-    fn Import();
-    fn Delete();
-    fn FindByUniqueID();
-    fn GetProviderPropertyStore();
-    fn Advise();
-    fn UnAdvise();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IIdentityProviderVtbl(
@@ -1284,14 +1187,6 @@ unsafe impl ::windows::core::Interface for IIdentityStore {
     type Vtable = IIdentityStoreVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdf586fa5_6f35_44f1_b209_b38e169772eb);
 }
-pub trait IIdentityStoreImpl {
-    fn GetCount();
-    fn GetAt();
-    fn AddToCache();
-    fn ConvertToSid();
-    fn EnumerateIdentities();
-    fn Reset();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IIdentityStoreVtbl(
@@ -1363,10 +1258,6 @@ unsafe impl ::windows::core::Interface for IIdentityStoreEx {
     type Vtable = IIdentityStoreExVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf9f9eb98_8f7f_4e38_9577_6980114ce32b);
 }
-pub trait IIdentityStoreExImpl {
-    fn CreateConnectedIdentity();
-    fn DeleteConnectedIdentity();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IIdentityStoreExVtbl(
@@ -1397,3 +1288,5 @@ pub const IDENTITY_CONNECTED: IdentityUpdateEvent = 64u32;
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity_Provider'*"]
 pub const IDENTITY_DISCONNECTED: IdentityUpdateEvent = 128u32;
 pub const OID_OAssociatedIdentityProviderObject: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x98c5a3dd_db68_4f1a_8d2b_9079cdfeaf61);
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

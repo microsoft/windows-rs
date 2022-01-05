@@ -67,3 +67,5 @@ unsafe impl ::windows::core::RuntimeType for DragDropModifiers {
 impl ::windows::core::DefaultType for DragDropModifiers {
     type DefaultType = Self;
 }
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

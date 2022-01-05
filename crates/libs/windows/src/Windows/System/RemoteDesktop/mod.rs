@@ -8,10 +8,6 @@ unsafe impl ::windows::core::Interface for IInteractiveSessionStatics {
     type Vtable = IInteractiveSessionStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x60884631_dd3a_4576_9c8d_e8027618bdce);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IInteractiveSessionStaticsImpl {
-    fn IsRemote();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInteractiveSessionStaticsVtbl(
@@ -42,3 +38,5 @@ impl InteractiveSession {
 impl ::windows::core::RuntimeName for InteractiveSession {
     const NAME: &'static str = "Windows.System.RemoteDesktop.InteractiveSession";
 }
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

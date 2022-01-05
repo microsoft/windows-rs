@@ -322,3 +322,5 @@ pub unsafe fn TzSpecificLocalTimeToSystemTimeEx(lptimezoneinformation: *const DY
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

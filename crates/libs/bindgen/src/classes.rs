@@ -108,7 +108,6 @@ fn gen_class(def: &TypeDef, gen: &Gen) -> TokenStream {
         tokens.combine(&gen_iterator(def, &cfg, gen));
         tokens.combine(&gen_conversions(def, &cfg, gen));
         tokens.combine(&gen_agile(def, &cfg, gen));
-        tokens.combine(&gen_implement(def, &cfg, gen));
         tokens
     } else {
         let mut tokens = quote! {
@@ -269,11 +268,4 @@ fn gen_conversions(def: &TypeDef, cfg: &Cfg, gen: &Gen) -> TokenStream {
     }
 
     tokens
-}
-
-fn gen_implement(_def: &TypeDef, _cfg: &Cfg, _gen: &Gen) -> TokenStream {
-    // TODO: gen trait for classes and cfg based on all interfaces being featured 
-    // and only provide implement trait if "implement_exclusive" is featured.
-    // Also cfg should include all method cfgs.
-    quote!{}
 }

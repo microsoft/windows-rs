@@ -6,13 +6,6 @@ unsafe impl ::windows::core::Interface for IPlaylist {
     type Vtable = IPlaylistVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x803736f5_cf44_4d97_83b3_7a089e9ab663);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IPlaylistImpl {
-    fn Files();
-    fn SaveAsync();
-    fn SaveAsAsync();
-    fn SaveAsWithFormatAsync();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPlaylistVtbl(
@@ -37,10 +30,6 @@ pub struct IPlaylistStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPlaylistStatics {
     type Vtable = IPlaylistStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc5c331cd_81f9_4ff3_95b9_70b6ff046b68);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IPlaylistStaticsImpl {
-    fn LoadAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -215,3 +204,5 @@ unsafe impl ::windows::core::RuntimeType for PlaylistFormat {
 impl ::windows::core::DefaultType for PlaylistFormat {
     type DefaultType = Self;
 }
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

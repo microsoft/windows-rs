@@ -105,7 +105,6 @@ unsafe impl ::windows::core::Interface for IDontSupportEventSubscription {
     type Vtable = IDontSupportEventSubscriptionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x784121f1_62a6_4b89_855f_d65f296de83a);
 }
-pub trait IDontSupportEventSubscriptionImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDontSupportEventSubscriptionVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32);
@@ -170,12 +169,6 @@ impl ::core::fmt::Debug for IEnumEventObject {
 unsafe impl ::windows::core::Interface for IEnumEventObject {
     type Vtable = IEnumEventObjectVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf4a07d63_2e25_11d1_9964_00c04fbbb345);
-}
-pub trait IEnumEventObjectImpl {
-    fn Clone();
-    fn Next();
-    fn Reset();
-    fn Skip();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -349,22 +342,6 @@ impl ::core::fmt::Debug for IEventClass {
 unsafe impl ::windows::core::Interface for IEventClass {
     type Vtable = IEventClassVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfb2b72a0_7a68_11d1_88f9_0080c7d771bf);
-}
-pub trait IEventClassImpl: IDispatchImpl {
-    fn EventClassID();
-    fn SetEventClassID();
-    fn EventClassName();
-    fn SetEventClassName();
-    fn OwnerSID();
-    fn SetOwnerSID();
-    fn FiringInterfaceID();
-    fn SetFiringInterfaceID();
-    fn Description();
-    fn SetDescription();
-    fn CustomConfigCLSID();
-    fn SetCustomConfigCLSID();
-    fn TypeLib();
-    fn SetTypeLib();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -633,16 +610,6 @@ unsafe impl ::windows::core::Interface for IEventClass2 {
     type Vtable = IEventClass2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfb2b72a1_7a68_11d1_88f9_0080c7d771bf);
 }
-pub trait IEventClass2Impl: IEventClassImpl + IDispatchImpl {
-    fn PublisherID();
-    fn SetPublisherID();
-    fn MultiInterfacePublisherFilterCLSID();
-    fn SetMultiInterfacePublisherFilterCLSID();
-    fn AllowInprocActivation();
-    fn SetAllowInprocActivation();
-    fn FireInParallel();
-    fn SetFireInParallel();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEventClass2Vtbl(
@@ -813,13 +780,6 @@ unsafe impl ::windows::core::Interface for IEventControl {
     type Vtable = IEventControlVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0343e2f4_86f6_11d1_b760_00c04fb926af);
 }
-pub trait IEventControlImpl: IDispatchImpl {
-    fn SetPublisherFilter();
-    fn AllowInprocActivation();
-    fn SetAllowInprocActivation();
-    fn GetSubscriptions();
-    fn SetDefaultQuery();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEventControlVtbl(
@@ -903,11 +863,6 @@ unsafe impl ::windows::core::Interface for IEventObjectChange {
     type Vtable = IEventObjectChangeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf4a07d70_2e25_11d1_9964_00c04fbbb345);
 }
-pub trait IEventObjectChangeImpl {
-    fn ChangedSubscription();
-    fn ChangedEventClass();
-    fn ChangedPublisher();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEventObjectChangeVtbl(
@@ -975,10 +930,6 @@ impl ::core::fmt::Debug for IEventObjectChange2 {
 unsafe impl ::windows::core::Interface for IEventObjectChange2 {
     type Vtable = IEventObjectChange2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7701a9c3_bd68_438f_83e0_67bf4f53a422);
-}
-pub trait IEventObjectChange2Impl {
-    fn ChangedSubscription();
-    fn ChangedEventClass();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1106,14 +1057,6 @@ impl ::core::fmt::Debug for IEventObjectCollection {
 unsafe impl ::windows::core::Interface for IEventObjectCollection {
     type Vtable = IEventObjectCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf89ac270_d4eb_11d1_b682_00805fc79216);
-}
-pub trait IEventObjectCollectionImpl: IDispatchImpl {
-    fn _NewEnum();
-    fn Item();
-    fn NewEnum();
-    fn Count();
-    fn Add();
-    fn Remove();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1243,12 +1186,6 @@ impl ::core::fmt::Debug for IEventProperty {
 unsafe impl ::windows::core::Interface for IEventProperty {
     type Vtable = IEventPropertyVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xda538ee2_f4de_11d1_b6bb_00805fc79216);
-}
-pub trait IEventPropertyImpl: IDispatchImpl {
-    fn Name();
-    fn SetName();
-    fn Value();
-    fn SetValue();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1431,22 +1368,6 @@ impl ::core::fmt::Debug for IEventPublisher {
 unsafe impl ::windows::core::Interface for IEventPublisher {
     type Vtable = IEventPublisherVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe341516b_2e32_11d1_9964_00c04fbbb345);
-}
-pub trait IEventPublisherImpl: IDispatchImpl {
-    fn PublisherID();
-    fn SetPublisherID();
-    fn PublisherName();
-    fn SetPublisherName();
-    fn PublisherType();
-    fn SetPublisherType();
-    fn OwnerSID();
-    fn SetOwnerSID();
-    fn Description();
-    fn SetDescription();
-    fn GetDefaultProperty();
-    fn PutDefaultProperty();
-    fn RemoveDefaultProperty();
-    fn GetDefaultPropertyCollection();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1756,42 +1677,6 @@ unsafe impl ::windows::core::Interface for IEventSubscription {
     type Vtable = IEventSubscriptionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4a6b0e15_2e38_11d1_9965_00c04fbbb345);
 }
-pub trait IEventSubscriptionImpl: IDispatchImpl {
-    fn SubscriptionID();
-    fn SetSubscriptionID();
-    fn SubscriptionName();
-    fn SetSubscriptionName();
-    fn PublisherID();
-    fn SetPublisherID();
-    fn EventClassID();
-    fn SetEventClassID();
-    fn MethodName();
-    fn SetMethodName();
-    fn SubscriberCLSID();
-    fn SetSubscriberCLSID();
-    fn SubscriberInterface();
-    fn SetSubscriberInterface();
-    fn PerUser();
-    fn SetPerUser();
-    fn OwnerSID();
-    fn SetOwnerSID();
-    fn Enabled();
-    fn SetEnabled();
-    fn Description();
-    fn SetDescription();
-    fn MachineName();
-    fn SetMachineName();
-    fn GetPublisherProperty();
-    fn PutPublisherProperty();
-    fn RemovePublisherProperty();
-    fn GetPublisherPropertyCollection();
-    fn GetSubscriberProperty();
-    fn PutSubscriberProperty();
-    fn RemoveSubscriberProperty();
-    fn GetSubscriberPropertyCollection();
-    fn InterfaceID();
-    fn SetInterfaceID();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEventSubscriptionVtbl(
@@ -1987,14 +1872,6 @@ unsafe impl ::windows::core::Interface for IEventSystem {
     type Vtable = IEventSystemVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4e14fb9f_2e22_11d1_9964_00c04fbbb345);
 }
-pub trait IEventSystemImpl: IDispatchImpl {
-    fn Query();
-    fn Store();
-    fn Remove();
-    fn EventObjectChangeEventClassID();
-    fn QueryS();
-    fn RemoveS();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEventSystemVtbl(
@@ -2109,9 +1986,6 @@ unsafe impl ::windows::core::Interface for IFiringControl {
     type Vtable = IFiringControlVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe0498c93_4efe_11d1_9971_00c04fbbb345);
 }
-pub trait IFiringControlImpl: IDispatchImpl {
-    fn FireSubscription();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFiringControlVtbl(
@@ -2209,15 +2083,6 @@ unsafe impl ::windows::core::Interface for IMultiInterfaceEventControl {
     type Vtable = IMultiInterfaceEventControlVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0343e2f5_86f6_11d1_b760_00c04fb926af);
 }
-pub trait IMultiInterfaceEventControlImpl {
-    fn SetMultiInterfacePublisherFilter();
-    fn GetSubscriptions();
-    fn SetDefaultQuery();
-    fn AllowInprocActivation();
-    fn SetAllowInprocActivation();
-    fn FireInParallel();
-    fn SetFireInParallel();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMultiInterfaceEventControlVtbl(
@@ -2292,10 +2157,6 @@ unsafe impl ::windows::core::Interface for IMultiInterfacePublisherFilter {
     type Vtable = IMultiInterfacePublisherFilterVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x465e5cc1_7b26_11d1_88fb_0080c7d771bf);
 }
-pub trait IMultiInterfacePublisherFilterImpl {
-    fn Initialize();
-    fn PrepareToFire();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMultiInterfacePublisherFilterVtbl(
@@ -2361,10 +2222,6 @@ unsafe impl ::windows::core::Interface for IPublisherFilter {
     type Vtable = IPublisherFilterVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x465e5cc0_7b26_11d1_88fb_0080c7d771bf);
 }
-pub trait IPublisherFilterImpl {
-    fn Initialize();
-    fn PrepareToFire();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPublisherFilterVtbl(
@@ -2376,3 +2233,5 @@ pub struct IPublisherFilterVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, methodname: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, firingcontrol: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

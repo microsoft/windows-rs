@@ -6,11 +6,6 @@ unsafe impl ::windows::core::Interface for IRadialControllerIndependentInputSour
     type Vtable = IRadialControllerIndependentInputSourceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3d577ef6_4cee_11e6_b535_001bdc06ab3b);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IRadialControllerIndependentInputSourceImpl {
-    fn Controller();
-    fn Dispatcher();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRadialControllerIndependentInputSourceVtbl(
@@ -31,10 +26,6 @@ unsafe impl ::windows::core::Interface for IRadialControllerIndependentInputSour
     type Vtable = IRadialControllerIndependentInputSource2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7073aad8_35f3_4eeb_8751_be4d0a66faf4);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IRadialControllerIndependentInputSource2Impl {
-    fn DispatcherQueue();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRadialControllerIndependentInputSource2Vtbl(
@@ -53,10 +44,6 @@ pub struct IRadialControllerIndependentInputSourceStatics(::windows::core::IUnkn
 unsafe impl ::windows::core::Interface for IRadialControllerIndependentInputSourceStatics {
     type Vtable = IRadialControllerIndependentInputSourceStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3d577ef5_4cee_11e6_b535_001bdc06ab3b);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IRadialControllerIndependentInputSourceStaticsImpl {
-    fn CreateForView();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -182,3 +169,5 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Radi
 }
 unsafe impl ::core::marker::Send for RadialControllerIndependentInputSource {}
 unsafe impl ::core::marker::Sync for RadialControllerIndependentInputSource {}
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

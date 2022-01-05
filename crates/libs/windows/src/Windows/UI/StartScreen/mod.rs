@@ -39,13 +39,6 @@ unsafe impl ::windows::core::Interface for IJumpList {
     type Vtable = IJumpListVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb0234c3e_cd6f_4cb6_a611_61fd505f3ed1);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IJumpListImpl {
-    fn Items();
-    fn SystemGroupKind();
-    fn SetSystemGroupKind();
-    fn SaveAsync();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IJumpListVtbl(
@@ -68,20 +61,6 @@ pub struct IJumpListItem(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IJumpListItem {
     type Vtable = IJumpListItemVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7adb6717_8b5d_4820_995b_9b418dbe48b0);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IJumpListItemImpl {
-    fn Kind();
-    fn Arguments();
-    fn RemovedByUser();
-    fn Description();
-    fn SetDescription();
-    fn DisplayName();
-    fn SetDisplayName();
-    fn GroupName();
-    fn SetGroupName();
-    fn Logo();
-    fn SetLogo();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -113,11 +92,6 @@ unsafe impl ::windows::core::Interface for IJumpListItemStatics {
     type Vtable = IJumpListItemStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf1bfc4e8_c7aa_49cb_8dde_ecfccd7ad7e4);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IJumpListItemStaticsImpl {
-    fn CreateWithArguments();
-    fn CreateSeparator();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IJumpListItemStaticsVtbl(
@@ -136,11 +110,6 @@ pub struct IJumpListStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IJumpListStatics {
     type Vtable = IJumpListStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa7e0c681_e67e_4b74_8250_3f322c4d92c3);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IJumpListStaticsImpl {
-    fn LoadCurrentAsync();
-    fn IsSupported();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -161,42 +130,6 @@ pub struct ISecondaryTile(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISecondaryTile {
     type Vtable = ISecondaryTileVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9e9e51e0_2bb5_4bc0_bb8d_42b23abcc88d);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ISecondaryTileImpl {
-    fn SetTileId();
-    fn TileId();
-    fn SetArguments();
-    fn Arguments();
-    fn SetShortName();
-    fn ShortName();
-    fn SetDisplayName();
-    fn DisplayName();
-    fn SetLogo();
-    fn Logo();
-    fn SetSmallLogo();
-    fn SmallLogo();
-    fn SetWideLogo();
-    fn WideLogo();
-    fn SetLockScreenBadgeLogo();
-    fn LockScreenBadgeLogo();
-    fn SetLockScreenDisplayBadgeAndTileText();
-    fn LockScreenDisplayBadgeAndTileText();
-    fn SetTileOptions();
-    fn TileOptions();
-    fn SetForegroundText();
-    fn ForegroundText();
-    fn SetBackgroundColor();
-    fn BackgroundColor();
-    fn RequestCreateAsync();
-    fn RequestCreateAsyncWithPoint();
-    fn RequestCreateAsyncWithRect();
-    fn RequestCreateAsyncWithRectAndPlacement();
-    fn RequestDeleteAsync();
-    fn RequestDeleteAsyncWithPoint();
-    fn RequestDeleteAsyncWithRect();
-    fn RequestDeleteAsyncWithRectAndPlacement();
-    fn UpdateAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -273,16 +206,6 @@ unsafe impl ::windows::core::Interface for ISecondaryTile2 {
     type Vtable = ISecondaryTile2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb2f6cc35_3250_4990_923c_294ab4b694dd);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ISecondaryTile2Impl: ISecondaryTileImpl {
-    fn SetPhoneticName();
-    fn PhoneticName();
-    fn VisualElements();
-    fn SetRoamingEnabled();
-    fn RoamingEnabled();
-    fn VisualElementsRequested();
-    fn RemoveVisualElementsRequested();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISecondaryTile2Vtbl(
@@ -309,12 +232,6 @@ unsafe impl ::windows::core::Interface for ISecondaryTileFactory {
     type Vtable = ISecondaryTileFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x57f52ca0_51bc_4abf_8ebf_627a0398b05a);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ISecondaryTileFactoryImpl {
-    fn CreateTile();
-    fn CreateWideTile();
-    fn CreateWithId();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISecondaryTileFactoryVtbl(
@@ -337,10 +254,6 @@ unsafe impl ::windows::core::Interface for ISecondaryTileFactory2 {
     type Vtable = ISecondaryTileFactory2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x274b8a3b_522d_448e_9eb2_d0672ab345c8);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ISecondaryTileFactory2Impl: ISecondaryTileFactoryImpl {
-    fn CreateMinimalTile();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISecondaryTileFactory2Vtbl(
@@ -359,13 +272,6 @@ pub struct ISecondaryTileStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISecondaryTileStatics {
     type Vtable = ISecondaryTileStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x99908dae_d051_4676_87fe_9ec242d83c74);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ISecondaryTileStaticsImpl {
-    fn Exists();
-    fn FindAllAsync();
-    fn FindAllForApplicationAsync();
-    fn FindAllForPackageAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -390,29 +296,6 @@ pub struct ISecondaryTileVisualElements(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISecondaryTileVisualElements {
     type Vtable = ISecondaryTileVisualElementsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1d8df333_815e_413f_9f50_a81da70a96b2);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ISecondaryTileVisualElementsImpl {
-    fn SetSquare30x30Logo();
-    fn Square30x30Logo();
-    fn SetSquare70x70Logo();
-    fn Square70x70Logo();
-    fn SetSquare150x150Logo();
-    fn Square150x150Logo();
-    fn SetWide310x150Logo();
-    fn Wide310x150Logo();
-    fn SetSquare310x310Logo();
-    fn Square310x310Logo();
-    fn SetForegroundText();
-    fn ForegroundText();
-    fn SetBackgroundColor();
-    fn BackgroundColor();
-    fn SetShowNameOnSquare150x150Logo();
-    fn ShowNameOnSquare150x150Logo();
-    fn SetShowNameOnWide310x150Logo();
-    fn ShowNameOnWide310x150Logo();
-    fn SetShowNameOnSquare310x310Logo();
-    fn ShowNameOnSquare310x310Logo();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -461,11 +344,6 @@ unsafe impl ::windows::core::Interface for ISecondaryTileVisualElements2 {
     type Vtable = ISecondaryTileVisualElements2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfd2e31d0_57dc_4794_8ecf_5682f5f3e6ef);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ISecondaryTileVisualElements2Impl {
-    fn SetSquare71x71Logo();
-    fn Square71x71Logo();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISecondaryTileVisualElements2Vtbl(
@@ -486,11 +364,6 @@ pub struct ISecondaryTileVisualElements3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISecondaryTileVisualElements3 {
     type Vtable = ISecondaryTileVisualElements3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x56b55ad6_d15c_40f4_81e7_57ffd8f8a4e9);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ISecondaryTileVisualElements3Impl {
-    fn SetSquare44x44Logo();
-    fn Square44x44Logo();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -513,10 +386,6 @@ unsafe impl ::windows::core::Interface for ISecondaryTileVisualElements4 {
     type Vtable = ISecondaryTileVisualElements4Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x66566117_b544_40d2_8d12_74d4ec24d04c);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ISecondaryTileVisualElements4Impl {
-    fn MixedRealityModel();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISecondaryTileVisualElements4Vtbl(
@@ -534,13 +403,6 @@ pub struct IStartScreenManager(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IStartScreenManager {
     type Vtable = IStartScreenManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4a1dcbcb_26e9_4eb4_8933_859eb6ecdb29);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IStartScreenManagerImpl {
-    fn User();
-    fn SupportsAppListEntry();
-    fn ContainsAppListEntryAsync();
-    fn RequestAddAppListEntryAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -567,11 +429,6 @@ unsafe impl ::windows::core::Interface for IStartScreenManager2 {
     type Vtable = IStartScreenManager2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x08a716b6_316b_4ad9_acb8_fe9cf00bd608);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IStartScreenManager2Impl: IStartScreenManagerImpl {
-    fn ContainsSecondaryTileAsync();
-    fn TryRemoveSecondaryTileAsync();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IStartScreenManager2Vtbl(
@@ -593,11 +450,6 @@ unsafe impl ::windows::core::Interface for IStartScreenManagerStatics {
     type Vtable = IStartScreenManagerStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7865ef0f_b585_464e_8993_34e8f8738d48);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IStartScreenManagerStaticsImpl {
-    fn GetDefault();
-    fn GetForUser();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IStartScreenManagerStaticsVtbl(
@@ -617,13 +469,6 @@ pub struct ITileMixedRealityModel(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ITileMixedRealityModel {
     type Vtable = ITileMixedRealityModelVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb0764e5b_887d_4242_9a19_3d0a4ea78031);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ITileMixedRealityModelImpl {
-    fn SetUri();
-    fn Uri();
-    fn SetBoundingBox();
-    fn BoundingBox();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -650,11 +495,6 @@ unsafe impl ::windows::core::Interface for ITileMixedRealityModel2 {
     type Vtable = ITileMixedRealityModel2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x439470b2_d7c5_410b_8319_9486a27b6c67);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ITileMixedRealityModel2Impl {
-    fn SetActivationBehavior();
-    fn ActivationBehavior();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITileMixedRealityModel2Vtbl(
@@ -673,13 +513,6 @@ pub struct IVisualElementsRequest(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IVisualElementsRequest {
     type Vtable = IVisualElementsRequestVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc138333a_9308_4072_88cc_d068db347c68);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IVisualElementsRequestImpl {
-    fn VisualElements();
-    fn AlternateVisualElements();
-    fn Deadline();
-    fn GetDeferral();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -704,10 +537,6 @@ unsafe impl ::windows::core::Interface for IVisualElementsRequestDeferral {
     type Vtable = IVisualElementsRequestDeferralVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa1656eb0_0126_4357_8204_bd82bb2a046d);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IVisualElementsRequestDeferralImpl {
-    fn Complete();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVisualElementsRequestDeferralVtbl(
@@ -725,10 +554,6 @@ pub struct IVisualElementsRequestedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IVisualElementsRequestedEventArgs {
     type Vtable = IVisualElementsRequestedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7b6fc982_3a0d_4ece_af96_cd17e1b00b2d);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IVisualElementsRequestedEventArgsImpl {
-    fn Request();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2476,3 +2301,5 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Visu
 }
 unsafe impl ::core::marker::Send for VisualElementsRequestedEventArgs {}
 unsafe impl ::core::marker::Sync for VisualElementsRequestedEventArgs {}
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

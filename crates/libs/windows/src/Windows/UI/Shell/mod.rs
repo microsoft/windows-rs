@@ -94,9 +94,6 @@ unsafe impl ::windows::core::Interface for IAdaptiveCard {
     type Vtable = IAdaptiveCardVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x72d0568c_a274_41cd_82a8_989d40b9b05e);
 }
-pub trait IAdaptiveCardImpl {
-    fn ToJson();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAdaptiveCardVtbl(
@@ -184,9 +181,6 @@ unsafe impl ::windows::core::Interface for IAdaptiveCardBuilderStatics {
     type Vtable = IAdaptiveCardBuilderStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x766d8f08_d3fe_4347_a0bc_b9ea9a6dc28e);
 }
-pub trait IAdaptiveCardBuilderStaticsImpl {
-    fn CreateAdaptiveCardFromJson();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAdaptiveCardBuilderStaticsVtbl(
@@ -204,12 +198,6 @@ pub struct ISecurityAppManager(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISecurityAppManager {
     type Vtable = ISecurityAppManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x96ac500c_aed4_561d_bde8_953520343a2d);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ISecurityAppManagerImpl {
-    fn Register();
-    fn Unregister();
-    fn UpdateState();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -233,12 +221,6 @@ unsafe impl ::windows::core::Interface for IShareWindowCommandEventArgs {
     type Vtable = IShareWindowCommandEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4578dc09_a523_5756_a995_e4feb991fff0);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IShareWindowCommandEventArgsImpl {
-    fn WindowId();
-    fn Command();
-    fn SetCommand();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IShareWindowCommandEventArgsVtbl(
@@ -258,16 +240,6 @@ pub struct IShareWindowCommandSource(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IShareWindowCommandSource {
     type Vtable = IShareWindowCommandSourceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcb3b7ae3_6b9c_561e_bccc_61e68e0abfef);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IShareWindowCommandSourceImpl {
-    fn Start();
-    fn Stop();
-    fn ReportCommandChanged();
-    fn CommandRequested();
-    fn RemoveCommandRequested();
-    fn CommandInvoked();
-    fn RemoveCommandInvoked();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -297,10 +269,6 @@ unsafe impl ::windows::core::Interface for IShareWindowCommandSourceStatics {
     type Vtable = IShareWindowCommandSourceStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb0eb6656_9cac_517c_b6c7_8ef715084295);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IShareWindowCommandSourceStaticsImpl {
-    fn GetForCurrentView();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IShareWindowCommandSourceStaticsVtbl(
@@ -318,15 +286,6 @@ pub struct ITaskbarManager(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ITaskbarManager {
     type Vtable = ITaskbarManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x87490a19_1ad9_49f4_b2e8_86738dc5ac40);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ITaskbarManagerImpl {
-    fn IsSupported();
-    fn IsPinningAllowed();
-    fn IsCurrentAppPinnedAsync();
-    fn IsAppListEntryPinnedAsync();
-    fn RequestPinCurrentAppAsync();
-    fn RequestPinAppListEntryAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -355,12 +314,6 @@ unsafe impl ::windows::core::Interface for ITaskbarManager2 {
     type Vtable = ITaskbarManager2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x79f0a06e_7b02_4911_918c_dee0bbd20ba4);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ITaskbarManager2Impl: ITaskbarManagerImpl {
-    fn IsSecondaryTilePinnedAsync();
-    fn RequestPinSecondaryTileAsync();
-    fn TryUnpinSecondaryTileAsync();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITaskbarManager2Vtbl(
@@ -383,10 +336,6 @@ pub struct ITaskbarManagerStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ITaskbarManagerStatics {
     type Vtable = ITaskbarManagerStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdb32ab74_de52_4fe6_b7b6_95ff9f8395df);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ITaskbarManagerStaticsImpl {
-    fn GetDefault();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1021,3 +970,5 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Task
 }
 unsafe impl ::core::marker::Send for TaskbarManager {}
 unsafe impl ::core::marker::Sync for TaskbarManager {}
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

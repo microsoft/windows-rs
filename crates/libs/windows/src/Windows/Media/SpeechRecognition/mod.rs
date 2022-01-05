@@ -6,10 +6,6 @@ unsafe impl ::windows::core::Interface for ISpeechContinuousRecognitionCompleted
     type Vtable = ISpeechContinuousRecognitionCompletedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe3d069bb_e30c_5e18_424b_7fbe81f8fbd0);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ISpeechContinuousRecognitionCompletedEventArgsImpl {
-    fn Status();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpeechContinuousRecognitionCompletedEventArgsVtbl(
@@ -28,10 +24,6 @@ unsafe impl ::windows::core::Interface for ISpeechContinuousRecognitionResultGen
     type Vtable = ISpeechContinuousRecognitionResultGeneratedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x19091e1e_6e7e_5a46_40fb_76594f786504);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ISpeechContinuousRecognitionResultGeneratedEventArgsImpl {
-    fn Result();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpeechContinuousRecognitionResultGeneratedEventArgsVtbl(
@@ -49,21 +41,6 @@ pub struct ISpeechContinuousRecognitionSession(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISpeechContinuousRecognitionSession {
     type Vtable = ISpeechContinuousRecognitionSessionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6a213c04_6614_49f8_99a2_b5e9b3a085c8);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ISpeechContinuousRecognitionSessionImpl {
-    fn AutoStopSilenceTimeout();
-    fn SetAutoStopSilenceTimeout();
-    fn StartAsync();
-    fn StartWithModeAsync();
-    fn StopAsync();
-    fn CancelAsync();
-    fn PauseAsync();
-    fn Resume();
-    fn Completed();
-    fn RemoveCompleted();
-    fn ResultGenerated();
-    fn RemoveResultGenerated();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -104,10 +81,6 @@ pub struct ISpeechRecognitionCompilationResult(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISpeechRecognitionCompilationResult {
     type Vtable = ISpeechRecognitionCompilationResultVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x407e6c5d_6ac7_4da4_9cc1_2fce32cf7489);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ISpeechRecognitionCompilationResultImpl {
-    fn Status();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -235,15 +208,6 @@ unsafe impl ::windows::core::Interface for ISpeechRecognitionConstraint {
     type Vtable = ISpeechRecognitionConstraintVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x79ac1628_4d68_43c4_8911_40dc4101b55b);
 }
-pub trait ISpeechRecognitionConstraintImpl {
-    fn IsEnabled();
-    fn SetIsEnabled();
-    fn Tag();
-    fn SetTag();
-    fn Type();
-    fn Probability();
-    fn SetProbability();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpeechRecognitionConstraintVtbl(
@@ -268,10 +232,6 @@ unsafe impl ::windows::core::Interface for ISpeechRecognitionGrammarFileConstrai
     type Vtable = ISpeechRecognitionGrammarFileConstraintVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb5031a8f_85ca_4fa4_b11a_474fc41b3835);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ISpeechRecognitionGrammarFileConstraintImpl: ISpeechRecognitionConstraintImpl {
-    fn GrammarFile();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpeechRecognitionGrammarFileConstraintVtbl(
@@ -290,11 +250,6 @@ pub struct ISpeechRecognitionGrammarFileConstraintFactory(::windows::core::IUnkn
 unsafe impl ::windows::core::Interface for ISpeechRecognitionGrammarFileConstraintFactory {
     type Vtable = ISpeechRecognitionGrammarFileConstraintFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3da770eb_c479_4c27_9f19_89974ef392d1);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ISpeechRecognitionGrammarFileConstraintFactoryImpl {
-    fn Create();
-    fn CreateWithTag();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -317,10 +272,6 @@ unsafe impl ::windows::core::Interface for ISpeechRecognitionHypothesis {
     type Vtable = ISpeechRecognitionHypothesisVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7a7b25b0_99c5_4f7d_bf84_10aa1302b634);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ISpeechRecognitionHypothesisImpl {
-    fn Text();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpeechRecognitionHypothesisVtbl(
@@ -338,10 +289,6 @@ pub struct ISpeechRecognitionHypothesisGeneratedEventArgs(::windows::core::IUnkn
 unsafe impl ::windows::core::Interface for ISpeechRecognitionHypothesisGeneratedEventArgs {
     type Vtable = ISpeechRecognitionHypothesisGeneratedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x55161a7a_8023_5866_411d_1213bb271476);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ISpeechRecognitionHypothesisGeneratedEventArgsImpl {
-    fn Hypothesis();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -361,10 +308,6 @@ unsafe impl ::windows::core::Interface for ISpeechRecognitionListConstraint {
     type Vtable = ISpeechRecognitionListConstraintVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x09c487e9_e4ad_4526_81f2_4946fb481d98);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ISpeechRecognitionListConstraintImpl: ISpeechRecognitionConstraintImpl {
-    fn Commands();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpeechRecognitionListConstraintVtbl(
@@ -383,11 +326,6 @@ pub struct ISpeechRecognitionListConstraintFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISpeechRecognitionListConstraintFactory {
     type Vtable = ISpeechRecognitionListConstraintFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x40f3cdc7_562a_426a_9f3b_3b4e282be1d5);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ISpeechRecognitionListConstraintFactoryImpl {
-    fn Create();
-    fn CreateWithTag();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -410,10 +348,6 @@ unsafe impl ::windows::core::Interface for ISpeechRecognitionQualityDegradingEve
     type Vtable = ISpeechRecognitionQualityDegradingEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4fe24105_8c3a_4c7e_8d0a_5bd4f5b14ad8);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ISpeechRecognitionQualityDegradingEventArgsImpl {
-    fn Problem();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpeechRecognitionQualityDegradingEventArgsVtbl(
@@ -431,17 +365,6 @@ pub struct ISpeechRecognitionResult(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISpeechRecognitionResult {
     type Vtable = ISpeechRecognitionResultVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4e303157_034e_4652_857e_d0454cc4beec);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ISpeechRecognitionResultImpl {
-    fn Status();
-    fn Text();
-    fn Confidence();
-    fn SemanticInterpretation();
-    fn GetAlternates();
-    fn Constraint();
-    fn RulePath();
-    fn RawConfidence();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -470,11 +393,6 @@ unsafe impl ::windows::core::Interface for ISpeechRecognitionResult2 {
     type Vtable = ISpeechRecognitionResult2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaf7ed1ba_451b_4166_a0c1_1ffe84032d03);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ISpeechRecognitionResult2Impl {
-    fn PhraseStartTime();
-    fn PhraseDuration();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpeechRecognitionResult2Vtbl(
@@ -496,10 +414,6 @@ unsafe impl ::windows::core::Interface for ISpeechRecognitionSemanticInterpretat
     type Vtable = ISpeechRecognitionSemanticInterpretationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaae1da9b_7e32_4c1f_89fe_0c65f486f52e);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ISpeechRecognitionSemanticInterpretationImpl {
-    fn Properties();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpeechRecognitionSemanticInterpretationVtbl(
@@ -518,11 +432,6 @@ pub struct ISpeechRecognitionTopicConstraint(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISpeechRecognitionTopicConstraint {
     type Vtable = ISpeechRecognitionTopicConstraintVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbf6fdf19_825d_4e69_a681_36e48cf1c93e);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ISpeechRecognitionTopicConstraintImpl: ISpeechRecognitionConstraintImpl {
-    fn Scenario();
-    fn TopicHint();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -543,11 +452,6 @@ unsafe impl ::windows::core::Interface for ISpeechRecognitionTopicConstraintFact
     type Vtable = ISpeechRecognitionTopicConstraintFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6e6863df_ec05_47d7_a5df_56a3431e58d2);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ISpeechRecognitionTopicConstraintFactoryImpl {
-    fn Create();
-    fn CreateWithTag();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpeechRecognitionTopicConstraintFactoryVtbl(
@@ -567,8 +471,6 @@ unsafe impl ::windows::core::Interface for ISpeechRecognitionVoiceCommandDefinit
     type Vtable = ISpeechRecognitionVoiceCommandDefinitionConstraintVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf2791c2b_1ef4_4ae7_9d77_b6ff10b8a3c2);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ISpeechRecognitionVoiceCommandDefinitionConstraintImpl: ISpeechRecognitionConstraintImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpeechRecognitionVoiceCommandDefinitionConstraintVtbl(
@@ -585,20 +487,6 @@ pub struct ISpeechRecognizer(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISpeechRecognizer {
     type Vtable = ISpeechRecognizerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0bc3c9cb_c26a_40f2_aeb5_8096b2e48073);
-}
-#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait ISpeechRecognizerImpl: IClosableImpl {
-    fn CurrentLanguage();
-    fn Constraints();
-    fn Timeouts();
-    fn UIOptions();
-    fn CompileConstraintsAsync();
-    fn RecognizeAsync();
-    fn RecognizeWithUIAsync();
-    fn RecognitionQualityDegrading();
-    fn RemoveRecognitionQualityDegrading();
-    fn StateChanged();
-    fn RemoveStateChanged();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -637,14 +525,6 @@ unsafe impl ::windows::core::Interface for ISpeechRecognizer2 {
     type Vtable = ISpeechRecognizer2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x63c9baf1_91e3_4ea4_86a1_7c3867d084a6);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ISpeechRecognizer2Impl {
-    fn ContinuousRecognitionSession();
-    fn State();
-    fn StopRecognitionAsync();
-    fn HypothesisGenerated();
-    fn RemoveHypothesisGenerated();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpeechRecognizer2Vtbl(
@@ -670,10 +550,6 @@ unsafe impl ::windows::core::Interface for ISpeechRecognizerFactory {
     type Vtable = ISpeechRecognizerFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x60c488dd_7fb8_4033_ac70_d046f64818e1);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ISpeechRecognizerFactoryImpl {
-    fn Create();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpeechRecognizerFactoryVtbl(
@@ -693,10 +569,6 @@ unsafe impl ::windows::core::Interface for ISpeechRecognizerStateChangedEventArg
     type Vtable = ISpeechRecognizerStateChangedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x563d4f09_ba03_4bad_ad81_ddc6c4dab0c3);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ISpeechRecognizerStateChangedEventArgsImpl {
-    fn State();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpeechRecognizerStateChangedEventArgsVtbl(
@@ -714,12 +586,6 @@ pub struct ISpeechRecognizerStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISpeechRecognizerStatics {
     type Vtable = ISpeechRecognizerStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x87a35eac_a7dc_4b0b_bcc9_24f47c0b7ebf);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ISpeechRecognizerStaticsImpl {
-    fn SystemSpeechLanguage();
-    fn SupportedTopicLanguages();
-    fn SupportedGrammarLanguages();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -744,10 +610,6 @@ unsafe impl ::windows::core::Interface for ISpeechRecognizerStatics2 {
     type Vtable = ISpeechRecognizerStatics2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1d1b0d95_7565_4ef9_a2f3_ba15162a96cf);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ISpeechRecognizerStatics2Impl {
-    fn TrySetSystemSpeechLanguageAsync();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpeechRecognizerStatics2Vtbl(
@@ -766,15 +628,6 @@ pub struct ISpeechRecognizerTimeouts(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISpeechRecognizerTimeouts {
     type Vtable = ISpeechRecognizerTimeoutsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2ef76fca_6a3c_4dca_a153_df1bc88a79af);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ISpeechRecognizerTimeoutsImpl {
-    fn InitialSilenceTimeout();
-    fn SetInitialSilenceTimeout();
-    fn EndSilenceTimeout();
-    fn SetEndSilenceTimeout();
-    fn BabbleTimeout();
-    fn SetBabbleTimeout();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -805,17 +658,6 @@ unsafe impl ::windows::core::Interface for ISpeechRecognizerUIOptions {
     type Vtable = ISpeechRecognizerUIOptionsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7888d641_b92b_44ba_a25f_d1864630641f);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ISpeechRecognizerUIOptionsImpl {
-    fn ExampleText();
-    fn SetExampleText();
-    fn AudiblePrompt();
-    fn SetAudiblePrompt();
-    fn IsReadBackEnabled();
-    fn SetIsReadBackEnabled();
-    fn ShowConfirmation();
-    fn SetShowConfirmation();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpeechRecognizerUIOptionsVtbl(
@@ -841,11 +683,6 @@ unsafe impl ::windows::core::Interface for IVoiceCommandManager {
     type Vtable = IVoiceCommandManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaa3a8dd5_b6e7_4ee2_baa9_dd6baced0a2b);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IVoiceCommandManagerImpl {
-    fn InstallCommandSetsFromStorageFileAsync();
-    fn InstalledCommandSets();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVoiceCommandManagerVtbl(
@@ -866,12 +703,6 @@ pub struct IVoiceCommandSet(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IVoiceCommandSet {
     type Vtable = IVoiceCommandSetVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0bedda75_46e6_4b11_a088_5c68632899b5);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IVoiceCommandSetImpl {
-    fn Language();
-    fn Name();
-    fn SetPhraseListAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3480,3 +3311,5 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Voic
 }
 unsafe impl ::core::marker::Send for VoiceCommandSet {}
 unsafe impl ::core::marker::Sync for VoiceCommandSet {}
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

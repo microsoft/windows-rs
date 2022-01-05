@@ -4020,12 +4020,6 @@ unsafe impl ::windows::core::Interface for IAcceleratorKeyEventArgs {
     type Vtable = IAcceleratorKeyEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xff1c4c4a_9287_470b_836e_9086e3126ade);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IAcceleratorKeyEventArgsImpl: ICoreWindowEventArgsImpl {
-    fn EventType();
-    fn VirtualKey();
-    fn KeyStatus();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAcceleratorKeyEventArgsVtbl(
@@ -4047,10 +4041,6 @@ unsafe impl ::windows::core::Interface for IAcceleratorKeyEventArgs2 {
     type Vtable = IAcceleratorKeyEventArgs2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd300a9f6_2f7e_4873_a555_166e596ee1c5);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IAcceleratorKeyEventArgs2Impl: ICoreWindowEventArgsImpl {
-    fn DeviceId();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAcceleratorKeyEventArgs2Vtbl(
@@ -4068,11 +4058,6 @@ pub struct IAutomationProviderRequestedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAutomationProviderRequestedEventArgs {
     type Vtable = IAutomationProviderRequestedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x961ff258_21bf_4b42_a298_fa479d4c52e2);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IAutomationProviderRequestedEventArgsImpl: ICoreWindowEventArgsImpl {
-    fn AutomationProvider();
-    fn SetAutomationProvider();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4093,11 +4078,6 @@ unsafe impl ::windows::core::Interface for IBackRequestedEventArgs {
     type Vtable = IBackRequestedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd603d28a_e411_4a4e_ba41_6a327a8675bc);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IBackRequestedEventArgsImpl {
-    fn Handled();
-    fn SetHandled();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBackRequestedEventArgsVtbl(
@@ -4117,11 +4097,6 @@ unsafe impl ::windows::core::Interface for ICharacterReceivedEventArgs {
     type Vtable = ICharacterReceivedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc584659f_99b2_4bcc_bd33_04e63f42902e);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ICharacterReceivedEventArgsImpl: ICoreWindowEventArgsImpl {
-    fn KeyCode();
-    fn KeyStatus();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICharacterReceivedEventArgsVtbl(
@@ -4140,13 +4115,6 @@ pub struct IClosestInteractiveBoundsRequestedEventArgs(::windows::core::IUnknown
 unsafe impl ::windows::core::Interface for IClosestInteractiveBoundsRequestedEventArgs {
     type Vtable = IClosestInteractiveBoundsRequestedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x347c11d7_f6f8_40e3_b29f_ae50d3e86486);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IClosestInteractiveBoundsRequestedEventArgsImpl {
-    fn PointerPosition();
-    fn SearchBounds();
-    fn ClosestInteractiveBounds();
-    fn SetClosestInteractiveBounds();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4249,10 +4217,6 @@ unsafe impl ::windows::core::Interface for ICoreAcceleratorKeys {
     type Vtable = ICoreAcceleratorKeysVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9ffdf7f5_b8c9_4ef0_b7d2_1de626561fc8);
 }
-pub trait ICoreAcceleratorKeysImpl {
-    fn AcceleratorKeyActivated();
-    fn RemoveAcceleratorKeyActivated();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreAcceleratorKeysVtbl(
@@ -4274,11 +4238,6 @@ unsafe impl ::windows::core::Interface for ICoreClosestInteractiveBoundsRequeste
     type Vtable = ICoreClosestInteractiveBoundsRequestedVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf303043a_e8bf_4e8e_ae69_c9dadd57a114);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ICoreClosestInteractiveBoundsRequestedImpl {
-    fn ClosestInteractiveBoundsRequested();
-    fn RemoveClosestInteractiveBoundsRequested();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreClosestInteractiveBoundsRequestedVtbl(
@@ -4299,14 +4258,6 @@ pub struct ICoreComponentFocusable(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICoreComponentFocusable {
     type Vtable = ICoreComponentFocusableVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x52f96fa3_8742_4411_ae69_79a85f29ac8b);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ICoreComponentFocusableImpl {
-    fn HasFocus();
-    fn GotFocus();
-    fn RemoveGotFocus();
-    fn LostFocus();
-    fn RemoveLostFocus();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4334,11 +4285,6 @@ unsafe impl ::windows::core::Interface for ICoreCursor {
     type Vtable = ICoreCursorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x96893acf_111d_442c_8a77_b87992f8e2d6);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ICoreCursorImpl {
-    fn Id();
-    fn Type();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreCursorVtbl(
@@ -4358,10 +4304,6 @@ unsafe impl ::windows::core::Interface for ICoreCursorFactory {
     type Vtable = ICoreCursorFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf6359621_a79d_4ed3_8c32_a9ef9d6b76a4);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ICoreCursorFactoryImpl {
-    fn CreateCursor();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreCursorFactoryVtbl(
@@ -4379,13 +4321,6 @@ pub struct ICoreDispatcher(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICoreDispatcher {
     type Vtable = ICoreDispatcherVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x60db2fa8_b705_4fde_a7d6_ebbb1891d39e);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ICoreDispatcherImpl: ICoreAcceleratorKeysImpl {
-    fn HasThreadAccess();
-    fn ProcessEvents();
-    fn RunAsync();
-    fn RunIdleAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4410,11 +4345,6 @@ unsafe impl ::windows::core::Interface for ICoreDispatcher2 {
     type Vtable = ICoreDispatcher2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6f5e63c7_e3aa_4eae_b0e0_dcf321ca4b2f);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ICoreDispatcher2Impl {
-    fn TryRunAsync();
-    fn TryRunIdleAsync();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreDispatcher2Vtbl(
@@ -4435,14 +4365,6 @@ pub struct ICoreDispatcherWithTaskPriority(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICoreDispatcherWithTaskPriority {
     type Vtable = ICoreDispatcherWithTaskPriorityVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbafaecad_484d_41be_ba80_1d58c65263ea);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ICoreDispatcherWithTaskPriorityImpl {
-    fn CurrentPriority();
-    fn SetCurrentPriority();
-    fn ShouldYield();
-    fn ShouldYieldToPriority();
-    fn StopProcessEvents();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4465,16 +4387,6 @@ pub struct ICoreIndependentInputSourceController(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICoreIndependentInputSourceController {
     type Vtable = ICoreIndependentInputSourceControllerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0963261c_84fe_578a_83ca_6425309ccde4);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ICoreIndependentInputSourceControllerImpl {
-    fn IsTransparentForUncontrolledInput();
-    fn SetIsTransparentForUncontrolledInput();
-    fn IsPalmRejectionEnabled();
-    fn SetIsPalmRejectionEnabled();
-    fn Source();
-    fn SetControlledInput();
-    fn SetControlledInputWithFilters();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4499,11 +4411,6 @@ pub struct ICoreIndependentInputSourceControllerStatics(::windows::core::IUnknow
 unsafe impl ::windows::core::Interface for ICoreIndependentInputSourceControllerStatics {
     type Vtable = ICoreIndependentInputSourceControllerStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3edc4e20_9a8a_5691_8586_fca4cb57526d);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ICoreIndependentInputSourceControllerStaticsImpl {
-    fn CreateForVisual();
-    fn CreateForIVisualElement();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4623,13 +4530,6 @@ unsafe impl ::windows::core::Interface for ICoreInputSourceBase {
     type Vtable = ICoreInputSourceBaseVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9f488807_4580_4be8_be68_92a9311713bb);
 }
-pub trait ICoreInputSourceBaseImpl {
-    fn Dispatcher();
-    fn IsInputEnabled();
-    fn SetIsInputEnabled();
-    fn InputEnabled();
-    fn RemoveInputEnabled();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreInputSourceBaseVtbl(
@@ -4653,16 +4553,6 @@ pub struct ICoreKeyboardInputSource(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICoreKeyboardInputSource {
     type Vtable = ICoreKeyboardInputSourceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x231c9088_e469_4df1_b208_6e490d71cb90);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ICoreKeyboardInputSourceImpl {
-    fn GetCurrentKeyState();
-    fn CharacterReceived();
-    fn RemoveCharacterReceived();
-    fn KeyDown();
-    fn RemoveKeyDown();
-    fn KeyUp();
-    fn RemoveKeyUp();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4694,10 +4584,6 @@ pub struct ICoreKeyboardInputSource2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICoreKeyboardInputSource2 {
     type Vtable = ICoreKeyboardInputSource2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfa24cb94_f963_47a5_8778_207c482b0afd);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ICoreKeyboardInputSource2Impl {
-    fn GetCurrentKeyEventDeviceId();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4922,28 +4808,6 @@ unsafe impl ::windows::core::RuntimeType for ICorePointerInputSource {
 unsafe impl ::windows::core::Interface for ICorePointerInputSource {
     type Vtable = ICorePointerInputSourceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbbf1bb18_e47a_48eb_8807_f8f8d3ea4551);
-}
-pub trait ICorePointerInputSourceImpl {
-    fn ReleasePointerCapture();
-    fn SetPointerCapture();
-    fn HasCapture();
-    fn PointerPosition();
-    fn PointerCursor();
-    fn SetPointerCursor();
-    fn PointerCaptureLost();
-    fn RemovePointerCaptureLost();
-    fn PointerEntered();
-    fn RemovePointerEntered();
-    fn PointerExited();
-    fn RemovePointerExited();
-    fn PointerMoved();
-    fn RemovePointerMoved();
-    fn PointerPressed();
-    fn RemovePointerPressed();
-    fn PointerReleased();
-    fn RemovePointerReleased();
-    fn PointerWheelChanged();
-    fn RemovePointerWheelChanged();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5234,9 +5098,6 @@ unsafe impl ::windows::core::Interface for ICorePointerInputSource2 {
     type Vtable = ICorePointerInputSource2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd703708a_4516_4786_b1e5_2751d563f997);
 }
-pub trait ICorePointerInputSource2Impl: ICorePointerInputSourceImpl {
-    fn DispatcherQueue();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICorePointerInputSource2Vtbl(
@@ -5362,14 +5223,6 @@ unsafe impl ::windows::core::Interface for ICorePointerRedirector {
     type Vtable = ICorePointerRedirectorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8f9d0c94_5688_4b0c_a9f1_f931f7fa3dc3);
 }
-pub trait ICorePointerRedirectorImpl {
-    fn PointerRoutedAway();
-    fn RemovePointerRoutedAway();
-    fn PointerRoutedTo();
-    fn RemovePointerRoutedTo();
-    fn PointerRoutedReleased();
-    fn RemovePointerRoutedReleased();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICorePointerRedirectorVtbl(
@@ -5398,11 +5251,6 @@ pub struct ICoreTouchHitTesting(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICoreTouchHitTesting {
     type Vtable = ICoreTouchHitTestingVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb1d8a289_3acf_4124_9fa3_ea8aba353c21);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ICoreTouchHitTestingImpl {
-    fn TouchHitTesting();
-    fn RemoveTouchHitTesting();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5869,60 +5717,6 @@ unsafe impl ::windows::core::Interface for ICoreWindow {
     type Vtable = ICoreWindowVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x79b9d5f2_879e_4b89_b798_79e47598030c);
 }
-pub trait ICoreWindowImpl {
-    fn AutomationHostProvider();
-    fn Bounds();
-    fn CustomProperties();
-    fn Dispatcher();
-    fn FlowDirection();
-    fn SetFlowDirection();
-    fn IsInputEnabled();
-    fn SetIsInputEnabled();
-    fn PointerCursor();
-    fn SetPointerCursor();
-    fn PointerPosition();
-    fn Visible();
-    fn Activate();
-    fn Close();
-    fn GetAsyncKeyState();
-    fn GetKeyState();
-    fn ReleasePointerCapture();
-    fn SetPointerCapture();
-    fn Activated();
-    fn RemoveActivated();
-    fn AutomationProviderRequested();
-    fn RemoveAutomationProviderRequested();
-    fn CharacterReceived();
-    fn RemoveCharacterReceived();
-    fn Closed();
-    fn RemoveClosed();
-    fn InputEnabled();
-    fn RemoveInputEnabled();
-    fn KeyDown();
-    fn RemoveKeyDown();
-    fn KeyUp();
-    fn RemoveKeyUp();
-    fn PointerCaptureLost();
-    fn RemovePointerCaptureLost();
-    fn PointerEntered();
-    fn RemovePointerEntered();
-    fn PointerExited();
-    fn RemovePointerExited();
-    fn PointerMoved();
-    fn RemovePointerMoved();
-    fn PointerPressed();
-    fn RemovePointerPressed();
-    fn PointerReleased();
-    fn RemovePointerReleased();
-    fn TouchHitTesting();
-    fn RemoveTouchHitTesting();
-    fn PointerWheelChanged();
-    fn RemovePointerWheelChanged();
-    fn SizeChanged();
-    fn RemoveSizeChanged();
-    fn VisibilityChanged();
-    fn RemoveVisibilityChanged();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreWindowVtbl(
@@ -6031,10 +5825,6 @@ unsafe impl ::windows::core::Interface for ICoreWindow2 {
     type Vtable = ICoreWindow2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7c2b1b85_6917_4361_9c02_0d9e3a420b95);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ICoreWindow2Impl {
-    fn SetPointerPosition();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreWindow2Vtbl(
@@ -6053,12 +5843,6 @@ pub struct ICoreWindow3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICoreWindow3 {
     type Vtable = ICoreWindow3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x32c20dd8_faef_4375_a2ab_32640e4815c7);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ICoreWindow3Impl {
-    fn ClosestInteractiveBoundsRequested();
-    fn RemoveClosestInteractiveBoundsRequested();
-    fn GetCurrentKeyEventDeviceId();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6081,13 +5865,6 @@ pub struct ICoreWindow4(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICoreWindow4 {
     type Vtable = ICoreWindow4Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x35caf0d0_47f0_436c_af97_0dd88f6f5f02);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ICoreWindow4Impl {
-    fn ResizeStarted();
-    fn RemoveResizeStarted();
-    fn ResizeCompleted();
-    fn RemoveResizeCompleted();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6114,11 +5891,6 @@ unsafe impl ::windows::core::Interface for ICoreWindow5 {
     type Vtable = ICoreWindow5Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4b4ae1e1_2e6d_4eaa_bda1_1c5cc1bee141);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ICoreWindow5Impl {
-    fn DispatcherQueue();
-    fn ActivationMode();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreWindow5Vtbl(
@@ -6138,25 +5910,6 @@ pub struct ICoreWindowDialog(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICoreWindowDialog {
     type Vtable = ICoreWindowDialogVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe7392ce0_c78d_427e_8b2c_01ff420c69d5);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ICoreWindowDialogImpl {
-    fn Showing();
-    fn RemoveShowing();
-    fn MaxSize();
-    fn MinSize();
-    fn Title();
-    fn SetTitle();
-    fn IsInteractionDelayed();
-    fn SetIsInteractionDelayed();
-    fn Commands();
-    fn DefaultCommandIndex();
-    fn SetDefaultCommandIndex();
-    fn CancelCommandIndex();
-    fn SetCancelCommandIndex();
-    fn BackButtonCommand();
-    fn SetBackButtonCommand();
-    fn ShowAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6198,10 +5951,6 @@ pub struct ICoreWindowDialogFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICoreWindowDialogFactory {
     type Vtable = ICoreWindowDialogFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcfb2a855_1c59_4b13_b1e5_16e29805f7c4);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ICoreWindowDialogFactoryImpl {
-    fn CreateWithTitle();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6295,10 +6044,6 @@ unsafe impl ::windows::core::Interface for ICoreWindowEventArgs {
     type Vtable = ICoreWindowEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x272b1ef3_c633_4da5_a26c_c6d0f56b29da);
 }
-pub trait ICoreWindowEventArgsImpl {
-    fn Handled();
-    fn SetHandled();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreWindowEventArgsVtbl(
@@ -6317,23 +6062,6 @@ pub struct ICoreWindowFlyout(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICoreWindowFlyout {
     type Vtable = ICoreWindowFlyoutVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe89d854d_2050_40bb_b344_f6f355eeb314);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ICoreWindowFlyoutImpl {
-    fn Showing();
-    fn RemoveShowing();
-    fn MaxSize();
-    fn MinSize();
-    fn Title();
-    fn SetTitle();
-    fn IsInteractionDelayed();
-    fn SetIsInteractionDelayed();
-    fn Commands();
-    fn DefaultCommandIndex();
-    fn SetDefaultCommandIndex();
-    fn BackButtonCommand();
-    fn SetBackButtonCommand();
-    fn ShowAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6374,11 +6102,6 @@ unsafe impl ::windows::core::Interface for ICoreWindowFlyoutFactory {
     type Vtable = ICoreWindowFlyoutFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdec4c6c4_93e8_4f7c_be27_cefaa1af68a7);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ICoreWindowFlyoutFactoryImpl {
-    fn Create();
-    fn CreateWithTitle();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreWindowFlyoutFactoryVtbl(
@@ -6400,10 +6123,6 @@ unsafe impl ::windows::core::Interface for ICoreWindowPopupShowingEventArgs {
     type Vtable = ICoreWindowPopupShowingEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x26155fa2_5ba5_4ea4_a3b4_2dc7d63c8e26);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ICoreWindowPopupShowingEventArgsImpl {
-    fn SetDesiredSize();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreWindowPopupShowingEventArgsVtbl(
@@ -6423,10 +6142,6 @@ unsafe impl ::windows::core::Interface for ICoreWindowResizeManager {
     type Vtable = ICoreWindowResizeManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb8f0b925_b350_48b3_a198_5c1a84700243);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ICoreWindowResizeManagerImpl {
-    fn NotifyLayoutCompleted();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreWindowResizeManagerVtbl(
@@ -6444,11 +6159,6 @@ pub struct ICoreWindowResizeManagerLayoutCapability(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICoreWindowResizeManagerLayoutCapability {
     type Vtable = ICoreWindowResizeManagerLayoutCapabilityVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbb74f27b_a544_4301_80e6_0ae033ef4536);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ICoreWindowResizeManagerLayoutCapabilityImpl {
-    fn SetShouldWaitForLayoutCompletion();
-    fn ShouldWaitForLayoutCompletion();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6469,10 +6179,6 @@ unsafe impl ::windows::core::Interface for ICoreWindowResizeManagerStatics {
     type Vtable = ICoreWindowResizeManagerStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xae4a9045_6d70_49db_8e68_46ffbd17d38d);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ICoreWindowResizeManagerStaticsImpl {
-    fn GetForCurrentView();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreWindowResizeManagerStaticsVtbl(
@@ -6490,10 +6196,6 @@ pub struct ICoreWindowStatic(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICoreWindowStatic {
     type Vtable = ICoreWindowStaticVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4d239005_3c2a_41b1_9022_536bb9cf93b1);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ICoreWindowStaticImpl {
-    fn GetForCurrentThread();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6513,10 +6215,6 @@ unsafe impl ::windows::core::Interface for ICoreWindowWithContext {
     type Vtable = ICoreWindowWithContextVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9ac40241_3575_4c3b_af66_e8c529d4d06c);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ICoreWindowWithContextImpl {
-    fn UIContext();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreWindowWithContextVtbl(
@@ -6534,10 +6232,6 @@ pub struct IIdleDispatchedHandlerArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IIdleDispatchedHandlerArgs {
     type Vtable = IIdleDispatchedHandlerArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x98bb6a24_dc1c_43cb_b4ed_d1c0eb2391f3);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IIdleDispatchedHandlerArgsImpl {
-    fn IsDispatcherIdle();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6623,9 +6317,6 @@ unsafe impl ::windows::core::Interface for IInitializeWithCoreWindow {
     type Vtable = IInitializeWithCoreWindowVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x188f20d6_9873_464a_ace5_57e010f465e6);
 }
-pub trait IInitializeWithCoreWindowImpl {
-    fn Initialize();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInitializeWithCoreWindowVtbl(
@@ -6644,10 +6335,6 @@ unsafe impl ::windows::core::Interface for IInputEnabledEventArgs {
     type Vtable = IInputEnabledEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x80371d4f_2fd8_4c24_aa86_3163a87b4e5a);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IInputEnabledEventArgsImpl: ICoreWindowEventArgsImpl {
-    fn InputEnabled();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInputEnabledEventArgsVtbl(
@@ -6665,11 +6352,6 @@ pub struct IKeyEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IKeyEventArgs {
     type Vtable = IKeyEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5ff5e930_2544_4a17_bd78_1f2fdebb106b);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IKeyEventArgsImpl: ICoreWindowEventArgsImpl {
-    fn VirtualKey();
-    fn KeyStatus();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6691,10 +6373,6 @@ unsafe impl ::windows::core::Interface for IKeyEventArgs2 {
     type Vtable = IKeyEventArgs2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x583add98_0790_4571_9b12_645ef9d79e42);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IKeyEventArgs2Impl: ICoreWindowEventArgsImpl {
-    fn DeviceId();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IKeyEventArgs2Vtbl(
@@ -6712,12 +6390,6 @@ pub struct IPointerEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPointerEventArgs {
     type Vtable = IPointerEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x920d9cb1_a5fc_4a21_8c09_49dfe6ffe25f);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IPointerEventArgsImpl: ICoreWindowEventArgsImpl {
-    fn CurrentPoint();
-    fn KeyModifiers();
-    fn GetIntermediatePoints();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6742,11 +6414,6 @@ unsafe impl ::windows::core::Interface for ISystemNavigationManager {
     type Vtable = ISystemNavigationManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x93023118_cf50_42a6_9706_69107fa122e1);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ISystemNavigationManagerImpl {
-    fn BackRequested();
-    fn RemoveBackRequested();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISystemNavigationManagerVtbl(
@@ -6768,11 +6435,6 @@ unsafe impl ::windows::core::Interface for ISystemNavigationManager2 {
     type Vtable = ISystemNavigationManager2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8c510401_67be_49ae_9509_671c1e54a389);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ISystemNavigationManager2Impl {
-    fn AppViewBackButtonVisibility();
-    fn SetAppViewBackButtonVisibility();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISystemNavigationManager2Vtbl(
@@ -6792,10 +6454,6 @@ unsafe impl ::windows::core::Interface for ISystemNavigationManagerStatics {
     type Vtable = ISystemNavigationManagerStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdc52b5ce_bee0_4305_8c54_68228ed683b5);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ISystemNavigationManagerStaticsImpl {
-    fn GetForCurrentView();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISystemNavigationManagerStaticsVtbl(
@@ -6813,15 +6471,6 @@ pub struct ITouchHitTestingEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ITouchHitTestingEventArgs {
     type Vtable = ITouchHitTestingEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x22f3b823_0b7c_424e_9df7_33d4f962931b);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ITouchHitTestingEventArgsImpl: ICoreWindowEventArgsImpl {
-    fn ProximityEvaluation();
-    fn SetProximityEvaluation();
-    fn Point();
-    fn BoundingBox();
-    fn EvaluateProximityToRect();
-    fn EvaluateProximityToPolygon();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6852,10 +6501,6 @@ unsafe impl ::windows::core::Interface for IVisibilityChangedEventArgs {
     type Vtable = IVisibilityChangedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbf9918ea_d801_4564_a495_b1e84f8ad085);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IVisibilityChangedEventArgsImpl: ICoreWindowEventArgsImpl {
-    fn Visible();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVisibilityChangedEventArgsVtbl(
@@ -6874,10 +6519,6 @@ unsafe impl ::windows::core::Interface for IWindowActivatedEventArgs {
     type Vtable = IWindowActivatedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x179d65e7_4658_4cb6_aa13_41d094ea255e);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IWindowActivatedEventArgsImpl: ICoreWindowEventArgsImpl {
-    fn WindowActivationState();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWindowActivatedEventArgsVtbl(
@@ -6895,10 +6536,6 @@ pub struct IWindowSizeChangedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IWindowSizeChangedEventArgs {
     type Vtable = IWindowSizeChangedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5a200ec7_0426_47dc_b86c_6f475915e451);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IWindowSizeChangedEventArgsImpl: ICoreWindowEventArgsImpl {
-    fn Size();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8057,3 +7694,5 @@ impl<'a> ::windows::core::IntoParam<'a, ICoreWindowEventArgs> for &WindowSizeCha
         ::core::convert::TryInto::<ICoreWindowEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

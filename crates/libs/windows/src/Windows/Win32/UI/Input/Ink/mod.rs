@@ -48,9 +48,6 @@ unsafe impl ::windows::core::Interface for IInkCommitRequestHandler {
     type Vtable = IInkCommitRequestHandlerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfabea3fc_b108_45b6_a9fc_8d08fa9f85cf);
 }
-pub trait IInkCommitRequestHandlerImpl {
-    fn OnCommitRequested();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInkCommitRequestHandlerVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT);
@@ -103,9 +100,6 @@ impl ::core::fmt::Debug for IInkD2DRenderer {
 unsafe impl ::windows::core::Interface for IInkD2DRenderer {
     type Vtable = IInkD2DRendererVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x407fb1de_f85a_4150_97cf_b7fb274fb4f8);
-}
-pub trait IInkD2DRendererImpl {
-    fn Draw();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -164,9 +158,6 @@ impl ::core::fmt::Debug for IInkD2DRenderer2 {
 unsafe impl ::windows::core::Interface for IInkD2DRenderer2 {
     type Vtable = IInkD2DRenderer2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0a95dcd9_4578_4b71_b20b_bf664d4bfeee);
-}
-pub trait IInkD2DRenderer2Impl {
-    fn Draw();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -235,11 +226,6 @@ unsafe impl ::windows::core::Interface for IInkDesktopHost {
     type Vtable = IInkDesktopHostVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4ce7d875_a981_4140_a1ff_ad93258e8d59);
 }
-pub trait IInkDesktopHostImpl {
-    fn QueueWorkItem();
-    fn CreateInkPresenter();
-    fn CreateAndInitializeInkPresenter();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInkDesktopHostVtbl(
@@ -298,9 +284,6 @@ impl ::core::fmt::Debug for IInkHostWorkItem {
 unsafe impl ::windows::core::Interface for IInkHostWorkItem {
     type Vtable = IInkHostWorkItemVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xccda0a9a_1b78_4632_bb96_97800662e26c);
-}
-pub trait IInkHostWorkItemImpl {
-    fn Invoke();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -370,13 +353,6 @@ unsafe impl ::windows::core::Interface for IInkPresenterDesktop {
     type Vtable = IInkPresenterDesktopVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x73f3c0d9_2e8b_48f3_895e_20cbd27b723b);
 }
-pub trait IInkPresenterDesktopImpl {
-    fn SetRootVisual();
-    fn SetCommitRequestHandler();
-    fn GetSize();
-    fn SetSize();
-    fn OnHighContrastChanged();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInkPresenterDesktopVtbl(
@@ -399,3 +375,5 @@ pub const USE_SYSTEM_COLORS: INK_HIGH_CONTRAST_ADJUSTMENT = 1i32;
 pub const USE_ORIGINAL_COLORS: INK_HIGH_CONTRAST_ADJUSTMENT = 2i32;
 pub const InkD2DRenderer: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4044e60c_7b01_4671_a97c_04e0210a07a5);
 pub const InkDesktopHost: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x062584a6_f830_4bdc_a4d2_0a10ab062b1d);
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

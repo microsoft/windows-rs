@@ -1762,16 +1762,6 @@ unsafe impl ::windows::core::Interface for IDirectSound {
     type Vtable = IDirectSoundVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x279afa83_4981_11ce_a521_0020af0be560);
 }
-pub trait IDirectSoundImpl {
-    fn CreateSoundBuffer();
-    fn GetCaps();
-    fn DuplicateSoundBuffer();
-    fn SetCooperativeLevel();
-    fn Compact();
-    fn GetSpeakerConfig();
-    fn SetSpeakerConfig();
-    fn Initialize();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectSoundVtbl(
@@ -1917,26 +1907,6 @@ impl ::core::fmt::Debug for IDirectSound3DBuffer {
 unsafe impl ::windows::core::Interface for IDirectSound3DBuffer {
     type Vtable = IDirectSound3DBufferVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x279afa86_4981_11ce_a521_0020af0be560);
-}
-pub trait IDirectSound3DBufferImpl {
-    fn GetAllParameters();
-    fn GetConeAngles();
-    fn GetConeOrientation();
-    fn GetConeOutsideVolume();
-    fn GetMaxDistance();
-    fn GetMinDistance();
-    fn GetMode();
-    fn GetPosition();
-    fn GetVelocity();
-    fn SetAllParameters();
-    fn SetConeAngles();
-    fn SetConeOrientation();
-    fn SetConeOutsideVolume();
-    fn SetMaxDistance();
-    fn SetMinDistance();
-    fn SetMode();
-    fn SetPosition();
-    fn SetVelocity();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2084,23 +2054,6 @@ unsafe impl ::windows::core::Interface for IDirectSound3DListener {
     type Vtable = IDirectSound3DListenerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x279afa84_4981_11ce_a521_0020af0be560);
 }
-pub trait IDirectSound3DListenerImpl {
-    fn GetAllParameters();
-    fn GetDistanceFactor();
-    fn GetDopplerFactor();
-    fn GetOrientation();
-    fn GetPosition();
-    fn GetRolloffFactor();
-    fn GetVelocity();
-    fn SetAllParameters();
-    fn SetDistanceFactor();
-    fn SetDopplerFactor();
-    fn SetOrientation();
-    fn SetPosition();
-    fn SetRolloffFactor();
-    fn SetVelocity();
-    fn CommitDeferredSettings();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectSound3DListenerVtbl(
@@ -2233,9 +2186,6 @@ impl ::core::fmt::Debug for IDirectSound8 {
 unsafe impl ::windows::core::Interface for IDirectSound8 {
     type Vtable = IDirectSound8Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc50a7e93_f395_4834_9ef6_7fa99de50966);
-}
-pub trait IDirectSound8Impl: IDirectSoundImpl {
-    fn VerifyCertification();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2375,26 +2325,6 @@ impl ::core::fmt::Debug for IDirectSoundBuffer {
 unsafe impl ::windows::core::Interface for IDirectSoundBuffer {
     type Vtable = IDirectSoundBufferVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x279afa85_4981_11ce_a521_0020af0be560);
-}
-pub trait IDirectSoundBufferImpl {
-    fn GetCaps();
-    fn GetCurrentPosition();
-    fn GetFormat();
-    fn GetVolume();
-    fn GetPan();
-    fn GetFrequency();
-    fn GetStatus();
-    fn Initialize();
-    fn Lock();
-    fn Play();
-    fn SetCurrentPosition();
-    fn SetFormat();
-    fn SetVolume();
-    fn SetPan();
-    fn SetFrequency();
-    fn Stop();
-    fn Unlock();
-    fn Restore();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2575,11 +2505,6 @@ unsafe impl ::windows::core::Interface for IDirectSoundBuffer8 {
     type Vtable = IDirectSoundBuffer8Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6825a449_7524_4d82_920f_50e36ab3ab1e);
 }
-pub trait IDirectSoundBuffer8Impl: IDirectSoundBufferImpl {
-    fn SetFX();
-    fn AcquireResources();
-    fn GetObjectInPath();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectSoundBuffer8Vtbl(
@@ -2665,11 +2590,6 @@ impl ::core::fmt::Debug for IDirectSoundCapture {
 unsafe impl ::windows::core::Interface for IDirectSoundCapture {
     type Vtable = IDirectSoundCaptureVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb0210781_89cd_11d0_af08_00a0c925cd16);
-}
-pub trait IDirectSoundCaptureImpl {
-    fn CreateCaptureBuffer();
-    fn GetCaps();
-    fn Initialize();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2763,17 +2683,6 @@ impl ::core::fmt::Debug for IDirectSoundCaptureBuffer {
 unsafe impl ::windows::core::Interface for IDirectSoundCaptureBuffer {
     type Vtable = IDirectSoundCaptureBufferVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb0210782_89cd_11d0_af08_00a0c925cd16);
-}
-pub trait IDirectSoundCaptureBufferImpl {
-    fn GetCaps();
-    fn GetCurrentPosition();
-    fn GetFormat();
-    fn GetStatus();
-    fn Initialize();
-    fn Lock();
-    fn Start();
-    fn Stop();
-    fn Unlock();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2902,10 +2811,6 @@ unsafe impl ::windows::core::Interface for IDirectSoundCaptureBuffer8 {
     type Vtable = IDirectSoundCaptureBuffer8Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00990df4_0dbb_4872_833e_6d303e80aeb6);
 }
-pub trait IDirectSoundCaptureBuffer8Impl: IDirectSoundCaptureBufferImpl {
-    fn GetObjectInPath();
-    fn GetFXStatus();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectSoundCaptureBuffer8Vtbl(
@@ -2989,12 +2894,6 @@ unsafe impl ::windows::core::Interface for IDirectSoundCaptureFXAec {
     type Vtable = IDirectSoundCaptureFXAecVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xad74143d_903d_4ab7_8066_28d363036d65);
 }
-pub trait IDirectSoundCaptureFXAecImpl {
-    fn SetAllParameters();
-    fn GetAllParameters();
-    fn GetStatus();
-    fn Reset();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectSoundCaptureFXAecVtbl(
@@ -3068,11 +2967,6 @@ unsafe impl ::windows::core::Interface for IDirectSoundCaptureFXNoiseSuppress {
     type Vtable = IDirectSoundCaptureFXNoiseSuppressVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xed311e41_fbae_4175_9625_cd0854f693ca);
 }
-pub trait IDirectSoundCaptureFXNoiseSuppressImpl {
-    fn SetAllParameters();
-    fn GetAllParameters();
-    fn Reset();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectSoundCaptureFXNoiseSuppressVtbl(
@@ -3139,10 +3033,6 @@ unsafe impl ::windows::core::Interface for IDirectSoundFXChorus {
     type Vtable = IDirectSoundFXChorusVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x880842e3_145f_43e6_a934_a71806e50547);
 }
-pub trait IDirectSoundFXChorusImpl {
-    fn SetAllParameters();
-    fn GetAllParameters();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectSoundFXChorusVtbl(
@@ -3205,10 +3095,6 @@ impl ::core::fmt::Debug for IDirectSoundFXCompressor {
 unsafe impl ::windows::core::Interface for IDirectSoundFXCompressor {
     type Vtable = IDirectSoundFXCompressorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4bbd1154_62f6_4e2c_a15c_d3b6c417f7a0);
-}
-pub trait IDirectSoundFXCompressorImpl {
-    fn SetAllParameters();
-    fn GetAllParameters();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3273,10 +3159,6 @@ unsafe impl ::windows::core::Interface for IDirectSoundFXDistortion {
     type Vtable = IDirectSoundFXDistortionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8ecf4326_455f_4d8b_bda9_8d5d3e9e3e0b);
 }
-pub trait IDirectSoundFXDistortionImpl {
-    fn SetAllParameters();
-    fn GetAllParameters();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectSoundFXDistortionVtbl(
@@ -3339,10 +3221,6 @@ impl ::core::fmt::Debug for IDirectSoundFXEcho {
 unsafe impl ::windows::core::Interface for IDirectSoundFXEcho {
     type Vtable = IDirectSoundFXEchoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8bd28edf_50db_4e92_a2bd_445488d1ed42);
-}
-pub trait IDirectSoundFXEchoImpl {
-    fn SetAllParameters();
-    fn GetAllParameters();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3407,10 +3285,6 @@ unsafe impl ::windows::core::Interface for IDirectSoundFXFlanger {
     type Vtable = IDirectSoundFXFlangerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x903e9878_2c92_4072_9b2c_ea68f5396783);
 }
-pub trait IDirectSoundFXFlangerImpl {
-    fn SetAllParameters();
-    fn GetAllParameters();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectSoundFXFlangerVtbl(
@@ -3473,10 +3347,6 @@ impl ::core::fmt::Debug for IDirectSoundFXGargle {
 unsafe impl ::windows::core::Interface for IDirectSoundFXGargle {
     type Vtable = IDirectSoundFXGargleVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd616f352_d622_11ce_aac5_0020af0b99a3);
-}
-pub trait IDirectSoundFXGargleImpl {
-    fn SetAllParameters();
-    fn GetAllParameters();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3559,14 +3429,6 @@ unsafe impl ::windows::core::Interface for IDirectSoundFXI3DL2Reverb {
     type Vtable = IDirectSoundFXI3DL2ReverbVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4b166a6a_0d66_43f3_80e3_ee6280dee1a4);
 }
-pub trait IDirectSoundFXI3DL2ReverbImpl {
-    fn SetAllParameters();
-    fn GetAllParameters();
-    fn SetPreset();
-    fn GetPreset();
-    fn SetQuality();
-    fn GetQuality();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectSoundFXI3DL2ReverbVtbl(
@@ -3634,10 +3496,6 @@ unsafe impl ::windows::core::Interface for IDirectSoundFXParamEq {
     type Vtable = IDirectSoundFXParamEqVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc03ca9fe_fe90_4204_8078_82334cd177da);
 }
-pub trait IDirectSoundFXParamEqImpl {
-    fn SetAllParameters();
-    fn GetAllParameters();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectSoundFXParamEqVtbl(
@@ -3701,10 +3559,6 @@ unsafe impl ::windows::core::Interface for IDirectSoundFXWavesReverb {
     type Vtable = IDirectSoundFXWavesReverbVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x46858c3a_0dc6_45e3_b760_d4eef16cb325);
 }
-pub trait IDirectSoundFXWavesReverbImpl {
-    fn SetAllParameters();
-    fn GetAllParameters();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectSoundFXWavesReverbVtbl(
@@ -3763,9 +3617,6 @@ impl ::core::fmt::Debug for IDirectSoundFullDuplex {
 unsafe impl ::windows::core::Interface for IDirectSoundFullDuplex {
     type Vtable = IDirectSoundFullDuplexVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xedcb4c7a_daab_4216_a42e_6c50596ddc1d);
-}
-pub trait IDirectSoundFullDuplexImpl {
-    fn Initialize();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3826,9 +3677,6 @@ unsafe impl ::windows::core::Interface for IDirectSoundNotify {
     type Vtable = IDirectSoundNotifyVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb0210783_89cd_11d0_af08_00a0c925cd16);
 }
-pub trait IDirectSoundNotifyImpl {
-    fn SetNotificationPositions();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectSoundNotifyVtbl(
@@ -3850,3 +3698,5 @@ pub type LPDSENUMCALLBACKA = ::core::option::Option<unsafe extern "system" fn(pa
 pub type LPDSENUMCALLBACKW = ::core::option::Option<unsafe extern "system" fn(param0: *mut ::windows::core::GUID, param1: super::super::super::Foundation::PWSTR, param2: super::super::super::Foundation::PWSTR, param3: *mut ::core::ffi::c_void) -> super::super::super::Foundation::BOOL>;
 #[doc = "*Required features: 'Win32_Media_Audio_DirectSound'*"]
 pub const _FACDS: u32 = 2168u32;
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

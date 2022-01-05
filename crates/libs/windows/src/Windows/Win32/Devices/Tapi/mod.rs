@@ -913,12 +913,6 @@ unsafe impl ::windows::core::Interface for IEnumACDGroup {
     type Vtable = IEnumACDGroupVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5afc3157_4bcc_11d1_bf80_00805fc147d3);
 }
-pub trait IEnumACDGroupImpl {
-    fn Next();
-    fn Reset();
-    fn Skip();
-    fn Clone();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumACDGroupVtbl(
@@ -991,12 +985,6 @@ impl ::core::fmt::Debug for IEnumAddress {
 unsafe impl ::windows::core::Interface for IEnumAddress {
     type Vtable = IEnumAddressVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1666fca1_9363_11d0_835c_00aa003ccabd);
-}
-pub trait IEnumAddressImpl {
-    fn Next();
-    fn Reset();
-    fn Skip();
-    fn Clone();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1071,12 +1059,6 @@ unsafe impl ::windows::core::Interface for IEnumAgent {
     type Vtable = IEnumAgentVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5afc314d_4bcc_11d1_bf80_00805fc147d3);
 }
-pub trait IEnumAgentImpl {
-    fn Next();
-    fn Reset();
-    fn Skip();
-    fn Clone();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumAgentVtbl(
@@ -1150,12 +1132,6 @@ unsafe impl ::windows::core::Interface for IEnumAgentHandler {
     type Vtable = IEnumAgentHandlerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x587e8c28_9802_11d1_a0a4_00805fc147d3);
 }
-pub trait IEnumAgentHandlerImpl {
-    fn Next();
-    fn Reset();
-    fn Skip();
-    fn Clone();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumAgentHandlerVtbl(
@@ -1228,12 +1204,6 @@ impl ::core::fmt::Debug for IEnumAgentSession {
 unsafe impl ::windows::core::Interface for IEnumAgentSession {
     type Vtable = IEnumAgentSessionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5afc314e_4bcc_11d1_bf80_00805fc147d3);
-}
-pub trait IEnumAgentSessionImpl {
-    fn Next();
-    fn Reset();
-    fn Skip();
-    fn Clone();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1309,12 +1279,6 @@ unsafe impl ::windows::core::Interface for IEnumBstr {
     type Vtable = IEnumBstrVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x35372049_0bc6_11d2_a033_00c04fb6809f);
 }
-pub trait IEnumBstrImpl {
-    fn Next();
-    fn Reset();
-    fn Skip();
-    fn Clone();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumBstrVtbl(
@@ -1389,12 +1353,6 @@ unsafe impl ::windows::core::Interface for IEnumCall {
     type Vtable = IEnumCallVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xae269cf6_935e_11d0_835c_00aa003ccabd);
 }
-pub trait IEnumCallImpl {
-    fn Next();
-    fn Reset();
-    fn Skip();
-    fn Clone();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumCallVtbl(
@@ -1468,12 +1426,6 @@ unsafe impl ::windows::core::Interface for IEnumCallHub {
     type Vtable = IEnumCallHubVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa3c15450_5b92_11d1_8f4e_00c04fb6809f);
 }
-pub trait IEnumCallHubImpl {
-    fn Next();
-    fn Reset();
-    fn Skip();
-    fn Clone();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumCallHubVtbl(
@@ -1546,12 +1498,6 @@ impl ::core::fmt::Debug for IEnumCallingCard {
 unsafe impl ::windows::core::Interface for IEnumCallingCard {
     type Vtable = IEnumCallingCardVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0c4d8f02_8ddb_11d1_a09e_00805fc147d3);
-}
-pub trait IEnumCallingCardImpl {
-    fn Next();
-    fn Reset();
-    fn Skip();
-    fn Clone();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1627,12 +1573,6 @@ unsafe impl ::windows::core::Interface for IEnumDialableAddrs {
     type Vtable = IEnumDialableAddrsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x34621d70_6cff_11d1_aff7_00c04fc31fee);
 }
-pub trait IEnumDialableAddrsImpl {
-    fn Next();
-    fn Reset();
-    fn Skip();
-    fn Clone();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumDialableAddrsVtbl(
@@ -1707,12 +1647,6 @@ unsafe impl ::windows::core::Interface for IEnumDirectory {
     type Vtable = IEnumDirectoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x34621d6d_6cff_11d1_aff7_00c04fc31fee);
 }
-pub trait IEnumDirectoryImpl {
-    fn Next();
-    fn Reset();
-    fn Skip();
-    fn Clone();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumDirectoryVtbl(
@@ -1785,12 +1719,6 @@ impl ::core::fmt::Debug for IEnumDirectoryObject {
 unsafe impl ::windows::core::Interface for IEnumDirectoryObject {
     type Vtable = IEnumDirectoryObjectVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x06c9b64a_306d_11d1_9774_00c04fd91ac0);
-}
-pub trait IEnumDirectoryObjectImpl {
-    fn Next();
-    fn Reset();
-    fn Skip();
-    fn Clone();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1865,12 +1793,6 @@ unsafe impl ::windows::core::Interface for IEnumLocation {
     type Vtable = IEnumLocationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0c4d8f01_8ddb_11d1_a09e_00805fc147d3);
 }
-pub trait IEnumLocationImpl {
-    fn Next();
-    fn Reset();
-    fn Skip();
-    fn Clone();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumLocationVtbl(
@@ -1943,12 +1865,6 @@ impl ::core::fmt::Debug for IEnumMcastScope {
 unsafe impl ::windows::core::Interface for IEnumMcastScope {
     type Vtable = IEnumMcastScopeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdf0daf09_a289_11d1_8697_006008b0e5d2);
-}
-pub trait IEnumMcastScopeImpl {
-    fn Next();
-    fn Reset();
-    fn Skip();
-    fn Clone();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2023,12 +1939,6 @@ unsafe impl ::windows::core::Interface for IEnumPhone {
     type Vtable = IEnumPhoneVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf15b7669_4780_4595_8c89_fb369c8cf7aa);
 }
-pub trait IEnumPhoneImpl {
-    fn Next();
-    fn Reset();
-    fn Skip();
-    fn Clone();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumPhoneVtbl(
@@ -2101,12 +2011,6 @@ impl ::core::fmt::Debug for IEnumPluggableSuperclassInfo {
 unsafe impl ::windows::core::Interface for IEnumPluggableSuperclassInfo {
     type Vtable = IEnumPluggableSuperclassInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe9586a80_89e6_4cff_931d_478d5751f4c0);
-}
-pub trait IEnumPluggableSuperclassInfoImpl {
-    fn Next();
-    fn Reset();
-    fn Skip();
-    fn Clone();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2181,12 +2085,6 @@ unsafe impl ::windows::core::Interface for IEnumPluggableTerminalClassInfo {
     type Vtable = IEnumPluggableTerminalClassInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4567450c_dbee_4e3f_aaf5_37bf9ebf5e29);
 }
-pub trait IEnumPluggableTerminalClassInfoImpl {
-    fn Next();
-    fn Reset();
-    fn Skip();
-    fn Clone();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumPluggableTerminalClassInfoVtbl(
@@ -2259,12 +2157,6 @@ impl ::core::fmt::Debug for IEnumQueue {
 unsafe impl ::windows::core::Interface for IEnumQueue {
     type Vtable = IEnumQueueVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5afc3158_4bcc_11d1_bf80_00805fc147d3);
-}
-pub trait IEnumQueueImpl {
-    fn Next();
-    fn Reset();
-    fn Skip();
-    fn Clone();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2339,12 +2231,6 @@ unsafe impl ::windows::core::Interface for IEnumStream {
     type Vtable = IEnumStreamVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xee3bd606_3868_11d2_a045_00c04fb6809f);
 }
-pub trait IEnumStreamImpl {
-    fn Next();
-    fn Reset();
-    fn Skip();
-    fn Clone();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumStreamVtbl(
@@ -2417,12 +2303,6 @@ impl ::core::fmt::Debug for IEnumSubStream {
 unsafe impl ::windows::core::Interface for IEnumSubStream {
     type Vtable = IEnumSubStreamVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xee3bd609_3868_11d2_a045_00c04fb6809f);
-}
-pub trait IEnumSubStreamImpl {
-    fn Next();
-    fn Reset();
-    fn Skip();
-    fn Clone();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2497,12 +2377,6 @@ unsafe impl ::windows::core::Interface for IEnumTerminal {
     type Vtable = IEnumTerminalVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xae269cf4_935e_11d0_835c_00aa003ccabd);
 }
-pub trait IEnumTerminalImpl {
-    fn Next();
-    fn Reset();
-    fn Skip();
-    fn Clone();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumTerminalVtbl(
@@ -2575,12 +2449,6 @@ impl ::core::fmt::Debug for IEnumTerminalClass {
 unsafe impl ::windows::core::Interface for IEnumTerminalClass {
     type Vtable = IEnumTerminalClassVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xae269cf5_935e_11d0_835c_00aa003ccabd);
-}
-pub trait IEnumTerminalClassImpl {
-    fn Next();
-    fn Reset();
-    fn Skip();
-    fn Clone();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2720,16 +2588,6 @@ impl ::core::fmt::Debug for IMcastAddressAllocation {
 unsafe impl ::windows::core::Interface for IMcastAddressAllocation {
     type Vtable = IMcastAddressAllocationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdf0daef1_a289_11d1_8697_006008b0e5d2);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IMcastAddressAllocationImpl: IDispatchImpl {
-    fn Scopes();
-    fn EnumerateScopes();
-    fn RequestAddress();
-    fn RenewAddress();
-    fn ReleaseAddress();
-    fn CreateLeaseInfo();
-    fn CreateLeaseInfoFromVariant();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2898,19 +2756,6 @@ unsafe impl ::windows::core::Interface for IMcastLeaseInfo {
     type Vtable = IMcastLeaseInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdf0daefd_a289_11d1_8697_006008b0e5d2);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IMcastLeaseInfoImpl: IDispatchImpl {
-    fn RequestID();
-    fn LeaseStartTime();
-    fn SetLeaseStartTime();
-    fn LeaseStopTime();
-    fn SetLeaseStopTime();
-    fn AddressCount();
-    fn ServerAddress();
-    fn TTL();
-    fn Addresses();
-    fn EnumerateAddresses();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMcastLeaseInfoVtbl(
@@ -3056,14 +2901,6 @@ unsafe impl ::windows::core::Interface for IMcastScope {
     type Vtable = IMcastScopeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdf0daef4_a289_11d1_8697_006008b0e5d2);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IMcastScopeImpl: IDispatchImpl {
-    fn ScopeID();
-    fn ServerID();
-    fn InterfaceID();
-    fn ScopeDescription();
-    fn TTL();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMcastScopeVtbl(
@@ -3197,12 +3034,6 @@ unsafe impl ::windows::core::Interface for ITACDGroup {
     type Vtable = ITACDGroupVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5afc3148_4bcc_11d1_bf80_00805fc147d3);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait ITACDGroupImpl: IDispatchImpl {
-    fn Name();
-    fn EnumerateQueues();
-    fn Queues();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITACDGroupVtbl(
@@ -3324,11 +3155,6 @@ unsafe impl ::windows::core::Interface for ITACDGroupEvent {
     type Vtable = ITACDGroupEventVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x297f3032_bd11_11d1_a0a7_00805fc147d3);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait ITACDGroupEventImpl: IDispatchImpl {
-    fn Group();
-    fn Event();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITACDGroupEventVtbl(
@@ -3401,10 +3227,6 @@ impl ::core::fmt::Debug for ITAMMediaFormat {
 unsafe impl ::windows::core::Interface for ITAMMediaFormat {
     type Vtable = ITAMMediaFormatVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0364eb00_4a77_11d1_a671_006097c9a2e8);
-}
-pub trait ITAMMediaFormatImpl {
-    fn MediaFormat();
-    fn SetMediaFormat();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3522,12 +3344,6 @@ impl ::core::fmt::Debug for ITASRTerminalEvent {
 unsafe impl ::windows::core::Interface for ITASRTerminalEvent {
     type Vtable = ITASRTerminalEventVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xee016a02_4fa9_467c_933f_5a15b12377d7);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait ITASRTerminalEventImpl: IDispatchImpl {
-    fn Terminal();
-    fn Call();
-    fn Error();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3714,24 +3530,6 @@ impl ::core::fmt::Debug for ITAddress {
 unsafe impl ::windows::core::Interface for ITAddress {
     type Vtable = ITAddressVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb1efc386_9355_11d0_835c_00aa003ccabd);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait ITAddressImpl: IDispatchImpl {
-    fn State();
-    fn AddressName();
-    fn ServiceProviderName();
-    fn TAPIObject();
-    fn CreateCall();
-    fn Calls();
-    fn EnumerateCalls();
-    fn DialableAddress();
-    fn CreateForwardInfoObject();
-    fn Forward();
-    fn CurrentForwardInfo();
-    fn SetMessageWaiting();
-    fn MessageWaiting();
-    fn SetDoNotDisturb();
-    fn DoNotDisturb();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4006,19 +3804,6 @@ unsafe impl ::windows::core::Interface for ITAddress2 {
     type Vtable = ITAddress2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb0ae5d9b_be51_46c9_b0f7_dfa8a22a8bc4);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait ITAddress2Impl: ITAddressImpl + IDispatchImpl {
-    fn Phones();
-    fn EnumeratePhones();
-    fn GetPhoneFromTerminal();
-    fn PreferredPhones();
-    fn EnumeratePreferredPhones();
-    fn EventFilter();
-    fn SetEventFilter();
-    fn DeviceSpecific();
-    fn DeviceSpecificVariant();
-    fn NegotiateExtVersion();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITAddress2Vtbl(
@@ -4202,17 +3987,6 @@ unsafe impl ::windows::core::Interface for ITAddressCapabilities {
     type Vtable = ITAddressCapabilitiesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8df232f5_821b_11d1_bb5c_00c04fb6809f);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait ITAddressCapabilitiesImpl: IDispatchImpl {
-    fn AddressCapability();
-    fn AddressCapabilityString();
-    fn CallTreatments();
-    fn EnumerateCallTreatments();
-    fn CompletionMessages();
-    fn EnumerateCompletionMessages();
-    fn DeviceClasses();
-    fn EnumerateDeviceClasses();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITAddressCapabilitiesVtbl(
@@ -4356,14 +4130,6 @@ unsafe impl ::windows::core::Interface for ITAddressDeviceSpecificEvent {
     type Vtable = ITAddressDeviceSpecificEventVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3acb216b_40bd_487a_8672_5ce77bd7e3a3);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait ITAddressDeviceSpecificEventImpl: IDispatchImpl {
-    fn Address();
-    fn Call();
-    fn lParam1();
-    fn lParam2();
-    fn lParam3();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITAddressDeviceSpecificEventVtbl(
@@ -4489,12 +4255,6 @@ impl ::core::fmt::Debug for ITAddressEvent {
 unsafe impl ::windows::core::Interface for ITAddressEvent {
     type Vtable = ITAddressEventVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x831ce2d1_83b5_11d1_bb5c_00c04fb6809f);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait ITAddressEventImpl: IDispatchImpl {
-    fn Address();
-    fn Event();
-    fn Terminal();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4638,15 +4398,6 @@ unsafe impl ::windows::core::Interface for ITAddressTranslation {
     type Vtable = ITAddressTranslationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0c4d8f03_8ddb_11d1_a09e_00805fc147d3);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait ITAddressTranslationImpl: IDispatchImpl {
-    fn TranslateAddress();
-    fn TranslateDialog();
-    fn EnumerateLocations();
-    fn Locations();
-    fn EnumerateCallingCards();
-    fn CallingCards();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITAddressTranslationVtbl(
@@ -4789,14 +4540,6 @@ impl ::core::fmt::Debug for ITAddressTranslationInfo {
 unsafe impl ::windows::core::Interface for ITAddressTranslationInfo {
     type Vtable = ITAddressTranslationInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xafc15945_8d40_11d1_a09e_00805fc147d3);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait ITAddressTranslationInfoImpl: IDispatchImpl {
-    fn DialableString();
-    fn DisplayableString();
-    fn CurrentCountryCode();
-    fn DestinationCountryCode();
-    fn TranslationResults();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4999,26 +4742,6 @@ unsafe impl ::windows::core::Interface for ITAgent {
     type Vtable = ITAgentVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5770ece5_4b27_11d1_bf80_00805fc147d3);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait ITAgentImpl: IDispatchImpl {
-    fn EnumerateAgentSessions();
-    fn CreateSession();
-    fn CreateSessionWithPIN();
-    fn ID();
-    fn User();
-    fn SetState();
-    fn State();
-    fn SetMeasurementPeriod();
-    fn MeasurementPeriod();
-    fn OverallCallRate();
-    fn NumberOfACDCalls();
-    fn NumberOfIncomingCalls();
-    fn NumberOfOutgoingCalls();
-    fn TotalACDTalkTime();
-    fn TotalACDCallTime();
-    fn TotalWrapUpTime();
-    fn AgentSessions();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITAgentVtbl(
@@ -5156,11 +4879,6 @@ impl ::core::fmt::Debug for ITAgentEvent {
 unsafe impl ::windows::core::Interface for ITAgentEvent {
     type Vtable = ITAgentEventVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5afc314a_4bcc_11d1_bf80_00805fc147d3);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait ITAgentEventImpl: IDispatchImpl {
-    fn Agent();
-    fn Event();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5309,16 +5027,6 @@ unsafe impl ::windows::core::Interface for ITAgentHandler {
     type Vtable = ITAgentHandlerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x587e8c22_9802_11d1_a0a4_00805fc147d3);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait ITAgentHandlerImpl: IDispatchImpl {
-    fn Name();
-    fn CreateAgent();
-    fn CreateAgentWithID();
-    fn EnumerateACDGroups();
-    fn EnumerateUsableAddresses();
-    fn ACDGroups();
-    fn UsableAddresses();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITAgentHandlerVtbl(
@@ -5445,11 +5153,6 @@ impl ::core::fmt::Debug for ITAgentHandlerEvent {
 unsafe impl ::windows::core::Interface for ITAgentHandlerEvent {
     type Vtable = ITAgentHandlerEventVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x297f3034_bd11_11d1_a0a7_00805fc147d3);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait ITAgentHandlerEventImpl: IDispatchImpl {
-    fn AgentHandler();
-    fn Event();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5644,26 +5347,6 @@ unsafe impl ::windows::core::Interface for ITAgentSession {
     type Vtable = ITAgentSessionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5afc3147_4bcc_11d1_bf80_00805fc147d3);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait ITAgentSessionImpl: IDispatchImpl {
-    fn Agent();
-    fn Address();
-    fn ACDGroup();
-    fn SetState();
-    fn State();
-    fn SessionStartTime();
-    fn SessionDuration();
-    fn NumberOfCalls();
-    fn TotalTalkTime();
-    fn AverageTalkTime();
-    fn TotalCallTime();
-    fn AverageCallTime();
-    fn TotalWrapUpTime();
-    fn AverageWrapUpTime();
-    fn ACDCallRate();
-    fn LongestTimeToAnswer();
-    fn AverageTimeToAnswer();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITAgentSessionVtbl(
@@ -5798,11 +5481,6 @@ unsafe impl ::windows::core::Interface for ITAgentSessionEvent {
     type Vtable = ITAgentSessionEventVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5afc314b_4bcc_11d1_bf80_00805fc147d3);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait ITAgentSessionEventImpl: IDispatchImpl {
-    fn Session();
-    fn Event();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITAgentSessionEventVtbl(
@@ -5895,14 +5573,6 @@ impl ::core::fmt::Debug for ITAllocatorProperties {
 unsafe impl ::windows::core::Interface for ITAllocatorProperties {
     type Vtable = ITAllocatorPropertiesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc1bc3c90_bcfe_11d1_9745_00c04fd91ac0);
-}
-pub trait ITAllocatorPropertiesImpl {
-    fn SetAllocatorProperties();
-    fn GetAllocatorProperties();
-    fn SetAllocateBuffers();
-    fn GetAllocateBuffers();
-    fn SetBufferSize();
-    fn GetBufferSize();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6156,41 +5826,6 @@ unsafe impl ::windows::core::Interface for ITAutomatedPhoneControl {
     type Vtable = ITAutomatedPhoneControlVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1ee1af0e_6159_4a61_b79b_6a4ba3fc9dfc);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait ITAutomatedPhoneControlImpl: IDispatchImpl {
-    fn StartTone();
-    fn StopTone();
-    fn Tone();
-    fn StartRinger();
-    fn StopRinger();
-    fn Ringer();
-    fn SetPhoneHandlingEnabled();
-    fn PhoneHandlingEnabled();
-    fn SetAutoEndOfNumberTimeout();
-    fn AutoEndOfNumberTimeout();
-    fn SetAutoDialtone();
-    fn AutoDialtone();
-    fn SetAutoStopTonesOnOnHook();
-    fn AutoStopTonesOnOnHook();
-    fn SetAutoStopRingOnOffHook();
-    fn AutoStopRingOnOffHook();
-    fn SetAutoKeypadTones();
-    fn AutoKeypadTones();
-    fn SetAutoKeypadTonesMinimumDuration();
-    fn AutoKeypadTonesMinimumDuration();
-    fn SetAutoVolumeControl();
-    fn AutoVolumeControl();
-    fn SetAutoVolumeControlStep();
-    fn AutoVolumeControlStep();
-    fn SetAutoVolumeControlRepeatDelay();
-    fn AutoVolumeControlRepeatDelay();
-    fn SetAutoVolumeControlRepeatPeriod();
-    fn AutoVolumeControlRepeatPeriod();
-    fn SelectCall();
-    fn UnselectCall();
-    fn EnumerateSelectedCalls();
-    fn SelectedCalls();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITAutomatedPhoneControlVtbl(
@@ -6347,13 +5982,6 @@ impl ::core::fmt::Debug for ITBasicAudioTerminal {
 unsafe impl ::windows::core::Interface for ITBasicAudioTerminal {
     type Vtable = ITBasicAudioTerminalVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb1efc38d_9355_11d0_835c_00aa003ccabd);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait ITBasicAudioTerminalImpl: IDispatchImpl {
-    fn SetVolume();
-    fn Volume();
-    fn SetBalance();
-    fn Balance();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6543,27 +6171,6 @@ impl ::core::fmt::Debug for ITBasicCallControl {
 unsafe impl ::windows::core::Interface for ITBasicCallControl {
     type Vtable = ITBasicCallControlVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb1efc389_9355_11d0_835c_00aa003ccabd);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait ITBasicCallControlImpl: IDispatchImpl {
-    fn Connect();
-    fn Answer();
-    fn Disconnect();
-    fn Hold();
-    fn HandoffDirect();
-    fn HandoffIndirect();
-    fn Conference();
-    fn Transfer();
-    fn BlindTransfer();
-    fn SwapHold();
-    fn ParkDirect();
-    fn ParkIndirect();
-    fn Unpark();
-    fn SetQOS();
-    fn Pickup();
-    fn Dial();
-    fn Finish();
-    fn RemoveFromConference();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6808,12 +6415,6 @@ unsafe impl ::windows::core::Interface for ITBasicCallControl2 {
     type Vtable = ITBasicCallControl2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x161a4a56_1e99_4b3f_a46a_168f38a5ee4c);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait ITBasicCallControl2Impl: ITBasicCallControlImpl + IDispatchImpl {
-    fn RequestTerminal();
-    fn SelectTerminalOnCall();
-    fn UnselectTerminalOnCall();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITBasicCallControl2Vtbl(
@@ -6973,14 +6574,6 @@ unsafe impl ::windows::core::Interface for ITCallHub {
     type Vtable = ITCallHubVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa3c1544e_5b92_11d1_8f4e_00c04fb6809f);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait ITCallHubImpl: IDispatchImpl {
-    fn Clear();
-    fn EnumerateCalls();
-    fn Calls();
-    fn NumCalls();
-    fn State();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITCallHubVtbl(
@@ -7107,12 +6700,6 @@ impl ::core::fmt::Debug for ITCallHubEvent {
 unsafe impl ::windows::core::Interface for ITCallHubEvent {
     type Vtable = ITCallHubEventVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa3c15451_5b92_11d1_8f4e_00c04fb6809f);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait ITCallHubEventImpl: IDispatchImpl {
-    fn Event();
-    fn CallHub();
-    fn Call();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7285,22 +6872,6 @@ impl ::core::fmt::Debug for ITCallInfo {
 unsafe impl ::windows::core::Interface for ITCallInfo {
     type Vtable = ITCallInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x350f85d1_1227_11d3_83d4_00c04fb6809f);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait ITCallInfoImpl: IDispatchImpl {
-    fn Address();
-    fn CallState();
-    fn Privilege();
-    fn CallHub();
-    fn CallInfoLong();
-    fn SetCallInfoLong();
-    fn CallInfoString();
-    fn SetCallInfoString();
-    fn CallInfoBuffer();
-    fn SetCallInfoBuffer();
-    fn GetCallInfoBuffer();
-    fn SetCallInfoBuffer();
-    fn ReleaseUserUserInfo();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7517,11 +7088,6 @@ unsafe impl ::windows::core::Interface for ITCallInfo2 {
     type Vtable = ITCallInfo2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x94d70ca6_7ab0_4daa_81ca_b8f8643faec1);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait ITCallInfo2Impl: ITCallInfoImpl + IDispatchImpl {
-    fn EventFilter();
-    fn SetEventFilter();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITCallInfo2Vtbl(
@@ -7662,12 +7228,6 @@ unsafe impl ::windows::core::Interface for ITCallInfoChangeEvent {
     type Vtable = ITCallInfoChangeEventVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5d4b65f9_e51c_11d1_a02f_00c04fb6809f);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait ITCallInfoChangeEventImpl: IDispatchImpl {
-    fn Call();
-    fn Cause();
-    fn CallbackInstance();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITCallInfoChangeEventVtbl(
@@ -7807,15 +7367,6 @@ unsafe impl ::windows::core::Interface for ITCallMediaEvent {
     type Vtable = ITCallMediaEventVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xff36b87f_ec3a_11d0_8ee4_00c04fb6809f);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait ITCallMediaEventImpl: IDispatchImpl {
-    fn Call();
-    fn Event();
-    fn Error();
-    fn Terminal();
-    fn Stream();
-    fn Cause();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITCallMediaEventVtbl(
@@ -7942,12 +7493,6 @@ impl ::core::fmt::Debug for ITCallNotificationEvent {
 unsafe impl ::windows::core::Interface for ITCallNotificationEvent {
     type Vtable = ITCallNotificationEventVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x895801df_3dd6_11d1_8f30_00c04fb6809f);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait ITCallNotificationEventImpl: IDispatchImpl {
-    fn Call();
-    fn Event();
-    fn CallbackInstance();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8077,13 +7622,6 @@ impl ::core::fmt::Debug for ITCallStateEvent {
 unsafe impl ::windows::core::Interface for ITCallStateEvent {
     type Vtable = ITCallStateEventVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x62f47097_95c9_11d0_835d_00aa003ccabd);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait ITCallStateEventImpl: IDispatchImpl {
-    fn Call();
-    fn State();
-    fn Cause();
-    fn CallbackInstance();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8234,16 +7772,6 @@ unsafe impl ::windows::core::Interface for ITCallingCard {
     type Vtable = ITCallingCardVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0c4d8f00_8ddb_11d1_a09e_00805fc147d3);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait ITCallingCardImpl: IDispatchImpl {
-    fn PermanentCardID();
-    fn NumberOfDigits();
-    fn Options();
-    fn CardName();
-    fn SameAreaDialingRule();
-    fn LongDistanceDialingRule();
-    fn InternationalDialingRule();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITCallingCardVtbl(
@@ -8376,12 +7904,6 @@ impl ::core::fmt::Debug for ITCollection {
 unsafe impl ::windows::core::Interface for ITCollection {
     type Vtable = ITCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5ec5acf2_9c02_11d0_8362_00aa003ccabd);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait ITCollectionImpl: IDispatchImpl {
-    fn Count();
-    fn Item();
-    fn _NewEnum();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8538,11 +8060,6 @@ unsafe impl ::windows::core::Interface for ITCollection2 {
     type Vtable = ITCollection2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe6dddda5_a6d3_48ff_8737_d32fc4d95477);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait ITCollection2Impl: ITCollectionImpl + IDispatchImpl {
-    fn Add();
-    fn Remove();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITCollection2Vtbl(
@@ -8692,17 +8209,6 @@ unsafe impl ::windows::core::Interface for ITCustomTone {
     type Vtable = ITCustomToneVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x357ad764_b3c6_4b2a_8fa5_0722827a9254);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait ITCustomToneImpl: IDispatchImpl {
-    fn Frequency();
-    fn SetFrequency();
-    fn CadenceOn();
-    fn SetCadenceOn();
-    fn CadenceOff();
-    fn SetCadenceOff();
-    fn Volume();
-    fn SetVolume();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITCustomToneVtbl(
@@ -8844,15 +8350,6 @@ unsafe impl ::windows::core::Interface for ITDetectTone {
     type Vtable = ITDetectToneVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x961f79bd_3097_49df_a1d6_909b77e89ca0);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait ITDetectToneImpl: IDispatchImpl {
-    fn AppSpecific();
-    fn SetAppSpecific();
-    fn Duration();
-    fn SetDuration();
-    fn Frequency();
-    fn SetFrequency();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITDetectToneVtbl(
@@ -8990,14 +8487,6 @@ unsafe impl ::windows::core::Interface for ITDigitDetectionEvent {
     type Vtable = ITDigitDetectionEventVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x80d3bfac_57d9_11d2_a04a_00c04fb6809f);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait ITDigitDetectionEventImpl: IDispatchImpl {
-    fn Call();
-    fn Digit();
-    fn DigitMode();
-    fn TickCount();
-    fn CallbackInstance();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITDigitDetectionEventVtbl(
@@ -9128,13 +8617,6 @@ impl ::core::fmt::Debug for ITDigitGenerationEvent {
 unsafe impl ::windows::core::Interface for ITDigitGenerationEvent {
     type Vtable = ITDigitGenerationEventVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x80d3bfad_57d9_11d2_a04a_00c04fb6809f);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait ITDigitGenerationEventImpl: IDispatchImpl {
-    fn Call();
-    fn GenerationTermination();
-    fn TickCount();
-    fn CallbackInstance();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9271,14 +8753,6 @@ impl ::core::fmt::Debug for ITDigitsGatheredEvent {
 unsafe impl ::windows::core::Interface for ITDigitsGatheredEvent {
     type Vtable = ITDigitsGatheredEventVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe52ec4c1_cba3_441a_9e6a_93cb909e9724);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait ITDigitsGatheredEventImpl: IDispatchImpl {
-    fn Call();
-    fn Digits();
-    fn GatherTermination();
-    fn TickCount();
-    fn CallbackInstance();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9458,23 +8932,6 @@ unsafe impl ::windows::core::Interface for ITDirectory {
     type Vtable = ITDirectoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x34621d6c_6cff_11d1_aff7_00c04fc31fee);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait ITDirectoryImpl: IDispatchImpl {
-    fn DirectoryType();
-    fn DisplayName();
-    fn IsDynamic();
-    fn DefaultObjectTTL();
-    fn SetDefaultObjectTTL();
-    fn EnableAutoRefresh();
-    fn Connect();
-    fn Bind();
-    fn AddDirectoryObject();
-    fn ModifyDirectoryObject();
-    fn RefreshDirectoryObject();
-    fn DeleteDirectoryObject();
-    fn DirectoryObjects();
-    fn EnumerateDirectoryObjects();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITDirectoryVtbl(
@@ -9636,16 +9093,6 @@ impl ::core::fmt::Debug for ITDirectoryObject {
 unsafe impl ::windows::core::Interface for ITDirectoryObject {
     type Vtable = ITDirectoryObjectVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x34621d6e_6cff_11d1_aff7_00c04fc31fee);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait ITDirectoryObjectImpl: IDispatchImpl {
-    fn ObjectType();
-    fn Name();
-    fn SetName();
-    fn DialableAddrs();
-    fn EnumerateDialableAddrs();
-    fn SecurityDescriptor();
-    fn SetSecurityDescriptor();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9840,24 +9287,6 @@ unsafe impl ::windows::core::Interface for ITDirectoryObjectConference {
     type Vtable = ITDirectoryObjectConferenceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf1029e5d_cb5b_11d0_8d59_00c04fd91ac0);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait ITDirectoryObjectConferenceImpl: IDispatchImpl {
-    fn Protocol();
-    fn Originator();
-    fn SetOriginator();
-    fn AdvertisingScope();
-    fn SetAdvertisingScope();
-    fn Url();
-    fn SetUrl();
-    fn Description();
-    fn SetDescription();
-    fn IsEncrypted();
-    fn SetIsEncrypted();
-    fn StartTime();
-    fn SetStartTime();
-    fn StopTime();
-    fn SetStopTime();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITDirectoryObjectConferenceVtbl(
@@ -9997,11 +9426,6 @@ unsafe impl ::windows::core::Interface for ITDirectoryObjectUser {
     type Vtable = ITDirectoryObjectUserVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x34621d6f_6cff_11d1_aff7_00c04fc31fee);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait ITDirectoryObjectUserImpl: IDispatchImpl {
-    fn IPPhonePrimary();
-    fn SetIPPhonePrimary();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITDirectoryObjectUserVtbl(
@@ -10117,10 +9541,6 @@ impl ::core::fmt::Debug for ITDispatchMapper {
 unsafe impl ::windows::core::Interface for ITDispatchMapper {
     type Vtable = ITDispatchMapperVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe9225295_c759_11d1_a02b_00c04fb6809f);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait ITDispatchMapperImpl: IDispatchImpl {
-    fn QueryDispatchInterface();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -10259,15 +9679,6 @@ impl ::core::fmt::Debug for ITFileTerminalEvent {
 unsafe impl ::windows::core::Interface for ITFileTerminalEvent {
     type Vtable = ITFileTerminalEventVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe4a7fbac_8c17_4427_9f55_9f589ac8af00);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait ITFileTerminalEventImpl: IDispatchImpl {
-    fn Terminal();
-    fn Track();
-    fn Call();
-    fn State();
-    fn Cause();
-    fn Error();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -10410,15 +9821,6 @@ impl ::core::fmt::Debug for ITFileTrack {
 unsafe impl ::windows::core::Interface for ITFileTrack {
     type Vtable = ITFileTrackVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x31ca6ea9_c08a_4bea_8811_8e9c1ba3ea3a);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait ITFileTrackImpl: IDispatchImpl {
-    fn Format();
-    fn SetFormat();
-    fn ControllingTerminal();
-    fn AudioFormatForScripting();
-    fn SetAudioFormatForScripting();
-    fn EmptyAudioFormatForScripting();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -10568,16 +9970,6 @@ impl ::core::fmt::Debug for ITForwardInformation {
 unsafe impl ::windows::core::Interface for ITForwardInformation {
     type Vtable = ITForwardInformationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x449f659e_88a3_11d1_bb5d_00c04fb6809f);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait ITForwardInformationImpl: IDispatchImpl {
-    fn SetNumRingsNoAnswer();
-    fn NumRingsNoAnswer();
-    fn SetForwardType();
-    fn ForwardTypeDestination();
-    fn ForwardTypeCaller();
-    fn GetForwardType();
-    fn Clear();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -10771,13 +10163,6 @@ unsafe impl ::windows::core::Interface for ITForwardInformation2 {
     type Vtable = ITForwardInformation2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5229b4ed_b260_4382_8e1a_5df3a8a4ccc0);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait ITForwardInformation2Impl: ITForwardInformationImpl + IDispatchImpl {
-    fn SetForwardType2();
-    fn GetForwardType2();
-    fn ForwardTypeDestinationAddressType();
-    fn ForwardTypeCallerAddressType();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITForwardInformation2Vtbl(
@@ -10910,11 +10295,6 @@ unsafe impl ::windows::core::Interface for ITILSConfig {
     type Vtable = ITILSConfigVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x34621d72_6cff_11d1_aff7_00c04fc31fee);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait ITILSConfigImpl: IDispatchImpl {
-    fn Port();
-    fn SetPort();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITILSConfigVtbl(
@@ -10991,11 +10371,6 @@ impl ::core::fmt::Debug for ITLegacyAddressMediaControl {
 unsafe impl ::windows::core::Interface for ITLegacyAddressMediaControl {
     type Vtable = ITLegacyAddressMediaControlVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xab493640_4c0b_11d2_a046_00c04fb6809f);
-}
-pub trait ITLegacyAddressMediaControlImpl {
-    fn GetID();
-    fn GetDevConfig();
-    fn SetDevConfig();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -11099,10 +10474,6 @@ impl ::core::fmt::Debug for ITLegacyAddressMediaControl2 {
 unsafe impl ::windows::core::Interface for ITLegacyAddressMediaControl2 {
     type Vtable = ITLegacyAddressMediaControl2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb0ee512b_a531_409e_9dd9_4099fe86c738);
-}
-pub trait ITLegacyAddressMediaControl2Impl: ITLegacyAddressMediaControlImpl {
-    fn ConfigDialog();
-    fn ConfigDialogEdit();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -11233,14 +10604,6 @@ impl ::core::fmt::Debug for ITLegacyCallMediaControl {
 unsafe impl ::windows::core::Interface for ITLegacyCallMediaControl {
     type Vtable = ITLegacyCallMediaControlVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd624582f_cc23_4436_b8a5_47c625c8045d);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait ITLegacyCallMediaControlImpl: IDispatchImpl {
-    fn DetectDigits();
-    fn GenerateDigits();
-    fn GetID();
-    fn SetMediaType();
-    fn MonitorMedia();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -11443,19 +10806,6 @@ unsafe impl ::windows::core::Interface for ITLegacyCallMediaControl2 {
     type Vtable = ITLegacyCallMediaControl2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x57ca332d_7bc2_44f1_a60c_936fe8d7ce73);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait ITLegacyCallMediaControl2Impl: ITLegacyCallMediaControlImpl + IDispatchImpl {
-    fn GenerateDigits2();
-    fn GatherDigits();
-    fn DetectTones();
-    fn DetectTonesByCollection();
-    fn GenerateTone();
-    fn GenerateCustomTones();
-    fn GenerateCustomTonesByCollection();
-    fn CreateDetectToneObject();
-    fn CreateCustomToneObject();
-    fn GetIDAsVariant();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITLegacyCallMediaControl2Vtbl(
@@ -11586,10 +10936,6 @@ impl ::core::fmt::Debug for ITLegacyWaveSupport {
 unsafe impl ::windows::core::Interface for ITLegacyWaveSupport {
     type Vtable = ITLegacyWaveSupportVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x207823ea_e252_11d2_b77e_0080c7135381);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait ITLegacyWaveSupportImpl: IDispatchImpl {
-    fn IsFullDuplex();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -11759,20 +11105,6 @@ unsafe impl ::windows::core::Interface for ITLocationInfo {
     type Vtable = ITLocationInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0c4d8eff_8ddb_11d1_a09e_00805fc147d3);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait ITLocationInfoImpl: IDispatchImpl {
-    fn PermanentLocationID();
-    fn CountryCode();
-    fn CountryID();
-    fn Options();
-    fn PreferredCardID();
-    fn LocationName();
-    fn CityCode();
-    fn LocalAccessCode();
-    fn LongDistanceAccessCode();
-    fn TollPrefixList();
-    fn CancelCallWaitingCode();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITLocationInfoVtbl(
@@ -11874,14 +11206,6 @@ impl ::core::fmt::Debug for ITMSPAddress {
 unsafe impl ::windows::core::Interface for ITMSPAddress {
     type Vtable = ITMSPAddressVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xee3bd600_3868_11d2_a045_00c04fb6809f);
-}
-pub trait ITMSPAddressImpl {
-    fn Initialize();
-    fn Shutdown();
-    fn CreateMSPCall();
-    fn ShutdownMSPCall();
-    fn ReceiveTSPData();
-    fn GetEvent();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -12004,13 +11328,6 @@ unsafe impl ::windows::core::Interface for ITMediaControl {
     type Vtable = ITMediaControlVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc445dde8_5199_4bc7_9807_5ffb92e42e09);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait ITMediaControlImpl: IDispatchImpl {
-    fn Start();
-    fn Stop();
-    fn Pause();
-    fn MediaState();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITMediaControlVtbl(
@@ -12131,11 +11448,6 @@ impl ::core::fmt::Debug for ITMediaPlayback {
 unsafe impl ::windows::core::Interface for ITMediaPlayback {
     type Vtable = ITMediaPlaybackVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x627e8ae6_ae4c_4a69_bb63_2ad625404b77);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait ITMediaPlaybackImpl: IDispatchImpl {
-    fn SetPlayList();
-    fn PlayList();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -12258,11 +11570,6 @@ unsafe impl ::windows::core::Interface for ITMediaRecord {
     type Vtable = ITMediaRecordVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf5dd4592_5476_4cc1_9d4d_fad3eefe7db2);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait ITMediaRecordImpl: IDispatchImpl {
-    fn SetFileName();
-    fn FileName();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITMediaRecordVtbl(
@@ -12382,11 +11689,6 @@ impl ::core::fmt::Debug for ITMediaSupport {
 unsafe impl ::windows::core::Interface for ITMediaSupport {
     type Vtable = ITMediaSupportVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb1efc384_9355_11d0_835c_00aa003ccabd);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait ITMediaSupportImpl: IDispatchImpl {
-    fn MediaTypes();
-    fn QueryMediaType();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -12525,15 +11827,6 @@ impl ::core::fmt::Debug for ITMultiTrackTerminal {
 unsafe impl ::windows::core::Interface for ITMultiTrackTerminal {
     type Vtable = ITMultiTrackTerminalVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfe040091_ade8_4072_95c9_bf7de8c54b44);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait ITMultiTrackTerminalImpl: IDispatchImpl {
-    fn TrackTerminals();
-    fn EnumerateTrackTerminals();
-    fn CreateTrackTerminal();
-    fn MediaTypesInUse();
-    fn DirectionsInUse();
-    fn RemoveTrackTerminal();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -12810,42 +12103,6 @@ unsafe impl ::windows::core::Interface for ITPhone {
     type Vtable = ITPhoneVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x09d48db4_10cc_4388_9de7_a8465618975a);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait ITPhoneImpl: IDispatchImpl {
-    fn Open();
-    fn Close();
-    fn Addresses();
-    fn EnumerateAddresses();
-    fn PhoneCapsLong();
-    fn PhoneCapsString();
-    fn Terminals();
-    fn EnumerateTerminals();
-    fn ButtonMode();
-    fn SetButtonMode();
-    fn ButtonFunction();
-    fn SetButtonFunction();
-    fn ButtonText();
-    fn SetButtonText();
-    fn ButtonState();
-    fn HookSwitchState();
-    fn SetHookSwitchState();
-    fn SetRingMode();
-    fn RingMode();
-    fn SetRingVolume();
-    fn RingVolume();
-    fn Privilege();
-    fn GetPhoneCapsBuffer();
-    fn PhoneCapsBuffer();
-    fn LampMode();
-    fn SetLampMode();
-    fn Display();
-    fn SetDisplay();
-    fn PreferredAddresses();
-    fn EnumeratePreferredAddresses();
-    fn DeviceSpecific();
-    fn DeviceSpecificVariant();
-    fn NegotiateExtVersion();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITPhoneVtbl(
@@ -13015,13 +12272,6 @@ unsafe impl ::windows::core::Interface for ITPhoneDeviceSpecificEvent {
     type Vtable = ITPhoneDeviceSpecificEventVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x63ffb2a6_872b_4cd3_a501_326e8fb40af7);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait ITPhoneDeviceSpecificEventImpl: IDispatchImpl {
-    fn Phone();
-    fn lParam1();
-    fn lParam2();
-    fn lParam3();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITPhoneDeviceSpecificEventVtbl(
@@ -13177,18 +12427,6 @@ impl ::core::fmt::Debug for ITPhoneEvent {
 unsafe impl ::windows::core::Interface for ITPhoneEvent {
     type Vtable = ITPhoneEventVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8f942dd8_64ed_4aaf_a77d_b23db0837ead);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait ITPhoneEventImpl: IDispatchImpl {
-    fn Phone();
-    fn Event();
-    fn ButtonState();
-    fn HookSwitchState();
-    fn HookSwitchDevice();
-    fn RingMode();
-    fn ButtonLampId();
-    fn NumberGathered();
-    fn Call();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -13346,16 +12584,6 @@ unsafe impl ::windows::core::Interface for ITPluggableTerminalClassInfo {
     type Vtable = ITPluggableTerminalClassInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x41757f4a_cf09_4b34_bc96_0a79d2390076);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait ITPluggableTerminalClassInfoImpl: IDispatchImpl {
-    fn Name();
-    fn Company();
-    fn Version();
-    fn TerminalClass();
-    fn CLSID();
-    fn Direction();
-    fn MediaTypes();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITPluggableTerminalClassInfoVtbl(
@@ -13433,9 +12661,6 @@ unsafe impl ::windows::core::Interface for ITPluggableTerminalEventSink {
     type Vtable = ITPluggableTerminalEventSinkVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6e0887be_ba1a_492e_bd10_4020ec5e33e0);
 }
-pub trait ITPluggableTerminalEventSinkImpl {
-    fn FireEvent();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITPluggableTerminalEventSinkVtbl(
@@ -13497,10 +12722,6 @@ impl ::core::fmt::Debug for ITPluggableTerminalEventSinkRegistration {
 unsafe impl ::windows::core::Interface for ITPluggableTerminalEventSinkRegistration {
     type Vtable = ITPluggableTerminalEventSinkRegistrationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf7115709_a216_4957_a759_060ab32a90d1);
-}
-pub trait ITPluggableTerminalEventSinkRegistrationImpl {
-    fn RegisterSink();
-    fn UnregisterSink();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -13613,11 +12834,6 @@ impl ::core::fmt::Debug for ITPluggableTerminalSuperclassInfo {
 unsafe impl ::windows::core::Interface for ITPluggableTerminalSuperclassInfo {
     type Vtable = ITPluggableTerminalSuperclassInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6d54e42c_4625_4359_a6f7_631999107e05);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait ITPluggableTerminalSuperclassInfoImpl: IDispatchImpl {
-    fn Name();
-    fn CLSID();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -13755,14 +12971,6 @@ unsafe impl ::windows::core::Interface for ITPrivateEvent {
     type Vtable = ITPrivateEventVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0e269cd0_10d4_4121_9c22_9c85d625650d);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait ITPrivateEventImpl: IDispatchImpl {
-    fn Address();
-    fn Call();
-    fn CallHub();
-    fn EventCode();
-    fn EventInterface();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITPrivateEventVtbl(
@@ -13889,12 +13097,6 @@ impl ::core::fmt::Debug for ITQOSEvent {
 unsafe impl ::windows::core::Interface for ITQOSEvent {
     type Vtable = ITQOSEventVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcfa3357c_ad77_11d1_bb68_00c04fb6809f);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait ITQOSEventImpl: IDispatchImpl {
-    fn Call();
-    fn Event();
-    fn MediaType();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -14065,21 +13267,6 @@ unsafe impl ::windows::core::Interface for ITQueue {
     type Vtable = ITQueueVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5afc3149_4bcc_11d1_bf80_00805fc147d3);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait ITQueueImpl: IDispatchImpl {
-    fn SetMeasurementPeriod();
-    fn MeasurementPeriod();
-    fn TotalCallsQueued();
-    fn CurrentCallsQueued();
-    fn TotalCallsAbandoned();
-    fn TotalCallsFlowedIn();
-    fn TotalCallsFlowedOut();
-    fn LongestEverWaitTime();
-    fn CurrentLongestWaitTime();
-    fn AverageWaitTime();
-    fn FinalDisposition();
-    fn Name();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITQueueVtbl(
@@ -14208,11 +13395,6 @@ impl ::core::fmt::Debug for ITQueueEvent {
 unsafe impl ::windows::core::Interface for ITQueueEvent {
     type Vtable = ITQueueEventVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x297f3033_bd11_11d1_a0a7_00805fc147d3);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait ITQueueEventImpl: IDispatchImpl {
-    fn Queue();
-    fn Event();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -14345,13 +13527,6 @@ unsafe impl ::windows::core::Interface for ITRendezvous {
     type Vtable = ITRendezvousVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x34621d6b_6cff_11d1_aff7_00c04fc31fee);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait ITRendezvousImpl: IDispatchImpl {
-    fn DefaultDirectories();
-    fn EnumerateDefaultDirectories();
-    fn CreateDirectory();
-    fn CreateDirectoryObject();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITRendezvousVtbl(
@@ -14469,10 +13644,6 @@ impl ::core::fmt::Debug for ITRequest {
 unsafe impl ::windows::core::Interface for ITRequest {
     type Vtable = ITRequestVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xac48ffdf_f8c4_11d1_a030_00c04fb6809f);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait ITRequestImpl: IDispatchImpl {
-    fn MakeCall();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -14615,15 +13786,6 @@ impl ::core::fmt::Debug for ITRequestEvent {
 unsafe impl ::windows::core::Interface for ITRequestEvent {
     type Vtable = ITRequestEventVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xac48ffde_f8c4_11d1_a030_00c04fb6809f);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait ITRequestEventImpl: IDispatchImpl {
-    fn RegistrationInstance();
-    fn RequestMode();
-    fn DestAddress();
-    fn AppName();
-    fn CalledParty();
-    fn Comment();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -14795,21 +13957,6 @@ unsafe impl ::windows::core::Interface for ITScriptableAudioFormat {
     type Vtable = ITScriptableAudioFormatVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb87658bd_3c59_4f64_be74_aede3e86a81e);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait ITScriptableAudioFormatImpl: IDispatchImpl {
-    fn Channels();
-    fn SetChannels();
-    fn SamplesPerSec();
-    fn SetSamplesPerSec();
-    fn AvgBytesPerSec();
-    fn SetAvgBytesPerSec();
-    fn BlockAlign();
-    fn SetBlockAlign();
-    fn BitsPerSample();
-    fn SetBitsPerSample();
-    fn FormatTag();
-    fn SetFormatTag();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITScriptableAudioFormatVtbl(
@@ -14932,10 +14079,6 @@ impl ::core::fmt::Debug for ITStaticAudioTerminal {
 unsafe impl ::windows::core::Interface for ITStaticAudioTerminal {
     type Vtable = ITStaticAudioTerminalVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa86b7871_d14c_48e6_922e_a8d15f984800);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait ITStaticAudioTerminalImpl: IDispatchImpl {
-    fn WaveId();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -15091,19 +14234,6 @@ unsafe impl ::windows::core::Interface for ITStream {
     type Vtable = ITStreamVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xee3bd605_3868_11d2_a045_00c04fb6809f);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait ITStreamImpl: IDispatchImpl {
-    fn MediaType();
-    fn Direction();
-    fn Name();
-    fn StartStream();
-    fn PauseStream();
-    fn StopStream();
-    fn SelectTerminal();
-    fn UnselectTerminal();
-    fn EnumerateTerminals();
-    fn Terminals();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITStreamVtbl(
@@ -15241,13 +14371,6 @@ impl ::core::fmt::Debug for ITStreamControl {
 unsafe impl ::windows::core::Interface for ITStreamControl {
     type Vtable = ITStreamControlVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xee3bd604_3868_11d2_a045_00c04fb6809f);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait ITStreamControlImpl: IDispatchImpl {
-    fn CreateStream();
-    fn RemoveStream();
-    fn EnumerateStreams();
-    fn Streams();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -15396,17 +14519,6 @@ unsafe impl ::windows::core::Interface for ITSubStream {
     type Vtable = ITSubStreamVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xee3bd608_3868_11d2_a045_00c04fb6809f);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait ITSubStreamImpl: IDispatchImpl {
-    fn StartSubStream();
-    fn PauseSubStream();
-    fn StopSubStream();
-    fn SelectTerminal();
-    fn UnselectTerminal();
-    fn EnumerateTerminals();
-    fn Terminals();
-    fn Stream();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITSubStreamVtbl(
@@ -15541,13 +14653,6 @@ impl ::core::fmt::Debug for ITSubStreamControl {
 unsafe impl ::windows::core::Interface for ITSubStreamControl {
     type Vtable = ITSubStreamControlVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xee3bd607_3868_11d2_a045_00c04fb6809f);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait ITSubStreamControlImpl: IDispatchImpl {
-    fn CreateSubStream();
-    fn RemoveSubStream();
-    fn EnumerateSubStreams();
-    fn SubStreams();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -15738,25 +14843,6 @@ impl ::core::fmt::Debug for ITTAPI {
 unsafe impl ::windows::core::Interface for ITTAPI {
     type Vtable = ITTAPIVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb1efc382_9355_11d0_835c_00aa003ccabd);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait ITTAPIImpl: IDispatchImpl {
-    fn Initialize();
-    fn Shutdown();
-    fn Addresses();
-    fn EnumerateAddresses();
-    fn RegisterCallNotifications();
-    fn UnregisterNotifications();
-    fn CallHubs();
-    fn EnumerateCallHubs();
-    fn SetCallHubTracking();
-    fn EnumeratePrivateTAPIObjects();
-    fn PrivateTAPIObjects();
-    fn RegisterRequestRecipient();
-    fn SetAssistedTelephonyPriority();
-    fn SetApplicationPriority();
-    fn SetEventFilter();
-    fn EventFilter();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -16002,12 +15088,6 @@ unsafe impl ::windows::core::Interface for ITTAPI2 {
     type Vtable = ITTAPI2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x54fbdc8c_d90f_4dad_9695_b373097f094b);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait ITTAPI2Impl: ITTAPIImpl + IDispatchImpl {
-    fn Phones();
-    fn EnumeratePhones();
-    fn CreateEmptyCollectionObject();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITTAPI2Vtbl(
@@ -16152,11 +15232,6 @@ unsafe impl ::windows::core::Interface for ITTAPICallCenter {
     type Vtable = ITTAPICallCenterVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5afc3154_4bcc_11d1_bf80_00805fc147d3);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait ITTAPICallCenterImpl: IDispatchImpl {
-    fn EnumerateAgentHandlers();
-    fn AgentHandlers();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITTAPICallCenterVtbl(
@@ -16266,8 +15341,6 @@ unsafe impl ::windows::core::Interface for ITTAPIDispatchEventNotification {
     type Vtable = ITTAPIDispatchEventNotificationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9f34325b_7e62_11d2_9457_00c04f8ec888);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait ITTAPIDispatchEventNotificationImpl: IDispatchImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITTAPIDispatchEventNotificationVtbl(
@@ -16332,9 +15405,6 @@ impl ::core::fmt::Debug for ITTAPIEventNotification {
 unsafe impl ::windows::core::Interface for ITTAPIEventNotification {
     type Vtable = ITTAPIEventNotificationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeddb9426_3b91_11d1_8f30_00c04fb6809f);
-}
-pub trait ITTAPIEventNotificationImpl {
-    fn Event();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -16455,13 +15525,6 @@ impl ::core::fmt::Debug for ITTAPIObjectEvent {
 unsafe impl ::windows::core::Interface for ITTAPIObjectEvent {
     type Vtable = ITTAPIObjectEventVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf4854d48_937a_11d1_bb58_00c04fb6809f);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait ITTAPIObjectEventImpl: IDispatchImpl {
-    fn TAPIObject();
-    fn Event();
-    fn Address();
-    fn CallbackInstance();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -16618,10 +15681,6 @@ unsafe impl ::windows::core::Interface for ITTAPIObjectEvent2 {
     type Vtable = ITTAPIObjectEvent2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x359dda6e_68ce_4383_bf0b_169133c41b46);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait ITTAPIObjectEvent2Impl: ITTAPIObjectEventImpl + IDispatchImpl {
-    fn Phone();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITTAPIObjectEvent2Vtbl(
@@ -16747,12 +15806,6 @@ impl ::core::fmt::Debug for ITTTSTerminalEvent {
 unsafe impl ::windows::core::Interface for ITTTSTerminalEvent {
     type Vtable = ITTTSTerminalEventVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd964788f_95a5_461d_ab0c_b9900a6c2713);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait ITTTSTerminalEventImpl: IDispatchImpl {
-    fn Terminal();
-    fn Call();
-    fn Error();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -16894,15 +15947,6 @@ impl ::core::fmt::Debug for ITTerminal {
 unsafe impl ::windows::core::Interface for ITTerminal {
     type Vtable = ITTerminalVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb1efc38a_9355_11d0_835c_00aa003ccabd);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait ITTerminalImpl: IDispatchImpl {
-    fn Name();
-    fn State();
-    fn TerminalType();
-    fn TerminalClass();
-    fn MediaType();
-    fn Direction();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -17050,15 +16094,6 @@ impl ::core::fmt::Debug for ITTerminalSupport {
 unsafe impl ::windows::core::Interface for ITTerminalSupport {
     type Vtable = ITTerminalSupportVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb1efc385_9355_11d0_835c_00aa003ccabd);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait ITTerminalSupportImpl: IDispatchImpl {
-    fn StaticTerminals();
-    fn EnumerateStaticTerminals();
-    fn DynamicTerminalClasses();
-    fn EnumerateDynamicTerminalClasses();
-    fn CreateTerminal();
-    fn GetDefaultStaticTerminal();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -17250,13 +16285,6 @@ unsafe impl ::windows::core::Interface for ITTerminalSupport2 {
     type Vtable = ITTerminalSupport2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf3eb39bc_1b1f_4e99_a0c0_56305c4dd591);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait ITTerminalSupport2Impl: ITTerminalSupportImpl + IDispatchImpl {
-    fn PluggableSuperclasses();
-    fn EnumeratePluggableSuperclasses();
-    fn PluggableTerminalClasses();
-    fn EnumeratePluggableTerminalClasses();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITTerminalSupport2Vtbl(
@@ -17398,13 +16426,6 @@ unsafe impl ::windows::core::Interface for ITToneDetectionEvent {
     type Vtable = ITToneDetectionEventVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x407e0faf_d047_4753_b0c6_8e060373fecd);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait ITToneDetectionEventImpl: IDispatchImpl {
-    fn Call();
-    fn AppSpecific();
-    fn TickCount();
-    fn CallbackInstance();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITToneDetectionEventVtbl(
@@ -17530,12 +16551,6 @@ unsafe impl ::windows::core::Interface for ITToneTerminalEvent {
     type Vtable = ITToneTerminalEventVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe6f56009_611f_4945_bbd2_2d0ce5612056);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait ITToneTerminalEventImpl: IDispatchImpl {
-    fn Terminal();
-    fn Call();
-    fn Error();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITToneTerminalEventVtbl(
@@ -17633,15 +16648,6 @@ impl ::core::fmt::Debug for ITnef {
 unsafe impl ::windows::core::Interface for ITnef {
     type Vtable = ITnefVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
-}
-pub trait ITnefImpl {
-    fn AddProps();
-    fn ExtractProps();
-    fn Finish();
-    fn OpenTaggedBody();
-    fn SetProps();
-    fn EncodeRecips();
-    fn FinishComponent();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -27778,3 +26784,5 @@ pub unsafe fn tapiRequestMediaCallW<'a, Param0: ::windows::core::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

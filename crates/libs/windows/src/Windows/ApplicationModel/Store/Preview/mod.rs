@@ -179,11 +179,6 @@ unsafe impl ::windows::core::Interface for IDeliveryOptimizationSettings {
     type Vtable = IDeliveryOptimizationSettingsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1810fda0_e853_565e_b874_7a8a7b9a0e0f);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IDeliveryOptimizationSettingsImpl {
-    fn DownloadMode();
-    fn DownloadModeSource();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDeliveryOptimizationSettingsVtbl(
@@ -203,10 +198,6 @@ unsafe impl ::windows::core::Interface for IDeliveryOptimizationSettingsStatics 
     type Vtable = IDeliveryOptimizationSettingsStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5c817caf_aed5_5999_b4c9_8c60898bc4f3);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IDeliveryOptimizationSettingsStaticsImpl {
-    fn GetCurrentSettings();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDeliveryOptimizationSettingsStaticsVtbl(
@@ -224,15 +215,6 @@ pub struct IStoreConfigurationStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IStoreConfigurationStatics {
     type Vtable = IStoreConfigurationStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x728f7fc0_8628_42ec_84a2_07780eb44d8b);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IStoreConfigurationStaticsImpl {
-    fn SetSystemConfiguration();
-    fn SetMobileOperatorConfiguration();
-    fn SetStoreWebAccountId();
-    fn IsStoreWebAccountId();
-    fn HardwareManufacturerInfo();
-    fn FilterUnsupportedSystemFeaturesAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -259,11 +241,6 @@ unsafe impl ::windows::core::Interface for IStoreConfigurationStatics2 {
     type Vtable = IStoreConfigurationStatics2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x657c4595_c8b7_4fe9_9f4c_4d71027d347e);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IStoreConfigurationStatics2Impl {
-    fn PurchasePromptingPolicy();
-    fn SetPurchasePromptingPolicy();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IStoreConfigurationStatics2Vtbl(
@@ -284,16 +261,6 @@ pub struct IStoreConfigurationStatics3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IStoreConfigurationStatics3 {
     type Vtable = IStoreConfigurationStatics3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6d45f57c_f144_4cb5_9d3f_4eb05e30b6d3);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IStoreConfigurationStatics3Impl {
-    fn HasStoreWebAccount();
-    fn HasStoreWebAccountForUser();
-    fn GetStoreLogDataAsync();
-    fn SetStoreWebAccountIdForUser();
-    fn IsStoreWebAccountIdForUser();
-    fn GetPurchasePromptingPolicyForUser();
-    fn SetPurchasePromptingPolicyForUser();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -325,17 +292,6 @@ unsafe impl ::windows::core::Interface for IStoreConfigurationStatics4 {
     type Vtable = IStoreConfigurationStatics4Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x20ff56d2_4ee3_4cf0_9b12_552c03310f75);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IStoreConfigurationStatics4Impl {
-    fn GetStoreWebAccountId();
-    fn GetStoreWebAccountIdForUser();
-    fn SetEnterpriseStoreWebAccountId();
-    fn SetEnterpriseStoreWebAccountIdForUser();
-    fn GetEnterpriseStoreWebAccountId();
-    fn GetEnterpriseStoreWebAccountIdForUser();
-    fn ShouldRestrictToEnterpriseStoreOnly();
-    fn ShouldRestrictToEnterpriseStoreOnlyForUser();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IStoreConfigurationStatics4Vtbl(
@@ -365,14 +321,6 @@ unsafe impl ::windows::core::Interface for IStoreConfigurationStatics5 {
     type Vtable = IStoreConfigurationStatics5Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf7613191_8fa9_49db_822b_0160e7e4e5c5);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IStoreConfigurationStatics5Impl {
-    fn IsPinToDesktopSupported();
-    fn IsPinToTaskbarSupported();
-    fn IsPinToStartSupported();
-    fn PinToDesktop();
-    fn PinToDesktopForUser();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IStoreConfigurationStatics5Vtbl(
@@ -396,13 +344,6 @@ unsafe impl ::windows::core::Interface for IStoreHardwareManufacturerInfo {
     type Vtable = IStoreHardwareManufacturerInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf292dc08_c654_43ac_a21f_34801c9d3388);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IStoreHardwareManufacturerInfoImpl {
-    fn HardwareManufacturerId();
-    fn StoreContentModifierId();
-    fn ModelName();
-    fn ManufacturerName();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IStoreHardwareManufacturerInfoVtbl(
@@ -424,11 +365,6 @@ unsafe impl ::windows::core::Interface for IStorePreview {
     type Vtable = IStorePreviewVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8a157241_840e_49a9_bc01_5d5b01fbc8e9);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IStorePreviewImpl {
-    fn RequestProductPurchaseByProductIdAndSkuIdAsync();
-    fn LoadAddOnProductInfosAsync();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IStorePreviewVtbl(
@@ -449,14 +385,6 @@ pub struct IStorePreviewProductInfo(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IStorePreviewProductInfo {
     type Vtable = IStorePreviewProductInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1937dbb3_6c01_4c9d_85cd_5babaac2b351);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IStorePreviewProductInfoImpl {
-    fn ProductId();
-    fn ProductType();
-    fn Title();
-    fn Description();
-    fn SkuInfoList();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -481,10 +409,6 @@ unsafe impl ::windows::core::Interface for IStorePreviewPurchaseResults {
     type Vtable = IStorePreviewPurchaseResultsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb0daaed1_d6c5_4e53_a043_fba0d8e61231);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IStorePreviewPurchaseResultsImpl {
-    fn ProductPurchaseStatus();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IStorePreviewPurchaseResultsVtbl(
@@ -502,18 +426,6 @@ pub struct IStorePreviewSkuInfo(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IStorePreviewSkuInfo {
     type Vtable = IStorePreviewSkuInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x81fd76e2_0b26_48d9_98ce_27461c669d6c);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IStorePreviewSkuInfoImpl {
-    fn ProductId();
-    fn SkuId();
-    fn SkuType();
-    fn Title();
-    fn Description();
-    fn CustomDeveloperData();
-    fn CurrencyCode();
-    fn FormattedListPrice();
-    fn ExtendedData();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -540,11 +452,6 @@ pub struct IWebAuthenticationCoreManagerHelper(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IWebAuthenticationCoreManagerHelper {
     type Vtable = IWebAuthenticationCoreManagerHelperVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x06a50525_e715_4123_9276_9d6f865ba55f);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IWebAuthenticationCoreManagerHelperImpl {
-    fn RequestTokenWithUIElementHostingAsync();
-    fn RequestTokenWithUIElementHostingAndWebAccountAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1436,3 +1343,5 @@ impl WebAuthenticationCoreManagerHelper {
 impl ::windows::core::RuntimeName for WebAuthenticationCoreManagerHelper {
     const NAME: &'static str = "Windows.ApplicationModel.Store.Preview.WebAuthenticationCoreManagerHelper";
 }
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

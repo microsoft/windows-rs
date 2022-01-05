@@ -6,29 +6,6 @@ unsafe impl ::windows::core::Interface for IPrintTicketCapabilities {
     type Vtable = IPrintTicketCapabilitiesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8c45508b_bbdc_4256_a142_2fd615ecb416);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IPrintTicketCapabilitiesImpl {
-    fn Name();
-    fn XmlNamespace();
-    fn XmlNode();
-    fn DocumentBindingFeature();
-    fn DocumentCollateFeature();
-    fn DocumentDuplexFeature();
-    fn DocumentHolePunchFeature();
-    fn DocumentInputBinFeature();
-    fn DocumentNUpFeature();
-    fn DocumentStapleFeature();
-    fn JobPasscodeFeature();
-    fn PageBorderlessFeature();
-    fn PageMediaSizeFeature();
-    fn PageMediaTypeFeature();
-    fn PageOrientationFeature();
-    fn PageOutputColorFeature();
-    fn PageOutputQualityFeature();
-    fn PageResolutionFeature();
-    fn GetFeature();
-    fn GetParameterDefinition();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintTicketCapabilitiesVtbl(
@@ -67,18 +44,6 @@ unsafe impl ::windows::core::Interface for IPrintTicketFeature {
     type Vtable = IPrintTicketFeatureVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe7607d6a_59f5_4103_8858_b97710963d39);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IPrintTicketFeatureImpl {
-    fn Name();
-    fn XmlNamespace();
-    fn XmlNode();
-    fn DisplayName();
-    fn GetOption();
-    fn Options();
-    fn GetSelectedOption();
-    fn SetSelectedOption();
-    fn SelectionType();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintTicketFeatureVtbl(
@@ -106,17 +71,6 @@ pub struct IPrintTicketOption(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPrintTicketOption {
     type Vtable = IPrintTicketOptionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb086cf90_b367_4e4b_bd48_9c78a0bb31ce);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IPrintTicketOptionImpl {
-    fn Name();
-    fn XmlNamespace();
-    fn XmlNode();
-    fn DisplayName();
-    fn GetPropertyNode();
-    fn GetScoredPropertyNode();
-    fn GetPropertyValue();
-    fn GetScoredPropertyValue();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -146,16 +100,6 @@ unsafe impl ::windows::core::Interface for IPrintTicketParameterDefinition {
     type Vtable = IPrintTicketParameterDefinitionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd6bab4e4_2962_4c01_b7f3_9a9294eb8335);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IPrintTicketParameterDefinitionImpl {
-    fn Name();
-    fn XmlNamespace();
-    fn XmlNode();
-    fn DataType();
-    fn UnitType();
-    fn RangeMin();
-    fn RangeMax();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintTicketParameterDefinitionVtbl(
@@ -181,14 +125,6 @@ unsafe impl ::windows::core::Interface for IPrintTicketParameterInitializer {
     type Vtable = IPrintTicketParameterInitializerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5e3335bb_a0a5_48b1_9d5c_07116ddc597a);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IPrintTicketParameterInitializerImpl {
-    fn Name();
-    fn XmlNamespace();
-    fn XmlNode();
-    fn SetValue();
-    fn Value();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintTicketParameterInitializerVtbl(
@@ -212,12 +148,6 @@ unsafe impl ::windows::core::Interface for IPrintTicketValue {
     type Vtable = IPrintTicketValueVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x66b30a32_244d_4e22_a98b_bb3cf1f2dd91);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IPrintTicketValueImpl {
-    fn Type();
-    fn GetValueAsInteger();
-    fn GetValueAsString();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintTicketValueVtbl(
@@ -237,35 +167,6 @@ pub struct IWorkflowPrintTicket(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IWorkflowPrintTicket {
     type Vtable = IWorkflowPrintTicketVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x41d52285_35e8_448e_a8c5_e4b6a2cf826c);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IWorkflowPrintTicketImpl {
-    fn Name();
-    fn XmlNamespace();
-    fn XmlNode();
-    fn GetCapabilities();
-    fn DocumentBindingFeature();
-    fn DocumentCollateFeature();
-    fn DocumentDuplexFeature();
-    fn DocumentHolePunchFeature();
-    fn DocumentInputBinFeature();
-    fn DocumentNUpFeature();
-    fn DocumentStapleFeature();
-    fn JobPasscodeFeature();
-    fn PageBorderlessFeature();
-    fn PageMediaSizeFeature();
-    fn PageMediaTypeFeature();
-    fn PageOrientationFeature();
-    fn PageOutputColorFeature();
-    fn PageOutputQualityFeature();
-    fn PageResolutionFeature();
-    fn GetFeature();
-    fn NotifyXmlChangedAsync();
-    fn ValidateAsync();
-    fn GetParameterInitializer();
-    fn SetParameterInitializerAsInteger();
-    fn SetParameterInitializerAsString();
-    fn MergeAndValidateTicket();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -312,11 +213,6 @@ pub struct IWorkflowPrintTicketValidationResult(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IWorkflowPrintTicketValidationResult {
     type Vtable = IWorkflowPrintTicketValidationResultVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0ad1f392_da7b_4a36_bf36_6a99a62e2059);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IWorkflowPrintTicketValidationResultImpl {
-    fn Validated();
-    fn ExtendedError();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1660,3 +1556,5 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Work
 }
 unsafe impl ::core::marker::Send for WorkflowPrintTicketValidationResult {}
 unsafe impl ::core::marker::Sync for WorkflowPrintTicketValidationResult {}
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

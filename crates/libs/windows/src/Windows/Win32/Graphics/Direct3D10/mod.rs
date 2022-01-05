@@ -6037,12 +6037,6 @@ unsafe impl ::windows::core::Interface for ID3D10Asynchronous {
     type Vtable = ID3D10AsynchronousVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9b7e4c0d_342c_4106_a19f_4f2704f689f0);
 }
-pub trait ID3D10AsynchronousImpl: ID3D10DeviceChildImpl {
-    fn Begin();
-    fn End();
-    fn GetData();
-    fn GetDataSize();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3D10AsynchronousVtbl(
@@ -6143,9 +6137,6 @@ impl ::core::fmt::Debug for ID3D10BlendState {
 unsafe impl ::windows::core::Interface for ID3D10BlendState {
     type Vtable = ID3D10BlendStateVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xedad8d19_8a35_4d6d_8566_2ea276cde161);
-}
-pub trait ID3D10BlendStateImpl: ID3D10DeviceChildImpl {
-    fn GetDesc();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6270,9 +6261,6 @@ impl ::core::fmt::Debug for ID3D10BlendState1 {
 unsafe impl ::windows::core::Interface for ID3D10BlendState1 {
     type Vtable = ID3D10BlendState1Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xedad8d99_8a35_4d6d_8566_2ea276cde161);
-}
-pub trait ID3D10BlendState1Impl: ID3D10BlendStateImpl + ID3D10DeviceChildImpl {
-    fn GetDesc1();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6414,11 +6402,6 @@ unsafe impl ::windows::core::Interface for ID3D10Buffer {
     type Vtable = ID3D10BufferVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9b7e4c02_342c_4106_a19f_4f2704f689f0);
 }
-pub trait ID3D10BufferImpl: ID3D10ResourceImpl + ID3D10DeviceChildImpl {
-    fn Map();
-    fn Unmap();
-    fn GetDesc();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3D10BufferVtbl(
@@ -6557,9 +6540,6 @@ unsafe impl ::windows::core::Interface for ID3D10Counter {
     type Vtable = ID3D10CounterVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9b7e4c11_342c_4106_a19f_4f2704f689f0);
 }
-pub trait ID3D10CounterImpl: ID3D10AsynchronousImpl + ID3D10DeviceChildImpl {
-    fn GetDesc();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3D10CounterVtbl(
@@ -6651,15 +6631,6 @@ impl ::core::fmt::Debug for ID3D10Debug {
 unsafe impl ::windows::core::Interface for ID3D10Debug {
     type Vtable = ID3D10DebugVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9b7e4e01_342c_4106_a19f_4f2704f689f0);
-}
-pub trait ID3D10DebugImpl {
-    fn SetFeatureMask();
-    fn GetFeatureMask();
-    fn SetPresentPerRenderOpDelay();
-    fn GetPresentPerRenderOpDelay();
-    fn SetSwapChain();
-    fn GetSwapChain();
-    fn Validate();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6762,9 +6733,6 @@ impl ::core::fmt::Debug for ID3D10DepthStencilState {
 unsafe impl ::windows::core::Interface for ID3D10DepthStencilState {
     type Vtable = ID3D10DepthStencilStateVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2b4b1cc8_a4ad_41f8_8322_ca86fc3ec675);
-}
-pub trait ID3D10DepthStencilStateImpl: ID3D10DeviceChildImpl {
-    fn GetDesc();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6888,9 +6856,6 @@ impl ::core::fmt::Debug for ID3D10DepthStencilView {
 unsafe impl ::windows::core::Interface for ID3D10DepthStencilView {
     type Vtable = ID3D10DepthStencilViewVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9b7e4c09_342c_4106_a19f_4f2704f689f0);
-}
-pub trait ID3D10DepthStencilViewImpl: ID3D10ViewImpl + ID3D10DeviceChildImpl {
-    fn GetDesc();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7375,103 +7340,6 @@ impl ::core::fmt::Debug for ID3D10Device {
 unsafe impl ::windows::core::Interface for ID3D10Device {
     type Vtable = ID3D10DeviceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9b7e4c0f_342c_4106_a19f_4f2704f689f0);
-}
-pub trait ID3D10DeviceImpl {
-    fn VSSetConstantBuffers();
-    fn PSSetShaderResources();
-    fn PSSetShader();
-    fn PSSetSamplers();
-    fn VSSetShader();
-    fn DrawIndexed();
-    fn Draw();
-    fn PSSetConstantBuffers();
-    fn IASetInputLayout();
-    fn IASetVertexBuffers();
-    fn IASetIndexBuffer();
-    fn DrawIndexedInstanced();
-    fn DrawInstanced();
-    fn GSSetConstantBuffers();
-    fn GSSetShader();
-    fn IASetPrimitiveTopology();
-    fn VSSetShaderResources();
-    fn VSSetSamplers();
-    fn SetPredication();
-    fn GSSetShaderResources();
-    fn GSSetSamplers();
-    fn OMSetRenderTargets();
-    fn OMSetBlendState();
-    fn OMSetDepthStencilState();
-    fn SOSetTargets();
-    fn DrawAuto();
-    fn RSSetState();
-    fn RSSetViewports();
-    fn RSSetScissorRects();
-    fn CopySubresourceRegion();
-    fn CopyResource();
-    fn UpdateSubresource();
-    fn ClearRenderTargetView();
-    fn ClearDepthStencilView();
-    fn GenerateMips();
-    fn ResolveSubresource();
-    fn VSGetConstantBuffers();
-    fn PSGetShaderResources();
-    fn PSGetShader();
-    fn PSGetSamplers();
-    fn VSGetShader();
-    fn PSGetConstantBuffers();
-    fn IAGetInputLayout();
-    fn IAGetVertexBuffers();
-    fn IAGetIndexBuffer();
-    fn GSGetConstantBuffers();
-    fn GSGetShader();
-    fn IAGetPrimitiveTopology();
-    fn VSGetShaderResources();
-    fn VSGetSamplers();
-    fn GetPredication();
-    fn GSGetShaderResources();
-    fn GSGetSamplers();
-    fn OMGetRenderTargets();
-    fn OMGetBlendState();
-    fn OMGetDepthStencilState();
-    fn SOGetTargets();
-    fn RSGetState();
-    fn RSGetViewports();
-    fn RSGetScissorRects();
-    fn GetDeviceRemovedReason();
-    fn SetExceptionMode();
-    fn GetExceptionMode();
-    fn GetPrivateData();
-    fn SetPrivateData();
-    fn SetPrivateDataInterface();
-    fn ClearState();
-    fn Flush();
-    fn CreateBuffer();
-    fn CreateTexture1D();
-    fn CreateTexture2D();
-    fn CreateTexture3D();
-    fn CreateShaderResourceView();
-    fn CreateRenderTargetView();
-    fn CreateDepthStencilView();
-    fn CreateInputLayout();
-    fn CreateVertexShader();
-    fn CreateGeometryShader();
-    fn CreateGeometryShaderWithStreamOutput();
-    fn CreatePixelShader();
-    fn CreateBlendState();
-    fn CreateDepthStencilState();
-    fn CreateRasterizerState();
-    fn CreateSamplerState();
-    fn CreateQuery();
-    fn CreatePredicate();
-    fn CreateCounter();
-    fn CheckFormatSupport();
-    fn CheckMultisampleQualityLevels();
-    fn CheckCounterInfo();
-    fn CheckCounter();
-    fn GetCreationFlags();
-    fn OpenSharedResource();
-    fn SetTextFilterSize();
-    fn GetTextFilterSize();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8105,11 +7973,6 @@ unsafe impl ::windows::core::Interface for ID3D10Device1 {
     type Vtable = ID3D10Device1Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9b7e4c8f_342c_4106_a19f_4f2704f689f0);
 }
-pub trait ID3D10Device1Impl: ID3D10DeviceImpl {
-    fn CreateShaderResourceView1();
-    fn CreateBlendState1();
-    fn GetFeatureLevel();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3D10Device1Vtbl(
@@ -8302,12 +8165,6 @@ unsafe impl ::windows::core::Interface for ID3D10DeviceChild {
     type Vtable = ID3D10DeviceChildVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9b7e4c00_342c_4106_a19f_4f2704f689f0);
 }
-pub trait ID3D10DeviceChildImpl {
-    fn GetDevice();
-    fn GetPrivateData();
-    fn SetPrivateData();
-    fn SetPrivateDataInterface();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3D10DeviceChildVtbl(
@@ -8425,21 +8282,6 @@ impl ::core::fmt::Debug for ID3D10Effect {
 unsafe impl ::windows::core::Interface for ID3D10Effect {
     type Vtable = ID3D10EffectVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x51b0ca8b_ec0b_4519_870d_8ee1cb5017c7);
-}
-pub trait ID3D10EffectImpl {
-    fn IsValid();
-    fn IsPool();
-    fn GetDevice();
-    fn GetDesc();
-    fn GetConstantBufferByIndex();
-    fn GetConstantBufferByName();
-    fn GetVariableByIndex();
-    fn GetVariableByName();
-    fn GetVariableBySemantic();
-    fn GetTechniqueByIndex();
-    fn GetTechniqueByName();
-    fn Optimize();
-    fn IsOptimized();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8629,10 +8471,6 @@ impl ::core::fmt::Debug for ID3D10EffectBlendVariable {
 unsafe impl ::windows::core::Interface for ID3D10EffectBlendVariable {
     type Vtable = ID3D10EffectBlendVariableVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1fcd2294_df6d_4eae_86b3_0e9160cfb07b);
-}
-pub trait ID3D10EffectBlendVariableImpl: ID3D10EffectVariableImpl {
-    fn GetBlendState();
-    fn GetBackingStore();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8840,12 +8678,6 @@ unsafe impl ::windows::core::Interface for ID3D10EffectConstantBuffer {
     type Vtable = ID3D10EffectConstantBufferVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x56648f4d_cc8b_4444_a5ad_b5a3d76e91b3);
 }
-pub trait ID3D10EffectConstantBufferImpl: ID3D10EffectVariableImpl {
-    fn SetConstantBuffer();
-    fn GetConstantBuffer();
-    fn SetTextureBuffer();
-    fn GetTextureBuffer();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3D10EffectConstantBufferVtbl(
@@ -9045,10 +8877,6 @@ impl ::core::fmt::Debug for ID3D10EffectDepthStencilVariable {
 unsafe impl ::windows::core::Interface for ID3D10EffectDepthStencilVariable {
     type Vtable = ID3D10EffectDepthStencilVariableVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaf482368_330a_46a5_9a5c_01c71af24c8d);
-}
-pub trait ID3D10EffectDepthStencilVariableImpl: ID3D10EffectVariableImpl {
-    fn GetDepthStencilState();
-    fn GetBackingStore();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9254,12 +9082,6 @@ impl ::core::fmt::Debug for ID3D10EffectDepthStencilViewVariable {
 unsafe impl ::windows::core::Interface for ID3D10EffectDepthStencilViewVariable {
     type Vtable = ID3D10EffectDepthStencilViewVariableVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3e02c918_cc79_4985_b622_2d92ad701623);
-}
-pub trait ID3D10EffectDepthStencilViewVariableImpl: ID3D10EffectVariableImpl {
-    fn SetDepthStencil();
-    fn GetDepthStencil();
-    fn SetDepthStencilArray();
-    fn GetDepthStencilArray();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9482,16 +9304,6 @@ unsafe impl ::windows::core::Interface for ID3D10EffectMatrixVariable {
     type Vtable = ID3D10EffectMatrixVariableVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x50666c24_b82f_4eed_a172_5b6e7e8522e0);
 }
-pub trait ID3D10EffectMatrixVariableImpl: ID3D10EffectVariableImpl {
-    fn SetMatrix();
-    fn GetMatrix();
-    fn SetMatrixArray();
-    fn GetMatrixArray();
-    fn SetMatrixTranspose();
-    fn GetMatrixTranspose();
-    fn SetMatrixTransposeArray();
-    fn GetMatrixTransposeArray();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3D10EffectMatrixVariableVtbl(
@@ -9599,17 +9411,6 @@ unsafe impl ::windows::core::Interface for ID3D10EffectPass {
     type Vtable = ID3D10EffectPassVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5cfbeb89_1a06_46e0_b282_e3f9bfa36a54);
 }
-pub trait ID3D10EffectPassImpl {
-    fn IsValid();
-    fn GetDesc();
-    fn GetVertexShaderDesc();
-    fn GetGeometryShaderDesc();
-    fn GetPixelShaderDesc();
-    fn GetAnnotationByIndex();
-    fn GetAnnotationByName();
-    fn Apply();
-    fn ComputeStateBlockMask();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3D10EffectPassVtbl(
@@ -9674,9 +9475,6 @@ impl ::core::fmt::Debug for ID3D10EffectPool {
 unsafe impl ::windows::core::Interface for ID3D10EffectPool {
     type Vtable = ID3D10EffectPoolVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9537ab04_3250_412e_8213_fcd2f8677933);
-}
-pub trait ID3D10EffectPoolImpl {
-    fn AsEffect();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9842,10 +9640,6 @@ impl ::core::fmt::Debug for ID3D10EffectRasterizerVariable {
 unsafe impl ::windows::core::Interface for ID3D10EffectRasterizerVariable {
     type Vtable = ID3D10EffectRasterizerVariableVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x21af9f0e_4d94_4ea9_9785_2cb76b8c0b34);
-}
-pub trait ID3D10EffectRasterizerVariableImpl: ID3D10EffectVariableImpl {
-    fn GetRasterizerState();
-    fn GetBackingStore();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -10052,12 +9846,6 @@ unsafe impl ::windows::core::Interface for ID3D10EffectRenderTargetViewVariable 
     type Vtable = ID3D10EffectRenderTargetViewVariableVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x28ca0cc3_c2c9_40bb_b57f_67b737122b17);
 }
-pub trait ID3D10EffectRenderTargetViewVariableImpl: ID3D10EffectVariableImpl {
-    fn SetRenderTarget();
-    fn GetRenderTarget();
-    fn SetRenderTargetArray();
-    fn GetRenderTargetArray();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3D10EffectRenderTargetViewVariableVtbl(
@@ -10256,10 +10044,6 @@ impl ::core::fmt::Debug for ID3D10EffectSamplerVariable {
 unsafe impl ::windows::core::Interface for ID3D10EffectSamplerVariable {
     type Vtable = ID3D10EffectSamplerVariableVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6530d5c7_07e9_4271_a418_e7ce4bd1e480);
-}
-pub trait ID3D10EffectSamplerVariableImpl: ID3D10EffectVariableImpl {
-    fn GetSampler();
-    fn GetBackingStore();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -10503,20 +10287,6 @@ unsafe impl ::windows::core::Interface for ID3D10EffectScalarVariable {
     type Vtable = ID3D10EffectScalarVariableVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00e48f7b_d2c8_49e8_a86c_022dee53431f);
 }
-pub trait ID3D10EffectScalarVariableImpl: ID3D10EffectVariableImpl {
-    fn SetFloat();
-    fn GetFloat();
-    fn SetFloatArray();
-    fn GetFloatArray();
-    fn SetInt();
-    fn GetInt();
-    fn SetIntArray();
-    fn GetIntArray();
-    fn SetBool();
-    fn GetBool();
-    fn SetBoolArray();
-    fn GetBoolArray();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3D10EffectScalarVariableVtbl(
@@ -10734,12 +10504,6 @@ impl ::core::fmt::Debug for ID3D10EffectShaderResourceVariable {
 unsafe impl ::windows::core::Interface for ID3D10EffectShaderResourceVariable {
     type Vtable = ID3D10EffectShaderResourceVariableVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc0a7157b_d872_4b1d_8073_efc2acd4b1fc);
-}
-pub trait ID3D10EffectShaderResourceVariableImpl: ID3D10EffectVariableImpl {
-    fn SetResource();
-    fn GetResource();
-    fn SetResourceArray();
-    fn GetResourceArray();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -10963,14 +10727,6 @@ unsafe impl ::windows::core::Interface for ID3D10EffectShaderVariable {
     type Vtable = ID3D10EffectShaderVariableVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x80849279_c799_4797_8c33_0407a07d9e06);
 }
-pub trait ID3D10EffectShaderVariableImpl: ID3D10EffectVariableImpl {
-    fn GetShaderDesc();
-    fn GetVertexShader();
-    fn GetGeometryShader();
-    fn GetPixelShader();
-    fn GetInputSignatureElementDesc();
-    fn GetOutputSignatureElementDesc();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3D10EffectShaderVariableVtbl(
@@ -11176,10 +10932,6 @@ unsafe impl ::windows::core::Interface for ID3D10EffectStringVariable {
     type Vtable = ID3D10EffectStringVariableVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x71417501_8df9_4e0a_a78a_255f9756baff);
 }
-pub trait ID3D10EffectStringVariableImpl: ID3D10EffectVariableImpl {
-    fn GetString();
-    fn GetStringArray();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3D10EffectStringVariableVtbl(
@@ -11276,15 +11028,6 @@ unsafe impl ::windows::core::Interface for ID3D10EffectTechnique {
     type Vtable = ID3D10EffectTechniqueVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdb122ce8_d1c9_4292_b237_24ed3de8b175);
 }
-pub trait ID3D10EffectTechniqueImpl {
-    fn IsValid();
-    fn GetDesc();
-    fn GetAnnotationByIndex();
-    fn GetAnnotationByName();
-    fn GetPassByIndex();
-    fn GetPassByName();
-    fn ComputeStateBlockMask();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3D10EffectTechniqueVtbl(
@@ -11358,15 +11101,6 @@ impl ::core::fmt::Debug for ID3D10EffectType {
 unsafe impl ::windows::core::Interface for ID3D10EffectType {
     type Vtable = ID3D10EffectTypeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4e9e1ddc_cd9d_4772_a837_00180b9b88fd);
-}
-pub trait ID3D10EffectTypeImpl {
-    fn IsValid();
-    fn GetDesc();
-    fn GetMemberTypeByIndex();
-    fn GetMemberTypeByName();
-    fn GetMemberTypeBySemantic();
-    fn GetMemberName();
-    fn GetMemberSemantic();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -11515,33 +11249,6 @@ impl ::core::fmt::Debug for ID3D10EffectVariable {
 unsafe impl ::windows::core::Interface for ID3D10EffectVariable {
     type Vtable = ID3D10EffectVariableVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xae897105_00e6_45bf_bb8e_281dd6db8e1b);
-}
-pub trait ID3D10EffectVariableImpl {
-    fn IsValid();
-    fn GetType();
-    fn GetDesc();
-    fn GetAnnotationByIndex();
-    fn GetAnnotationByName();
-    fn GetMemberByIndex();
-    fn GetMemberByName();
-    fn GetMemberBySemantic();
-    fn GetElement();
-    fn GetParentConstantBuffer();
-    fn AsScalar();
-    fn AsVector();
-    fn AsMatrix();
-    fn AsString();
-    fn AsShaderResource();
-    fn AsRenderTargetView();
-    fn AsDepthStencilView();
-    fn AsConstantBuffer();
-    fn AsShader();
-    fn AsBlend();
-    fn AsDepthStencil();
-    fn AsRasterizer();
-    fn AsSampler();
-    fn SetRawValue();
-    fn GetRawValue();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -11780,20 +11487,6 @@ unsafe impl ::windows::core::Interface for ID3D10EffectVectorVariable {
     type Vtable = ID3D10EffectVectorVariableVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x62b98c44_1f82_4c67_bcd0_72cf8f217e81);
 }
-pub trait ID3D10EffectVectorVariableImpl: ID3D10EffectVariableImpl {
-    fn SetBoolVector();
-    fn SetIntVector();
-    fn SetFloatVector();
-    fn GetBoolVector();
-    fn GetIntVector();
-    fn GetFloatVector();
-    fn SetBoolVectorArray();
-    fn SetIntVectorArray();
-    fn SetFloatVectorArray();
-    fn GetBoolVectorArray();
-    fn GetIntVectorArray();
-    fn GetFloatVectorArray();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3D10EffectVectorVariableVtbl(
@@ -11925,7 +11618,6 @@ unsafe impl ::windows::core::Interface for ID3D10GeometryShader {
     type Vtable = ID3D10GeometryShaderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6316be88_54cd_4040_ab44_20461bc81f68);
 }
-pub trait ID3D10GeometryShaderImpl: ID3D10DeviceChildImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3D10GeometryShaderVtbl(
@@ -12132,43 +11824,6 @@ unsafe impl ::windows::core::Interface for ID3D10InfoQueue {
     type Vtable = ID3D10InfoQueueVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1b940b17_2642_4d1f_ab1f_b99bad0c395f);
 }
-pub trait ID3D10InfoQueueImpl {
-    fn SetMessageCountLimit();
-    fn ClearStoredMessages();
-    fn GetMessage();
-    fn GetNumMessagesAllowedByStorageFilter();
-    fn GetNumMessagesDeniedByStorageFilter();
-    fn GetNumStoredMessages();
-    fn GetNumStoredMessagesAllowedByRetrievalFilter();
-    fn GetNumMessagesDiscardedByMessageCountLimit();
-    fn GetMessageCountLimit();
-    fn AddStorageFilterEntries();
-    fn GetStorageFilter();
-    fn ClearStorageFilter();
-    fn PushEmptyStorageFilter();
-    fn PushCopyOfStorageFilter();
-    fn PushStorageFilter();
-    fn PopStorageFilter();
-    fn GetStorageFilterStackSize();
-    fn AddRetrievalFilterEntries();
-    fn GetRetrievalFilter();
-    fn ClearRetrievalFilter();
-    fn PushEmptyRetrievalFilter();
-    fn PushCopyOfRetrievalFilter();
-    fn PushRetrievalFilter();
-    fn PopRetrievalFilter();
-    fn GetRetrievalFilterStackSize();
-    fn AddMessage();
-    fn AddApplicationMessage();
-    fn SetBreakOnCategory();
-    fn SetBreakOnSeverity();
-    fn SetBreakOnID();
-    fn GetBreakOnCategory();
-    fn GetBreakOnSeverity();
-    fn GetBreakOnID();
-    fn SetMuteDebugOutput();
-    fn GetMuteDebugOutput();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3D10InfoQueueVtbl(
@@ -12302,7 +11957,6 @@ unsafe impl ::windows::core::Interface for ID3D10InputLayout {
     type Vtable = ID3D10InputLayoutVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9b7e4c0b_342c_4106_a19f_4f2704f689f0);
 }
-pub trait ID3D10InputLayoutImpl: ID3D10DeviceChildImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3D10InputLayoutVtbl(
@@ -12376,12 +12030,6 @@ impl ::core::fmt::Debug for ID3D10Multithread {
 unsafe impl ::windows::core::Interface for ID3D10Multithread {
     type Vtable = ID3D10MultithreadVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9b7e4e00_342c_4106_a19f_4f2704f689f0);
-}
-pub trait ID3D10MultithreadImpl {
-    fn Enter();
-    fn Leave();
-    fn SetMultithreadProtected();
-    fn GetMultithreadProtected();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -12477,7 +12125,6 @@ unsafe impl ::windows::core::Interface for ID3D10PixelShader {
     type Vtable = ID3D10PixelShaderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4968b601_9d00_4cde_8346_8e7f675819b6);
 }
-pub trait ID3D10PixelShaderImpl: ID3D10DeviceChildImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3D10PixelShaderVtbl(
@@ -12630,7 +12277,6 @@ unsafe impl ::windows::core::Interface for ID3D10Predicate {
     type Vtable = ID3D10PredicateVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9b7e4c10_342c_4106_a19f_4f2704f689f0);
 }
-pub trait ID3D10PredicateImpl: ID3D10QueryImpl + ID3D10AsynchronousImpl + ID3D10DeviceChildImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3D10PredicateVtbl(
@@ -12768,9 +12414,6 @@ unsafe impl ::windows::core::Interface for ID3D10Query {
     type Vtable = ID3D10QueryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9b7e4c0e_342c_4106_a19f_4f2704f689f0);
 }
-pub trait ID3D10QueryImpl: ID3D10AsynchronousImpl + ID3D10DeviceChildImpl {
-    fn GetDesc();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3D10QueryVtbl(
@@ -12872,9 +12515,6 @@ impl ::core::fmt::Debug for ID3D10RasterizerState {
 unsafe impl ::windows::core::Interface for ID3D10RasterizerState {
     type Vtable = ID3D10RasterizerStateVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa2a07292_89af_4345_be2e_c53d9fbb6e9f);
-}
-pub trait ID3D10RasterizerStateImpl: ID3D10DeviceChildImpl {
-    fn GetDesc();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -12999,9 +12639,6 @@ unsafe impl ::windows::core::Interface for ID3D10RenderTargetView {
     type Vtable = ID3D10RenderTargetViewVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9b7e4c08_342c_4106_a19f_4f2704f689f0);
 }
-pub trait ID3D10RenderTargetViewImpl: ID3D10ViewImpl + ID3D10DeviceChildImpl {
-    fn GetDesc();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3D10RenderTargetViewVtbl(
@@ -13109,11 +12746,6 @@ unsafe impl ::windows::core::Interface for ID3D10Resource {
     type Vtable = ID3D10ResourceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9b7e4c01_342c_4106_a19f_4f2704f689f0);
 }
-pub trait ID3D10ResourceImpl: ID3D10DeviceChildImpl {
-    fn GetType();
-    fn SetEvictionPriority();
-    fn GetEvictionPriority();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3D10ResourceVtbl(
@@ -13213,9 +12845,6 @@ unsafe impl ::windows::core::Interface for ID3D10SamplerState {
     type Vtable = ID3D10SamplerStateVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9b7e4c0c_342c_4106_a19f_4f2704f689f0);
 }
-pub trait ID3D10SamplerStateImpl: ID3D10DeviceChildImpl {
-    fn GetDesc();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3D10SamplerStateVtbl(
@@ -13305,14 +12934,6 @@ impl ::core::fmt::Debug for ID3D10ShaderReflection {
 unsafe impl ::windows::core::Interface for ID3D10ShaderReflection {
     type Vtable = ID3D10ShaderReflectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd40e20b6_f8f7_42ad_ab20_4baf8f15dfaa);
-}
-pub trait ID3D10ShaderReflectionImpl {
-    fn GetDesc();
-    fn GetConstantBufferByIndex();
-    fn GetConstantBufferByName();
-    fn GetResourceBindingDesc();
-    fn GetInputParameterDesc();
-    fn GetOutputParameterDesc();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -13459,23 +13080,6 @@ unsafe impl ::windows::core::Interface for ID3D10ShaderReflection1 {
     type Vtable = ID3D10ShaderReflection1Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc3457783_a846_47ce_9520_cea6f66e7447);
 }
-pub trait ID3D10ShaderReflection1Impl {
-    fn GetDesc();
-    fn GetConstantBufferByIndex();
-    fn GetConstantBufferByName();
-    fn GetResourceBindingDesc();
-    fn GetInputParameterDesc();
-    fn GetOutputParameterDesc();
-    fn GetVariableByName();
-    fn GetResourceBindingDescByName();
-    fn GetMovInstructionCount();
-    fn GetMovcInstructionCount();
-    fn GetConversionInstructionCount();
-    fn GetBitwiseInstructionCount();
-    fn GetGSInputPrimitive();
-    fn IsLevel9Shader();
-    fn IsSampleFrequencyShader();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3D10ShaderReflection1Vtbl(
@@ -13548,11 +13152,6 @@ unsafe impl ::windows::core::Interface for ID3D10ShaderReflectionConstantBuffer 
     type Vtable = ID3D10ShaderReflectionConstantBufferVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x66c66a94_dddd_4b62_a66a_f0da33c2b4d0);
 }
-pub trait ID3D10ShaderReflectionConstantBufferImpl {
-    fn GetDesc();
-    fn GetVariableByIndex();
-    fn GetVariableByName();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3D10ShaderReflectionConstantBufferVtbl(
@@ -13606,12 +13205,6 @@ unsafe impl ::windows::core::Interface for ID3D10ShaderReflectionType {
     type Vtable = ID3D10ShaderReflectionTypeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc530ad7d_9b16_4395_a979_ba2ecff83add);
 }
-pub trait ID3D10ShaderReflectionTypeImpl {
-    fn GetDesc();
-    fn GetMemberTypeByIndex();
-    fn GetMemberTypeByName();
-    fn GetMemberTypeName();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3D10ShaderReflectionTypeVtbl(
@@ -13657,10 +13250,6 @@ impl ::core::fmt::Debug for ID3D10ShaderReflectionVariable {
 unsafe impl ::windows::core::Interface for ID3D10ShaderReflectionVariable {
     type Vtable = ID3D10ShaderReflectionVariableVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1bf63c95_2650_405d_99c1_3636bd1da0a1);
-}
-pub trait ID3D10ShaderReflectionVariableImpl {
-    fn GetDesc();
-    fn GetType();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -13774,9 +13363,6 @@ impl ::core::fmt::Debug for ID3D10ShaderResourceView {
 unsafe impl ::windows::core::Interface for ID3D10ShaderResourceView {
     type Vtable = ID3D10ShaderResourceViewVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9b7e4c07_342c_4106_a19f_4f2704f689f0);
-}
-pub trait ID3D10ShaderResourceViewImpl: ID3D10ViewImpl + ID3D10DeviceChildImpl {
-    fn GetDesc();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -13927,9 +13513,6 @@ unsafe impl ::windows::core::Interface for ID3D10ShaderResourceView1 {
     type Vtable = ID3D10ShaderResourceView1Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9b7e4c87_342c_4106_a19f_4f2704f689f0);
 }
-pub trait ID3D10ShaderResourceView1Impl: ID3D10ShaderResourceViewImpl + ID3D10ViewImpl + ID3D10DeviceChildImpl {
-    fn GetDesc1();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3D10ShaderResourceView1Vtbl(
@@ -14008,12 +13591,6 @@ unsafe impl ::windows::core::Interface for ID3D10StateBlock {
     type Vtable = ID3D10StateBlockVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0803425a_57f5_4dd6_9465_a87570834a08);
 }
-pub trait ID3D10StateBlockImpl {
-    fn Capture();
-    fn Apply();
-    fn ReleaseAllDeviceObjects();
-    fn GetDevice();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3D10StateBlockVtbl(
@@ -14079,10 +13656,6 @@ impl ::core::fmt::Debug for ID3D10SwitchToRef {
 unsafe impl ::windows::core::Interface for ID3D10SwitchToRef {
     type Vtable = ID3D10SwitchToRefVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9b7e4e02_342c_4106_a19f_4f2704f689f0);
-}
-pub trait ID3D10SwitchToRefImpl {
-    fn SetUseRef();
-    fn GetUseRef();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -14220,11 +13793,6 @@ impl ::core::fmt::Debug for ID3D10Texture1D {
 unsafe impl ::windows::core::Interface for ID3D10Texture1D {
     type Vtable = ID3D10Texture1DVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9b7e4c03_342c_4106_a19f_4f2704f689f0);
-}
-pub trait ID3D10Texture1DImpl: ID3D10ResourceImpl + ID3D10DeviceChildImpl {
-    fn Map();
-    fn Unmap();
-    fn GetDesc();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -14371,11 +13939,6 @@ unsafe impl ::windows::core::Interface for ID3D10Texture2D {
     type Vtable = ID3D10Texture2DVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9b7e4c04_342c_4106_a19f_4f2704f689f0);
 }
-pub trait ID3D10Texture2DImpl: ID3D10ResourceImpl + ID3D10DeviceChildImpl {
-    fn Map();
-    fn Unmap();
-    fn GetDesc();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3D10Texture2DVtbl(
@@ -14521,11 +14084,6 @@ unsafe impl ::windows::core::Interface for ID3D10Texture3D {
     type Vtable = ID3D10Texture3DVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9b7e4c05_342c_4106_a19f_4f2704f689f0);
 }
-pub trait ID3D10Texture3DImpl: ID3D10ResourceImpl + ID3D10DeviceChildImpl {
-    fn Map();
-    fn Unmap();
-    fn GetDesc();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3D10Texture3DVtbl(
@@ -14625,7 +14183,6 @@ unsafe impl ::windows::core::Interface for ID3D10VertexShader {
     type Vtable = ID3D10VertexShaderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9b7e4c0a_342c_4106_a19f_4f2704f689f0);
 }
-pub trait ID3D10VertexShaderImpl: ID3D10DeviceChildImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3D10VertexShaderVtbl(
@@ -14722,9 +14279,6 @@ unsafe impl ::windows::core::Interface for ID3D10View {
     type Vtable = ID3D10ViewVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc902b03f_60a7_49ba_9936_2a3ab37a7e33);
 }
-pub trait ID3D10ViewImpl: ID3D10DeviceChildImpl {
-    fn GetResource();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3D10ViewVtbl(
@@ -14745,3 +14299,5 @@ pub type PFN_D3D10_CREATE_DEVICE1 = ::core::option::Option<unsafe extern "system
 pub type PFN_D3D10_CREATE_DEVICE_AND_SWAP_CHAIN1 = ::core::option::Option<unsafe extern "system" fn(param0: ::core::option::Option<super::Dxgi::IDXGIAdapter>, param1: D3D10_DRIVER_TYPE, param2: super::super::Foundation::HINSTANCE, param3: u32, param4: D3D10_FEATURE_LEVEL1, param5: u32, param6: *mut super::Dxgi::DXGI_SWAP_CHAIN_DESC, param7: *mut ::core::option::Option<super::Dxgi::IDXGISwapChain>, param8: *mut ::core::option::Option<ID3D10Device1>) -> ::windows::core::HRESULT>;
 #[doc = "*Required features: 'Win32_Graphics_Direct3D10'*"]
 pub const _FACD3D10: u32 = 2169u32;
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

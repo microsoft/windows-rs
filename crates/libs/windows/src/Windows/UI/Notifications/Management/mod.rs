@@ -6,17 +6,6 @@ unsafe impl ::windows::core::Interface for IUserNotificationListener {
     type Vtable = IUserNotificationListenerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x62553e41_8a06_4cef_8215_6033a5be4b03);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IUserNotificationListenerImpl {
-    fn RequestAccessAsync();
-    fn GetAccessStatus();
-    fn NotificationChanged();
-    fn RemoveNotificationChanged();
-    fn GetNotificationsAsync();
-    fn GetNotification();
-    fn ClearNotifications();
-    fn RemoveNotification();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUserNotificationListenerVtbl(
@@ -45,10 +34,6 @@ pub struct IUserNotificationListenerStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IUserNotificationListenerStatics {
     type Vtable = IUserNotificationListenerStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xff6123cf_4386_4aa3_b73d_b804e5b63b23);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IUserNotificationListenerStaticsImpl {
-    fn Current();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -239,3 +224,5 @@ unsafe impl ::windows::core::RuntimeType for UserNotificationListenerAccessStatu
 impl ::windows::core::DefaultType for UserNotificationListenerAccessStatus {
     type DefaultType = Self;
 }
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

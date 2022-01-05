@@ -252,14 +252,6 @@ unsafe impl ::windows::core::Interface for IAnimationDescription {
     type Vtable = IAnimationDescriptionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7d11a549_be3d_41de_b081_05c149962f9b);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IAnimationDescriptionImpl {
-    fn Animations();
-    fn StaggerDelay();
-    fn StaggerDelayFactor();
-    fn DelayLimit();
-    fn ZOrder();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAnimationDescriptionVtbl(
@@ -285,10 +277,6 @@ unsafe impl ::windows::core::Interface for IAnimationDescriptionFactory {
     type Vtable = IAnimationDescriptionFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc6e27abe_c1fb_48b5_9271_ecc70ac86ef0);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IAnimationDescriptionFactoryImpl {
-    fn CreateInstance();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAnimationDescriptionFactoryVtbl(
@@ -306,11 +294,6 @@ pub struct IOpacityAnimation(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IOpacityAnimation {
     type Vtable = IOpacityAnimationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x803aabe5_ee7e_455f_84e9_2506afb8d2b4);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IOpacityAnimationImpl: IPropertyAnimationImpl {
-    fn InitialOpacity();
-    fn FinalOpacity();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -437,13 +420,6 @@ unsafe impl ::windows::core::Interface for IPropertyAnimation {
     type Vtable = IPropertyAnimationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3a01b4da_4d8c_411e_b615_1ade683a9903);
 }
-pub trait IPropertyAnimationImpl {
-    fn Type();
-    fn Delay();
-    fn Duration();
-    fn Control1();
-    fn Control2();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPropertyAnimationVtbl(
@@ -469,14 +445,6 @@ pub struct IScaleAnimation(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IScaleAnimation {
     type Vtable = IScaleAnimationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x023552c7_71ab_428c_9c9f_d31780964995);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IScaleAnimationImpl: IPropertyAnimationImpl {
-    fn InitialScaleX();
-    fn InitialScaleY();
-    fn FinalScaleX();
-    fn FinalScaleY();
-    fn NormalizedOrigin();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1146,3 +1114,5 @@ impl<'a> ::windows::core::IntoParam<'a, IPropertyAnimation> for &TranslationAnim
 }
 unsafe impl ::core::marker::Send for TranslationAnimation {}
 unsafe impl ::core::marker::Sync for TranslationAnimation {}
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

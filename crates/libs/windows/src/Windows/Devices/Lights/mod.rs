@@ -8,19 +8,6 @@ unsafe impl ::windows::core::Interface for ILamp {
     type Vtable = ILampVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x047d5b9a_ea45_4b2b_b1a2_14dff00bde7b);
 }
-#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait ILampImpl: IClosableImpl {
-    fn DeviceId();
-    fn IsEnabled();
-    fn SetIsEnabled();
-    fn BrightnessLevel();
-    fn SetBrightnessLevel();
-    fn IsColorSettable();
-    fn Color();
-    fn SetColor();
-    fn AvailabilityChanged();
-    fn RemoveAvailabilityChanged();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILampVtbl(
@@ -51,35 +38,6 @@ pub struct ILampArray(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ILampArray {
     type Vtable = ILampArrayVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7ace9787_c8a0_4e95_a1e0_d58676538649);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ILampArrayImpl {
-    fn DeviceId();
-    fn HardwareVendorId();
-    fn HardwareProductId();
-    fn HardwareVersion();
-    fn LampArrayKind();
-    fn LampCount();
-    fn MinUpdateInterval();
-    fn BoundingBox();
-    fn IsEnabled();
-    fn SetIsEnabled();
-    fn BrightnessLevel();
-    fn SetBrightnessLevel();
-    fn IsConnected();
-    fn SupportsVirtualKeys();
-    fn GetLampInfo();
-    fn GetIndicesForKey();
-    fn GetIndicesForPurposes();
-    fn SetColor();
-    fn SetColorForIndex();
-    fn SetSingleColorForIndices();
-    fn SetColorsForIndices();
-    fn SetColorsForKey();
-    fn SetColorsForKeys();
-    fn SetColorsForPurposes();
-    fn SendMessageAsync();
-    fn RequestMessageAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -136,11 +94,6 @@ unsafe impl ::windows::core::Interface for ILampArrayStatics {
     type Vtable = ILampArrayStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7bb8c98d_5fc1_452d_bb1f_4ad410d398ff);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ILampArrayStaticsImpl {
-    fn GetDeviceSelector();
-    fn FromIdAsync();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILampArrayStaticsVtbl(
@@ -161,10 +114,6 @@ unsafe impl ::windows::core::Interface for ILampAvailabilityChangedEventArgs {
     type Vtable = ILampAvailabilityChangedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4f6e3ded_07a2_499d_9260_67e304532ba4);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ILampAvailabilityChangedEventArgsImpl {
-    fn IsAvailable();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILampAvailabilityChangedEventArgsVtbl(
@@ -182,19 +131,6 @@ pub struct ILampInfo(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ILampInfo {
     type Vtable = ILampInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x30bb521c_0acf_49da_8c10_150b9cf62713);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ILampInfoImpl {
-    fn Index();
-    fn Purposes();
-    fn Position();
-    fn RedLevelCount();
-    fn GreenLevelCount();
-    fn BlueLevelCount();
-    fn GainLevelCount();
-    fn FixedColor();
-    fn GetNearestSupportedColor();
-    fn UpdateLatency();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -226,12 +162,6 @@ pub struct ILampStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ILampStatics {
     type Vtable = ILampStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa822416c_8885_401e_b821_8e8b38a8e8ec);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ILampStaticsImpl {
-    fn GetDeviceSelector();
-    fn FromIdAsync();
-    fn GetDefaultAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1085,3 +1015,5 @@ unsafe impl ::windows::core::RuntimeType for LampPurposes {
 impl ::windows::core::DefaultType for LampPurposes {
     type DefaultType = Self;
 }
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

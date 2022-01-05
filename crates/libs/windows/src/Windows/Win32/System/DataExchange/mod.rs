@@ -2187,3 +2187,5 @@ pub const XTYPF_NODATA: u32 = 4u32;
 pub const XTYP_MASK: u32 = 240u32;
 #[doc = "*Required features: 'Win32_System_DataExchange'*"]
 pub const XTYP_SHIFT: u32 = 4u32;
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

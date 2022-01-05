@@ -6,10 +6,6 @@ unsafe impl ::windows::core::Interface for IUserDataAvailabilityStateChangedEven
     type Vtable = IUserDataAvailabilityStateChangedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa76582c9_06a2_4273_a803_834c9f87fbeb);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IUserDataAvailabilityStateChangedEventArgsImpl {
-    fn GetDeferral();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUserDataAvailabilityStateChangedEventArgsVtbl(
@@ -28,11 +24,6 @@ pub struct IUserDataBufferUnprotectResult(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IUserDataBufferUnprotectResult {
     type Vtable = IUserDataBufferUnprotectResultVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8efd0e90_fa9a_46a4_a377_01cebf1e74d8);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IUserDataBufferUnprotectResultImpl {
-    fn Status();
-    fn UnprotectedBuffer();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -53,16 +44,6 @@ pub struct IUserDataProtectionManager(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IUserDataProtectionManager {
     type Vtable = IUserDataProtectionManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1f13237d_b42e_4a88_9480_0f240924c876);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IUserDataProtectionManagerImpl {
-    fn ProtectStorageItemAsync();
-    fn GetStorageItemProtectionInfoAsync();
-    fn ProtectBufferAsync();
-    fn UnprotectBufferAsync();
-    fn IsContinuedDataAvailabilityExpected();
-    fn DataAvailabilityStateChanged();
-    fn RemoveDataAvailabilityStateChanged();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -94,11 +75,6 @@ unsafe impl ::windows::core::Interface for IUserDataProtectionManagerStatics {
     type Vtable = IUserDataProtectionManagerStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x977780e8_6dce_4fae_af85_782ac2cf4572);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IUserDataProtectionManagerStaticsImpl {
-    fn TryGetDefault();
-    fn TryGetForUser();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUserDataProtectionManagerStaticsVtbl(
@@ -118,10 +94,6 @@ pub struct IUserDataStorageItemProtectionInfo(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IUserDataStorageItemProtectionInfo {
     type Vtable = IUserDataStorageItemProtectionInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5b6680f6_e87f_40a1_b19d_a6187a0c662f);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IUserDataStorageItemProtectionInfoImpl {
-    fn Availability();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -640,3 +612,5 @@ unsafe impl ::windows::core::RuntimeType for UserDataStorageItemProtectionStatus
 impl ::windows::core::DefaultType for UserDataStorageItemProtectionStatus {
     type DefaultType = Self;
 }
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

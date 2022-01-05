@@ -6,15 +6,6 @@ unsafe impl ::windows::core::Interface for IIndexedResourceCandidate {
     type Vtable = IIndexedResourceCandidateVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0e619ef3_faec_4414_a9d7_54acd5953f29);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IIndexedResourceCandidateImpl {
-    fn Type();
-    fn Uri();
-    fn Metadata();
-    fn Qualifiers();
-    fn ValueAsString();
-    fn GetQualifierValue();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IIndexedResourceCandidateVtbl(
@@ -41,11 +32,6 @@ unsafe impl ::windows::core::Interface for IIndexedResourceQualifier {
     type Vtable = IIndexedResourceQualifierVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdae3bb9b_d304_497f_a168_a340042c8adb);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IIndexedResourceQualifierImpl {
-    fn QualifierName();
-    fn QualifierValue();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IIndexedResourceQualifierVtbl(
@@ -66,11 +52,6 @@ pub struct IResourceIndexer(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IResourceIndexer {
     type Vtable = IResourceIndexerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2d4cf9a5_e32f_4ab2_8748_96350a016da3);
-}
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
-pub trait IResourceIndexerImpl {
-    fn IndexFilePath();
-    fn IndexFileContentsAsync();
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
@@ -96,10 +77,6 @@ unsafe impl ::windows::core::Interface for IResourceIndexerFactory {
     type Vtable = IResourceIndexerFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb8de3f09_31cd_4d97_bd30_8d39f742bc61);
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
-pub trait IResourceIndexerFactoryImpl {
-    fn CreateResourceIndexer();
-}
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
@@ -121,10 +98,6 @@ pub struct IResourceIndexerFactory2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IResourceIndexerFactory2 {
     type Vtable = IResourceIndexerFactory2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6040f18d_d5e5_4b60_9201_cd279cbcfed9);
-}
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
-pub trait IResourceIndexerFactory2Impl {
-    fn CreateResourceIndexerWithExtension();
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
@@ -524,3 +497,5 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Reso
 unsafe impl ::core::marker::Send for ResourceIndexer {}
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Sync for ResourceIndexer {}
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

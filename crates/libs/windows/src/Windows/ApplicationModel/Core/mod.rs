@@ -795,11 +795,6 @@ unsafe impl ::windows::core::Interface for IAppListEntry {
     type Vtable = IAppListEntryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xef00f07f_2108_490a_877a_8a9f17c25fad);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IAppListEntryImpl {
-    fn DisplayInfo();
-    fn LaunchAsync();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppListEntryVtbl(
@@ -820,10 +815,6 @@ unsafe impl ::windows::core::Interface for IAppListEntry2 {
     type Vtable = IAppListEntry2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd0a618ad_bf35_42ac_ac06_86eeeb41d04b);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IAppListEntry2Impl {
-    fn AppUserModelId();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppListEntry2Vtbl(
@@ -841,10 +832,6 @@ pub struct IAppListEntry3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppListEntry3 {
     type Vtable = IAppListEntry3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6099f28d_fc32_470a_bc69_4b061a76ef2e);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IAppListEntry3Impl {
-    fn LaunchForUserAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -865,10 +852,6 @@ unsafe impl ::windows::core::Interface for IAppListEntry4 {
     type Vtable = IAppListEntry4Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2a131ed2_56f5_487c_8697_5166f3b33da0);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IAppListEntry4Impl {
-    fn AppInfo();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppListEntry4Vtbl(
@@ -886,18 +869,6 @@ pub struct ICoreApplication(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICoreApplication {
     type Vtable = ICoreApplicationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0aacf7a4_5e1d_49df_8034_fb6a68bc5ed1);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ICoreApplicationImpl {
-    fn Id();
-    fn Suspending();
-    fn RemoveSuspending();
-    fn Resuming();
-    fn RemoveResuming();
-    fn Properties();
-    fn GetCurrentView();
-    fn Run();
-    fn RunWithActivationFactories();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -931,16 +902,6 @@ unsafe impl ::windows::core::Interface for ICoreApplication2 {
     type Vtable = ICoreApplication2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x998681fb_1ab6_4b7f_be4a_9a0645224c04);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ICoreApplication2Impl {
-    fn BackgroundActivated();
-    fn RemoveBackgroundActivated();
-    fn LeavingBackground();
-    fn RemoveLeavingBackground();
-    fn EnteredBackground();
-    fn RemoveEnteredBackground();
-    fn EnablePrelaunch();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreApplication2Vtbl(
@@ -971,11 +932,6 @@ unsafe impl ::windows::core::Interface for ICoreApplication3 {
     type Vtable = ICoreApplication3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfeec0d39_598b_4507_8a67_772632580a57);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ICoreApplication3Impl {
-    fn RequestRestartAsync();
-    fn RequestRestartForUserAsync();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreApplication3Vtbl(
@@ -996,12 +952,6 @@ pub struct ICoreApplicationExit(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICoreApplicationExit {
     type Vtable = ICoreApplicationExitVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcf86461d_261e_4b72_9acd_44ed2ace6a29);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ICoreApplicationExitImpl {
-    fn Exit();
-    fn Exiting();
-    fn RemoveExiting();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1101,10 +1051,6 @@ unsafe impl ::windows::core::Interface for ICoreApplicationUnhandledError {
     type Vtable = ICoreApplicationUnhandledErrorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf0e24ab0_dd09_42e1_b0bc_e0e131f78d7e);
 }
-pub trait ICoreApplicationUnhandledErrorImpl {
-    fn UnhandledErrorDetected();
-    fn RemoveUnhandledErrorDetected();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreApplicationUnhandledErrorVtbl(
@@ -1126,11 +1072,6 @@ unsafe impl ::windows::core::Interface for ICoreApplicationUseCount {
     type Vtable = ICoreApplicationUseCountVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x518dc408_c077_475b_809e_0bc0c57e4b74);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ICoreApplicationUseCountImpl {
-    fn IncrementApplicationUseCount();
-    fn DecrementApplicationUseCount();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreApplicationUseCountVtbl(
@@ -1149,14 +1090,6 @@ pub struct ICoreApplicationView(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICoreApplicationView {
     type Vtable = ICoreApplicationViewVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x638bb2db_451d_4661_b099_414f34ffb9f1);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ICoreApplicationViewImpl {
-    fn CoreWindow();
-    fn Activated();
-    fn RemoveActivated();
-    fn IsMain();
-    fn IsHosted();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1183,10 +1116,6 @@ unsafe impl ::windows::core::Interface for ICoreApplicationView2 {
     type Vtable = ICoreApplicationView2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x68eb7adf_917f_48eb_9aeb_7de53e086ab1);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ICoreApplicationView2Impl {
-    fn Dispatcher();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreApplicationView2Vtbl(
@@ -1205,13 +1134,6 @@ pub struct ICoreApplicationView3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICoreApplicationView3 {
     type Vtable = ICoreApplicationView3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x07ebe1b3_a4cf_4550_ab70_b07e85330bc8);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ICoreApplicationView3Impl {
-    fn IsComponent();
-    fn TitleBar();
-    fn HostedViewClosing();
-    fn RemoveHostedViewClosing();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1236,10 +1158,6 @@ unsafe impl ::windows::core::Interface for ICoreApplicationView5 {
     type Vtable = ICoreApplicationView5Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2bc095a8_8ef0_446d_9e60_3a3e0428c671);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ICoreApplicationView5Impl {
-    fn Properties();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreApplicationView5Vtbl(
@@ -1259,10 +1177,6 @@ unsafe impl ::windows::core::Interface for ICoreApplicationView6 {
     type Vtable = ICoreApplicationView6Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc119d49a_0679_49ba_803f_b79c5cf34cca);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ICoreApplicationView6Impl {
-    fn DispatcherQueue();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreApplicationView6Vtbl(
@@ -1281,19 +1195,6 @@ pub struct ICoreApplicationViewTitleBar(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICoreApplicationViewTitleBar {
     type Vtable = ICoreApplicationViewTitleBarVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x006d35e3_e1f1_431b_9508_29b96926ac53);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ICoreApplicationViewTitleBarImpl {
-    fn SetExtendViewIntoTitleBar();
-    fn ExtendViewIntoTitleBar();
-    fn SystemOverlayLeftInset();
-    fn SystemOverlayRightInset();
-    fn Height();
-    fn LayoutMetricsChanged();
-    fn RemoveLayoutMetricsChanged();
-    fn IsVisible();
-    fn IsVisibleChanged();
-    fn RemoveIsVisibleChanged();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1326,12 +1227,6 @@ unsafe impl ::windows::core::Interface for ICoreImmersiveApplication {
     type Vtable = ICoreImmersiveApplicationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1ada0e3e_e4a2_4123_b451_dc96bf800419);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ICoreImmersiveApplicationImpl {
-    fn Views();
-    fn CreateNewView();
-    fn MainView();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreImmersiveApplicationVtbl(
@@ -1353,10 +1248,6 @@ unsafe impl ::windows::core::Interface for ICoreImmersiveApplication2 {
     type Vtable = ICoreImmersiveApplication2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x828e1e36_e9e3_4cfc_9b66_48b78ea9bb2c);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ICoreImmersiveApplication2Impl {
-    fn CreateNewViewFromMainView();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreImmersiveApplication2Vtbl(
@@ -1374,10 +1265,6 @@ pub struct ICoreImmersiveApplication3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICoreImmersiveApplication3 {
     type Vtable = ICoreImmersiveApplication3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x34a05b2f_ee0d_41e5_8314_cf10c91bf0af);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ICoreImmersiveApplication3Impl {
-    fn CreateNewViewWithViewSource();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1484,13 +1371,6 @@ unsafe impl ::windows::core::Interface for IFrameworkView {
     type Vtable = IFrameworkViewVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfaab5cd0_8924_45ac_ad0f_a08fae5d0324);
 }
-pub trait IFrameworkViewImpl {
-    fn Initialize();
-    fn SetWindow();
-    fn Load();
-    fn Run();
-    fn Uninitialize();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFrameworkViewVtbl(
@@ -1583,9 +1463,6 @@ unsafe impl ::windows::core::Interface for IFrameworkViewSource {
     type Vtable = IFrameworkViewSourceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcd770614_65c4_426c_9494_34fc43554862);
 }
-pub trait IFrameworkViewSourceImpl {
-    fn CreateView();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFrameworkViewSourceVtbl(
@@ -1603,10 +1480,6 @@ pub struct IHostedViewClosingEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IHostedViewClosingEventArgs {
     type Vtable = IHostedViewClosingEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd238943c_b24e_4790_acb5_3e4243c4ff87);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IHostedViewClosingEventArgsImpl {
-    fn GetDeferral();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1627,11 +1500,6 @@ unsafe impl ::windows::core::Interface for IUnhandledError {
     type Vtable = IUnhandledErrorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9459b726_53b5_4686_9eaf_fa8162dc3980);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IUnhandledErrorImpl {
-    fn Handled();
-    fn Propagate();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUnhandledErrorVtbl(
@@ -1650,10 +1518,6 @@ pub struct IUnhandledErrorDetectedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IUnhandledErrorDetectedEventArgs {
     type Vtable = IUnhandledErrorDetectedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x679ab78b_b336_4822_ac40_0d750f0b7a2b);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IUnhandledErrorDetectedEventArgsImpl {
-    fn UnhandledError();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1833,3 +1697,5 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Unha
 }
 unsafe impl ::core::marker::Send for UnhandledErrorDetectedEventArgs {}
 unsafe impl ::core::marker::Sync for UnhandledErrorDetectedEventArgs {}
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

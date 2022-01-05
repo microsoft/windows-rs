@@ -803,17 +803,6 @@ unsafe impl ::windows::core::Interface for IHttpDiagnosticProvider {
     type Vtable = IHttpDiagnosticProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbd811501_a056_4d39_b174_833b7b03b02c);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IHttpDiagnosticProviderImpl {
-    fn Start();
-    fn Stop();
-    fn RequestSent();
-    fn RemoveRequestSent();
-    fn ResponseReceived();
-    fn RemoveResponseReceived();
-    fn RequestResponseCompleted();
-    fn RemoveRequestResponseCompleted();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHttpDiagnosticProviderVtbl(
@@ -845,16 +834,6 @@ unsafe impl ::windows::core::Interface for IHttpDiagnosticProviderRequestRespons
     type Vtable = IHttpDiagnosticProviderRequestResponseCompletedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x735f98ee_94f6_4532_b26e_61e1b1e4efd4);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IHttpDiagnosticProviderRequestResponseCompletedEventArgsImpl {
-    fn ActivityId();
-    fn Timestamps();
-    fn RequestedUri();
-    fn ProcessId();
-    fn ThreadId();
-    fn Initiator();
-    fn SourceLocations();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHttpDiagnosticProviderRequestResponseCompletedEventArgsVtbl(
@@ -880,18 +859,6 @@ pub struct IHttpDiagnosticProviderRequestResponseTimestamps(::windows::core::IUn
 unsafe impl ::windows::core::Interface for IHttpDiagnosticProviderRequestResponseTimestamps {
     type Vtable = IHttpDiagnosticProviderRequestResponseTimestampsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe0afde10_55cf_4c01_91d4_a20557d849f0);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IHttpDiagnosticProviderRequestResponseTimestampsImpl {
-    fn CacheCheckedTimestamp();
-    fn ConnectionInitiatedTimestamp();
-    fn NameResolvedTimestamp();
-    fn SslNegotiatedTimestamp();
-    fn ConnectionCompletedTimestamp();
-    fn RequestSentTimestamp();
-    fn RequestCompletedTimestamp();
-    fn ResponseReceivedTimestamp();
-    fn ResponseCompletedTimestamp();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -928,16 +895,6 @@ unsafe impl ::windows::core::Interface for IHttpDiagnosticProviderRequestSentEve
     type Vtable = IHttpDiagnosticProviderRequestSentEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3f5196d0_4c1f_4ebe_a57a_06930771c50d);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IHttpDiagnosticProviderRequestSentEventArgsImpl {
-    fn Timestamp();
-    fn ActivityId();
-    fn Message();
-    fn ProcessId();
-    fn ThreadId();
-    fn Initiator();
-    fn SourceLocations();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHttpDiagnosticProviderRequestSentEventArgsVtbl(
@@ -964,12 +921,6 @@ unsafe impl ::windows::core::Interface for IHttpDiagnosticProviderResponseReceiv
     type Vtable = IHttpDiagnosticProviderResponseReceivedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa0a2566c_ab5f_4d66_bb2d_084cf41635d0);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IHttpDiagnosticProviderResponseReceivedEventArgsImpl {
-    fn Timestamp();
-    fn ActivityId();
-    fn Message();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHttpDiagnosticProviderResponseReceivedEventArgsVtbl(
@@ -991,10 +942,6 @@ unsafe impl ::windows::core::Interface for IHttpDiagnosticProviderStatics {
     type Vtable = IHttpDiagnosticProviderStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5b824ec1_6a6c_47cc_afec_1e86bc26053b);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IHttpDiagnosticProviderStaticsImpl {
-    fn CreateFromProcessDiagnosticInfo();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHttpDiagnosticProviderStaticsVtbl(
@@ -1014,12 +961,6 @@ unsafe impl ::windows::core::Interface for IHttpDiagnosticSourceLocation {
     type Vtable = IHttpDiagnosticSourceLocationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x54a9d260_8860_423f_b6fa_d77716f647a7);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IHttpDiagnosticSourceLocationImpl {
-    fn SourceUri();
-    fn LineNumber();
-    fn ColumnNumber();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHttpDiagnosticSourceLocationVtbl(
@@ -1034,3 +975,5 @@ pub struct IHttpDiagnosticSourceLocationVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT,
 );
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

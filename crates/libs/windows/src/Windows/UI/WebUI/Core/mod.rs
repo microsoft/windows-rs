@@ -6,30 +6,6 @@ unsafe impl ::windows::core::Interface for IWebUICommandBar {
     type Vtable = IWebUICommandBarVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa4fc0016_dbe5_41ad_8d7b_14698bd6911d);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IWebUICommandBarImpl {
-    fn Visible();
-    fn SetVisible();
-    fn Opacity();
-    fn SetOpacity();
-    fn ForegroundColor();
-    fn SetForegroundColor();
-    fn BackgroundColor();
-    fn SetBackgroundColor();
-    fn ClosedDisplayMode();
-    fn SetClosedDisplayMode();
-    fn IsOpen();
-    fn SetIsOpen();
-    fn Size();
-    fn PrimaryCommands();
-    fn SecondaryCommands();
-    fn MenuOpened();
-    fn RemoveMenuOpened();
-    fn MenuClosed();
-    fn RemoveMenuClosed();
-    fn SizeChanged();
-    fn RemoveSizeChanged();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWebUICommandBarVtbl(
@@ -77,11 +53,6 @@ unsafe impl ::windows::core::Interface for IWebUICommandBarBitmapIcon {
     type Vtable = IWebUICommandBarBitmapIconVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x858f4f45_08d8_4a46_81ec_00015b0b1c6c);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IWebUICommandBarBitmapIconImpl: IWebUICommandBarIconImpl {
-    fn Uri();
-    fn SetUri();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWebUICommandBarBitmapIconVtbl(
@@ -103,10 +74,6 @@ unsafe impl ::windows::core::Interface for IWebUICommandBarBitmapIconFactory {
     type Vtable = IWebUICommandBarBitmapIconFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf3f7d78a_7673_444a_be62_ac12d31c2231);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IWebUICommandBarBitmapIconFactoryImpl {
-    fn Create();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWebUICommandBarBitmapIconFactoryVtbl(
@@ -125,13 +92,6 @@ pub struct IWebUICommandBarConfirmationButton(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IWebUICommandBarConfirmationButton {
     type Vtable = IWebUICommandBarConfirmationButtonVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x86e7824a_e3d5_4eb6_b2ff_8f018a172105);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IWebUICommandBarConfirmationButtonImpl: IWebUICommandBarElementImpl {
-    fn Text();
-    fn SetText();
-    fn ItemInvoked();
-    fn RemoveItemInvoked();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -216,7 +176,6 @@ unsafe impl ::windows::core::Interface for IWebUICommandBarElement {
     type Vtable = IWebUICommandBarElementVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc9069ec2_284a_4633_8aad_637a27e282c3);
 }
-pub trait IWebUICommandBarElementImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWebUICommandBarElementVtbl(
@@ -294,7 +253,6 @@ unsafe impl ::windows::core::Interface for IWebUICommandBarIcon {
     type Vtable = IWebUICommandBarIconVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd587655d_2014_42be_969a_7d14ca6c8a49);
 }
-pub trait IWebUICommandBarIconImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWebUICommandBarIconVtbl(
@@ -311,21 +269,6 @@ pub struct IWebUICommandBarIconButton(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IWebUICommandBarIconButton {
     type Vtable = IWebUICommandBarIconButtonVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8f1bc93a_3a7c_4842_a0cf_aff6ea308586);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IWebUICommandBarIconButtonImpl: IWebUICommandBarElementImpl {
-    fn Enabled();
-    fn SetEnabled();
-    fn Label();
-    fn SetLabel();
-    fn IsToggleButton();
-    fn SetIsToggleButton();
-    fn IsChecked();
-    fn SetIsChecked();
-    fn Icon();
-    fn SetIcon();
-    fn ItemInvoked();
-    fn RemoveItemInvoked();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -358,10 +301,6 @@ unsafe impl ::windows::core::Interface for IWebUICommandBarItemInvokedEventArgs 
     type Vtable = IWebUICommandBarItemInvokedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x304edbdd_e741_41ef_bdc4_a45cea2a4f70);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IWebUICommandBarItemInvokedEventArgsImpl {
-    fn IsPrimaryCommand();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWebUICommandBarItemInvokedEventArgsVtbl(
@@ -379,10 +318,6 @@ pub struct IWebUICommandBarSizeChangedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IWebUICommandBarSizeChangedEventArgs {
     type Vtable = IWebUICommandBarSizeChangedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfbf1e2f6_3029_4719_8378_92f82b87af1e);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IWebUICommandBarSizeChangedEventArgsImpl {
-    fn Size();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -403,10 +338,6 @@ unsafe impl ::windows::core::Interface for IWebUICommandBarStatics {
     type Vtable = IWebUICommandBarStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1449cdb9_a506_45be_8f42_b2837e2fe0c9);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IWebUICommandBarStaticsImpl {
-    fn GetForCurrentView();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWebUICommandBarStaticsVtbl(
@@ -424,11 +355,6 @@ pub struct IWebUICommandBarSymbolIcon(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IWebUICommandBarSymbolIcon {
     type Vtable = IWebUICommandBarSymbolIconVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd4935477_fd26_46ed_8658_1a3f4400e7b3);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IWebUICommandBarSymbolIconImpl: IWebUICommandBarIconImpl {
-    fn Symbol();
-    fn SetSymbol();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -448,10 +374,6 @@ pub struct IWebUICommandBarSymbolIconFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IWebUICommandBarSymbolIconFactory {
     type Vtable = IWebUICommandBarSymbolIconFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x51be1a1f_3730_429e_b622_14e2b7bf6a07);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IWebUICommandBarSymbolIconFactoryImpl {
-    fn Create();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1690,3 +1612,5 @@ impl<'a> ::windows::core::IntoParam<'a, IWebUICommandBarIcon> for &WebUICommandB
 }
 unsafe impl ::core::marker::Send for WebUICommandBarSymbolIcon {}
 unsafe impl ::core::marker::Sync for WebUICommandBarSymbolIcon {}
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

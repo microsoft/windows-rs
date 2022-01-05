@@ -23,10 +23,6 @@ unsafe impl ::windows::core::Interface for ICorePerceptionAutomationStatics {
     type Vtable = ICorePerceptionAutomationStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0bb04541_4ce2_4923_9a76_8187ecc59112);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ICorePerceptionAutomationStaticsImpl {
-    fn SetActivationFactoryProvider();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICorePerceptionAutomationStaticsVtbl(
@@ -39,3 +35,5 @@ pub struct ICorePerceptionAutomationStaticsVtbl(
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, provider: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
 );
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

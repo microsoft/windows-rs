@@ -542,11 +542,6 @@ unsafe impl ::windows::core::Interface for IBluetoothLEAdvertisementPublisherTri
     type Vtable = IBluetoothLEAdvertisementPublisherTriggerDetailsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x610eca86_3480_41c9_a918_7ddadf207e00);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IBluetoothLEAdvertisementPublisherTriggerDetailsImpl {
-    fn Status();
-    fn Error();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBluetoothLEAdvertisementPublisherTriggerDetailsVtbl(
@@ -567,10 +562,6 @@ unsafe impl ::windows::core::Interface for IBluetoothLEAdvertisementPublisherTri
     type Vtable = IBluetoothLEAdvertisementPublisherTriggerDetails2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd4a3d025_c601_42d6_9829_4ccb3f5cd77f);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IBluetoothLEAdvertisementPublisherTriggerDetails2Impl {
-    fn SelectedTransmitPowerLevelInDBm();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBluetoothLEAdvertisementPublisherTriggerDetails2Vtbl(
@@ -589,12 +580,6 @@ pub struct IBluetoothLEAdvertisementWatcherTriggerDetails(::windows::core::IUnkn
 unsafe impl ::windows::core::Interface for IBluetoothLEAdvertisementWatcherTriggerDetails {
     type Vtable = IBluetoothLEAdvertisementWatcherTriggerDetailsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa7db5ad7_2257_4e69_9784_fee645c1dce0);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IBluetoothLEAdvertisementWatcherTriggerDetailsImpl {
-    fn Error();
-    fn Advertisements();
-    fn SignalStrengthFilter();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -617,11 +602,6 @@ unsafe impl ::windows::core::Interface for IGattCharacteristicNotificationTrigge
     type Vtable = IGattCharacteristicNotificationTriggerDetailsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9ba03b18_0fec_436a_93b1_f46c697532a2);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IGattCharacteristicNotificationTriggerDetailsImpl {
-    fn Characteristic();
-    fn Value();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGattCharacteristicNotificationTriggerDetailsVtbl(
@@ -642,12 +622,6 @@ pub struct IGattCharacteristicNotificationTriggerDetails2(::windows::core::IUnkn
 unsafe impl ::windows::core::Interface for IGattCharacteristicNotificationTriggerDetails2 {
     type Vtable = IGattCharacteristicNotificationTriggerDetails2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x727a50dc_949d_454a_b192_983467e3d50f);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IGattCharacteristicNotificationTriggerDetails2Impl {
-    fn Error();
-    fn EventTriggeringMode();
-    fn ValueChangedEvents();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -670,12 +644,6 @@ unsafe impl ::windows::core::Interface for IGattServiceProviderConnection {
     type Vtable = IGattServiceProviderConnectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7fa1b9b9_2f13_40b5_9582_8eb78e98ef13);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IGattServiceProviderConnectionImpl {
-    fn TriggerId();
-    fn Service();
-    fn Start();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGattServiceProviderConnectionVtbl(
@@ -697,10 +665,6 @@ unsafe impl ::windows::core::Interface for IGattServiceProviderConnectionStatics
     type Vtable = IGattServiceProviderConnectionStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3d509f4b_0b0e_4466_b8cd_6ebdda1fa17d);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IGattServiceProviderConnectionStaticsImpl {
-    fn AllServices();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGattServiceProviderConnectionStaticsVtbl(
@@ -720,10 +684,6 @@ unsafe impl ::windows::core::Interface for IGattServiceProviderTriggerDetails {
     type Vtable = IGattServiceProviderTriggerDetailsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xae8c0625_05ff_4afb_b16a_de95f3cf0158);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IGattServiceProviderTriggerDetailsImpl {
-    fn Connection();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGattServiceProviderTriggerDetailsVtbl(
@@ -741,12 +701,6 @@ pub struct IRfcommConnectionTriggerDetails(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IRfcommConnectionTriggerDetails {
     type Vtable = IRfcommConnectionTriggerDetailsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf922734d_2e3c_4efc_ab59_fc5cf96f97e3);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IRfcommConnectionTriggerDetailsImpl {
-    fn Socket();
-    fn Incoming();
-    fn RemoteDevice();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -768,15 +722,6 @@ pub struct IRfcommInboundConnectionInformation(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IRfcommInboundConnectionInformation {
     type Vtable = IRfcommInboundConnectionInformationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6d3e75a8_5429_4059_92e3_1e8b65528707);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IRfcommInboundConnectionInformationImpl {
-    fn SdpRecord();
-    fn SetSdpRecord();
-    fn LocalServiceId();
-    fn SetLocalServiceId();
-    fn ServiceCapabilities();
-    fn SetServiceCapabilities();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -804,11 +749,6 @@ pub struct IRfcommOutboundConnectionInformation(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IRfcommOutboundConnectionInformation {
     type Vtable = IRfcommOutboundConnectionInformationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb091227b_f434_4cb0_99b1_4ab8cedaedd7);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IRfcommOutboundConnectionInformationImpl {
-    fn RemoteServiceId();
-    fn SetRemoteServiceId();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1126,3 +1066,5 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Rfco
 }
 unsafe impl ::core::marker::Send for RfcommOutboundConnectionInformation {}
 unsafe impl ::core::marker::Sync for RfcommOutboundConnectionInformation {}
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

@@ -3435,17 +3435,6 @@ unsafe impl ::windows::core::Interface for IAccelerometer {
     type Vtable = IAccelerometerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdf184548_2711_4da7_8098_4b82205d3c7d);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IAccelerometerImpl {
-    fn GetCurrentReading();
-    fn MinimumReportInterval();
-    fn SetReportInterval();
-    fn ReportInterval();
-    fn ReadingChanged();
-    fn RemoveReadingChanged();
-    fn Shaken();
-    fn RemoveShaken();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAccelerometerVtbl(
@@ -3475,11 +3464,6 @@ unsafe impl ::windows::core::Interface for IAccelerometer2 {
     type Vtable = IAccelerometer2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe8f092ee_4964_401a_b602_220d7153c60a);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IAccelerometer2Impl {
-    fn SetReadingTransform();
-    fn ReadingTransform();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAccelerometer2Vtbl(
@@ -3501,12 +3485,6 @@ unsafe impl ::windows::core::Interface for IAccelerometer3 {
     type Vtable = IAccelerometer3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x87e0022a_ed80_49eb_bf8a_a4ea31e5cd84);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IAccelerometer3Impl {
-    fn SetReportLatency();
-    fn ReportLatency();
-    fn MaxBatchSize();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAccelerometer3Vtbl(
@@ -3527,10 +3505,6 @@ unsafe impl ::windows::core::Interface for IAccelerometer4 {
     type Vtable = IAccelerometer4Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1d373c4f_42d3_45b2_8144_ab7fb665eb59);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IAccelerometer4Impl {
-    fn ReadingType();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAccelerometer4Vtbl(
@@ -3549,10 +3523,6 @@ unsafe impl ::windows::core::Interface for IAccelerometer5 {
     type Vtable = IAccelerometer5Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7e7e7021_def4_53a6_af43_806fd538edf6);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IAccelerometer5Impl {
-    fn ReportThreshold();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAccelerometer5Vtbl(
@@ -3570,15 +3540,6 @@ pub struct IAccelerometerDataThreshold(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAccelerometerDataThreshold {
     type Vtable = IAccelerometerDataThresholdVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf92c1b68_6320_5577_879e_9942621c3dd9);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IAccelerometerDataThresholdImpl {
-    fn XAxisInGForce();
-    fn SetXAxisInGForce();
-    fn YAxisInGForce();
-    fn SetYAxisInGForce();
-    fn ZAxisInGForce();
-    fn SetZAxisInGForce();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3603,10 +3564,6 @@ unsafe impl ::windows::core::Interface for IAccelerometerDeviceId {
     type Vtable = IAccelerometerDeviceIdVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7eac64a9_97d5_446d_ab5a_917df9b96a2c);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IAccelerometerDeviceIdImpl {
-    fn DeviceId();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAccelerometerDeviceIdVtbl(
@@ -3624,13 +3581,6 @@ pub struct IAccelerometerReading(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAccelerometerReading {
     type Vtable = IAccelerometerReadingVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb9fe7acb_d351_40af_8bb6_7aa9ae641fb7);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IAccelerometerReadingImpl {
-    fn Timestamp();
-    fn AccelerationX();
-    fn AccelerationY();
-    fn AccelerationZ();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3654,11 +3604,6 @@ unsafe impl ::windows::core::Interface for IAccelerometerReading2 {
     type Vtable = IAccelerometerReading2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0a864aa2_15ae_4a40_be55_db58d7de7389);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IAccelerometerReading2Impl {
-    fn PerformanceCount();
-    fn Properties();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAccelerometerReading2Vtbl(
@@ -3680,10 +3625,6 @@ unsafe impl ::windows::core::Interface for IAccelerometerReadingChangedEventArgs
     type Vtable = IAccelerometerReadingChangedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0095c65b_b6ac_475a_9f44_8b32d35a3f25);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IAccelerometerReadingChangedEventArgsImpl {
-    fn Reading();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAccelerometerReadingChangedEventArgsVtbl(
@@ -3701,10 +3642,6 @@ pub struct IAccelerometerShakenEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAccelerometerShakenEventArgs {
     type Vtable = IAccelerometerShakenEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x95ff01d1_4a28_4f35_98e8_8178aae4084a);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IAccelerometerShakenEventArgsImpl {
-    fn Timestamp();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3725,10 +3662,6 @@ unsafe impl ::windows::core::Interface for IAccelerometerStatics {
     type Vtable = IAccelerometerStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa5e28b74_5a87_4a2d_becc_0f906ea061dd);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IAccelerometerStaticsImpl {
-    fn GetDefault();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAccelerometerStaticsVtbl(
@@ -3747,10 +3680,6 @@ unsafe impl ::windows::core::Interface for IAccelerometerStatics2 {
     type Vtable = IAccelerometerStatics2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc4c4842f_d86b_4685_b2d7_3396f798d57b);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IAccelerometerStatics2Impl {
-    fn GetDefaultWithAccelerometerReadingType();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAccelerometerStatics2Vtbl(
@@ -3768,11 +3697,6 @@ pub struct IAccelerometerStatics3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAccelerometerStatics3 {
     type Vtable = IAccelerometerStatics3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9de218cf_455d_4cf3_8200_70e1410340f8);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IAccelerometerStatics3Impl {
-    fn FromIdAsync();
-    fn GetDeviceSelector();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3793,17 +3717,6 @@ pub struct IActivitySensor(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IActivitySensor {
     type Vtable = IActivitySensorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcd7a630c_fb5f_48eb_b09b_a2708d1c61ef);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IActivitySensorImpl {
-    fn GetCurrentReadingAsync();
-    fn SubscribedActivities();
-    fn PowerInMilliwatts();
-    fn DeviceId();
-    fn SupportedActivities();
-    fn MinimumReportInterval();
-    fn ReadingChanged();
-    fn RemoveReadingChanged();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3835,12 +3748,6 @@ unsafe impl ::windows::core::Interface for IActivitySensorReading {
     type Vtable = IActivitySensorReadingVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x85125a96_1472_40a2_b2ae_e1ef29226c78);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IActivitySensorReadingImpl {
-    fn Timestamp();
-    fn Activity();
-    fn Confidence();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IActivitySensorReadingVtbl(
@@ -3862,10 +3769,6 @@ unsafe impl ::windows::core::Interface for IActivitySensorReadingChangeReport {
     type Vtable = IActivitySensorReadingChangeReportVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4f3c2915_d93b_47bd_960a_f20fb2f322b9);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IActivitySensorReadingChangeReportImpl {
-    fn Reading();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IActivitySensorReadingChangeReportVtbl(
@@ -3884,10 +3787,6 @@ unsafe impl ::windows::core::Interface for IActivitySensorReadingChangedEventArg
     type Vtable = IActivitySensorReadingChangedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xde386717_aeb6_4ec7_946a_d9cc19b951ec);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IActivitySensorReadingChangedEventArgsImpl {
-    fn Reading();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IActivitySensorReadingChangedEventArgsVtbl(
@@ -3905,14 +3804,6 @@ pub struct IActivitySensorStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IActivitySensorStatics {
     type Vtable = IActivitySensorStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa71e0e9d_ee8b_45d1_b25b_08cc0df92ab6);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IActivitySensorStaticsImpl {
-    fn GetDefaultAsync();
-    fn GetDeviceSelector();
-    fn FromIdAsync();
-    fn GetSystemHistoryAsync();
-    fn GetSystemHistoryWithDurationAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3940,10 +3831,6 @@ unsafe impl ::windows::core::Interface for IActivitySensorTriggerDetails {
     type Vtable = IActivitySensorTriggerDetailsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2c9e6612_b9ca_4677_b263_243297f79d3a);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IActivitySensorTriggerDetailsImpl {
-    fn ReadReports();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IActivitySensorTriggerDetailsVtbl(
@@ -3962,16 +3849,6 @@ pub struct IAltimeter(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAltimeter {
     type Vtable = IAltimeterVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x72f057fd_8f04_49f1_b4a7_f4e363b701a2);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IAltimeterImpl {
-    fn GetCurrentReading();
-    fn DeviceId();
-    fn MinimumReportInterval();
-    fn SetReportInterval();
-    fn ReportInterval();
-    fn ReadingChanged();
-    fn RemoveReadingChanged();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3999,12 +3876,6 @@ unsafe impl ::windows::core::Interface for IAltimeter2 {
     type Vtable = IAltimeter2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc9471bf9_2add_48f5_9f08_3d0c7660d938);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IAltimeter2Impl {
-    fn SetReportLatency();
-    fn ReportLatency();
-    fn MaxBatchSize();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAltimeter2Vtbl(
@@ -4025,11 +3896,6 @@ unsafe impl ::windows::core::Interface for IAltimeterReading {
     type Vtable = IAltimeterReadingVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfbe8ef73_7f5e_48c8_aa1a_f1f3befc1144);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IAltimeterReadingImpl {
-    fn Timestamp();
-    fn AltitudeChangeInMeters();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAltimeterReadingVtbl(
@@ -4049,11 +3915,6 @@ pub struct IAltimeterReading2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAltimeterReading2 {
     type Vtable = IAltimeterReading2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x543a1bd9_6d0b_42b2_bd69_bc8fae0f782c);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IAltimeterReading2Impl {
-    fn PerformanceCount();
-    fn Properties();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4076,10 +3937,6 @@ unsafe impl ::windows::core::Interface for IAltimeterReadingChangedEventArgs {
     type Vtable = IAltimeterReadingChangedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7069d077_446d_47f7_998c_ebc23b45e4a2);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IAltimeterReadingChangedEventArgsImpl {
-    fn Reading();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAltimeterReadingChangedEventArgsVtbl(
@@ -4098,10 +3955,6 @@ unsafe impl ::windows::core::Interface for IAltimeterStatics {
     type Vtable = IAltimeterStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9eb4d7c3_e5ac_47ce_8eef_d3718168c01f);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IAltimeterStaticsImpl {
-    fn GetDefault();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAltimeterStaticsVtbl(
@@ -4119,16 +3972,6 @@ pub struct IBarometer(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IBarometer {
     type Vtable = IBarometerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x934475a8_78bf_452f_b017_f0209ce6dab4);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IBarometerImpl {
-    fn GetCurrentReading();
-    fn DeviceId();
-    fn MinimumReportInterval();
-    fn SetReportInterval();
-    fn ReportInterval();
-    fn ReadingChanged();
-    fn RemoveReadingChanged();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4156,12 +3999,6 @@ unsafe impl ::windows::core::Interface for IBarometer2 {
     type Vtable = IBarometer2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x32bcc418_3eeb_4d04_9574_7633a8781f9f);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IBarometer2Impl {
-    fn SetReportLatency();
-    fn ReportLatency();
-    fn MaxBatchSize();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBarometer2Vtbl(
@@ -4182,10 +4019,6 @@ unsafe impl ::windows::core::Interface for IBarometer3 {
     type Vtable = IBarometer3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0e35f0ea_02b5_5a04_b03d_822084863a54);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IBarometer3Impl {
-    fn ReportThreshold();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBarometer3Vtbl(
@@ -4203,11 +4036,6 @@ pub struct IBarometerDataThreshold(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IBarometerDataThreshold {
     type Vtable = IBarometerDataThresholdVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x076b952c_cb62_5a90_a0d1_f85e4a936394);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IBarometerDataThresholdImpl {
-    fn Hectopascals();
-    fn SetHectopascals();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4228,11 +4056,6 @@ unsafe impl ::windows::core::Interface for IBarometerReading {
     type Vtable = IBarometerReadingVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf5b9d2e6_1df6_4a1a_a7ad_321d4f5db247);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IBarometerReadingImpl {
-    fn Timestamp();
-    fn StationPressureInHectopascals();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBarometerReadingVtbl(
@@ -4252,11 +4075,6 @@ pub struct IBarometerReading2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IBarometerReading2 {
     type Vtable = IBarometerReading2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x85a244eb_90c5_4875_891c_3865b4c357e7);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IBarometerReading2Impl {
-    fn PerformanceCount();
-    fn Properties();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4279,10 +4097,6 @@ unsafe impl ::windows::core::Interface for IBarometerReadingChangedEventArgs {
     type Vtable = IBarometerReadingChangedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3d84945f_037b_404f_9bbb_6232d69543c3);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IBarometerReadingChangedEventArgsImpl {
-    fn Reading();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBarometerReadingChangedEventArgsVtbl(
@@ -4301,10 +4115,6 @@ unsafe impl ::windows::core::Interface for IBarometerStatics {
     type Vtable = IBarometerStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x286b270a_02e3_4f86_84fc_fdd892b5940f);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IBarometerStaticsImpl {
-    fn GetDefault();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBarometerStaticsVtbl(
@@ -4322,11 +4132,6 @@ pub struct IBarometerStatics2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IBarometerStatics2 {
     type Vtable = IBarometerStatics2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8fc6b1e7_95ff_44ac_878e_d65c8308c34c);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IBarometerStatics2Impl {
-    fn FromIdAsync();
-    fn GetDeviceSelector();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4347,15 +4152,6 @@ pub struct ICompass(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICompass {
     type Vtable = ICompassVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x292ffa94_1b45_403c_ba06_b106dba69a64);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ICompassImpl {
-    fn GetCurrentReading();
-    fn MinimumReportInterval();
-    fn SetReportInterval();
-    fn ReportInterval();
-    fn ReadingChanged();
-    fn RemoveReadingChanged();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4382,11 +4178,6 @@ unsafe impl ::windows::core::Interface for ICompass2 {
     type Vtable = ICompass2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x36f26d09_c7d7_434f_b461_979ddfc2322f);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ICompass2Impl {
-    fn SetReadingTransform();
-    fn ReadingTransform();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompass2Vtbl(
@@ -4408,12 +4199,6 @@ unsafe impl ::windows::core::Interface for ICompass3 {
     type Vtable = ICompass3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa424801b_c5ea_4d45_a0ec_4b791f041a89);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ICompass3Impl {
-    fn SetReportLatency();
-    fn ReportLatency();
-    fn MaxBatchSize();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompass3Vtbl(
@@ -4434,10 +4219,6 @@ unsafe impl ::windows::core::Interface for ICompass4 {
     type Vtable = ICompass4Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x291e7f11_ec32_5dcc_bfcb_0bb39eba5774);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ICompass4Impl {
-    fn ReportThreshold();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompass4Vtbl(
@@ -4455,11 +4236,6 @@ pub struct ICompassDataThreshold(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICompassDataThreshold {
     type Vtable = ICompassDataThresholdVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd15b52b3_d39d_5ec8_b2e4_f193e6ab34ed);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ICompassDataThresholdImpl {
-    fn Degrees();
-    fn SetDegrees();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4480,10 +4256,6 @@ unsafe impl ::windows::core::Interface for ICompassDeviceId {
     type Vtable = ICompassDeviceIdVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd181ca29_b085_4b1d_870a_4ff57ba74fd4);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ICompassDeviceIdImpl {
-    fn DeviceId();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompassDeviceIdVtbl(
@@ -4501,12 +4273,6 @@ pub struct ICompassReading(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICompassReading {
     type Vtable = ICompassReadingVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x82911128_513d_4dc9_b781_5eedfbf02d0c);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ICompassReadingImpl {
-    fn Timestamp();
-    fn HeadingMagneticNorth();
-    fn HeadingTrueNorth();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4530,11 +4296,6 @@ unsafe impl ::windows::core::Interface for ICompassReading2 {
     type Vtable = ICompassReading2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb13a661e_51bb_4a12_bedd_ad47ff87d2e8);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ICompassReading2Impl {
-    fn PerformanceCount();
-    fn Properties();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompassReading2Vtbl(
@@ -4556,10 +4317,6 @@ unsafe impl ::windows::core::Interface for ICompassReadingChangedEventArgs {
     type Vtable = ICompassReadingChangedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8f1549b0_e8bc_4c7e_b009_4e41df137072);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ICompassReadingChangedEventArgsImpl {
-    fn Reading();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompassReadingChangedEventArgsVtbl(
@@ -4577,10 +4334,6 @@ pub struct ICompassReadingHeadingAccuracy(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICompassReadingHeadingAccuracy {
     type Vtable = ICompassReadingHeadingAccuracyVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe761354e_8911_40f7_9e16_6ecc7daec5de);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ICompassReadingHeadingAccuracyImpl {
-    fn HeadingAccuracy();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4600,10 +4353,6 @@ unsafe impl ::windows::core::Interface for ICompassStatics {
     type Vtable = ICompassStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9abc97df_56ec_4c25_b54d_40a68bb5b269);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ICompassStaticsImpl {
-    fn GetDefault();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompassStaticsVtbl(
@@ -4621,11 +4370,6 @@ pub struct ICompassStatics2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICompassStatics2 {
     type Vtable = ICompassStatics2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0ace0ead_3baa_4990_9ce4_be0913754ed2);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ICompassStatics2Impl {
-    fn GetDeviceSelector();
-    fn FromIdAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4646,15 +4390,6 @@ pub struct IGyrometer(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGyrometer {
     type Vtable = IGyrometerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfdb9a9c4_84b1_4ca2_9763_9b589506c70c);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IGyrometerImpl {
-    fn GetCurrentReading();
-    fn MinimumReportInterval();
-    fn SetReportInterval();
-    fn ReportInterval();
-    fn ReadingChanged();
-    fn RemoveReadingChanged();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4681,11 +4416,6 @@ unsafe impl ::windows::core::Interface for IGyrometer2 {
     type Vtable = IGyrometer2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x63df2443_8ce8_41c3_ac44_8698810b557f);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IGyrometer2Impl {
-    fn SetReadingTransform();
-    fn ReadingTransform();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGyrometer2Vtbl(
@@ -4707,12 +4437,6 @@ unsafe impl ::windows::core::Interface for IGyrometer3 {
     type Vtable = IGyrometer3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5d6f88d5_8fbc_4484_914b_528adfd947b1);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IGyrometer3Impl {
-    fn SetReportLatency();
-    fn ReportLatency();
-    fn MaxBatchSize();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGyrometer3Vtbl(
@@ -4733,10 +4457,6 @@ unsafe impl ::windows::core::Interface for IGyrometer4 {
     type Vtable = IGyrometer4Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0628a60c_4c4b_5096_94e6_c356df68bef7);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IGyrometer4Impl {
-    fn ReportThreshold();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGyrometer4Vtbl(
@@ -4754,15 +4474,6 @@ pub struct IGyrometerDataThreshold(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGyrometerDataThreshold {
     type Vtable = IGyrometerDataThresholdVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8648b31e_6e52_5259_bbad_242a69dc38c8);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IGyrometerDataThresholdImpl {
-    fn XAxisInDegreesPerSecond();
-    fn SetXAxisInDegreesPerSecond();
-    fn YAxisInDegreesPerSecond();
-    fn SetYAxisInDegreesPerSecond();
-    fn ZAxisInDegreesPerSecond();
-    fn SetZAxisInDegreesPerSecond();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4787,10 +4498,6 @@ unsafe impl ::windows::core::Interface for IGyrometerDeviceId {
     type Vtable = IGyrometerDeviceIdVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1ee5e978_89a2_4275_9e95_7126f4708760);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IGyrometerDeviceIdImpl {
-    fn DeviceId();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGyrometerDeviceIdVtbl(
@@ -4808,13 +4515,6 @@ pub struct IGyrometerReading(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGyrometerReading {
     type Vtable = IGyrometerReadingVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb3d6de5c_1ee4_456f_9de7_e2493b5c8e03);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IGyrometerReadingImpl {
-    fn Timestamp();
-    fn AngularVelocityX();
-    fn AngularVelocityY();
-    fn AngularVelocityZ();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4838,11 +4538,6 @@ unsafe impl ::windows::core::Interface for IGyrometerReading2 {
     type Vtable = IGyrometerReading2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x16afe13c_2b89_44bb_822b_d1e1556ff09b);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IGyrometerReading2Impl {
-    fn PerformanceCount();
-    fn Properties();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGyrometerReading2Vtbl(
@@ -4864,10 +4559,6 @@ unsafe impl ::windows::core::Interface for IGyrometerReadingChangedEventArgs {
     type Vtable = IGyrometerReadingChangedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0fdf1895_6f9e_42ce_8d58_388c0ab8356d);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IGyrometerReadingChangedEventArgsImpl {
-    fn Reading();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGyrometerReadingChangedEventArgsVtbl(
@@ -4886,10 +4577,6 @@ unsafe impl ::windows::core::Interface for IGyrometerStatics {
     type Vtable = IGyrometerStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x83b6e7c9_e49d_4b39_86e6_cd554be4c5c1);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IGyrometerStaticsImpl {
-    fn GetDefault();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGyrometerStaticsVtbl(
@@ -4907,11 +4594,6 @@ pub struct IGyrometerStatics2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGyrometerStatics2 {
     type Vtable = IGyrometerStatics2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xef83f7a1_d700_4204_9613_79c6b161df4e);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IGyrometerStatics2Impl {
-    fn GetDeviceSelector();
-    fn FromIdAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4932,12 +4614,6 @@ pub struct IHingeAngleReading(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IHingeAngleReading {
     type Vtable = IHingeAngleReadingVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa3cd45b9_1bf1_4f65_a704_e2da04f182c0);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IHingeAngleReadingImpl {
-    fn Timestamp();
-    fn AngleInDegrees();
-    fn Properties();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4960,16 +4636,6 @@ pub struct IHingeAngleSensor(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IHingeAngleSensor {
     type Vtable = IHingeAngleSensorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe9d3be02_bfdf_437f_8c29_88c77393d309);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IHingeAngleSensorImpl {
-    fn GetCurrentReadingAsync();
-    fn DeviceId();
-    fn MinReportThresholdInDegrees();
-    fn ReportThresholdInDegrees();
-    fn SetReportThresholdInDegrees();
-    fn ReadingChanged();
-    fn RemoveReadingChanged();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4998,10 +4664,6 @@ unsafe impl ::windows::core::Interface for IHingeAngleSensorReadingChangedEventA
     type Vtable = IHingeAngleSensorReadingChangedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x24d9558b_fad0_42b8_a854_78923049a1ba);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IHingeAngleSensorReadingChangedEventArgsImpl {
-    fn Reading();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHingeAngleSensorReadingChangedEventArgsVtbl(
@@ -5019,13 +4681,6 @@ pub struct IHingeAngleSensorStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IHingeAngleSensorStatics {
     type Vtable = IHingeAngleSensorStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb7b63910_fbb1_4123_89ce_4ea34eb0dfca);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IHingeAngleSensorStaticsImpl {
-    fn GetDeviceSelector();
-    fn GetDefaultAsync();
-    fn GetRelatedToAdjacentPanelsAsync();
-    fn FromIdAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5050,15 +4705,6 @@ pub struct IInclinometer(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IInclinometer {
     type Vtable = IInclinometerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2648ca6f_2286_406f_9161_f0c4bd806ebf);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IInclinometerImpl {
-    fn GetCurrentReading();
-    fn MinimumReportInterval();
-    fn SetReportInterval();
-    fn ReportInterval();
-    fn ReadingChanged();
-    fn RemoveReadingChanged();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5085,12 +4731,6 @@ unsafe impl ::windows::core::Interface for IInclinometer2 {
     type Vtable = IInclinometer2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x029f3393_28b2_45f8_bb16_61e86a7fae6e);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IInclinometer2Impl {
-    fn SetReadingTransform();
-    fn ReadingTransform();
-    fn ReadingType();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInclinometer2Vtbl(
@@ -5113,12 +4753,6 @@ unsafe impl ::windows::core::Interface for IInclinometer3 {
     type Vtable = IInclinometer3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3a095004_d765_4384_a3d7_0283f3abe6ae);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IInclinometer3Impl {
-    fn SetReportLatency();
-    fn ReportLatency();
-    fn MaxBatchSize();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInclinometer3Vtbl(
@@ -5139,10 +4773,6 @@ unsafe impl ::windows::core::Interface for IInclinometer4 {
     type Vtable = IInclinometer4Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x43852618_8fca_548e_bbf5_5c50412b6aa4);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IInclinometer4Impl {
-    fn ReportThreshold();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInclinometer4Vtbl(
@@ -5160,15 +4790,6 @@ pub struct IInclinometerDataThreshold(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IInclinometerDataThreshold {
     type Vtable = IInclinometerDataThresholdVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf80a4783_7bfe_545e_bb60_a0ebc47bd2fb);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IInclinometerDataThresholdImpl {
-    fn PitchInDegrees();
-    fn SetPitchInDegrees();
-    fn RollInDegrees();
-    fn SetRollInDegrees();
-    fn YawInDegrees();
-    fn SetYawInDegrees();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5193,10 +4814,6 @@ unsafe impl ::windows::core::Interface for IInclinometerDeviceId {
     type Vtable = IInclinometerDeviceIdVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x01e91982_41ff_4406_ae83_62210ff16fe3);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IInclinometerDeviceIdImpl {
-    fn DeviceId();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInclinometerDeviceIdVtbl(
@@ -5214,13 +4831,6 @@ pub struct IInclinometerReading(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IInclinometerReading {
     type Vtable = IInclinometerReadingVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9f44f055_b6f6_497f_b127_1a775e501458);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IInclinometerReadingImpl {
-    fn Timestamp();
-    fn PitchDegrees();
-    fn RollDegrees();
-    fn YawDegrees();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5244,11 +4854,6 @@ unsafe impl ::windows::core::Interface for IInclinometerReading2 {
     type Vtable = IInclinometerReading2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4f164781_e90b_4658_8915_0103e08a805a);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IInclinometerReading2Impl {
-    fn PerformanceCount();
-    fn Properties();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInclinometerReading2Vtbl(
@@ -5270,10 +4875,6 @@ unsafe impl ::windows::core::Interface for IInclinometerReadingChangedEventArgs 
     type Vtable = IInclinometerReadingChangedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4ae91dc1_e7eb_4938_8511_ae0d6b440438);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IInclinometerReadingChangedEventArgsImpl {
-    fn Reading();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInclinometerReadingChangedEventArgsVtbl(
@@ -5291,10 +4892,6 @@ pub struct IInclinometerReadingYawAccuracy(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IInclinometerReadingYawAccuracy {
     type Vtable = IInclinometerReadingYawAccuracyVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb453e880_1fe3_4986_a257_e6ece2723949);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IInclinometerReadingYawAccuracyImpl {
-    fn YawAccuracy();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5314,10 +4911,6 @@ unsafe impl ::windows::core::Interface for IInclinometerStatics {
     type Vtable = IInclinometerStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf22ec551_9c30_453a_8b49_3c3eeb33cb61);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IInclinometerStaticsImpl {
-    fn GetDefault();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInclinometerStaticsVtbl(
@@ -5335,10 +4928,6 @@ pub struct IInclinometerStatics2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IInclinometerStatics2 {
     type Vtable = IInclinometerStatics2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x043f9775_6a1e_499c_86e0_638c1a864b00);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IInclinometerStatics2Impl {
-    fn GetDefaultForRelativeReadings();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5358,10 +4947,6 @@ unsafe impl ::windows::core::Interface for IInclinometerStatics3 {
     type Vtable = IInclinometerStatics3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbd9a4280_b91a_4829_9392_abc0b6bdf2b4);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IInclinometerStatics3Impl {
-    fn GetDefaultWithSensorReadingType();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInclinometerStatics3Vtbl(
@@ -5379,11 +4964,6 @@ pub struct IInclinometerStatics4(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IInclinometerStatics4 {
     type Vtable = IInclinometerStatics4Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe8ba96f9_6e85_4a83_aed0_d7cdcc9856c8);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IInclinometerStatics4Impl {
-    fn GetDeviceSelector();
-    fn FromIdAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5404,15 +4984,6 @@ pub struct ILightSensor(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ILightSensor {
     type Vtable = ILightSensorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf84c0718_0c54_47ae_922e_789f57fb03a0);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ILightSensorImpl {
-    fn GetCurrentReading();
-    fn MinimumReportInterval();
-    fn SetReportInterval();
-    fn ReportInterval();
-    fn ReadingChanged();
-    fn RemoveReadingChanged();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5439,12 +5010,6 @@ unsafe impl ::windows::core::Interface for ILightSensor2 {
     type Vtable = ILightSensor2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x486b24e8_a94c_4090_8f48_09f782a9f7d5);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ILightSensor2Impl {
-    fn SetReportLatency();
-    fn ReportLatency();
-    fn MaxBatchSize();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILightSensor2Vtbl(
@@ -5465,10 +5030,6 @@ unsafe impl ::windows::core::Interface for ILightSensor3 {
     type Vtable = ILightSensor3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4876d0ff_9f4c_5f72_adbd_a3471b063c00);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ILightSensor3Impl {
-    fn ReportThreshold();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILightSensor3Vtbl(
@@ -5486,13 +5047,6 @@ pub struct ILightSensorDataThreshold(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ILightSensorDataThreshold {
     type Vtable = ILightSensorDataThresholdVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb160afd1_878f_5492_9f2c_33dc3ae584a3);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ILightSensorDataThresholdImpl {
-    fn LuxPercentage();
-    fn SetLuxPercentage();
-    fn AbsoluteLux();
-    fn SetAbsoluteLux();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5515,10 +5069,6 @@ unsafe impl ::windows::core::Interface for ILightSensorDeviceId {
     type Vtable = ILightSensorDeviceIdVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7fee49f8_0afb_4f51_87f0_6c26375ce94f);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ILightSensorDeviceIdImpl {
-    fn DeviceId();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILightSensorDeviceIdVtbl(
@@ -5536,11 +5086,6 @@ pub struct ILightSensorReading(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ILightSensorReading {
     type Vtable = ILightSensorReadingVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xffdf6300_227c_4d2b_b302_fc0142485c68);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ILightSensorReadingImpl {
-    fn Timestamp();
-    fn IlluminanceInLux();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5561,11 +5106,6 @@ pub struct ILightSensorReading2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ILightSensorReading2 {
     type Vtable = ILightSensorReading2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb7512185_44a3_44c9_8190_9ef6de0a8a74);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ILightSensorReading2Impl {
-    fn PerformanceCount();
-    fn Properties();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5588,10 +5128,6 @@ unsafe impl ::windows::core::Interface for ILightSensorReadingChangedEventArgs {
     type Vtable = ILightSensorReadingChangedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa3a2f4cf_258b_420c_b8ab_8edd601ecf50);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ILightSensorReadingChangedEventArgsImpl {
-    fn Reading();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILightSensorReadingChangedEventArgsVtbl(
@@ -5610,10 +5146,6 @@ unsafe impl ::windows::core::Interface for ILightSensorStatics {
     type Vtable = ILightSensorStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x45db8c84_c3a8_471e_9a53_6457fad87c0e);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ILightSensorStaticsImpl {
-    fn GetDefault();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILightSensorStaticsVtbl(
@@ -5631,11 +5163,6 @@ pub struct ILightSensorStatics2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ILightSensorStatics2 {
     type Vtable = ILightSensorStatics2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0ec0a650_ddc6_40ab_ace3_ec3359d42c51);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ILightSensorStatics2Impl {
-    fn GetDeviceSelector();
-    fn FromIdAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5656,15 +5183,6 @@ pub struct IMagnetometer(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMagnetometer {
     type Vtable = IMagnetometerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x484f626e_d3c9_4111_b3f6_2cf1faa418d5);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IMagnetometerImpl {
-    fn GetCurrentReading();
-    fn MinimumReportInterval();
-    fn SetReportInterval();
-    fn ReportInterval();
-    fn ReadingChanged();
-    fn RemoveReadingChanged();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5691,11 +5209,6 @@ unsafe impl ::windows::core::Interface for IMagnetometer2 {
     type Vtable = IMagnetometer2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb4656c85_26f6_444b_a9e2_a23f966cd368);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IMagnetometer2Impl {
-    fn SetReadingTransform();
-    fn ReadingTransform();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMagnetometer2Vtbl(
@@ -5717,12 +5230,6 @@ unsafe impl ::windows::core::Interface for IMagnetometer3 {
     type Vtable = IMagnetometer3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbe93db7c_a625_48ef_acf7_fac104832671);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IMagnetometer3Impl {
-    fn SetReportLatency();
-    fn ReportLatency();
-    fn MaxBatchSize();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMagnetometer3Vtbl(
@@ -5743,10 +5250,6 @@ unsafe impl ::windows::core::Interface for IMagnetometer4 {
     type Vtable = IMagnetometer4Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdfb17901_3e0f_508f_b24b_f2bb75015f40);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IMagnetometer4Impl {
-    fn ReportThreshold();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMagnetometer4Vtbl(
@@ -5764,15 +5267,6 @@ pub struct IMagnetometerDataThreshold(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMagnetometerDataThreshold {
     type Vtable = IMagnetometerDataThresholdVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd177cb01_9063_5fa5_b596_b445e9dc3401);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IMagnetometerDataThresholdImpl {
-    fn XAxisMicroteslas();
-    fn SetXAxisMicroteslas();
-    fn YAxisMicroteslas();
-    fn SetYAxisMicroteslas();
-    fn ZAxisMicroteslas();
-    fn SetZAxisMicroteslas();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5797,10 +5291,6 @@ unsafe impl ::windows::core::Interface for IMagnetometerDeviceId {
     type Vtable = IMagnetometerDeviceIdVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x58b498c2_7e4b_404c_9fc5_5de8b40ebae3);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IMagnetometerDeviceIdImpl {
-    fn DeviceId();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMagnetometerDeviceIdVtbl(
@@ -5818,14 +5308,6 @@ pub struct IMagnetometerReading(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMagnetometerReading {
     type Vtable = IMagnetometerReadingVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0c2cc40d_ebfd_4e5c_bb11_afc29b3cae61);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IMagnetometerReadingImpl {
-    fn Timestamp();
-    fn MagneticFieldX();
-    fn MagneticFieldY();
-    fn MagneticFieldZ();
-    fn DirectionalAccuracy();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5850,11 +5332,6 @@ unsafe impl ::windows::core::Interface for IMagnetometerReading2 {
     type Vtable = IMagnetometerReading2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd4c95c61_61d9_404b_a328_066f177a1409);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IMagnetometerReading2Impl {
-    fn PerformanceCount();
-    fn Properties();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMagnetometerReading2Vtbl(
@@ -5876,10 +5353,6 @@ unsafe impl ::windows::core::Interface for IMagnetometerReadingChangedEventArgs 
     type Vtable = IMagnetometerReadingChangedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x17eae872_2eb9_4ee7_8ad0_3127537d949b);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IMagnetometerReadingChangedEventArgsImpl {
-    fn Reading();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMagnetometerReadingChangedEventArgsVtbl(
@@ -5898,10 +5371,6 @@ unsafe impl ::windows::core::Interface for IMagnetometerStatics {
     type Vtable = IMagnetometerStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x853c64cc_0698_4dda_a6df_9cb9cc4ab40a);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IMagnetometerStaticsImpl {
-    fn GetDefault();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMagnetometerStaticsVtbl(
@@ -5919,11 +5388,6 @@ pub struct IMagnetometerStatics2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMagnetometerStatics2 {
     type Vtable = IMagnetometerStatics2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2c0819f0_ffc6_4f89_a06f_18fa10792933);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IMagnetometerStatics2Impl {
-    fn GetDeviceSelector();
-    fn FromIdAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5944,15 +5408,6 @@ pub struct IOrientationSensor(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IOrientationSensor {
     type Vtable = IOrientationSensorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5e354635_cf6b_4c63_abd8_10252b0bf6ec);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IOrientationSensorImpl {
-    fn GetCurrentReading();
-    fn MinimumReportInterval();
-    fn SetReportInterval();
-    fn ReportInterval();
-    fn ReadingChanged();
-    fn RemoveReadingChanged();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5979,12 +5434,6 @@ unsafe impl ::windows::core::Interface for IOrientationSensor2 {
     type Vtable = IOrientationSensor2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0d924cf9_2f1f_49c9_8042_4a1813d67760);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IOrientationSensor2Impl {
-    fn SetReadingTransform();
-    fn ReadingTransform();
-    fn ReadingType();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IOrientationSensor2Vtbl(
@@ -6007,12 +5456,6 @@ unsafe impl ::windows::core::Interface for IOrientationSensor3 {
     type Vtable = IOrientationSensor3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2cce578d_646b_48c5_b7ee_44fdc4c6aafd);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IOrientationSensor3Impl {
-    fn SetReportLatency();
-    fn ReportLatency();
-    fn MaxBatchSize();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IOrientationSensor3Vtbl(
@@ -6033,10 +5476,6 @@ unsafe impl ::windows::core::Interface for IOrientationSensorDeviceId {
     type Vtable = IOrientationSensorDeviceIdVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5a69b648_4c29_49ec_b28f_ea1d117b66f0);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IOrientationSensorDeviceIdImpl {
-    fn DeviceId();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IOrientationSensorDeviceIdVtbl(
@@ -6054,12 +5493,6 @@ pub struct IOrientationSensorReading(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IOrientationSensorReading {
     type Vtable = IOrientationSensorReadingVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4756c993_6595_4897_bcc6_d537ee757564);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IOrientationSensorReadingImpl {
-    fn Timestamp();
-    fn RotationMatrix();
-    fn Quaternion();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6082,11 +5515,6 @@ unsafe impl ::windows::core::Interface for IOrientationSensorReading2 {
     type Vtable = IOrientationSensorReading2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00576e5f_49f8_4c05_9e07_24fac79408c3);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IOrientationSensorReading2Impl {
-    fn PerformanceCount();
-    fn Properties();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IOrientationSensorReading2Vtbl(
@@ -6108,10 +5536,6 @@ unsafe impl ::windows::core::Interface for IOrientationSensorReadingChangedEvent
     type Vtable = IOrientationSensorReadingChangedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x012c1186_c3ba_46bc_ae65_7a98996cbfb8);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IOrientationSensorReadingChangedEventArgsImpl {
-    fn Reading();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IOrientationSensorReadingChangedEventArgsVtbl(
@@ -6129,10 +5553,6 @@ pub struct IOrientationSensorReadingYawAccuracy(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IOrientationSensorReadingYawAccuracy {
     type Vtable = IOrientationSensorReadingYawAccuracyVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd1ac9824_3f5a_49a2_bc7b_1180bc38cd2b);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IOrientationSensorReadingYawAccuracyImpl {
-    fn YawAccuracy();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6152,10 +5572,6 @@ unsafe impl ::windows::core::Interface for IOrientationSensorStatics {
     type Vtable = IOrientationSensorStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x10ef8712_fb4c_428a_898b_2765e409e669);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IOrientationSensorStaticsImpl {
-    fn GetDefault();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IOrientationSensorStaticsVtbl(
@@ -6173,10 +5589,6 @@ pub struct IOrientationSensorStatics2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IOrientationSensorStatics2 {
     type Vtable = IOrientationSensorStatics2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x59da0d0b_d40a_4c71_9276_8a272a0a6619);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IOrientationSensorStatics2Impl {
-    fn GetDefaultForRelativeReadings();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6196,11 +5608,6 @@ unsafe impl ::windows::core::Interface for IOrientationSensorStatics3 {
     type Vtable = IOrientationSensorStatics3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd82ce920_2777_40ff_9f59_d654b085f12f);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IOrientationSensorStatics3Impl {
-    fn GetDefaultWithSensorReadingType();
-    fn GetDefaultWithSensorReadingTypeAndSensorOptimizationGoal();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IOrientationSensorStatics3Vtbl(
@@ -6219,12 +5626,6 @@ pub struct IOrientationSensorStatics4(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IOrientationSensorStatics4 {
     type Vtable = IOrientationSensorStatics4Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa67feb55_2c85_4b28_a0fe_58c4b20495f5);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IOrientationSensorStatics4Impl {
-    fn GetDeviceSelector();
-    fn GetDeviceSelectorWithSensorReadingTypeAndSensorOptimizationGoal();
-    fn FromIdAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6246,16 +5647,6 @@ pub struct IPedometer(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPedometer {
     type Vtable = IPedometerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9a1e013d_3d98_45f8_8920_8e4ecaca5f97);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IPedometerImpl {
-    fn DeviceId();
-    fn PowerInMilliwatts();
-    fn MinimumReportInterval();
-    fn SetReportInterval();
-    fn ReportInterval();
-    fn ReadingChanged();
-    fn RemoveReadingChanged();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6283,10 +5674,6 @@ unsafe impl ::windows::core::Interface for IPedometer2 {
     type Vtable = IPedometer2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe5a406df_2b81_4add_b2ff_77ab6c98ba19);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IPedometer2Impl {
-    fn GetCurrentReadings();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPedometer2Vtbl(
@@ -6306,10 +5693,6 @@ unsafe impl ::windows::core::Interface for IPedometerDataThresholdFactory {
     type Vtable = IPedometerDataThresholdFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcbad8f50_7a54_466b_9010_77a162fca5d7);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IPedometerDataThresholdFactoryImpl {
-    fn Create();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPedometerDataThresholdFactoryVtbl(
@@ -6327,13 +5710,6 @@ pub struct IPedometerReading(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPedometerReading {
     type Vtable = IPedometerReadingVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2245dcf4_a8e1_432f_896a_be0dd9b02d24);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IPedometerReadingImpl {
-    fn StepKind();
-    fn CumulativeSteps();
-    fn Timestamp();
-    fn CumulativeStepsDuration();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6358,10 +5734,6 @@ unsafe impl ::windows::core::Interface for IPedometerReadingChangedEventArgs {
     type Vtable = IPedometerReadingChangedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf855e47e_abbc_4456_86a8_25cf2b333742);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IPedometerReadingChangedEventArgsImpl {
-    fn Reading();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPedometerReadingChangedEventArgsVtbl(
@@ -6379,14 +5751,6 @@ pub struct IPedometerStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPedometerStatics {
     type Vtable = IPedometerStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x82980a2f_4083_4dfb_b411_938ea0f4b946);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IPedometerStaticsImpl {
-    fn FromIdAsync();
-    fn GetDefaultAsync();
-    fn GetDeviceSelector();
-    fn GetSystemHistoryAsync();
-    fn GetSystemHistoryWithDurationAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6414,10 +5778,6 @@ unsafe impl ::windows::core::Interface for IPedometerStatics2 {
     type Vtable = IPedometerStatics2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x79f5c6bb_ce0e_4133_b47e_8627ea72f677);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IPedometerStatics2Impl {
-    fn GetReadingsFromTriggerDetails();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPedometerStatics2Vtbl(
@@ -6436,16 +5796,6 @@ pub struct IProximitySensor(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IProximitySensor {
     type Vtable = IProximitySensorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x54c076b8_ecfb_4944_b928_74fc504d47ee);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IProximitySensorImpl {
-    fn DeviceId();
-    fn MaxDistanceInMillimeters();
-    fn MinDistanceInMillimeters();
-    fn GetCurrentReading();
-    fn ReadingChanged();
-    fn RemoveReadingChanged();
-    fn CreateDisplayOnOffController();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6476,10 +5826,6 @@ unsafe impl ::windows::core::Interface for IProximitySensorDataThresholdFactory 
     type Vtable = IProximitySensorDataThresholdFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x905ac121_6d27_4ad3_9db5_6467f2a5ad9d);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IProximitySensorDataThresholdFactoryImpl {
-    fn Create();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IProximitySensorDataThresholdFactoryVtbl(
@@ -6497,12 +5843,6 @@ pub struct IProximitySensorReading(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IProximitySensorReading {
     type Vtable = IProximitySensorReadingVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x71228d59_132d_4d5f_8ff9_2f0db8751ced);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IProximitySensorReadingImpl {
-    fn Timestamp();
-    fn IsDetected();
-    fn DistanceInMillimeters();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6526,10 +5866,6 @@ unsafe impl ::windows::core::Interface for IProximitySensorReadingChangedEventAr
     type Vtable = IProximitySensorReadingChangedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcfc2f366_c3e8_40fd_8cc3_67e289004938);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IProximitySensorReadingChangedEventArgsImpl {
-    fn Reading();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IProximitySensorReadingChangedEventArgsVtbl(
@@ -6547,11 +5883,6 @@ pub struct IProximitySensorStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IProximitySensorStatics {
     type Vtable = IProximitySensorStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x29186649_6269_4e57_a5ad_82be80813392);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IProximitySensorStaticsImpl {
-    fn GetDeviceSelector();
-    fn FromId();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6571,10 +5902,6 @@ pub struct IProximitySensorStatics2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IProximitySensorStatics2 {
     type Vtable = IProximitySensorStatics2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcbf473ae_e9ca_422f_ad67_4c3d25df350c);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IProximitySensorStatics2Impl {
-    fn GetReadingsFromTriggerDetails();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6655,7 +5982,6 @@ unsafe impl ::windows::core::Interface for ISensorDataThreshold {
     type Vtable = ISensorDataThresholdVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x54daec61_fe4b_4e07_b260_3a4cdfbe396e);
 }
-pub trait ISensorDataThresholdImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISensorDataThresholdVtbl(
@@ -6672,11 +5998,6 @@ pub struct ISensorDataThresholdTriggerDetails(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISensorDataThresholdTriggerDetails {
     type Vtable = ISensorDataThresholdTriggerDetailsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9106f1b7_e88d_48b1_bc90_619c7b349391);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ISensorDataThresholdTriggerDetailsImpl {
-    fn DeviceId();
-    fn SensorType();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6696,13 +6017,6 @@ pub struct ISensorQuaternion(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISensorQuaternion {
     type Vtable = ISensorQuaternionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc9c5c827_c71c_46e7_9da3_36a193b232bc);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ISensorQuaternionImpl {
-    fn W();
-    fn X();
-    fn Y();
-    fn Z();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6724,18 +6038,6 @@ pub struct ISensorRotationMatrix(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISensorRotationMatrix {
     type Vtable = ISensorRotationMatrixVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0a3d5a67_22f4_4392_9538_65d0bd064aa6);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ISensorRotationMatrixImpl {
-    fn M11();
-    fn M12();
-    fn M13();
-    fn M21();
-    fn M22();
-    fn M23();
-    fn M31();
-    fn M32();
-    fn M33();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6763,12 +6065,6 @@ unsafe impl ::windows::core::Interface for ISimpleOrientationSensor {
     type Vtable = ISimpleOrientationSensorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5ff53856_214a_4dee_a3f9_616f1ab06ffd);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ISimpleOrientationSensorImpl {
-    fn GetCurrentOrientation();
-    fn OrientationChanged();
-    fn RemoveOrientationChanged();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISimpleOrientationSensorVtbl(
@@ -6791,11 +6087,6 @@ unsafe impl ::windows::core::Interface for ISimpleOrientationSensor2 {
     type Vtable = ISimpleOrientationSensor2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa277a798_8870_453e_8bd6_b8f5d8d7941b);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ISimpleOrientationSensor2Impl {
-    fn SetReadingTransform();
-    fn ReadingTransform();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISimpleOrientationSensor2Vtbl(
@@ -6817,10 +6108,6 @@ unsafe impl ::windows::core::Interface for ISimpleOrientationSensorDeviceId {
     type Vtable = ISimpleOrientationSensorDeviceIdVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfbc00acb_3b76_41f6_8091_30efe646d3cf);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ISimpleOrientationSensorDeviceIdImpl {
-    fn DeviceId();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISimpleOrientationSensorDeviceIdVtbl(
@@ -6838,11 +6125,6 @@ pub struct ISimpleOrientationSensorOrientationChangedEventArgs(::windows::core::
 unsafe impl ::windows::core::Interface for ISimpleOrientationSensorOrientationChangedEventArgs {
     type Vtable = ISimpleOrientationSensorOrientationChangedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbcd5c660_23d4_4b4c_a22e_ba81ade0c601);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ISimpleOrientationSensorOrientationChangedEventArgsImpl {
-    fn Timestamp();
-    fn Orientation();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6864,10 +6146,6 @@ unsafe impl ::windows::core::Interface for ISimpleOrientationSensorStatics {
     type Vtable = ISimpleOrientationSensorStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x72ed066f_70aa_40c6_9b1b_3433f7459b4e);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ISimpleOrientationSensorStaticsImpl {
-    fn GetDefault();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISimpleOrientationSensorStaticsVtbl(
@@ -6885,11 +6163,6 @@ pub struct ISimpleOrientationSensorStatics2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISimpleOrientationSensorStatics2 {
     type Vtable = ISimpleOrientationSensorStatics2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x848f9c7f_b138_4e11_8910_a2a2a3b56d83);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ISimpleOrientationSensorStatics2Impl {
-    fn GetDeviceSelector();
-    fn FromIdAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -10763,3 +10036,5 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Simp
 }
 unsafe impl ::core::marker::Send for SimpleOrientationSensorOrientationChangedEventArgs {}
 unsafe impl ::core::marker::Sync for SimpleOrientationSensorOrientationChangedEventArgs {}
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

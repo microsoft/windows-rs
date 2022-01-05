@@ -48,9 +48,6 @@ unsafe impl ::windows::core::Interface for IWebApplicationActivation {
     type Vtable = IWebApplicationActivationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbcdcd0de_330e_481b_b843_4898a6a8ebac);
 }
-pub trait IWebApplicationActivationImpl {
-    fn CancelPendingActivation();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWebApplicationActivationVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT);
@@ -134,10 +131,6 @@ unsafe impl ::windows::core::Interface for IWebApplicationAuthoringMode {
     type Vtable = IWebApplicationAuthoringModeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x720aea93_1964_4db0_b005_29eb9e2b18a9);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IWebApplicationAuthoringModeImpl: IServiceProviderImpl {
-    fn AuthoringClientBinary();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWebApplicationAuthoringModeVtbl(
@@ -216,13 +209,6 @@ impl ::core::fmt::Debug for IWebApplicationHost {
 unsafe impl ::windows::core::Interface for IWebApplicationHost {
     type Vtable = IWebApplicationHostVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcecbd2c3_a3a5_4749_9681_20e9161c6794);
-}
-pub trait IWebApplicationHostImpl {
-    fn HWND();
-    fn Document();
-    fn Refresh();
-    fn Advise();
-    fn Unadvise();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -311,14 +297,6 @@ unsafe impl ::windows::core::Interface for IWebApplicationNavigationEvents {
     type Vtable = IWebApplicationNavigationEventsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc22615d2_d318_4da2_8422_1fcaf77b10e4);
 }
-pub trait IWebApplicationNavigationEventsImpl {
-    fn BeforeNavigate();
-    fn NavigateComplete();
-    fn NavigateError();
-    fn DocumentComplete();
-    fn DownloadBegin();
-    fn DownloadComplete();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWebApplicationNavigationEventsVtbl(
@@ -391,10 +369,6 @@ unsafe impl ::windows::core::Interface for IWebApplicationScriptEvents {
     type Vtable = IWebApplicationScriptEventsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7c3f6998_1567_4bba_b52b_48d32141d613);
 }
-pub trait IWebApplicationScriptEventsImpl {
-    fn BeforeScriptExecute();
-    fn ScriptError();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWebApplicationScriptEventsVtbl(
@@ -455,9 +429,6 @@ unsafe impl ::windows::core::Interface for IWebApplicationUIEvents {
     type Vtable = IWebApplicationUIEventsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5b2b3f99_328c_41d5_a6f7_7483ed8e71dd);
 }
-pub trait IWebApplicationUIEventsImpl {
-    fn SecurityProblem();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWebApplicationUIEventsVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, securityproblem: u32, result: *mut ::windows::core::HRESULT) -> ::windows::core::HRESULT);
@@ -514,10 +485,6 @@ unsafe impl ::windows::core::Interface for IWebApplicationUpdateEvents {
     type Vtable = IWebApplicationUpdateEventsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3e59e6b7_c652_4daf_ad5e_16feb350cde3);
 }
-pub trait IWebApplicationUpdateEventsImpl {
-    fn OnPaint();
-    fn OnCssChanged();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWebApplicationUpdateEventsVtbl(
@@ -531,3 +498,5 @@ pub struct IWebApplicationUpdateEventsVtbl(
 pub type RegisterAuthoringClientFunctionType = ::core::option::Option<unsafe extern "system" fn(authoringmodeobject: ::core::option::Option<IWebApplicationAuthoringMode>, host: ::core::option::Option<IWebApplicationHost>) -> ::windows::core::HRESULT>;
 #[doc = "*Required features: 'Win32_System_Diagnostics_Debug_WebApp'*"]
 pub type UnregisterAuthoringClientFunctionType = ::core::option::Option<unsafe extern "system" fn(host: ::core::option::Option<IWebApplicationHost>) -> ::windows::core::HRESULT>;
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

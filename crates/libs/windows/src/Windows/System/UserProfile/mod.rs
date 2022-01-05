@@ -814,11 +814,6 @@ unsafe impl ::windows::core::Interface for IAdvertisingManagerForUser {
     type Vtable = IAdvertisingManagerForUserVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x928bf3d0_cf7c_4ab0_a7dc_6dc5bcd44252);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IAdvertisingManagerForUserImpl {
-    fn AdvertisingId();
-    fn User();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAdvertisingManagerForUserVtbl(
@@ -838,10 +833,6 @@ unsafe impl ::windows::core::Interface for IAdvertisingManagerStatics {
     type Vtable = IAdvertisingManagerStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xadd3468c_a273_48cb_b346_3544522d5581);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IAdvertisingManagerStaticsImpl {
-    fn AdvertisingId();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAdvertisingManagerStaticsVtbl(
@@ -860,10 +851,6 @@ unsafe impl ::windows::core::Interface for IAdvertisingManagerStatics2 {
     type Vtable = IAdvertisingManagerStatics2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdd0947af_1a6d_46b0_95bc_f3f9d6beb9fb);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IAdvertisingManagerStatics2Impl {
-    fn GetForUser();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAdvertisingManagerStatics2Vtbl(
@@ -881,12 +868,6 @@ pub struct IAssignedAccessSettings(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAssignedAccessSettings {
     type Vtable = IAssignedAccessSettingsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1bc57f1c_e971_5757_b8e0_512f8b8c46d2);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IAssignedAccessSettingsImpl {
-    fn IsEnabled();
-    fn IsSingleAppKioskMode();
-    fn User();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -908,11 +889,6 @@ unsafe impl ::windows::core::Interface for IAssignedAccessSettingsStatics {
     type Vtable = IAssignedAccessSettingsStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x34a81d0d_8a29_5ef3_a7be_618e6ac3bd01);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IAssignedAccessSettingsStaticsImpl {
-    fn GetDefault();
-    fn GetForUser();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAssignedAccessSettingsStaticsVtbl(
@@ -931,11 +907,6 @@ pub struct IDiagnosticsSettings(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDiagnosticsSettings {
     type Vtable = IDiagnosticsSettingsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe5e9eccd_2711_44e0_973c_491d78048d24);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IDiagnosticsSettingsImpl {
-    fn CanUseDiagnosticsToTailorExperiences();
-    fn User();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -956,11 +927,6 @@ unsafe impl ::windows::core::Interface for IDiagnosticsSettingsStatics {
     type Vtable = IDiagnosticsSettingsStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x72d2e80f_5390_4793_990b_3ccc7d6ac9c8);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IDiagnosticsSettingsStaticsImpl {
-    fn GetDefault();
-    fn GetForUser();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDiagnosticsSettingsStaticsVtbl(
@@ -980,8 +946,6 @@ unsafe impl ::windows::core::Interface for IFirstSignInSettings {
     type Vtable = IFirstSignInSettingsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3e945153_3a5e_452e_a601_f5baad2a4870);
 }
-#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IFirstSignInSettingsImpl: IIterableImpl<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::IInspectable>> + IMapViewImpl<::windows::core::HSTRING, ::windows::core::IInspectable> {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFirstSignInSettingsVtbl(
@@ -998,10 +962,6 @@ pub struct IFirstSignInSettingsStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IFirstSignInSettingsStatics {
     type Vtable = IFirstSignInSettingsStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1ce18f0f_1c41_4ea0_b7a2_6f0c1c7e8438);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IFirstSignInSettingsStaticsImpl {
-    fn GetDefault();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1020,16 +980,6 @@ pub struct IGlobalizationPreferencesForUser(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGlobalizationPreferencesForUser {
     type Vtable = IGlobalizationPreferencesForUserVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x150f0795_4f6e_40ba_a010_e27d81bda7f5);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IGlobalizationPreferencesForUserImpl {
-    fn User();
-    fn Calendars();
-    fn Clocks();
-    fn Currencies();
-    fn Languages();
-    fn HomeGeographicRegion();
-    fn WeekStartsOn();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1060,15 +1010,6 @@ unsafe impl ::windows::core::Interface for IGlobalizationPreferencesStatics {
     type Vtable = IGlobalizationPreferencesStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x01bf4326_ed37_4e96_b0e9_c1340d1ea158);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IGlobalizationPreferencesStaticsImpl {
-    fn Calendars();
-    fn Clocks();
-    fn Currencies();
-    fn Languages();
-    fn HomeGeographicRegion();
-    fn WeekStartsOn();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGlobalizationPreferencesStaticsVtbl(
@@ -1097,11 +1038,6 @@ unsafe impl ::windows::core::Interface for IGlobalizationPreferencesStatics2 {
     type Vtable = IGlobalizationPreferencesStatics2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfcce85f1_4300_4cd0_9cac_1a8e7b7e18f4);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IGlobalizationPreferencesStatics2Impl {
-    fn TrySetHomeGeographicRegion();
-    fn TrySetLanguages();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGlobalizationPreferencesStatics2Vtbl(
@@ -1122,10 +1058,6 @@ unsafe impl ::windows::core::Interface for IGlobalizationPreferencesStatics3 {
     type Vtable = IGlobalizationPreferencesStatics3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1e059733_35f5_40d8_b9e8_aef3ef856fce);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IGlobalizationPreferencesStatics3Impl {
-    fn GetForUser();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGlobalizationPreferencesStatics3Vtbl(
@@ -1143,11 +1075,6 @@ pub struct ILockScreenImageFeedStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ILockScreenImageFeedStatics {
     type Vtable = ILockScreenImageFeedStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2c0d73f6_03a9_41a6_9b01_495251ff51d5);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ILockScreenImageFeedStaticsImpl {
-    fn RequestSetImageFeedAsync();
-    fn TryRemoveImageFeed();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1168,13 +1095,6 @@ pub struct ILockScreenStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ILockScreenStatics {
     type Vtable = ILockScreenStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3ee9d3ad_b607_40ae_b426_7631d9821269);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ILockScreenStaticsImpl {
-    fn OriginalImageFile();
-    fn GetImageStream();
-    fn SetImageFileAsync();
-    fn SetImageStreamAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1202,24 +1122,6 @@ pub struct IUserInformationStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IUserInformationStatics {
     type Vtable = IUserInformationStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x77f3a910_48fa_489c_934e_2ae85ba8f772);
-}
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
-pub trait IUserInformationStaticsImpl {
-    fn AccountPictureChangeEnabled();
-    fn NameAccessAllowed();
-    fn GetAccountPicture();
-    fn SetAccountPictureAsync();
-    fn SetAccountPicturesAsync();
-    fn SetAccountPictureFromStreamAsync();
-    fn SetAccountPicturesFromStreamsAsync();
-    fn AccountPictureChanged();
-    fn RemoveAccountPictureChanged();
-    fn GetDisplayNameAsync();
-    fn GetFirstNameAsync();
-    fn GetLastNameAsync();
-    fn GetPrincipalNameAsync();
-    fn GetSessionInitiationProtocolUriAsync();
-    fn GetDomainNameAsync();
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
@@ -1269,11 +1171,6 @@ unsafe impl ::windows::core::Interface for IUserProfilePersonalizationSettings {
     type Vtable = IUserProfilePersonalizationSettingsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8ceddab4_7998_46d5_8dd3_184f1c5f9ab9);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IUserProfilePersonalizationSettingsImpl {
-    fn TrySetLockScreenImageAsync();
-    fn TrySetWallpaperImageAsync();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUserProfilePersonalizationSettingsVtbl(
@@ -1294,11 +1191,6 @@ pub struct IUserProfilePersonalizationSettingsStatics(::windows::core::IUnknown)
 unsafe impl ::windows::core::Interface for IUserProfilePersonalizationSettingsStatics {
     type Vtable = IUserProfilePersonalizationSettingsStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x91acb841_5037_454b_9883_bb772d08dd16);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IUserProfilePersonalizationSettingsStaticsImpl {
-    fn Current();
-    fn IsSupported();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1700,3 +1592,5 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &User
 }
 unsafe impl ::core::marker::Send for UserProfilePersonalizationSettings {}
 unsafe impl ::core::marker::Sync for UserProfilePersonalizationSettings {}
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

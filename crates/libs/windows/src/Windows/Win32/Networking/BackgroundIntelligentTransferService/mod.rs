@@ -68,14 +68,6 @@ unsafe impl ::windows::core::Interface for AsyncIBackgroundCopyCallback {
     type Vtable = AsyncIBackgroundCopyCallbackVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xca29d251_b4bb_4679_a3d9_ae8006119d54);
 }
-pub trait AsyncIBackgroundCopyCallbackImpl {
-    fn Begin_JobTransferred();
-    fn Finish_JobTransferred();
-    fn Begin_JobError();
-    fn Finish_JobError();
-    fn Begin_JobModification();
-    fn Finish_JobModification();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct AsyncIBackgroundCopyCallbackVtbl(
@@ -1172,13 +1164,6 @@ unsafe impl ::windows::core::Interface for IBITSExtensionSetup {
     type Vtable = IBITSExtensionSetupVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x29cfbbf7_09e4_4b97_b0bc_f2287e3d8eb3);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IBITSExtensionSetupImpl: IDispatchImpl {
-    fn EnableBITSUploads();
-    fn DisableBITSUploads();
-    fn GetCleanupTaskName();
-    fn GetCleanupTask();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBITSExtensionSetupVtbl(
@@ -1296,10 +1281,6 @@ unsafe impl ::windows::core::Interface for IBITSExtensionSetupFactory {
     type Vtable = IBITSExtensionSetupFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd5d2d542_5503_4e64_8b48_72ef91a32ee1);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IBITSExtensionSetupFactoryImpl: IDispatchImpl {
-    fn GetObject();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBITSExtensionSetupFactoryVtbl(
@@ -1374,11 +1355,6 @@ unsafe impl ::windows::core::Interface for IBackgroundCopyCallback {
     type Vtable = IBackgroundCopyCallbackVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x97ea99c7_0186_4ad4_8df9_c5b4e0ed6b22);
 }
-pub trait IBackgroundCopyCallbackImpl {
-    fn JobTransferred();
-    fn JobError();
-    fn JobModification();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBackgroundCopyCallbackVtbl(
@@ -1445,11 +1421,6 @@ impl ::core::fmt::Debug for IBackgroundCopyCallback1 {
 unsafe impl ::windows::core::Interface for IBackgroundCopyCallback1 {
     type Vtable = IBackgroundCopyCallback1Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x084f6593_3800_4e08_9b59_99fa59addf82);
-}
-pub trait IBackgroundCopyCallback1Impl {
-    fn OnStatus();
-    fn OnProgress();
-    fn OnProgressEx();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1541,9 +1512,6 @@ impl ::core::fmt::Debug for IBackgroundCopyCallback2 {
 unsafe impl ::windows::core::Interface for IBackgroundCopyCallback2 {
     type Vtable = IBackgroundCopyCallback2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x659cdeac_489e_11d9_a9cd_000d56965251);
-}
-pub trait IBackgroundCopyCallback2Impl: IBackgroundCopyCallbackImpl {
-    fn FileTransferred();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1661,9 +1629,6 @@ unsafe impl ::windows::core::Interface for IBackgroundCopyCallback3 {
     type Vtable = IBackgroundCopyCallback3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x98c97bd2_e32b_4ad8_a528_95fd8b16bd42);
 }
-pub trait IBackgroundCopyCallback3Impl: IBackgroundCopyCallback2Impl + IBackgroundCopyCallbackImpl {
-    fn FileRangesTransferred();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBackgroundCopyCallback3Vtbl(
@@ -1748,13 +1713,6 @@ unsafe impl ::windows::core::Interface for IBackgroundCopyError {
     type Vtable = IBackgroundCopyErrorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x19c613a0_fcb8_4f28_81ae_897c3d078f81);
 }
-pub trait IBackgroundCopyErrorImpl {
-    fn GetError();
-    fn GetFile();
-    fn GetErrorDescription();
-    fn GetErrorContextDescription();
-    fn GetProtocol();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBackgroundCopyErrorVtbl(
@@ -1832,11 +1790,6 @@ impl ::core::fmt::Debug for IBackgroundCopyFile {
 unsafe impl ::windows::core::Interface for IBackgroundCopyFile {
     type Vtable = IBackgroundCopyFileVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x01b7bd23_fb88_4a77_8490_5891d3e4653a);
-}
-pub trait IBackgroundCopyFileImpl {
-    fn GetRemoteName();
-    fn GetLocalName();
-    fn GetProgress();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1942,10 +1895,6 @@ impl ::core::fmt::Debug for IBackgroundCopyFile2 {
 unsafe impl ::windows::core::Interface for IBackgroundCopyFile2 {
     type Vtable = IBackgroundCopyFile2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x83e81b93_0873_474d_8a8c_f2018b1a939c);
-}
-pub trait IBackgroundCopyFile2Impl: IBackgroundCopyFileImpl {
-    fn GetFileRanges();
-    fn SetRemoteName();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2097,12 +2046,6 @@ impl ::core::fmt::Debug for IBackgroundCopyFile3 {
 unsafe impl ::windows::core::Interface for IBackgroundCopyFile3 {
     type Vtable = IBackgroundCopyFile3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x659cdeaa_489e_11d9_a9cd_000d56965251);
-}
-pub trait IBackgroundCopyFile3Impl: IBackgroundCopyFile2Impl + IBackgroundCopyFileImpl {
-    fn GetTemporaryName();
-    fn SetValidationState();
-    fn GetValidationState();
-    fn IsDownloadedFromPeer();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2286,9 +2229,6 @@ impl ::core::fmt::Debug for IBackgroundCopyFile4 {
 unsafe impl ::windows::core::Interface for IBackgroundCopyFile4 {
     type Vtable = IBackgroundCopyFile4Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xef7e0655_7888_4960_b0e5_730846e03492);
-}
-pub trait IBackgroundCopyFile4Impl: IBackgroundCopyFile3Impl + IBackgroundCopyFile2Impl + IBackgroundCopyFileImpl {
-    fn GetPeerDownloadStats();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2504,10 +2444,6 @@ impl ::core::fmt::Debug for IBackgroundCopyFile5 {
 unsafe impl ::windows::core::Interface for IBackgroundCopyFile5 {
     type Vtable = IBackgroundCopyFile5Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x85c1657f_dafc_40e8_8834_df18ea25717e);
-}
-pub trait IBackgroundCopyFile5Impl: IBackgroundCopyFile4Impl + IBackgroundCopyFile3Impl + IBackgroundCopyFile2Impl + IBackgroundCopyFileImpl {
-    fn SetProperty();
-    fn GetProperty();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2760,11 +2696,6 @@ unsafe impl ::windows::core::Interface for IBackgroundCopyFile6 {
     type Vtable = IBackgroundCopyFile6Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcf6784f7_d677_49fd_9368_cb47aee9d1ad);
 }
-pub trait IBackgroundCopyFile6Impl: IBackgroundCopyFile5Impl + IBackgroundCopyFile4Impl + IBackgroundCopyFile3Impl + IBackgroundCopyFile2Impl + IBackgroundCopyFileImpl {
-    fn UpdateDownloadPosition();
-    fn RequestFileRanges();
-    fn GetFilledFileRanges();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBackgroundCopyFile6Vtbl(
@@ -2911,23 +2842,6 @@ impl ::core::fmt::Debug for IBackgroundCopyGroup {
 unsafe impl ::windows::core::Interface for IBackgroundCopyGroup {
     type Vtable = IBackgroundCopyGroupVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1ded80a7_53ea_424f_8a04_17fea9adc4f5);
-}
-pub trait IBackgroundCopyGroupImpl {
-    fn GetProp();
-    fn SetProp();
-    fn GetProgress();
-    fn GetStatus();
-    fn GetJob();
-    fn SuspendGroup();
-    fn ResumeGroup();
-    fn CancelGroup();
-    fn Size();
-    fn GroupID();
-    fn CreateJob();
-    fn EnumJobs();
-    fn SwitchToForeground();
-    fn QueryNewJobInterface();
-    fn SetNotificationPointer();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3152,40 +3066,6 @@ unsafe impl ::windows::core::Interface for IBackgroundCopyJob {
     type Vtable = IBackgroundCopyJobVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x37668d37_507e_4160_9316_26306d150b12);
 }
-pub trait IBackgroundCopyJobImpl {
-    fn AddFileSet();
-    fn AddFile();
-    fn EnumFiles();
-    fn Suspend();
-    fn Resume();
-    fn Cancel();
-    fn Complete();
-    fn GetId();
-    fn GetType();
-    fn GetProgress();
-    fn GetTimes();
-    fn GetState();
-    fn GetError();
-    fn GetOwner();
-    fn SetDisplayName();
-    fn GetDisplayName();
-    fn SetDescription();
-    fn GetDescription();
-    fn SetPriority();
-    fn GetPriority();
-    fn SetNotifyFlags();
-    fn GetNotifyFlags();
-    fn SetNotifyInterface();
-    fn GetNotifyInterface();
-    fn SetMinimumRetryDelay();
-    fn GetMinimumRetryDelay();
-    fn SetNoProgressTimeout();
-    fn GetNoProgressTimeout();
-    fn GetErrorCount();
-    fn SetProxySettings();
-    fn GetProxySettings();
-    fn TakeOwnership();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBackgroundCopyJobVtbl(
@@ -3317,16 +3197,6 @@ impl ::core::fmt::Debug for IBackgroundCopyJob1 {
 unsafe impl ::windows::core::Interface for IBackgroundCopyJob1 {
     type Vtable = IBackgroundCopyJob1Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x59f5553c_2031_4629_bb18_2645a6970947);
-}
-pub trait IBackgroundCopyJob1Impl {
-    fn CancelJob();
-    fn GetProgress();
-    fn GetStatus();
-    fn AddFiles();
-    fn GetFile();
-    fn GetFileCount();
-    fn SwitchToForeground();
-    fn JobID();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3601,16 +3471,6 @@ impl ::core::fmt::Debug for IBackgroundCopyJob2 {
 unsafe impl ::windows::core::Interface for IBackgroundCopyJob2 {
     type Vtable = IBackgroundCopyJob2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x54b50739_686f_45eb_9dff_d6a9a0faa9af);
-}
-pub trait IBackgroundCopyJob2Impl: IBackgroundCopyJobImpl {
-    fn SetNotifyCmdLine();
-    fn GetNotifyCmdLine();
-    fn GetReplyProgress();
-    fn GetReplyData();
-    fn SetReplyFileName();
-    fn GetReplyFileName();
-    fn SetCredentials();
-    fn RemoveCredentials();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3969,12 +3829,6 @@ impl ::core::fmt::Debug for IBackgroundCopyJob3 {
 unsafe impl ::windows::core::Interface for IBackgroundCopyJob3 {
     type Vtable = IBackgroundCopyJob3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x443c8934_90ff_48ed_bcde_26f5c7450042);
-}
-pub trait IBackgroundCopyJob3Impl: IBackgroundCopyJob2Impl + IBackgroundCopyJobImpl {
-    fn ReplaceRemotePrefix();
-    fn AddFileWithRanges();
-    fn SetFileACLFlags();
-    fn GetFileACLFlags();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4388,14 +4242,6 @@ impl ::core::fmt::Debug for IBackgroundCopyJob4 {
 unsafe impl ::windows::core::Interface for IBackgroundCopyJob4 {
     type Vtable = IBackgroundCopyJob4Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x659cdeae_489e_11d9_a9cd_000d56965251);
-}
-pub trait IBackgroundCopyJob4Impl: IBackgroundCopyJob3Impl + IBackgroundCopyJob2Impl + IBackgroundCopyJobImpl {
-    fn SetPeerCachingFlags();
-    fn GetPeerCachingFlags();
-    fn GetOwnerIntegrityLevel();
-    fn GetOwnerElevationState();
-    fn SetMaximumDownloadTime();
-    fn GetMaximumDownloadTime();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4848,10 +4694,6 @@ unsafe impl ::windows::core::Interface for IBackgroundCopyJob5 {
     type Vtable = IBackgroundCopyJob5Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe847030c_bbba_4657_af6d_484aa42bf1fe);
 }
-pub trait IBackgroundCopyJob5Impl: IBackgroundCopyJob4Impl + IBackgroundCopyJob3Impl + IBackgroundCopyJob2Impl + IBackgroundCopyJobImpl {
-    fn SetProperty();
-    fn GetProperty();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBackgroundCopyJob5Vtbl(
@@ -5015,16 +4857,6 @@ unsafe impl ::windows::core::Interface for IBackgroundCopyJobHttpOptions {
     type Vtable = IBackgroundCopyJobHttpOptionsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf1bd1079_9f01_4bdc_8036_f09b70095066);
 }
-pub trait IBackgroundCopyJobHttpOptionsImpl {
-    fn SetClientCertificateByID();
-    fn SetClientCertificateByName();
-    fn RemoveClientCertificate();
-    fn GetClientCertificate();
-    fn SetCustomHeaders();
-    fn GetCustomHeaders();
-    fn SetSecurityFlags();
-    fn GetSecurityFlags();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBackgroundCopyJobHttpOptionsVtbl(
@@ -5159,10 +4991,6 @@ impl ::core::fmt::Debug for IBackgroundCopyJobHttpOptions2 {
 unsafe impl ::windows::core::Interface for IBackgroundCopyJobHttpOptions2 {
     type Vtable = IBackgroundCopyJobHttpOptions2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb591a192_a405_4fc3_8323_4c5c542578fc);
-}
-pub trait IBackgroundCopyJobHttpOptions2Impl: IBackgroundCopyJobHttpOptionsImpl {
-    fn SetHttpMethod();
-    fn GetHttpMethod();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5331,10 +5159,6 @@ unsafe impl ::windows::core::Interface for IBackgroundCopyJobHttpOptions3 {
     type Vtable = IBackgroundCopyJobHttpOptions3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8a9263d3_fd4c_4eda_9b28_30132a4d4e3c);
 }
-pub trait IBackgroundCopyJobHttpOptions3Impl: IBackgroundCopyJobHttpOptions2Impl + IBackgroundCopyJobHttpOptionsImpl {
-    fn SetServerCertificateValidationInterface();
-    fn MakeCustomHeadersWriteOnly();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBackgroundCopyJobHttpOptions3Vtbl(
@@ -5427,12 +5251,6 @@ unsafe impl ::windows::core::Interface for IBackgroundCopyManager {
     type Vtable = IBackgroundCopyManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5ce34c0d_0dc9_4c1f_897c_daa1b78cee7c);
 }
-pub trait IBackgroundCopyManagerImpl {
-    fn CreateJob();
-    fn GetJob();
-    fn EnumJobs();
-    fn GetErrorDescription();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBackgroundCopyManagerVtbl(
@@ -5506,11 +5324,6 @@ unsafe impl ::windows::core::Interface for IBackgroundCopyQMgr {
     type Vtable = IBackgroundCopyQMgrVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x16f41c69_09f5_41d2_8cd8_3c08c47bc8a8);
 }
-pub trait IBackgroundCopyQMgrImpl {
-    fn CreateGroup();
-    fn GetGroup();
-    fn EnumGroups();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBackgroundCopyQMgrVtbl(
@@ -5569,9 +5382,6 @@ impl ::core::fmt::Debug for IBackgroundCopyServerCertificateValidationCallback {
 unsafe impl ::windows::core::Interface for IBackgroundCopyServerCertificateValidationCallback {
     type Vtable = IBackgroundCopyServerCertificateValidationCallbackVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4cec0d02_def7_4158_813a_c32a46945ff7);
-}
-pub trait IBackgroundCopyServerCertificateValidationCallbackImpl {
-    fn ValidateServerCertificate();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5643,11 +5453,6 @@ impl ::core::fmt::Debug for IBitsPeer {
 unsafe impl ::windows::core::Interface for IBitsPeer {
     type Vtable = IBitsPeerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x659cdea2_489e_11d9_a9cd_000d56965251);
-}
-pub trait IBitsPeerImpl {
-    fn GetPeerName();
-    fn IsAuthenticated();
-    fn IsAvailable();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5770,22 +5575,6 @@ unsafe impl ::windows::core::Interface for IBitsPeerCacheAdministration {
     type Vtable = IBitsPeerCacheAdministrationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x659cdead_489e_11d9_a9cd_000d56965251);
 }
-pub trait IBitsPeerCacheAdministrationImpl {
-    fn GetMaximumCacheSize();
-    fn SetMaximumCacheSize();
-    fn GetMaximumContentAge();
-    fn SetMaximumContentAge();
-    fn GetConfigurationFlags();
-    fn SetConfigurationFlags();
-    fn EnumRecords();
-    fn GetRecord();
-    fn ClearRecords();
-    fn DeleteRecord();
-    fn DeleteUrl();
-    fn EnumPeers();
-    fn ClearPeers();
-    fn DiscoverPeers();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBitsPeerCacheAdministrationVtbl(
@@ -5889,15 +5678,6 @@ unsafe impl ::windows::core::Interface for IBitsPeerCacheRecord {
     type Vtable = IBitsPeerCacheRecordVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x659cdeaf_489e_11d9_a9cd_000d56965251);
 }
-pub trait IBitsPeerCacheRecordImpl {
-    fn GetId();
-    fn GetOriginUrl();
-    fn GetFileSize();
-    fn GetFileModificationTime();
-    fn GetLastAccessTime();
-    fn IsFileValidated();
-    fn GetFileRanges();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBitsPeerCacheRecordVtbl(
@@ -5983,13 +5763,6 @@ unsafe impl ::windows::core::Interface for IBitsTokenOptions {
     type Vtable = IBitsTokenOptionsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9a2584c3_f7d2_457a_9a5e_22b67bffc7d2);
 }
-pub trait IBitsTokenOptionsImpl {
-    fn SetHelperTokenFlags();
-    fn GetHelperTokenFlags();
-    fn SetHelperToken();
-    fn ClearHelperToken();
-    fn GetHelperTokenSid();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBitsTokenOptionsVtbl(
@@ -6070,13 +5843,6 @@ unsafe impl ::windows::core::Interface for IEnumBackgroundCopyFiles {
     type Vtable = IEnumBackgroundCopyFilesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xca51e165_c365_424c_8d41_24aaa4ff3c40);
 }
-pub trait IEnumBackgroundCopyFilesImpl {
-    fn Next();
-    fn Skip();
-    fn Reset();
-    fn Clone();
-    fn GetCount();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumBackgroundCopyFilesVtbl(
@@ -6155,13 +5921,6 @@ impl ::core::fmt::Debug for IEnumBackgroundCopyGroups {
 unsafe impl ::windows::core::Interface for IEnumBackgroundCopyGroups {
     type Vtable = IEnumBackgroundCopyGroupsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd993e603_4aa4_47c5_8665_c20d39c2ba4f);
-}
-pub trait IEnumBackgroundCopyGroupsImpl {
-    fn Next();
-    fn Skip();
-    fn Reset();
-    fn Clone();
-    fn GetCount();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6242,13 +6001,6 @@ unsafe impl ::windows::core::Interface for IEnumBackgroundCopyJobs {
     type Vtable = IEnumBackgroundCopyJobsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1af4f612_3b71_466f_8f58_7b6f73ac57ad);
 }
-pub trait IEnumBackgroundCopyJobsImpl {
-    fn Next();
-    fn Skip();
-    fn Reset();
-    fn Clone();
-    fn GetCount();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumBackgroundCopyJobsVtbl(
@@ -6327,13 +6079,6 @@ impl ::core::fmt::Debug for IEnumBackgroundCopyJobs1 {
 unsafe impl ::windows::core::Interface for IEnumBackgroundCopyJobs1 {
     type Vtable = IEnumBackgroundCopyJobs1Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8baeba9d_8f1c_42c4_b82c_09ae79980d25);
-}
-pub trait IEnumBackgroundCopyJobs1Impl {
-    fn Next();
-    fn Skip();
-    fn Reset();
-    fn Clone();
-    fn GetCount();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6414,13 +6159,6 @@ unsafe impl ::windows::core::Interface for IEnumBitsPeerCacheRecords {
     type Vtable = IEnumBitsPeerCacheRecordsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x659cdea4_489e_11d9_a9cd_000d56965251);
 }
-pub trait IEnumBitsPeerCacheRecordsImpl {
-    fn Next();
-    fn Skip();
-    fn Reset();
-    fn Clone();
-    fn GetCount();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumBitsPeerCacheRecordsVtbl(
@@ -6500,13 +6238,6 @@ unsafe impl ::windows::core::Interface for IEnumBitsPeers {
     type Vtable = IEnumBitsPeersVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x659cdea5_489e_11d9_a9cd_000d56965251);
 }
-pub trait IEnumBitsPeersImpl {
-    fn Next();
-    fn Skip();
-    fn Reset();
-    fn Clone();
-    fn GetCount();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumBitsPeersVtbl(
@@ -6573,3 +6304,5 @@ pub const QM_STATUS_JOB_ERROR: u32 = 16u32;
 pub const QM_STATUS_JOB_FOREGROUND: u32 = 32u32;
 #[doc = "*Required features: 'Win32_Networking_BackgroundIntelligentTransferService'*"]
 pub const QM_STATUS_JOB_INCOMPLETE: u32 = 8u32;
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

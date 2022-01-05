@@ -7548,13 +7548,6 @@ unsafe impl ::windows::core::Interface for IAggregateContactManager {
     type Vtable = IAggregateContactManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0379d5dd_db5a_4fd3_b54e_4df17917a212);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IAggregateContactManagerImpl {
-    fn FindRawContactsAsync();
-    fn TryLinkContactsAsync();
-    fn UnlinkRawContactAsync();
-    fn TrySetPreferredSourceForPictureAsync();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAggregateContactManagerVtbl(
@@ -7580,10 +7573,6 @@ unsafe impl ::windows::core::Interface for IAggregateContactManager2 {
     type Vtable = IAggregateContactManager2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5e8cc2d8_a9cd_4430_9c4b_01348db2ca50);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IAggregateContactManager2Impl {
-    fn SetRemoteIdentificationInformationAsync();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAggregateContactManager2Vtbl(
@@ -7602,14 +7591,6 @@ pub struct IContact(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IContact {
     type Vtable = IContactVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xec0072f3_2118_4049_9ebc_17f0ab692b64);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IContactImpl {
-    fn Name();
-    fn SetName();
-    fn Thumbnail();
-    fn SetThumbnail();
-    fn Fields();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7635,23 +7616,6 @@ pub struct IContact2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IContact2 {
     type Vtable = IContact2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf312f365_bb77_4c94_802d_8328cee40c08);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IContact2Impl: IContactImpl {
-    fn Id();
-    fn SetId();
-    fn Notes();
-    fn SetNotes();
-    fn Phones();
-    fn Emails();
-    fn Addresses();
-    fn ConnectedServiceAccounts();
-    fn ImportantDates();
-    fn DataSuppliers();
-    fn JobInfo();
-    fn SignificantOthers();
-    fn Websites();
-    fn ProviderProperties();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7693,32 +7657,6 @@ pub struct IContact3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IContact3 {
     type Vtable = IContact3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x48201e67_e08e_42a4_b561_41d08ca9575d);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IContact3Impl: IContactImpl + IContact2Impl {
-    fn ContactListId();
-    fn DisplayPictureUserUpdateTime();
-    fn SetDisplayPictureUserUpdateTime();
-    fn IsMe();
-    fn AggregateId();
-    fn RemoteId();
-    fn SetRemoteId();
-    fn RingToneToken();
-    fn SetRingToneToken();
-    fn IsDisplayPictureManuallySet();
-    fn LargeDisplayPicture();
-    fn SmallDisplayPicture();
-    fn SourceDisplayPicture();
-    fn SetSourceDisplayPicture();
-    fn TextToneToken();
-    fn SetTextToneToken();
-    fn IsAggregate();
-    fn FullName();
-    fn DisplayNameOverride();
-    fn SetDisplayNameOverride();
-    fn Nickname();
-    fn SetNickname();
-    fn SortName();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7766,23 +7704,6 @@ unsafe impl ::windows::core::Interface for IContactAddress {
     type Vtable = IContactAddressVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9739d39a_42ce_4872_8d70_3063aa584b70);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IContactAddressImpl {
-    fn StreetAddress();
-    fn SetStreetAddress();
-    fn Locality();
-    fn SetLocality();
-    fn Region();
-    fn SetRegion();
-    fn Country();
-    fn SetCountry();
-    fn PostalCode();
-    fn SetPostalCode();
-    fn Kind();
-    fn SetKind();
-    fn Description();
-    fn SetDescription();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IContactAddressVtbl(
@@ -7814,19 +7735,6 @@ unsafe impl ::windows::core::Interface for IContactAnnotation {
     type Vtable = IContactAnnotationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x821fc2ef_7d41_44a2_84c3_60a281dd7b86);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IContactAnnotationImpl {
-    fn Id();
-    fn AnnotationListId();
-    fn ContactId();
-    fn SetContactId();
-    fn RemoteId();
-    fn SetRemoteId();
-    fn SupportedOperations();
-    fn SetSupportedOperations();
-    fn IsDisabled();
-    fn ProviderProperties();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IContactAnnotationVtbl(
@@ -7855,11 +7763,6 @@ unsafe impl ::windows::core::Interface for IContactAnnotation2 {
     type Vtable = IContactAnnotation2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb691ecf3_4ab7_4a1f_9941_0c9cf3171b75);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IContactAnnotation2Impl {
-    fn ContactListId();
-    fn SetContactListId();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IContactAnnotation2Vtbl(
@@ -7878,18 +7781,6 @@ pub struct IContactAnnotationList(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IContactAnnotationList {
     type Vtable = IContactAnnotationListVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x92a486aa_5c88_45b9_aad0_461888e68d8a);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IContactAnnotationListImpl {
-    fn Id();
-    fn ProviderPackageFamilyName();
-    fn UserDataAccountId();
-    fn DeleteAsync();
-    fn TrySaveAnnotationAsync();
-    fn GetAnnotationAsync();
-    fn FindAnnotationsByRemoteIdAsync();
-    fn FindAnnotationsAsync();
-    fn DeleteAnnotationAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7922,17 +7813,6 @@ pub struct IContactAnnotationStore(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IContactAnnotationStore {
     type Vtable = IContactAnnotationStoreVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x23acf4aa_7a77_457d_8203_987f4b31af09);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IContactAnnotationStoreImpl {
-    fn FindContactIdsByEmailAsync();
-    fn FindContactIdsByPhoneNumberAsync();
-    fn FindAnnotationsForContactAsync();
-    fn DisableAnnotationAsync();
-    fn CreateAnnotationListAsync();
-    fn CreateAnnotationListInAccountAsync();
-    fn GetAnnotationListAsync();
-    fn FindAnnotationListsAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7967,10 +7847,6 @@ unsafe impl ::windows::core::Interface for IContactAnnotationStore2 {
     type Vtable = IContactAnnotationStore2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7ede23fd_61e7_4967_8ec5_bdf280a24063);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IContactAnnotationStore2Impl {
-    fn FindAnnotationsForContactListAsync();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IContactAnnotationStore2Vtbl(
@@ -7989,11 +7865,6 @@ pub struct IContactBatch(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IContactBatch {
     type Vtable = IContactBatchVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x35d1972d_bfce_46bb_93f8_a5b06ec5e201);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IContactBatchImpl {
-    fn Contacts();
-    fn Status();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8015,10 +7886,6 @@ unsafe impl ::windows::core::Interface for IContactCardDelayedDataLoader {
     type Vtable = IContactCardDelayedDataLoaderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb60af902_1546_434d_869c_6e3520760ef3);
 }
-#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IContactCardDelayedDataLoaderImpl: IClosableImpl {
-    fn SetData();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IContactCardDelayedDataLoaderVtbl(
@@ -8036,13 +7903,6 @@ pub struct IContactCardOptions(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IContactCardOptions {
     type Vtable = IContactCardOptionsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8c0a4f7e_6ab6_4f3f_be72_817236eeea5b);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IContactCardOptionsImpl {
-    fn HeaderKind();
-    fn SetHeaderKind();
-    fn InitialTabKind();
-    fn SetInitialTabKind();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8065,10 +7925,6 @@ unsafe impl ::windows::core::Interface for IContactCardOptions2 {
     type Vtable = IContactCardOptions2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8f271ba0_d74b_4cc6_9f53_1b0eb5d1273c);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IContactCardOptions2Impl: IContactCardOptionsImpl {
-    fn ServerSearchContactListIds();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IContactCardOptions2Vtbl(
@@ -8088,11 +7944,6 @@ unsafe impl ::windows::core::Interface for IContactChange {
     type Vtable = IContactChangeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x951d4b10_6a59_4720_a4e1_363d98c135d5);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IContactChangeImpl {
-    fn ChangeType();
-    fn Contact();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IContactChangeVtbl(
@@ -8111,12 +7962,6 @@ pub struct IContactChangeReader(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IContactChangeReader {
     type Vtable = IContactChangeReaderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x217319fa_2d0c_42e0_a9da_3ecd56a78a47);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IContactChangeReaderImpl {
-    fn AcceptChanges();
-    fn AcceptChangesThrough();
-    fn ReadBatchAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8139,12 +7984,6 @@ unsafe impl ::windows::core::Interface for IContactChangeTracker {
     type Vtable = IContactChangeTrackerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6e992952_309b_404d_9712_b37bd30278aa);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IContactChangeTrackerImpl {
-    fn Enable();
-    fn GetChangeReader();
-    fn Reset();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IContactChangeTrackerVtbl(
@@ -8165,10 +8004,6 @@ unsafe impl ::windows::core::Interface for IContactChangeTracker2 {
     type Vtable = IContactChangeTracker2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7f8ad0fc_9321_4d18_9c09_d708c63fcd31);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IContactChangeTracker2Impl {
-    fn IsTracking();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IContactChangeTracker2Vtbl(
@@ -8186,10 +8021,6 @@ pub struct IContactChangedDeferral(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IContactChangedDeferral {
     type Vtable = IContactChangedDeferralVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc5143ae8_1b03_46f8_b694_a523e83cfcb6);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IContactChangedDeferralImpl {
-    fn Complete();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8209,10 +8040,6 @@ unsafe impl ::windows::core::Interface for IContactChangedEventArgs {
     type Vtable = IContactChangedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x525e7fd1_73f3_4b7d_a918_580be4366121);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IContactChangedEventArgsImpl {
-    fn GetDeferral();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IContactChangedEventArgsVtbl(
@@ -8230,13 +8057,6 @@ pub struct IContactConnectedServiceAccount(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IContactConnectedServiceAccount {
     type Vtable = IContactConnectedServiceAccountVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf6f83553_aa27_4731_8e4a_3dec5ce9eec9);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IContactConnectedServiceAccountImpl {
-    fn Id();
-    fn SetId();
-    fn ServiceName();
-    fn SetServiceName();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8258,19 +8078,6 @@ pub struct IContactDate(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IContactDate {
     type Vtable = IContactDateVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfe98ae66_b205_4934_9174_0ff2b0565707);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IContactDateImpl {
-    fn Day();
-    fn SetDay();
-    fn Month();
-    fn SetMonth();
-    fn Year();
-    fn SetYear();
-    fn Kind();
-    fn SetKind();
-    fn Description();
-    fn SetDescription();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8304,15 +8111,6 @@ pub struct IContactEmail(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IContactEmail {
     type Vtable = IContactEmailVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x90a219a9_e3d3_4d63_993b_05b9a5393abf);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IContactEmailImpl {
-    fn Address();
-    fn SetAddress();
-    fn Kind();
-    fn SetKind();
-    fn Description();
-    fn SetDescription();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8430,12 +8228,6 @@ unsafe impl ::windows::core::Interface for IContactField {
     type Vtable = IContactFieldVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb176486a_d293_492c_a058_db575b3e3c0f);
 }
-pub trait IContactFieldImpl {
-    fn Type();
-    fn Category();
-    fn Name();
-    fn Value();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IContactFieldVtbl(
@@ -8542,11 +8334,6 @@ unsafe impl ::windows::core::Interface for IContactFieldFactory {
     type Vtable = IContactFieldFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x85e2913f_0e4a_4a3e_8994_406ae7ed646e);
 }
-pub trait IContactFieldFactoryImpl {
-    fn CreateField_Default();
-    fn CreateField_Category();
-    fn CreateField_Custom();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IContactFieldFactoryVtbl(
@@ -8567,8 +8354,6 @@ unsafe impl ::windows::core::Interface for IContactGroup {
     type Vtable = IContactGroupVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x59bdeb01_9e9a_475d_bfe5_a37b806d852c);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IContactGroupImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IContactGroupVtbl(
@@ -8585,17 +8370,6 @@ pub struct IContactInformation(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IContactInformation {
     type Vtable = IContactInformationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x275eb6d4_6a2e_4278_a914_e460d5f088f6);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IContactInformationImpl {
-    fn Name();
-    fn GetThumbnailAsync();
-    fn Emails();
-    fn PhoneNumbers();
-    fn Locations();
-    fn InstantMessages();
-    fn CustomFields();
-    fn QueryCustomFields();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8628,13 +8402,6 @@ pub struct IContactInstantMessageField(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IContactInstantMessageField {
     type Vtable = IContactInstantMessageFieldVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcce33b37_0d85_41fa_b43d_da599c3eb009);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IContactInstantMessageFieldImpl: IContactFieldImpl {
-    fn UserName();
-    fn Service();
-    fn DisplayText();
-    fn LaunchUri();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8744,11 +8511,6 @@ unsafe impl ::windows::core::Interface for IContactInstantMessageFieldFactory {
     type Vtable = IContactInstantMessageFieldFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xba0b6794_91a3_4bb2_b1b9_69a5dff0ba09);
 }
-pub trait IContactInstantMessageFieldFactoryImpl {
-    fn CreateInstantMessage_Default();
-    fn CreateInstantMessage_Category();
-    fn CreateInstantMessage_All();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IContactInstantMessageFieldFactoryVtbl(
@@ -8769,25 +8531,6 @@ pub struct IContactJobInfo(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IContactJobInfo {
     type Vtable = IContactJobInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6d117b4c_ce50_4b43_9e69_b18258ea5315);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IContactJobInfoImpl {
-    fn CompanyName();
-    fn SetCompanyName();
-    fn CompanyYomiName();
-    fn SetCompanyYomiName();
-    fn Department();
-    fn SetDepartment();
-    fn Title();
-    fn SetTitle();
-    fn Manager();
-    fn SetManager();
-    fn Office();
-    fn SetOffice();
-    fn CompanyAddress();
-    fn SetCompanyAddress();
-    fn Description();
-    fn SetDescription();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8822,14 +8565,6 @@ unsafe impl ::windows::core::Interface for IContactLaunchActionVerbsStatics {
     type Vtable = IContactLaunchActionVerbsStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfb1232d6_ee73_46e7_8761_11cd0157728f);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IContactLaunchActionVerbsStaticsImpl {
-    fn Call();
-    fn Message();
-    fn Map();
-    fn Post();
-    fn VideoCall();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IContactLaunchActionVerbsStaticsVtbl(
@@ -8851,34 +8586,6 @@ pub struct IContactList(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IContactList {
     type Vtable = IContactListVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x16ddec75_392c_4845_9dfb_51a3e7ef3e42);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IContactListImpl {
-    fn Id();
-    fn DisplayName();
-    fn SetDisplayName();
-    fn SourceDisplayName();
-    fn IsHidden();
-    fn SetIsHidden();
-    fn OtherAppReadAccess();
-    fn SetOtherAppReadAccess();
-    fn OtherAppWriteAccess();
-    fn SetOtherAppWriteAccess();
-    fn ChangeTracker();
-    fn SyncManager();
-    fn SupportsServerSearch();
-    fn UserDataAccountId();
-    fn ContactChanged();
-    fn RemoveContactChanged();
-    fn SaveAsync();
-    fn DeleteAsync();
-    fn GetContactFromRemoteIdAsync();
-    fn GetMeContactAsync();
-    fn GetContactReader();
-    fn GetContactReaderWithOptions();
-    fn SaveContactAsync();
-    fn DeleteContactAsync();
-    fn GetContactAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8931,12 +8638,6 @@ unsafe impl ::windows::core::Interface for IContactList2 {
     type Vtable = IContactList2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcb3943b4_4550_4dcb_9229_40ff91fb0203);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IContactList2Impl {
-    fn RegisterSyncManagerAsync();
-    fn SetSupportsServerSearch();
-    fn SyncConstraints();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IContactList2Vtbl(
@@ -8958,11 +8659,6 @@ unsafe impl ::windows::core::Interface for IContactList3 {
     type Vtable = IContactList3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1578ee57_26fc_41e8_a850_5aa32514aca9);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IContactList3Impl {
-    fn LimitedWriteOperations();
-    fn GetChangeTracker();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IContactList3Vtbl(
@@ -8981,11 +8677,6 @@ pub struct IContactListLimitedWriteOperations(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IContactListLimitedWriteOperations {
     type Vtable = IContactListLimitedWriteOperationsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe19813da_4a0b_44b8_9a1f_a0f3d218175f);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IContactListLimitedWriteOperationsImpl {
-    fn TryCreateOrUpdateContactAsync();
-    fn TryDeleteContactAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9007,65 +8698,6 @@ pub struct IContactListSyncConstraints(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IContactListSyncConstraints {
     type Vtable = IContactListSyncConstraintsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb2b0bf01_3062_4e2e_969d_018d1987f314);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IContactListSyncConstraintsImpl {
-    fn CanSyncDescriptions();
-    fn SetCanSyncDescriptions();
-    fn MaxHomePhoneNumbers();
-    fn SetMaxHomePhoneNumbers();
-    fn MaxMobilePhoneNumbers();
-    fn SetMaxMobilePhoneNumbers();
-    fn MaxWorkPhoneNumbers();
-    fn SetMaxWorkPhoneNumbers();
-    fn MaxOtherPhoneNumbers();
-    fn SetMaxOtherPhoneNumbers();
-    fn MaxPagerPhoneNumbers();
-    fn SetMaxPagerPhoneNumbers();
-    fn MaxBusinessFaxPhoneNumbers();
-    fn SetMaxBusinessFaxPhoneNumbers();
-    fn MaxHomeFaxPhoneNumbers();
-    fn SetMaxHomeFaxPhoneNumbers();
-    fn MaxCompanyPhoneNumbers();
-    fn SetMaxCompanyPhoneNumbers();
-    fn MaxAssistantPhoneNumbers();
-    fn SetMaxAssistantPhoneNumbers();
-    fn MaxRadioPhoneNumbers();
-    fn SetMaxRadioPhoneNumbers();
-    fn MaxPersonalEmailAddresses();
-    fn SetMaxPersonalEmailAddresses();
-    fn MaxWorkEmailAddresses();
-    fn SetMaxWorkEmailAddresses();
-    fn MaxOtherEmailAddresses();
-    fn SetMaxOtherEmailAddresses();
-    fn MaxHomeAddresses();
-    fn SetMaxHomeAddresses();
-    fn MaxWorkAddresses();
-    fn SetMaxWorkAddresses();
-    fn MaxOtherAddresses();
-    fn SetMaxOtherAddresses();
-    fn MaxBirthdayDates();
-    fn SetMaxBirthdayDates();
-    fn MaxAnniversaryDates();
-    fn SetMaxAnniversaryDates();
-    fn MaxOtherDates();
-    fn SetMaxOtherDates();
-    fn MaxOtherRelationships();
-    fn SetMaxOtherRelationships();
-    fn MaxSpouseRelationships();
-    fn SetMaxSpouseRelationships();
-    fn MaxPartnerRelationships();
-    fn SetMaxPartnerRelationships();
-    fn MaxSiblingRelationships();
-    fn SetMaxSiblingRelationships();
-    fn MaxParentRelationships();
-    fn SetMaxParentRelationships();
-    fn MaxChildRelationships();
-    fn SetMaxChildRelationships();
-    fn MaxJobInfo();
-    fn SetMaxJobInfo();
-    fn MaxWebsites();
-    fn SetMaxWebsites();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9194,15 +8826,6 @@ unsafe impl ::windows::core::Interface for IContactListSyncManager {
     type Vtable = IContactListSyncManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x146e83be_7925_4acc_9de5_21ddd06f8674);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IContactListSyncManagerImpl {
-    fn Status();
-    fn LastSuccessfulSyncTime();
-    fn LastAttemptedSyncTime();
-    fn SyncAsync();
-    fn SyncStatusChanged();
-    fn RemoveSyncStatusChanged();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IContactListSyncManagerVtbl(
@@ -9231,12 +8854,6 @@ unsafe impl ::windows::core::Interface for IContactListSyncManager2 {
     type Vtable = IContactListSyncManager2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa9591247_bb55_4e23_8128_370134a85d0d);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IContactListSyncManager2Impl {
-    fn SetStatus();
-    fn SetLastSuccessfulSyncTime();
-    fn SetLastAttemptedSyncTime();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IContactListSyncManager2Vtbl(
@@ -9258,15 +8875,6 @@ pub struct IContactLocationField(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IContactLocationField {
     type Vtable = IContactLocationFieldVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9ec00f82_ab6e_4b36_89e3_b23bc0a1dacc);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IContactLocationFieldImpl: IContactFieldImpl {
-    fn UnstructuredAddress();
-    fn Street();
-    fn City();
-    fn Region();
-    fn Country();
-    fn PostalCode();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9376,11 +8984,6 @@ unsafe impl ::windows::core::Interface for IContactLocationFieldFactory {
     type Vtable = IContactLocationFieldFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf79932d7_2fdf_43fe_8f18_41897390bcfe);
 }
-pub trait IContactLocationFieldFactoryImpl {
-    fn CreateLocation_Default();
-    fn CreateLocation_Category();
-    fn CreateLocation_All();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IContactLocationFieldFactoryVtbl(
@@ -9400,19 +9003,6 @@ pub struct IContactManagerForUser(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IContactManagerForUser {
     type Vtable = IContactManagerForUserVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb74bba57_1076_4bef_aef3_54686d18387d);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IContactManagerForUserImpl {
-    fn ConvertContactToVCardAsync();
-    fn ConvertContactToVCardAsyncWithMaxBytes();
-    fn ConvertVCardToContactAsync();
-    fn RequestStoreAsync();
-    fn RequestAnnotationStoreAsync();
-    fn SystemDisplayNameOrder();
-    fn SetSystemDisplayNameOrder();
-    fn SystemSortOrder();
-    fn SetSystemSortOrder();
-    fn User();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9447,10 +9037,6 @@ unsafe impl ::windows::core::Interface for IContactManagerForUser2 {
     type Vtable = IContactManagerForUser2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4d469c2e_3b75_4a73_bb30_736645472256);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IContactManagerForUser2Impl {
-    fn ShowFullContactCard();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IContactManagerForUser2Vtbl(
@@ -9468,12 +9054,6 @@ pub struct IContactManagerStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IContactManagerStatics {
     type Vtable = IContactManagerStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x81f21ac0_f661_4708_ba4f_d386bd0d622e);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IContactManagerStaticsImpl {
-    fn ShowContactCard();
-    fn ShowContactCardWithPlacement();
-    fn ShowDelayLoadedContactCard();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9498,10 +9078,6 @@ unsafe impl ::windows::core::Interface for IContactManagerStatics2 {
     type Vtable = IContactManagerStatics2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa178e620_47d8_48cc_963c_9592b6e510c6);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IContactManagerStatics2Impl: IContactManagerStaticsImpl {
-    fn RequestStoreAsync();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IContactManagerStatics2Vtbl(
@@ -9520,23 +9096,6 @@ pub struct IContactManagerStatics3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IContactManagerStatics3 {
     type Vtable = IContactManagerStatics3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc4cc3d42_7586_492a_930b_7bc138fc2139);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IContactManagerStatics3Impl: IContactManagerStaticsImpl + IContactManagerStatics2Impl {
-    fn ConvertContactToVCardAsync();
-    fn ConvertContactToVCardAsyncWithMaxBytes();
-    fn ConvertVCardToContactAsync();
-    fn RequestStoreAsyncWithAccessType();
-    fn RequestAnnotationStoreAsync();
-    fn IsShowContactCardSupported();
-    fn ShowContactCardWithOptions();
-    fn IsShowDelayLoadedContactCardSupported();
-    fn ShowDelayLoadedContactCardWithOptions();
-    fn ShowFullContactCard();
-    fn SystemDisplayNameOrder();
-    fn SetSystemDisplayNameOrder();
-    fn SystemSortOrder();
-    fn SetSystemSortOrder();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9576,10 +9135,6 @@ unsafe impl ::windows::core::Interface for IContactManagerStatics4 {
     type Vtable = IContactManagerStatics4Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x24982272_347b_46dc_8d95_51bd41e15aaf);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IContactManagerStatics4Impl {
-    fn GetForUser();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IContactManagerStatics4Vtbl(
@@ -9598,12 +9153,6 @@ pub struct IContactManagerStatics5(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IContactManagerStatics5 {
     type Vtable = IContactManagerStatics5Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf7591a87_acb7_4fad_90f2_a8ab64cdbba4);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IContactManagerStatics5Impl {
-    fn IsShowFullContactCardSupportedAsync();
-    fn IncludeMiddleNameInSystemDisplayAndSort();
-    fn SetIncludeMiddleNameInSystemDisplayAndSort();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9626,12 +9175,6 @@ unsafe impl ::windows::core::Interface for IContactMatchReason {
     type Vtable = IContactMatchReasonVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbc922504_e7d8_413e_95f4_b75c54c74077);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IContactMatchReasonImpl {
-    fn Field();
-    fn Segments();
-    fn Text();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IContactMatchReasonVtbl(
@@ -9652,25 +9195,6 @@ pub struct IContactName(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IContactName {
     type Vtable = IContactNameVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf404e97b_9034_453c_8ebf_140a38c86f1d);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IContactNameImpl {
-    fn FirstName();
-    fn SetFirstName();
-    fn LastName();
-    fn SetLastName();
-    fn MiddleName();
-    fn SetMiddleName();
-    fn YomiGivenName();
-    fn SetYomiGivenName();
-    fn YomiFamilyName();
-    fn SetYomiFamilyName();
-    fn HonorificNameSuffix();
-    fn SetHonorificNameSuffix();
-    fn HonorificNamePrefix();
-    fn SetHonorificNamePrefix();
-    fn DisplayName();
-    fn YomiDisplayName();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9705,16 +9229,6 @@ unsafe impl ::windows::core::Interface for IContactPanel {
     type Vtable = IContactPanelVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x41bf1265_d2ee_4b97_a80a_7d8d64cca6f5);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IContactPanelImpl {
-    fn ClosePanel();
-    fn HeaderColor();
-    fn SetHeaderColor();
-    fn LaunchFullAppRequested();
-    fn RemoveLaunchFullAppRequested();
-    fn Closing();
-    fn RemoveClosing();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IContactPanelVtbl(
@@ -9745,10 +9259,6 @@ unsafe impl ::windows::core::Interface for IContactPanelClosingEventArgs {
     type Vtable = IContactPanelClosingEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x222174d3_cf4b_46d7_b739_6edc16110bfb);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IContactPanelClosingEventArgsImpl {
-    fn GetDeferral();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IContactPanelClosingEventArgsVtbl(
@@ -9768,11 +9278,6 @@ unsafe impl ::windows::core::Interface for IContactPanelLaunchFullAppRequestedEv
     type Vtable = IContactPanelLaunchFullAppRequestedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x88d61c0e_23b4_4be8_8afc_072c25a4190d);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IContactPanelLaunchFullAppRequestedEventArgsImpl {
-    fn Handled();
-    fn SetHandled();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IContactPanelLaunchFullAppRequestedEventArgsVtbl(
@@ -9791,15 +9296,6 @@ pub struct IContactPhone(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IContactPhone {
     type Vtable = IContactPhoneVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x467dab65_2712_4f52_b783_9ea8111c63cd);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IContactPhoneImpl {
-    fn Number();
-    fn SetNumber();
-    fn Kind();
-    fn SetKind();
-    fn Description();
-    fn SetDescription();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9823,16 +9319,6 @@ pub struct IContactPicker(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IContactPicker {
     type Vtable = IContactPickerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0e09fd91_42f8_4055_90a0_896f96738936);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IContactPickerImpl {
-    fn CommitButtonText();
-    fn SetCommitButtonText();
-    fn SelectionMode();
-    fn SetSelectionMode();
-    fn DesiredFields();
-    fn PickSingleContactAsync();
-    fn PickMultipleContactsAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9861,12 +9347,6 @@ unsafe impl ::windows::core::Interface for IContactPicker2 {
     type Vtable = IContactPicker2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb35011cf_5cef_4d24_aa0c_340c5208725d);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IContactPicker2Impl {
-    fn DesiredFieldsWithContactFieldType();
-    fn PickContactAsync();
-    fn PickContactsAsync();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IContactPicker2Vtbl(
@@ -9890,10 +9370,6 @@ unsafe impl ::windows::core::Interface for IContactPicker3 {
     type Vtable = IContactPicker3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0e723315_b243_4bed_8516_22b1a7ac0ace);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IContactPicker3Impl {
-    fn User();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IContactPicker3Vtbl(
@@ -9912,11 +9388,6 @@ pub struct IContactPickerStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IContactPickerStatics {
     type Vtable = IContactPickerStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7488c029_6a53_4258_a3e9_62dff6784b6c);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IContactPickerStaticsImpl {
-    fn CreateForUser();
-    fn IsSupportedAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9938,18 +9409,6 @@ pub struct IContactQueryOptions(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IContactQueryOptions {
     type Vtable = IContactQueryOptionsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4408cc9e_7d7c_42f0_8ac7_f50733ecdbc1);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IContactQueryOptionsImpl {
-    fn TextSearch();
-    fn ContactListIds();
-    fn IncludeContactsFromHiddenLists();
-    fn SetIncludeContactsFromHiddenLists();
-    fn DesiredFields();
-    fn SetDesiredFields();
-    fn DesiredOperations();
-    fn SetDesiredOperations();
-    fn AnnotationListIds();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9979,11 +9438,6 @@ unsafe impl ::windows::core::Interface for IContactQueryOptionsFactory {
     type Vtable = IContactQueryOptionsFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x543fba47_8ce7_46cb_9dac_9aa42a1bc8e2);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IContactQueryOptionsFactoryImpl {
-    fn CreateWithText();
-    fn CreateWithTextAndFields();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IContactQueryOptionsFactoryVtbl(
@@ -10002,15 +9456,6 @@ pub struct IContactQueryTextSearch(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IContactQueryTextSearch {
     type Vtable = IContactQueryTextSearchVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf7e3f9cb_a957_439b_a0b7_1c02a1963ff0);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IContactQueryTextSearchImpl {
-    fn Fields();
-    fn SetFields();
-    fn Text();
-    fn SetText();
-    fn SearchScope();
-    fn SetSearchScope();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -10035,11 +9480,6 @@ unsafe impl ::windows::core::Interface for IContactReader {
     type Vtable = IContactReaderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd397e42e_1488_42f2_bf64_253f4884bfed);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IContactReaderImpl {
-    fn ReadBatchAsync();
-    fn GetMatchingPropertiesWithMatchReason();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IContactReaderVtbl(
@@ -10060,13 +9500,6 @@ pub struct IContactSignificantOther(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IContactSignificantOther {
     type Vtable = IContactSignificantOtherVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8873b5ab_c5fb_46d8_93fe_da3ff1934054);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IContactSignificantOtherImpl {
-    fn Name();
-    fn SetName();
-    fn Description();
-    fn SetDescription();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -10089,11 +9522,6 @@ unsafe impl ::windows::core::Interface for IContactSignificantOther2 {
     type Vtable = IContactSignificantOther2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8d7bd474_3f03_45f8_ba0f_c4ed37d64219);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IContactSignificantOther2Impl: IContactSignificantOtherImpl {
-    fn Relationship();
-    fn SetRelationship();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IContactSignificantOther2Vtbl(
@@ -10112,12 +9540,6 @@ pub struct IContactStore(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IContactStore {
     type Vtable = IContactStoreVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2c220b10_3a6c_4293_b9bc_fe987f6e0d52);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IContactStoreImpl {
-    fn FindContactsAsync();
-    fn FindContactsWithSearchTextAsync();
-    fn GetContactAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -10141,20 +9563,6 @@ pub struct IContactStore2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IContactStore2 {
     type Vtable = IContactStore2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x18ce1c22_ebd5_4bfb_b690_5f4f27c4f0e8);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IContactStore2Impl: IContactStoreImpl {
-    fn ChangeTracker();
-    fn ContactChanged();
-    fn RemoveContactChanged();
-    fn AggregateContactManager();
-    fn FindContactListsAsync();
-    fn GetContactListAsync();
-    fn CreateContactListAsync();
-    fn GetMeContactAsync();
-    fn GetContactReader();
-    fn GetContactReaderWithOptions();
-    fn CreateContactListInAccountAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -10191,10 +9599,6 @@ unsafe impl ::windows::core::Interface for IContactStore3 {
     type Vtable = IContactStore3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcb882c6c_004e_4050_87f0_840407ee6818);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IContactStore3Impl {
-    fn GetChangeTracker();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IContactStore3Vtbl(
@@ -10213,8 +9617,6 @@ unsafe impl ::windows::core::Interface for IContactStoreNotificationTriggerDetai
     type Vtable = IContactStoreNotificationTriggerDetailsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xabb298d6_878a_4f8b_a9ce_46bb7d1c84ce);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IContactStoreNotificationTriggerDetailsImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IContactStoreNotificationTriggerDetailsVtbl(
@@ -10231,13 +9633,6 @@ pub struct IContactWebsite(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IContactWebsite {
     type Vtable = IContactWebsiteVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9f130176_dc1b_4055_ad66_652f39d990e8);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IContactWebsiteImpl {
-    fn Uri();
-    fn SetUri();
-    fn Description();
-    fn SetDescription();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -10262,11 +9657,6 @@ unsafe impl ::windows::core::Interface for IContactWebsite2 {
     type Vtable = IContactWebsite2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf87ee91e_5647_4068_bb5e_4b6f437ce308);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IContactWebsite2Impl: IContactWebsiteImpl {
-    fn RawValue();
-    fn SetRawValue();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IContactWebsite2Vtbl(
@@ -10285,11 +9675,6 @@ pub struct IFullContactCardOptions(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IFullContactCardOptions {
     type Vtable = IFullContactCardOptionsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8744436c_5cf9_4683_bdca_a1fdebf8dbce);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IFullContactCardOptionsImpl {
-    fn DesiredRemainingView();
-    fn SetDesiredRemainingView();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -10313,15 +9698,6 @@ pub struct IKnownContactFieldStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IKnownContactFieldStatics {
     type Vtable = IKnownContactFieldStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2e0e1b12_d627_4fca_bad4_1faf168c7d14);
-}
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
-pub trait IKnownContactFieldStaticsImpl {
-    fn Email();
-    fn PhoneNumber();
-    fn Location();
-    fn InstantMessage();
-    fn ConvertNameToType();
-    fn ConvertTypeToName();
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
@@ -10353,10 +9729,6 @@ unsafe impl ::windows::core::Interface for IPinnedContactIdsQueryResult {
     type Vtable = IPinnedContactIdsQueryResultVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7d9b2552_1579_4ddc_871f_a30a3aea9ba1);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IPinnedContactIdsQueryResultImpl {
-    fn ContactIds();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPinnedContactIdsQueryResultVtbl(
@@ -10375,17 +9747,6 @@ pub struct IPinnedContactManager(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPinnedContactManager {
     type Vtable = IPinnedContactManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfcbc740c_e1d6_45c3_b8b6_a35604e167a0);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IPinnedContactManagerImpl {
-    fn User();
-    fn IsPinSurfaceSupported();
-    fn IsContactPinned();
-    fn RequestPinContactAsync();
-    fn RequestPinContactsAsync();
-    fn RequestUnpinContactAsync();
-    fn SignalContactActivity();
-    fn GetPinnedContactIdsAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -10416,12 +9777,6 @@ pub struct IPinnedContactManagerStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPinnedContactManagerStatics {
     type Vtable = IPinnedContactManagerStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf65ccc7e_fdf9_486a_ace9_bc311d0ae7f0);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IPinnedContactManagerStaticsImpl {
-    fn GetDefault();
-    fn GetForUser();
-    fn IsSupported();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -10782,3 +10137,5 @@ unsafe impl ::windows::core::RuntimeType for PinnedContactSurface {
 impl ::windows::core::DefaultType for PinnedContactSurface {
     type DefaultType = Self;
 }
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

@@ -14780,3 +14780,5 @@ pub const SYSTEM_HANDLE_PIPE: system_handle_t = 12i32;
 pub const SYSTEM_HANDLE_MAX: system_handle_t = 12i32;
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
 pub const SYSTEM_HANDLE_INVALID: system_handle_t = 255i32;
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

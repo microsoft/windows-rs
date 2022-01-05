@@ -174,13 +174,6 @@ unsafe impl ::windows::core::Interface for ILowLevelDevicesAggregateProvider {
     type Vtable = ILowLevelDevicesAggregateProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa73e561c_aac1_4ec7_a852_479f7060d01f);
 }
-pub trait ILowLevelDevicesAggregateProviderImpl {
-    fn AdcControllerProvider();
-    fn PwmControllerProvider();
-    fn GpioControllerProvider();
-    fn I2cControllerProvider();
-    fn SpiControllerProvider();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILowLevelDevicesAggregateProviderVtbl(
@@ -208,10 +201,6 @@ unsafe impl ::windows::core::Interface for ILowLevelDevicesAggregateProviderFact
     type Vtable = ILowLevelDevicesAggregateProviderFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9ac4aaf6_3473_465e_96d5_36281a2c57af);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ILowLevelDevicesAggregateProviderFactoryImpl {
-    fn Create();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILowLevelDevicesAggregateProviderFactoryVtbl(
@@ -231,8 +220,6 @@ unsafe impl ::windows::core::Interface for ILowLevelDevicesController {
     type Vtable = ILowLevelDevicesControllerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2ec23dd4_179b_45de_9b39_3ae02527de52);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ILowLevelDevicesControllerImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILowLevelDevicesControllerVtbl(
@@ -249,11 +236,6 @@ pub struct ILowLevelDevicesControllerStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ILowLevelDevicesControllerStatics {
     type Vtable = ILowLevelDevicesControllerStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x093e926a_fccb_4394_a697_19de637c2db3);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ILowLevelDevicesControllerStaticsImpl {
-    fn DefaultProvider();
-    fn SetDefaultProvider();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -509,3 +491,5 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &LowL
 }
 unsafe impl ::core::marker::Send for LowLevelDevicesController {}
 unsafe impl ::core::marker::Sync for LowLevelDevicesController {}
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

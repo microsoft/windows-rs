@@ -6,16 +6,6 @@ unsafe impl ::windows::core::Interface for IRfcommDeviceService {
     type Vtable = IRfcommDeviceServiceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xae81ff1f_c5a1_4c40_8c28_f3efd69062f3);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IRfcommDeviceServiceImpl {
-    fn ConnectionHostName();
-    fn ConnectionServiceName();
-    fn ServiceId();
-    fn ProtectionLevel();
-    fn MaxProtectionLevel();
-    fn GetSdpRawAttributesAsync();
-    fn GetSdpRawAttributesWithCacheModeAsync();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRfcommDeviceServiceVtbl(
@@ -45,10 +35,6 @@ unsafe impl ::windows::core::Interface for IRfcommDeviceService2 {
     type Vtable = IRfcommDeviceService2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x536ced14_ebcd_49fe_bf9f_40efc689b20d);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IRfcommDeviceService2Impl: IRfcommDeviceServiceImpl {
-    fn Device();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRfcommDeviceService2Vtbl(
@@ -66,11 +52,6 @@ pub struct IRfcommDeviceService3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IRfcommDeviceService3 {
     type Vtable = IRfcommDeviceService3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1c22ace6_dd44_4d23_866d_8f3486ee6490);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IRfcommDeviceService3Impl: IRfcommDeviceServiceImpl + IRfcommDeviceService2Impl {
-    fn DeviceAccessInformation();
-    fn RequestAccessAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -93,11 +74,6 @@ unsafe impl ::windows::core::Interface for IRfcommDeviceServiceStatics {
     type Vtable = IRfcommDeviceServiceStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa4a149ef_626d_41ac_b253_87ac5c27e28a);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IRfcommDeviceServiceStaticsImpl {
-    fn FromIdAsync();
-    fn GetDeviceSelector();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRfcommDeviceServiceStaticsVtbl(
@@ -117,13 +93,6 @@ pub struct IRfcommDeviceServiceStatics2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IRfcommDeviceServiceStatics2 {
     type Vtable = IRfcommDeviceServiceStatics2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaa8cb1c9_e78d_4be4_8076_0a3d87a0a05f);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IRfcommDeviceServiceStatics2Impl: IRfcommDeviceServiceStaticsImpl {
-    fn GetDeviceSelectorForBluetoothDevice();
-    fn GetDeviceSelectorForBluetoothDeviceWithCacheMode();
-    fn GetDeviceSelectorForBluetoothDeviceAndServiceId();
-    fn GetDeviceSelectorForBluetoothDeviceAndServiceIdWithCacheMode();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -146,11 +115,6 @@ unsafe impl ::windows::core::Interface for IRfcommDeviceServicesResult {
     type Vtable = IRfcommDeviceServicesResultVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3b48388c_7ccf_488e_9625_d259a5732d55);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IRfcommDeviceServicesResultImpl {
-    fn Error();
-    fn Services();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRfcommDeviceServicesResultVtbl(
@@ -171,12 +135,6 @@ unsafe impl ::windows::core::Interface for IRfcommServiceId {
     type Vtable = IRfcommServiceIdVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x22629204_7e02_4017_8136_da1b6a1b9bbf);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IRfcommServiceIdImpl {
-    fn Uuid();
-    fn AsShortId();
-    fn AsString();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRfcommServiceIdVtbl(
@@ -196,17 +154,6 @@ pub struct IRfcommServiceIdStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IRfcommServiceIdStatics {
     type Vtable = IRfcommServiceIdStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2a179eba_a975_46e3_b56b_08ffd783a5fe);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IRfcommServiceIdStaticsImpl {
-    fn FromUuid();
-    fn FromShortId();
-    fn SerialPort();
-    fn ObexObjectPush();
-    fn ObexFileTransfer();
-    fn PhoneBookAccessPce();
-    fn PhoneBookAccessPse();
-    fn GenericFileTransfer();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -233,13 +180,6 @@ unsafe impl ::windows::core::Interface for IRfcommServiceProvider {
     type Vtable = IRfcommServiceProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeadbfdc4_b1f6_44ff_9f7c_e7a82ab86821);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IRfcommServiceProviderImpl {
-    fn ServiceId();
-    fn SdpRawAttributes();
-    fn StartAdvertising();
-    fn StopAdvertising();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRfcommServiceProviderVtbl(
@@ -263,10 +203,6 @@ unsafe impl ::windows::core::Interface for IRfcommServiceProvider2 {
     type Vtable = IRfcommServiceProvider2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x736bdfc6_3c81_4d1e_baf2_ddbb81284512);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IRfcommServiceProvider2Impl: IRfcommServiceProviderImpl {
-    fn StartAdvertisingWithRadioDiscoverability();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRfcommServiceProvider2Vtbl(
@@ -285,10 +221,6 @@ pub struct IRfcommServiceProviderStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IRfcommServiceProviderStatics {
     type Vtable = IRfcommServiceProviderStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x98888303_69ca_413a_84f7_4344c7292997);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IRfcommServiceProviderStaticsImpl {
-    fn CreateAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -915,3 +847,5 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Rfco
 }
 unsafe impl ::core::marker::Send for RfcommServiceProvider {}
 unsafe impl ::core::marker::Sync for RfcommServiceProvider {}
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

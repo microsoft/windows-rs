@@ -62,10 +62,6 @@ unsafe impl ::windows::core::Interface for IWSDAddress {
     type Vtable = IWSDAddressVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb9574c6c_12a6_4f74_93a1_3318ff605759);
 }
-pub trait IWSDAddressImpl {
-    fn Serialize();
-    fn Deserialize();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWSDAddressVtbl(
@@ -125,9 +121,6 @@ impl ::core::fmt::Debug for IWSDAsyncCallback {
 unsafe impl ::windows::core::Interface for IWSDAsyncCallback {
     type Vtable = IWSDAsyncCallbackVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa63e109d_ce72_49e2_ba98_e845f5ee1666);
-}
-pub trait IWSDAsyncCallbackImpl {
-    fn AsyncOperationComplete();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -210,15 +203,6 @@ unsafe impl ::windows::core::Interface for IWSDAsyncResult {
     type Vtable = IWSDAsyncResultVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x11a9852a_8dd8_423e_b537_9356db4fbfb8);
 }
-pub trait IWSDAsyncResultImpl {
-    fn SetCallback();
-    fn SetWaitHandle();
-    fn HasCompleted();
-    fn GetAsyncState();
-    fn Abort();
-    fn GetEvent();
-    fn GetEndpointProxy();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWSDAsyncResultVtbl(
@@ -279,7 +263,6 @@ unsafe impl ::windows::core::Interface for IWSDAttachment {
     type Vtable = IWSDAttachmentVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5d55a616_9df8_4b09_b156_9ba351a48b76);
 }
-pub trait IWSDAttachmentImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWSDAttachmentVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32);
@@ -386,20 +369,6 @@ unsafe impl ::windows::core::Interface for IWSDDeviceHost {
     type Vtable = IWSDDeviceHostVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x917fe891_3d13_4138_9809_934c8abeb12c);
 }
-pub trait IWSDDeviceHostImpl {
-    fn Init();
-    fn Start();
-    fn Stop();
-    fn Terminate();
-    fn RegisterPortType();
-    fn SetMetadata();
-    fn RegisterService();
-    fn RetireService();
-    fn AddDynamicService();
-    fn RemoveDynamicService();
-    fn SetServiceDiscoverable();
-    fn SignalEvent();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWSDDeviceHostVtbl(
@@ -479,9 +448,6 @@ impl ::core::fmt::Debug for IWSDDeviceHostNotify {
 unsafe impl ::windows::core::Interface for IWSDDeviceHostNotify {
     type Vtable = IWSDDeviceHostNotifyVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb5bee9f9_eeda_41fe_96f7_f45e14990fb0);
-}
-pub trait IWSDDeviceHostNotifyImpl {
-    fn GetService();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -592,18 +558,6 @@ unsafe impl ::windows::core::Interface for IWSDDeviceProxy {
     type Vtable = IWSDDeviceProxyVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeee0c031_c578_4c0e_9a3b_973c35f409db);
 }
-pub trait IWSDDeviceProxyImpl {
-    fn Init();
-    fn BeginGetMetadata();
-    fn EndGetMetadata();
-    fn GetHostMetadata();
-    fn GetThisModelMetadata();
-    fn GetThisDeviceMetadata();
-    fn GetAllMetadata();
-    fn GetServiceProxyById();
-    fn GetServiceProxyByType();
-    fn GetEndpointProxy();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWSDDeviceProxyVtbl(
@@ -710,15 +664,6 @@ unsafe impl ::windows::core::Interface for IWSDEndpointProxy {
     type Vtable = IWSDEndpointProxyVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1860d430_b24c_4975_9f90_dbb39baa24ec);
 }
-pub trait IWSDEndpointProxyImpl {
-    fn SendOneWayRequest();
-    fn SendTwoWayRequest();
-    fn SendTwoWayRequestAsync();
-    fn AbortAsyncOperation();
-    fn ProcessFault();
-    fn GetErrorInfo();
-    fn GetFaultInfo();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWSDEndpointProxyVtbl(
@@ -798,11 +743,6 @@ impl ::core::fmt::Debug for IWSDEventingStatus {
 unsafe impl ::windows::core::Interface for IWSDEventingStatus {
     type Vtable = IWSDEventingStatusVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x49b17f52_637a_407a_ae99_fbe82a4d38c0);
-}
-pub trait IWSDEventingStatusImpl {
-    fn SubscriptionRenewed();
-    fn SubscriptionRenewalFailed();
-    fn SubscriptionEnded();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -958,12 +898,6 @@ unsafe impl ::windows::core::Interface for IWSDHttpAddress {
     type Vtable = IWSDHttpAddressVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd09ac7bd_2a3e_4b85_8605_2737ff3e4ea0);
 }
-pub trait IWSDHttpAddressImpl: IWSDTransportAddressImpl + IWSDAddressImpl {
-    fn GetSecure();
-    fn SetSecure();
-    fn GetPath();
-    fn SetPath();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWSDHttpAddressVtbl(
@@ -1045,10 +979,6 @@ impl ::core::fmt::Debug for IWSDHttpAuthParameters {
 unsafe impl ::windows::core::Interface for IWSDHttpAuthParameters {
     type Vtable = IWSDHttpAuthParametersVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0b476df0_8dac_480d_b05c_99781a5884aa);
-}
-pub trait IWSDHttpAuthParametersImpl {
-    fn GetClientAccessToken();
-    fn GetAuthType();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1194,17 +1124,6 @@ unsafe impl ::windows::core::Interface for IWSDHttpMessageParameters {
     type Vtable = IWSDHttpMessageParametersVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x540bd122_5c83_4dec_b396_ea62a2697fdf);
 }
-pub trait IWSDHttpMessageParametersImpl: IWSDMessageParametersImpl {
-    fn SetInboundHttpHeaders();
-    fn GetInboundHttpHeaders();
-    fn SetOutboundHttpHeaders();
-    fn GetOutboundHttpHeaders();
-    fn SetID();
-    fn GetID();
-    fn SetContext();
-    fn GetContext();
-    fn Clear();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWSDHttpMessageParametersVtbl(
@@ -1305,10 +1224,6 @@ unsafe impl ::windows::core::Interface for IWSDInboundAttachment {
     type Vtable = IWSDInboundAttachmentVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5bd6ca65_233c_4fb8_9f7a_2641619655c9);
 }
-pub trait IWSDInboundAttachmentImpl: IWSDAttachmentImpl {
-    fn Read();
-    fn Close();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWSDInboundAttachmentVtbl(
@@ -1386,13 +1301,6 @@ unsafe impl ::windows::core::Interface for IWSDMessageParameters {
     type Vtable = IWSDMessageParametersVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1fafe8a2_e6fc_4b80_b6cf_b7d45c416d7c);
 }
-pub trait IWSDMessageParametersImpl {
-    fn GetLocalAddress();
-    fn SetLocalAddress();
-    fn GetRemoteAddress();
-    fn SetRemoteAddress();
-    fn GetLowerParameters();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWSDMessageParametersVtbl(
@@ -1455,9 +1363,6 @@ impl ::core::fmt::Debug for IWSDMetadataExchange {
 unsafe impl ::windows::core::Interface for IWSDMetadataExchange {
     type Vtable = IWSDMetadataExchangeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x06996d57_1d67_4928_9307_3d7833fdb846);
-}
-pub trait IWSDMetadataExchangeImpl {
-    fn GetMetadata();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1546,11 +1451,6 @@ unsafe impl ::windows::core::Interface for IWSDOutboundAttachment {
     type Vtable = IWSDOutboundAttachmentVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaa302f8d_5a22_4ba5_b392_aa8486f4c15d);
 }
-pub trait IWSDOutboundAttachmentImpl: IWSDAttachmentImpl {
-    fn Write();
-    fn Close();
-    fn Abort();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWSDOutboundAttachmentVtbl(
@@ -1617,10 +1517,6 @@ impl ::core::fmt::Debug for IWSDSSLClientCertificate {
 unsafe impl ::windows::core::Interface for IWSDSSLClientCertificate {
     type Vtable = IWSDSSLClientCertificateVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xde105e87_a0da_418e_98ad_27b9eed87bdc);
-}
-pub trait IWSDSSLClientCertificateImpl {
-    fn GetClientCertificate();
-    fn GetMappedAccessToken();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1690,10 +1586,6 @@ unsafe impl ::windows::core::Interface for IWSDScopeMatchingRule {
     type Vtable = IWSDScopeMatchingRuleVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfcafe424_fef5_481a_bd9f_33ce0574256f);
 }
-pub trait IWSDScopeMatchingRuleImpl {
-    fn GetScopeRule();
-    fn MatchScopes();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWSDScopeMatchingRuleVtbl(
@@ -1759,10 +1651,6 @@ impl ::core::fmt::Debug for IWSDServiceMessaging {
 unsafe impl ::windows::core::Interface for IWSDServiceMessaging {
     type Vtable = IWSDServiceMessagingVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x94974cf4_0cab_460d_a3f6_7a0ad623c0e6);
-}
-pub trait IWSDServiceMessagingImpl {
-    fn SendResponse();
-    fn FaultRequest();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1882,15 +1770,6 @@ impl ::core::fmt::Debug for IWSDServiceProxy {
 unsafe impl ::windows::core::Interface for IWSDServiceProxy {
     type Vtable = IWSDServiceProxyVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd4c7fb9c_03ab_4175_9d67_094fafebf487);
-}
-pub trait IWSDServiceProxyImpl: IWSDMetadataExchangeImpl {
-    fn BeginGetMetadata();
-    fn EndGetMetadata();
-    fn GetServiceMetadata();
-    fn SubscribeToOperation();
-    fn UnsubscribeToOperation();
-    fn SetEventingStatusCallback();
-    fn GetEndpointProxy();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2104,20 +1983,6 @@ unsafe impl ::windows::core::Interface for IWSDServiceProxyEventing {
     type Vtable = IWSDServiceProxyEventingVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf9279d6d_1012_4a94_b8cc_fd35d2202bfe);
 }
-pub trait IWSDServiceProxyEventingImpl: IWSDServiceProxyImpl + IWSDMetadataExchangeImpl {
-    fn SubscribeToMultipleOperations();
-    fn BeginSubscribeToMultipleOperations();
-    fn EndSubscribeToMultipleOperations();
-    fn UnsubscribeToMultipleOperations();
-    fn BeginUnsubscribeToMultipleOperations();
-    fn EndUnsubscribeToMultipleOperations();
-    fn RenewMultipleOperations();
-    fn BeginRenewMultipleOperations();
-    fn EndRenewMultipleOperations();
-    fn GetStatusForMultipleOperations();
-    fn BeginGetStatusForMultipleOperations();
-    fn EndGetStatusForMultipleOperations();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWSDServiceProxyEventingVtbl(
@@ -2230,13 +2095,6 @@ impl ::core::fmt::Debug for IWSDSignatureProperty {
 unsafe impl ::windows::core::Interface for IWSDSignatureProperty {
     type Vtable = IWSDSignaturePropertyVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x03ce20aa_71c4_45e2_b32e_3766c61c790f);
-}
-pub trait IWSDSignaturePropertyImpl {
-    fn IsMessageSigned();
-    fn IsMessageSignatureTrusted();
-    fn GetKeyInfo();
-    fn GetSignature();
-    fn GetSignedInfoHash();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2352,13 +2210,6 @@ impl ::core::fmt::Debug for IWSDTransportAddress {
 unsafe impl ::windows::core::Interface for IWSDTransportAddress {
     type Vtable = IWSDTransportAddressVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x70d23498_4ee6_4340_a3df_d845d2235467);
-}
-pub trait IWSDTransportAddressImpl: IWSDAddressImpl {
-    fn GetPort();
-    fn SetPort();
-    fn GetTransportAddress();
-    fn GetTransportAddressEx();
-    fn SetTransportAddress();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2547,18 +2398,6 @@ unsafe impl ::windows::core::Interface for IWSDUdpAddress {
     type Vtable = IWSDUdpAddressVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x74d6124a_a441_4f78_a1eb_97a8d1996893);
 }
-pub trait IWSDUdpAddressImpl: IWSDTransportAddressImpl + IWSDAddressImpl {
-    fn SetSockaddr();
-    fn GetSockaddr();
-    fn SetExclusive();
-    fn GetExclusive();
-    fn SetMessageType();
-    fn GetMessageType();
-    fn SetTTL();
-    fn GetTTL();
-    fn SetAlias();
-    fn GetAlias();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWSDUdpAddressVtbl(
@@ -2688,10 +2527,6 @@ unsafe impl ::windows::core::Interface for IWSDUdpMessageParameters {
     type Vtable = IWSDUdpMessageParametersVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9934149f_8f0c_447b_aa0b_73124b0ca7f0);
 }
-pub trait IWSDUdpMessageParametersImpl: IWSDMessageParametersImpl {
-    fn SetRetransmitParams();
-    fn GetRetransmitParams();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWSDUdpMessageParametersVtbl(
@@ -2772,12 +2607,6 @@ impl ::core::fmt::Debug for IWSDXMLContext {
 unsafe impl ::windows::core::Interface for IWSDXMLContext {
     type Vtable = IWSDXMLContextVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x75d8f3ee_3e5a_43b4_a15a_bcf6887460c0);
-}
-pub trait IWSDXMLContextImpl {
-    fn AddNamespace();
-    fn AddNameToNamespace();
-    fn SetNamespaces();
-    fn SetTypes();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2901,19 +2730,6 @@ unsafe impl ::windows::core::Interface for IWSDiscoveredService {
     type Vtable = IWSDiscoveredServiceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4bad8a3b_b374_4420_9632_aac945b374aa);
 }
-pub trait IWSDiscoveredServiceImpl {
-    fn GetEndpointReference();
-    fn GetTypes();
-    fn GetScopes();
-    fn GetXAddrs();
-    fn GetMetadataVersion();
-    fn GetExtendedDiscoXML();
-    fn GetProbeResolveTag();
-    fn GetRemoteTransportAddress();
-    fn GetLocalTransportAddress();
-    fn GetLocalInterfaceGUID();
-    fn GetInstanceId();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWSDiscoveredServiceVtbl(
@@ -3017,15 +2833,6 @@ unsafe impl ::windows::core::Interface for IWSDiscoveryProvider {
     type Vtable = IWSDiscoveryProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8ffc8e55_f0eb_480f_88b7_b435dd281d45);
 }
-pub trait IWSDiscoveryProviderImpl {
-    fn SetAddressFamily();
-    fn Attach();
-    fn Detach();
-    fn SearchById();
-    fn SearchByAddress();
-    fn SearchByType();
-    fn GetXMLContext();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWSDiscoveryProviderVtbl(
@@ -3105,12 +2912,6 @@ impl ::core::fmt::Debug for IWSDiscoveryProviderNotify {
 unsafe impl ::windows::core::Interface for IWSDiscoveryProviderNotify {
     type Vtable = IWSDiscoveryProviderNotifyVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x73ee3ced_b6e6_4329_a546_3e8ad46563d2);
-}
-pub trait IWSDiscoveryProviderNotifyImpl {
-    fn Add();
-    fn Remove();
-    fn SearchFailed();
-    fn SearchComplete();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3282,21 +3083,6 @@ unsafe impl ::windows::core::Interface for IWSDiscoveryPublisher {
     type Vtable = IWSDiscoveryPublisherVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xae01e1a8_3ff9_4148_8116_057cc616fe13);
 }
-pub trait IWSDiscoveryPublisherImpl {
-    fn SetAddressFamily();
-    fn RegisterNotificationSink();
-    fn UnRegisterNotificationSink();
-    fn Publish();
-    fn UnPublish();
-    fn MatchProbe();
-    fn MatchResolve();
-    fn PublishEx();
-    fn MatchProbeEx();
-    fn MatchResolveEx();
-    fn RegisterScopeMatchingRule();
-    fn UnRegisterScopeMatchingRule();
-    fn GetXMLContext();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWSDiscoveryPublisherVtbl(
@@ -3378,10 +3164,6 @@ impl ::core::fmt::Debug for IWSDiscoveryPublisherNotify {
 unsafe impl ::windows::core::Interface for IWSDiscoveryPublisherNotify {
     type Vtable = IWSDiscoveryPublisherNotifyVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe67651b0_337a_4b3c_9758_733388568251);
-}
-pub trait IWSDiscoveryPublisherNotifyImpl {
-    fn ProbeHandler();
-    fn ResolveHandler();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6912,3 +6694,5 @@ impl ::core::default::Default for WSD_URI_LIST {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

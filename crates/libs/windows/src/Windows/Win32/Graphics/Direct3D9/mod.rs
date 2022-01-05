@@ -5348,22 +5348,6 @@ unsafe impl ::windows::core::Interface for IDirect3D9 {
     type Vtable = IDirect3D9Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x81bdcbca_64d4_426d_ae8d_ad0147f4275c);
 }
-pub trait IDirect3D9Impl {
-    fn RegisterSoftwareDevice();
-    fn GetAdapterCount();
-    fn GetAdapterIdentifier();
-    fn GetAdapterModeCount();
-    fn EnumAdapterModes();
-    fn GetAdapterDisplayMode();
-    fn CheckDeviceType();
-    fn CheckDeviceFormat();
-    fn CheckDeviceMultiSampleType();
-    fn CheckDepthStencilMatch();
-    fn CheckDeviceFormatConversion();
-    fn GetDeviceCaps();
-    fn GetAdapterMonitor();
-    fn CreateDevice();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirect3D9Vtbl(
@@ -5538,13 +5522,6 @@ unsafe impl ::windows::core::Interface for IDirect3D9Ex {
     type Vtable = IDirect3D9ExVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x02177241_69fc_400c_8ff1_93a44df6861d);
 }
-pub trait IDirect3D9ExImpl: IDirect3D9Impl {
-    fn GetAdapterModeCountEx();
-    fn EnumAdapterModesEx();
-    fn GetAdapterDisplayModeEx();
-    fn CreateDeviceEx();
-    fn GetAdapterLUID();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirect3D9ExVtbl(
@@ -5699,14 +5676,6 @@ impl ::core::fmt::Debug for IDirect3DBaseTexture9 {
 unsafe impl ::windows::core::Interface for IDirect3DBaseTexture9 {
     type Vtable = IDirect3DBaseTexture9Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x580ca87e_1d3c_4d54_991d_b7d3e3c298ce);
-}
-pub trait IDirect3DBaseTexture9Impl: IDirect3DResource9Impl {
-    fn SetLOD();
-    fn GetLOD();
-    fn GetLevelCount();
-    fn SetAutoGenFilterType();
-    fn GetAutoGenFilterType();
-    fn GenerateMipSubLevels();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5893,13 +5862,6 @@ impl ::core::fmt::Debug for IDirect3DCubeTexture9 {
 unsafe impl ::windows::core::Interface for IDirect3DCubeTexture9 {
     type Vtable = IDirect3DCubeTexture9Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfff32f81_d953_473a_9223_93d652aba93f);
-}
-pub trait IDirect3DCubeTexture9Impl: IDirect3DBaseTexture9Impl + IDirect3DResource9Impl {
-    fn GetLevelDesc();
-    fn GetCubeMapSurface();
-    fn LockRect();
-    fn UnlockRect();
-    fn AddDirtyRect();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6488,124 +6450,6 @@ impl ::core::fmt::Debug for IDirect3DDevice9 {
 unsafe impl ::windows::core::Interface for IDirect3DDevice9 {
     type Vtable = IDirect3DDevice9Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd0223b96_bf7a_43fd_92bd_a43b0d82b9eb);
-}
-pub trait IDirect3DDevice9Impl {
-    fn TestCooperativeLevel();
-    fn GetAvailableTextureMem();
-    fn EvictManagedResources();
-    fn GetDirect3D();
-    fn GetDeviceCaps();
-    fn GetDisplayMode();
-    fn GetCreationParameters();
-    fn SetCursorProperties();
-    fn SetCursorPosition();
-    fn ShowCursor();
-    fn CreateAdditionalSwapChain();
-    fn GetSwapChain();
-    fn GetNumberOfSwapChains();
-    fn Reset();
-    fn Present();
-    fn GetBackBuffer();
-    fn GetRasterStatus();
-    fn SetDialogBoxMode();
-    fn SetGammaRamp();
-    fn GetGammaRamp();
-    fn CreateTexture();
-    fn CreateVolumeTexture();
-    fn CreateCubeTexture();
-    fn CreateVertexBuffer();
-    fn CreateIndexBuffer();
-    fn CreateRenderTarget();
-    fn CreateDepthStencilSurface();
-    fn UpdateSurface();
-    fn UpdateTexture();
-    fn GetRenderTargetData();
-    fn GetFrontBufferData();
-    fn StretchRect();
-    fn ColorFill();
-    fn CreateOffscreenPlainSurface();
-    fn SetRenderTarget();
-    fn GetRenderTarget();
-    fn SetDepthStencilSurface();
-    fn GetDepthStencilSurface();
-    fn BeginScene();
-    fn EndScene();
-    fn Clear();
-    fn SetTransform();
-    fn GetTransform();
-    fn MultiplyTransform();
-    fn SetViewport();
-    fn GetViewport();
-    fn SetMaterial();
-    fn GetMaterial();
-    fn SetLight();
-    fn GetLight();
-    fn LightEnable();
-    fn GetLightEnable();
-    fn SetClipPlane();
-    fn GetClipPlane();
-    fn SetRenderState();
-    fn GetRenderState();
-    fn CreateStateBlock();
-    fn BeginStateBlock();
-    fn EndStateBlock();
-    fn SetClipStatus();
-    fn GetClipStatus();
-    fn GetTexture();
-    fn SetTexture();
-    fn GetTextureStageState();
-    fn SetTextureStageState();
-    fn GetSamplerState();
-    fn SetSamplerState();
-    fn ValidateDevice();
-    fn SetPaletteEntries();
-    fn GetPaletteEntries();
-    fn SetCurrentTexturePalette();
-    fn GetCurrentTexturePalette();
-    fn SetScissorRect();
-    fn GetScissorRect();
-    fn SetSoftwareVertexProcessing();
-    fn GetSoftwareVertexProcessing();
-    fn SetNPatchMode();
-    fn GetNPatchMode();
-    fn DrawPrimitive();
-    fn DrawIndexedPrimitive();
-    fn DrawPrimitiveUP();
-    fn DrawIndexedPrimitiveUP();
-    fn ProcessVertices();
-    fn CreateVertexDeclaration();
-    fn SetVertexDeclaration();
-    fn GetVertexDeclaration();
-    fn SetFVF();
-    fn GetFVF();
-    fn CreateVertexShader();
-    fn SetVertexShader();
-    fn GetVertexShader();
-    fn SetVertexShaderConstantF();
-    fn GetVertexShaderConstantF();
-    fn SetVertexShaderConstantI();
-    fn GetVertexShaderConstantI();
-    fn SetVertexShaderConstantB();
-    fn GetVertexShaderConstantB();
-    fn SetStreamSource();
-    fn GetStreamSource();
-    fn SetStreamSourceFreq();
-    fn GetStreamSourceFreq();
-    fn SetIndices();
-    fn GetIndices();
-    fn CreatePixelShader();
-    fn SetPixelShader();
-    fn GetPixelShader();
-    fn SetPixelShaderConstantF();
-    fn GetPixelShaderConstantF();
-    fn SetPixelShaderConstantI();
-    fn GetPixelShaderConstantI();
-    fn SetPixelShaderConstantB();
-    fn GetPixelShaderConstantB();
-    fn DrawRectPatch();
-    fn DrawTriPatch();
-    fn DeletePatch();
-    fn CreateQuery();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7411,23 +7255,6 @@ unsafe impl ::windows::core::Interface for IDirect3DDevice9Ex {
     type Vtable = IDirect3DDevice9ExVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb18b10ce_2649_405a_870f_95f777d4313a);
 }
-pub trait IDirect3DDevice9ExImpl: IDirect3DDevice9Impl {
-    fn SetConvolutionMonoKernel();
-    fn ComposeRects();
-    fn PresentEx();
-    fn GetGPUThreadPriority();
-    fn SetGPUThreadPriority();
-    fn WaitForVBlank();
-    fn CheckResourceResidency();
-    fn SetMaximumFrameLatency();
-    fn GetMaximumFrameLatency();
-    fn CheckDeviceState();
-    fn CreateRenderTargetEx();
-    fn CreateOffscreenPlainSurfaceEx();
-    fn CreateDepthStencilSurfaceEx();
-    fn ResetEx();
-    fn GetDisplayModeEx();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirect3DDevice9ExVtbl(
@@ -7717,11 +7544,6 @@ unsafe impl ::windows::core::Interface for IDirect3DIndexBuffer9 {
     type Vtable = IDirect3DIndexBuffer9Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7c9dd65e_d3f7_4529_acee_785830acde35);
 }
-pub trait IDirect3DIndexBuffer9Impl: IDirect3DResource9Impl {
-    fn Lock();
-    fn Unlock();
-    fn GetDesc();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirect3DIndexBuffer9Vtbl(
@@ -7793,10 +7615,6 @@ impl ::core::fmt::Debug for IDirect3DPixelShader9 {
 unsafe impl ::windows::core::Interface for IDirect3DPixelShader9 {
     type Vtable = IDirect3DPixelShader9Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6d3bdbdc_5b02_4415_b852_ce5e8bccb289);
-}
-pub trait IDirect3DPixelShader9Impl {
-    fn GetDevice();
-    fn GetFunction();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7872,13 +7690,6 @@ impl ::core::fmt::Debug for IDirect3DQuery9 {
 unsafe impl ::windows::core::Interface for IDirect3DQuery9 {
     type Vtable = IDirect3DQuery9Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd9771460_a695_4f26_bbd3_27b840b541cc);
-}
-pub trait IDirect3DQuery9Impl {
-    fn GetDevice();
-    fn GetType();
-    fn GetDataSize();
-    fn Issue();
-    fn GetData();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7970,16 +7781,6 @@ unsafe impl ::windows::core::Interface for IDirect3DResource9 {
     type Vtable = IDirect3DResource9Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x05eec05d_8f7d_4362_b999_d1baf357c704);
 }
-pub trait IDirect3DResource9Impl {
-    fn GetDevice();
-    fn SetPrivateData();
-    fn GetPrivateData();
-    fn FreePrivateData();
-    fn SetPriority();
-    fn GetPriority();
-    fn PreLoad();
-    fn GetType();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirect3DResource9Vtbl(
@@ -8052,11 +7853,6 @@ impl ::core::fmt::Debug for IDirect3DStateBlock9 {
 unsafe impl ::windows::core::Interface for IDirect3DStateBlock9 {
     type Vtable = IDirect3DStateBlock9Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb07c4fe5_310d_4ba8_a23c_4f0f206f218b);
-}
-pub trait IDirect3DStateBlock9Impl {
-    fn GetDevice();
-    fn Capture();
-    fn Apply();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8193,14 +7989,6 @@ unsafe impl ::windows::core::Interface for IDirect3DSurface9 {
     type Vtable = IDirect3DSurface9Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0cfbaf3a_9ff6_429a_99b3_a2796af8b89b);
 }
-pub trait IDirect3DSurface9Impl: IDirect3DResource9Impl {
-    fn GetContainer();
-    fn GetDesc();
-    fn LockRect();
-    fn UnlockRect();
-    fn GetDC();
-    fn ReleaseDC();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirect3DSurface9Vtbl(
@@ -8302,15 +8090,6 @@ impl ::core::fmt::Debug for IDirect3DSwapChain9 {
 unsafe impl ::windows::core::Interface for IDirect3DSwapChain9 {
     type Vtable = IDirect3DSwapChain9Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x794950f2_adfc_458a_905e_10a10b0b503b);
-}
-pub trait IDirect3DSwapChain9Impl {
-    fn Present();
-    fn GetFrontBufferData();
-    fn GetBackBuffer();
-    fn GetRasterStatus();
-    fn GetDisplayMode();
-    fn GetDevice();
-    fn GetPresentParameters();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8438,11 +8217,6 @@ impl ::core::fmt::Debug for IDirect3DSwapChain9Ex {
 unsafe impl ::windows::core::Interface for IDirect3DSwapChain9Ex {
     type Vtable = IDirect3DSwapChain9ExVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x91886caf_1c3d_4d2e_a0ab_3e4c7d8d3303);
-}
-pub trait IDirect3DSwapChain9ExImpl: IDirect3DSwapChain9Impl {
-    fn GetLastPresentCount();
-    fn GetPresentStats();
-    fn GetDisplayModeEx();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8629,13 +8403,6 @@ unsafe impl ::windows::core::Interface for IDirect3DTexture9 {
     type Vtable = IDirect3DTexture9Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x85c31227_3de5_4f00_9b3a_f11ac38c18b5);
 }
-pub trait IDirect3DTexture9Impl: IDirect3DBaseTexture9Impl + IDirect3DResource9Impl {
-    fn GetLevelDesc();
-    fn GetSurfaceLevel();
-    fn LockRect();
-    fn UnlockRect();
-    fn AddDirtyRect();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirect3DTexture9Vtbl(
@@ -8774,11 +8541,6 @@ unsafe impl ::windows::core::Interface for IDirect3DVertexBuffer9 {
     type Vtable = IDirect3DVertexBuffer9Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb64bb1b5_fd70_4df6_bf91_19d0a12455e3);
 }
-pub trait IDirect3DVertexBuffer9Impl: IDirect3DResource9Impl {
-    fn Lock();
-    fn Unlock();
-    fn GetDesc();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirect3DVertexBuffer9Vtbl(
@@ -8851,10 +8613,6 @@ unsafe impl ::windows::core::Interface for IDirect3DVertexDeclaration9 {
     type Vtable = IDirect3DVertexDeclaration9Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdd13c59c_36fa_4098_a8fb_c7ed39dc8546);
 }
-pub trait IDirect3DVertexDeclaration9Impl {
-    fn GetDevice();
-    fn GetDeclaration();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirect3DVertexDeclaration9Vtbl(
@@ -8917,10 +8675,6 @@ impl ::core::fmt::Debug for IDirect3DVertexShader9 {
 unsafe impl ::windows::core::Interface for IDirect3DVertexShader9 {
     type Vtable = IDirect3DVertexShader9Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xefc5557e_6265_4613_8a94_43857889eb36);
-}
-pub trait IDirect3DVertexShader9Impl {
-    fn GetDevice();
-    fn GetFunction();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9008,16 +8762,6 @@ impl ::core::fmt::Debug for IDirect3DVolume9 {
 unsafe impl ::windows::core::Interface for IDirect3DVolume9 {
     type Vtable = IDirect3DVolume9Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x24f416e6_1f67_4aa7_b88e_d33f6f3128a1);
-}
-pub trait IDirect3DVolume9Impl {
-    fn GetDevice();
-    fn SetPrivateData();
-    fn GetPrivateData();
-    fn FreePrivateData();
-    fn GetContainer();
-    fn GetDesc();
-    fn LockBox();
-    fn UnlockBox();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9197,13 +8941,6 @@ unsafe impl ::windows::core::Interface for IDirect3DVolumeTexture9 {
     type Vtable = IDirect3DVolumeTexture9Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2518526c_e789_4111_a7b9_47ef328d13e6);
 }
-pub trait IDirect3DVolumeTexture9Impl: IDirect3DBaseTexture9Impl + IDirect3DResource9Impl {
-    fn GetLevelDesc();
-    fn GetVolumeLevel();
-    fn LockBox();
-    fn UnlockBox();
-    fn AddDirtyBox();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirect3DVolumeTexture9Vtbl(
@@ -9238,3 +8975,5 @@ pub const MAXD3DDECLUSAGEINDEX: u32 = 15u32;
 pub const MAX_DEVICE_IDENTIFIER_STRING: u32 = 512u32;
 #[doc = "*Required features: 'Win32_Graphics_Direct3D9'*"]
 pub const _FACD3D: u32 = 2166u32;
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

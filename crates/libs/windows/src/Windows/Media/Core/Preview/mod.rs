@@ -6,12 +6,6 @@ unsafe impl ::windows::core::Interface for ISoundLevelBrokerStatics {
     type Vtable = ISoundLevelBrokerStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6a633961_dbed_464c_a09a_33412f5caa3f);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ISoundLevelBrokerStaticsImpl {
-    fn SoundLevel();
-    fn SoundLevelChanged();
-    fn RemoveSoundLevelChanged();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISoundLevelBrokerStaticsVtbl(
@@ -59,3 +53,5 @@ impl SoundLevelBroker {
 impl ::windows::core::RuntimeName for SoundLevelBroker {
     const NAME: &'static str = "Windows.Media.Core.Preview.SoundLevelBroker";
 }
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

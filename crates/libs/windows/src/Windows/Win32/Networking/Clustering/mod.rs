@@ -9092,11 +9092,6 @@ unsafe impl ::windows::core::Interface for IGetClusterDataInfo {
     type Vtable = IGetClusterDataInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x97dede51_fc6b_11cf_b5f5_00a0c90ab505);
 }
-pub trait IGetClusterDataInfoImpl {
-    fn GetClusterName();
-    fn GetClusterHandle();
-    fn GetObjectCount();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGetClusterDataInfoVtbl(
@@ -9157,9 +9152,6 @@ unsafe impl ::windows::core::Interface for IGetClusterGroupInfo {
     type Vtable = IGetClusterGroupInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x97dede54_fc6b_11cf_b5f5_00a0c90ab505);
 }
-pub trait IGetClusterGroupInfoImpl {
-    fn GetGroupHandle();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGetClusterGroupInfoVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lobjindex: i32) -> *mut _HGROUP);
@@ -9211,9 +9203,6 @@ impl ::core::fmt::Debug for IGetClusterNetInterfaceInfo {
 unsafe impl ::windows::core::Interface for IGetClusterNetInterfaceInfo {
     type Vtable = IGetClusterNetInterfaceInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x97dede57_fc6b_11cf_b5f5_00a0c90ab505);
-}
-pub trait IGetClusterNetInterfaceInfoImpl {
-    fn GetNetInterfaceHandle();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9267,9 +9256,6 @@ unsafe impl ::windows::core::Interface for IGetClusterNetworkInfo {
     type Vtable = IGetClusterNetworkInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x97dede56_fc6b_11cf_b5f5_00a0c90ab505);
 }
-pub trait IGetClusterNetworkInfoImpl {
-    fn GetNetworkHandle();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGetClusterNetworkInfoVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lobjindex: i32) -> *mut _HNETWORK);
@@ -9321,9 +9307,6 @@ impl ::core::fmt::Debug for IGetClusterNodeInfo {
 unsafe impl ::windows::core::Interface for IGetClusterNodeInfo {
     type Vtable = IGetClusterNodeInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x97dede53_fc6b_11cf_b5f5_00a0c90ab505);
-}
-pub trait IGetClusterNodeInfoImpl {
-    fn GetNodeHandle();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9381,10 +9364,6 @@ impl ::core::fmt::Debug for IGetClusterObjectInfo {
 unsafe impl ::windows::core::Interface for IGetClusterObjectInfo {
     type Vtable = IGetClusterObjectInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x97dede52_fc6b_11cf_b5f5_00a0c90ab505);
-}
-pub trait IGetClusterObjectInfoImpl {
-    fn GetObjectName();
-    fn GetObjectType();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9454,11 +9433,6 @@ impl ::core::fmt::Debug for IGetClusterResourceInfo {
 unsafe impl ::windows::core::Interface for IGetClusterResourceInfo {
     type Vtable = IGetClusterResourceInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x97dede55_fc6b_11cf_b5f5_00a0c90ab505);
-}
-pub trait IGetClusterResourceInfoImpl {
-    fn GetResourceHandle();
-    fn GetResourceTypeName();
-    fn GetResourceNetworkName();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9535,12 +9509,6 @@ impl ::core::fmt::Debug for IGetClusterUIInfo {
 unsafe impl ::windows::core::Interface for IGetClusterUIInfo {
     type Vtable = IGetClusterUIInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x97dede50_fc6b_11cf_b5f5_00a0c90ab505);
-}
-pub trait IGetClusterUIInfoImpl {
-    fn GetClusterName();
-    fn GetLocale();
-    fn GetFont();
-    fn GetIcon();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9663,12 +9631,6 @@ impl ::core::fmt::Debug for ISClusApplication {
 unsafe impl ::windows::core::Interface for ISClusApplication {
     type Vtable = ISClusApplicationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf2e606e6_2631_11d1_89f1_00a0c90d061e);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait ISClusApplicationImpl: IDispatchImpl {
-    fn DomainNames();
-    fn ClusterNames();
-    fn OpenCluster();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9811,15 +9773,6 @@ unsafe impl ::windows::core::Interface for ISClusCryptoKeys {
     type Vtable = ISClusCryptoKeysVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf2e6072c_2631_11d1_89f1_00a0c90d061e);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait ISClusCryptoKeysImpl: IDispatchImpl {
-    fn Count();
-    fn _NewEnum();
-    fn Refresh();
-    fn Item();
-    fn AddItem();
-    fn RemoveItem();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISClusCryptoKeysVtbl(
@@ -9955,13 +9908,6 @@ unsafe impl ::windows::core::Interface for ISClusDisk {
     type Vtable = ISClusDiskVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf2e60724_2631_11d1_89f1_00a0c90d061e);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait ISClusDiskImpl: IDispatchImpl {
-    fn Signature();
-    fn ScsiAddress();
-    fn DiskNumber();
-    fn Partitions();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISClusDiskVtbl(
@@ -10087,12 +10033,6 @@ impl ::core::fmt::Debug for ISClusDisks {
 unsafe impl ::windows::core::Interface for ISClusDisks {
     type Vtable = ISClusDisksVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf2e60726_2631_11d1_89f1_00a0c90d061e);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait ISClusDisksImpl: IDispatchImpl {
-    fn Count();
-    fn _NewEnum();
-    fn Item();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -10245,17 +10185,6 @@ unsafe impl ::windows::core::Interface for ISClusNetInterface {
     type Vtable = ISClusNetInterfaceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf2e606ee_2631_11d1_89f1_00a0c90d061e);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait ISClusNetInterfaceImpl: IDispatchImpl {
-    fn CommonProperties();
-    fn PrivateProperties();
-    fn CommonROProperties();
-    fn PrivateROProperties();
-    fn Name();
-    fn Handle();
-    fn State();
-    fn Cluster();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISClusNetInterfaceVtbl(
@@ -10390,13 +10319,6 @@ impl ::core::fmt::Debug for ISClusNetInterfaces {
 unsafe impl ::windows::core::Interface for ISClusNetInterfaces {
     type Vtable = ISClusNetInterfacesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf2e606f0_2631_11d1_89f1_00a0c90d061e);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait ISClusNetInterfacesImpl: IDispatchImpl {
-    fn Count();
-    fn _NewEnum();
-    fn Refresh();
-    fn Item();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -10566,20 +10488,6 @@ unsafe impl ::windows::core::Interface for ISClusNetwork {
     type Vtable = ISClusNetworkVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf2e606f2_2631_11d1_89f1_00a0c90d061e);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait ISClusNetworkImpl: IDispatchImpl {
-    fn CommonProperties();
-    fn PrivateProperties();
-    fn CommonROProperties();
-    fn PrivateROProperties();
-    fn Handle();
-    fn Name();
-    fn SetName();
-    fn NetworkID();
-    fn State();
-    fn NetInterfaces();
-    fn Cluster();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISClusNetworkVtbl(
@@ -10720,13 +10628,6 @@ unsafe impl ::windows::core::Interface for ISClusNetworkNetInterfaces {
     type Vtable = ISClusNetworkNetInterfacesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf2e606f6_2631_11d1_89f1_00a0c90d061e);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait ISClusNetworkNetInterfacesImpl: IDispatchImpl {
-    fn Count();
-    fn _NewEnum();
-    fn Refresh();
-    fn Item();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISClusNetworkNetInterfacesVtbl(
@@ -10857,13 +10758,6 @@ impl ::core::fmt::Debug for ISClusNetworks {
 unsafe impl ::windows::core::Interface for ISClusNetworks {
     type Vtable = ISClusNetworksVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf2e606f4_2631_11d1_89f1_00a0c90d061e);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait ISClusNetworksImpl: IDispatchImpl {
-    fn Count();
-    fn _NewEnum();
-    fn Refresh();
-    fn Item();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -11045,23 +10939,6 @@ unsafe impl ::windows::core::Interface for ISClusNode {
     type Vtable = ISClusNodeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf2e606f8_2631_11d1_89f1_00a0c90d061e);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait ISClusNodeImpl: IDispatchImpl {
-    fn CommonProperties();
-    fn PrivateProperties();
-    fn CommonROProperties();
-    fn PrivateROProperties();
-    fn Name();
-    fn Handle();
-    fn NodeID();
-    fn State();
-    fn Pause();
-    fn Resume();
-    fn Evict();
-    fn ResourceGroups();
-    fn Cluster();
-    fn NetInterfaces();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISClusNodeVtbl(
@@ -11204,13 +11081,6 @@ unsafe impl ::windows::core::Interface for ISClusNodeNetInterfaces {
     type Vtable = ISClusNodeNetInterfacesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf2e606fc_2631_11d1_89f1_00a0c90d061e);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait ISClusNodeNetInterfacesImpl: IDispatchImpl {
-    fn Count();
-    fn _NewEnum();
-    fn Refresh();
-    fn Item();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISClusNodeNetInterfacesVtbl(
@@ -11341,13 +11211,6 @@ impl ::core::fmt::Debug for ISClusNodes {
 unsafe impl ::windows::core::Interface for ISClusNodes {
     type Vtable = ISClusNodesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf2e606fa_2631_11d1_89f1_00a0c90d061e);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait ISClusNodesImpl: IDispatchImpl {
-    fn Count();
-    fn _NewEnum();
-    fn Refresh();
-    fn Item();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -11497,16 +11360,6 @@ impl ::core::fmt::Debug for ISClusPartition {
 unsafe impl ::windows::core::Interface for ISClusPartition {
     type Vtable = ISClusPartitionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf2e60720_2631_11d1_89f1_00a0c90d061e);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait ISClusPartitionImpl: IDispatchImpl {
-    fn Flags();
-    fn DeviceName();
-    fn VolumeLabel();
-    fn SerialNumber();
-    fn MaximumComponentLength();
-    fn FileSystemFlags();
-    fn FileSystem();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -11708,14 +11561,6 @@ unsafe impl ::windows::core::Interface for ISClusPartitionEx {
     type Vtable = ISClusPartitionExVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8802d4fe_b32e_4ad1_9dbd_64f18e1166ce);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait ISClusPartitionExImpl: ISClusPartitionImpl + IDispatchImpl {
-    fn TotalSize();
-    fn FreeSpace();
-    fn DeviceNumber();
-    fn PartitionNumber();
-    fn VolumeGuid();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISClusPartitionExVtbl(
@@ -11853,12 +11698,6 @@ impl ::core::fmt::Debug for ISClusPartitions {
 unsafe impl ::windows::core::Interface for ISClusPartitions {
     type Vtable = ISClusPartitionsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf2e60722_2631_11d1_89f1_00a0c90d061e);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait ISClusPartitionsImpl: IDispatchImpl {
-    fn Count();
-    fn _NewEnum();
-    fn Item();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -12030,20 +11869,6 @@ impl ::core::fmt::Debug for ISClusProperties {
 unsafe impl ::windows::core::Interface for ISClusProperties {
     type Vtable = ISClusPropertiesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf2e60700_2631_11d1_89f1_00a0c90d061e);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait ISClusPropertiesImpl: IDispatchImpl {
-    fn Count();
-    fn _NewEnum();
-    fn Refresh();
-    fn Item();
-    fn CreateItem();
-    fn UseDefaultValue();
-    fn SaveChanges();
-    fn ReadOnly();
-    fn Private();
-    fn Common();
-    fn Modified();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -12248,24 +12073,6 @@ unsafe impl ::windows::core::Interface for ISClusProperty {
     type Vtable = ISClusPropertyVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf2e606fe_2631_11d1_89f1_00a0c90d061e);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait ISClusPropertyImpl: IDispatchImpl {
-    fn Name();
-    fn Length();
-    fn ValueCount();
-    fn Values();
-    fn Value();
-    fn SetValue();
-    fn Type();
-    fn SetType();
-    fn Format();
-    fn SetFormat();
-    fn ReadOnly();
-    fn Private();
-    fn Common();
-    fn Modified();
-    fn UseDefaultValue();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISClusPropertyVtbl(
@@ -12438,18 +12245,6 @@ unsafe impl ::windows::core::Interface for ISClusPropertyValue {
     type Vtable = ISClusPropertyValueVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf2e6071a_2631_11d1_89f1_00a0c90d061e);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait ISClusPropertyValueImpl: IDispatchImpl {
-    fn Value();
-    fn SetValue();
-    fn Type();
-    fn SetType();
-    fn Format();
-    fn SetFormat();
-    fn Length();
-    fn DataCount();
-    fn Data();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISClusPropertyValueVtbl(
@@ -12594,14 +12389,6 @@ unsafe impl ::windows::core::Interface for ISClusPropertyValueData {
     type Vtable = ISClusPropertyValueDataVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf2e6071e_2631_11d1_89f1_00a0c90d061e);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait ISClusPropertyValueDataImpl: IDispatchImpl {
-    fn Count();
-    fn _NewEnum();
-    fn Item();
-    fn CreateItem();
-    fn RemoveItem();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISClusPropertyValueDataVtbl(
@@ -12743,14 +12530,6 @@ unsafe impl ::windows::core::Interface for ISClusPropertyValues {
     type Vtable = ISClusPropertyValuesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf2e6071c_2631_11d1_89f1_00a0c90d061e);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait ISClusPropertyValuesImpl: IDispatchImpl {
-    fn Count();
-    fn _NewEnum();
-    fn Item();
-    fn CreateItem();
-    fn RemoveItem();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISClusPropertyValuesVtbl(
@@ -12869,10 +12648,6 @@ impl ::core::fmt::Debug for ISClusRefObject {
 unsafe impl ::windows::core::Interface for ISClusRefObject {
     type Vtable = ISClusRefObjectVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf2e60702_2631_11d1_89f1_00a0c90d061e);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait ISClusRefObjectImpl: IDispatchImpl {
-    fn Handle();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -13010,15 +12785,6 @@ impl ::core::fmt::Debug for ISClusRegistryKeys {
 unsafe impl ::windows::core::Interface for ISClusRegistryKeys {
     type Vtable = ISClusRegistryKeysVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf2e6072a_2631_11d1_89f1_00a0c90d061e);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait ISClusRegistryKeysImpl: IDispatchImpl {
-    fn Count();
-    fn _NewEnum();
-    fn Refresh();
-    fn Item();
-    fn AddItem();
-    fn RemoveItem();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -13174,17 +12940,6 @@ impl ::core::fmt::Debug for ISClusResDependencies {
 unsafe impl ::windows::core::Interface for ISClusResDependencies {
     type Vtable = ISClusResDependenciesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf2e60704_2631_11d1_89f1_00a0c90d061e);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait ISClusResDependenciesImpl: IDispatchImpl {
-    fn Count();
-    fn _NewEnum();
-    fn Refresh();
-    fn Item();
-    fn CreateItem();
-    fn DeleteItem();
-    fn AddItem();
-    fn RemoveItem();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -13343,17 +13098,6 @@ impl ::core::fmt::Debug for ISClusResDependents {
 unsafe impl ::windows::core::Interface for ISClusResDependents {
     type Vtable = ISClusResDependentsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf2e6072e_2631_11d1_89f1_00a0c90d061e);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait ISClusResDependentsImpl: IDispatchImpl {
-    fn Count();
-    fn _NewEnum();
-    fn Refresh();
-    fn Item();
-    fn CreateItem();
-    fn DeleteItem();
-    fn AddItem();
-    fn RemoveItem();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -13556,25 +13300,6 @@ unsafe impl ::windows::core::Interface for ISClusResGroup {
     type Vtable = ISClusResGroupVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf2e60706_2631_11d1_89f1_00a0c90d061e);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait ISClusResGroupImpl: IDispatchImpl {
-    fn CommonProperties();
-    fn PrivateProperties();
-    fn CommonROProperties();
-    fn PrivateROProperties();
-    fn Handle();
-    fn Name();
-    fn SetName();
-    fn State();
-    fn OwnerNode();
-    fn Resources();
-    fn PreferredOwnerNodes();
-    fn Delete();
-    fn Online();
-    fn Move();
-    fn Offline();
-    fn Cluster();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISClusResGroupVtbl(
@@ -13745,18 +13470,6 @@ unsafe impl ::windows::core::Interface for ISClusResGroupPreferredOwnerNodes {
     type Vtable = ISClusResGroupPreferredOwnerNodesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf2e606e8_2631_11d1_89f1_00a0c90d061e);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait ISClusResGroupPreferredOwnerNodesImpl: IDispatchImpl {
-    fn Count();
-    fn _NewEnum();
-    fn Refresh();
-    fn Item();
-    fn InsertItem();
-    fn RemoveItem();
-    fn Modified();
-    fn SaveChanges();
-    fn AddItem();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISClusResGroupPreferredOwnerNodesVtbl(
@@ -13906,15 +13619,6 @@ unsafe impl ::windows::core::Interface for ISClusResGroupResources {
     type Vtable = ISClusResGroupResourcesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf2e606ea_2631_11d1_89f1_00a0c90d061e);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait ISClusResGroupResourcesImpl: IDispatchImpl {
-    fn Count();
-    fn _NewEnum();
-    fn Refresh();
-    fn Item();
-    fn CreateItem();
-    fn DeleteItem();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISClusResGroupResourcesVtbl(
@@ -14060,15 +13764,6 @@ impl ::core::fmt::Debug for ISClusResGroups {
 unsafe impl ::windows::core::Interface for ISClusResGroups {
     type Vtable = ISClusResGroupsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf2e60708_2631_11d1_89f1_00a0c90d061e);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait ISClusResGroupsImpl: IDispatchImpl {
-    fn Count();
-    fn _NewEnum();
-    fn Refresh();
-    fn Item();
-    fn CreateItem();
-    fn DeleteItem();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -14219,16 +13914,6 @@ impl ::core::fmt::Debug for ISClusResPossibleOwnerNodes {
 unsafe impl ::windows::core::Interface for ISClusResPossibleOwnerNodes {
     type Vtable = ISClusResPossibleOwnerNodesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf2e6070e_2631_11d1_89f1_00a0c90d061e);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait ISClusResPossibleOwnerNodesImpl: IDispatchImpl {
-    fn Count();
-    fn _NewEnum();
-    fn Refresh();
-    fn Item();
-    fn AddItem();
-    fn RemoveItem();
-    fn Modified();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -14396,19 +14081,6 @@ unsafe impl ::windows::core::Interface for ISClusResType {
     type Vtable = ISClusResTypeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf2e60710_2631_11d1_89f1_00a0c90d061e);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait ISClusResTypeImpl: IDispatchImpl {
-    fn CommonProperties();
-    fn PrivateProperties();
-    fn CommonROProperties();
-    fn PrivateROProperties();
-    fn Name();
-    fn Delete();
-    fn Cluster();
-    fn Resources();
-    fn PossibleOwnerNodes();
-    fn AvailableDisks();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISClusResTypeVtbl(
@@ -14545,13 +14217,6 @@ impl ::core::fmt::Debug for ISClusResTypePossibleOwnerNodes {
 unsafe impl ::windows::core::Interface for ISClusResTypePossibleOwnerNodes {
     type Vtable = ISClusResTypePossibleOwnerNodesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf2e60718_2631_11d1_89f1_00a0c90d061e);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait ISClusResTypePossibleOwnerNodesImpl: IDispatchImpl {
-    fn Count();
-    fn _NewEnum();
-    fn Refresh();
-    fn Item();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -14694,15 +14359,6 @@ impl ::core::fmt::Debug for ISClusResTypeResources {
 unsafe impl ::windows::core::Interface for ISClusResTypeResources {
     type Vtable = ISClusResTypeResourcesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf2e60714_2631_11d1_89f1_00a0c90d061e);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait ISClusResTypeResourcesImpl: IDispatchImpl {
-    fn Count();
-    fn _NewEnum();
-    fn Refresh();
-    fn Item();
-    fn CreateItem();
-    fn DeleteItem();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -14849,15 +14505,6 @@ impl ::core::fmt::Debug for ISClusResTypes {
 unsafe impl ::windows::core::Interface for ISClusResTypes {
     type Vtable = ISClusResTypesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf2e60712_2631_11d1_89f1_00a0c90d061e);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait ISClusResTypesImpl: IDispatchImpl {
-    fn Count();
-    fn _NewEnum();
-    fn Refresh();
-    fn Item();
-    fn CreateItem();
-    fn DeleteItem();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -15135,41 +14782,6 @@ unsafe impl ::windows::core::Interface for ISClusResource {
     type Vtable = ISClusResourceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf2e6070a_2631_11d1_89f1_00a0c90d061e);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait ISClusResourceImpl: IDispatchImpl {
-    fn CommonProperties();
-    fn PrivateProperties();
-    fn CommonROProperties();
-    fn PrivateROProperties();
-    fn Handle();
-    fn Name();
-    fn SetName();
-    fn State();
-    fn CoreFlag();
-    fn BecomeQuorumResource();
-    fn Delete();
-    fn Fail();
-    fn Online();
-    fn Offline();
-    fn ChangeResourceGroup();
-    fn AddResourceNode();
-    fn RemoveResourceNode();
-    fn CanResourceBeDependent();
-    fn PossibleOwnerNodes();
-    fn Dependencies();
-    fn Dependents();
-    fn Group();
-    fn OwnerNode();
-    fn Cluster();
-    fn ClassInfo();
-    fn Disk();
-    fn RegistryKeys();
-    fn CryptoKeys();
-    fn TypeName();
-    fn Type();
-    fn MaintenanceMode();
-    fn SetMaintenanceMode();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISClusResourceVtbl(
@@ -15348,15 +14960,6 @@ unsafe impl ::windows::core::Interface for ISClusResources {
     type Vtable = ISClusResourcesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf2e6070c_2631_11d1_89f1_00a0c90d061e);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait ISClusResourcesImpl: IDispatchImpl {
-    fn Count();
-    fn _NewEnum();
-    fn Refresh();
-    fn Item();
-    fn CreateItem();
-    fn DeleteItem();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISClusResourcesVtbl(
@@ -15495,13 +15098,6 @@ impl ::core::fmt::Debug for ISClusScsiAddress {
 unsafe impl ::windows::core::Interface for ISClusScsiAddress {
     type Vtable = ISClusScsiAddressVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf2e60728_2631_11d1_89f1_00a0c90d061e);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait ISClusScsiAddressImpl: IDispatchImpl {
-    fn PortNumber();
-    fn PathId();
-    fn TargetId();
-    fn Lun();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -15670,19 +15266,6 @@ impl ::core::fmt::Debug for ISClusVersion {
 unsafe impl ::windows::core::Interface for ISClusVersion {
     type Vtable = ISClusVersionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf2e60716_2631_11d1_89f1_00a0c90d061e);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait ISClusVersionImpl: IDispatchImpl {
-    fn Name();
-    fn MajorVersion();
-    fn MinorVersion();
-    fn BuildNumber();
-    fn VendorId();
-    fn CSDVersion();
-    fn ClusterHighestVersion();
-    fn ClusterLowestVersion();
-    fn Flags();
-    fn MixedVersion();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -15909,30 +15492,6 @@ unsafe impl ::windows::core::Interface for ISCluster {
     type Vtable = ISClusterVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf2e606e4_2631_11d1_89f1_00a0c90d061e);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait ISClusterImpl: IDispatchImpl {
-    fn CommonProperties();
-    fn PrivateProperties();
-    fn CommonROProperties();
-    fn PrivateROProperties();
-    fn Handle();
-    fn Open();
-    fn Name();
-    fn SetName();
-    fn Version();
-    fn SetQuorumResource();
-    fn QuorumResource();
-    fn QuorumLogSize();
-    fn SetQuorumLogSize();
-    fn QuorumPath();
-    fn SetQuorumPath();
-    fn Nodes();
-    fn ResourceGroups();
-    fn Resources();
-    fn ResourceTypes();
-    fn Networks();
-    fn NetInterfaces();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISClusterVtbl(
@@ -16091,14 +15650,6 @@ unsafe impl ::windows::core::Interface for ISClusterNames {
     type Vtable = ISClusterNamesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf2e606ec_2631_11d1_89f1_00a0c90d061e);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait ISClusterNamesImpl: IDispatchImpl {
-    fn Count();
-    fn _NewEnum();
-    fn Refresh();
-    fn Item();
-    fn DomainName();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISClusterNamesVtbl(
@@ -16232,13 +15783,6 @@ unsafe impl ::windows::core::Interface for ISDomainNames {
     type Vtable = ISDomainNamesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf2e606e2_2631_11d1_89f1_00a0c90d061e);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait ISDomainNamesImpl: IDispatchImpl {
-    fn Count();
-    fn _NewEnum();
-    fn Refresh();
-    fn Item();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISDomainNamesVtbl(
@@ -16309,9 +15853,6 @@ unsafe impl ::windows::core::Interface for IWCContextMenuCallback {
     type Vtable = IWCContextMenuCallbackVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x97dede64_fc6b_11cf_b5f5_00a0c90ab505);
 }
-pub trait IWCContextMenuCallbackImpl {
-    fn AddExtensionMenuItem();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWCContextMenuCallbackVtbl(
@@ -16370,9 +15911,6 @@ unsafe impl ::windows::core::Interface for IWCPropertySheetCallback {
     type Vtable = IWCPropertySheetCallbackVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x97dede60_fc6b_11cf_b5f5_00a0c90ab505);
 }
-pub trait IWCPropertySheetCallbackImpl {
-    fn AddPropertySheetPage();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWCPropertySheetCallbackVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hpage: *const i32) -> ::windows::core::HRESULT);
@@ -16429,10 +15967,6 @@ impl ::core::fmt::Debug for IWCWizard97Callback {
 unsafe impl ::windows::core::Interface for IWCWizard97Callback {
     type Vtable = IWCWizard97CallbackVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x97dede67_fc6b_11cf_b5f5_00a0c90ab505);
-}
-pub trait IWCWizard97CallbackImpl {
-    fn AddWizard97Page();
-    fn EnableNext();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -16498,10 +16032,6 @@ unsafe impl ::windows::core::Interface for IWCWizardCallback {
     type Vtable = IWCWizardCallbackVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x97dede62_fc6b_11cf_b5f5_00a0c90ab505);
 }
-pub trait IWCWizardCallbackImpl {
-    fn AddWizardPage();
-    fn EnableNext();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWCWizardCallbackVtbl(
@@ -16561,9 +16091,6 @@ unsafe impl ::windows::core::Interface for IWEExtendContextMenu {
     type Vtable = IWEExtendContextMenuVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x97dede65_fc6b_11cf_b5f5_00a0c90ab505);
 }
-pub trait IWEExtendContextMenuImpl {
-    fn AddContextMenuItems();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWEExtendContextMenuVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pidata: *mut ::core::ffi::c_void, picallback: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
@@ -16615,9 +16142,6 @@ impl ::core::fmt::Debug for IWEExtendPropertySheet {
 unsafe impl ::windows::core::Interface for IWEExtendPropertySheet {
     type Vtable = IWEExtendPropertySheetVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x97dede61_fc6b_11cf_b5f5_00a0c90ab505);
-}
-pub trait IWEExtendPropertySheetImpl {
-    fn CreatePropertySheetPages();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -16671,9 +16195,6 @@ unsafe impl ::windows::core::Interface for IWEExtendWizard {
     type Vtable = IWEExtendWizardVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x97dede63_fc6b_11cf_b5f5_00a0c90ab505);
 }
-pub trait IWEExtendWizardImpl {
-    fn CreateWizardPages();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWEExtendWizardVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pidata: *mut ::core::ffi::c_void, picallback: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
@@ -16726,9 +16247,6 @@ unsafe impl ::windows::core::Interface for IWEExtendWizard97 {
     type Vtable = IWEExtendWizard97Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x97dede68_fc6b_11cf_b5f5_00a0c90ab505);
 }
-pub trait IWEExtendWizard97Impl {
-    fn CreateWizard97Pages();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWEExtendWizard97Vtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pidata: *mut ::core::ffi::c_void, picallback: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
@@ -16780,9 +16298,6 @@ impl ::core::fmt::Debug for IWEInvokeCommand {
 unsafe impl ::windows::core::Interface for IWEInvokeCommand {
     type Vtable = IWEInvokeCommandVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x97dede66_fc6b_11cf_b5f5_00a0c90ab505);
-}
-pub trait IWEInvokeCommandImpl {
-    fn InvokeCommand();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -21444,3 +20959,5 @@ pub struct _HRESENUMEX(pub u8);
 pub struct _HRESOURCE(pub u8);
 #[repr(C)]
 pub struct _HRESTYPEENUM(pub u8);
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

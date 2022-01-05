@@ -9438,3 +9438,5 @@ impl ::core::default::Default for WDIAG_IHV_WLAN_ID {
 }
 #[doc = "*Required features: 'Win32_NetworkManagement_Ndis'*"]
 pub const WDIAG_IHV_WLAN_ID_FLAG_SECURITY_ENABLED: u32 = 1u32;
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

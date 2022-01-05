@@ -297,18 +297,6 @@ unsafe impl ::windows::core::Interface for IDXCoreAdapter {
     type Vtable = IDXCoreAdapterVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf0db4c7f_fe5a_42a2_bd62_f2a6cf6fc83e);
 }
-pub trait IDXCoreAdapterImpl {
-    fn IsValid();
-    fn IsAttributeSupported();
-    fn IsPropertySupported();
-    fn GetProperty();
-    fn GetPropertySize();
-    fn IsQueryStateSupported();
-    fn QueryState();
-    fn IsSetStateSupported();
-    fn SetState();
-    fn GetFactory();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDXCoreAdapterVtbl(
@@ -395,13 +383,6 @@ unsafe impl ::windows::core::Interface for IDXCoreAdapterFactory {
     type Vtable = IDXCoreAdapterFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x78ee5945_c36e_4b13_a669_005dd11c0f06);
 }
-pub trait IDXCoreAdapterFactoryImpl {
-    fn CreateAdapterList();
-    fn GetAdapterByLuid();
-    fn IsNotificationTypeSupported();
-    fn RegisterEventNotification();
-    fn UnregisterEventNotification();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDXCoreAdapterFactoryVtbl(
@@ -486,14 +467,6 @@ unsafe impl ::windows::core::Interface for IDXCoreAdapterList {
     type Vtable = IDXCoreAdapterListVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x526c7776_40e9_459b_b711_f32ad76dfc28);
 }
-pub trait IDXCoreAdapterListImpl {
-    fn GetAdapter();
-    fn GetAdapterCount();
-    fn IsStale();
-    fn GetFactory();
-    fn Sort();
-    fn IsAdapterPreferenceSupported();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDXCoreAdapterListVtbl(
@@ -511,3 +484,5 @@ pub struct IDXCoreAdapterListVtbl(
 pub type PFN_DXCORE_NOTIFICATION_CALLBACK = ::core::option::Option<unsafe extern "system" fn(notificationtype: DXCoreNotificationType, object: ::core::option::Option<::windows::core::IUnknown>, context: *const ::core::ffi::c_void)>;
 #[doc = "*Required features: 'Win32_Graphics_DXCore'*"]
 pub const _FACDXCORE: u32 = 2176u32;
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

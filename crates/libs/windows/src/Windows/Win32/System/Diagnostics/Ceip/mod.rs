@@ -14,3 +14,5 @@ pub unsafe fn CeipIsOptedIn() -> super::super::super::Foundation::BOOL {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

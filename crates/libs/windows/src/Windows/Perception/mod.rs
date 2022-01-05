@@ -12,11 +12,6 @@ unsafe impl ::windows::core::Interface for IPerceptionTimestamp {
     type Vtable = IPerceptionTimestampVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x87c24804_a22e_4adb_ba26_d78ef639bcf4);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IPerceptionTimestampImpl {
-    fn TargetTime();
-    fn PredictionAmount();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPerceptionTimestampVtbl(
@@ -38,10 +33,6 @@ unsafe impl ::windows::core::Interface for IPerceptionTimestamp2 {
     type Vtable = IPerceptionTimestamp2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe354b7ed_2bd1_41b7_9ed0_74a15c354537);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IPerceptionTimestamp2Impl {
-    fn SystemRelativeTargetTime();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPerceptionTimestamp2Vtbl(
@@ -61,10 +52,6 @@ unsafe impl ::windows::core::Interface for IPerceptionTimestampHelperStatics {
     type Vtable = IPerceptionTimestampHelperStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x47a611d4_a9df_4edc_855d_f4d339d967ac);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IPerceptionTimestampHelperStaticsImpl {
-    fn FromHistoricalTargetTime();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPerceptionTimestampHelperStaticsVtbl(
@@ -83,10 +70,6 @@ pub struct IPerceptionTimestampHelperStatics2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPerceptionTimestampHelperStatics2 {
     type Vtable = IPerceptionTimestampHelperStatics2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x73d1a7fe_3fb9_4571_87d4_3c920a5e86eb);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IPerceptionTimestampHelperStatics2Impl {
-    fn FromSystemRelativeTargetTime();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -233,3 +216,5 @@ impl PerceptionTimestampHelper {
 impl ::windows::core::RuntimeName for PerceptionTimestampHelper {
     const NAME: &'static str = "Windows.Perception.PerceptionTimestampHelper";
 }
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

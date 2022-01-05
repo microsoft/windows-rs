@@ -471,17 +471,6 @@ unsafe impl ::windows::core::Interface for IEndpointPair {
     type Vtable = IEndpointPairVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x33a0aa36_f8fa_4b30_b856_76517c3bd06d);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IEndpointPairImpl {
-    fn LocalHostName();
-    fn SetLocalHostName();
-    fn LocalServiceName();
-    fn SetLocalServiceName();
-    fn RemoteHostName();
-    fn SetRemoteHostName();
-    fn RemoteServiceName();
-    fn SetRemoteServiceName();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEndpointPairVtbl(
@@ -507,10 +496,6 @@ unsafe impl ::windows::core::Interface for IEndpointPairFactory {
     type Vtable = IEndpointPairFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb609d971_64e0_442b_aa6f_cc8c8f181f78);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IEndpointPairFactoryImpl {
-    fn CreateEndpointPair();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEndpointPairFactoryVtbl(
@@ -528,15 +513,6 @@ pub struct IHostName(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IHostName {
     type Vtable = IHostNameVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbf8ecaad_ed96_49a7_9084_d416cae88dcb);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IHostNameImpl {
-    fn IPInformation();
-    fn RawName();
-    fn DisplayName();
-    fn CanonicalName();
-    fn Type();
-    fn IsEqual();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -562,10 +538,6 @@ unsafe impl ::windows::core::Interface for IHostNameFactory {
     type Vtable = IHostNameFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x458c23ed_712f_4576_adf1_c20b2c643558);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IHostNameFactoryImpl {
-    fn CreateHostName();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHostNameFactoryVtbl(
@@ -584,10 +556,6 @@ unsafe impl ::windows::core::Interface for IHostNameStatics {
     type Vtable = IHostNameStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf68cd4bf_a388_4e8b_91ea_54dd6dd901c0);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IHostNameStaticsImpl {
-    fn Compare();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHostNameStaticsVtbl(
@@ -599,3 +567,5 @@ pub struct IHostNameStaticsVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value1: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value2: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut i32) -> ::windows::core::HRESULT,
 );
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

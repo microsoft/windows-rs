@@ -6,17 +6,6 @@ unsafe impl ::windows::core::Interface for ILocalCategoriesStatics {
     type Vtable = ILocalCategoriesStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf49399f5_8261_4321_9974_ef92d49a8dca);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ILocalCategoriesStaticsImpl {
-    fn BankAndCreditUnions();
-    fn EatDrink();
-    fn Hospitals();
-    fn HotelsAndMotels();
-    fn All();
-    fn Parking();
-    fn SeeDo();
-    fn Shop();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILocalCategoriesStaticsVtbl(
@@ -41,16 +30,6 @@ pub struct ILocalLocation(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ILocalLocation {
     type Vtable = ILocalLocationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbb0fe9ab_4502_4f2c_94a9_0d60de0e2163);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ILocalLocationImpl {
-    fn Address();
-    fn Identifier();
-    fn Description();
-    fn DisplayName();
-    fn Point();
-    fn PhoneNumber();
-    fn DataAttribution();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -77,12 +56,6 @@ unsafe impl ::windows::core::Interface for ILocalLocation2 {
     type Vtable = ILocalLocation2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6e9e307c_ecb5_4ffc_bb8c_ba50ba8c2dc6);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ILocalLocation2Impl {
-    fn Category();
-    fn RatingInfo();
-    fn HoursOfOperation();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILocalLocation2Vtbl(
@@ -104,11 +77,6 @@ unsafe impl ::windows::core::Interface for ILocalLocationFinderResult {
     type Vtable = ILocalLocationFinderResultVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd09b6cc6_f338_4191_9fd8_5440b9a68f52);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ILocalLocationFinderResultImpl {
-    fn LocalLocations();
-    fn Status();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILocalLocationFinderResultVtbl(
@@ -129,10 +97,6 @@ unsafe impl ::windows::core::Interface for ILocalLocationFinderStatics {
     type Vtable = ILocalLocationFinderStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd2ef7344_a0de_48ca_81a8_07c7dcfd37ab);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ILocalLocationFinderStaticsImpl {
-    fn FindLocalLocationsAsync();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILocalLocationFinderStaticsVtbl(
@@ -151,12 +115,6 @@ pub struct ILocalLocationHoursOfOperationItem(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ILocalLocationHoursOfOperationItem {
     type Vtable = ILocalLocationHoursOfOperationItemVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x23548c72_a1c7_43f1_a4f0_1091c39ec640);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ILocalLocationHoursOfOperationItemImpl {
-    fn Day();
-    fn Start();
-    fn Span();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -181,12 +139,6 @@ unsafe impl ::windows::core::Interface for ILocalLocationRatingInfo {
     type Vtable = ILocalLocationRatingInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcb1dab56_3354_4311_8bc0_a2d4d5eb806e);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ILocalLocationRatingInfoImpl {
-    fn AggregateRating();
-    fn RatingCount();
-    fn ProviderIdentifier();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILocalLocationRatingInfoVtbl(
@@ -208,10 +160,6 @@ pub struct IPlaceInfoHelperStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPlaceInfoHelperStatics {
     type Vtable = IPlaceInfoHelperStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdd1ca9a7_a9c6_491b_bc09_e80fcea48ee6);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IPlaceInfoHelperStaticsImpl {
-    fn CreateFromLocalLocation();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -814,3 +762,5 @@ impl PlaceInfoHelper {
 impl ::windows::core::RuntimeName for PlaceInfoHelper {
     const NAME: &'static str = "Windows.Services.Maps.LocalSearch.PlaceInfoHelper";
 }
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

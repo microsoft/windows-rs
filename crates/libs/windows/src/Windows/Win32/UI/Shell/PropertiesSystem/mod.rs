@@ -125,9 +125,6 @@ unsafe impl ::windows::core::Interface for ICreateObject {
     type Vtable = ICreateObjectVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x75121952_e0d0_43e5_9380_1d80483acf72);
 }
-pub trait ICreateObjectImpl {
-    fn CreateObject();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICreateObjectVtbl(
@@ -216,9 +213,6 @@ unsafe impl ::windows::core::Interface for IDelayedPropertyStoreFactory {
     type Vtable = IDelayedPropertyStoreFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x40d4577f_e237_4bdb_bd69_58f089431b6a);
 }
-pub trait IDelayedPropertyStoreFactoryImpl: IPropertyStoreFactoryImpl {
-    fn GetDelayedPropertyStore();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDelayedPropertyStoreFactoryVtbl(
@@ -279,9 +273,6 @@ unsafe impl ::windows::core::Interface for IInitializeWithFile {
     type Vtable = IInitializeWithFileVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb7d14566_0509_4cce_a71f_0a554233bd9b);
 }
-pub trait IInitializeWithFileImpl {
-    fn Initialize();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInitializeWithFileVtbl(
@@ -340,9 +331,6 @@ impl ::core::fmt::Debug for IInitializeWithStream {
 unsafe impl ::windows::core::Interface for IInitializeWithStream {
     type Vtable = IInitializeWithStreamVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb824b49d_22ac_4161_ac8a_9916e8fa3f7f);
-}
-pub trait IInitializeWithStreamImpl {
-    fn Initialize();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -420,12 +408,6 @@ unsafe impl ::windows::core::Interface for INamedPropertyStore {
     type Vtable = INamedPropertyStoreVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x71604b0f_97b0_4764_8577_2f13e98a1422);
 }
-pub trait INamedPropertyStoreImpl {
-    fn GetNamedValue();
-    fn SetNamedValue();
-    fn GetNameCount();
-    fn GetNameAt();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct INamedPropertyStoreVtbl(
@@ -494,10 +476,6 @@ unsafe impl ::windows::core::Interface for IObjectWithPropertyKey {
     type Vtable = IObjectWithPropertyKeyVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfc0ca0a7_c316_4fd2_9031_3e628e6d4f23);
 }
-pub trait IObjectWithPropertyKeyImpl {
-    fn SetPropertyKey();
-    fn GetPropertyKey();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IObjectWithPropertyKeyVtbl(
@@ -563,11 +541,6 @@ impl ::core::fmt::Debug for IPersistSerializedPropStorage {
 unsafe impl ::windows::core::Interface for IPersistSerializedPropStorage {
     type Vtable = IPersistSerializedPropStorageVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe318ad57_0aa0_450f_aca5_6fab7103d917);
-}
-pub trait IPersistSerializedPropStorageImpl {
-    fn SetFlags();
-    fn SetPropertyStorage();
-    fn GetPropertyStorage();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -665,10 +638,6 @@ unsafe impl ::windows::core::Interface for IPersistSerializedPropStorage2 {
     type Vtable = IPersistSerializedPropStorage2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x77effa68_4f98_4366_ba72_573b3d880571);
 }
-pub trait IPersistSerializedPropStorage2Impl: IPersistSerializedPropStorageImpl {
-    fn GetPropertyStorageSize();
-    fn GetPropertyStorageBuffer();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPersistSerializedPropStorage2Vtbl(
@@ -761,9 +730,6 @@ unsafe impl ::windows::core::Interface for IPropertyChange {
     type Vtable = IPropertyChangeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf917bc8a_1bba_4478_a245_1bde03eb9431);
 }
-pub trait IPropertyChangeImpl: IObjectWithPropertyKeyImpl {
-    fn ApplyToPropVariant();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPropertyChangeVtbl(
@@ -849,15 +815,6 @@ impl ::core::fmt::Debug for IPropertyChangeArray {
 unsafe impl ::windows::core::Interface for IPropertyChangeArray {
     type Vtable = IPropertyChangeArrayVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x380f5cad_1b5e_42f2_805d_637fd392d31e);
-}
-pub trait IPropertyChangeArrayImpl {
-    fn GetCount();
-    fn GetAt();
-    fn InsertAt();
-    fn Append();
-    fn AppendOrReplace();
-    fn RemoveAt();
-    fn IsKeyInArray();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1027,29 +984,6 @@ impl ::core::fmt::Debug for IPropertyDescription {
 unsafe impl ::windows::core::Interface for IPropertyDescription {
     type Vtable = IPropertyDescriptionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6f79d558_3e96_4549_a1d1_7d75d2288814);
-}
-pub trait IPropertyDescriptionImpl {
-    fn GetPropertyKey();
-    fn GetCanonicalName();
-    fn GetPropertyType();
-    fn GetDisplayName();
-    fn GetEditInvitation();
-    fn GetTypeFlags();
-    fn GetViewFlags();
-    fn GetDefaultColumnWidth();
-    fn GetDisplayType();
-    fn GetColumnState();
-    fn GetGroupingRange();
-    fn GetRelativeDescriptionType();
-    fn GetRelativeDescription();
-    fn GetSortDescription();
-    fn GetSortDescriptionLabel();
-    fn GetAggregationType();
-    fn GetConditionType();
-    fn GetEnumTypeList();
-    fn CoerceToCanonicalValue();
-    fn FormatForDisplay();
-    fn IsValueCanonical();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1268,9 +1202,6 @@ impl ::core::fmt::Debug for IPropertyDescription2 {
 unsafe impl ::windows::core::Interface for IPropertyDescription2 {
     type Vtable = IPropertyDescription2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x57d2eded_5062_400e_b107_5dae79fe57a6);
-}
-pub trait IPropertyDescription2Impl: IPropertyDescriptionImpl {
-    fn GetImageReferenceForValue();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1496,10 +1427,6 @@ unsafe impl ::windows::core::Interface for IPropertyDescriptionAliasInfo {
     type Vtable = IPropertyDescriptionAliasInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf67104fc_2af9_46fd_b32d_243c1404f3d1);
 }
-pub trait IPropertyDescriptionAliasInfoImpl: IPropertyDescriptionImpl {
-    fn GetSortByAlias();
-    fn GetAdditionalSortByAliases();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPropertyDescriptionAliasInfoVtbl(
@@ -1593,10 +1520,6 @@ impl ::core::fmt::Debug for IPropertyDescriptionList {
 unsafe impl ::windows::core::Interface for IPropertyDescriptionList {
     type Vtable = IPropertyDescriptionListVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1f9fc1d0_c39b_4b26_817f_011967d3440e);
-}
-pub trait IPropertyDescriptionListImpl {
-    fn GetCount();
-    fn GetAt();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1787,9 +1710,6 @@ impl ::core::fmt::Debug for IPropertyDescriptionRelatedPropertyInfo {
 unsafe impl ::windows::core::Interface for IPropertyDescriptionRelatedPropertyInfo {
     type Vtable = IPropertyDescriptionRelatedPropertyInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x507393f4_2a3d_4a60_b59e_d9c75716c2dd);
-}
-pub trait IPropertyDescriptionRelatedPropertyInfoImpl: IPropertyDescriptionImpl {
-    fn GetRelatedProperty();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2026,12 +1946,6 @@ unsafe impl ::windows::core::Interface for IPropertyDescriptionSearchInfo {
     type Vtable = IPropertyDescriptionSearchInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x078f91bd_29a2_440f_924e_46a291524520);
 }
-pub trait IPropertyDescriptionSearchInfoImpl: IPropertyDescriptionImpl {
-    fn GetSearchInfoFlags();
-    fn GetColumnIndexType();
-    fn GetProjectionString();
-    fn GetMaxSize();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPropertyDescriptionSearchInfoVtbl(
@@ -2147,13 +2061,6 @@ impl ::core::fmt::Debug for IPropertyEnumType {
 unsafe impl ::windows::core::Interface for IPropertyEnumType {
     type Vtable = IPropertyEnumTypeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x11e1fbf9_2d56_4a6b_8db3_7cd193a471f2);
-}
-pub trait IPropertyEnumTypeImpl {
-    fn GetEnumType();
-    fn GetValue();
-    fn GetRangeMinValue();
-    fn GetRangeSetValue();
-    fn GetDisplayText();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2271,9 +2178,6 @@ unsafe impl ::windows::core::Interface for IPropertyEnumType2 {
     type Vtable = IPropertyEnumType2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9b6e051c_5ddd_4321_9070_fe2acb55e794);
 }
-pub trait IPropertyEnumType2Impl: IPropertyEnumTypeImpl {
-    fn GetImageReference();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPropertyEnumType2Vtbl(
@@ -2358,12 +2262,6 @@ unsafe impl ::windows::core::Interface for IPropertyEnumTypeList {
     type Vtable = IPropertyEnumTypeListVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa99400f4_3d84_4557_94ba_1242fb2cc9a6);
 }
-pub trait IPropertyEnumTypeListImpl {
-    fn GetCount();
-    fn GetAt();
-    fn GetConditionAt();
-    fn FindMatchingIndex();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPropertyEnumTypeListVtbl(
@@ -2445,13 +2343,6 @@ impl ::core::fmt::Debug for IPropertyStore {
 unsafe impl ::windows::core::Interface for IPropertyStore {
     type Vtable = IPropertyStoreVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x886d8eeb_8cf2_4446_8d02_cdba1dbdcf99);
-}
-pub trait IPropertyStoreImpl {
-    fn GetCount();
-    fn GetAt();
-    fn GetValue();
-    fn SetValue();
-    fn Commit();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2576,12 +2467,6 @@ unsafe impl ::windows::core::Interface for IPropertyStoreCache {
     type Vtable = IPropertyStoreCacheVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3017056d_9a91_4e90_937d_746c72abbf4f);
 }
-pub trait IPropertyStoreCacheImpl: IPropertyStoreImpl {
-    fn GetState();
-    fn GetValueAndState();
-    fn SetState();
-    fn SetValueAndState();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPropertyStoreCacheVtbl(
@@ -2651,9 +2536,6 @@ unsafe impl ::windows::core::Interface for IPropertyStoreCapabilities {
     type Vtable = IPropertyStoreCapabilitiesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc8e2d566_186e_4d49_bf41_6909ead56acc);
 }
-pub trait IPropertyStoreCapabilitiesImpl {
-    fn IsPropertyWritable();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPropertyStoreCapabilitiesVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, key: *const PROPERTYKEY) -> ::windows::core::HRESULT);
@@ -2711,10 +2593,6 @@ impl ::core::fmt::Debug for IPropertyStoreFactory {
 unsafe impl ::windows::core::Interface for IPropertyStoreFactory {
     type Vtable = IPropertyStoreFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbc110b6d_57e8_4148_a9c6_91015ab2f3a5);
-}
-pub trait IPropertyStoreFactoryImpl {
-    fn GetPropertyStore();
-    fn GetPropertyStoreForKeys();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2817,17 +2695,6 @@ unsafe impl ::windows::core::Interface for IPropertySystem {
     type Vtable = IPropertySystemVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xca724e8a_c3e6_442b_88a4_6fb0db8035a3);
 }
-pub trait IPropertySystemImpl {
-    fn GetPropertyDescription();
-    fn GetPropertyDescriptionByName();
-    fn GetPropertyDescriptionListFromString();
-    fn EnumeratePropertyDescriptions();
-    fn FormatForDisplay();
-    fn FormatForDisplayAlloc();
-    fn RegisterPropertySchema();
-    fn UnregisterPropertySchema();
-    fn RefreshPropertySchema();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPropertySystemVtbl(
@@ -2898,9 +2765,6 @@ impl ::core::fmt::Debug for IPropertySystemChangeNotify {
 unsafe impl ::windows::core::Interface for IPropertySystemChangeNotify {
     type Vtable = IPropertySystemChangeNotifyVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfa955fd9_38be_4879_a6ce_824cf52d609f);
-}
-pub trait IPropertySystemChangeNotifyImpl {
-    fn SchemaRefreshed();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2989,16 +2853,6 @@ impl ::core::fmt::Debug for IPropertyUI {
 unsafe impl ::windows::core::Interface for IPropertyUI {
     type Vtable = IPropertyUIVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x757a7d9f_919a_4118_99d7_dbb208c8cc66);
-}
-pub trait IPropertyUIImpl {
-    fn ParsePropertyName();
-    fn GetCannonicalName();
-    fn GetDisplayName();
-    fn GetPropertyDescription();
-    fn GetDefaultWidth();
-    fn GetFlags();
-    fn FormatForDisplay();
-    fn GetHelpInfo();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7002,3 +6856,5 @@ pub const FPSPS_DEFAULT: _PERSIST_SPROPSTORE_FLAGS = 0i32;
 pub const FPSPS_READONLY: _PERSIST_SPROPSTORE_FLAGS = 1i32;
 #[doc = "*Required features: 'Win32_UI_Shell_PropertiesSystem'*"]
 pub const FPSPS_TREAT_NEW_VALUES_AS_DIRTY: _PERSIST_SPROPSTORE_FLAGS = 2i32;
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

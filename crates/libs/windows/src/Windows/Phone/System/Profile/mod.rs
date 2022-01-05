@@ -8,10 +8,6 @@ unsafe impl ::windows::core::Interface for IRetailModeStatics {
     type Vtable = IRetailModeStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd7ded029_fdda_43e7_93fb_e53ab6e89ec3);
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
-pub trait IRetailModeStaticsImpl {
-    fn RetailModeEnabled();
-}
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
@@ -49,3 +45,5 @@ impl RetailMode {
 impl ::windows::core::RuntimeName for RetailMode {
     const NAME: &'static str = "Windows.Phone.System.Profile.RetailMode";
 }
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

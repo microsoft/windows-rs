@@ -50,9 +50,6 @@ unsafe impl ::windows::core::Interface for ILearningModelDeviceFactoryNative {
     type Vtable = ILearningModelDeviceFactoryNativeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1e9b31a1_662e_4ae0_af67_f63bb337e634);
 }
-pub trait ILearningModelDeviceFactoryNativeImpl {
-    fn CreateFromD3D12CommandQueue();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILearningModelDeviceFactoryNativeVtbl(
@@ -113,9 +110,6 @@ unsafe impl ::windows::core::Interface for ILearningModelOperatorProviderNative 
     type Vtable = ILearningModelOperatorProviderNativeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1adaa23a_eb67_41f3_aad8_5d984e9bacd4);
 }
-pub trait ILearningModelOperatorProviderNativeImpl {
-    fn GetRegistry();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILearningModelOperatorProviderNativeVtbl(
@@ -174,9 +168,6 @@ unsafe impl ::windows::core::Interface for ILearningModelSessionOptionsNative {
     type Vtable = ILearningModelSessionOptionsNativeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc71e953f_37b4_4564_8658_d8396866db0d);
 }
-pub trait ILearningModelSessionOptionsNativeImpl {
-    fn SetIntraOpNumThreadsOverride();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILearningModelSessionOptionsNativeVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, intraopnumthreads: u32) -> ::windows::core::HRESULT);
@@ -234,10 +225,6 @@ impl ::core::fmt::Debug for ITensorNative {
 unsafe impl ::windows::core::Interface for ITensorNative {
     type Vtable = ITensorNativeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x52f547ef_5b03_49b5_82d6_565f1ee0dd49);
-}
-pub trait ITensorNativeImpl {
-    fn GetBuffer();
-    fn GetD3D12Resource();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -299,9 +286,6 @@ unsafe impl ::windows::core::Interface for ITensorStaticsNative {
     type Vtable = ITensorStaticsNativeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x39d055a4_66f6_4ebc_95d9_7a29ebe7690a);
 }
-pub trait ITensorStaticsNativeImpl {
-    fn CreateFromD3D12Resource();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITensorStaticsNativeVtbl(
@@ -311,3 +295,5 @@ pub struct ITensorStaticsNativeVtbl(
     #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, shape: *mut i64, shapecount: i32, result: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
 );
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

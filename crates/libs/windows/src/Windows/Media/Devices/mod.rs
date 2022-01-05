@@ -3460,11 +3460,6 @@ unsafe impl ::windows::core::Interface for IAdvancedPhotoCaptureSettings {
     type Vtable = IAdvancedPhotoCaptureSettingsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x08f3863a_0018_445b_93d2_646d1c5ed05c);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IAdvancedPhotoCaptureSettingsImpl {
-    fn Mode();
-    fn SetMode();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAdvancedPhotoCaptureSettingsVtbl(
@@ -3483,13 +3478,6 @@ pub struct IAdvancedPhotoControl(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAdvancedPhotoControl {
     type Vtable = IAdvancedPhotoControlVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc5b15486_9001_4682_9309_68eae0080eec);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IAdvancedPhotoControlImpl {
-    fn Supported();
-    fn SupportedModes();
-    fn Mode();
-    fn Configure();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3513,11 +3501,6 @@ unsafe impl ::windows::core::Interface for IAdvancedVideoCaptureDeviceController
     type Vtable = IAdvancedVideoCaptureDeviceControllerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xde6ff4d3_2b96_4583_80ab_b5b01dc6a8d7);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IAdvancedVideoCaptureDeviceControllerImpl {
-    fn SetDeviceProperty();
-    fn GetDeviceProperty();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAdvancedVideoCaptureDeviceControllerVtbl(
@@ -3537,10 +3520,6 @@ unsafe impl ::windows::core::Interface for IAdvancedVideoCaptureDeviceController
     type Vtable = IAdvancedVideoCaptureDeviceController10Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc621b82d_d6f0_5c1b_a388_a6e938407146);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IAdvancedVideoCaptureDeviceController10Impl {
-    fn CameraOcclusionInfo();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAdvancedVideoCaptureDeviceController10Vtbl(
@@ -3558,22 +3537,6 @@ pub struct IAdvancedVideoCaptureDeviceController2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAdvancedVideoCaptureDeviceController2 {
     type Vtable = IAdvancedVideoCaptureDeviceController2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8bb94f8f_f11a_43db_b402_11930b80ae56);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IAdvancedVideoCaptureDeviceController2Impl {
-    fn LowLagPhotoSequence();
-    fn LowLagPhoto();
-    fn SceneModeControl();
-    fn TorchControl();
-    fn FlashControl();
-    fn WhiteBalanceControl();
-    fn ExposureControl();
-    fn FocusControl();
-    fn ExposureCompensationControl();
-    fn IsoSpeedControl();
-    fn RegionsOfInterestControl();
-    fn PrimaryUse();
-    fn SetPrimaryUse();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3605,12 +3568,6 @@ unsafe impl ::windows::core::Interface for IAdvancedVideoCaptureDeviceController
     type Vtable = IAdvancedVideoCaptureDeviceController3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa98b8f34_ee0d_470c_b9f0_4229c4bbd089);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IAdvancedVideoCaptureDeviceController3Impl {
-    fn VariablePhotoSequenceController();
-    fn PhotoConfirmationControl();
-    fn ZoomControl();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAdvancedVideoCaptureDeviceController3Vtbl(
@@ -3631,15 +3588,6 @@ pub struct IAdvancedVideoCaptureDeviceController4(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAdvancedVideoCaptureDeviceController4 {
     type Vtable = IAdvancedVideoCaptureDeviceController4Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xea9fbfaf_d371_41c3_9a17_824a87ebdfd2);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IAdvancedVideoCaptureDeviceController4Impl {
-    fn ExposurePriorityVideoControl();
-    fn DesiredOptimization();
-    fn SetDesiredOptimization();
-    fn HdrVideoControl();
-    fn OpticalImageStabilizationControl();
-    fn AdvancedPhotoControl();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3663,14 +3611,6 @@ pub struct IAdvancedVideoCaptureDeviceController5(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAdvancedVideoCaptureDeviceController5 {
     type Vtable = IAdvancedVideoCaptureDeviceController5Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x33512b17_b9cb_4a23_b875_f9eaab535492);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IAdvancedVideoCaptureDeviceController5Impl {
-    fn Id();
-    fn GetDevicePropertyById();
-    fn SetDevicePropertyById();
-    fn GetDevicePropertyByExtendedId();
-    fn SetDevicePropertyByExtendedId();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3696,10 +3636,6 @@ unsafe impl ::windows::core::Interface for IAdvancedVideoCaptureDeviceController
     type Vtable = IAdvancedVideoCaptureDeviceController6Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb6563a53_68a1_44b7_9f89_b5fa97ac0cbe);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IAdvancedVideoCaptureDeviceController6Impl {
-    fn VideoTemporalDenoisingControl();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAdvancedVideoCaptureDeviceController6Vtbl(
@@ -3717,10 +3653,6 @@ pub struct IAdvancedVideoCaptureDeviceController7(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAdvancedVideoCaptureDeviceController7 {
     type Vtable = IAdvancedVideoCaptureDeviceController7Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8d2927f0_a054_50e7_b7df_7c04234d10f0);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IAdvancedVideoCaptureDeviceController7Impl {
-    fn InfraredTorchControl();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3740,10 +3672,6 @@ unsafe impl ::windows::core::Interface for IAdvancedVideoCaptureDeviceController
     type Vtable = IAdvancedVideoCaptureDeviceController8Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd843f010_e7fb_595b_9a78_0e54c4532b43);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IAdvancedVideoCaptureDeviceController8Impl {
-    fn PanelBasedOptimizationControl();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAdvancedVideoCaptureDeviceController8Vtbl(
@@ -3762,10 +3690,6 @@ unsafe impl ::windows::core::Interface for IAdvancedVideoCaptureDeviceController
     type Vtable = IAdvancedVideoCaptureDeviceController9Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8bdca95d_0255_51bc_a10d_5a169ec1625a);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IAdvancedVideoCaptureDeviceController9Impl {
-    fn DigitalWindowControl();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAdvancedVideoCaptureDeviceController9Vtbl(
@@ -3783,13 +3707,6 @@ pub struct IAudioDeviceController(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAudioDeviceController {
     type Vtable = IAudioDeviceControllerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xedd4a388_79c7_4f7c_90e8_ef934b21580a);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IAudioDeviceControllerImpl: IMediaDeviceControllerImpl {
-    fn SetMuted();
-    fn Muted();
-    fn SetVolumePercent();
-    fn VolumePercent();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3811,15 +3728,6 @@ pub struct IAudioDeviceModule(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAudioDeviceModule {
     type Vtable = IAudioDeviceModuleVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x86cfac36_47c1_4b33_9852_8773ec4be123);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IAudioDeviceModuleImpl {
-    fn ClassId();
-    fn DisplayName();
-    fn InstanceId();
-    fn MajorVersion();
-    fn MinorVersion();
-    fn SendCommandAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3845,11 +3753,6 @@ unsafe impl ::windows::core::Interface for IAudioDeviceModuleNotificationEventAr
     type Vtable = IAudioDeviceModuleNotificationEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe3e3ccaf_224c_48be_956b_9a13134e96e8);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IAudioDeviceModuleNotificationEventArgsImpl {
-    fn Module();
-    fn NotificationData();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAudioDeviceModuleNotificationEventArgsVtbl(
@@ -3869,13 +3772,6 @@ pub struct IAudioDeviceModulesManager(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAudioDeviceModulesManager {
     type Vtable = IAudioDeviceModulesManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6aa40c4d_960a_4d1c_b318_0022604547ed);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IAudioDeviceModulesManagerImpl {
-    fn ModuleNotificationReceived();
-    fn RemoveModuleNotificationReceived();
-    fn FindAllById();
-    fn FindAll();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3902,10 +3798,6 @@ unsafe impl ::windows::core::Interface for IAudioDeviceModulesManagerFactory {
     type Vtable = IAudioDeviceModulesManagerFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8db03670_e64d_4773_96c0_bc7ebf0e063f);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IAudioDeviceModulesManagerFactoryImpl {
-    fn Create();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAudioDeviceModulesManagerFactoryVtbl(
@@ -3923,26 +3815,6 @@ pub struct ICallControl(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICallControl {
     type Vtable = ICallControlVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa520d0d6_ae8d_45db_8011_ca49d3b3e578);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ICallControlImpl {
-    fn IndicateNewIncomingCall();
-    fn IndicateNewOutgoingCall();
-    fn IndicateActiveCall();
-    fn EndCall();
-    fn HasRinger();
-    fn AnswerRequested();
-    fn RemoveAnswerRequested();
-    fn HangUpRequested();
-    fn RemoveHangUpRequested();
-    fn DialRequested();
-    fn RemoveDialRequested();
-    fn RedialRequested();
-    fn RemoveRedialRequested();
-    fn KeypadPressed();
-    fn RemoveKeypadPressed();
-    fn AudioTransferRequested();
-    fn RemoveAudioTransferRequested();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3990,11 +3862,6 @@ unsafe impl ::windows::core::Interface for ICallControlStatics {
     type Vtable = ICallControlStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x03945ad5_85ab_40e1_af19_56c94303b019);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ICallControlStaticsImpl {
-    fn GetDefault();
-    fn FromId();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICallControlStaticsVtbl(
@@ -4013,13 +3880,6 @@ pub struct ICameraOcclusionInfo(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICameraOcclusionInfo {
     type Vtable = ICameraOcclusionInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaf6c4ad0_a84d_5db6_be58_a5da21cfe011);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ICameraOcclusionInfoImpl {
-    fn GetState();
-    fn IsOcclusionKindSupported();
-    fn StateChanged();
-    fn RemoveStateChanged();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4044,11 +3904,6 @@ unsafe impl ::windows::core::Interface for ICameraOcclusionState {
     type Vtable = ICameraOcclusionStateVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x430adeb8_6842_5e55_9bde_04b4ef3a8a57);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ICameraOcclusionStateImpl {
-    fn IsOccluded();
-    fn IsOcclusionKind();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICameraOcclusionStateVtbl(
@@ -4067,10 +3922,6 @@ pub struct ICameraOcclusionStateChangedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICameraOcclusionStateChangedEventArgs {
     type Vtable = ICameraOcclusionStateChangedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8512d848_c0de_57ca_a1ca_fb2c3d23df55);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ICameraOcclusionStateChangedEventArgsImpl {
-    fn State();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4167,10 +4018,6 @@ unsafe impl ::windows::core::Interface for IDefaultAudioDeviceChangedEventArgs {
     type Vtable = IDefaultAudioDeviceChangedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x110f882f_1c05_4657_a18e_47c9b69f07ab);
 }
-pub trait IDefaultAudioDeviceChangedEventArgsImpl {
-    fn Id();
-    fn Role();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDefaultAudioDeviceChangedEventArgsVtbl(
@@ -4190,11 +4037,6 @@ unsafe impl ::windows::core::Interface for IDialRequestedEventArgs {
     type Vtable = IDialRequestedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x037b929e_953c_4286_8866_4f0f376c855a);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IDialRequestedEventArgsImpl {
-    fn Handled();
-    fn Contact();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDialRequestedEventArgsVtbl(
@@ -4213,15 +4055,6 @@ pub struct IDigitalWindowBounds(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDigitalWindowBounds {
     type Vtable = IDigitalWindowBoundsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdd4f21dd_d173_5c6b_8c25_bdd26d5122b1);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IDigitalWindowBoundsImpl {
-    fn NormalizedOriginTop();
-    fn SetNormalizedOriginTop();
-    fn NormalizedOriginLeft();
-    fn SetNormalizedOriginLeft();
-    fn Scale();
-    fn SetScale();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4246,15 +4079,6 @@ unsafe impl ::windows::core::Interface for IDigitalWindowCapability {
     type Vtable = IDigitalWindowCapabilityVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd78bad2c_f721_5244_a196_b56ccbec606c);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IDigitalWindowCapabilityImpl {
-    fn Width();
-    fn Height();
-    fn MinScaleValue();
-    fn MaxScaleValue();
-    fn MinScaleValueWithoutUpsampling();
-    fn NormalizedFieldOfViewLimit();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDigitalWindowCapabilityVtbl(
@@ -4278,17 +4102,6 @@ pub struct IDigitalWindowControl(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDigitalWindowControl {
     type Vtable = IDigitalWindowControlVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x23b69eff_65d2_53ea_8780_de582b48b544);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IDigitalWindowControlImpl {
-    fn IsSupported();
-    fn SupportedModes();
-    fn CurrentMode();
-    fn GetBounds();
-    fn Configure();
-    fn ConfigureWithBounds();
-    fn SupportedCapabilities();
-    fn GetCapabilityForSize();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4316,15 +4129,6 @@ unsafe impl ::windows::core::Interface for IExposureCompensationControl {
     type Vtable = IExposureCompensationControlVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x81c8e834_dcec_4011_a610_1f3847e64aca);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IExposureCompensationControlImpl {
-    fn Supported();
-    fn Min();
-    fn Max();
-    fn Step();
-    fn Value();
-    fn SetValueAsync();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IExposureCompensationControlVtbl(
@@ -4348,17 +4152,6 @@ pub struct IExposureControl(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IExposureControl {
     type Vtable = IExposureControlVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x09e8cbe2_ad96_4f28_a0e0_96ed7e1b5fd2);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IExposureControlImpl {
-    fn Supported();
-    fn Auto();
-    fn SetAutoAsync();
-    fn Min();
-    fn Max();
-    fn Step();
-    fn Value();
-    fn SetValueAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4391,12 +4184,6 @@ unsafe impl ::windows::core::Interface for IExposurePriorityVideoControl {
     type Vtable = IExposurePriorityVideoControlVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2cb240a3_5168_4271_9ea5_47621a98a352);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IExposurePriorityVideoControlImpl {
-    fn Supported();
-    fn Enabled();
-    fn SetEnabled();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IExposurePriorityVideoControlVtbl(
@@ -4416,20 +4203,6 @@ pub struct IFlashControl(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IFlashControl {
     type Vtable = IFlashControlVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdef41dbe_7d68_45e3_8c0f_be7bb32837d0);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IFlashControlImpl {
-    fn Supported();
-    fn PowerSupported();
-    fn RedEyeReductionSupported();
-    fn Enabled();
-    fn SetEnabled();
-    fn Auto();
-    fn SetAuto();
-    fn RedEyeReduction();
-    fn SetRedEyeReduction();
-    fn PowerPercent();
-    fn SetPowerPercent();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4459,12 +4232,6 @@ unsafe impl ::windows::core::Interface for IFlashControl2 {
     type Vtable = IFlashControl2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7d29cc9e_75e1_4af7_bd7d_4e38e1c06cd6);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IFlashControl2Impl {
-    fn AssistantLightSupported();
-    fn AssistantLightEnabled();
-    fn SetAssistantLightEnabled();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFlashControl2Vtbl(
@@ -4484,20 +4251,6 @@ pub struct IFocusControl(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IFocusControl {
     type Vtable = IFocusControlVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc0d889f6_5228_4453_b153_85606592b238);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IFocusControlImpl {
-    fn Supported();
-    fn SupportedPresets();
-    fn Preset();
-    fn SetPresetAsync();
-    fn SetPresetWithCompletionOptionAsync();
-    fn Min();
-    fn Max();
-    fn Step();
-    fn Value();
-    fn SetValueAsync();
-    fn FocusAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4532,19 +4285,6 @@ unsafe impl ::windows::core::Interface for IFocusControl2 {
     type Vtable = IFocusControl2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3f7cff48_c534_4e9e_94c3_52ef2afd5d07);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IFocusControl2Impl {
-    fn FocusChangedSupported();
-    fn WaitForFocusSupported();
-    fn SupportedFocusModes();
-    fn SupportedFocusDistances();
-    fn SupportedFocusRanges();
-    fn Mode();
-    fn FocusState();
-    fn UnlockAsync();
-    fn LockAsync();
-    fn Configure();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFocusControl2Vtbl(
@@ -4576,21 +4316,6 @@ pub struct IFocusSettings(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IFocusSettings {
     type Vtable = IFocusSettingsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x79958f6b_3263_4275_85d6_aeae891c96ee);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IFocusSettingsImpl {
-    fn Mode();
-    fn SetMode();
-    fn AutoFocusRange();
-    fn SetAutoFocusRange();
-    fn Value();
-    fn SetValue();
-    fn Distance();
-    fn SetDistance();
-    fn WaitForFocus();
-    fn SetWaitForFocus();
-    fn DisableDriverFallback();
-    fn SetDisableDriverFallback();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4625,13 +4350,6 @@ unsafe impl ::windows::core::Interface for IHdrVideoControl {
     type Vtable = IHdrVideoControlVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x55d8e2d0_30c0_43bf_9b9a_9799d70ced94);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IHdrVideoControlImpl {
-    fn Supported();
-    fn SupportedModes();
-    fn Mode();
-    fn SetMode();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHdrVideoControlVtbl(
@@ -4653,18 +4371,6 @@ pub struct IInfraredTorchControl(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IInfraredTorchControl {
     type Vtable = IInfraredTorchControlVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1cba2c83_6cb6_5a04_a6fc_3be7b33ff056);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IInfraredTorchControlImpl {
-    fn IsSupported();
-    fn SupportedModes();
-    fn CurrentMode();
-    fn SetCurrentMode();
-    fn MinPower();
-    fn MaxPower();
-    fn PowerStep();
-    fn Power();
-    fn SetPower();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4693,13 +4399,6 @@ unsafe impl ::windows::core::Interface for IIsoSpeedControl {
     type Vtable = IIsoSpeedControlVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x27b6c322_25ad_4f1b_aaab_524ab376ca33);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IIsoSpeedControlImpl {
-    fn Supported();
-    fn SupportedPresets();
-    fn Preset();
-    fn SetPresetAsync();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IIsoSpeedControlVtbl(
@@ -4723,16 +4422,6 @@ pub struct IIsoSpeedControl2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IIsoSpeedControl2 {
     type Vtable = IIsoSpeedControl2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6f1578f2_6d77_4f8a_8c2f_6130b6395053);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IIsoSpeedControl2Impl {
-    fn Min();
-    fn Max();
-    fn Step();
-    fn Value();
-    fn SetValueAsync();
-    fn Auto();
-    fn SetAutoAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4760,10 +4449,6 @@ unsafe impl ::windows::core::Interface for IKeypadPressedEventArgs {
     type Vtable = IKeypadPressedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd3a43900_b4fa_49cd_9442_89af6568f601);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IKeypadPressedEventArgsImpl {
-    fn TelephonyKey();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IKeypadPressedEventArgsVtbl(
@@ -4781,18 +4466,6 @@ pub struct ILowLagPhotoControl(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ILowLagPhotoControl {
     type Vtable = ILowLagPhotoControlVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6d5c4dd0_fadf_415d_aee6_3baa529300c9);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ILowLagPhotoControlImpl {
-    fn GetHighestConcurrentFrameRate();
-    fn GetCurrentFrameRate();
-    fn ThumbnailEnabled();
-    fn SetThumbnailEnabled();
-    fn ThumbnailFormat();
-    fn SetThumbnailFormat();
-    fn DesiredThumbnailSize();
-    fn SetDesiredThumbnailSize();
-    fn HardwareAcceleratedThumbnailSupported();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4823,25 +4496,6 @@ pub struct ILowLagPhotoSequenceControl(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ILowLagPhotoSequenceControl {
     type Vtable = ILowLagPhotoSequenceControlVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3dcf909d_6d16_409c_bafe_b9a594c6fde6);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ILowLagPhotoSequenceControlImpl {
-    fn Supported();
-    fn MaxPastPhotos();
-    fn MaxPhotosPerSecond();
-    fn PastPhotoLimit();
-    fn SetPastPhotoLimit();
-    fn PhotosPerSecondLimit();
-    fn SetPhotosPerSecondLimit();
-    fn GetHighestConcurrentFrameRate();
-    fn GetCurrentFrameRate();
-    fn ThumbnailEnabled();
-    fn SetThumbnailEnabled();
-    fn ThumbnailFormat();
-    fn SetThumbnailFormat();
-    fn DesiredThumbnailSize();
-    fn SetDesiredThumbnailSize();
-    fn HardwareAcceleratedThumbnailSupported();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4880,14 +4534,6 @@ unsafe impl ::windows::core::Interface for IMediaDeviceControl {
     type Vtable = IMediaDeviceControlVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xefa8dfa9_6f75_4863_ba0b_583f3036b4de);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IMediaDeviceControlImpl {
-    fn Capabilities();
-    fn TryGetValue();
-    fn TrySetValue();
-    fn TryGetAuto();
-    fn TrySetAuto();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaDeviceControlVtbl(
@@ -4909,15 +4555,6 @@ pub struct IMediaDeviceControlCapabilities(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMediaDeviceControlCapabilities {
     type Vtable = IMediaDeviceControlCapabilitiesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x23005816_eb85_43e2_b92b_8240d5ee70ec);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IMediaDeviceControlCapabilitiesImpl {
-    fn Supported();
-    fn Min();
-    fn Max();
-    fn Step();
-    fn Default();
-    fn AutoModeSupported();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5030,11 +4667,6 @@ unsafe impl ::windows::core::Interface for IMediaDeviceController {
     type Vtable = IMediaDeviceControllerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf6f8f5ce_209a_48fb_86fc_d44578f317e6);
 }
-pub trait IMediaDeviceControllerImpl {
-    fn GetAvailableMediaStreamProperties();
-    fn GetMediaStreamProperties();
-    fn SetMediaStreamPropertiesAsync();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaDeviceControllerVtbl(
@@ -5057,18 +4689,6 @@ pub struct IMediaDeviceStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMediaDeviceStatics {
     type Vtable = IMediaDeviceStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaa2d9a40_909f_4bba_bf8b_0c0d296f14f0);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IMediaDeviceStaticsImpl {
-    fn GetAudioCaptureSelector();
-    fn GetAudioRenderSelector();
-    fn GetVideoCaptureSelector();
-    fn GetDefaultAudioCaptureId();
-    fn GetDefaultAudioRenderId();
-    fn DefaultAudioCaptureDeviceChanged();
-    fn RemoveDefaultAudioCaptureDeviceChanged();
-    fn DefaultAudioRenderDeviceChanged();
-    fn RemoveDefaultAudioRenderDeviceChanged();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5100,11 +4720,6 @@ unsafe impl ::windows::core::Interface for IModuleCommandResult {
     type Vtable = IModuleCommandResultVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x520d1eb4_1374_4c7d_b1e4_39dcdf3eae4e);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IModuleCommandResultImpl {
-    fn Status();
-    fn Result();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IModuleCommandResultVtbl(
@@ -5124,13 +4739,6 @@ pub struct IOpticalImageStabilizationControl(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IOpticalImageStabilizationControl {
     type Vtable = IOpticalImageStabilizationControlVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbfad9c1d_00bc_423b_8eb2_a0178ca94247);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IOpticalImageStabilizationControlImpl {
-    fn Supported();
-    fn SupportedModes();
-    fn Mode();
-    fn SetMode();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5154,12 +4762,6 @@ unsafe impl ::windows::core::Interface for IPanelBasedOptimizationControl {
     type Vtable = IPanelBasedOptimizationControlVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x33323223_6247_5419_a5a4_3d808645d917);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IPanelBasedOptimizationControlImpl {
-    fn IsSupported();
-    fn Panel();
-    fn SetPanel();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPanelBasedOptimizationControlVtbl(
@@ -5181,14 +4783,6 @@ pub struct IPhotoConfirmationControl(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPhotoConfirmationControl {
     type Vtable = IPhotoConfirmationControlVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc8f3f363_ff5e_4582_a9a8_0550f85a4a76);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IPhotoConfirmationControlImpl {
-    fn Supported();
-    fn Enabled();
-    fn SetEnabled();
-    fn PixelFormat();
-    fn SetPixelFormat();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5214,10 +4808,6 @@ unsafe impl ::windows::core::Interface for IRedialRequestedEventArgs {
     type Vtable = IRedialRequestedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7eb55209_76ab_4c31_b40e_4b58379d580c);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IRedialRequestedEventArgsImpl {
-    fn Handled();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRedialRequestedEventArgsVtbl(
@@ -5235,17 +4825,6 @@ pub struct IRegionOfInterest(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IRegionOfInterest {
     type Vtable = IRegionOfInterestVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe5ecc834_ce66_4e05_a78f_cf391a5ec2d1);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IRegionOfInterestImpl {
-    fn AutoFocusEnabled();
-    fn SetAutoFocusEnabled();
-    fn AutoWhiteBalanceEnabled();
-    fn SetAutoWhiteBalanceEnabled();
-    fn AutoExposureEnabled();
-    fn SetAutoExposureEnabled();
-    fn Bounds();
-    fn SetBounds();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5274,15 +4853,6 @@ unsafe impl ::windows::core::Interface for IRegionOfInterest2 {
     type Vtable = IRegionOfInterest2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x19fe2a91_73aa_4d51_8a9d_56ccf7db7f54);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IRegionOfInterest2Impl {
-    fn Type();
-    fn SetType();
-    fn BoundsNormalized();
-    fn SetBoundsNormalized();
-    fn Weight();
-    fn SetWeight();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRegionOfInterest2Vtbl(
@@ -5305,16 +4875,6 @@ pub struct IRegionsOfInterestControl(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IRegionsOfInterestControl {
     type Vtable = IRegionsOfInterestControlVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc323f527_ab0b_4558_8b5b_df5693db0378);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IRegionsOfInterestControlImpl {
-    fn MaxRegions();
-    fn SetRegionsAsync();
-    fn SetRegionsWithLockAsync();
-    fn ClearRegionsAsync();
-    fn AutoFocusSupported();
-    fn AutoWhiteBalanceSupported();
-    fn AutoExposureSupported();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5343,12 +4903,6 @@ unsafe impl ::windows::core::Interface for ISceneModeControl {
     type Vtable = ISceneModeControlVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd48e5af7_8d59_4854_8c62_12c70ba89b7c);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ISceneModeControlImpl {
-    fn SupportedModes();
-    fn Value();
-    fn SetValueAsync();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISceneModeControlVtbl(
@@ -5370,15 +4924,6 @@ pub struct ITorchControl(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ITorchControl {
     type Vtable = ITorchControlVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa6053665_8250_416c_919a_724296afa306);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ITorchControlImpl {
-    fn Supported();
-    fn PowerSupported();
-    fn Enabled();
-    fn SetEnabled();
-    fn PowerPercent();
-    fn SetPowerPercent();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5402,22 +4947,6 @@ pub struct IVideoDeviceController(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IVideoDeviceController {
     type Vtable = IVideoDeviceControllerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x99555575_2e2e_40b8_b6c7_f82d10013210);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IVideoDeviceControllerImpl: IMediaDeviceControllerImpl {
-    fn Brightness();
-    fn Contrast();
-    fn Hue();
-    fn WhiteBalance();
-    fn BacklightCompensation();
-    fn Pan();
-    fn Tilt();
-    fn Zoom();
-    fn Roll();
-    fn Exposure();
-    fn Focus();
-    fn TrySetPowerlineFrequency();
-    fn TryGetPowerlineFrequency();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5451,11 +4980,6 @@ unsafe impl ::windows::core::Interface for IVideoDeviceControllerGetDeviceProper
     type Vtable = IVideoDeviceControllerGetDevicePropertyResultVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc5d88395_6ed5_4790_8b5d_0ef13935d0f8);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IVideoDeviceControllerGetDevicePropertyResultImpl {
-    fn Status();
-    fn Value();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVideoDeviceControllerGetDevicePropertyResultVtbl(
@@ -5474,13 +4998,6 @@ pub struct IVideoTemporalDenoisingControl(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IVideoTemporalDenoisingControl {
     type Vtable = IVideoTemporalDenoisingControlVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7ab34735_3e2a_4a32_baff_4358c4fbdd57);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IVideoTemporalDenoisingControlImpl {
-    fn Supported();
-    fn SupportedModes();
-    fn Mode();
-    fn SetMode();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5503,17 +5020,6 @@ pub struct IWhiteBalanceControl(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IWhiteBalanceControl {
     type Vtable = IWhiteBalanceControlVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x781f047e_7162_49c8_a8f9_9481c565363e);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IWhiteBalanceControlImpl {
-    fn Supported();
-    fn Preset();
-    fn SetPresetAsync();
-    fn Min();
-    fn Max();
-    fn Step();
-    fn Value();
-    fn SetValueAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5542,15 +5048,6 @@ unsafe impl ::windows::core::Interface for IZoomControl {
     type Vtable = IZoomControlVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3a1e0b12_32da_4c17_bfd7_8d0c73c8f5a5);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IZoomControlImpl {
-    fn Supported();
-    fn Min();
-    fn Max();
-    fn Step();
-    fn Value();
-    fn SetValue();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IZoomControlVtbl(
@@ -5574,12 +5071,6 @@ unsafe impl ::windows::core::Interface for IZoomControl2 {
     type Vtable = IZoomControl2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x69843db0_2e99_4641_8529_184f319d1671);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IZoomControl2Impl {
-    fn SupportedModes();
-    fn Mode();
-    fn Configure();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IZoomControl2Vtbl(
@@ -5600,13 +5091,6 @@ pub struct IZoomSettings(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IZoomSettings {
     type Vtable = IZoomSettingsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6ad66b24_14b4_4bfd_b18f_88fe24463b52);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IZoomSettingsImpl {
-    fn Mode();
-    fn SetMode();
-    fn Value();
-    fn SetValue();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9354,3 +8838,5 @@ unsafe impl ::windows::core::RuntimeType for ZoomTransitionMode {
 impl ::windows::core::DefaultType for ZoomTransitionMode {
     type DefaultType = Self;
 }
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

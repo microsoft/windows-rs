@@ -97,10 +97,6 @@ unsafe impl ::windows::core::Interface for IPrintDocumentPackageStatusEvent {
     type Vtable = IPrintDocumentPackageStatusEventVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xed90c8ad_5c34_4d05_a1ec_0e8a9b3ad7af);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IPrintDocumentPackageStatusEventImpl: IDispatchImpl {
-    fn PackageStatusUpdated();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintDocumentPackageStatusEventVtbl(
@@ -175,11 +171,6 @@ unsafe impl ::windows::core::Interface for IPrintDocumentPackageTarget {
     type Vtable = IPrintDocumentPackageTargetVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1b8efec4_3019_4c27_964e_367202156906);
 }
-pub trait IPrintDocumentPackageTargetImpl {
-    fn GetPackageTargetTypes();
-    fn GetPackageTarget();
-    fn Cancel();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintDocumentPackageTargetVtbl(
@@ -240,9 +231,6 @@ impl ::core::fmt::Debug for IPrintDocumentPackageTargetFactory {
 unsafe impl ::windows::core::Interface for IPrintDocumentPackageTargetFactory {
     type Vtable = IPrintDocumentPackageTargetFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd2959bf7_b31b_4a3d_9600_712eb1335ba4);
-}
-pub trait IPrintDocumentPackageTargetFactoryImpl {
-    fn CreateDocumentPackageTargetForPrintJob();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -306,10 +294,6 @@ impl ::core::fmt::Debug for IXpsPrintJob {
 unsafe impl ::windows::core::Interface for IXpsPrintJob {
     type Vtable = IXpsPrintJobVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5ab89b06_8194_425f_ab3b_d7a96e350161);
-}
-pub trait IXpsPrintJobImpl {
-    fn Cancel();
-    fn GetJobStatus();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -403,10 +387,6 @@ impl ::core::fmt::Debug for IXpsPrintJobStream {
 unsafe impl ::windows::core::Interface for IXpsPrintJobStream {
     type Vtable = IXpsPrintJobStreamVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7a77dc5f_45d6_4dff_9307_d8cb846347ca);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IXpsPrintJobStreamImpl: ISequentialStreamImpl {
-    fn Close();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -553,3 +533,5 @@ impl ::core::default::Default for XPS_JOB_STATUS {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

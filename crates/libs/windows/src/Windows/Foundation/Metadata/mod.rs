@@ -295,19 +295,6 @@ unsafe impl ::windows::core::Interface for IApiInformationStatics {
     type Vtable = IApiInformationStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x997439fe_f681_4a11_b416_c13a47e8ba36);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IApiInformationStaticsImpl {
-    fn IsTypePresent();
-    fn IsMethodPresent();
-    fn IsMethodPresentWithArity();
-    fn IsEventPresent();
-    fn IsPropertyPresent();
-    fn IsReadOnlyPropertyPresent();
-    fn IsWriteablePropertyPresent();
-    fn IsEnumNamedValuePresent();
-    fn IsApiContractPresentByMajor();
-    fn IsApiContractPresentByMajorAndMinor();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IApiInformationStaticsVtbl(
@@ -431,3 +418,5 @@ unsafe impl ::windows::core::RuntimeType for ThreadingModel {
 impl ::windows::core::DefaultType for ThreadingModel {
     type DefaultType = Self;
 }
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

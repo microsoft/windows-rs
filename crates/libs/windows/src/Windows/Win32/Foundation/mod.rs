@@ -20931,3 +20931,5 @@ pub const _WIN32_MAXVER: u32 = 2560u32;
 pub const _WIN32_WINDOWS_MAXVER: u32 = 2560u32;
 #[doc = "*Required features: 'Win32_Foundation'*"]
 pub const _WIN32_WINNT_MAXVER: u32 = 2560u32;
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

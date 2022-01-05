@@ -1473,39 +1473,6 @@ unsafe impl ::windows::core::Interface for IAddPackageOptions {
     type Vtable = IAddPackageOptionsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x05cee018_f68f_422b_95a4_66679ec77fc0);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IAddPackageOptionsImpl {
-    fn DependencyPackageUris();
-    fn TargetVolume();
-    fn SetTargetVolume();
-    fn OptionalPackageFamilyNames();
-    fn OptionalPackageUris();
-    fn RelatedPackageUris();
-    fn ExternalLocationUri();
-    fn SetExternalLocationUri();
-    fn StubPackageOption();
-    fn SetStubPackageOption();
-    fn DeveloperMode();
-    fn SetDeveloperMode();
-    fn ForceAppShutdown();
-    fn SetForceAppShutdown();
-    fn ForceTargetAppShutdown();
-    fn SetForceTargetAppShutdown();
-    fn ForceUpdateFromAnyVersion();
-    fn SetForceUpdateFromAnyVersion();
-    fn InstallAllResources();
-    fn SetInstallAllResources();
-    fn RequiredContentGroupOnly();
-    fn SetRequiredContentGroupOnly();
-    fn RetainFilesOnFailure();
-    fn SetRetainFilesOnFailure();
-    fn StageInPlace();
-    fn SetStageInPlace();
-    fn AllowUnsigned();
-    fn SetAllowUnsigned();
-    fn DeferRegistrationWhenPackagesAreInUse();
-    fn SetDeferRegistrationWhenPackagesAreInUse();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAddPackageOptionsVtbl(
@@ -1559,12 +1526,6 @@ unsafe impl ::windows::core::Interface for IAppInstallerManager {
     type Vtable = IAppInstallerManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe7ee21c3_2103_53ee_9b18_68afeab0033d);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IAppInstallerManagerImpl {
-    fn SetAutoUpdateSettings();
-    fn ClearAutoUpdateSettings();
-    fn PauseAutoUpdatesUntil();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppInstallerManagerVtbl(
@@ -1586,11 +1547,6 @@ unsafe impl ::windows::core::Interface for IAppInstallerManagerStatics {
     type Vtable = IAppInstallerManagerStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc95a6ed5_fc59_5336_9b2e_2b07c5e61434);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IAppInstallerManagerStaticsImpl {
-    fn GetDefault();
-    fn GetForSystem();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppInstallerManagerStaticsVtbl(
@@ -1609,31 +1565,6 @@ pub struct IAutoUpdateSettingsOptions(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAutoUpdateSettingsOptions {
     type Vtable = IAutoUpdateSettingsOptionsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x67491d87_35e1_512a_8968_1ae88d1be6d3);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IAutoUpdateSettingsOptionsImpl {
-    fn Version();
-    fn SetVersion();
-    fn AppInstallerUri();
-    fn SetAppInstallerUri();
-    fn OnLaunch();
-    fn SetOnLaunch();
-    fn HoursBetweenUpdateChecks();
-    fn SetHoursBetweenUpdateChecks();
-    fn ShowPrompt();
-    fn SetShowPrompt();
-    fn UpdateBlocksActivation();
-    fn SetUpdateBlocksActivation();
-    fn AutomaticBackgroundTask();
-    fn SetAutomaticBackgroundTask();
-    fn ForceUpdateFromAnyVersion();
-    fn SetForceUpdateFromAnyVersion();
-    fn IsAutoRepairEnabled();
-    fn SetIsAutoRepairEnabled();
-    fn UpdateUris();
-    fn RepairUris();
-    fn DependencyPackageUris();
-    fn OptionalPackageUris();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1682,10 +1613,6 @@ unsafe impl ::windows::core::Interface for IAutoUpdateSettingsOptionsStatics {
     type Vtable = IAutoUpdateSettingsOptionsStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x887b337d_0c05_54d0_bd49_3bb7a2c084cb);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IAutoUpdateSettingsOptionsStaticsImpl {
-    fn CreateFromAppInstallerInfo();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAutoUpdateSettingsOptionsStaticsVtbl(
@@ -1704,14 +1631,6 @@ pub struct ICreateSharedPackageContainerOptions(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICreateSharedPackageContainerOptions {
     type Vtable = ICreateSharedPackageContainerOptionsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc2ab6ece_f664_5c8e_a4b3_2a33276d3dde);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ICreateSharedPackageContainerOptionsImpl {
-    fn Members();
-    fn ForceAppShutdown();
-    fn SetForceAppShutdown();
-    fn CreateCollisionOption();
-    fn SetCreateCollisionOption();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1736,12 +1655,6 @@ unsafe impl ::windows::core::Interface for ICreateSharedPackageContainerResult {
     type Vtable = ICreateSharedPackageContainerResultVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xce8810bf_151c_5707_b936_497e564afc7a);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ICreateSharedPackageContainerResultImpl {
-    fn Container();
-    fn Status();
-    fn ExtendedError();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICreateSharedPackageContainerResultVtbl(
@@ -1761,13 +1674,6 @@ pub struct IDeleteSharedPackageContainerOptions(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDeleteSharedPackageContainerOptions {
     type Vtable = IDeleteSharedPackageContainerOptionsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9d81865f_986e_5138_8b5d_384d8e66ed6c);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IDeleteSharedPackageContainerOptionsImpl {
-    fn ForceAppShutdown();
-    fn SetForceAppShutdown();
-    fn AllUsers();
-    fn SetAllUsers();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1790,11 +1696,6 @@ unsafe impl ::windows::core::Interface for IDeleteSharedPackageContainerResult {
     type Vtable = IDeleteSharedPackageContainerResultVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x35398884_5736_517b_85bc_e598c81ab284);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IDeleteSharedPackageContainerResultImpl {
-    fn Status();
-    fn ExtendedError();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDeleteSharedPackageContainerResultVtbl(
@@ -1813,12 +1714,6 @@ pub struct IDeploymentResult(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDeploymentResult {
     type Vtable = IDeploymentResultVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2563b9ae_b77d_4c1f_8a7b_20e6ad515ef3);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IDeploymentResultImpl {
-    fn ErrorText();
-    fn ActivityId();
-    fn ExtendedErrorCode();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1840,10 +1735,6 @@ unsafe impl ::windows::core::Interface for IDeploymentResult2 {
     type Vtable = IDeploymentResult2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfc0e715c_5a01_4bd7_bcf1_381c8c82e04a);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IDeploymentResult2Impl {
-    fn IsRegistered();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDeploymentResult2Vtbl(
@@ -1861,13 +1752,6 @@ pub struct IFindSharedPackageContainerOptions(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IFindSharedPackageContainerOptions {
     type Vtable = IFindSharedPackageContainerOptionsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb40fc8fe_8384_54cc_817d_ae09d3b6a606);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IFindSharedPackageContainerOptionsImpl {
-    fn Name();
-    fn SetName();
-    fn PackageFamilyName();
-    fn SetPackageFamilyName();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1890,11 +1774,6 @@ unsafe impl ::windows::core::Interface for IPackageAllUserProvisioningOptions {
     type Vtable = IPackageAllUserProvisioningOptionsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xda35aa22_1de0_5d3e_99ff_d24f3118bf5e);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IPackageAllUserProvisioningOptionsImpl {
-    fn OptionalPackageFamilyNames();
-    fn ProjectionOrderPackageFamilyNames();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPackageAllUserProvisioningOptionsVtbl(
@@ -1915,25 +1794,6 @@ pub struct IPackageManager(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPackageManager {
     type Vtable = IPackageManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9a7d4b65_5e8f_4fc7_a2e5_7f6925cb8b53);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IPackageManagerImpl {
-    fn AddPackageAsync();
-    fn UpdatePackageAsync();
-    fn RemovePackageAsync();
-    fn StagePackageAsync();
-    fn RegisterPackageAsync();
-    fn FindPackages();
-    fn FindPackagesByUserSecurityId();
-    fn FindPackagesByNamePublisher();
-    fn FindPackagesByUserSecurityIdNamePublisher();
-    fn FindUsers();
-    fn SetPackageState();
-    fn FindPackageByPackageFullName();
-    fn CleanupPackageForUserAsync();
-    fn FindPackagesByPackageFamilyName();
-    fn FindPackagesByUserSecurityIdPackageFamilyName();
-    fn FindPackageByUserSecurityIdPackageFullName();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1983,10 +1843,6 @@ unsafe impl ::windows::core::Interface for IPackageManager10 {
     type Vtable = IPackageManager10Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa7d7d07e_2e66_4093_aed5_e093ed87b3bb);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IPackageManager10Impl {
-    fn ProvisionPackageForAllUsersWithOptionsAsync();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPackageManager10Vtbl(
@@ -2005,19 +1861,6 @@ pub struct IPackageManager2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPackageManager2 {
     type Vtable = IPackageManager2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf7aad08d_0840_46f2_b5d8_cad47693a095);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IPackageManager2Impl {
-    fn RemovePackageWithOptionsAsync();
-    fn StagePackageWithOptionsAsync();
-    fn RegisterPackageByFullNameAsync();
-    fn FindPackagesWithPackageTypes();
-    fn FindPackagesByUserSecurityIdWithPackageTypes();
-    fn FindPackagesByNamePublisherWithPackageTypes();
-    fn FindPackagesByUserSecurityIdNamePublisherWithPackageTypes();
-    fn FindPackagesByPackageFamilyNameWithPackageTypes();
-    fn FindPackagesByUserSecurityIdPackageFamilyNameWithPackageTypes();
-    fn StageUserDataAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2055,24 +1898,6 @@ pub struct IPackageManager3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPackageManager3 {
     type Vtable = IPackageManager3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdaad9948_36f1_41a7_9188_bc263e0dcb72);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IPackageManager3Impl {
-    fn AddPackageVolumeAsync();
-    fn AddPackageToVolumeAsync();
-    fn ClearPackageStatus();
-    fn RegisterPackageWithAppDataVolumeAsync();
-    fn FindPackageVolumeByName();
-    fn FindPackageVolumes();
-    fn GetDefaultPackageVolume();
-    fn MovePackageToVolumeAsync();
-    fn RemovePackageVolumeAsync();
-    fn SetDefaultPackageVolume();
-    fn SetPackageStatus();
-    fn SetPackageVolumeOfflineAsync();
-    fn SetPackageVolumeOnlineAsync();
-    fn StagePackageToVolumeAsync();
-    fn StageUserDataWithOptionsAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2116,10 +1941,6 @@ unsafe impl ::windows::core::Interface for IPackageManager4 {
     type Vtable = IPackageManager4Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3c719963_bab6_46bf_8ff7_da4719230ae6);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IPackageManager4Impl {
-    fn GetPackageVolumesAsync();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPackageManager4Vtbl(
@@ -2138,13 +1959,6 @@ pub struct IPackageManager5(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPackageManager5 {
     type Vtable = IPackageManager5Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x711f3117_1afd_4313_978c_9bb6e1b864a7);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IPackageManager5Impl {
-    fn AddPackageToVolumeAndOptionalPackagesAsync();
-    fn StagePackageToVolumeAndOptionalPackagesAsync();
-    fn RegisterPackageByFamilyNameAndOptionalPackagesAsync();
-    fn DebugSettings();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2169,15 +1983,6 @@ pub struct IPackageManager6(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPackageManager6 {
     type Vtable = IPackageManager6Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0847e909_53cd_4e4f_832e_57d180f6e447);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IPackageManager6Impl {
-    fn ProvisionPackageForAllUsersAsync();
-    fn AddPackageByAppInstallerFileAsync();
-    fn RequestAddPackageByAppInstallerFileAsync();
-    fn AddPackageToVolumeAndRelatedSetAsync();
-    fn StagePackageToVolumeAndRelatedSetAsync();
-    fn RequestAddPackageAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2208,10 +2013,6 @@ unsafe impl ::windows::core::Interface for IPackageManager7 {
     type Vtable = IPackageManager7Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf28654f4_2ba7_4b80_88d6_be15f9a23fba);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IPackageManager7Impl {
-    fn RequestAddPackageAndRelatedSetAsync();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPackageManager7Vtbl(
@@ -2231,10 +2032,6 @@ unsafe impl ::windows::core::Interface for IPackageManager8 {
     type Vtable = IPackageManager8Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb8575330_1298_4ee2_80ee_7f659c5d2782);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IPackageManager8Impl {
-    fn DeprovisionPackageForAllUsersAsync();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPackageManager8Vtbl(
@@ -2253,16 +2050,6 @@ pub struct IPackageManager9(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPackageManager9 {
     type Vtable = IPackageManager9Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1aa79035_cc71_4b2e_80a6_c7041d8579a7);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IPackageManager9Impl {
-    fn FindProvisionedPackages();
-    fn AddPackageByUriAsync();
-    fn StagePackageByUriAsync();
-    fn RegisterPackageByUriAsync();
-    fn RegisterPackagesByFullNameAsync();
-    fn SetPackageStubPreference();
-    fn GetPackageStubPreference();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2293,11 +2080,6 @@ unsafe impl ::windows::core::Interface for IPackageManagerDebugSettings {
     type Vtable = IPackageManagerDebugSettingsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1a611683_a988_4fcf_8f0f_ce175898e8eb);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IPackageManagerDebugSettingsImpl {
-    fn SetContentGroupStateAsync();
-    fn SetContentGroupStateWithPercentageAsync();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPackageManagerDebugSettingsVtbl(
@@ -2319,11 +2101,6 @@ unsafe impl ::windows::core::Interface for IPackageUserInformation {
     type Vtable = IPackageUserInformationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf6383423_fa09_4cbc_9055_15ca275e2e7e);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IPackageUserInformationImpl {
-    fn UserSecurityId();
-    fn InstallState();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPackageUserInformationVtbl(
@@ -2342,29 +2119,6 @@ pub struct IPackageVolume(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPackageVolume {
     type Vtable = IPackageVolumeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcf2672c3_1a40_4450_9739_2ace2e898853);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IPackageVolumeImpl {
-    fn IsOffline();
-    fn IsSystemVolume();
-    fn MountPoint();
-    fn Name();
-    fn PackageStorePath();
-    fn SupportsHardLinks();
-    fn FindPackages();
-    fn FindPackagesByNamePublisher();
-    fn FindPackagesByPackageFamilyName();
-    fn FindPackagesWithPackageTypes();
-    fn FindPackagesByNamePublisherWithPackagesTypes();
-    fn FindPackagesByPackageFamilyNameWithPackageTypes();
-    fn FindPackageByPackageFullName();
-    fn FindPackagesByUserSecurityId();
-    fn FindPackagesByUserSecurityIdNamePublisher();
-    fn FindPackagesByUserSecurityIdPackageFamilyName();
-    fn FindPackagesByUserSecurityIdWithPackageTypes();
-    fn FindPackagesByUserSecurityIdNamePublisherWithPackageTypes();
-    fn FindPackagesByUserSecurityIdPackageFamilyNameWithPackagesTypes();
-    fn FindPackageByUserSecurityIdPackageFullName();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2417,12 +2171,6 @@ unsafe impl ::windows::core::Interface for IPackageVolume2 {
     type Vtable = IPackageVolume2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x46abcf2e_9dd4_47a2_ab8c_c6408349bcd8);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IPackageVolume2Impl {
-    fn IsFullTrustPackageSupported();
-    fn IsAppxInstallSupported();
-    fn GetAvailableSpaceAsync();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPackageVolume2Vtbl(
@@ -2443,31 +2191,6 @@ pub struct IRegisterPackageOptions(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IRegisterPackageOptions {
     type Vtable = IRegisterPackageOptionsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x677112a7_50d4_496c_8415_0602b4c6d3bf);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IRegisterPackageOptionsImpl {
-    fn DependencyPackageUris();
-    fn AppDataVolume();
-    fn SetAppDataVolume();
-    fn OptionalPackageFamilyNames();
-    fn ExternalLocationUri();
-    fn SetExternalLocationUri();
-    fn DeveloperMode();
-    fn SetDeveloperMode();
-    fn ForceAppShutdown();
-    fn SetForceAppShutdown();
-    fn ForceTargetAppShutdown();
-    fn SetForceTargetAppShutdown();
-    fn ForceUpdateFromAnyVersion();
-    fn SetForceUpdateFromAnyVersion();
-    fn InstallAllResources();
-    fn SetInstallAllResources();
-    fn StageInPlace();
-    fn SetStageInPlace();
-    fn AllowUnsigned();
-    fn SetAllowUnsigned();
-    fn DeferRegistrationWhenPackagesAreInUse();
-    fn SetDeferRegistrationWhenPackagesAreInUse();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2512,14 +2235,6 @@ unsafe impl ::windows::core::Interface for ISharedPackageContainer {
     type Vtable = ISharedPackageContainerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x177f1aa9_151e_5ef7_b1d9_2fba0b4b0d17);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ISharedPackageContainerImpl {
-    fn Name();
-    fn Id();
-    fn GetMembers();
-    fn RemovePackageFamily();
-    fn ResetData();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISharedPackageContainerVtbl(
@@ -2542,14 +2257,6 @@ pub struct ISharedPackageContainerManager(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISharedPackageContainerManager {
     type Vtable = ISharedPackageContainerManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbe353068_1ef7_5ac8_ab3f_0b9f612f0274);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ISharedPackageContainerManagerImpl {
-    fn CreateContainer();
-    fn DeleteContainer();
-    fn GetContainer();
-    fn FindContainers();
-    fn FindContainersWithOptions();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2575,12 +2282,6 @@ unsafe impl ::windows::core::Interface for ISharedPackageContainerManagerStatics
     type Vtable = ISharedPackageContainerManagerStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2ef56348_838a_5f55_a89e_1198a2c627e6);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ISharedPackageContainerManagerStaticsImpl {
-    fn GetDefault();
-    fn GetForUser();
-    fn GetForProvisioning();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISharedPackageContainerManagerStaticsVtbl(
@@ -2601,10 +2302,6 @@ unsafe impl ::windows::core::Interface for ISharedPackageContainerMember {
     type Vtable = ISharedPackageContainerMemberVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfe0d0438_43c9_5426_b89c_f79bf85ddff4);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ISharedPackageContainerMemberImpl {
-    fn PackageFamilyName();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISharedPackageContainerMemberVtbl(
@@ -2623,10 +2320,6 @@ unsafe impl ::windows::core::Interface for ISharedPackageContainerMemberFactory 
     type Vtable = ISharedPackageContainerMemberFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x49b0ceeb_498f_5a62_b738_b3ca0d436704);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ISharedPackageContainerMemberFactoryImpl {
-    fn CreateInstance();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISharedPackageContainerMemberFactoryVtbl(
@@ -2644,31 +2337,6 @@ pub struct IStagePackageOptions(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IStagePackageOptions {
     type Vtable = IStagePackageOptionsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0b110c9c_b95d_4c56_bd36_6d656800d06b);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IStagePackageOptionsImpl {
-    fn DependencyPackageUris();
-    fn TargetVolume();
-    fn SetTargetVolume();
-    fn OptionalPackageFamilyNames();
-    fn OptionalPackageUris();
-    fn RelatedPackageUris();
-    fn ExternalLocationUri();
-    fn SetExternalLocationUri();
-    fn StubPackageOption();
-    fn SetStubPackageOption();
-    fn DeveloperMode();
-    fn SetDeveloperMode();
-    fn ForceUpdateFromAnyVersion();
-    fn SetForceUpdateFromAnyVersion();
-    fn InstallAllResources();
-    fn SetInstallAllResources();
-    fn RequiredContentGroupOnly();
-    fn SetRequiredContentGroupOnly();
-    fn StageInPlace();
-    fn SetStageInPlace();
-    fn AllowUnsigned();
-    fn SetAllowUnsigned();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2715,13 +2383,6 @@ unsafe impl ::windows::core::Interface for IUpdateSharedPackageContainerOptions 
     type Vtable = IUpdateSharedPackageContainerOptionsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x80672e83_7194_59f9_b5b9_daa5375f130a);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IUpdateSharedPackageContainerOptionsImpl {
-    fn ForceAppShutdown();
-    fn SetForceAppShutdown();
-    fn RequirePackagesPresent();
-    fn SetRequirePackagesPresent();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUpdateSharedPackageContainerOptionsVtbl(
@@ -2742,11 +2403,6 @@ pub struct IUpdateSharedPackageContainerResult(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IUpdateSharedPackageContainerResult {
     type Vtable = IUpdateSharedPackageContainerResultVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaa407df7_c72d_5458_aea3_4645b6a8ee99);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IUpdateSharedPackageContainerResultImpl {
-    fn Status();
-    fn ExtendedError();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5386,3 +5042,5 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Upda
 }
 unsafe impl ::core::marker::Send for UpdateSharedPackageContainerResult {}
 unsafe impl ::core::marker::Sync for UpdateSharedPackageContainerResult {}
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

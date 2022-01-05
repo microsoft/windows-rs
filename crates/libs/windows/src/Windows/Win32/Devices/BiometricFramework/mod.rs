@@ -5673,3 +5673,5 @@ pub struct _WINIBIO_ENGINE_CONTEXT(pub u8);
 pub struct _WINIBIO_SENSOR_CONTEXT(pub u8);
 #[repr(C)]
 pub struct _WINIBIO_STORAGE_CONTEXT(pub u8);
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

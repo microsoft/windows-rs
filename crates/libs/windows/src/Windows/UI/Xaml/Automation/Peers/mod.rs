@@ -6985,8 +6985,6 @@ unsafe impl ::windows::core::Interface for IAppBarAutomationPeer {
     type Vtable = IAppBarAutomationPeerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8b4acfeb_89fa_4f13_84be_35ca5b7c9590);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IAppBarAutomationPeerImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppBarAutomationPeerVtbl(
@@ -7003,10 +7001,6 @@ pub struct IAppBarAutomationPeerFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppBarAutomationPeerFactory {
     type Vtable = IAppBarAutomationPeerFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8360f4e2_e396_4517_af5d_f4cf34c54edf);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IAppBarAutomationPeerFactoryImpl {
-    fn CreateInstanceWithOwner();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7027,8 +7021,6 @@ unsafe impl ::windows::core::Interface for IAppBarButtonAutomationPeer {
     type Vtable = IAppBarButtonAutomationPeerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x443262b2_4f6d_4b76_9d2e_3eff777e8864);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IAppBarButtonAutomationPeerImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppBarButtonAutomationPeerVtbl(
@@ -7045,10 +7037,6 @@ pub struct IAppBarButtonAutomationPeerFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppBarButtonAutomationPeerFactory {
     type Vtable = IAppBarButtonAutomationPeerFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaef0342a_acb7_42dc_97e3_847071865fd6);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IAppBarButtonAutomationPeerFactoryImpl {
-    fn CreateInstanceWithOwner();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7069,8 +7057,6 @@ unsafe impl ::windows::core::Interface for IAppBarToggleButtonAutomationPeer {
     type Vtable = IAppBarToggleButtonAutomationPeerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8464efad_9655_4aff_9550_63ae9ec8fe9c);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IAppBarToggleButtonAutomationPeerImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppBarToggleButtonAutomationPeerVtbl(
@@ -7087,10 +7073,6 @@ pub struct IAppBarToggleButtonAutomationPeerFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppBarToggleButtonAutomationPeerFactory {
     type Vtable = IAppBarToggleButtonAutomationPeerFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd6f9139d_02c1_4221_9591_7d4efeb74701);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IAppBarToggleButtonAutomationPeerFactoryImpl {
-    fn CreateInstanceWithOwner();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7111,8 +7093,6 @@ unsafe impl ::windows::core::Interface for IAutoSuggestBoxAutomationPeer {
     type Vtable = IAutoSuggestBoxAutomationPeerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2f32c302_f99b_491d_9726_a5e181643efa);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IAutoSuggestBoxAutomationPeerImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAutoSuggestBoxAutomationPeerVtbl(
@@ -7129,10 +7109,6 @@ pub struct IAutoSuggestBoxAutomationPeerFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAutoSuggestBoxAutomationPeerFactory {
     type Vtable = IAutoSuggestBoxAutomationPeerFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x80046849_18e7_4475_b362_4bbd53d24562);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IAutoSuggestBoxAutomationPeerFactoryImpl {
-    fn CreateInstanceWithOwner();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7152,42 +7128,6 @@ pub struct IAutomationPeer(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAutomationPeer {
     type Vtable = IAutomationPeerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x35aac87a_62ee_4d3e_a24c_2bc8432d68b7);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IAutomationPeerImpl {
-    fn EventsSource();
-    fn SetEventsSource();
-    fn GetPattern();
-    fn RaiseAutomationEvent();
-    fn RaisePropertyChangedEvent();
-    fn GetAcceleratorKey();
-    fn GetAccessKey();
-    fn GetAutomationControlType();
-    fn GetAutomationId();
-    fn GetBoundingRectangle();
-    fn GetChildren();
-    fn GetClassName();
-    fn GetClickablePoint();
-    fn GetHelpText();
-    fn GetItemStatus();
-    fn GetItemType();
-    fn GetLabeledBy();
-    fn GetLocalizedControlType();
-    fn GetName();
-    fn GetOrientation();
-    fn HasKeyboardFocus();
-    fn IsContentElement();
-    fn IsControlElement();
-    fn IsEnabled();
-    fn IsKeyboardFocusable();
-    fn IsOffscreen();
-    fn IsPassword();
-    fn IsRequiredForForm();
-    fn SetFocus();
-    fn GetParent();
-    fn InvalidatePeer();
-    fn GetPeerFromPoint();
-    fn GetLiveSetting();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7244,8 +7184,6 @@ unsafe impl ::windows::core::Interface for IAutomationPeer2 {
     type Vtable = IAutomationPeer2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xea1f89c7_ebf5_4ab8_88f7_680d821dac61);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IAutomationPeer2Impl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAutomationPeer2Vtbl(
@@ -7262,21 +7200,6 @@ pub struct IAutomationPeer3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAutomationPeer3 {
     type Vtable = IAutomationPeer3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd3cfb977_0084_41d7_a221_28158d3bc32c);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IAutomationPeer3Impl {
-    fn Navigate();
-    fn GetElementFromPoint();
-    fn GetFocusedElement();
-    fn ShowContextMenu();
-    fn GetControlledPeers();
-    fn GetAnnotations();
-    fn SetParent();
-    fn RaiseTextEditTextChangedEvent();
-    fn GetPositionInSet();
-    fn GetSizeOfSet();
-    fn GetLevel();
-    fn RaiseStructureChangedEvent();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7311,11 +7234,6 @@ unsafe impl ::windows::core::Interface for IAutomationPeer4 {
     type Vtable = IAutomationPeer4Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x761ce752_73c1_4f44_be75_43c49ec0d4d5);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IAutomationPeer4Impl {
-    fn GetLandmarkType();
-    fn GetLocalizedLandmarkType();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAutomationPeer4Vtbl(
@@ -7334,12 +7252,6 @@ pub struct IAutomationPeer5(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAutomationPeer5 {
     type Vtable = IAutomationPeer5Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf632e1c6_0a3f_4574_9fef_cdc151765674);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IAutomationPeer5Impl {
-    fn IsPeripheral();
-    fn IsDataValidForForm();
-    fn GetFullDescription();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7361,10 +7273,6 @@ unsafe impl ::windows::core::Interface for IAutomationPeer6 {
     type Vtable = IAutomationPeer6Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcaf8608f_13ff_42fb_866d_22206434cc6b);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IAutomationPeer6Impl {
-    fn GetCulture();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAutomationPeer6Vtbl(
@@ -7382,10 +7290,6 @@ pub struct IAutomationPeer7(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAutomationPeer7 {
     type Vtable = IAutomationPeer7Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x796b3287_e642_48ab_b223_5208b41da9d6);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IAutomationPeer7Impl {
-    fn RaiseNotificationEvent();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7405,10 +7309,6 @@ unsafe impl ::windows::core::Interface for IAutomationPeer8 {
     type Vtable = IAutomationPeer8Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5c6a1fe6_9a55_4d7f_9498_cfe429e92da8);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IAutomationPeer8Impl {
-    fn GetHeadingLevel();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAutomationPeer8Vtbl(
@@ -7427,10 +7327,6 @@ unsafe impl ::windows::core::Interface for IAutomationPeer9 {
     type Vtable = IAutomationPeer9Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdf2e0265_1d74_57fa_8094_f81c2f626b8c);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IAutomationPeer9Impl {
-    fn IsDialog();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAutomationPeer9Vtbl(
@@ -7448,13 +7344,6 @@ pub struct IAutomationPeerAnnotation(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAutomationPeerAnnotation {
     type Vtable = IAutomationPeerAnnotationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0c456061_52cf_43fa_82f8_07f137351e5a);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IAutomationPeerAnnotationImpl {
-    fn Type();
-    fn SetType();
-    fn Peer();
-    fn SetPeer();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7477,11 +7366,6 @@ unsafe impl ::windows::core::Interface for IAutomationPeerAnnotationFactory {
     type Vtable = IAutomationPeerAnnotationFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf59c439e_c65b_43cd_9009_03fc023363a7);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IAutomationPeerAnnotationFactoryImpl {
-    fn CreateInstance();
-    fn CreateWithPeerParameter();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAutomationPeerAnnotationFactoryVtbl(
@@ -7500,11 +7384,6 @@ pub struct IAutomationPeerAnnotationStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAutomationPeerAnnotationStatics {
     type Vtable = IAutomationPeerAnnotationStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8809a87d_09b2_4d45_b78b_1d3b3b09f661);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IAutomationPeerAnnotationStaticsImpl {
-    fn TypeProperty();
-    fn PeerProperty();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7525,10 +7404,6 @@ unsafe impl ::windows::core::Interface for IAutomationPeerFactory {
     type Vtable = IAutomationPeerFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x20c27545_a88b_43c8_bc24_cea9dafd04a3);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IAutomationPeerFactoryImpl {
-    fn CreateInstance();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAutomationPeerFactoryVtbl(
@@ -7546,36 +7421,6 @@ pub struct IAutomationPeerOverrides(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAutomationPeerOverrides {
     type Vtable = IAutomationPeerOverridesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbea93e67_dbee_4f7b_af0d_a79aae5333bf);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IAutomationPeerOverridesImpl {
-    fn GetPatternCore();
-    fn GetAcceleratorKeyCore();
-    fn GetAccessKeyCore();
-    fn GetAutomationControlTypeCore();
-    fn GetAutomationIdCore();
-    fn GetBoundingRectangleCore();
-    fn GetChildrenCore();
-    fn GetClassNameCore();
-    fn GetClickablePointCore();
-    fn GetHelpTextCore();
-    fn GetItemStatusCore();
-    fn GetItemTypeCore();
-    fn GetLabeledByCore();
-    fn GetLocalizedControlTypeCore();
-    fn GetNameCore();
-    fn GetOrientationCore();
-    fn HasKeyboardFocusCore();
-    fn IsContentElementCore();
-    fn IsControlElementCore();
-    fn IsEnabledCore();
-    fn IsKeyboardFocusableCore();
-    fn IsOffscreenCore();
-    fn IsPasswordCore();
-    fn IsRequiredForFormCore();
-    fn SetFocusCore();
-    fn GetPeerFromPointCore();
-    fn GetLiveSettingCore();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7625,11 +7470,6 @@ unsafe impl ::windows::core::Interface for IAutomationPeerOverrides2 {
     type Vtable = IAutomationPeerOverrides2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2603682a_9da6_4023_b496_496e5ef228d2);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IAutomationPeerOverrides2Impl {
-    fn ShowContextMenuCore();
-    fn GetControlledPeersCore();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAutomationPeerOverrides2Vtbl(
@@ -7649,16 +7489,6 @@ pub struct IAutomationPeerOverrides3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAutomationPeerOverrides3 {
     type Vtable = IAutomationPeerOverrides3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb6f0c4ad_4d39_49e6_bb91_d924eefd8538);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IAutomationPeerOverrides3Impl {
-    fn NavigateCore();
-    fn GetElementFromPointCore();
-    fn GetFocusedElementCore();
-    fn GetAnnotationsCore();
-    fn GetPositionInSetCore();
-    fn GetSizeOfSetCore();
-    fn GetLevelCore();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7686,11 +7516,6 @@ unsafe impl ::windows::core::Interface for IAutomationPeerOverrides4 {
     type Vtable = IAutomationPeerOverrides4Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb186cda2_5d46_4bcd_a811_269ad15b3aee);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IAutomationPeerOverrides4Impl {
-    fn GetLandmarkTypeCore();
-    fn GetLocalizedLandmarkTypeCore();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAutomationPeerOverrides4Vtbl(
@@ -7709,15 +7534,6 @@ pub struct IAutomationPeerOverrides5(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAutomationPeerOverrides5 {
     type Vtable = IAutomationPeerOverrides5Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2c847c85_781e_49f7_9fef_b9e14d014707);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IAutomationPeerOverrides5Impl {
-    fn IsPeripheralCore();
-    fn IsDataValidForFormCore();
-    fn GetFullDescriptionCore();
-    fn GetDescribedByCore();
-    fn GetFlowsToCore();
-    fn GetFlowsFromCore();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7745,10 +7561,6 @@ unsafe impl ::windows::core::Interface for IAutomationPeerOverrides6 {
     type Vtable = IAutomationPeerOverrides6Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe98babe7_f6ff_444c_9c0d_277eaf0ad9c0);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IAutomationPeerOverrides6Impl {
-    fn GetCultureCore();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAutomationPeerOverrides6Vtbl(
@@ -7766,10 +7578,6 @@ pub struct IAutomationPeerOverrides8(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAutomationPeerOverrides8 {
     type Vtable = IAutomationPeerOverrides8Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0e1ebbd4_a003_4936_8175_f5457c07f0c6);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IAutomationPeerOverrides8Impl {
-    fn GetHeadingLevelCore();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7789,10 +7597,6 @@ unsafe impl ::windows::core::Interface for IAutomationPeerOverrides9 {
     type Vtable = IAutomationPeerOverrides9Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf3709e8b_091a_5db5_b896_ff78f01990c9);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IAutomationPeerOverrides9Impl {
-    fn IsDialogCore();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAutomationPeerOverrides9Vtbl(
@@ -7810,11 +7614,6 @@ pub struct IAutomationPeerProtected(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAutomationPeerProtected {
     type Vtable = IAutomationPeerProtectedVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf4b40e52_642f_4629_a54a_ea5d2349c448);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IAutomationPeerProtectedImpl {
-    fn PeerFromProvider();
-    fn ProviderFromPeer();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7837,10 +7636,6 @@ unsafe impl ::windows::core::Interface for IAutomationPeerStatics {
     type Vtable = IAutomationPeerStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x562f7fb0_a331_4a9c_9dec_bfb7586fffff);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IAutomationPeerStaticsImpl {
-    fn ListenerExists();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAutomationPeerStaticsVtbl(
@@ -7858,10 +7653,6 @@ pub struct IAutomationPeerStatics3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAutomationPeerStatics3 {
     type Vtable = IAutomationPeerStatics3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x572c5714_7f87_4271_819f_6cf4c4d022d0);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IAutomationPeerStatics3Impl {
-    fn GenerateRawElementProviderRuntimeId();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7881,8 +7672,6 @@ unsafe impl ::windows::core::Interface for IButtonAutomationPeer {
     type Vtable = IButtonAutomationPeerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfb77efbe_39ec_4508_8ac3_51a1424027d7);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IButtonAutomationPeerImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IButtonAutomationPeerVtbl(
@@ -7899,10 +7688,6 @@ pub struct IButtonAutomationPeerFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IButtonAutomationPeerFactory {
     type Vtable = IButtonAutomationPeerFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3fdb9f49_f4ab_4780_8644_03376299a175);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IButtonAutomationPeerFactoryImpl {
-    fn CreateInstanceWithOwner();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7923,8 +7708,6 @@ unsafe impl ::windows::core::Interface for IButtonBaseAutomationPeer {
     type Vtable = IButtonBaseAutomationPeerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa4f3b5b6_7585_4e0b_96d2_08cf6f28befa);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IButtonBaseAutomationPeerImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IButtonBaseAutomationPeerVtbl(
@@ -7941,10 +7724,6 @@ pub struct IButtonBaseAutomationPeerFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IButtonBaseAutomationPeerFactory {
     type Vtable = IButtonBaseAutomationPeerFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8a04091e_e6b2_4c60_a759_c13ca45165ed);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IButtonBaseAutomationPeerFactoryImpl {
-    fn CreateInstanceWithOwner();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7965,8 +7744,6 @@ unsafe impl ::windows::core::Interface for ICalendarDatePickerAutomationPeer {
     type Vtable = ICalendarDatePickerAutomationPeerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x40d8938e_db5e_4b03_beba_d10f62419787);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ICalendarDatePickerAutomationPeerImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICalendarDatePickerAutomationPeerVtbl(
@@ -7983,10 +7760,6 @@ pub struct ICalendarDatePickerAutomationPeerFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICalendarDatePickerAutomationPeerFactory {
     type Vtable = ICalendarDatePickerAutomationPeerFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xab705dd2_d293_45bf_9f19_26f7603a5e9b);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ICalendarDatePickerAutomationPeerFactoryImpl {
-    fn CreateInstanceWithOwner();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8007,8 +7780,6 @@ unsafe impl ::windows::core::Interface for ICaptureElementAutomationPeer {
     type Vtable = ICaptureElementAutomationPeerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdcc44ee0_fa45_45c6_8bb7_320d808f5958);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ICaptureElementAutomationPeerImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICaptureElementAutomationPeerVtbl(
@@ -8025,10 +7796,6 @@ pub struct ICaptureElementAutomationPeerFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICaptureElementAutomationPeerFactory {
     type Vtable = ICaptureElementAutomationPeerFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9b92ef48_85e9_4869_b175_8f7cf45a6d9f);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ICaptureElementAutomationPeerFactoryImpl {
-    fn CreateInstanceWithOwner();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8049,8 +7816,6 @@ unsafe impl ::windows::core::Interface for ICheckBoxAutomationPeer {
     type Vtable = ICheckBoxAutomationPeerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeb15bc42_c0a9_46c6_ac24_b83de429c733);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ICheckBoxAutomationPeerImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICheckBoxAutomationPeerVtbl(
@@ -8067,10 +7832,6 @@ pub struct ICheckBoxAutomationPeerFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICheckBoxAutomationPeerFactory {
     type Vtable = ICheckBoxAutomationPeerFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb75c775d_eb8f_44ef_a27c_e26ac7de8333);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ICheckBoxAutomationPeerFactoryImpl {
-    fn CreateInstanceWithOwner();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8091,8 +7852,6 @@ unsafe impl ::windows::core::Interface for IColorPickerSliderAutomationPeer {
     type Vtable = IColorPickerSliderAutomationPeerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa514215a_7293_4577_924c_47d4e0bf9b90);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IColorPickerSliderAutomationPeerImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IColorPickerSliderAutomationPeerVtbl(
@@ -8109,10 +7868,6 @@ pub struct IColorPickerSliderAutomationPeerFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IColorPickerSliderAutomationPeerFactory {
     type Vtable = IColorPickerSliderAutomationPeerFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1a55c77e_9dd6_45a3_9042_b40200fea1a9);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IColorPickerSliderAutomationPeerFactoryImpl {
-    fn CreateInstanceWithOwner();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8133,8 +7888,6 @@ unsafe impl ::windows::core::Interface for IColorSpectrumAutomationPeer {
     type Vtable = IColorSpectrumAutomationPeerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x15d5ba03_010d_4ff7_9087_f4dd09f831b7);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IColorSpectrumAutomationPeerImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IColorSpectrumAutomationPeerVtbl(
@@ -8151,10 +7904,6 @@ pub struct IColorSpectrumAutomationPeerFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IColorSpectrumAutomationPeerFactory {
     type Vtable = IColorSpectrumAutomationPeerFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0ac400e1_b743_4496_837a_8889e6ac6497);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IColorSpectrumAutomationPeerFactoryImpl {
-    fn CreateInstanceWithOwner();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8175,8 +7924,6 @@ unsafe impl ::windows::core::Interface for IComboBoxAutomationPeer {
     type Vtable = IComboBoxAutomationPeerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7eb40d0b_75c5_4263_ba6a_d4a54fb0f239);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IComboBoxAutomationPeerImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IComboBoxAutomationPeerVtbl(
@@ -8193,10 +7940,6 @@ pub struct IComboBoxAutomationPeerFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IComboBoxAutomationPeerFactory {
     type Vtable = IComboBoxAutomationPeerFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x098e5b0d_1b90_40b9_9be3_b23267eb13cf);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IComboBoxAutomationPeerFactoryImpl {
-    fn CreateInstanceWithOwner();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8217,8 +7960,6 @@ unsafe impl ::windows::core::Interface for IComboBoxItemAutomationPeer {
     type Vtable = IComboBoxItemAutomationPeerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x12ddc76e_9552_446a_82ee_938cc371800f);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IComboBoxItemAutomationPeerImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IComboBoxItemAutomationPeerVtbl(
@@ -8235,10 +7976,6 @@ pub struct IComboBoxItemAutomationPeerFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IComboBoxItemAutomationPeerFactory {
     type Vtable = IComboBoxItemAutomationPeerFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x134ac7fc_397a_403f_a6ec_1ce8beda15e5);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IComboBoxItemAutomationPeerFactoryImpl {
-    fn CreateInstanceWithOwner();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8259,8 +7996,6 @@ unsafe impl ::windows::core::Interface for IComboBoxItemDataAutomationPeer {
     type Vtable = IComboBoxItemDataAutomationPeerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4fef6df2_289c_4c04_831b_5a668c6d7104);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IComboBoxItemDataAutomationPeerImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IComboBoxItemDataAutomationPeerVtbl(
@@ -8277,10 +8012,6 @@ pub struct IComboBoxItemDataAutomationPeerFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IComboBoxItemDataAutomationPeerFactory {
     type Vtable = IComboBoxItemDataAutomationPeerFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x14a8d4f6_469a_41ba_9d93_44a1a55da872);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IComboBoxItemDataAutomationPeerFactoryImpl {
-    fn CreateInstanceWithParentAndItem();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8300,8 +8031,6 @@ unsafe impl ::windows::core::Interface for IDatePickerAutomationPeer {
     type Vtable = IDatePickerAutomationPeerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd07d357f_a0b9_45dc_991a_76c505e7d0f5);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IDatePickerAutomationPeerImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDatePickerAutomationPeerVtbl(
@@ -8318,10 +8047,6 @@ pub struct IDatePickerAutomationPeerFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDatePickerAutomationPeerFactory {
     type Vtable = IDatePickerAutomationPeerFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe5667d19_9157_4436_9f4d_7fb99174b48e);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IDatePickerAutomationPeerFactoryImpl {
-    fn CreateInstanceWithOwner();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8342,8 +8067,6 @@ unsafe impl ::windows::core::Interface for IDatePickerFlyoutPresenterAutomationP
     type Vtable = IDatePickerFlyoutPresenterAutomationPeerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x752aed38_c2bf_4880_82b2_a6c05e90c135);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IDatePickerFlyoutPresenterAutomationPeerImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDatePickerFlyoutPresenterAutomationPeerVtbl(
@@ -8361,8 +8084,6 @@ unsafe impl ::windows::core::Interface for IFlipViewAutomationPeer {
     type Vtable = IFlipViewAutomationPeerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8ec0353a_4284_4b00_aef8_a2688ea5e3c4);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IFlipViewAutomationPeerImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFlipViewAutomationPeerVtbl(
@@ -8379,10 +8100,6 @@ pub struct IFlipViewAutomationPeerFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IFlipViewAutomationPeerFactory {
     type Vtable = IFlipViewAutomationPeerFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4395ab0d_8d83_483c_88eb_e2617b0d293f);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IFlipViewAutomationPeerFactoryImpl {
-    fn CreateInstanceWithOwner();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8403,8 +8120,6 @@ unsafe impl ::windows::core::Interface for IFlipViewItemAutomationPeer {
     type Vtable = IFlipViewItemAutomationPeerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc83034de_fa08_4bd3_aeb2_d2e5bfa04df9);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IFlipViewItemAutomationPeerImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFlipViewItemAutomationPeerVtbl(
@@ -8421,10 +8136,6 @@ pub struct IFlipViewItemAutomationPeerFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IFlipViewItemAutomationPeerFactory {
     type Vtable = IFlipViewItemAutomationPeerFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x69109356_d0e5_4c10_a09c_ad0bf1b0cb01);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IFlipViewItemAutomationPeerFactoryImpl {
-    fn CreateInstanceWithOwner();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8445,8 +8156,6 @@ unsafe impl ::windows::core::Interface for IFlipViewItemDataAutomationPeer {
     type Vtable = IFlipViewItemDataAutomationPeerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb0986175_00bc_4118_8a6f_16ee9c15d968);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IFlipViewItemDataAutomationPeerImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFlipViewItemDataAutomationPeerVtbl(
@@ -8463,10 +8172,6 @@ pub struct IFlipViewItemDataAutomationPeerFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IFlipViewItemDataAutomationPeerFactory {
     type Vtable = IFlipViewItemDataAutomationPeerFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3c864393_0aea_4e78_bc11_b775cac4114c);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IFlipViewItemDataAutomationPeerFactoryImpl {
-    fn CreateInstanceWithParentAndItem();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8486,8 +8191,6 @@ unsafe impl ::windows::core::Interface for IFlyoutPresenterAutomationPeer {
     type Vtable = IFlyoutPresenterAutomationPeerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa01840b4_5fca_456f_98ea_300eb40b585e);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IFlyoutPresenterAutomationPeerImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFlyoutPresenterAutomationPeerVtbl(
@@ -8504,10 +8207,6 @@ pub struct IFlyoutPresenterAutomationPeerFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IFlyoutPresenterAutomationPeerFactory {
     type Vtable = IFlyoutPresenterAutomationPeerFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf350155f_8924_44c0_ba44_653fe79f1efb);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IFlyoutPresenterAutomationPeerFactoryImpl {
-    fn CreateInstanceWithOwner();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8528,10 +8227,6 @@ unsafe impl ::windows::core::Interface for IFrameworkElementAutomationPeer {
     type Vtable = IFrameworkElementAutomationPeerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb90ad781_bfeb_4451_bd47_9f3a63ebd24a);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IFrameworkElementAutomationPeerImpl {
-    fn Owner();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFrameworkElementAutomationPeerVtbl(
@@ -8550,10 +8245,6 @@ unsafe impl ::windows::core::Interface for IFrameworkElementAutomationPeerFactor
     type Vtable = IFrameworkElementAutomationPeerFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0db9b8bc_b812_48e3_af1f_dbc57600c325);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IFrameworkElementAutomationPeerFactoryImpl {
-    fn CreateInstanceWithOwner();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFrameworkElementAutomationPeerFactoryVtbl(
@@ -8571,11 +8262,6 @@ pub struct IFrameworkElementAutomationPeerStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IFrameworkElementAutomationPeerStatics {
     type Vtable = IFrameworkElementAutomationPeerStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb9c0b997_2820_44a1_a5a8_9b801edc269e);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IFrameworkElementAutomationPeerStaticsImpl {
-    fn FromElement();
-    fn CreatePeerForElement();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8596,8 +8282,6 @@ unsafe impl ::windows::core::Interface for IGridViewAutomationPeer {
     type Vtable = IGridViewAutomationPeerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1c4401a4_d951_49ca_8f82_c7f3c60681b0);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IGridViewAutomationPeerImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGridViewAutomationPeerVtbl(
@@ -8614,10 +8298,6 @@ pub struct IGridViewAutomationPeerFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGridViewAutomationPeerFactory {
     type Vtable = IGridViewAutomationPeerFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8aca59dd_22a7_4800_894b_c1f485f38953);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IGridViewAutomationPeerFactoryImpl {
-    fn CreateInstanceWithOwner();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8638,8 +8318,6 @@ unsafe impl ::windows::core::Interface for IGridViewHeaderItemAutomationPeer {
     type Vtable = IGridViewHeaderItemAutomationPeerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe3dcef3a_e08a_48e7_b23a_2be5b66e474e);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IGridViewHeaderItemAutomationPeerImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGridViewHeaderItemAutomationPeerVtbl(
@@ -8656,10 +8334,6 @@ pub struct IGridViewHeaderItemAutomationPeerFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGridViewHeaderItemAutomationPeerFactory {
     type Vtable = IGridViewHeaderItemAutomationPeerFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2c80b4d2_ffc2_4157_88dd_59cd92e39715);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IGridViewHeaderItemAutomationPeerFactoryImpl {
-    fn CreateInstanceWithOwner();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8680,8 +8354,6 @@ unsafe impl ::windows::core::Interface for IGridViewItemAutomationPeer {
     type Vtable = IGridViewItemAutomationPeerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x93ef2d07_346c_4166_a4ba_bc6a181e7f33);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IGridViewItemAutomationPeerImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGridViewItemAutomationPeerVtbl(
@@ -8698,10 +8370,6 @@ pub struct IGridViewItemAutomationPeerFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGridViewItemAutomationPeerFactory {
     type Vtable = IGridViewItemAutomationPeerFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfafec376_f22e_466d_913c_ae24ccdb160f);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IGridViewItemAutomationPeerFactoryImpl {
-    fn CreateInstanceWithOwner();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8722,8 +8390,6 @@ unsafe impl ::windows::core::Interface for IGridViewItemDataAutomationPeer {
     type Vtable = IGridViewItemDataAutomationPeerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf3f4868f_29d4_4094_8c54_ea61a88294a4);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IGridViewItemDataAutomationPeerImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGridViewItemDataAutomationPeerVtbl(
@@ -8740,10 +8406,6 @@ pub struct IGridViewItemDataAutomationPeerFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGridViewItemDataAutomationPeerFactory {
     type Vtable = IGridViewItemDataAutomationPeerFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa65e7a88_770d_402c_996f_67506af2a4af);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IGridViewItemDataAutomationPeerFactoryImpl {
-    fn CreateInstanceWithParentAndItem();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8763,8 +8425,6 @@ unsafe impl ::windows::core::Interface for IGroupItemAutomationPeer {
     type Vtable = IGroupItemAutomationPeerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1914fe6d_0740_4236_9ee1_38cf19c1c388);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IGroupItemAutomationPeerImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGroupItemAutomationPeerVtbl(
@@ -8781,10 +8441,6 @@ pub struct IGroupItemAutomationPeerFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGroupItemAutomationPeerFactory {
     type Vtable = IGroupItemAutomationPeerFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x56a64567_f21c_4c90_b379_15a27c7f8409);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IGroupItemAutomationPeerFactoryImpl {
-    fn CreateInstanceWithOwner();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8805,8 +8461,6 @@ unsafe impl ::windows::core::Interface for IHubAutomationPeer {
     type Vtable = IHubAutomationPeerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4ddee056_4ebc_4620_a05d_903e3c9a4ead);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IHubAutomationPeerImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHubAutomationPeerVtbl(
@@ -8823,10 +8477,6 @@ pub struct IHubAutomationPeerFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IHubAutomationPeerFactory {
     type Vtable = IHubAutomationPeerFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc762d43f_79dd_43ee_8777_8d08b39aa065);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IHubAutomationPeerFactoryImpl {
-    fn CreateInstanceWithOwner();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8847,8 +8497,6 @@ unsafe impl ::windows::core::Interface for IHubSectionAutomationPeer {
     type Vtable = IHubSectionAutomationPeerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x16d91ff7_7431_4d82_83ce_cfa3192b0f18);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IHubSectionAutomationPeerImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHubSectionAutomationPeerVtbl(
@@ -8865,10 +8513,6 @@ pub struct IHubSectionAutomationPeerFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IHubSectionAutomationPeerFactory {
     type Vtable = IHubSectionAutomationPeerFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc68e27e8_17ec_4329_91ae_2d0b2339d498);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IHubSectionAutomationPeerFactoryImpl {
-    fn CreateInstanceWithOwner();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8889,8 +8533,6 @@ unsafe impl ::windows::core::Interface for IHyperlinkButtonAutomationPeer {
     type Vtable = IHyperlinkButtonAutomationPeerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaa7afcb1_0edf_46d9_aa9e_0eb21d140097);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IHyperlinkButtonAutomationPeerImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHyperlinkButtonAutomationPeerVtbl(
@@ -8907,10 +8549,6 @@ pub struct IHyperlinkButtonAutomationPeerFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IHyperlinkButtonAutomationPeerFactory {
     type Vtable = IHyperlinkButtonAutomationPeerFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x59bc1661_c182_49af_9526_44b88e628455);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IHyperlinkButtonAutomationPeerFactoryImpl {
-    fn CreateInstanceWithOwner();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8931,8 +8569,6 @@ unsafe impl ::windows::core::Interface for IImageAutomationPeer {
     type Vtable = IImageAutomationPeerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9b0bbf8c_60a2_48bf_ab2c_1a52a451d2d4);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IImageAutomationPeerImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IImageAutomationPeerVtbl(
@@ -8949,10 +8585,6 @@ pub struct IImageAutomationPeerFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IImageAutomationPeerFactory {
     type Vtable = IImageAutomationPeerFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x90304003_687d_47bf_b3a2_4babcad8ef50);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IImageAutomationPeerFactoryImpl {
-    fn CreateInstanceWithOwner();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8973,8 +8605,6 @@ unsafe impl ::windows::core::Interface for IInkToolbarAutomationPeer {
     type Vtable = IInkToolbarAutomationPeerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x123baaa4_f2e8_4bcb_9382_5dfdd11fe45f);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IInkToolbarAutomationPeerImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInkToolbarAutomationPeerVtbl(
@@ -8991,11 +8621,6 @@ pub struct IItemAutomationPeer(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IItemAutomationPeer {
     type Vtable = IItemAutomationPeerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x953c34f6_3b31_47a7_b3bf_25d3ae99c317);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IItemAutomationPeerImpl {
-    fn Item();
-    fn ItemsControlAutomationPeer();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9016,10 +8641,6 @@ unsafe impl ::windows::core::Interface for IItemAutomationPeerFactory {
     type Vtable = IItemAutomationPeerFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x29065073_de3d_4d3f_97b4_4d6f9d53444d);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IItemAutomationPeerFactoryImpl {
-    fn CreateInstanceWithParentAndItem();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IItemAutomationPeerFactoryVtbl(
@@ -9038,8 +8659,6 @@ unsafe impl ::windows::core::Interface for IItemsControlAutomationPeer {
     type Vtable = IItemsControlAutomationPeerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x96e76bf1_37f7_4088_925d_65268e83e34d);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IItemsControlAutomationPeerImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IItemsControlAutomationPeerVtbl(
@@ -9056,10 +8675,6 @@ pub struct IItemsControlAutomationPeer2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IItemsControlAutomationPeer2 {
     type Vtable = IItemsControlAutomationPeer2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc48d8917_95a8_47b8_a517_bf891a6c039b);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IItemsControlAutomationPeer2Impl {
-    fn CreateItemAutomationPeer();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9078,10 +8693,6 @@ pub struct IItemsControlAutomationPeerFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IItemsControlAutomationPeerFactory {
     type Vtable = IItemsControlAutomationPeerFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4038a259_2e1a_49ca_a533_c64f181577e6);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IItemsControlAutomationPeerFactoryImpl {
-    fn CreateInstanceWithOwner();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9102,10 +8713,6 @@ unsafe impl ::windows::core::Interface for IItemsControlAutomationPeerOverrides2
     type Vtable = IItemsControlAutomationPeerOverrides2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x361dc0e8_b56f_45e9_80fe_10a0fb0fe177);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IItemsControlAutomationPeerOverrides2Impl {
-    fn OnCreateItemAutomationPeer();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IItemsControlAutomationPeerOverrides2Vtbl(
@@ -9124,8 +8731,6 @@ unsafe impl ::windows::core::Interface for IListBoxAutomationPeer {
     type Vtable = IListBoxAutomationPeerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8cd0d608_b402_4a6e_bd9a_343f8845eb32);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IListBoxAutomationPeerImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IListBoxAutomationPeerVtbl(
@@ -9142,10 +8747,6 @@ pub struct IListBoxAutomationPeerFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IListBoxAutomationPeerFactory {
     type Vtable = IListBoxAutomationPeerFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe2362185_7df6_49f7_8abc_4c33f1a3d46e);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IListBoxAutomationPeerFactoryImpl {
-    fn CreateInstanceWithOwner();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9166,8 +8767,6 @@ unsafe impl ::windows::core::Interface for IListBoxItemAutomationPeer {
     type Vtable = IListBoxItemAutomationPeerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1bc6e1c6_2997_42df_99eb_92bc1dd149fb);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IListBoxItemAutomationPeerImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IListBoxItemAutomationPeerVtbl(
@@ -9184,10 +8783,6 @@ pub struct IListBoxItemAutomationPeerFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IListBoxItemAutomationPeerFactory {
     type Vtable = IListBoxItemAutomationPeerFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x509f9dd8_b0aa_443f_a110_41209af44f1c);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IListBoxItemAutomationPeerFactoryImpl {
-    fn CreateInstanceWithOwner();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9208,8 +8803,6 @@ unsafe impl ::windows::core::Interface for IListBoxItemDataAutomationPeer {
     type Vtable = IListBoxItemDataAutomationPeerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfd7d5fee_fde0_482a_8084_dcebba5b9806);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IListBoxItemDataAutomationPeerImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IListBoxItemDataAutomationPeerVtbl(
@@ -9226,10 +8819,6 @@ pub struct IListBoxItemDataAutomationPeerFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IListBoxItemDataAutomationPeerFactory {
     type Vtable = IListBoxItemDataAutomationPeerFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd7924e16_bd8d_4662_a995_20ff9a056093);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IListBoxItemDataAutomationPeerFactoryImpl {
-    fn CreateInstanceWithParentAndItem();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9249,8 +8838,6 @@ unsafe impl ::windows::core::Interface for IListPickerFlyoutPresenterAutomationP
     type Vtable = IListPickerFlyoutPresenterAutomationPeerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x56dfdc58_2395_4060_8047_8ea463698a24);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IListPickerFlyoutPresenterAutomationPeerImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IListPickerFlyoutPresenterAutomationPeerVtbl(
@@ -9268,8 +8855,6 @@ unsafe impl ::windows::core::Interface for IListViewAutomationPeer {
     type Vtable = IListViewAutomationPeerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x73cecc87_c0dc_4260_9148_75e9864a7230);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IListViewAutomationPeerImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IListViewAutomationPeerVtbl(
@@ -9286,10 +8871,6 @@ pub struct IListViewAutomationPeerFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IListViewAutomationPeerFactory {
     type Vtable = IListViewAutomationPeerFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x65f39174_eaa2_4e44_8be6_4cca28cd0288);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IListViewAutomationPeerFactoryImpl {
-    fn CreateInstanceWithOwner();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9310,8 +8891,6 @@ unsafe impl ::windows::core::Interface for IListViewBaseAutomationPeer {
     type Vtable = IListViewBaseAutomationPeerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x87ec7649_b83d_4e55_9afd_bd835e748f5c);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IListViewBaseAutomationPeerImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IListViewBaseAutomationPeerVtbl(
@@ -9328,10 +8907,6 @@ pub struct IListViewBaseAutomationPeerFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IListViewBaseAutomationPeerFactory {
     type Vtable = IListViewBaseAutomationPeerFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x70d3c2be_8950_4647_9362_fd002f8ff82e);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IListViewBaseAutomationPeerFactoryImpl {
-    fn CreateInstanceWithOwner();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9352,8 +8927,6 @@ unsafe impl ::windows::core::Interface for IListViewBaseHeaderItemAutomationPeer
     type Vtable = IListViewBaseHeaderItemAutomationPeerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7cb8b732_c1f0_4a3c_bc14_85dd48dedb85);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IListViewBaseHeaderItemAutomationPeerImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IListViewBaseHeaderItemAutomationPeerVtbl(
@@ -9370,10 +8943,6 @@ pub struct IListViewBaseHeaderItemAutomationPeerFactory(::windows::core::IUnknow
 unsafe impl ::windows::core::Interface for IListViewBaseHeaderItemAutomationPeerFactory {
     type Vtable = IListViewBaseHeaderItemAutomationPeerFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x40ec995f_d631_4004_832e_6d8643e51561);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IListViewBaseHeaderItemAutomationPeerFactoryImpl {
-    fn CreateInstanceWithOwner();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9394,8 +8963,6 @@ unsafe impl ::windows::core::Interface for IListViewHeaderItemAutomationPeer {
     type Vtable = IListViewHeaderItemAutomationPeerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x67ab1e4b_ad61_4c88_ba45_0f3a8d061f8f);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IListViewHeaderItemAutomationPeerImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IListViewHeaderItemAutomationPeerVtbl(
@@ -9412,10 +8979,6 @@ pub struct IListViewHeaderItemAutomationPeerFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IListViewHeaderItemAutomationPeerFactory {
     type Vtable = IListViewHeaderItemAutomationPeerFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x07668694_2ca5_4be4_a8b9_592d48f76087);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IListViewHeaderItemAutomationPeerFactoryImpl {
-    fn CreateInstanceWithOwner();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9436,8 +8999,6 @@ unsafe impl ::windows::core::Interface for IListViewItemAutomationPeer {
     type Vtable = IListViewItemAutomationPeerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xca114e70_a16d_4d09_a1cf_1856ef98a9ec);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IListViewItemAutomationPeerImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IListViewItemAutomationPeerVtbl(
@@ -9454,10 +9015,6 @@ pub struct IListViewItemAutomationPeerFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IListViewItemAutomationPeerFactory {
     type Vtable = IListViewItemAutomationPeerFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc47dfbc0_facc_4024_a73b_17ec4e662654);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IListViewItemAutomationPeerFactoryImpl {
-    fn CreateInstanceWithOwner();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9478,8 +9035,6 @@ unsafe impl ::windows::core::Interface for IListViewItemDataAutomationPeer {
     type Vtable = IListViewItemDataAutomationPeerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x15a8d7fd_d7a5_4a6c_963c_6f7ce464671a);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IListViewItemDataAutomationPeerImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IListViewItemDataAutomationPeerVtbl(
@@ -9496,10 +9051,6 @@ pub struct IListViewItemDataAutomationPeerFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IListViewItemDataAutomationPeerFactory {
     type Vtable = IListViewItemDataAutomationPeerFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd0db12bb_d715_4523_acc0_1e1072d8e32b);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IListViewItemDataAutomationPeerFactoryImpl {
-    fn CreateInstanceWithParentAndItem();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9519,8 +9070,6 @@ unsafe impl ::windows::core::Interface for ILoopingSelectorAutomationPeer {
     type Vtable = ILoopingSelectorAutomationPeerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x50b406ca_bae9_4816_8a3a_0cb4f96478a2);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ILoopingSelectorAutomationPeerImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILoopingSelectorAutomationPeerVtbl(
@@ -9538,8 +9087,6 @@ unsafe impl ::windows::core::Interface for ILoopingSelectorItemAutomationPeer {
     type Vtable = ILoopingSelectorItemAutomationPeerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd3fa68bf_04cf_4f4c_8d3e_4780a19d4788);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ILoopingSelectorItemAutomationPeerImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILoopingSelectorItemAutomationPeerVtbl(
@@ -9557,8 +9104,6 @@ unsafe impl ::windows::core::Interface for ILoopingSelectorItemDataAutomationPee
     type Vtable = ILoopingSelectorItemDataAutomationPeerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xef567e32_7cd2_4d32_9590_1f588d5ef38d);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ILoopingSelectorItemDataAutomationPeerImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILoopingSelectorItemDataAutomationPeerVtbl(
@@ -9576,8 +9121,6 @@ unsafe impl ::windows::core::Interface for IMapControlAutomationPeer {
     type Vtable = IMapControlAutomationPeerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x425beee4_f2e8_4bcb_9382_5dfdd11fe45f);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IMapControlAutomationPeerImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMapControlAutomationPeerVtbl(
@@ -9595,8 +9138,6 @@ unsafe impl ::windows::core::Interface for IMediaElementAutomationPeer {
     type Vtable = IMediaElementAutomationPeerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xba0b9fc2_a6e2_41a5_b17a_d1594613efba);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IMediaElementAutomationPeerImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaElementAutomationPeerVtbl(
@@ -9613,10 +9154,6 @@ pub struct IMediaElementAutomationPeerFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMediaElementAutomationPeerFactory {
     type Vtable = IMediaElementAutomationPeerFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb2ad3b28_7575_4173_9bc7_80367a164ed2);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IMediaElementAutomationPeerFactoryImpl {
-    fn CreateInstanceWithOwner();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9637,8 +9174,6 @@ unsafe impl ::windows::core::Interface for IMediaPlayerElementAutomationPeer {
     type Vtable = IMediaPlayerElementAutomationPeerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x02bed209_3f65_4fdd_b5ca_c4750d4e6ea4);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IMediaPlayerElementAutomationPeerImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaPlayerElementAutomationPeerVtbl(
@@ -9655,10 +9190,6 @@ pub struct IMediaPlayerElementAutomationPeerFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMediaPlayerElementAutomationPeerFactory {
     type Vtable = IMediaPlayerElementAutomationPeerFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x08848077_82af_4d19_b170_282a9e0e7f37);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IMediaPlayerElementAutomationPeerFactoryImpl {
-    fn CreateInstanceWithOwner();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9679,8 +9210,6 @@ unsafe impl ::windows::core::Interface for IMediaTransportControlsAutomationPeer
     type Vtable = IMediaTransportControlsAutomationPeerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa3ad8d93_79f8_4958_a3c8_980defb83d15);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IMediaTransportControlsAutomationPeerImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaTransportControlsAutomationPeerVtbl(
@@ -9697,10 +9226,6 @@ pub struct IMediaTransportControlsAutomationPeerFactory(::windows::core::IUnknow
 unsafe impl ::windows::core::Interface for IMediaTransportControlsAutomationPeerFactory {
     type Vtable = IMediaTransportControlsAutomationPeerFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf41cb003_e103_4ab0_812a_a08fbdb570ce);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IMediaTransportControlsAutomationPeerFactoryImpl {
-    fn CreateInstanceWithOwner();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9721,8 +9246,6 @@ unsafe impl ::windows::core::Interface for IMenuBarAutomationPeer {
     type Vtable = IMenuBarAutomationPeerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4b6adcf1_f274_5592_85a8_7b099e99b320);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IMenuBarAutomationPeerImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMenuBarAutomationPeerVtbl(
@@ -9739,10 +9262,6 @@ pub struct IMenuBarAutomationPeerFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMenuBarAutomationPeerFactory {
     type Vtable = IMenuBarAutomationPeerFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2a094871_4a9b_5a0b_9fda_7bc3ae957c53);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IMenuBarAutomationPeerFactoryImpl {
-    fn CreateInstance();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9763,8 +9282,6 @@ unsafe impl ::windows::core::Interface for IMenuBarItemAutomationPeer {
     type Vtable = IMenuBarItemAutomationPeerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0fce49b4_cff5_5c4b_98ee_e75fdddf799a);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IMenuBarItemAutomationPeerImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMenuBarItemAutomationPeerVtbl(
@@ -9781,10 +9298,6 @@ pub struct IMenuBarItemAutomationPeerFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMenuBarItemAutomationPeerFactory {
     type Vtable = IMenuBarItemAutomationPeerFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc9c77746_130f_5b19_83a6_61db584613aa);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IMenuBarItemAutomationPeerFactoryImpl {
-    fn CreateInstance();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9805,8 +9318,6 @@ unsafe impl ::windows::core::Interface for IMenuFlyoutItemAutomationPeer {
     type Vtable = IMenuFlyoutItemAutomationPeerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1fc19462_21df_456e_aa11_8fac6b4b2af6);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IMenuFlyoutItemAutomationPeerImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMenuFlyoutItemAutomationPeerVtbl(
@@ -9823,10 +9334,6 @@ pub struct IMenuFlyoutItemAutomationPeerFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMenuFlyoutItemAutomationPeerFactory {
     type Vtable = IMenuFlyoutItemAutomationPeerFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd08bfcb8_20d1_45d8_a2c2_2f130df714e0);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IMenuFlyoutItemAutomationPeerFactoryImpl {
-    fn CreateInstanceWithOwner();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9847,8 +9354,6 @@ unsafe impl ::windows::core::Interface for IMenuFlyoutPresenterAutomationPeer {
     type Vtable = IMenuFlyoutPresenterAutomationPeerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe244a871_fcbb_48fc_8a93_41ea134b53ce);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IMenuFlyoutPresenterAutomationPeerImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMenuFlyoutPresenterAutomationPeerVtbl(
@@ -9865,10 +9370,6 @@ pub struct IMenuFlyoutPresenterAutomationPeerFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMenuFlyoutPresenterAutomationPeerFactory {
     type Vtable = IMenuFlyoutPresenterAutomationPeerFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x07b5172d_761d_452b_9e6d_fa2a8be0ad26);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IMenuFlyoutPresenterAutomationPeerFactoryImpl {
-    fn CreateInstanceWithOwner();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9889,8 +9390,6 @@ unsafe impl ::windows::core::Interface for INavigationViewItemAutomationPeer {
     type Vtable = INavigationViewItemAutomationPeerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x309847a5_9971_4d8d_a81c_085c7086a1b9);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait INavigationViewItemAutomationPeerImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct INavigationViewItemAutomationPeerVtbl(
@@ -9907,10 +9406,6 @@ pub struct INavigationViewItemAutomationPeerFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for INavigationViewItemAutomationPeerFactory {
     type Vtable = INavigationViewItemAutomationPeerFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0bc2835d_aa38_4f97_9664_e6fc821d81ed);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait INavigationViewItemAutomationPeerFactoryImpl {
-    fn CreateInstanceWithOwner();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9931,8 +9426,6 @@ unsafe impl ::windows::core::Interface for IPasswordBoxAutomationPeer {
     type Vtable = IPasswordBoxAutomationPeerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x684f065e_3df3_4b9f_82ad_8819db3b218a);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IPasswordBoxAutomationPeerImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPasswordBoxAutomationPeerVtbl(
@@ -9949,10 +9442,6 @@ pub struct IPasswordBoxAutomationPeerFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPasswordBoxAutomationPeerFactory {
     type Vtable = IPasswordBoxAutomationPeerFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xac3d7ede_dca4_481c_b520_4a9b3f3b179c);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IPasswordBoxAutomationPeerFactoryImpl {
-    fn CreateInstanceWithOwner();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9973,8 +9462,6 @@ unsafe impl ::windows::core::Interface for IPersonPictureAutomationPeer {
     type Vtable = IPersonPictureAutomationPeerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x27156d4c_a66f_4aaf_8286_4f796d30628c);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IPersonPictureAutomationPeerImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPersonPictureAutomationPeerVtbl(
@@ -9991,10 +9478,6 @@ pub struct IPersonPictureAutomationPeerFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPersonPictureAutomationPeerFactory {
     type Vtable = IPersonPictureAutomationPeerFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa95f1f6d_2524_44a4_97fd_1181130100ad);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IPersonPictureAutomationPeerFactoryImpl {
-    fn CreateInstanceWithOwner();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -10015,8 +9498,6 @@ unsafe impl ::windows::core::Interface for IPickerFlyoutPresenterAutomationPeer 
     type Vtable = IPickerFlyoutPresenterAutomationPeerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x28414bf7_8382_4eae_93c1_d6f035aa8155);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IPickerFlyoutPresenterAutomationPeerImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPickerFlyoutPresenterAutomationPeerVtbl(
@@ -10034,8 +9515,6 @@ unsafe impl ::windows::core::Interface for IPivotAutomationPeer {
     type Vtable = IPivotAutomationPeerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe715a8f8_3b9d_402c_81e2_6e912ef58981);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IPivotAutomationPeerImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPivotAutomationPeerVtbl(
@@ -10052,10 +9531,6 @@ pub struct IPivotAutomationPeerFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPivotAutomationPeerFactory {
     type Vtable = IPivotAutomationPeerFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3efe0f94_0c91_4341_b9ac_1b56b4e6b84f);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IPivotAutomationPeerFactoryImpl {
-    fn CreateInstanceWithOwner();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -10076,8 +9551,6 @@ unsafe impl ::windows::core::Interface for IPivotItemAutomationPeer {
     type Vtable = IPivotItemAutomationPeerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1a4241ad_5d55_4d27_b40f_2d37506fbe78);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IPivotItemAutomationPeerImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPivotItemAutomationPeerVtbl(
@@ -10094,10 +9567,6 @@ pub struct IPivotItemAutomationPeerFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPivotItemAutomationPeerFactory {
     type Vtable = IPivotItemAutomationPeerFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf2810471_183f_416b_b41a_1e5a958a91f4);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IPivotItemAutomationPeerFactoryImpl {
-    fn CreateInstanceWithOwner();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -10118,8 +9587,6 @@ unsafe impl ::windows::core::Interface for IPivotItemDataAutomationPeer {
     type Vtable = IPivotItemDataAutomationPeerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa2a3b788_ea1d_48b7_88ee_f08b6aa07fee);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IPivotItemDataAutomationPeerImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPivotItemDataAutomationPeerVtbl(
@@ -10136,10 +9603,6 @@ pub struct IPivotItemDataAutomationPeerFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPivotItemDataAutomationPeerFactory {
     type Vtable = IPivotItemDataAutomationPeerFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x517a2480_d3b6_412e_82b6_94a0a84c13b0);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IPivotItemDataAutomationPeerFactoryImpl {
-    fn CreateInstanceWithParentAndItem();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -10159,8 +9622,6 @@ unsafe impl ::windows::core::Interface for IProgressBarAutomationPeer {
     type Vtable = IProgressBarAutomationPeerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x93f48f86_d840_4fb6_ac2f_5f779b854b0d);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IProgressBarAutomationPeerImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IProgressBarAutomationPeerVtbl(
@@ -10177,10 +9638,6 @@ pub struct IProgressBarAutomationPeerFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IProgressBarAutomationPeerFactory {
     type Vtable = IProgressBarAutomationPeerFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x364679ab_b80f_41b4_8eea_2f5251bc739c);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IProgressBarAutomationPeerFactoryImpl {
-    fn CreateInstanceWithOwner();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -10201,8 +9658,6 @@ unsafe impl ::windows::core::Interface for IProgressRingAutomationPeer {
     type Vtable = IProgressRingAutomationPeerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbc305eee_39d3_4eeb_ac33_2394de123e2e);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IProgressRingAutomationPeerImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IProgressRingAutomationPeerVtbl(
@@ -10219,10 +9674,6 @@ pub struct IProgressRingAutomationPeerFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IProgressRingAutomationPeerFactory {
     type Vtable = IProgressRingAutomationPeerFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf3db204b_157e_40bc_9593_55bc5c71a4f6);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IProgressRingAutomationPeerFactoryImpl {
-    fn CreateInstanceWithOwner();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -10243,8 +9694,6 @@ unsafe impl ::windows::core::Interface for IRadioButtonAutomationPeer {
     type Vtable = IRadioButtonAutomationPeerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7e6a5ed8_0b30_4743_b102_dcdf548e3131);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IRadioButtonAutomationPeerImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRadioButtonAutomationPeerVtbl(
@@ -10261,10 +9710,6 @@ pub struct IRadioButtonAutomationPeerFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IRadioButtonAutomationPeerFactory {
     type Vtable = IRadioButtonAutomationPeerFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4940c4fd_3d88_49ca_8f31_924187af0bfe);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IRadioButtonAutomationPeerFactoryImpl {
-    fn CreateInstanceWithOwner();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -10285,8 +9730,6 @@ unsafe impl ::windows::core::Interface for IRangeBaseAutomationPeer {
     type Vtable = IRangeBaseAutomationPeerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe454b549_4b2c_42ad_b04b_d35947d1ee50);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IRangeBaseAutomationPeerImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRangeBaseAutomationPeerVtbl(
@@ -10303,10 +9746,6 @@ pub struct IRangeBaseAutomationPeerFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IRangeBaseAutomationPeerFactory {
     type Vtable = IRangeBaseAutomationPeerFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x827c7601_3078_4479_95ea_91374ca06207);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IRangeBaseAutomationPeerFactoryImpl {
-    fn CreateInstanceWithOwner();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -10327,8 +9766,6 @@ unsafe impl ::windows::core::Interface for IRatingControlAutomationPeer {
     type Vtable = IRatingControlAutomationPeerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3d14349a_9963_4a47_823c_f457cb3209d5);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IRatingControlAutomationPeerImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRatingControlAutomationPeerVtbl(
@@ -10345,10 +9782,6 @@ pub struct IRatingControlAutomationPeerFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IRatingControlAutomationPeerFactory {
     type Vtable = IRatingControlAutomationPeerFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf179f272_9846_4632_8b9c_be6fa8d3c9bb);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IRatingControlAutomationPeerFactoryImpl {
-    fn CreateInstanceWithOwner();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -10369,8 +9802,6 @@ unsafe impl ::windows::core::Interface for IRepeatButtonAutomationPeer {
     type Vtable = IRepeatButtonAutomationPeerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x29e41ad5_a8ac_4e8a_83d8_09e37e054257);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IRepeatButtonAutomationPeerImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRepeatButtonAutomationPeerVtbl(
@@ -10387,10 +9818,6 @@ pub struct IRepeatButtonAutomationPeerFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IRepeatButtonAutomationPeerFactory {
     type Vtable = IRepeatButtonAutomationPeerFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6a6ff9d4_575e_4e60_bdd6_ec14419b4ff6);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IRepeatButtonAutomationPeerFactoryImpl {
-    fn CreateInstanceWithOwner();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -10411,8 +9838,6 @@ unsafe impl ::windows::core::Interface for IRichEditBoxAutomationPeer {
     type Vtable = IRichEditBoxAutomationPeerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc69f5c04_16ee_467a_a833_c3da8458ad64);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IRichEditBoxAutomationPeerImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRichEditBoxAutomationPeerVtbl(
@@ -10429,10 +9854,6 @@ pub struct IRichEditBoxAutomationPeerFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IRichEditBoxAutomationPeerFactory {
     type Vtable = IRichEditBoxAutomationPeerFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x752c8399_d296_4d87_9020_a4750e885b3c);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IRichEditBoxAutomationPeerFactoryImpl {
-    fn CreateInstanceWithOwner();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -10453,8 +9874,6 @@ unsafe impl ::windows::core::Interface for IRichTextBlockAutomationPeer {
     type Vtable = IRichTextBlockAutomationPeerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x93a01a9c_9609_41fa_82f3_909c09f49a72);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IRichTextBlockAutomationPeerImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRichTextBlockAutomationPeerVtbl(
@@ -10471,10 +9890,6 @@ pub struct IRichTextBlockAutomationPeerFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IRichTextBlockAutomationPeerFactory {
     type Vtable = IRichTextBlockAutomationPeerFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2038ae61_1389_467a_aed6_37334da9622b);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IRichTextBlockAutomationPeerFactoryImpl {
-    fn CreateInstanceWithOwner();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -10495,8 +9910,6 @@ unsafe impl ::windows::core::Interface for IRichTextBlockOverflowAutomationPeer 
     type Vtable = IRichTextBlockOverflowAutomationPeerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8c9a409a_2736_437b_ab36_a16a202f105d);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IRichTextBlockOverflowAutomationPeerImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRichTextBlockOverflowAutomationPeerVtbl(
@@ -10513,10 +9926,6 @@ pub struct IRichTextBlockOverflowAutomationPeerFactory(::windows::core::IUnknown
 unsafe impl ::windows::core::Interface for IRichTextBlockOverflowAutomationPeerFactory {
     type Vtable = IRichTextBlockOverflowAutomationPeerFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbd5eb663_2c14_4665_adef_f2b033947beb);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IRichTextBlockOverflowAutomationPeerFactoryImpl {
-    fn CreateInstanceWithOwner();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -10537,8 +9946,6 @@ unsafe impl ::windows::core::Interface for IScrollBarAutomationPeer {
     type Vtable = IScrollBarAutomationPeerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x69e0c369_bbe7_41f2_87ca_aad813fe550e);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IScrollBarAutomationPeerImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IScrollBarAutomationPeerVtbl(
@@ -10555,10 +9962,6 @@ pub struct IScrollBarAutomationPeerFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IScrollBarAutomationPeerFactory {
     type Vtable = IScrollBarAutomationPeerFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe1302110_afeb_4595_8e3d_edc0844a2b21);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IScrollBarAutomationPeerFactoryImpl {
-    fn CreateInstanceWithOwner();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -10579,8 +9982,6 @@ unsafe impl ::windows::core::Interface for IScrollViewerAutomationPeer {
     type Vtable = IScrollViewerAutomationPeerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd985f259_1b09_4e88_88fd_421750dc6b45);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IScrollViewerAutomationPeerImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IScrollViewerAutomationPeerVtbl(
@@ -10597,10 +9998,6 @@ pub struct IScrollViewerAutomationPeerFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IScrollViewerAutomationPeerFactory {
     type Vtable = IScrollViewerAutomationPeerFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x270dff7d_d96d_48f9_a36a_c252aa9c4670);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IScrollViewerAutomationPeerFactoryImpl {
-    fn CreateInstanceWithOwner();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -10621,8 +10018,6 @@ unsafe impl ::windows::core::Interface for ISearchBoxAutomationPeer {
     type Vtable = ISearchBoxAutomationPeerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x854011a4_18a6_4f30_939b_8871afa3f5e9);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ISearchBoxAutomationPeerImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISearchBoxAutomationPeerVtbl(
@@ -10639,10 +10034,6 @@ pub struct ISearchBoxAutomationPeerFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISearchBoxAutomationPeerFactory {
     type Vtable = ISearchBoxAutomationPeerFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb3c01430_7faa_41bb_8e91_7c761c5267f1);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ISearchBoxAutomationPeerFactoryImpl {
-    fn CreateInstanceWithOwner();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -10663,8 +10054,6 @@ unsafe impl ::windows::core::Interface for ISelectorAutomationPeer {
     type Vtable = ISelectorAutomationPeerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x162ac829_7115_43ec_b383_a7b71644069d);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ISelectorAutomationPeerImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISelectorAutomationPeerVtbl(
@@ -10681,10 +10070,6 @@ pub struct ISelectorAutomationPeerFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISelectorAutomationPeerFactory {
     type Vtable = ISelectorAutomationPeerFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7b525646_829b_4dcc_bd52_5a8d0399387a);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ISelectorAutomationPeerFactoryImpl {
-    fn CreateInstanceWithOwner();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -10705,8 +10090,6 @@ unsafe impl ::windows::core::Interface for ISelectorItemAutomationPeer {
     type Vtable = ISelectorItemAutomationPeerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xae8b3477_860a_45bb_bf7c_e1b27419d1dd);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ISelectorItemAutomationPeerImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISelectorItemAutomationPeerVtbl(
@@ -10723,10 +10106,6 @@ pub struct ISelectorItemAutomationPeerFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISelectorItemAutomationPeerFactory {
     type Vtable = ISelectorItemAutomationPeerFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x66d7edfb_786d_4362_a964_ebfb21776c30);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ISelectorItemAutomationPeerFactoryImpl {
-    fn CreateInstanceWithParentAndItem();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -10746,8 +10125,6 @@ unsafe impl ::windows::core::Interface for ISemanticZoomAutomationPeer {
     type Vtable = ISemanticZoomAutomationPeerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3c2fac6c_a977_47fc_b44e_2754c0b2bea9);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ISemanticZoomAutomationPeerImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISemanticZoomAutomationPeerVtbl(
@@ -10764,10 +10141,6 @@ pub struct ISemanticZoomAutomationPeerFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISemanticZoomAutomationPeerFactory {
     type Vtable = ISemanticZoomAutomationPeerFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf518d44d_a493_4496_b077_9674c7f4c5fa);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ISemanticZoomAutomationPeerFactoryImpl {
-    fn CreateInstanceWithOwner();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -10788,8 +10161,6 @@ unsafe impl ::windows::core::Interface for ISettingsFlyoutAutomationPeer {
     type Vtable = ISettingsFlyoutAutomationPeerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd0de0cdb_30cf_47a6_a5eb_9c77f0b0d6dd);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ISettingsFlyoutAutomationPeerImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISettingsFlyoutAutomationPeerVtbl(
@@ -10806,10 +10177,6 @@ pub struct ISettingsFlyoutAutomationPeerFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISettingsFlyoutAutomationPeerFactory {
     type Vtable = ISettingsFlyoutAutomationPeerFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf94762bd_8a14_40e4_94a7_3f33c922e945);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ISettingsFlyoutAutomationPeerFactoryImpl {
-    fn CreateInstanceWithOwner();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -10830,8 +10197,6 @@ unsafe impl ::windows::core::Interface for ISliderAutomationPeer {
     type Vtable = ISliderAutomationPeerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xec30015a_d611_46d0_ae4f_6ecf27dfbaa5);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ISliderAutomationPeerImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISliderAutomationPeerVtbl(
@@ -10848,10 +10213,6 @@ pub struct ISliderAutomationPeerFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISliderAutomationPeerFactory {
     type Vtable = ISliderAutomationPeerFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x971b8056_9a7a_4df9_95fa_6f5c04c91cac);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ISliderAutomationPeerFactoryImpl {
-    fn CreateInstanceWithOwner();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -10872,8 +10233,6 @@ unsafe impl ::windows::core::Interface for ITextBlockAutomationPeer {
     type Vtable = ITextBlockAutomationPeerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbe2057f5_6715_4e69_a050_92bd0ce232a9);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ITextBlockAutomationPeerImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITextBlockAutomationPeerVtbl(
@@ -10890,10 +10249,6 @@ pub struct ITextBlockAutomationPeerFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ITextBlockAutomationPeerFactory {
     type Vtable = ITextBlockAutomationPeerFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x76bf924b_7ca0_4b01_bc5c_a8cf4d3691de);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ITextBlockAutomationPeerFactoryImpl {
-    fn CreateInstanceWithOwner();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -10914,8 +10269,6 @@ unsafe impl ::windows::core::Interface for ITextBoxAutomationPeer {
     type Vtable = ITextBoxAutomationPeerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3a4f1ca0_5e5d_4d26_9067_e740bf657a9f);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ITextBoxAutomationPeerImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITextBoxAutomationPeerVtbl(
@@ -10932,10 +10285,6 @@ pub struct ITextBoxAutomationPeerFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ITextBoxAutomationPeerFactory {
     type Vtable = ITextBoxAutomationPeerFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x01f0c067_966b_4130_b872_469e42bd4a7f);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ITextBoxAutomationPeerFactoryImpl {
-    fn CreateInstanceWithOwner();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -10956,8 +10305,6 @@ unsafe impl ::windows::core::Interface for IThumbAutomationPeer {
     type Vtable = IThumbAutomationPeerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdc2949b5_b45e_4d6d_892f_d9422c950efb);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IThumbAutomationPeerImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IThumbAutomationPeerVtbl(
@@ -10974,10 +10321,6 @@ pub struct IThumbAutomationPeerFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IThumbAutomationPeerFactory {
     type Vtable = IThumbAutomationPeerFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x970743ff_af41_4600_b55d_26d43df860e1);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IThumbAutomationPeerFactoryImpl {
-    fn CreateInstanceWithOwner();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -10998,8 +10341,6 @@ unsafe impl ::windows::core::Interface for ITimePickerAutomationPeer {
     type Vtable = ITimePickerAutomationPeerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa43d44ef_3285_4df7_b4a4_e4cdf36a3a17);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ITimePickerAutomationPeerImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITimePickerAutomationPeerVtbl(
@@ -11016,10 +10357,6 @@ pub struct ITimePickerAutomationPeerFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ITimePickerAutomationPeerFactory {
     type Vtable = ITimePickerAutomationPeerFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x978f6671_47f8_40a7_9e21_68128b16b4fd);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ITimePickerAutomationPeerFactoryImpl {
-    fn CreateInstanceWithOwner();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -11040,8 +10377,6 @@ unsafe impl ::windows::core::Interface for ITimePickerFlyoutPresenterAutomationP
     type Vtable = ITimePickerFlyoutPresenterAutomationPeerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xda93ee27_82f1_4701_8706_be297bf06043);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ITimePickerFlyoutPresenterAutomationPeerImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITimePickerFlyoutPresenterAutomationPeerVtbl(
@@ -11059,8 +10394,6 @@ unsafe impl ::windows::core::Interface for IToggleButtonAutomationPeer {
     type Vtable = IToggleButtonAutomationPeerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x62dbe6c5_bc0a_45bb_bf77_ea0f1502891f);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IToggleButtonAutomationPeerImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IToggleButtonAutomationPeerVtbl(
@@ -11077,10 +10410,6 @@ pub struct IToggleButtonAutomationPeerFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IToggleButtonAutomationPeerFactory {
     type Vtable = IToggleButtonAutomationPeerFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc9218cc4_ad4b_4d03_a6a4_7d59e6360004);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IToggleButtonAutomationPeerFactoryImpl {
-    fn CreateInstanceWithOwner();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -11101,8 +10430,6 @@ unsafe impl ::windows::core::Interface for IToggleMenuFlyoutItemAutomationPeer {
     type Vtable = IToggleMenuFlyoutItemAutomationPeerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6b57eafe_6af1_4903_8373_3437bf352345);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IToggleMenuFlyoutItemAutomationPeerImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IToggleMenuFlyoutItemAutomationPeerVtbl(
@@ -11119,10 +10446,6 @@ pub struct IToggleMenuFlyoutItemAutomationPeerFactory(::windows::core::IUnknown)
 unsafe impl ::windows::core::Interface for IToggleMenuFlyoutItemAutomationPeerFactory {
     type Vtable = IToggleMenuFlyoutItemAutomationPeerFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x94364b77_8f6c_4837_aae3_94d010d8d162);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IToggleMenuFlyoutItemAutomationPeerFactoryImpl {
-    fn CreateInstanceWithOwner();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -11143,8 +10466,6 @@ unsafe impl ::windows::core::Interface for IToggleSwitchAutomationPeer {
     type Vtable = IToggleSwitchAutomationPeerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc011f174_e89e_4790_bf9a_78ebb5f59e9f);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IToggleSwitchAutomationPeerImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IToggleSwitchAutomationPeerVtbl(
@@ -11161,10 +10482,6 @@ pub struct IToggleSwitchAutomationPeerFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IToggleSwitchAutomationPeerFactory {
     type Vtable = IToggleSwitchAutomationPeerFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x31f933e3_fef8_4419_9df5_d9ef7196ea34);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IToggleSwitchAutomationPeerFactoryImpl {
-    fn CreateInstanceWithOwner();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -11185,8 +10502,6 @@ unsafe impl ::windows::core::Interface for ITreeViewItemAutomationPeer {
     type Vtable = ITreeViewItemAutomationPeerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2331d648_b617_437f_920c_71d450503e65);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ITreeViewItemAutomationPeerImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITreeViewItemAutomationPeerVtbl(
@@ -11203,10 +10518,6 @@ pub struct ITreeViewItemAutomationPeerFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ITreeViewItemAutomationPeerFactory {
     type Vtable = ITreeViewItemAutomationPeerFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x73d388bf_1d01_4159_82c0_2b2996dbfdce);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ITreeViewItemAutomationPeerFactoryImpl {
-    fn CreateInstanceWithOwner();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -11227,8 +10538,6 @@ unsafe impl ::windows::core::Interface for ITreeViewListAutomationPeer {
     type Vtable = ITreeViewListAutomationPeerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x71c1b5bc_bb29_4479_a8a8_606be6b823ae);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ITreeViewListAutomationPeerImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITreeViewListAutomationPeerVtbl(
@@ -11245,10 +10554,6 @@ pub struct ITreeViewListAutomationPeerFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ITreeViewListAutomationPeerFactory {
     type Vtable = ITreeViewListAutomationPeerFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00f597e2_f811_475a_bfe6_290fe707fa88);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ITreeViewListAutomationPeerFactoryImpl {
-    fn CreateInstanceWithOwner();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -22606,3 +21911,5 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Tre
 }
 unsafe impl ::core::marker::Send for TreeViewListAutomationPeer {}
 unsafe impl ::core::marker::Sync for TreeViewListAutomationPeer {}
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

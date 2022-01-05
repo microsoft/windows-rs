@@ -570,3 +570,5 @@ pub type pD3DDisassemble = ::core::option::Option<unsafe extern "system" fn(psrc
 #[doc = "*Required features: 'Win32_Graphics_Direct3D_Fxc', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type pD3DPreprocess = ::core::option::Option<unsafe extern "system" fn(psrcdata: *const ::core::ffi::c_void, srcdatasize: usize, pfilename: super::super::super::Foundation::PSTR, pdefines: *const super::D3D_SHADER_MACRO, pinclude: ::core::option::Option<super::ID3DInclude>, ppcodetext: *mut ::core::option::Option<super::ID3DBlob>, pperrormsgs: *mut ::core::option::Option<super::ID3DBlob>) -> ::windows::core::HRESULT>;
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

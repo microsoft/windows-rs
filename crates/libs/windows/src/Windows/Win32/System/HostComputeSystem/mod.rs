@@ -1213,3 +1213,5 @@ pub unsafe fn HcsWaitForProcessExit<'a, Param0: ::windows::core::IntoParam<'a, H
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

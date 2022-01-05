@@ -777,3 +777,5 @@ pub const TOUCH_FEEDBACK_DEFAULT: TOUCH_FEEDBACK_MODE = 1u32;
 pub const TOUCH_FEEDBACK_INDIRECT: TOUCH_FEEDBACK_MODE = 2u32;
 #[doc = "*Required features: 'Win32_UI_Input_Pointer'*"]
 pub const TOUCH_FEEDBACK_NONE: TOUCH_FEEDBACK_MODE = 3u32;
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

@@ -1049,25 +1049,6 @@ unsafe impl ::windows::core::Interface for IBinding {
     type Vtable = IBindingVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3f7a0c6b_d00f_4730_8c1d_48e16c46f9ca);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IBindingImpl {
-    fn Path();
-    fn SetPath();
-    fn Mode();
-    fn SetMode();
-    fn Source();
-    fn SetSource();
-    fn RelativeSource();
-    fn SetRelativeSource();
-    fn ElementName();
-    fn SetElementName();
-    fn Converter();
-    fn SetConverter();
-    fn ConverterParameter();
-    fn SetConverterParameter();
-    fn ConverterLanguage();
-    fn SetConverterLanguage();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBindingVtbl(
@@ -1101,15 +1082,6 @@ unsafe impl ::windows::core::Interface for IBinding2 {
     type Vtable = IBinding2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x34f96fcb_0406_48b3_9e82_f333ec4c6910);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IBinding2Impl {
-    fn FallbackValue();
-    fn SetFallbackValue();
-    fn TargetNullValue();
-    fn SetTargetNullValue();
-    fn UpdateSourceTrigger();
-    fn SetUpdateSourceTrigger();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBinding2Vtbl(
@@ -1133,8 +1105,6 @@ unsafe impl ::windows::core::Interface for IBindingBase {
     type Vtable = IBindingBaseVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1589a2ab_3d15_49bc_a447_8a5448e58870);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IBindingBaseImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBindingBaseVtbl(
@@ -1151,10 +1121,6 @@ pub struct IBindingBaseFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IBindingBaseFactory {
     type Vtable = IBindingBaseFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x22dafc3a_7701_4666_a1ba_9859bdcfec34);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IBindingBaseFactoryImpl {
-    fn CreateInstance();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1173,12 +1139,6 @@ pub struct IBindingExpression(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IBindingExpression {
     type Vtable = IBindingExpressionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x516a19a5_c2fd_4a9e_9fd3_9aa42f995a3c);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IBindingExpressionImpl {
-    fn DataItem();
-    fn ParentBinding();
-    fn UpdateSource();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1200,8 +1160,6 @@ unsafe impl ::windows::core::Interface for IBindingExpressionBase {
     type Vtable = IBindingExpressionBaseVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfded3154_e954_4f67_8fb6_6ed79b3a1cb3);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IBindingExpressionBaseImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBindingExpressionBaseVtbl(
@@ -1219,8 +1177,6 @@ unsafe impl ::windows::core::Interface for IBindingExpressionBaseFactory {
     type Vtable = IBindingExpressionBaseFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xea7116a7_c2d9_4375_b471_66b9c48c7930);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IBindingExpressionBaseFactoryImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBindingExpressionBaseFactoryVtbl(
@@ -1238,8 +1194,6 @@ unsafe impl ::windows::core::Interface for IBindingExpressionFactory {
     type Vtable = IBindingExpressionFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1cb55cd9_db72_40b3_a2b5_24ee6ea5c328);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IBindingExpressionFactoryImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBindingExpressionFactoryVtbl(
@@ -1256,10 +1210,6 @@ pub struct IBindingFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IBindingFactory {
     type Vtable = IBindingFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xff42bb08_c39e_4f7e_8434_a1569083883c);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IBindingFactoryImpl {
-    fn CreateInstance();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1279,8 +1229,6 @@ unsafe impl ::windows::core::Interface for IBindingOperations {
     type Vtable = IBindingOperationsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6fffd738_9839_419c_a17a_4b3604e1524e);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IBindingOperationsImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBindingOperationsVtbl(
@@ -1297,10 +1245,6 @@ pub struct IBindingOperationsStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IBindingOperationsStatics {
     type Vtable = IBindingOperationsStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe155ef73_95a0_4aab_8c7d_2a47da073c79);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IBindingOperationsStaticsImpl {
-    fn SetBinding();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1722,26 +1666,6 @@ unsafe impl ::windows::core::Interface for ICollectionView {
     type Vtable = ICollectionViewVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8be8bfe4_dbef_44df_8126_a31a89121ddc);
 }
-#[cfg(feature = "Foundation_Collections")]
-pub trait ICollectionViewImpl: IIterableImpl<::windows::core::IInspectable> + IObservableVectorImpl<::windows::core::IInspectable> + IVectorImpl<::windows::core::IInspectable> {
-    fn CurrentItem();
-    fn CurrentPosition();
-    fn IsCurrentAfterLast();
-    fn IsCurrentBeforeFirst();
-    fn CollectionGroups();
-    fn HasMoreItems();
-    fn CurrentChanged();
-    fn RemoveCurrentChanged();
-    fn CurrentChanging();
-    fn RemoveCurrentChanging();
-    fn MoveCurrentTo();
-    fn MoveCurrentToPosition();
-    fn MoveCurrentToFirst();
-    fn MoveCurrentToLast();
-    fn MoveCurrentToNext();
-    fn MoveCurrentToPrevious();
-    fn LoadMoreItemsAsync();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICollectionViewVtbl(
@@ -1851,9 +1775,6 @@ unsafe impl ::windows::core::Interface for ICollectionViewFactory {
     type Vtable = ICollectionViewFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x34d4aaf4_8e72_4950_9192_ecd07d399d0a);
 }
-pub trait ICollectionViewFactoryImpl {
-    fn CreateView();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICollectionViewFactoryVtbl(
@@ -1950,10 +1871,6 @@ unsafe impl ::windows::core::Interface for ICollectionViewGroup {
     type Vtable = ICollectionViewGroupVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7e01b9d8_d7b5_48b6_b31c_5bb5bdf5f09b);
 }
-pub trait ICollectionViewGroupImpl {
-    fn Group();
-    fn GroupItems();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICollectionViewGroupVtbl(
@@ -1973,16 +1890,6 @@ pub struct ICollectionViewSource(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICollectionViewSource {
     type Vtable = ICollectionViewSourceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa66a1146_d2fb_4ead_be9f_3578a466dcfe);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ICollectionViewSourceImpl {
-    fn Source();
-    fn SetSource();
-    fn View();
-    fn IsSourceGrouped();
-    fn SetIsSourceGrouped();
-    fn ItemsPath();
-    fn SetItemsPath();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2008,13 +1915,6 @@ unsafe impl ::windows::core::Interface for ICollectionViewSourceStatics {
     type Vtable = ICollectionViewSourceStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x173a0710_46af_4c0c_818b_21b6ef81bf65);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ICollectionViewSourceStaticsImpl {
-    fn SourceProperty();
-    fn ViewProperty();
-    fn IsSourceGroupedProperty();
-    fn ItemsPathProperty();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICollectionViewSourceStaticsVtbl(
@@ -2036,12 +1936,6 @@ unsafe impl ::windows::core::Interface for ICurrentChangingEventArgs {
     type Vtable = ICurrentChangingEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf9891e29_51cc_47dd_a5b9_35dc4914af69);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ICurrentChangingEventArgsImpl {
-    fn Cancel();
-    fn SetCancel();
-    fn IsCancelable();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICurrentChangingEventArgsVtbl(
@@ -2061,11 +1955,6 @@ pub struct ICurrentChangingEventArgsFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICurrentChangingEventArgsFactory {
     type Vtable = ICurrentChangingEventArgsFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x153bbeee_62f3_48cf_8183_8be26de3a66e);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ICurrentChangingEventArgsFactoryImpl {
-    fn CreateInstance();
-    fn CreateWithCancelableParameter();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2206,16 +2095,6 @@ unsafe impl ::windows::core::Interface for ICustomProperty {
     type Vtable = ICustomPropertyVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x30da92c0_23e8_42a0_ae7c_734a0e5d2782);
 }
-pub trait ICustomPropertyImpl {
-    fn Type();
-    fn Name();
-    fn GetValue();
-    fn SetValue();
-    fn GetIndexedValue();
-    fn SetIndexedValue();
-    fn CanWrite();
-    fn CanRead();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICustomPropertyVtbl(
@@ -2337,12 +2216,6 @@ unsafe impl ::windows::core::Interface for ICustomPropertyProvider {
     type Vtable = ICustomPropertyProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7c925755_3e48_42b4_8677_76372267033f);
 }
-pub trait ICustomPropertyProviderImpl {
-    fn GetCustomProperty();
-    fn GetIndexedProperty();
-    fn GetStringRepresentation();
-    fn Type();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICustomPropertyProviderVtbl(
@@ -2366,12 +2239,6 @@ unsafe impl ::windows::core::Interface for IItemIndexRange {
     type Vtable = IItemIndexRangeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x83b834be_0583_4a26_9b64_8bf4a2f65704);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IItemIndexRangeImpl {
-    fn FirstIndex();
-    fn Length();
-    fn LastIndex();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IItemIndexRangeVtbl(
@@ -2391,10 +2258,6 @@ pub struct IItemIndexRangeFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IItemIndexRangeFactory {
     type Vtable = IItemIndexRangeFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x86e2c440_2e7a_4c7d_a664_e8abf07bfc7e);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IItemIndexRangeFactoryImpl {
-    fn CreateInstance();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2513,10 +2376,6 @@ unsafe impl ::windows::core::Interface for IItemsRangeInfo {
     type Vtable = IItemsRangeInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf05f5665_71fd_45a2_be13_a081d294a68d);
 }
-#[cfg(feature = "Foundation")]
-pub trait IItemsRangeInfoImpl: IClosableImpl {
-    fn RangesChanged();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IItemsRangeInfoVtbl(
@@ -2612,10 +2471,6 @@ unsafe impl ::windows::core::Interface for INotifyPropertyChanged {
     type Vtable = INotifyPropertyChangedVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcf75d69c_f2f4_486b_b302_bb4c09baebfa);
 }
-pub trait INotifyPropertyChangedImpl {
-    fn PropertyChanged();
-    fn RemovePropertyChanged();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct INotifyPropertyChangedVtbl(
@@ -2637,10 +2492,6 @@ unsafe impl ::windows::core::Interface for IPropertyChangedEventArgs {
     type Vtable = IPropertyChangedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4f33a9a0_5cf4_47a4_b16f_d7faaf17457e);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IPropertyChangedEventArgsImpl {
-    fn PropertyName();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPropertyChangedEventArgsVtbl(
@@ -2658,10 +2509,6 @@ pub struct IPropertyChangedEventArgsFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPropertyChangedEventArgsFactory {
     type Vtable = IPropertyChangedEventArgsFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6dcc9c03_e0c7_4eee_8ea9_37e3406eeb1c);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IPropertyChangedEventArgsFactoryImpl {
-    fn CreateInstance();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2681,11 +2528,6 @@ unsafe impl ::windows::core::Interface for IRelativeSource {
     type Vtable = IRelativeSourceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2397ce84_2822_483a_b499_d0f031e06c6b);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IRelativeSourceImpl {
-    fn Mode();
-    fn SetMode();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRelativeSourceVtbl(
@@ -2704,10 +2546,6 @@ pub struct IRelativeSourceFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IRelativeSourceFactory {
     type Vtable = IRelativeSourceFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xef8392cd_446e_4f93_aacb_9b1255577460);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IRelativeSourceFactoryImpl {
-    fn CreateInstance();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2815,12 +2653,6 @@ unsafe impl ::windows::core::Interface for ISelectionInfo {
     type Vtable = ISelectionInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2e12ca86_e1ed_4245_be49_207e42aec524);
 }
-pub trait ISelectionInfoImpl {
-    fn SelectRange();
-    fn DeselectRange();
-    fn IsSelected();
-    fn GetSelectedRanges();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISelectionInfoVtbl(
@@ -2921,10 +2753,6 @@ unsafe impl ::windows::core::Interface for ISupportIncrementalLoading {
     type Vtable = ISupportIncrementalLoadingVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7f5ee992_7694_4e6c_a51b_e34bf43de743);
 }
-pub trait ISupportIncrementalLoadingImpl {
-    fn LoadMoreItemsAsync();
-    fn HasMoreItems();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISupportIncrementalLoadingVtbl(
@@ -3023,10 +2851,6 @@ unsafe impl ::windows::core::RuntimeType for IValueConverter {
 unsafe impl ::windows::core::Interface for IValueConverter {
     type Vtable = IValueConverterVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe6f2fef0_0712_487f_b313_f300b8d79aa1);
-}
-pub trait IValueConverterImpl {
-    fn Convert();
-    fn ConvertBack();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3542,3 +3366,5 @@ unsafe impl ::windows::core::RuntimeType for UpdateSourceTrigger {
 impl ::windows::core::DefaultType for UpdateSourceTrigger {
     type DefaultType = Self;
 }
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

@@ -355,12 +355,6 @@ unsafe impl ::windows::core::Interface for IAutomationConnection {
     type Vtable = IAutomationConnectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaad262ed_0ef4_5d43_97be_a834e27b65b9);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IAutomationConnectionImpl {
-    fn IsRemoteSystem();
-    fn AppUserModelId();
-    fn ExecutableFileName();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAutomationConnectionVtbl(
@@ -381,10 +375,6 @@ unsafe impl ::windows::core::Interface for IAutomationConnectionBoundObject {
     type Vtable = IAutomationConnectionBoundObjectVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5e8558fb_ca52_5b65_9830_dd2905816093);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IAutomationConnectionBoundObjectImpl {
-    fn Connection();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAutomationConnectionBoundObjectVtbl(
@@ -402,12 +392,6 @@ pub struct IAutomationElement(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAutomationElement {
     type Vtable = IAutomationElementVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa1898370_2c07_56fd_993f_61a72a08058c);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IAutomationElementImpl {
-    fn IsRemoteSystem();
-    fn AppUserModelId();
-    fn ExecutableFileName();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -429,8 +413,6 @@ unsafe impl ::windows::core::Interface for IAutomationTextRange {
     type Vtable = IAutomationTextRangeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7e101b65_40d3_5994_85a9_0a0cb9a4ec98);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IAutomationTextRangeImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAutomationTextRangeVtbl(
@@ -441,3 +423,5 @@ pub struct IAutomationTextRangeVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
 );
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

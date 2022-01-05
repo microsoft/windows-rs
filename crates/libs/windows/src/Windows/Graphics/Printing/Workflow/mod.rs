@@ -6,15 +6,6 @@ unsafe impl ::windows::core::Interface for IPrintWorkflowBackgroundSession {
     type Vtable = IPrintWorkflowBackgroundSessionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5b7913ba_0c5e_528a_7458_86a46cbddc45);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IPrintWorkflowBackgroundSessionImpl {
-    fn SetupRequested();
-    fn RemoveSetupRequested();
-    fn Submitted();
-    fn RemoveSubmitted();
-    fn Status();
-    fn Start();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintWorkflowBackgroundSessionVtbl(
@@ -42,13 +33,6 @@ unsafe impl ::windows::core::Interface for IPrintWorkflowBackgroundSetupRequeste
     type Vtable = IPrintWorkflowBackgroundSetupRequestedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x43e97342_1750_59c9_61fb_383748a20362);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IPrintWorkflowBackgroundSetupRequestedEventArgsImpl {
-    fn GetUserPrintTicketAsync();
-    fn Configuration();
-    fn SetRequiresUI();
-    fn GetDeferral();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintWorkflowBackgroundSetupRequestedEventArgsVtbl(
@@ -72,12 +56,6 @@ unsafe impl ::windows::core::Interface for IPrintWorkflowConfiguration {
     type Vtable = IPrintWorkflowConfigurationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd0aac4ed_fd4b_5df5_4bb6_8d0d159ebe3f);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IPrintWorkflowConfigurationImpl {
-    fn SourceAppDisplayName();
-    fn JobTitle();
-    fn SessionId();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintWorkflowConfigurationVtbl(
@@ -98,10 +76,6 @@ unsafe impl ::windows::core::Interface for IPrintWorkflowConfiguration2 {
     type Vtable = IPrintWorkflowConfiguration2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xde350a50_a6d4_5be2_8b9a_09d3d39ea780);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IPrintWorkflowConfiguration2Impl {
-    fn AbortPrintFlow();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintWorkflowConfiguration2Vtbl(
@@ -119,15 +93,6 @@ pub struct IPrintWorkflowForegroundSession(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPrintWorkflowForegroundSession {
     type Vtable = IPrintWorkflowForegroundSessionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc79b63d0_f8ec_4ceb_953a_c8876157dd33);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IPrintWorkflowForegroundSessionImpl {
-    fn SetupRequested();
-    fn RemoveSetupRequested();
-    fn XpsDataAvailable();
-    fn RemoveXpsDataAvailable();
-    fn Status();
-    fn Start();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -156,12 +121,6 @@ unsafe impl ::windows::core::Interface for IPrintWorkflowForegroundSetupRequeste
     type Vtable = IPrintWorkflowForegroundSetupRequestedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbbe38247_9c1b_4dd3_9b2b_c80468d941b3);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IPrintWorkflowForegroundSetupRequestedEventArgsImpl {
-    fn GetUserPrintTicketAsync();
-    fn Configuration();
-    fn GetDeferral();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintWorkflowForegroundSetupRequestedEventArgsVtbl(
@@ -184,10 +143,6 @@ unsafe impl ::windows::core::Interface for IPrintWorkflowJobActivatedEventArgs {
     type Vtable = IPrintWorkflowJobActivatedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd4bd5e6d_034e_5e00_a616_f961a033dcc8);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IPrintWorkflowJobActivatedEventArgsImpl {
-    fn Session();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintWorkflowJobActivatedEventArgsVtbl(
@@ -205,15 +160,6 @@ pub struct IPrintWorkflowJobBackgroundSession(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPrintWorkflowJobBackgroundSession {
     type Vtable = IPrintWorkflowJobBackgroundSessionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc5ec6ad8_20c9_5d51_8507_2734b46f96c5);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IPrintWorkflowJobBackgroundSessionImpl {
-    fn Status();
-    fn JobStarting();
-    fn RemoveJobStarting();
-    fn PdlModificationRequested();
-    fn RemovePdlModificationRequested();
-    fn Start();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -242,12 +188,6 @@ unsafe impl ::windows::core::Interface for IPrintWorkflowJobNotificationEventArg
     type Vtable = IPrintWorkflowJobNotificationEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0ae16fba_5398_5eba_b472_978650186a9a);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IPrintWorkflowJobNotificationEventArgsImpl {
-    fn Configuration();
-    fn PrinterJob();
-    fn GetDeferral();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintWorkflowJobNotificationEventArgsVtbl(
@@ -268,13 +208,6 @@ pub struct IPrintWorkflowJobStartingEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPrintWorkflowJobStartingEventArgs {
     type Vtable = IPrintWorkflowJobStartingEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe3d99ba8_31ad_5e09_b0d7_601b97f161ad);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IPrintWorkflowJobStartingEventArgsImpl {
-    fn Configuration();
-    fn Printer();
-    fn SetSkipSystemRendering();
-    fn GetDeferral();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -299,10 +232,6 @@ unsafe impl ::windows::core::Interface for IPrintWorkflowJobTriggerDetails {
     type Vtable = IPrintWorkflowJobTriggerDetailsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xff296129_60e2_51db_ba8c_e2ccddb516b9);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IPrintWorkflowJobTriggerDetailsImpl {
-    fn PrintWorkflowJobSession();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintWorkflowJobTriggerDetailsVtbl(
@@ -320,15 +249,6 @@ pub struct IPrintWorkflowJobUISession(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPrintWorkflowJobUISession {
     type Vtable = IPrintWorkflowJobUISessionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00c8736b_7637_5687_a302_0f664d2aac65);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IPrintWorkflowJobUISessionImpl {
-    fn Status();
-    fn PdlDataAvailable();
-    fn RemovePdlDataAvailable();
-    fn JobNotification();
-    fn RemoveJobNotification();
-    fn Start();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -357,8 +277,6 @@ unsafe impl ::windows::core::Interface for IPrintWorkflowObjectModelSourceFileCo
     type Vtable = IPrintWorkflowObjectModelSourceFileContentVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc36c8a6a_8a2a_419a_b3c3_2090e6bfab2f);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IPrintWorkflowObjectModelSourceFileContentImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintWorkflowObjectModelSourceFileContentVtbl(
@@ -375,10 +293,6 @@ pub struct IPrintWorkflowObjectModelSourceFileContentFactory(::windows::core::IU
 unsafe impl ::windows::core::Interface for IPrintWorkflowObjectModelSourceFileContentFactory {
     type Vtable = IPrintWorkflowObjectModelSourceFileContentFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x93b1b903_f013_56d6_b708_99ac2ccb12ee);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IPrintWorkflowObjectModelSourceFileContentFactoryImpl {
-    fn CreateInstance();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -399,8 +313,6 @@ unsafe impl ::windows::core::Interface for IPrintWorkflowObjectModelTargetPackag
     type Vtable = IPrintWorkflowObjectModelTargetPackageVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7d96bc74_9b54_4ca1_ad3a_979c3d44ddac);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IPrintWorkflowObjectModelTargetPackageImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintWorkflowObjectModelTargetPackageVtbl(
@@ -417,10 +329,6 @@ pub struct IPrintWorkflowPdlConverter(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPrintWorkflowPdlConverter {
     type Vtable = IPrintWorkflowPdlConverterVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x40604b62_0ae4_51f1_818f_731dc0b005ab);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IPrintWorkflowPdlConverterImpl {
-    fn ConvertPdlAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -440,13 +348,6 @@ pub struct IPrintWorkflowPdlDataAvailableEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPrintWorkflowPdlDataAvailableEventArgs {
     type Vtable = IPrintWorkflowPdlDataAvailableEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd4ad6b50_1547_5991_a0ef_e2ee20211518);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IPrintWorkflowPdlDataAvailableEventArgsImpl {
-    fn Configuration();
-    fn PrinterJob();
-    fn SourceContent();
-    fn GetDeferral();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -469,18 +370,6 @@ pub struct IPrintWorkflowPdlModificationRequestedEventArgs(::windows::core::IUnk
 unsafe impl ::windows::core::Interface for IPrintWorkflowPdlModificationRequestedEventArgs {
     type Vtable = IPrintWorkflowPdlModificationRequestedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1a339a61_2e13_5edd_a707_ceec61d7333b);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IPrintWorkflowPdlModificationRequestedEventArgsImpl {
-    fn Configuration();
-    fn PrinterJob();
-    fn SourceContent();
-    fn UILauncher();
-    fn CreateJobOnPrinter();
-    fn CreateJobOnPrinterWithAttributes();
-    fn CreateJobOnPrinterWithAttributesBuffer();
-    fn GetPdlConverter();
-    fn GetDeferral();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -511,12 +400,6 @@ unsafe impl ::windows::core::Interface for IPrintWorkflowPdlSourceContent {
     type Vtable = IPrintWorkflowPdlSourceContentVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x92f7fc41_32b8_56ab_845e_b1e68b3aedd5);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IPrintWorkflowPdlSourceContentImpl {
-    fn ContentType();
-    fn GetInputStream();
-    fn GetContentFileAsync();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintWorkflowPdlSourceContentVtbl(
@@ -539,11 +422,6 @@ unsafe impl ::windows::core::Interface for IPrintWorkflowPdlTargetStream {
     type Vtable = IPrintWorkflowPdlTargetStreamVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa742dfe5_1ee3_52a9_9f9f_2e2043180fd1);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IPrintWorkflowPdlTargetStreamImpl {
-    fn GetOutputStream();
-    fn CompleteStreamSubmission();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintWorkflowPdlTargetStreamVtbl(
@@ -563,17 +441,6 @@ pub struct IPrintWorkflowPrinterJob(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPrintWorkflowPrinterJob {
     type Vtable = IPrintWorkflowPrinterJobVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x12009f94_0d14_5443_bc09_250311ce570b);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IPrintWorkflowPrinterJobImpl {
-    fn JobId();
-    fn Printer();
-    fn GetJobStatus();
-    fn GetJobPrintTicket();
-    fn GetJobAttributesAsBuffer();
-    fn GetJobAttributes();
-    fn SetJobAttributesFromBuffer();
-    fn SetJobAttributes();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -606,12 +473,6 @@ unsafe impl ::windows::core::Interface for IPrintWorkflowSourceContent {
     type Vtable = IPrintWorkflowSourceContentVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1a28c641_ceb1_4533_bb73_fbe63eefdb18);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IPrintWorkflowSourceContentImpl {
-    fn GetJobPrintTicketAsync();
-    fn GetSourceSpoolDataAsStreamContent();
-    fn GetSourceSpoolDataAsXpsObjectModel();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintWorkflowSourceContentVtbl(
@@ -633,10 +494,6 @@ unsafe impl ::windows::core::Interface for IPrintWorkflowSpoolStreamContent {
     type Vtable = IPrintWorkflowSpoolStreamContentVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x72e55ece_e406_4b74_84e1_3ff3fdcdaf70);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IPrintWorkflowSpoolStreamContentImpl {
-    fn GetInputStream();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintWorkflowSpoolStreamContentVtbl(
@@ -656,10 +513,6 @@ unsafe impl ::windows::core::Interface for IPrintWorkflowStreamTarget {
     type Vtable = IPrintWorkflowStreamTargetVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb23bba84_8565_488b_9839_1c9e7c7aa916);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IPrintWorkflowStreamTargetImpl {
-    fn GetOutputStream();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintWorkflowStreamTargetVtbl(
@@ -678,12 +531,6 @@ pub struct IPrintWorkflowSubmittedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPrintWorkflowSubmittedEventArgs {
     type Vtable = IPrintWorkflowSubmittedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3add0a41_3794_5569_5c87_40e8ff720f83);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IPrintWorkflowSubmittedEventArgsImpl {
-    fn Operation();
-    fn GetTarget();
-    fn GetDeferral();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -707,12 +554,6 @@ unsafe impl ::windows::core::Interface for IPrintWorkflowSubmittedOperation {
     type Vtable = IPrintWorkflowSubmittedOperationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2e4e6216_3be1_5f0f_5c81_a5a2bd4eab0e);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IPrintWorkflowSubmittedOperationImpl {
-    fn Complete();
-    fn Configuration();
-    fn XpsContent();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintWorkflowSubmittedOperationVtbl(
@@ -733,11 +574,6 @@ unsafe impl ::windows::core::Interface for IPrintWorkflowTarget {
     type Vtable = IPrintWorkflowTargetVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x29da276c_0a73_5aed_4f3d_970d3251f057);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IPrintWorkflowTargetImpl {
-    fn TargetAsStream();
-    fn TargetAsXpsObjectModelPackage();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintWorkflowTargetVtbl(
@@ -757,10 +593,6 @@ unsafe impl ::windows::core::Interface for IPrintWorkflowTriggerDetails {
     type Vtable = IPrintWorkflowTriggerDetailsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5739d868_9d86_4052_b0cb_f310becd59bb);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IPrintWorkflowTriggerDetailsImpl {
-    fn PrintWorkflowSession();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintWorkflowTriggerDetailsVtbl(
@@ -779,10 +611,6 @@ unsafe impl ::windows::core::Interface for IPrintWorkflowUIActivatedEventArgs {
     type Vtable = IPrintWorkflowUIActivatedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbc8a844d_09eb_5746_72a6_8dc8b5edbe9b);
 }
-#[cfg(all(feature = "ApplicationModel_Activation", feature = "implement_exclusive"))]
-pub trait IPrintWorkflowUIActivatedEventArgsImpl: IActivatedEventArgsImpl + IActivatedEventArgsWithUserImpl {
-    fn PrintWorkflowSession();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintWorkflowUIActivatedEventArgsVtbl(
@@ -800,11 +628,6 @@ pub struct IPrintWorkflowUILauncher(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPrintWorkflowUILauncher {
     type Vtable = IPrintWorkflowUILauncherVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x64e9e22f_14cc_5828_96fb_39163fb6c378);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IPrintWorkflowUILauncherImpl {
-    fn IsUILaunchEnabled();
-    fn LaunchAndCompleteUIAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -825,11 +648,6 @@ pub struct IPrintWorkflowXpsDataAvailableEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPrintWorkflowXpsDataAvailableEventArgs {
     type Vtable = IPrintWorkflowXpsDataAvailableEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4d11c331_54d1_434e_be0e_82c5fa58e5b2);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IPrintWorkflowXpsDataAvailableEventArgsImpl {
-    fn Operation();
-    fn GetDeferral();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4069,3 +3887,5 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prin
 }
 unsafe impl ::core::marker::Send for PrintWorkflowXpsDataAvailableEventArgs {}
 unsafe impl ::core::marker::Sync for PrintWorkflowXpsDataAvailableEventArgs {}
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

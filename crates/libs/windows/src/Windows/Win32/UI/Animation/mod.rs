@@ -76,15 +76,6 @@ unsafe impl ::windows::core::Interface for IUIAnimationInterpolator {
     type Vtable = IUIAnimationInterpolatorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7815cbba_ddf7_478c_a46c_7b6c738b7978);
 }
-pub trait IUIAnimationInterpolatorImpl {
-    fn SetInitialValueAndVelocity();
-    fn SetDuration();
-    fn GetDuration();
-    fn GetFinalValue();
-    fn InterpolateValue();
-    fn InterpolateVelocity();
-    fn GetDependencies();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIAnimationInterpolatorVtbl(
@@ -182,17 +173,6 @@ unsafe impl ::windows::core::Interface for IUIAnimationInterpolator2 {
     type Vtable = IUIAnimationInterpolator2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xea76aff8_ea22_4a23_a0ef_a6a966703518);
 }
-pub trait IUIAnimationInterpolator2Impl {
-    fn GetDimension();
-    fn SetInitialValueAndVelocity();
-    fn SetDuration();
-    fn GetDuration();
-    fn GetFinalValue();
-    fn InterpolateValue();
-    fn InterpolateVelocity();
-    fn GetPrimitiveInterpolation();
-    fn GetDependencies();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIAnimationInterpolator2Vtbl(
@@ -257,9 +237,6 @@ impl ::core::fmt::Debug for IUIAnimationLoopIterationChangeHandler2 {
 unsafe impl ::windows::core::Interface for IUIAnimationLoopIterationChangeHandler2 {
     type Vtable = IUIAnimationLoopIterationChangeHandler2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2d3b15a4_4762_47ab_a030_b23221df3ae0);
-}
-pub trait IUIAnimationLoopIterationChangeHandler2Impl {
-    fn OnLoopIterationChanged();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -395,27 +372,6 @@ impl ::core::fmt::Debug for IUIAnimationManager {
 unsafe impl ::windows::core::Interface for IUIAnimationManager {
     type Vtable = IUIAnimationManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9169896c_ac8d_4e7d_94e5_67fa4dc2f2e8);
-}
-pub trait IUIAnimationManagerImpl {
-    fn CreateAnimationVariable();
-    fn ScheduleTransition();
-    fn CreateStoryboard();
-    fn FinishAllStoryboards();
-    fn AbandonAllStoryboards();
-    fn Update();
-    fn GetVariableFromTag();
-    fn GetStoryboardFromTag();
-    fn GetStatus();
-    fn SetAnimationMode();
-    fn Pause();
-    fn Resume();
-    fn SetManagerEventHandler();
-    fn SetCancelPriorityComparison();
-    fn SetTrimPriorityComparison();
-    fn SetCompressPriorityComparison();
-    fn SetConcludePriorityComparison();
-    fn SetDefaultLongestAcceptableDelay();
-    fn Shutdown();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -581,29 +537,6 @@ unsafe impl ::windows::core::Interface for IUIAnimationManager2 {
     type Vtable = IUIAnimationManager2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd8b6f7d4_4109_4d3f_acee_879926968cb1);
 }
-pub trait IUIAnimationManager2Impl {
-    fn CreateAnimationVectorVariable();
-    fn CreateAnimationVariable();
-    fn ScheduleTransition();
-    fn CreateStoryboard();
-    fn FinishAllStoryboards();
-    fn AbandonAllStoryboards();
-    fn Update();
-    fn GetVariableFromTag();
-    fn GetStoryboardFromTag();
-    fn EstimateNextEventTime();
-    fn GetStatus();
-    fn SetAnimationMode();
-    fn Pause();
-    fn Resume();
-    fn SetManagerEventHandler();
-    fn SetCancelPriorityComparison();
-    fn SetTrimPriorityComparison();
-    fn SetCompressPriorityComparison();
-    fn SetConcludePriorityComparison();
-    fn SetDefaultLongestAcceptableDelay();
-    fn Shutdown();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIAnimationManager2Vtbl(
@@ -682,9 +615,6 @@ unsafe impl ::windows::core::Interface for IUIAnimationManagerEventHandler {
     type Vtable = IUIAnimationManagerEventHandlerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x783321ed_78a3_4366_b574_6af607a64788);
 }
-pub trait IUIAnimationManagerEventHandlerImpl {
-    fn OnManagerStatusChanged();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIAnimationManagerEventHandlerVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newstatus: UI_ANIMATION_MANAGER_STATUS, previousstatus: UI_ANIMATION_MANAGER_STATUS) -> ::windows::core::HRESULT);
@@ -736,9 +666,6 @@ impl ::core::fmt::Debug for IUIAnimationManagerEventHandler2 {
 unsafe impl ::windows::core::Interface for IUIAnimationManagerEventHandler2 {
     type Vtable = IUIAnimationManagerEventHandler2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf6e022ba_bff3_42ec_9033_e073f33e83c3);
-}
-pub trait IUIAnimationManagerEventHandler2Impl {
-    fn OnManagerStatusChanged();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -795,10 +722,6 @@ impl ::core::fmt::Debug for IUIAnimationPrimitiveInterpolation {
 unsafe impl ::windows::core::Interface for IUIAnimationPrimitiveInterpolation {
     type Vtable = IUIAnimationPrimitiveInterpolationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbab20d63_4361_45da_a24f_ab8508846b5b);
-}
-pub trait IUIAnimationPrimitiveInterpolationImpl {
-    fn AddCubic();
-    fn AddSinusoidal();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -858,9 +781,6 @@ unsafe impl ::windows::core::Interface for IUIAnimationPriorityComparison {
     type Vtable = IUIAnimationPriorityComparisonVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x83fa9b74_5f86_4618_bc6a_a2fac19b3f44);
 }
-pub trait IUIAnimationPriorityComparisonImpl {
-    fn HasPriority();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIAnimationPriorityComparisonVtbl(
@@ -917,9 +837,6 @@ impl ::core::fmt::Debug for IUIAnimationPriorityComparison2 {
 unsafe impl ::windows::core::Interface for IUIAnimationPriorityComparison2 {
     type Vtable = IUIAnimationPriorityComparison2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5b6d7a37_4621_467c_8b05_70131de62ddb);
-}
-pub trait IUIAnimationPriorityComparison2Impl {
-    fn HasPriority();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1046,25 +963,6 @@ impl ::core::fmt::Debug for IUIAnimationStoryboard {
 unsafe impl ::windows::core::Interface for IUIAnimationStoryboard {
     type Vtable = IUIAnimationStoryboardVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa8ff128f_9bf9_4af1_9e67_e5e410defb84);
-}
-pub trait IUIAnimationStoryboardImpl {
-    fn AddTransition();
-    fn AddKeyframeAtOffset();
-    fn AddKeyframeAfterTransition();
-    fn AddTransitionAtKeyframe();
-    fn AddTransitionBetweenKeyframes();
-    fn RepeatBetweenKeyframes();
-    fn HoldVariable();
-    fn SetLongestAcceptableDelay();
-    fn Schedule();
-    fn Conclude();
-    fn Finish();
-    fn Abandon();
-    fn SetTag();
-    fn GetTag();
-    fn GetStatus();
-    fn GetElapsedTime();
-    fn SetStoryboardEventHandler();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1214,26 +1112,6 @@ unsafe impl ::windows::core::Interface for IUIAnimationStoryboard2 {
     type Vtable = IUIAnimationStoryboard2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xae289cd2_12d4_4945_9419_9e41be034df2);
 }
-pub trait IUIAnimationStoryboard2Impl {
-    fn AddTransition();
-    fn AddKeyframeAtOffset();
-    fn AddKeyframeAfterTransition();
-    fn AddTransitionAtKeyframe();
-    fn AddTransitionBetweenKeyframes();
-    fn RepeatBetweenKeyframes();
-    fn HoldVariable();
-    fn SetLongestAcceptableDelay();
-    fn SetSkipDuration();
-    fn Schedule();
-    fn Conclude();
-    fn Finish();
-    fn Abandon();
-    fn SetTag();
-    fn GetTag();
-    fn GetStatus();
-    fn GetElapsedTime();
-    fn SetStoryboardEventHandler();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIAnimationStoryboard2Vtbl(
@@ -1314,10 +1192,6 @@ unsafe impl ::windows::core::Interface for IUIAnimationStoryboardEventHandler {
     type Vtable = IUIAnimationStoryboardEventHandlerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3d5c9008_ec7c_4364_9f8a_9af3c58cbae6);
 }
-pub trait IUIAnimationStoryboardEventHandlerImpl {
-    fn OnStoryboardStatusChanged();
-    fn OnStoryboardUpdated();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIAnimationStoryboardEventHandlerVtbl(
@@ -1379,10 +1253,6 @@ impl ::core::fmt::Debug for IUIAnimationStoryboardEventHandler2 {
 unsafe impl ::windows::core::Interface for IUIAnimationStoryboardEventHandler2 {
     type Vtable = IUIAnimationStoryboardEventHandler2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbac5f55a_ba7c_414c_b599_fbf850f553c6);
-}
-pub trait IUIAnimationStoryboardEventHandler2Impl {
-    fn OnStoryboardStatusChanged();
-    fn OnStoryboardUpdated();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1467,15 +1337,6 @@ unsafe impl ::windows::core::Interface for IUIAnimationTimer {
     type Vtable = IUIAnimationTimerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6b0efad1_a053_41d6_9085_33a689144665);
 }
-pub trait IUIAnimationTimerImpl {
-    fn SetTimerUpdateHandler();
-    fn SetTimerEventHandler();
-    fn Enable();
-    fn Disable();
-    fn IsEnabled();
-    fn GetTime();
-    fn SetFrameRateThreshold();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIAnimationTimerVtbl(
@@ -1538,9 +1399,6 @@ impl ::core::fmt::Debug for IUIAnimationTimerClientEventHandler {
 unsafe impl ::windows::core::Interface for IUIAnimationTimerClientEventHandler {
     type Vtable = IUIAnimationTimerClientEventHandlerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbedb4db6_94fa_4bfb_a47f_ef2d9e408c25);
-}
-pub trait IUIAnimationTimerClientEventHandlerImpl {
-    fn OnTimerClientStatusChanged();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1606,11 +1464,6 @@ impl ::core::fmt::Debug for IUIAnimationTimerEventHandler {
 unsafe impl ::windows::core::Interface for IUIAnimationTimerEventHandler {
     type Vtable = IUIAnimationTimerEventHandlerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x274a7dea_d771_4095_abbd_8df7abd23ce3);
-}
-pub trait IUIAnimationTimerEventHandlerImpl {
-    fn OnPreUpdate();
-    fn OnPostUpdate();
-    fn OnRenderingTooSlow();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1679,11 +1532,6 @@ impl ::core::fmt::Debug for IUIAnimationTimerUpdateHandler {
 unsafe impl ::windows::core::Interface for IUIAnimationTimerUpdateHandler {
     type Vtable = IUIAnimationTimerUpdateHandlerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x195509b7_5d5e_4e3e_b278_ee3759b367ad);
-}
-pub trait IUIAnimationTimerUpdateHandlerImpl {
-    fn OnUpdate();
-    fn SetTimerClientEventHandler();
-    fn ClearTimerClientEventHandler();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1756,12 +1604,6 @@ impl ::core::fmt::Debug for IUIAnimationTransition {
 unsafe impl ::windows::core::Interface for IUIAnimationTransition {
     type Vtable = IUIAnimationTransitionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdc6ce252_f731_41cf_b610_614b6ca049ad);
-}
-pub trait IUIAnimationTransitionImpl {
-    fn SetInitialValue();
-    fn SetInitialVelocity();
-    fn IsDurationKnown();
-    fn GetDuration();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1849,15 +1691,6 @@ unsafe impl ::windows::core::Interface for IUIAnimationTransition2 {
     type Vtable = IUIAnimationTransition2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x62ff9123_a85a_4e9b_a218_435a93e268fd);
 }
-pub trait IUIAnimationTransition2Impl {
-    fn GetDimension();
-    fn SetInitialValue();
-    fn SetInitialVectorValue();
-    fn SetInitialVelocity();
-    fn SetInitialVectorVelocity();
-    fn IsDurationKnown();
-    fn GetDuration();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIAnimationTransition2Vtbl(
@@ -1922,9 +1755,6 @@ unsafe impl ::windows::core::Interface for IUIAnimationTransitionFactory {
     type Vtable = IUIAnimationTransitionFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfcd91e03_3e3b_45ad_bbb1_6dfc8153743d);
 }
-pub trait IUIAnimationTransitionFactoryImpl {
-    fn CreateTransition();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIAnimationTransitionFactoryVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, interpolator: ::windows::core::RawPtr, transition: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT);
@@ -1977,9 +1807,6 @@ impl ::core::fmt::Debug for IUIAnimationTransitionFactory2 {
 unsafe impl ::windows::core::Interface for IUIAnimationTransitionFactory2 {
     type Vtable = IUIAnimationTransitionFactory2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x937d4916_c1a6_42d5_88d8_30344d6efe31);
-}
-pub trait IUIAnimationTransitionFactory2Impl {
-    fn CreateTransition();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2088,20 +1915,6 @@ impl ::core::fmt::Debug for IUIAnimationTransitionLibrary {
 unsafe impl ::windows::core::Interface for IUIAnimationTransitionLibrary {
     type Vtable = IUIAnimationTransitionLibraryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xca5a14b1_d24f_48b8_8fe4_c78169ba954e);
-}
-pub trait IUIAnimationTransitionLibraryImpl {
-    fn CreateInstantaneousTransition();
-    fn CreateConstantTransition();
-    fn CreateDiscreteTransition();
-    fn CreateLinearTransition();
-    fn CreateLinearTransitionFromSpeed();
-    fn CreateSinusoidalTransitionFromVelocity();
-    fn CreateSinusoidalTransitionFromRange();
-    fn CreateAccelerateDecelerateTransition();
-    fn CreateReversalTransition();
-    fn CreateCubicTransition();
-    fn CreateSmoothStopTransition();
-    fn CreateParabolicTransitionFromAcceleration();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2262,27 +2075,6 @@ unsafe impl ::windows::core::Interface for IUIAnimationTransitionLibrary2 {
     type Vtable = IUIAnimationTransitionLibrary2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x03cfae53_9580_4ee3_b363_2ece51b4af6a);
 }
-pub trait IUIAnimationTransitionLibrary2Impl {
-    fn CreateInstantaneousTransition();
-    fn CreateInstantaneousVectorTransition();
-    fn CreateConstantTransition();
-    fn CreateDiscreteTransition();
-    fn CreateDiscreteVectorTransition();
-    fn CreateLinearTransition();
-    fn CreateLinearVectorTransition();
-    fn CreateLinearTransitionFromSpeed();
-    fn CreateLinearVectorTransitionFromSpeed();
-    fn CreateSinusoidalTransitionFromVelocity();
-    fn CreateSinusoidalTransitionFromRange();
-    fn CreateAccelerateDecelerateTransition();
-    fn CreateReversalTransition();
-    fn CreateCubicTransition();
-    fn CreateCubicVectorTransition();
-    fn CreateSmoothStopTransition();
-    fn CreateParabolicTransitionFromAcceleration();
-    fn CreateCubicBezierLinearTransition();
-    fn CreateCubicBezierLinearVectorTransition();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIAnimationTransitionLibrary2Vtbl(
@@ -2416,22 +2208,6 @@ impl ::core::fmt::Debug for IUIAnimationVariable {
 unsafe impl ::windows::core::Interface for IUIAnimationVariable {
     type Vtable = IUIAnimationVariableVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8ceeb155_2849_4ce5_9448_91ff70e1e4d9);
-}
-pub trait IUIAnimationVariableImpl {
-    fn GetValue();
-    fn GetFinalValue();
-    fn GetPreviousValue();
-    fn GetIntegerValue();
-    fn GetFinalIntegerValue();
-    fn GetPreviousIntegerValue();
-    fn GetCurrentStoryboard();
-    fn SetLowerBound();
-    fn SetUpperBound();
-    fn SetRoundingMode();
-    fn SetTag();
-    fn GetTag();
-    fn SetVariableChangeHandler();
-    fn SetVariableIntegerChangeHandler();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2615,34 +2391,6 @@ unsafe impl ::windows::core::Interface for IUIAnimationVariable2 {
     type Vtable = IUIAnimationVariable2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4914b304_96ab_44d9_9e77_d5109b7e7466);
 }
-pub trait IUIAnimationVariable2Impl {
-    fn GetDimension();
-    fn GetValue();
-    fn GetVectorValue();
-    fn GetCurve();
-    fn GetVectorCurve();
-    fn GetFinalValue();
-    fn GetFinalVectorValue();
-    fn GetPreviousValue();
-    fn GetPreviousVectorValue();
-    fn GetIntegerValue();
-    fn GetIntegerVectorValue();
-    fn GetFinalIntegerValue();
-    fn GetFinalIntegerVectorValue();
-    fn GetPreviousIntegerValue();
-    fn GetPreviousIntegerVectorValue();
-    fn GetCurrentStoryboard();
-    fn SetLowerBound();
-    fn SetLowerBoundVector();
-    fn SetUpperBound();
-    fn SetUpperBoundVector();
-    fn SetRoundingMode();
-    fn SetTag();
-    fn GetTag();
-    fn SetVariableChangeHandler();
-    fn SetVariableIntegerChangeHandler();
-    fn SetVariableCurveChangeHandler();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIAnimationVariable2Vtbl(
@@ -2729,9 +2477,6 @@ unsafe impl ::windows::core::Interface for IUIAnimationVariableChangeHandler {
     type Vtable = IUIAnimationVariableChangeHandlerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6358b7ba_87d2_42d5_bf71_82e919dd5862);
 }
-pub trait IUIAnimationVariableChangeHandlerImpl {
-    fn OnValueChanged();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIAnimationVariableChangeHandlerVtbl(
@@ -2788,9 +2533,6 @@ impl ::core::fmt::Debug for IUIAnimationVariableChangeHandler2 {
 unsafe impl ::windows::core::Interface for IUIAnimationVariableChangeHandler2 {
     type Vtable = IUIAnimationVariableChangeHandler2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x63acc8d2_6eae_4bb0_b879_586dd8cfbe42);
-}
-pub trait IUIAnimationVariableChangeHandler2Impl {
-    fn OnValueChanged();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2849,9 +2591,6 @@ unsafe impl ::windows::core::Interface for IUIAnimationVariableCurveChangeHandle
     type Vtable = IUIAnimationVariableCurveChangeHandler2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x72895e91_0145_4c21_9192_5aab40eddf80);
 }
-pub trait IUIAnimationVariableCurveChangeHandler2Impl {
-    fn OnCurveChanged();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIAnimationVariableCurveChangeHandler2Vtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, variable: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
@@ -2903,9 +2642,6 @@ impl ::core::fmt::Debug for IUIAnimationVariableIntegerChangeHandler {
 unsafe impl ::windows::core::Interface for IUIAnimationVariableIntegerChangeHandler {
     type Vtable = IUIAnimationVariableIntegerChangeHandlerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbb3e1550_356e_44b0_99da_85ac6017865e);
-}
-pub trait IUIAnimationVariableIntegerChangeHandlerImpl {
-    fn OnIntegerValueChanged();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2963,9 +2699,6 @@ impl ::core::fmt::Debug for IUIAnimationVariableIntegerChangeHandler2 {
 unsafe impl ::windows::core::Interface for IUIAnimationVariableIntegerChangeHandler2 {
     type Vtable = IUIAnimationVariableIntegerChangeHandler2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x829b6cf1_4f3a_4412_ae09_b243eb4c6b58);
-}
-pub trait IUIAnimationVariableIntegerChangeHandler2Impl {
-    fn OnIntegerValueChanged();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3093,3 +2826,5 @@ pub type UI_ANIMATION_UPDATE_RESULT = i32;
 pub const UI_ANIMATION_UPDATE_NO_CHANGE: UI_ANIMATION_UPDATE_RESULT = 0i32;
 #[doc = "*Required features: 'Win32_UI_Animation'*"]
 pub const UI_ANIMATION_UPDATE_VARIABLES_CHANGED: UI_ANIMATION_UPDATE_RESULT = 1i32;
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

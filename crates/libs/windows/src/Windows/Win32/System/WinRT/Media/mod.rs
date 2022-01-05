@@ -71,9 +71,6 @@ unsafe impl ::windows::core::Interface for IAudioFrameNative {
     type Vtable = IAudioFrameNativeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x20be1e2e_930f_4746_9335_3c332f255093);
 }
-pub trait IAudioFrameNativeImpl {
-    fn GetData();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAudioFrameNativeVtbl(
@@ -155,9 +152,6 @@ impl ::core::fmt::Debug for IAudioFrameNativeFactory {
 unsafe impl ::windows::core::Interface for IAudioFrameNativeFactory {
     type Vtable = IAudioFrameNativeFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7bd67cf8_bf7d_43e6_af8d_b170ee0c0110);
-}
-pub trait IAudioFrameNativeFactoryImpl {
-    fn CreateFromMFSample();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -246,10 +240,6 @@ unsafe impl ::windows::core::Interface for IVideoFrameNative {
     type Vtable = IVideoFrameNativeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x26ba702b_314a_4620_aaf6_7a51aa58fa18);
 }
-pub trait IVideoFrameNativeImpl {
-    fn GetData();
-    fn GetDevice();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVideoFrameNativeVtbl(
@@ -333,9 +323,6 @@ unsafe impl ::windows::core::Interface for IVideoFrameNativeFactory {
     type Vtable = IVideoFrameNativeFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x69e3693e_8e1e_4e63_ac4c_7fdc21d9731d);
 }
-pub trait IVideoFrameNativeFactoryImpl {
-    fn CreateFromMFSample();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVideoFrameNativeFactoryVtbl(
@@ -348,3 +335,5 @@ pub struct IVideoFrameNativeFactoryVtbl(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, data: ::windows::core::RawPtr, subtype: *const ::windows::core::GUID, width: u32, height: u32, forcereadonly: super::super::super::Foundation::BOOL, mindisplayaperture: *const super::super::super::Media::MediaFoundation::MFVideoArea, device: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation")))] usize,
 );
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

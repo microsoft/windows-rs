@@ -2721,3 +2721,5 @@ pub const _WIN32_WINNT_WINXP: u32 = 1281u32;
 pub const _WIN32_WINNT_WS03: u32 = 1282u32;
 #[doc = "*Required features: 'Win32_System_SystemInformation'*"]
 pub const _WIN32_WINNT_WS08: u32 = 1536u32;
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

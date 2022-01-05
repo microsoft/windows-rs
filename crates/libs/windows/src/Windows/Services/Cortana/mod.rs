@@ -699,17 +699,6 @@ unsafe impl ::windows::core::Interface for ICortanaActionableInsights {
     type Vtable = ICortanaActionableInsightsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x951ec6b1_fc83_586d_8b84_2452c8981625);
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
-pub trait ICortanaActionableInsightsImpl {
-    fn User();
-    fn IsAvailableAsync();
-    fn ShowInsightsForImageAsync();
-    fn ShowInsightsForImageWithOptionsAsync();
-    fn ShowInsightsForTextAsync();
-    fn ShowInsightsForTextWithOptionsAsync();
-    fn ShowInsightsAsync();
-    fn ShowInsightsWithOptionsAsync();
-}
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
@@ -746,13 +735,6 @@ unsafe impl ::windows::core::Interface for ICortanaActionableInsightsOptions {
     type Vtable = ICortanaActionableInsightsOptionsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaac2bbcf_9782_5420_b81e_7ae56af31815);
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
-pub trait ICortanaActionableInsightsOptionsImpl {
-    fn ContentSourceWebLink();
-    fn SetContentSourceWebLink();
-    fn SurroundingText();
-    fn SetSurroundingText();
-}
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
@@ -781,11 +763,6 @@ unsafe impl ::windows::core::Interface for ICortanaActionableInsightsStatics {
     type Vtable = ICortanaActionableInsightsStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb5ded412_9d2f_5cb5_9b05_356a0b836c10);
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
-pub trait ICortanaActionableInsightsStaticsImpl {
-    fn GetDefault();
-    fn GetForUser();
-}
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
@@ -809,13 +786,6 @@ pub struct ICortanaPermissionsManager(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICortanaPermissionsManager {
     type Vtable = ICortanaPermissionsManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x191330e0_8695_438a_9545_3da4e822ddb4);
-}
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
-pub trait ICortanaPermissionsManagerImpl {
-    fn IsSupported();
-    fn ArePermissionsGrantedAsync();
-    fn GrantPermissionsAsync();
-    fn RevokePermissionsAsync();
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
@@ -845,10 +815,6 @@ unsafe impl ::windows::core::Interface for ICortanaPermissionsManagerStatics {
     type Vtable = ICortanaPermissionsManagerStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x76b1e67a_b045_4414_9d6d_2ad3a5fe3a7e);
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
-pub trait ICortanaPermissionsManagerStaticsImpl {
-    fn GetDefault();
-}
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
@@ -870,12 +836,6 @@ pub struct ICortanaSettings(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICortanaSettings {
     type Vtable = ICortanaSettingsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x54d571a7_8062_40f4_abe7_dedfd697b019);
-}
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
-pub trait ICortanaSettingsImpl {
-    fn HasUserConsentToVoiceActivation();
-    fn IsVoiceActivationEnabled();
-    fn SetIsVoiceActivationEnabled();
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
@@ -903,11 +863,6 @@ unsafe impl ::windows::core::Interface for ICortanaSettingsStatics {
     type Vtable = ICortanaSettingsStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8b2ccd7e_2ec0_446d_9285_33f07ce8ac04);
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
-pub trait ICortanaSettingsStaticsImpl {
-    fn IsSupported();
-    fn GetDefault();
-}
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
@@ -923,3 +878,5 @@ pub struct ICortanaSettingsStaticsVtbl(
     #[cfg(feature = "deprecated")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "deprecated"))] usize,
 );
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

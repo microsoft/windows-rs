@@ -6,14 +6,6 @@ unsafe impl ::windows::core::Interface for IRemoteTextConnection {
     type Vtable = IRemoteTextConnectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4e7bb02a_183e_5e66_b5e4_3e6e5c570cf1);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IRemoteTextConnectionImpl {
-    fn IsEnabled();
-    fn SetIsEnabled();
-    fn RegisterThread();
-    fn UnregisterThread();
-    fn ReportDataReceived();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRemoteTextConnectionVtbl(
@@ -35,10 +27,6 @@ pub struct IRemoteTextConnectionFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IRemoteTextConnectionFactory {
     type Vtable = IRemoteTextConnectionFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x88e075c2_0cae_596c_850f_78d345cd728b);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IRemoteTextConnectionFactoryImpl {
-    fn CreateInstance();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -281,3 +269,5 @@ unsafe impl ::windows::core::RuntimeType for RemoteTextConnectionDataHandler {
 #[repr(C)]
 #[doc(hidden)]
 pub struct RemoteTextConnectionDataHandlerVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pduData_array_size: u32, pdudata: *const u8, result__: *mut bool) -> ::windows::core::HRESULT);
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

@@ -92,12 +92,6 @@ unsafe impl ::windows::core::Interface for IReferenceClock {
     type Vtable = IReferenceClockVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x56a86897_0ad4_11ce_b03a_0020af0ba770);
 }
-pub trait IReferenceClockImpl {
-    fn GetTime();
-    fn AdviseTime();
-    fn AdvisePeriodic();
-    fn Unadvise();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IReferenceClockVtbl(
@@ -197,7 +191,6 @@ unsafe impl ::windows::core::Interface for IReferenceClock2 {
     type Vtable = IReferenceClock2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x36b73885_c2c8_11cf_8b46_00805f6cef60);
 }
-pub trait IReferenceClock2Impl: IReferenceClockImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IReferenceClock2Vtbl(
@@ -264,10 +257,6 @@ impl ::core::fmt::Debug for IReferenceClockTimerControl {
 unsafe impl ::windows::core::Interface for IReferenceClockTimerControl {
     type Vtable = IReferenceClockTimerControlVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xebec459c_2eca_4d42_a8af_30df557614b8);
-}
-pub trait IReferenceClockTimerControlImpl {
-    fn SetDefaultTimerResolution();
-    fn GetDefaultTimerResolution();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -825,3 +814,5 @@ pub unsafe fn timeSetEvent(udelay: u32, uresolution: u32, fptc: LPTIMECALLBACK, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

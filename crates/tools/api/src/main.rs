@@ -78,6 +78,7 @@ default = []
 deprecated = []
 std = []
 alloc = []
+implement = []
 implement_exclusive = []
 build = ["windows_gen", "windows_macros", "windows_reader"]
 "#
@@ -113,16 +114,21 @@ fn collect_trees<'a>(output: &std::path::Path, root: &'static str, tree: &'a rea
 }
 
 fn gen_tree(output: &std::path::Path, _root: &'static str, tree: &reader::TypeTree) {
-    if tree.namespace != "Windows.Foundation" {
-        return;
-    }
+    // if tree.namespace != "Windows.Foundation" {
+    //     return;
+    // }
 
     let path = std::path::PathBuf::from(output).join(tree.namespace.replace('.', "/"));
     let gen = bindgen::Gen { namespace: tree.namespace, min_xaml: true, cfg: true, doc: true, ..Default::default() };
 
     let mut tokens = bindgen::gen_namespace(&gen);
+    tokens.push_str(r#"#[cfg(feature = "implement")] ::core::include!("impl.rs");"#);
     fmt_tokens(tree.namespace, &mut tokens);
     std::fs::write(path.join("mod.rs"), tokens).unwrap();
+
+    let mut tokens = bindgen::gen_namespace_impl(&gen);
+    fmt_tokens(tree.namespace, &mut tokens);
+    std::fs::write(path.join("impl.rs"), tokens).unwrap();
 }
 
 fn fmt_tokens(namespace: &str, tokens: &mut String) {

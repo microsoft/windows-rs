@@ -217,12 +217,6 @@ unsafe impl ::windows::core::Interface for IBitmapData {
     type Vtable = IBitmapDataVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd1a34ef2_cad8_4635_a3d2_fcda8d3f3caf);
 }
-pub trait IBitmapDataImpl {
-    fn CopyBytesTo();
-    fn GetStride();
-    fn GetBitmapDescription();
-    fn GetSourceBitmapDescription();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBitmapDataVtbl(
@@ -334,20 +328,6 @@ impl ::core::fmt::Debug for IVisualTreeService {
 unsafe impl ::windows::core::Interface for IVisualTreeService {
     type Vtable = IVisualTreeServiceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa593b11a_d17f_48bb_8f66_83910731c8a5);
-}
-pub trait IVisualTreeServiceImpl {
-    fn AdviseVisualTreeChange();
-    fn UnadviseVisualTreeChange();
-    fn GetEnums();
-    fn CreateInstance();
-    fn GetPropertyValuesChain();
-    fn SetProperty();
-    fn ClearProperty();
-    fn GetCollectionCount();
-    fn GetCollectionElements();
-    fn AddChild();
-    fn RemoveChild();
-    fn ClearChildren();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -510,12 +490,6 @@ impl ::core::fmt::Debug for IVisualTreeService2 {
 unsafe impl ::windows::core::Interface for IVisualTreeService2 {
     type Vtable = IVisualTreeService2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x130f5136_ec43_4f61_89c7_9801a36d2e95);
-}
-pub trait IVisualTreeService2Impl: IVisualTreeServiceImpl {
-    fn GetPropertyIndex();
-    fn GetProperty();
-    fn ReplaceResource();
-    fn RenderTargetBitmap();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -723,12 +697,6 @@ unsafe impl ::windows::core::Interface for IVisualTreeService3 {
     type Vtable = IVisualTreeService3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0e79c6e0_85a0_4be8_b41a_655cf1fd19bd);
 }
-pub trait IVisualTreeService3Impl: IVisualTreeService2Impl + IVisualTreeServiceImpl {
-    fn ResolveResource();
-    fn GetDictionaryItem();
-    fn AddDictionaryItem();
-    fn RemoveDictionaryItem();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVisualTreeService3Vtbl(
@@ -813,9 +781,6 @@ unsafe impl ::windows::core::Interface for IVisualTreeServiceCallback {
     type Vtable = IVisualTreeServiceCallbackVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaa7a8931_80e4_4fec_8f3b_553f87b4966e);
 }
-pub trait IVisualTreeServiceCallbackImpl {
-    fn OnVisualTreeChange();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVisualTreeServiceCallbackVtbl(
@@ -899,9 +864,6 @@ impl ::core::fmt::Debug for IVisualTreeServiceCallback2 {
 unsafe impl ::windows::core::Interface for IVisualTreeServiceCallback2 {
     type Vtable = IVisualTreeServiceCallback2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbad9eb88_ae77_4397_b948_5fa2db0a19ea);
-}
-pub trait IVisualTreeServiceCallback2Impl: IVisualTreeServiceCallbackImpl {
-    fn OnElementStateChanged();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -999,16 +961,6 @@ impl ::core::fmt::Debug for IXamlDiagnostics {
 unsafe impl ::windows::core::Interface for IXamlDiagnostics {
     type Vtable = IXamlDiagnosticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x18c9e2b6_3f43_4116_9f2b_ff935d7770d2);
-}
-pub trait IXamlDiagnosticsImpl {
-    fn GetDispatcher();
-    fn GetUiLayer();
-    fn GetApplication();
-    fn GetIInspectableFromHandle();
-    fn GetHandleFromIInspectable();
-    fn HitTest();
-    fn RegisterInstance();
-    fn GetInitializationData();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1330,3 +1282,5 @@ pub type VisualMutationType = i32;
 pub const Add: VisualMutationType = 0i32;
 #[doc = "*Required features: 'Win32_UI_Xaml_Diagnostics'*"]
 pub const Remove: VisualMutationType = 1i32;
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

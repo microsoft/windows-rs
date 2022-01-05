@@ -303,11 +303,6 @@ unsafe impl ::windows::core::Interface for IAnalyticsInfoStatics {
     type Vtable = IAnalyticsInfoStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1d5ee066_188d_5ba9_4387_acaeb0e7e305);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IAnalyticsInfoStaticsImpl {
-    fn VersionInfo();
-    fn DeviceForm();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAnalyticsInfoStaticsVtbl(
@@ -326,10 +321,6 @@ pub struct IAnalyticsInfoStatics2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAnalyticsInfoStatics2 {
     type Vtable = IAnalyticsInfoStatics2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x101704ea_a7f9_46d2_ab94_016865afdb25);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IAnalyticsInfoStatics2Impl {
-    fn GetSystemPropertiesAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -350,11 +341,6 @@ unsafe impl ::windows::core::Interface for IAnalyticsVersionInfo {
     type Vtable = IAnalyticsVersionInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x926130b8_9955_4c74_bdc1_7cd0decf9b03);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IAnalyticsVersionInfoImpl {
-    fn DeviceFamily();
-    fn DeviceFamilyVersion();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAnalyticsVersionInfoVtbl(
@@ -374,10 +360,6 @@ unsafe impl ::windows::core::Interface for IAnalyticsVersionInfo2 {
     type Vtable = IAnalyticsVersionInfo2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x76e915b1_ff36_407c_9f57_160d3e540747);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IAnalyticsVersionInfo2Impl {
-    fn ProductName();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAnalyticsVersionInfo2Vtbl(
@@ -395,10 +377,6 @@ pub struct IAppApplicabilityStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppApplicabilityStatics {
     type Vtable = IAppApplicabilityStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1664a082_0f38_5c99_83e4_48995970861c);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IAppApplicabilityStaticsImpl {
-    fn GetUnsupportedAppRequirements();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -419,10 +397,6 @@ unsafe impl ::windows::core::Interface for IEducationSettingsStatics {
     type Vtable = IEducationSettingsStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfc53f0ef_4d3e_4e13_9b23_505f4d091e92);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IEducationSettingsStaticsImpl {
-    fn IsEducationEnvironment();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEducationSettingsStaticsVtbl(
@@ -440,10 +414,6 @@ pub struct IHardwareIdentificationStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IHardwareIdentificationStatics {
     type Vtable = IHardwareIdentificationStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x971260e0_f170_4a42_bd55_a900b212dae2);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IHardwareIdentificationStaticsImpl {
-    fn GetPackageSpecificToken();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -463,12 +433,6 @@ pub struct IHardwareToken(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IHardwareToken {
     type Vtable = IHardwareTokenVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x28f6d4c0_fb12_40a4_8167_7f4e03d2724c);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IHardwareTokenImpl {
-    fn Id();
-    fn Signature();
-    fn Certificate();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -492,31 +456,6 @@ pub struct IKnownRetailInfoPropertiesStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IKnownRetailInfoPropertiesStatics {
     type Vtable = IKnownRetailInfoPropertiesStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x99571178_500f_487e_8e75_29e551728712);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IKnownRetailInfoPropertiesStaticsImpl {
-    fn RetailAccessCode();
-    fn ManufacturerName();
-    fn ModelName();
-    fn DisplayModelName();
-    fn Price();
-    fn IsFeatured();
-    fn FormFactor();
-    fn ScreenSize();
-    fn Weight();
-    fn DisplayDescription();
-    fn BatteryLifeDescription();
-    fn ProcessorDescription();
-    fn Memory();
-    fn StorageDescription();
-    fn GraphicsDescription();
-    fn FrontCameraDescription();
-    fn RearCameraDescription();
-    fn HasNfc();
-    fn HasSdSlot();
-    fn HasOpticalDrive();
-    fn IsOfficeInstalled();
-    fn WindowsEdition();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -557,13 +496,6 @@ unsafe impl ::windows::core::Interface for IPlatformDiagnosticsAndUsageDataSetti
     type Vtable = IPlatformDiagnosticsAndUsageDataSettingsStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb6e24c1b_7b1c_4b32_8c62_a66597ce723a);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IPlatformDiagnosticsAndUsageDataSettingsStaticsImpl {
-    fn CollectionLevel();
-    fn CollectionLevelChanged();
-    fn RemoveCollectionLevelChanged();
-    fn CanCollectDiagnostics();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPlatformDiagnosticsAndUsageDataSettingsStaticsVtbl(
@@ -587,11 +519,6 @@ unsafe impl ::windows::core::Interface for IRetailInfoStatics {
     type Vtable = IRetailInfoStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0712c6b8_8b92_4f2a_8499_031f1798d6ef);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IRetailInfoStaticsImpl {
-    fn IsDemoModeEnabled();
-    fn Properties();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRetailInfoStaticsVtbl(
@@ -612,10 +539,6 @@ unsafe impl ::windows::core::Interface for ISharedModeSettingsStatics {
     type Vtable = ISharedModeSettingsStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x893df40e_cad6_4d50_8c49_6fcfc03edb29);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ISharedModeSettingsStaticsImpl {
-    fn IsEnabled();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISharedModeSettingsStaticsVtbl(
@@ -634,10 +557,6 @@ unsafe impl ::windows::core::Interface for ISharedModeSettingsStatics2 {
     type Vtable = ISharedModeSettingsStatics2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x608988a4_ccf1_4ee8_a5e2_fd6a1d0cfac8);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ISharedModeSettingsStatics2Impl {
-    fn ShouldAvoidLocalStorage();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISharedModeSettingsStatics2Vtbl(
@@ -655,11 +574,6 @@ pub struct ISystemIdentificationInfo(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISystemIdentificationInfo {
     type Vtable = ISystemIdentificationInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0c659e7d_c3c2_4d33_a2df_21bc41916eb3);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ISystemIdentificationInfoImpl {
-    fn Id();
-    fn Source();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -681,11 +595,6 @@ unsafe impl ::windows::core::Interface for ISystemIdentificationStatics {
     type Vtable = ISystemIdentificationStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5581f42a_d3df_4d93_a37d_c41a616c6d01);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ISystemIdentificationStaticsImpl {
-    fn GetSystemIdForPublisher();
-    fn GetSystemIdForUser();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISystemIdentificationStaticsVtbl(
@@ -704,12 +613,6 @@ pub struct ISystemSetupInfoStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISystemSetupInfoStatics {
     type Vtable = ISystemSetupInfoStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2c9620a8_1d88_5e2d_a324_a543af4247ee);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ISystemSetupInfoStaticsImpl {
-    fn OutOfBoxExperienceState();
-    fn OutOfBoxExperienceStateChanged();
-    fn RemoveOutOfBoxExperienceStateChanged();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -733,11 +636,6 @@ unsafe impl ::windows::core::Interface for IUnsupportedAppRequirement {
     type Vtable = IUnsupportedAppRequirementVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6182445c_894b_5cbc_8976_a98e0a9b998d);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IUnsupportedAppRequirementImpl {
-    fn Requirement();
-    fn Reasons();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUnsupportedAppRequirementVtbl(
@@ -756,15 +654,6 @@ pub struct IWindowsIntegrityPolicyStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IWindowsIntegrityPolicyStatics {
     type Vtable = IWindowsIntegrityPolicyStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7d1d81db_8d63_4789_9ea5_ddcf65a94f3c);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IWindowsIntegrityPolicyStaticsImpl {
-    fn IsEnabled();
-    fn IsEnabledForTrial();
-    fn CanDisable();
-    fn IsDisableSupported();
-    fn PolicyChanged();
-    fn RemovePolicyChanged();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1502,3 +1391,5 @@ impl WindowsIntegrityPolicy {
 impl ::windows::core::RuntimeName for WindowsIntegrityPolicy {
     const NAME: &'static str = "Windows.System.Profile.WindowsIntegrityPolicy";
 }
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

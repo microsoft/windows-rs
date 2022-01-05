@@ -6,13 +6,6 @@ unsafe impl ::windows::core::Interface for IPrintBindingOptionDetails {
     type Vtable = IPrintBindingOptionDetailsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc3f4cc98_9564_4f16_a055_a98b9a49e9d3);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IPrintBindingOptionDetailsImpl {
-    fn SetWarningText();
-    fn WarningText();
-    fn SetDescription();
-    fn Description();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintBindingOptionDetailsVtbl(
@@ -33,13 +26,6 @@ pub struct IPrintBorderingOptionDetails(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPrintBorderingOptionDetails {
     type Vtable = IPrintBorderingOptionDetailsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4d73bc8f_fb53_4eb2_985f_1d91de0b7639);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IPrintBorderingOptionDetailsImpl {
-    fn SetWarningText();
-    fn WarningText();
-    fn SetDescription();
-    fn Description();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -62,13 +48,6 @@ unsafe impl ::windows::core::Interface for IPrintCollationOptionDetails {
     type Vtable = IPrintCollationOptionDetailsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd6abb166_a5a6_40dc_acc3_739f28f1e5d3);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IPrintCollationOptionDetailsImpl {
-    fn SetWarningText();
-    fn WarningText();
-    fn SetDescription();
-    fn Description();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintCollationOptionDetailsVtbl(
@@ -89,13 +68,6 @@ pub struct IPrintColorModeOptionDetails(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPrintColorModeOptionDetails {
     type Vtable = IPrintColorModeOptionDetailsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdba97704_f1d6_4843_a484_9b447cdcf3b6);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IPrintColorModeOptionDetailsImpl {
-    fn SetWarningText();
-    fn WarningText();
-    fn SetDescription();
-    fn Description();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -118,13 +90,6 @@ unsafe impl ::windows::core::Interface for IPrintCopiesOptionDetails {
     type Vtable = IPrintCopiesOptionDetailsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x42053099_4339_4343_898d_2c47b5e0c341);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IPrintCopiesOptionDetailsImpl {
-    fn SetWarningText();
-    fn WarningText();
-    fn SetDescription();
-    fn Description();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintCopiesOptionDetailsVtbl(
@@ -146,12 +111,6 @@ unsafe impl ::windows::core::Interface for IPrintCustomItemDetails {
     type Vtable = IPrintCustomItemDetailsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5704b637_5c3a_449a_aa36_b3291b1192fd);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IPrintCustomItemDetailsImpl {
-    fn ItemId();
-    fn SetItemDisplayName();
-    fn ItemDisplayName();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintCustomItemDetailsVtbl(
@@ -172,10 +131,6 @@ unsafe impl ::windows::core::Interface for IPrintCustomItemListOptionDetails {
     type Vtable = IPrintCustomItemListOptionDetailsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa5fafd88_58f2_4ebd_b90f_51e4f2944c5d);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IPrintCustomItemListOptionDetailsImpl: IPrintCustomOptionDetailsImpl + IPrintItemListOptionDetailsImpl + IPrintOptionDetailsImpl {
-    fn AddItem();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintCustomItemListOptionDetailsVtbl(
@@ -193,10 +148,6 @@ pub struct IPrintCustomItemListOptionDetails2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPrintCustomItemListOptionDetails2 {
     type Vtable = IPrintCustomItemListOptionDetails2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc9d6353d_651c_4a39_906e_1091a1801bf1);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IPrintCustomItemListOptionDetails2Impl {
-    fn AddItem();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -216,13 +167,6 @@ pub struct IPrintCustomItemListOptionDetails3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPrintCustomItemListOptionDetails3 {
     type Vtable = IPrintCustomItemListOptionDetails3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4fa1b53f_3c34_4868_a407_fc5eab259b21);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IPrintCustomItemListOptionDetails3Impl {
-    fn SetWarningText();
-    fn WarningText();
-    fn SetDescription();
-    fn Description();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -399,10 +343,6 @@ unsafe impl ::windows::core::Interface for IPrintCustomOptionDetails {
     type Vtable = IPrintCustomOptionDetailsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe32bde1c_28af_4b90_95da_a3acf320b929);
 }
-pub trait IPrintCustomOptionDetailsImpl: IPrintOptionDetailsImpl {
-    fn SetDisplayName();
-    fn DisplayName();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintCustomOptionDetailsVtbl(
@@ -422,11 +362,6 @@ unsafe impl ::windows::core::Interface for IPrintCustomTextOptionDetails {
     type Vtable = IPrintCustomTextOptionDetailsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2ad171f8_c8bd_4905_9192_0d75136e8b31);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IPrintCustomTextOptionDetailsImpl: IPrintCustomOptionDetailsImpl + IPrintOptionDetailsImpl {
-    fn SetMaxCharacters();
-    fn MaxCharacters();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintCustomTextOptionDetailsVtbl(
@@ -445,13 +380,6 @@ pub struct IPrintCustomTextOptionDetails2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPrintCustomTextOptionDetails2 {
     type Vtable = IPrintCustomTextOptionDetails2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcea70b54_b977_4718_8338_7ed2b0d86fe3);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IPrintCustomTextOptionDetails2Impl {
-    fn SetWarningText();
-    fn WarningText();
-    fn SetDescription();
-    fn Description();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -474,13 +402,6 @@ unsafe impl ::windows::core::Interface for IPrintCustomToggleOptionDetails {
     type Vtable = IPrintCustomToggleOptionDetailsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9db4d514_e461_4608_8ee9_db6f5ed073c6);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IPrintCustomToggleOptionDetailsImpl {
-    fn SetWarningText();
-    fn WarningText();
-    fn SetDescription();
-    fn Description();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintCustomToggleOptionDetailsVtbl(
@@ -502,13 +423,6 @@ unsafe impl ::windows::core::Interface for IPrintDuplexOptionDetails {
     type Vtable = IPrintDuplexOptionDetailsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfcd94591_d4a4_44fa_b3fe_42e0ba28d5ad);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IPrintDuplexOptionDetailsImpl {
-    fn SetWarningText();
-    fn WarningText();
-    fn SetDescription();
-    fn Description();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintDuplexOptionDetailsVtbl(
@@ -529,13 +443,6 @@ pub struct IPrintHolePunchOptionDetails(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPrintHolePunchOptionDetails {
     type Vtable = IPrintHolePunchOptionDetailsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa6de1f18_482c_4657_9d71_8ddddbea1e1e);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IPrintHolePunchOptionDetailsImpl {
-    fn SetWarningText();
-    fn WarningText();
-    fn SetDescription();
-    fn Description();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -708,9 +615,6 @@ unsafe impl ::windows::core::Interface for IPrintItemListOptionDetails {
     type Vtable = IPrintItemListOptionDetailsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9a2257bf_fe61_43d8_a24f_a3f6ab7320e7);
 }
-pub trait IPrintItemListOptionDetailsImpl: IPrintOptionDetailsImpl {
-    fn Items();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintItemListOptionDetailsVtbl(
@@ -729,13 +633,6 @@ pub struct IPrintMediaSizeOptionDetails(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPrintMediaSizeOptionDetails {
     type Vtable = IPrintMediaSizeOptionDetailsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6c8d5bcf_c0bf_47c8_b84a_628e7d0d1a1d);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IPrintMediaSizeOptionDetailsImpl {
-    fn SetWarningText();
-    fn WarningText();
-    fn SetDescription();
-    fn Description();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -757,13 +654,6 @@ pub struct IPrintMediaTypeOptionDetails(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPrintMediaTypeOptionDetails {
     type Vtable = IPrintMediaTypeOptionDetailsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf8c7000b_abf3_4abc_8e86_22abc5744a43);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IPrintMediaTypeOptionDetailsImpl {
-    fn SetWarningText();
-    fn WarningText();
-    fn SetDescription();
-    fn Description();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -943,10 +833,6 @@ unsafe impl ::windows::core::Interface for IPrintNumberOptionDetails {
     type Vtable = IPrintNumberOptionDetailsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4d01bbaf_645c_4de9_965f_6fc6bbc47cab);
 }
-pub trait IPrintNumberOptionDetailsImpl: IPrintOptionDetailsImpl {
-    fn MinValue();
-    fn MaxValue();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintNumberOptionDetailsVtbl(
@@ -1085,16 +971,6 @@ unsafe impl ::windows::core::Interface for IPrintOptionDetails {
     type Vtable = IPrintOptionDetailsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x390686cf_d682_495f_adfe_d7333f5c1808);
 }
-pub trait IPrintOptionDetailsImpl {
-    fn OptionId();
-    fn OptionType();
-    fn SetErrorText();
-    fn ErrorText();
-    fn SetState();
-    fn State();
-    fn Value();
-    fn TrySetValue();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintOptionDetailsVtbl(
@@ -1120,13 +996,6 @@ unsafe impl ::windows::core::Interface for IPrintOrientationOptionDetails {
     type Vtable = IPrintOrientationOptionDetailsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x46c38879_66e0_4da0_87b4_d25457824eb7);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IPrintOrientationOptionDetailsImpl {
-    fn SetWarningText();
-    fn WarningText();
-    fn SetDescription();
-    fn Description();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintOrientationOptionDetailsVtbl(
@@ -1147,13 +1016,6 @@ pub struct IPrintPageRangeOptionDetails(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPrintPageRangeOptionDetails {
     type Vtable = IPrintPageRangeOptionDetailsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5a19e4b7_2be8_4aa7_9ea5_defbe8713b4e);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IPrintPageRangeOptionDetailsImpl {
-    fn SetWarningText();
-    fn WarningText();
-    fn SetDescription();
-    fn Description();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1176,13 +1038,6 @@ unsafe impl ::windows::core::Interface for IPrintQualityOptionDetails {
     type Vtable = IPrintQualityOptionDetailsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2dd06ba1_ce1a_44e6_84f9_3a92ea1e3044);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IPrintQualityOptionDetailsImpl {
-    fn SetWarningText();
-    fn WarningText();
-    fn SetDescription();
-    fn Description();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintQualityOptionDetailsVtbl(
@@ -1203,13 +1058,6 @@ pub struct IPrintStapleOptionDetails(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPrintStapleOptionDetails {
     type Vtable = IPrintStapleOptionDetailsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd43175bd_9c0b_44e0_84f6_ceebce653800);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IPrintStapleOptionDetailsImpl {
-    fn SetWarningText();
-    fn WarningText();
-    fn SetDescription();
-    fn Description();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1232,10 +1080,6 @@ unsafe impl ::windows::core::Interface for IPrintTaskOptionChangedEventArgs {
     type Vtable = IPrintTaskOptionChangedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x65197d05_a5ee_4307_9407_9acad147679c);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IPrintTaskOptionChangedEventArgsImpl {
-    fn OptionId();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintTaskOptionChangedEventArgsVtbl(
@@ -1253,16 +1097,6 @@ pub struct IPrintTaskOptionDetails(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPrintTaskOptionDetails {
     type Vtable = IPrintTaskOptionDetailsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf5720af1_a89e_42a6_81af_f8e010b38a68);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IPrintTaskOptionDetailsImpl {
-    fn Options();
-    fn CreateItemListOption();
-    fn CreateTextOption();
-    fn OptionChanged();
-    fn RemoveOptionChanged();
-    fn BeginValidation();
-    fn RemoveBeginValidation();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1293,10 +1127,6 @@ unsafe impl ::windows::core::Interface for IPrintTaskOptionDetails2 {
     type Vtable = IPrintTaskOptionDetails2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x53730a09_f968_4692_a177_c074597186db);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IPrintTaskOptionDetails2Impl {
-    fn CreateToggleOption();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintTaskOptionDetails2Vtbl(
@@ -1314,10 +1144,6 @@ pub struct IPrintTaskOptionDetailsStatic(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPrintTaskOptionDetailsStatic {
     type Vtable = IPrintTaskOptionDetailsStaticVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x135da193_0961_4b6e_8766_f13b7fbccd58);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IPrintTaskOptionDetailsStaticImpl {
-    fn GetFromPrintTaskOptions();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1485,9 +1311,6 @@ unsafe impl ::windows::core::RuntimeType for IPrintTextOptionDetails {
 unsafe impl ::windows::core::Interface for IPrintTextOptionDetails {
     type Vtable = IPrintTextOptionDetailsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xad75e563_5ce4_46bc_9918_ab9fad144c5b);
-}
-pub trait IPrintTextOptionDetailsImpl: IPrintOptionDetailsImpl {
-    fn MaxCharacters();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5386,3 +5209,5 @@ impl<'a> ::windows::core::IntoParam<'a, super::IPrintTaskOptionsCoreUIConfigurat
 }
 unsafe impl ::core::marker::Send for PrintTaskOptionDetails {}
 unsafe impl ::core::marker::Sync for PrintTaskOptionDetails {}
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

@@ -6,15 +6,6 @@ unsafe impl ::windows::core::Interface for IPrint3DWorkflow {
     type Vtable = IPrint3DWorkflowVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc56f74bd_3669_4a66_ab42_c8151930cd34);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IPrint3DWorkflowImpl {
-    fn DeviceID();
-    fn GetPrintModelPackage();
-    fn IsPrintReady();
-    fn SetIsPrintReady();
-    fn PrintRequested();
-    fn RemovePrintRequested();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrint3DWorkflowVtbl(
@@ -40,11 +31,6 @@ unsafe impl ::windows::core::Interface for IPrint3DWorkflow2 {
     type Vtable = IPrint3DWorkflow2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa2a6c54f_8ac1_4918_9741_e34f3004239e);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IPrint3DWorkflow2Impl {
-    fn PrinterChanged();
-    fn RemovePrinterChanged();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrint3DWorkflow2Vtbl(
@@ -65,13 +51,6 @@ pub struct IPrint3DWorkflowPrintRequestedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPrint3DWorkflowPrintRequestedEventArgs {
     type Vtable = IPrint3DWorkflowPrintRequestedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x19f8c858_5ac8_4b55_8a5f_e61567dafb4d);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IPrint3DWorkflowPrintRequestedEventArgsImpl {
-    fn Status();
-    fn SetExtendedStatus();
-    fn SetSource();
-    fn SetSourceChanged();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -94,10 +73,6 @@ unsafe impl ::windows::core::Interface for IPrint3DWorkflowPrinterChangedEventAr
     type Vtable = IPrint3DWorkflowPrinterChangedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x45226402_95fc_4847_93b3_134dbf5c60f7);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IPrint3DWorkflowPrinterChangedEventArgsImpl {
-    fn NewDeviceId();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrint3DWorkflowPrinterChangedEventArgsVtbl(
@@ -116,10 +91,6 @@ unsafe impl ::windows::core::Interface for IPrintExtensionContextStatic {
     type Vtable = IPrintExtensionContextStaticVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe70d9fc1_ff79_4aa4_8c9b_0c93aedfde8a);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IPrintExtensionContextStaticImpl {
-    fn FromDeviceId();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintExtensionContextStaticVtbl(
@@ -137,12 +108,6 @@ pub struct IPrintNotificationEventDetails(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPrintNotificationEventDetails {
     type Vtable = IPrintNotificationEventDetailsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe00e4c8a_4828_4da1_8bb8_8672df8515e7);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IPrintNotificationEventDetailsImpl {
-    fn PrinterName();
-    fn EventData();
-    fn SetEventData();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -163,12 +128,6 @@ pub struct IPrintTaskConfiguration(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPrintTaskConfiguration {
     type Vtable = IPrintTaskConfigurationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe3c22451_3aa4_4885_9240_311f5f8fbe9d);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IPrintTaskConfigurationImpl {
-    fn PrinterExtensionContext();
-    fn SaveRequested();
-    fn RemoveSaveRequested();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -192,13 +151,6 @@ unsafe impl ::windows::core::Interface for IPrintTaskConfigurationSaveRequest {
     type Vtable = IPrintTaskConfigurationSaveRequestVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeeaf2fcb_621e_4b62_ac77_b281cce08d60);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IPrintTaskConfigurationSaveRequestImpl {
-    fn Cancel();
-    fn Save();
-    fn GetDeferral();
-    fn Deadline();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintTaskConfigurationSaveRequestVtbl(
@@ -221,10 +173,6 @@ unsafe impl ::windows::core::Interface for IPrintTaskConfigurationSaveRequestedD
     type Vtable = IPrintTaskConfigurationSaveRequestedDeferralVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe959d568_f729_44a4_871d_bd0628696a33);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IPrintTaskConfigurationSaveRequestedDeferralImpl {
-    fn Complete();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintTaskConfigurationSaveRequestedDeferralVtbl(
@@ -242,10 +190,6 @@ pub struct IPrintTaskConfigurationSaveRequestedEventArgs(::windows::core::IUnkno
 unsafe impl ::windows::core::Interface for IPrintTaskConfigurationSaveRequestedEventArgs {
     type Vtable = IPrintTaskConfigurationSaveRequestedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe06c2879_0d61_4938_91d0_96a45bee8479);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IPrintTaskConfigurationSaveRequestedEventArgsImpl {
-    fn Request();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1101,3 +1045,5 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prin
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

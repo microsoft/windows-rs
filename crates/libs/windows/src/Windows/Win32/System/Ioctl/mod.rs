@@ -21565,3 +21565,5 @@ pub const TCCollectionBugCheck: _DEVICEDUMP_COLLECTION_TYPE = 1i32;
 pub const TCCollectionApplicationRequested: _DEVICEDUMP_COLLECTION_TYPE = 2i32;
 #[doc = "*Required features: 'Win32_System_Ioctl'*"]
 pub const TCCollectionDeviceRequested: _DEVICEDUMP_COLLECTION_TYPE = 3i32;
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

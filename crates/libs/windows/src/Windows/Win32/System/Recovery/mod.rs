@@ -128,3 +128,5 @@ pub unsafe fn UnregisterApplicationRestart() -> ::windows::core::Result<()> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

@@ -176,10 +176,6 @@ unsafe impl ::windows::core::Interface for IGpioControllerProvider {
     type Vtable = IGpioControllerProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xad11cec7_19ea_4b21_874f_b91aed4a25db);
 }
-pub trait IGpioControllerProviderImpl {
-    fn PinCount();
-    fn OpenPinProvider();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGpioControllerProviderVtbl(
@@ -340,19 +336,6 @@ unsafe impl ::windows::core::Interface for IGpioPinProvider {
     type Vtable = IGpioPinProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x42344cb7_6abc_40ff_9ce7_73b85301b900);
 }
-pub trait IGpioPinProviderImpl {
-    fn ValueChanged();
-    fn RemoveValueChanged();
-    fn DebounceTimeout();
-    fn SetDebounceTimeout();
-    fn PinNumber();
-    fn SharingMode();
-    fn IsDriveModeSupported();
-    fn GetDriveMode();
-    fn SetDriveMode();
-    fn Write();
-    fn Read();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGpioPinProviderVtbl(
@@ -385,10 +368,6 @@ unsafe impl ::windows::core::Interface for IGpioPinProviderValueChangedEventArgs
     type Vtable = IGpioPinProviderValueChangedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x32a6d6f2_3d5b_44cd_8fbe_13a69f2edb24);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IGpioPinProviderValueChangedEventArgsImpl {
-    fn Edge();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGpioPinProviderValueChangedEventArgsVtbl(
@@ -406,10 +385,6 @@ pub struct IGpioPinProviderValueChangedEventArgsFactory(::windows::core::IUnknow
 unsafe impl ::windows::core::Interface for IGpioPinProviderValueChangedEventArgsFactory {
     type Vtable = IGpioPinProviderValueChangedEventArgsFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3ecb0b59_568c_4392_b24a_8a59a902b1f1);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IGpioPinProviderValueChangedEventArgsFactoryImpl {
-    fn Create();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -498,9 +473,6 @@ unsafe impl ::windows::core::RuntimeType for IGpioProvider {
 unsafe impl ::windows::core::Interface for IGpioProvider {
     type Vtable = IGpioProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x44e82707_08ca_434a_afe0_d61580446f7e);
-}
-pub trait IGpioProviderImpl {
-    fn GetControllers();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -652,3 +624,5 @@ unsafe impl ::windows::core::RuntimeType for ProviderGpioSharingMode {
 impl ::windows::core::DefaultType for ProviderGpioSharingMode {
     type DefaultType = Self;
 }
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

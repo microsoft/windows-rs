@@ -3055,12 +3055,6 @@ unsafe impl ::windows::core::Interface for IEnumNetCfgBindingInterface {
     type Vtable = IEnumNetCfgBindingInterfaceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc0e8ae90_306e_11d1_aacf_00805fc1270e);
 }
-pub trait IEnumNetCfgBindingInterfaceImpl {
-    fn Next();
-    fn Skip();
-    fn Reset();
-    fn Clone();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumNetCfgBindingInterfaceVtbl(
@@ -3134,12 +3128,6 @@ unsafe impl ::windows::core::Interface for IEnumNetCfgBindingPath {
     type Vtable = IEnumNetCfgBindingPathVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc0e8ae91_306e_11d1_aacf_00805fc1270e);
 }
-pub trait IEnumNetCfgBindingPathImpl {
-    fn Next();
-    fn Skip();
-    fn Reset();
-    fn Clone();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumNetCfgBindingPathVtbl(
@@ -3212,12 +3200,6 @@ impl ::core::fmt::Debug for IEnumNetCfgComponent {
 unsafe impl ::windows::core::Interface for IEnumNetCfgComponent {
     type Vtable = IEnumNetCfgComponentVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc0e8ae92_306e_11d1_aacf_00805fc1270e);
-}
-pub trait IEnumNetCfgComponentImpl {
-    fn Next();
-    fn Skip();
-    fn Reset();
-    fn Clone();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3310,15 +3292,6 @@ unsafe impl ::windows::core::Interface for INetCfg {
     type Vtable = INetCfgVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc0e8ae93_306e_11d1_aacf_00805fc1270e);
 }
-pub trait INetCfgImpl {
-    fn Initialize();
-    fn Uninitialize();
-    fn Apply();
-    fn Cancel();
-    fn EnumComponents();
-    fn FindComponent();
-    fn QueryNetCfgClass();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct INetCfgVtbl(
@@ -3394,11 +3367,6 @@ impl ::core::fmt::Debug for INetCfgBindingInterface {
 unsafe impl ::windows::core::Interface for INetCfgBindingInterface {
     type Vtable = INetCfgBindingInterfaceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc0e8ae94_306e_11d1_aacf_00805fc1270e);
-}
-pub trait INetCfgBindingInterfaceImpl {
-    fn GetName();
-    fn GetUpperComponent();
-    fn GetLowerComponent();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3494,16 +3462,6 @@ unsafe impl ::windows::core::Interface for INetCfgBindingPath {
     type Vtable = INetCfgBindingPathVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc0e8ae96_306e_11d1_aacf_00805fc1270e);
 }
-pub trait INetCfgBindingPathImpl {
-    fn IsSamePathAs();
-    fn IsSubPathOf();
-    fn IsEnabled();
-    fn Enable();
-    fn GetPathToken();
-    fn GetOwner();
-    fn GetDepth();
-    fn EnumBindingInterfaces();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct INetCfgBindingPathVtbl(
@@ -3577,10 +3535,6 @@ unsafe impl ::windows::core::Interface for INetCfgClass {
     type Vtable = INetCfgClassVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc0e8ae97_306e_11d1_aacf_00805fc1270e);
 }
-pub trait INetCfgClassImpl {
-    fn FindComponent();
-    fn EnumComponents();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct INetCfgClassVtbl(
@@ -3652,11 +3606,6 @@ impl ::core::fmt::Debug for INetCfgClassSetup {
 unsafe impl ::windows::core::Interface for INetCfgClassSetup {
     type Vtable = INetCfgClassSetupVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc0e8ae9d_306e_11d1_aacf_00805fc1270e);
-}
-pub trait INetCfgClassSetupImpl {
-    fn SelectAndInstall();
-    fn Install();
-    fn DeInstall();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3756,9 +3705,6 @@ impl ::core::fmt::Debug for INetCfgClassSetup2 {
 unsafe impl ::windows::core::Interface for INetCfgClassSetup2 {
     type Vtable = INetCfgClassSetup2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc0e8aea0_306e_11d1_aacf_00805fc1270e);
-}
-pub trait INetCfgClassSetup2Impl: INetCfgClassSetupImpl {
-    fn UpdateNonEnumeratedComponent();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3885,20 +3831,6 @@ unsafe impl ::windows::core::Interface for INetCfgComponent {
     type Vtable = INetCfgComponentVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc0e8ae99_306e_11d1_aacf_00805fc1270e);
 }
-pub trait INetCfgComponentImpl {
-    fn GetDisplayName();
-    fn SetDisplayName();
-    fn GetHelpText();
-    fn GetId();
-    fn GetCharacteristics();
-    fn GetInstanceGuid();
-    fn GetPnpDevNodeId();
-    fn GetClassGuid();
-    fn GetBindName();
-    fn GetDeviceStatus();
-    fn OpenParamKey();
-    fn RaisePropertyUi();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct INetCfgComponentVtbl(
@@ -4005,16 +3937,6 @@ unsafe impl ::windows::core::Interface for INetCfgComponentBindings {
     type Vtable = INetCfgComponentBindingsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc0e8ae9e_306e_11d1_aacf_00805fc1270e);
 }
-pub trait INetCfgComponentBindingsImpl {
-    fn BindTo();
-    fn UnbindFrom();
-    fn SupportsBindingInterface();
-    fn IsBoundTo();
-    fn IsBindableTo();
-    fn EnumBindingPaths();
-    fn MoveBefore();
-    fn MoveAfter();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct INetCfgComponentBindingsVtbl(
@@ -4093,12 +4015,6 @@ unsafe impl ::windows::core::Interface for INetCfgComponentControl {
     type Vtable = INetCfgComponentControlVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x932238df_bea1_11d0_9298_00c04fc99dcf);
 }
-pub trait INetCfgComponentControlImpl {
-    fn Initialize();
-    fn ApplyRegistryChanges();
-    fn ApplyPnpChanges();
-    fn CancelChanges();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct INetCfgComponentControlVtbl(
@@ -4163,10 +4079,6 @@ impl ::core::fmt::Debug for INetCfgComponentNotifyBinding {
 unsafe impl ::windows::core::Interface for INetCfgComponentNotifyBinding {
     type Vtable = INetCfgComponentNotifyBindingVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x932238e1_bea1_11d0_9298_00c04fc99dcf);
-}
-pub trait INetCfgComponentNotifyBindingImpl {
-    fn QueryBindingPath();
-    fn NotifyBindingPath();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4238,12 +4150,6 @@ impl ::core::fmt::Debug for INetCfgComponentNotifyGlobal {
 unsafe impl ::windows::core::Interface for INetCfgComponentNotifyGlobal {
     type Vtable = INetCfgComponentNotifyGlobalVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x932238e2_bea1_11d0_9298_00c04fc99dcf);
-}
-pub trait INetCfgComponentNotifyGlobalImpl {
-    fn GetSupportedNotifications();
-    fn SysQueryBindingPath();
-    fn SysNotifyBindingPath();
-    fn SysNotifyComponent();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4327,14 +4233,6 @@ unsafe impl ::windows::core::Interface for INetCfgComponentPropertyUi {
     type Vtable = INetCfgComponentPropertyUiVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x932238e0_bea1_11d0_9298_00c04fc99dcf);
 }
-pub trait INetCfgComponentPropertyUiImpl {
-    fn QueryPropertyUi();
-    fn SetContext();
-    fn MergePropPages();
-    fn ValidateProperties();
-    fn ApplyProperties();
-    fn CancelProperties();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct INetCfgComponentPropertyUiVtbl(
@@ -4412,12 +4310,6 @@ unsafe impl ::windows::core::Interface for INetCfgComponentSetup {
     type Vtable = INetCfgComponentSetupVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x932238e3_bea1_11d0_9298_00c04fc99dcf);
 }
-pub trait INetCfgComponentSetupImpl {
-    fn Install();
-    fn Upgrade();
-    fn ReadAnswerFile();
-    fn Removing();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct INetCfgComponentSetupVtbl(
@@ -4484,10 +4376,6 @@ impl ::core::fmt::Debug for INetCfgComponentSysPrep {
 unsafe impl ::windows::core::Interface for INetCfgComponentSysPrep {
     type Vtable = INetCfgComponentSysPrepVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc0e8ae9a_306e_11d1_aacf_00805fc1270e);
-}
-pub trait INetCfgComponentSysPrepImpl {
-    fn SaveAdapterParameters();
-    fn RestoreAdapterParameters();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4556,11 +4444,6 @@ impl ::core::fmt::Debug for INetCfgComponentUpperEdge {
 unsafe impl ::windows::core::Interface for INetCfgComponentUpperEdge {
     type Vtable = INetCfgComponentUpperEdgeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x932238e4_bea1_11d0_9298_00c04fc99dcf);
-}
-pub trait INetCfgComponentUpperEdgeImpl {
-    fn GetInterfaceIdsForAdapter();
-    fn AddInterfacesToAdapter();
-    fn RemoveInterfacesFromAdapter();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4633,11 +4516,6 @@ unsafe impl ::windows::core::Interface for INetCfgLock {
     type Vtable = INetCfgLockVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc0e8ae9f_306e_11d1_aacf_00805fc1270e);
 }
-pub trait INetCfgLockImpl {
-    fn AcquireWriteLock();
-    fn ReleaseWriteLock();
-    fn IsWriteLocked();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct INetCfgLockVtbl(
@@ -4699,9 +4577,6 @@ impl ::core::fmt::Debug for INetCfgPnpReconfigCallback {
 unsafe impl ::windows::core::Interface for INetCfgPnpReconfigCallback {
     type Vtable = INetCfgPnpReconfigCallbackVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8d84bd35_e227_11d2_b700_00a0c98a6a85);
-}
-pub trait INetCfgPnpReconfigCallbackImpl {
-    fn SendPnpReconfig();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4777,12 +4652,6 @@ unsafe impl ::windows::core::Interface for INetCfgSysPrep {
     type Vtable = INetCfgSysPrepVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc0e8ae98_306e_11d1_aacf_00805fc1270e);
 }
-pub trait INetCfgSysPrepImpl {
-    fn HrSetupSetFirstDword();
-    fn HrSetupSetFirstString();
-    fn HrSetupSetFirstStringAsBool();
-    fn HrSetupSetFirstMultiSzField();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct INetCfgSysPrepVtbl(
@@ -4848,9 +4717,6 @@ unsafe impl ::windows::core::Interface for INetLanConnectionUiInfo {
     type Vtable = INetLanConnectionUiInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc08956a6_1cd3_11d1_b1c5_00805fc1270e);
 }
-pub trait INetLanConnectionUiInfoImpl {
-    fn GetDeviceGuid();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct INetLanConnectionUiInfoVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pguid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT);
@@ -4904,9 +4770,6 @@ impl ::core::fmt::Debug for INetRasConnectionIpUiInfo {
 unsafe impl ::windows::core::Interface for INetRasConnectionIpUiInfo {
     type Vtable = INetRasConnectionIpUiInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfaedcf58_31fe_11d1_aad2_00805fc1270e);
-}
-pub trait INetRasConnectionIpUiInfoImpl {
-    fn GetUiInfo();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4977,10 +4840,6 @@ unsafe impl ::windows::core::Interface for IProvisioningDomain {
     type Vtable = IProvisioningDomainVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc96fbd50_24dd_11d8_89fb_00904b2ea9c6);
 }
-pub trait IProvisioningDomainImpl {
-    fn Add();
-    fn Query();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IProvisioningDomainVtbl(
@@ -5042,9 +4901,6 @@ impl ::core::fmt::Debug for IProvisioningProfileWireless {
 unsafe impl ::windows::core::Interface for IProvisioningProfileWireless {
     type Vtable = IProvisioningProfileWirelessVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc96fbd51_24dd_11d8_89fb_00904b2ea9c6);
-}
-pub trait IProvisioningProfileWirelessImpl {
-    fn CreateProfile();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -20501,3 +20357,5 @@ pub const RCUIF_USE_IPv6_REMOTE_GATEWAY: tagRASCON_IPUI_FLAGS = 8192i32;
 pub const RCUIF_USE_IPv6_EXPLICIT_METRIC: tagRASCON_IPUI_FLAGS = 16384i32;
 #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
 pub const RCUIF_DISABLE_CLASS_BASED_ROUTE: tagRASCON_IPUI_FLAGS = 32768i32;
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

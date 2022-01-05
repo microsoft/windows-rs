@@ -6,12 +6,6 @@ unsafe impl ::windows::core::Interface for IUsbBulkInEndpointDescriptor {
     type Vtable = IUsbBulkInEndpointDescriptorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3c6e4846_06cf_42a9_9dc2_971c1b14b6e3);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IUsbBulkInEndpointDescriptorImpl {
-    fn MaxPacketSize();
-    fn EndpointNumber();
-    fn Pipe();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUsbBulkInEndpointDescriptorVtbl(
@@ -31,16 +25,6 @@ pub struct IUsbBulkInPipe(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IUsbBulkInPipe {
     type Vtable = IUsbBulkInPipeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf01d2d3b_4548_4d50_b326_d82cdabe1220);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IUsbBulkInPipeImpl {
-    fn MaxTransferSizeBytes();
-    fn EndpointDescriptor();
-    fn ClearStallAsync();
-    fn SetReadOptions();
-    fn ReadOptions();
-    fn FlushBuffer();
-    fn InputStream();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -68,12 +52,6 @@ unsafe impl ::windows::core::Interface for IUsbBulkOutEndpointDescriptor {
     type Vtable = IUsbBulkOutEndpointDescriptorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2820847a_ffee_4f60_9be1_956cac3ecb65);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IUsbBulkOutEndpointDescriptorImpl {
-    fn MaxPacketSize();
-    fn EndpointNumber();
-    fn Pipe();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUsbBulkOutEndpointDescriptorVtbl(
@@ -93,14 +71,6 @@ pub struct IUsbBulkOutPipe(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IUsbBulkOutPipe {
     type Vtable = IUsbBulkOutPipeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa8e9ee6e_0115_45aa_8b21_37b225bccee7);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IUsbBulkOutPipeImpl {
-    fn EndpointDescriptor();
-    fn ClearStallAsync();
-    fn SetWriteOptions();
-    fn WriteOptions();
-    fn OutputStream();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -126,12 +96,6 @@ unsafe impl ::windows::core::Interface for IUsbConfiguration {
     type Vtable = IUsbConfigurationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x68177429_36a9_46d7_b873_fc689251ec30);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IUsbConfigurationImpl {
-    fn UsbInterfaces();
-    fn ConfigurationDescriptor();
-    fn Descriptors();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUsbConfigurationVtbl(
@@ -154,13 +118,6 @@ unsafe impl ::windows::core::Interface for IUsbConfigurationDescriptor {
     type Vtable = IUsbConfigurationDescriptorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf2176d92_b442_407a_8207_7d646c0385f3);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IUsbConfigurationDescriptorImpl {
-    fn ConfigurationValue();
-    fn MaxPowerMilliamps();
-    fn SelfPowered();
-    fn RemoteWakeup();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUsbConfigurationDescriptorVtbl(
@@ -182,11 +139,6 @@ unsafe impl ::windows::core::Interface for IUsbConfigurationDescriptorStatics {
     type Vtable = IUsbConfigurationDescriptorStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x424ced93_e740_40a1_92bd_da120ea04914);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IUsbConfigurationDescriptorStaticsImpl {
-    fn TryParse();
-    fn Parse();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUsbConfigurationDescriptorStaticsVtbl(
@@ -205,17 +157,6 @@ pub struct IUsbControlRequestType(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IUsbControlRequestType {
     type Vtable = IUsbControlRequestTypeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8e9465a6_d73d_46de_94be_aae7f07c0f5c);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IUsbControlRequestTypeImpl {
-    fn Direction();
-    fn SetDirection();
-    fn ControlTransferType();
-    fn SetControlTransferType();
-    fn Recipient();
-    fn SetRecipient();
-    fn AsByte();
-    fn SetAsByte();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -242,12 +183,6 @@ unsafe impl ::windows::core::Interface for IUsbDescriptor {
     type Vtable = IUsbDescriptorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0a89f216_5f9d_4874_8904_da9ad3f5528f);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IUsbDescriptorImpl {
-    fn Length();
-    fn DescriptorType();
-    fn ReadDescriptorBuffer();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUsbDescriptorVtbl(
@@ -268,16 +203,6 @@ pub struct IUsbDevice(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IUsbDevice {
     type Vtable = IUsbDeviceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5249b992_c456_44d5_ad5e_24f5a089f63b);
-}
-#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IUsbDeviceImpl: IClosableImpl {
-    fn SendControlOutTransferAsync();
-    fn SendControlOutTransferAsyncNoBuffer();
-    fn SendControlInTransferAsync();
-    fn SendControlInTransferAsyncNoBuffer();
-    fn DefaultInterface();
-    fn DeviceDescriptor();
-    fn Configuration();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -307,15 +232,6 @@ unsafe impl ::windows::core::Interface for IUsbDeviceClass {
     type Vtable = IUsbDeviceClassVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x051942f9_845e_47eb_b12a_38f2f617afe7);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IUsbDeviceClassImpl {
-    fn ClassCode();
-    fn SetClassCode();
-    fn SubclassCode();
-    fn SetSubclassCode();
-    fn ProtocolCode();
-    fn SetProtocolCode();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUsbDeviceClassVtbl(
@@ -343,8 +259,6 @@ unsafe impl ::windows::core::Interface for IUsbDeviceClasses {
     type Vtable = IUsbDeviceClassesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x686f955d_9b92_4b30_9781_c22c55ac35cb);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IUsbDeviceClassesImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUsbDeviceClassesVtbl(
@@ -361,18 +275,6 @@ pub struct IUsbDeviceClassesStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IUsbDeviceClassesStatics {
     type Vtable = IUsbDeviceClassesStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb20b0527_c580_4599_a165_981b4fd03230);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IUsbDeviceClassesStaticsImpl {
-    fn CdcControl();
-    fn Physical();
-    fn PersonalHealthcare();
-    fn ActiveSync();
-    fn PalmSync();
-    fn DeviceFirmwareUpdate();
-    fn Irda();
-    fn Measurement();
-    fn VendorSpecific();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -400,15 +302,6 @@ unsafe impl ::windows::core::Interface for IUsbDeviceDescriptor {
     type Vtable = IUsbDeviceDescriptorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1f48d1f6_ba97_4322_b92c_b5b189216588);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IUsbDeviceDescriptorImpl {
-    fn BcdUsb();
-    fn MaxPacketSize0();
-    fn VendorId();
-    fn ProductId();
-    fn BcdDeviceRevision();
-    fn NumberOfConfigurations();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUsbDeviceDescriptorVtbl(
@@ -432,14 +325,6 @@ unsafe impl ::windows::core::Interface for IUsbDeviceStatics {
     type Vtable = IUsbDeviceStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x066b85a2_09b7_4446_8502_6fe6dcaa7309);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IUsbDeviceStaticsImpl {
-    fn GetDeviceSelector();
-    fn GetDeviceSelectorGuidOnly();
-    fn GetDeviceSelectorVidPidOnly();
-    fn GetDeviceClassSelector();
-    fn FromIdAsync();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUsbDeviceStaticsVtbl(
@@ -462,16 +347,6 @@ pub struct IUsbEndpointDescriptor(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IUsbEndpointDescriptor {
     type Vtable = IUsbEndpointDescriptorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6b4862d9_8df7_4b40_ac83_578f139f0575);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IUsbEndpointDescriptorImpl {
-    fn EndpointNumber();
-    fn Direction();
-    fn EndpointType();
-    fn AsBulkInEndpointDescriptor();
-    fn AsInterruptInEndpointDescriptor();
-    fn AsBulkOutEndpointDescriptor();
-    fn AsInterruptOutEndpointDescriptor();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -497,11 +372,6 @@ unsafe impl ::windows::core::Interface for IUsbEndpointDescriptorStatics {
     type Vtable = IUsbEndpointDescriptorStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc890b201_9a6a_495e_a82c_295b9e708106);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IUsbEndpointDescriptorStaticsImpl {
-    fn TryParse();
-    fn Parse();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUsbEndpointDescriptorStaticsVtbl(
@@ -520,16 +390,6 @@ pub struct IUsbInterface(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IUsbInterface {
     type Vtable = IUsbInterfaceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa0322b95_7f47_48ab_a727_678c25be2112);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IUsbInterfaceImpl {
-    fn BulkInPipes();
-    fn InterruptInPipes();
-    fn BulkOutPipes();
-    fn InterruptOutPipes();
-    fn InterfaceSettings();
-    fn InterfaceNumber();
-    fn Descriptors();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -561,14 +421,6 @@ unsafe impl ::windows::core::Interface for IUsbInterfaceDescriptor {
     type Vtable = IUsbInterfaceDescriptorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x199670c7_b7ee_4f90_8cd5_94a2e257598a);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IUsbInterfaceDescriptorImpl {
-    fn ClassCode();
-    fn SubclassCode();
-    fn ProtocolCode();
-    fn AlternateSettingNumber();
-    fn InterfaceNumber();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUsbInterfaceDescriptorVtbl(
@@ -591,11 +443,6 @@ unsafe impl ::windows::core::Interface for IUsbInterfaceDescriptorStatics {
     type Vtable = IUsbInterfaceDescriptorStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe34a9ff5_77d6_48b6_b0be_16c6422316fe);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IUsbInterfaceDescriptorStaticsImpl {
-    fn TryParse();
-    fn Parse();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUsbInterfaceDescriptorStaticsVtbl(
@@ -614,17 +461,6 @@ pub struct IUsbInterfaceSetting(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IUsbInterfaceSetting {
     type Vtable = IUsbInterfaceSettingVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1827bba7_8da7_4af7_8f4c_7f3032e781f5);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IUsbInterfaceSettingImpl {
-    fn BulkInEndpoints();
-    fn InterruptInEndpoints();
-    fn BulkOutEndpoints();
-    fn InterruptOutEndpoints();
-    fn Selected();
-    fn SelectSettingAsync();
-    fn InterfaceDescriptor();
-    fn Descriptors();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -657,13 +493,6 @@ unsafe impl ::windows::core::Interface for IUsbInterruptInEndpointDescriptor {
     type Vtable = IUsbInterruptInEndpointDescriptorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc0528967_c911_4c3a_86b2_419c2da89039);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IUsbInterruptInEndpointDescriptorImpl {
-    fn MaxPacketSize();
-    fn EndpointNumber();
-    fn Interval();
-    fn Pipe();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUsbInterruptInEndpointDescriptorVtbl(
@@ -686,10 +515,6 @@ unsafe impl ::windows::core::Interface for IUsbInterruptInEventArgs {
     type Vtable = IUsbInterruptInEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb7b04092_1418_4936_8209_299cf5605583);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IUsbInterruptInEventArgsImpl {
-    fn InterruptData();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUsbInterruptInEventArgsVtbl(
@@ -708,13 +533,6 @@ pub struct IUsbInterruptInPipe(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IUsbInterruptInPipe {
     type Vtable = IUsbInterruptInPipeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfa007116_84d7_48c7_8a3f_4c0b235f2ea6);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IUsbInterruptInPipeImpl {
-    fn EndpointDescriptor();
-    fn ClearStallAsync();
-    fn DataReceived();
-    fn RemoveDataReceived();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -740,13 +558,6 @@ unsafe impl ::windows::core::Interface for IUsbInterruptOutEndpointDescriptor {
     type Vtable = IUsbInterruptOutEndpointDescriptorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcc9fed81_10ca_4533_952d_9e278341e80f);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IUsbInterruptOutEndpointDescriptorImpl {
-    fn MaxPacketSize();
-    fn EndpointNumber();
-    fn Interval();
-    fn Pipe();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUsbInterruptOutEndpointDescriptorVtbl(
@@ -768,14 +579,6 @@ pub struct IUsbInterruptOutPipe(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IUsbInterruptOutPipe {
     type Vtable = IUsbInterruptOutPipeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe984c8a9_aaf9_49d0_b96c_f661ab4a7f95);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IUsbInterruptOutPipeImpl {
-    fn EndpointDescriptor();
-    fn ClearStallAsync();
-    fn SetWriteOptions();
-    fn WriteOptions();
-    fn OutputStream();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -800,19 +603,6 @@ pub struct IUsbSetupPacket(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IUsbSetupPacket {
     type Vtable = IUsbSetupPacketVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x104ba132_c78f_4c51_b654_e49d02f2cb03);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IUsbSetupPacketImpl {
-    fn RequestType();
-    fn SetRequestType();
-    fn Request();
-    fn SetRequest();
-    fn Value();
-    fn SetValue();
-    fn Index();
-    fn SetIndex();
-    fn Length();
-    fn SetLength();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -840,10 +630,6 @@ pub struct IUsbSetupPacketFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IUsbSetupPacketFactory {
     type Vtable = IUsbSetupPacketFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc9257d50_1b2e_4a41_a2a7_338f0cef3c14);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IUsbSetupPacketFactoryImpl {
-    fn CreateWithEightByteBuffer();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3820,3 +3606,5 @@ unsafe impl ::windows::core::RuntimeType for UsbWriteOptions {
 impl ::windows::core::DefaultType for UsbWriteOptions {
     type DefaultType = Self;
 }
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

@@ -4769,37 +4769,6 @@ unsafe impl ::windows::core::Interface for IImageList {
     type Vtable = IImageListVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x46eb5926_582e_4017_9fdf_e8998daa0950);
 }
-pub trait IImageListImpl {
-    fn Add();
-    fn ReplaceIcon();
-    fn SetOverlayImage();
-    fn Replace();
-    fn AddMasked();
-    fn Draw();
-    fn Remove();
-    fn GetIcon();
-    fn GetImageInfo();
-    fn Copy();
-    fn Merge();
-    fn Clone();
-    fn GetImageRect();
-    fn GetIconSize();
-    fn SetIconSize();
-    fn GetImageCount();
-    fn SetImageCount();
-    fn SetBkColor();
-    fn GetBkColor();
-    fn BeginDrag();
-    fn EndDrag();
-    fn DragEnter();
-    fn DragLeave();
-    fn DragMove();
-    fn SetDragCursorImage();
-    fn DragShowNolock();
-    fn GetDragImage();
-    fn GetItemFlags();
-    fn GetOverlayImage();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IImageListVtbl(
@@ -5101,20 +5070,6 @@ impl ::core::fmt::Debug for IImageList2 {
 unsafe impl ::windows::core::Interface for IImageList2 {
     type Vtable = IImageList2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x192b9d83_50fc_457b_90a0_2b82a8b5dae1);
-}
-pub trait IImageList2Impl: IImageListImpl {
-    fn Resize();
-    fn GetOriginalSize();
-    fn SetOriginalSize();
-    fn SetCallback();
-    fn GetCallback();
-    fn ForceImagePresent();
-    fn DiscardImages();
-    fn PreloadImages();
-    fn GetStatistics();
-    fn Initialize();
-    fn Replace2();
-    fn ReplaceFromImageList();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -19655,3 +19610,5 @@ pub type _LI_METRIC = i32;
 pub const LIM_SMALL: _LI_METRIC = 0i32;
 #[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const LIM_LARGE: _LI_METRIC = 1i32;
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

@@ -226,9 +226,6 @@ unsafe impl ::windows::core::Interface for IConnectionRequestCallback {
     type Vtable = IConnectionRequestCallbackVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x272c9ae0_7161_4ae0_91bd_9f448ee9c427);
 }
-pub trait IConnectionRequestCallbackImpl {
-    fn OnComplete();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IConnectionRequestCallbackVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hrstatus: ::windows::core::HRESULT) -> ::windows::core::HRESULT);
@@ -293,12 +290,6 @@ impl ::core::fmt::Debug for IEnumPortableDeviceConnectors {
 unsafe impl ::windows::core::Interface for IEnumPortableDeviceConnectors {
     type Vtable = IEnumPortableDeviceConnectorsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbfdef549_9247_454f_bd82_06fe80853faa);
-}
-pub trait IEnumPortableDeviceConnectorsImpl {
-    fn Next();
-    fn Skip();
-    fn Reset();
-    fn Clone();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -378,13 +369,6 @@ unsafe impl ::windows::core::Interface for IEnumPortableDeviceObjectIDs {
     type Vtable = IEnumPortableDeviceObjectIDsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x10ece955_cf41_4728_bfa0_41eedf1bbf19);
 }
-pub trait IEnumPortableDeviceObjectIDsImpl {
-    fn Next();
-    fn Skip();
-    fn Reset();
-    fn Clone();
-    fn Cancel();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumPortableDeviceObjectIDsVtbl(
@@ -451,10 +435,6 @@ impl ::core::fmt::Debug for IMediaRadioManager {
 unsafe impl ::windows::core::Interface for IMediaRadioManager {
     type Vtable = IMediaRadioManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6cfdcab5_fc47_42a5_9241_074b58830e73);
-}
-pub trait IMediaRadioManagerImpl {
-    fn GetRadioInstances();
-    fn OnSystemRadioStateChange();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -523,11 +503,6 @@ impl ::core::fmt::Debug for IMediaRadioManagerNotifySink {
 unsafe impl ::windows::core::Interface for IMediaRadioManagerNotifySink {
     type Vtable = IMediaRadioManagerNotifySinkVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x89d81f5f_c147_49ed_a11c_77b20c31e7c9);
-}
-pub trait IMediaRadioManagerNotifySinkImpl {
-    fn OnInstanceAdd();
-    fn OnInstanceRemove();
-    fn OnInstanceRadioChange();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -634,17 +609,6 @@ impl ::core::fmt::Debug for IPortableDevice {
 unsafe impl ::windows::core::Interface for IPortableDevice {
     type Vtable = IPortableDeviceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x625e2df8_6392_4cf0_9ad1_3cfa5f17775c);
-}
-pub trait IPortableDeviceImpl {
-    fn Open();
-    fn SendCommand();
-    fn Content();
-    fn Capabilities();
-    fn Cancel();
-    fn Close();
-    fn Advise();
-    fn Unadvise();
-    fn GetPnPDeviceID();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -767,19 +731,6 @@ unsafe impl ::windows::core::Interface for IPortableDeviceCapabilities {
     type Vtable = IPortableDeviceCapabilitiesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2c8c6dbf_e3dc_4061_becc_8542e810d126);
 }
-pub trait IPortableDeviceCapabilitiesImpl {
-    fn GetSupportedCommands();
-    fn GetCommandOptions();
-    fn GetFunctionalCategories();
-    fn GetFunctionalObjects();
-    fn GetSupportedContentTypes();
-    fn GetSupportedFormats();
-    fn GetSupportedFormatProperties();
-    fn GetFixedPropertyAttributes();
-    fn Cancel();
-    fn GetSupportedEvents();
-    fn GetEventOptions();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPortableDeviceCapabilitiesVtbl(
@@ -872,14 +823,6 @@ impl ::core::fmt::Debug for IPortableDeviceConnector {
 unsafe impl ::windows::core::Interface for IPortableDeviceConnector {
     type Vtable = IPortableDeviceConnectorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x625e2df8_6392_4cf0_9ad1_3cfa5f17775c);
-}
-pub trait IPortableDeviceConnectorImpl {
-    fn Connect();
-    fn Disconnect();
-    fn Cancel();
-    fn GetProperty();
-    fn SetProperty();
-    fn GetPnPID();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -990,18 +933,6 @@ impl ::core::fmt::Debug for IPortableDeviceContent {
 unsafe impl ::windows::core::Interface for IPortableDeviceContent {
     type Vtable = IPortableDeviceContentVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6a96ed84_7c73_4480_9938_bf5af477d426);
-}
-pub trait IPortableDeviceContentImpl {
-    fn EnumObjects();
-    fn Properties();
-    fn Transfer();
-    fn CreateObjectWithPropertiesOnly();
-    fn CreateObjectWithPropertiesAndData();
-    fn Delete();
-    fn GetObjectIDsFromPersistentUniqueIDs();
-    fn Cancel();
-    fn Move();
-    fn Copy();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1143,9 +1074,6 @@ impl ::core::fmt::Debug for IPortableDeviceContent2 {
 unsafe impl ::windows::core::Interface for IPortableDeviceContent2 {
     type Vtable = IPortableDeviceContent2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9b4add96_f6bf_4034_8708_eca72bf10554);
-}
-pub trait IPortableDeviceContent2Impl: IPortableDeviceContentImpl {
-    fn UpdateObjectWithPropertiesAndData();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1332,11 +1260,6 @@ unsafe impl ::windows::core::Interface for IPortableDeviceDataStream {
     type Vtable = IPortableDeviceDataStreamVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x88e04db3_1012_4d64_9996_f703a950d3f4);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IPortableDeviceDataStreamImpl: IStreamImpl + ISequentialStreamImpl {
-    fn GetObjectID();
-    fn Cancel();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPortableDeviceDataStreamVtbl(
@@ -1420,9 +1343,6 @@ unsafe impl ::windows::core::Interface for IPortableDeviceDispatchFactory {
     type Vtable = IPortableDeviceDispatchFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5e1eafc3_e3d7_4132_96fa_759c0f9d1e0f);
 }
-pub trait IPortableDeviceDispatchFactoryImpl {
-    fn GetDeviceDispatch();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPortableDeviceDispatchFactoryVtbl(
@@ -1480,9 +1400,6 @@ impl ::core::fmt::Debug for IPortableDeviceEventCallback {
 unsafe impl ::windows::core::Interface for IPortableDeviceEventCallback {
     type Vtable = IPortableDeviceEventCallbackVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa8792a31_f385_493c_a893_40f64eb45f6e);
-}
-pub trait IPortableDeviceEventCallbackImpl {
-    fn OnEvent();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1553,13 +1470,6 @@ impl ::core::fmt::Debug for IPortableDeviceKeyCollection {
 unsafe impl ::windows::core::Interface for IPortableDeviceKeyCollection {
     type Vtable = IPortableDeviceKeyCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdada2357_e0ad_492e_98db_dd61c53ba353);
-}
-pub trait IPortableDeviceKeyCollectionImpl {
-    fn GetCount();
-    fn GetAt();
-    fn Add();
-    fn Clear();
-    fn RemoveAt();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1653,15 +1563,6 @@ impl ::core::fmt::Debug for IPortableDeviceManager {
 unsafe impl ::windows::core::Interface for IPortableDeviceManager {
     type Vtable = IPortableDeviceManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa1567595_4c2f_4574_a6fa_ecef917b9a40);
-}
-pub trait IPortableDeviceManagerImpl {
-    fn GetDevices();
-    fn RefreshDeviceList();
-    fn GetDeviceFriendlyName();
-    fn GetDeviceDescription();
-    fn GetDeviceManufacturer();
-    fn GetDeviceProperty();
-    fn GetPrivateDevices();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1759,15 +1660,6 @@ unsafe impl ::windows::core::Interface for IPortableDevicePropVariantCollection 
     type Vtable = IPortableDevicePropVariantCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x89b2e422_4f1b_4316_bcef_a44afea83eb3);
 }
-pub trait IPortableDevicePropVariantCollectionImpl {
-    fn GetCount();
-    fn GetAt();
-    fn Add();
-    fn GetType();
-    fn ChangeType();
-    fn Clear();
-    fn RemoveAt();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPortableDevicePropVariantCollectionVtbl(
@@ -1862,14 +1754,6 @@ unsafe impl ::windows::core::Interface for IPortableDeviceProperties {
     type Vtable = IPortableDevicePropertiesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7f6d695c_03df_4439_a809_59266beee3a6);
 }
-pub trait IPortableDevicePropertiesImpl {
-    fn GetSupportedProperties();
-    fn GetPropertyAttributes();
-    fn GetValues();
-    fn SetValues();
-    fn Delete();
-    fn Cancel();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPortableDevicePropertiesVtbl(
@@ -1957,13 +1841,6 @@ unsafe impl ::windows::core::Interface for IPortableDevicePropertiesBulk {
     type Vtable = IPortableDevicePropertiesBulkVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x482b05c0_4056_44ed_9e0f_5e23b009da93);
 }
-pub trait IPortableDevicePropertiesBulkImpl {
-    fn QueueGetValuesByObjectList();
-    fn QueueGetValuesByObjectFormat();
-    fn QueueSetValuesByObjectList();
-    fn Start();
-    fn Cancel();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPortableDevicePropertiesBulkVtbl(
@@ -2033,11 +1910,6 @@ impl ::core::fmt::Debug for IPortableDevicePropertiesBulkCallback {
 unsafe impl ::windows::core::Interface for IPortableDevicePropertiesBulkCallback {
     type Vtable = IPortableDevicePropertiesBulkCallbackVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9deacb80_11e8_40e3_a9f3_f557986a7845);
-}
-pub trait IPortableDevicePropertiesBulkCallbackImpl {
-    fn OnStart();
-    fn OnProgress();
-    fn OnEnd();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2124,14 +1996,6 @@ impl ::core::fmt::Debug for IPortableDeviceResources {
 unsafe impl ::windows::core::Interface for IPortableDeviceResources {
     type Vtable = IPortableDeviceResourcesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfd8878ac_d841_4d17_891c_e6829cdb6934);
-}
-pub trait IPortableDeviceResourcesImpl {
-    fn GetSupportedResources();
-    fn GetResourceAttributes();
-    fn GetStream();
-    fn Delete();
-    fn Cancel();
-    fn CreateResource();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2252,19 +2116,6 @@ unsafe impl ::windows::core::Interface for IPortableDeviceService {
     type Vtable = IPortableDeviceServiceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd3bd3a44_d7b5_40a9_98b7_2fa4d01dec08);
 }
-pub trait IPortableDeviceServiceImpl {
-    fn Open();
-    fn Capabilities();
-    fn Content();
-    fn Methods();
-    fn Cancel();
-    fn Close();
-    fn GetServiceObjectID();
-    fn GetPnPServiceID();
-    fn Advise();
-    fn Unadvise();
-    fn SendCommand();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPortableDeviceServiceVtbl(
@@ -2341,10 +2192,6 @@ impl ::core::fmt::Debug for IPortableDeviceServiceActivation {
 unsafe impl ::windows::core::Interface for IPortableDeviceServiceActivation {
     type Vtable = IPortableDeviceServiceActivationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe56b0534_d9b9_425c_9b99_75f97cb3d7c8);
-}
-pub trait IPortableDeviceServiceActivationImpl {
-    fn OpenAsync();
-    fn CancelOpenAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2484,24 +2331,6 @@ unsafe impl ::windows::core::Interface for IPortableDeviceServiceCapabilities {
     type Vtable = IPortableDeviceServiceCapabilitiesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x24dbd89d_413e_43e0_bd5b_197f3c56c886);
 }
-pub trait IPortableDeviceServiceCapabilitiesImpl {
-    fn GetSupportedMethods();
-    fn GetSupportedMethodsByFormat();
-    fn GetMethodAttributes();
-    fn GetMethodParameterAttributes();
-    fn GetSupportedFormats();
-    fn GetFormatAttributes();
-    fn GetSupportedFormatProperties();
-    fn GetFormatPropertyAttributes();
-    fn GetSupportedEvents();
-    fn GetEventAttributes();
-    fn GetEventParameterAttributes();
-    fn GetInheritedServices();
-    fn GetFormatRenderingProfiles();
-    fn GetSupportedCommands();
-    fn GetCommandOptions();
-    fn Cancel();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPortableDeviceServiceCapabilitiesVtbl(
@@ -2585,10 +2414,6 @@ unsafe impl ::windows::core::Interface for IPortableDeviceServiceManager {
     type Vtable = IPortableDeviceServiceManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa8abc4e9_a84a_47a9_80b3_c5d9b172a961);
 }
-pub trait IPortableDeviceServiceManagerImpl {
-    fn GetDeviceServices();
-    fn GetDeviceForService();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPortableDeviceServiceManagerVtbl(
@@ -2648,9 +2473,6 @@ impl ::core::fmt::Debug for IPortableDeviceServiceMethodCallback {
 unsafe impl ::windows::core::Interface for IPortableDeviceServiceMethodCallback {
     type Vtable = IPortableDeviceServiceMethodCallbackVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc424233c_afce_4828_a756_7ed7a2350083);
-}
-pub trait IPortableDeviceServiceMethodCallbackImpl {
-    fn OnComplete();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2712,11 +2534,6 @@ unsafe impl ::windows::core::Interface for IPortableDeviceServiceMethods {
     type Vtable = IPortableDeviceServiceMethodsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe20333c9_fd34_412d_a381_cc6f2d820df7);
 }
-pub trait IPortableDeviceServiceMethodsImpl {
-    fn Invoke();
-    fn InvokeAsync();
-    fn Cancel();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPortableDeviceServiceMethodsVtbl(
@@ -2776,9 +2593,6 @@ unsafe impl ::windows::core::Interface for IPortableDeviceServiceOpenCallback {
     type Vtable = IPortableDeviceServiceOpenCallbackVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbced49c8_8efe_41ed_960b_61313abd47a9);
 }
-pub trait IPortableDeviceServiceOpenCallbackImpl {
-    fn OnComplete();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPortableDeviceServiceOpenCallbackVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hrstatus: ::windows::core::HRESULT) -> ::windows::core::HRESULT);
@@ -2835,10 +2649,6 @@ impl ::core::fmt::Debug for IPortableDeviceUnitsStream {
 unsafe impl ::windows::core::Interface for IPortableDeviceUnitsStream {
     type Vtable = IPortableDeviceUnitsStreamVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5e98025f_bfc4_47a2_9a5f_bc900a507c67);
-}
-pub trait IPortableDeviceUnitsStreamImpl {
-    fn SeekInUnits();
-    fn Cancel();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3108,48 +2918,6 @@ unsafe impl ::windows::core::Interface for IPortableDeviceValues {
     type Vtable = IPortableDeviceValuesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6848f6f2_3155_4f86_b6f5_263eeeab3143);
 }
-pub trait IPortableDeviceValuesImpl {
-    fn GetCount();
-    fn GetAt();
-    fn SetValue();
-    fn GetValue();
-    fn SetStringValue();
-    fn GetStringValue();
-    fn SetUnsignedIntegerValue();
-    fn GetUnsignedIntegerValue();
-    fn SetSignedIntegerValue();
-    fn GetSignedIntegerValue();
-    fn SetUnsignedLargeIntegerValue();
-    fn GetUnsignedLargeIntegerValue();
-    fn SetSignedLargeIntegerValue();
-    fn GetSignedLargeIntegerValue();
-    fn SetFloatValue();
-    fn GetFloatValue();
-    fn SetErrorValue();
-    fn GetErrorValue();
-    fn SetKeyValue();
-    fn GetKeyValue();
-    fn SetBoolValue();
-    fn GetBoolValue();
-    fn SetIUnknownValue();
-    fn GetIUnknownValue();
-    fn SetGuidValue();
-    fn GetGuidValue();
-    fn SetBufferValue();
-    fn GetBufferValue();
-    fn SetIPortableDeviceValuesValue();
-    fn GetIPortableDeviceValuesValue();
-    fn SetIPortableDevicePropVariantCollectionValue();
-    fn GetIPortableDevicePropVariantCollectionValue();
-    fn SetIPortableDeviceKeyCollectionValue();
-    fn GetIPortableDeviceKeyCollectionValue();
-    fn SetIPortableDeviceValuesCollectionValue();
-    fn GetIPortableDeviceValuesCollectionValue();
-    fn RemoveValue();
-    fn CopyValuesFromPropertyStore();
-    fn CopyValuesToPropertyStore();
-    fn Clear();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPortableDeviceValuesVtbl(
@@ -3301,13 +3069,6 @@ unsafe impl ::windows::core::Interface for IPortableDeviceValuesCollection {
     type Vtable = IPortableDeviceValuesCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6e3f2d79_4e07_48c4_8208_d8c2e5af4a99);
 }
-pub trait IPortableDeviceValuesCollectionImpl {
-    fn GetCount();
-    fn GetAt();
-    fn Add();
-    fn Clear();
-    fn RemoveAt();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPortableDeviceValuesCollectionVtbl(
@@ -3422,11 +3183,6 @@ unsafe impl ::windows::core::Interface for IPortableDeviceWebControl {
     type Vtable = IPortableDeviceWebControlVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x94fc7953_5ca1_483a_8aee_df52e7747d00);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IPortableDeviceWebControlImpl: IDispatchImpl {
-    fn GetDeviceFromId();
-    fn GetDeviceFromIdAsync();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPortableDeviceWebControlVtbl(
@@ -3527,15 +3283,6 @@ unsafe impl ::windows::core::Interface for IRadioInstance {
     type Vtable = IRadioInstanceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x70aa1c9e_f2b4_4c61_86d3_6b9fb75fd1a2);
 }
-pub trait IRadioInstanceImpl {
-    fn GetRadioManagerSignature();
-    fn GetInstanceSignature();
-    fn GetFriendlyName();
-    fn GetRadioState();
-    fn SetRadioState();
-    fn IsMultiComm();
-    fn IsAssociatingDevice();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRadioInstanceVtbl(
@@ -3609,10 +3356,6 @@ unsafe impl ::windows::core::Interface for IRadioInstanceCollection {
     type Vtable = IRadioInstanceCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe5791fae_5665_4e0c_95be_5fde31644185);
 }
-pub trait IRadioInstanceCollectionImpl {
-    fn GetCount();
-    fn GetAt();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRadioInstanceCollectionVtbl(
@@ -3684,12 +3427,6 @@ impl ::core::fmt::Debug for IWpdSerializer {
 unsafe impl ::windows::core::Interface for IWpdSerializer {
     type Vtable = IWpdSerializerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb32f4002_bb27_45ff_af4f_06631c1e8dad);
-}
-pub trait IWpdSerializerImpl {
-    fn GetIPortableDeviceValuesFromBuffer();
-    fn WriteIPortableDeviceValuesToBuffer();
-    fn GetBufferFromIPortableDeviceValues();
-    fn GetSerializedSize();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6086,3 +5823,5 @@ pub const WPD_PARAMETER_ATTRIBUTE_FORM_REGULAR_EXPRESSION: WpdParameterAttribute
 #[doc = "*Required features: 'Win32_Devices_PortableDevices'*"]
 pub const WPD_PARAMETER_ATTRIBUTE_FORM_OBJECT_IDENTIFIER: WpdParameterAttributeForm = 4i32;
 pub const WpdSerializer: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0b91a74b_ad7c_4a9d_b563_29eef9167172);
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

@@ -242,3 +242,5 @@ pub unsafe fn SetDecompressorInformation(decompressorhandle: isize, compressinfo
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

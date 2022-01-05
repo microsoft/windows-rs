@@ -193,3 +193,5 @@ pub unsafe fn PTReleaseMemory(pbuffer: *const ::core::ffi::c_void) -> ::windows:
 pub const S_PT_CONFLICT_RESOLVED: u32 = 262146u32;
 #[doc = "*Required features: 'Win32_Graphics_Printing_PrintTicket'*"]
 pub const S_PT_NO_CONFLICT: u32 = 262145u32;
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

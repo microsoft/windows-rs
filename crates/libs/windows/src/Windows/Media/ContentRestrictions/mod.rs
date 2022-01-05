@@ -140,12 +140,6 @@ unsafe impl ::windows::core::Interface for IContentRestrictionsBrowsePolicy {
     type Vtable = IContentRestrictionsBrowsePolicyVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8c0133a4_442e_461a_8757_fad2f5bd37e4);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IContentRestrictionsBrowsePolicyImpl {
-    fn GeographicRegion();
-    fn MaxBrowsableAgeRating();
-    fn PreferredAgeRating();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IContentRestrictionsBrowsePolicyVtbl(
@@ -167,19 +161,6 @@ pub struct IRatedContentDescription(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IRatedContentDescription {
     type Vtable = IRatedContentDescriptionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x694866df_66b2_4dc3_96b1_f090eedee255);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IRatedContentDescriptionImpl {
-    fn Id();
-    fn SetId();
-    fn Title();
-    fn SetTitle();
-    fn Image();
-    fn SetImage();
-    fn Category();
-    fn SetCategory();
-    fn Ratings();
-    fn SetRatings();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -212,10 +193,6 @@ unsafe impl ::windows::core::Interface for IRatedContentDescriptionFactory {
     type Vtable = IRatedContentDescriptionFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2e38df62_9b90_4fa6_89c1_4b8d2ffb3573);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IRatedContentDescriptionFactoryImpl {
-    fn Create();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRatedContentDescriptionFactoryVtbl(
@@ -233,14 +210,6 @@ pub struct IRatedContentRestrictions(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IRatedContentRestrictions {
     type Vtable = IRatedContentRestrictionsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3f7f23cb_ba07_4401_a49d_8b9222205723);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IRatedContentRestrictionsImpl {
-    fn GetBrowsePolicyAsync();
-    fn GetRestrictionLevelAsync();
-    fn RequestContentAccessAsync();
-    fn RestrictionsChanged();
-    fn RemoveRestrictionsChanged();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -268,10 +237,6 @@ pub struct IRatedContentRestrictionsFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IRatedContentRestrictionsFactory {
     type Vtable = IRatedContentRestrictionsFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfb4b2996_c3bd_4910_9619_97cfd0694d56);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IRatedContentRestrictionsFactoryImpl {
-    fn CreateWithMaxAgeRating();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -609,3 +574,5 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Rate
 }
 unsafe impl ::core::marker::Send for RatedContentRestrictions {}
 unsafe impl ::core::marker::Sync for RatedContentRestrictions {}
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

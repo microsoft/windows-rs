@@ -640,11 +640,6 @@ unsafe impl ::windows::core::Interface for IConditionForceEffect {
     type Vtable = IConditionForceEffectVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x32d1ea68_3695_4e69_85c0_cd1944189140);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IConditionForceEffectImpl: IForceFeedbackEffectImpl {
-    fn Kind();
-    fn SetParameters();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IConditionForceEffectVtbl(
@@ -665,10 +660,6 @@ unsafe impl ::windows::core::Interface for IConditionForceEffectFactory {
     type Vtable = IConditionForceEffectFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x91a99264_1810_4eb6_a773_bfd3b8cddbab);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IConditionForceEffectFactoryImpl {
-    fn CreateInstance();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IConditionForceEffectFactoryVtbl(
@@ -686,11 +677,6 @@ pub struct IConstantForceEffect(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IConstantForceEffect {
     type Vtable = IConstantForceEffectVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9bfa0140_f3c7_415c_b068_0f068734bce0);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IConstantForceEffectImpl: IForceFeedbackEffectImpl {
-    fn SetParameters();
-    fn SetParametersWithEnvelope();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -805,13 +791,6 @@ unsafe impl ::windows::core::Interface for IForceFeedbackEffect {
     type Vtable = IForceFeedbackEffectVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa17fba0c_2ae4_48c2_8063_eabd0777cb89);
 }
-pub trait IForceFeedbackEffectImpl {
-    fn Gain();
-    fn SetGain();
-    fn State();
-    fn Start();
-    fn Stop();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IForceFeedbackEffectVtbl(
@@ -833,22 +812,6 @@ pub struct IForceFeedbackMotor(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IForceFeedbackMotor {
     type Vtable = IForceFeedbackMotorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8d3d417c_a5ea_4516_8026_2b00f74ef6e5);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IForceFeedbackMotorImpl {
-    fn AreEffectsPaused();
-    fn MasterGain();
-    fn SetMasterGain();
-    fn IsEnabled();
-    fn SupportedAxes();
-    fn LoadEffectAsync();
-    fn PauseAllEffects();
-    fn ResumeAllEffects();
-    fn StopAllEffects();
-    fn TryDisableAsync();
-    fn TryEnableAsync();
-    fn TryResetAsync();
-    fn TryUnloadEffectAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -885,12 +848,6 @@ unsafe impl ::windows::core::Interface for IPeriodicForceEffect {
     type Vtable = IPeriodicForceEffectVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5c5138d7_fc75_4d52_9a0a_efe4cab5fe64);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IPeriodicForceEffectImpl: IForceFeedbackEffectImpl {
-    fn Kind();
-    fn SetParameters();
-    fn SetParametersWithEnvelope();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPeriodicForceEffectVtbl(
@@ -913,10 +870,6 @@ unsafe impl ::windows::core::Interface for IPeriodicForceEffectFactory {
     type Vtable = IPeriodicForceEffectFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6f62eb1a_9851_477b_b318_35ecaa15070f);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IPeriodicForceEffectFactoryImpl {
-    fn CreateInstance();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPeriodicForceEffectFactoryVtbl(
@@ -934,11 +887,6 @@ pub struct IRampForceEffect(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IRampForceEffect {
     type Vtable = IRampForceEffectVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf1f81259_1ca6_4080_b56d_b43f3354d052);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IRampForceEffectImpl: IForceFeedbackEffectImpl {
-    fn SetParameters();
-    fn SetParametersWithEnvelope();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1305,3 +1253,5 @@ impl<'a> ::windows::core::IntoParam<'a, IForceFeedbackEffect> for &RampForceEffe
 }
 unsafe impl ::core::marker::Send for RampForceEffect {}
 unsafe impl ::core::marker::Sync for RampForceEffect {}
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

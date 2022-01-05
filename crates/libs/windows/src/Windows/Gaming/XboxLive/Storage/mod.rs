@@ -1182,11 +1182,6 @@ unsafe impl ::windows::core::Interface for IGameSaveBlobGetResult {
     type Vtable = IGameSaveBlobGetResultVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x917281e0_7201_4953_aa2c_4008f03aef45);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IGameSaveBlobGetResultImpl {
-    fn Status();
-    fn Value();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGameSaveBlobGetResultVtbl(
@@ -1207,11 +1202,6 @@ unsafe impl ::windows::core::Interface for IGameSaveBlobInfo {
     type Vtable = IGameSaveBlobInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xadd38034_baf0_4645_b6d0_46edaffb3c2b);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IGameSaveBlobInfoImpl {
-    fn Name();
-    fn Size();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGameSaveBlobInfoVtbl(
@@ -1230,11 +1220,6 @@ pub struct IGameSaveBlobInfoGetResult(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGameSaveBlobInfoGetResult {
     type Vtable = IGameSaveBlobInfoGetResultVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc7578582_3697_42bf_989c_665d923b5231);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IGameSaveBlobInfoGetResultImpl {
-    fn Status();
-    fn Value();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1255,12 +1240,6 @@ pub struct IGameSaveBlobInfoQuery(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGameSaveBlobInfoQuery {
     type Vtable = IGameSaveBlobInfoQueryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9fdd74b2_eeee_447b_a9d2_7f96c0f83208);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IGameSaveBlobInfoQueryImpl {
-    fn GetBlobInfoAsync();
-    fn GetBlobInfoWithIndexAndMaxAsync();
-    fn GetItemCountAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1284,16 +1263,6 @@ pub struct IGameSaveContainer(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGameSaveContainer {
     type Vtable = IGameSaveContainerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc3c08f89_563f_4ecd_9c6f_33fd0e323d10);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IGameSaveContainerImpl {
-    fn Name();
-    fn Provider();
-    fn SubmitUpdatesAsync();
-    fn ReadAsync();
-    fn GetAsync();
-    fn SubmitPropertySetUpdatesAsync();
-    fn CreateBlobInfoQuery();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1323,14 +1292,6 @@ unsafe impl ::windows::core::Interface for IGameSaveContainerInfo {
     type Vtable = IGameSaveContainerInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb7e27300_155d_4bb4_b2ba_930306f391b5);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IGameSaveContainerInfoImpl {
-    fn Name();
-    fn TotalSize();
-    fn DisplayName();
-    fn LastModifiedTime();
-    fn NeedsSync();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGameSaveContainerInfoVtbl(
@@ -1354,11 +1315,6 @@ unsafe impl ::windows::core::Interface for IGameSaveContainerInfoGetResult {
     type Vtable = IGameSaveContainerInfoGetResultVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xffc50d74_c581_4f9d_9e39_30a10c1e4c50);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IGameSaveContainerInfoGetResultImpl {
-    fn Status();
-    fn Value();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGameSaveContainerInfoGetResultVtbl(
@@ -1378,12 +1334,6 @@ pub struct IGameSaveContainerInfoQuery(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGameSaveContainerInfoQuery {
     type Vtable = IGameSaveContainerInfoQueryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3c94e863_6f80_4327_9327_ffc11afd42b3);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IGameSaveContainerInfoQueryImpl {
-    fn GetContainerInfoAsync();
-    fn GetContainerInfoWithIndexAndMaxAsync();
-    fn GetItemCountAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1408,10 +1358,6 @@ unsafe impl ::windows::core::Interface for IGameSaveOperationResult {
     type Vtable = IGameSaveOperationResultVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcf0f1a05_24a0_4582_9a55_b1bbbb9388d8);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IGameSaveOperationResultImpl {
-    fn Status();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGameSaveOperationResultVtbl(
@@ -1429,16 +1375,6 @@ pub struct IGameSaveProvider(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGameSaveProvider {
     type Vtable = IGameSaveProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x90a60394_80fe_4211_97f8_a5de14dd95d2);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IGameSaveProviderImpl {
-    fn User();
-    fn CreateContainer();
-    fn DeleteContainerAsync();
-    fn CreateContainerInfoQuery();
-    fn CreateContainerInfoQueryWithName();
-    fn GetRemainingBytesInQuotaAsync();
-    fn ContainersChangedSinceLastSync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1468,11 +1404,6 @@ unsafe impl ::windows::core::Interface for IGameSaveProviderGetResult {
     type Vtable = IGameSaveProviderGetResultVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3ab90816_d393_4d65_ac16_41c3e67ab945);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IGameSaveProviderGetResultImpl {
-    fn Status();
-    fn Value();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGameSaveProviderGetResultVtbl(
@@ -1492,11 +1423,6 @@ unsafe impl ::windows::core::Interface for IGameSaveProviderStatics {
     type Vtable = IGameSaveProviderStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd01d3ed0_7b03_449d_8cbd_3402842a1048);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IGameSaveProviderStaticsImpl {
-    fn GetForUserAsync();
-    fn GetSyncOnDemandForUserAsync();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGameSaveProviderStaticsVtbl(
@@ -1511,3 +1437,5 @@ pub struct IGameSaveProviderStaticsVtbl(
     #[cfg(all(feature = "Foundation", feature = "System"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, user: ::windows::core::RawPtr, serviceconfigid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Foundation", feature = "System")))] usize,
 );
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

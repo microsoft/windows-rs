@@ -50,9 +50,6 @@ unsafe impl ::windows::core::Interface for IWaaSAssessor {
     type Vtable = IWaaSAssessorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2347bbef_1a3b_45a4_902d_3e09c269b45e);
 }
-pub trait IWaaSAssessorImpl {
-    fn GetOSUpdateAssessment();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWaaSAssessorVtbl(
@@ -189,3 +186,5 @@ pub const UpdateImpactLevel_Medium: UpdateImpactLevel = 2i32;
 #[doc = "*Required features: 'Win32_System_UpdateAssessment'*"]
 pub const UpdateImpactLevel_High: UpdateImpactLevel = 3i32;
 pub const WaaSAssessor: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x098ef871_fa9f_46af_8958_c083515d7c9c);
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

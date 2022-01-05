@@ -1541,15 +1541,6 @@ unsafe impl ::windows::core::Interface for IHidBooleanControl {
     type Vtable = IHidBooleanControlVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x524df48a_3695_408c_bba2_e2eb5abfbc20);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IHidBooleanControlImpl {
-    fn Id();
-    fn UsagePage();
-    fn UsageId();
-    fn IsActive();
-    fn SetIsActive();
-    fn ControlDescription();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHidBooleanControlVtbl(
@@ -1572,15 +1563,6 @@ pub struct IHidBooleanControlDescription(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IHidBooleanControlDescription {
     type Vtable = IHidBooleanControlDescriptionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6196e543_29d8_4a2a_8683_849e207bbe31);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IHidBooleanControlDescriptionImpl {
-    fn Id();
-    fn ReportId();
-    fn ReportType();
-    fn UsagePage();
-    fn UsageId();
-    fn ParentCollections();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1606,10 +1588,6 @@ unsafe impl ::windows::core::Interface for IHidBooleanControlDescription2 {
     type Vtable = IHidBooleanControlDescription2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc8eed2ea_8a77_4c36_aa00_5ff0449d3e73);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IHidBooleanControlDescription2Impl {
-    fn IsAbsolute();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHidBooleanControlDescription2Vtbl(
@@ -1627,13 +1605,6 @@ pub struct IHidCollection(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IHidCollection {
     type Vtable = IHidCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7189f5a3_32f1_46e3_befd_44d2663b7e6a);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IHidCollectionImpl {
-    fn Id();
-    fn Type();
-    fn UsagePage();
-    fn UsageId();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1655,28 +1626,6 @@ pub struct IHidDevice(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IHidDevice {
     type Vtable = IHidDeviceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5f8a14e7_2200_432e_95da_d09b87d574a8);
-}
-#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IHidDeviceImpl: IClosableImpl {
-    fn VendorId();
-    fn ProductId();
-    fn Version();
-    fn UsagePage();
-    fn UsageId();
-    fn GetInputReportAsync();
-    fn GetInputReportByIdAsync();
-    fn GetFeatureReportAsync();
-    fn GetFeatureReportByIdAsync();
-    fn CreateOutputReport();
-    fn CreateOutputReportById();
-    fn CreateFeatureReport();
-    fn CreateFeatureReportById();
-    fn SendOutputReportAsync();
-    fn SendFeatureReportAsync();
-    fn GetBooleanControlDescriptions();
-    fn GetNumericControlDescriptions();
-    fn InputReportReceived();
-    fn RemoveInputReportReceived();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1724,12 +1673,6 @@ unsafe impl ::windows::core::Interface for IHidDeviceStatics {
     type Vtable = IHidDeviceStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9e5981e4_9856_418c_9f73_77de0cd85754);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IHidDeviceStaticsImpl {
-    fn GetDeviceSelector();
-    fn GetDeviceSelectorVidPid();
-    fn FromIdAsync();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHidDeviceStaticsVtbl(
@@ -1750,16 +1693,6 @@ pub struct IHidFeatureReport(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IHidFeatureReport {
     type Vtable = IHidFeatureReportVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x841d9b79_5ae5_46e3_82ef_1fec5c8942f4);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IHidFeatureReportImpl {
-    fn Id();
-    fn Data();
-    fn SetData();
-    fn GetBooleanControl();
-    fn GetBooleanControlByDescription();
-    fn GetNumericControl();
-    fn GetNumericControlByDescription();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1786,17 +1719,6 @@ pub struct IHidInputReport(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IHidInputReport {
     type Vtable = IHidInputReportVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc35d0e50_f7e7_4e8d_b23e_cabbe56b90e9);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IHidInputReportImpl {
-    fn Id();
-    fn Data();
-    fn ActivatedBooleanControls();
-    fn TransitionedBooleanControls();
-    fn GetBooleanControl();
-    fn GetBooleanControlByDescription();
-    fn GetNumericControl();
-    fn GetNumericControlByDescription();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1826,10 +1748,6 @@ unsafe impl ::windows::core::Interface for IHidInputReportReceivedEventArgs {
     type Vtable = IHidInputReportReceivedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7059c5cb_59b2_4dc2_985c_0adc6136fa2d);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IHidInputReportReceivedEventArgsImpl {
-    fn Report();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHidInputReportReceivedEventArgsVtbl(
@@ -1847,18 +1765,6 @@ pub struct IHidNumericControl(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IHidNumericControl {
     type Vtable = IHidNumericControlVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe38a12a5_35a7_4b75_89c8_fb1f28b10823);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IHidNumericControlImpl {
-    fn Id();
-    fn IsGrouped();
-    fn UsagePage();
-    fn UsageId();
-    fn Value();
-    fn SetValue();
-    fn ScaledValue();
-    fn SetScaledValue();
-    fn ControlDescription();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1885,25 +1791,6 @@ pub struct IHidNumericControlDescription(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IHidNumericControlDescription {
     type Vtable = IHidNumericControlDescriptionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x638d5e86_1d97_4c75_927f_5ff58ba05e32);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IHidNumericControlDescriptionImpl {
-    fn Id();
-    fn ReportId();
-    fn ReportType();
-    fn ReportSize();
-    fn ReportCount();
-    fn UsagePage();
-    fn UsageId();
-    fn LogicalMinimum();
-    fn LogicalMaximum();
-    fn PhysicalMinimum();
-    fn PhysicalMaximum();
-    fn UnitExponent();
-    fn Unit();
-    fn IsAbsolute();
-    fn HasNull();
-    fn ParentCollections();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1939,16 +1826,6 @@ unsafe impl ::windows::core::Interface for IHidOutputReport {
     type Vtable = IHidOutputReportVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x62cb2544_c896_4463_93c1_df9db053c450);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IHidOutputReportImpl {
-    fn Id();
-    fn Data();
-    fn SetData();
-    fn GetBooleanControl();
-    fn GetBooleanControlByDescription();
-    fn GetNumericControl();
-    fn GetNumericControlByDescription();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHidOutputReportVtbl(
@@ -1968,3 +1845,5 @@ pub struct IHidOutputReportVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, usagepage: u16, usageid: u16, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, controldescription: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

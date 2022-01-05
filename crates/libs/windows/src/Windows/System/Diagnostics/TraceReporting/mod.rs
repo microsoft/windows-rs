@@ -6,17 +6,6 @@ unsafe impl ::windows::core::Interface for IPlatformDiagnosticActionsStatics {
     type Vtable = IPlatformDiagnosticActionsStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc1145cfa_9292_4267_890a_9ea3ed072312);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IPlatformDiagnosticActionsStaticsImpl {
-    fn IsScenarioEnabled();
-    fn TryEscalateScenario();
-    fn DownloadLatestSettingsForNamespace();
-    fn GetActiveScenarioList();
-    fn ForceUpload();
-    fn IsTraceRunning();
-    fn GetActiveTraceRuntime();
-    fn GetKnownTraceList();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPlatformDiagnosticActionsStaticsVtbl(
@@ -45,15 +34,6 @@ unsafe impl ::windows::core::Interface for IPlatformDiagnosticTraceInfo {
     type Vtable = IPlatformDiagnosticTraceInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf870ed97_d597_4bf7_88dc_cf5c7dc2a1d2);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IPlatformDiagnosticTraceInfoImpl {
-    fn ScenarioId();
-    fn ProfileHash();
-    fn IsExclusive();
-    fn IsAutoLogger();
-    fn MaxTraceDurationFileTime();
-    fn Priority();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPlatformDiagnosticTraceInfoVtbl(
@@ -76,11 +56,6 @@ pub struct IPlatformDiagnosticTraceRuntimeInfo(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPlatformDiagnosticTraceRuntimeInfo {
     type Vtable = IPlatformDiagnosticTraceRuntimeInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3d4d5e2d_01d8_4768_8554_1eb1ca610986);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IPlatformDiagnosticTraceRuntimeInfoImpl {
-    fn RuntimeFileTime();
-    fn EtwRuntimeFileTime();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -605,3 +580,5 @@ unsafe impl ::windows::core::RuntimeType for PlatformDiagnosticTraceSlotType {
 impl ::windows::core::DefaultType for PlatformDiagnosticTraceSlotType {
     type DefaultType = Self;
 }
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

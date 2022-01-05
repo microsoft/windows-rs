@@ -257,11 +257,6 @@ unsafe impl ::windows::core::Interface for IDiagnosticActionResult {
     type Vtable = IDiagnosticActionResultVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc265a296_e73b_4097_b28f_3442f03dd831);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IDiagnosticActionResultImpl {
-    fn ExtendedError();
-    fn Results();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDiagnosticActionResultVtbl(
@@ -282,10 +277,6 @@ unsafe impl ::windows::core::Interface for IDiagnosticInvoker {
     type Vtable = IDiagnosticInvokerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x187b270a_02e3_4f86_84fc_fdd892b5940f);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IDiagnosticInvokerImpl {
-    fn RunDiagnosticActionAsync();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDiagnosticInvokerVtbl(
@@ -305,10 +296,6 @@ unsafe impl ::windows::core::Interface for IDiagnosticInvoker2 {
     type Vtable = IDiagnosticInvoker2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe3bf945c_155a_4b52_a8ec_070c44f95000);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IDiagnosticInvoker2Impl {
-    fn RunDiagnosticActionFromStringAsync();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDiagnosticInvoker2Vtbl(
@@ -327,12 +314,6 @@ pub struct IDiagnosticInvokerStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDiagnosticInvokerStatics {
     type Vtable = IDiagnosticInvokerStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5cfad8de_f15c_4554_a813_c113c3881b09);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IDiagnosticInvokerStaticsImpl {
-    fn GetDefault();
-    fn GetForUser();
-    fn IsSupported();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -354,10 +335,6 @@ unsafe impl ::windows::core::Interface for IProcessCpuUsage {
     type Vtable = IProcessCpuUsageVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0bbb2472_c8bf_423a_a810_b559ae4354e2);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IProcessCpuUsageImpl {
-    fn GetReport();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IProcessCpuUsageVtbl(
@@ -375,11 +352,6 @@ pub struct IProcessCpuUsageReport(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IProcessCpuUsageReport {
     type Vtable = IProcessCpuUsageReportVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8a6d9cac_3987_4e2f_a119_6b5fa214f1b4);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IProcessCpuUsageReportImpl {
-    fn KernelTime();
-    fn UserTime();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -401,16 +373,6 @@ pub struct IProcessDiagnosticInfo(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IProcessDiagnosticInfo {
     type Vtable = IProcessDiagnosticInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe830b04b_300e_4ee6_a0ab_5b5f5231b434);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IProcessDiagnosticInfoImpl {
-    fn ProcessId();
-    fn ExecutableFileName();
-    fn Parent();
-    fn ProcessStartTime();
-    fn DiskUsage();
-    fn MemoryUsage();
-    fn CpuUsage();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -437,11 +399,6 @@ unsafe impl ::windows::core::Interface for IProcessDiagnosticInfo2 {
     type Vtable = IProcessDiagnosticInfo2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9558cb1a_3d0b_49ec_ab70_4f7a112805de);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IProcessDiagnosticInfo2Impl {
-    fn GetAppDiagnosticInfos();
-    fn IsPackaged();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IProcessDiagnosticInfo2Vtbl(
@@ -461,11 +418,6 @@ pub struct IProcessDiagnosticInfoStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IProcessDiagnosticInfoStatics {
     type Vtable = IProcessDiagnosticInfoStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2f41b260_b49f_428c_aa0e_84744f49ca95);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IProcessDiagnosticInfoStaticsImpl {
-    fn GetForProcesses();
-    fn GetForCurrentProcess();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -487,10 +439,6 @@ unsafe impl ::windows::core::Interface for IProcessDiagnosticInfoStatics2 {
     type Vtable = IProcessDiagnosticInfoStatics2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4a869897_9899_4a44_a29b_091663be09b6);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IProcessDiagnosticInfoStatics2Impl {
-    fn TryGetForProcessId();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IProcessDiagnosticInfoStatics2Vtbl(
@@ -509,10 +457,6 @@ unsafe impl ::windows::core::Interface for IProcessDiskUsage {
     type Vtable = IProcessDiskUsageVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5ad78bfd_7e51_4e53_bfaa_5a6ee1aabbf8);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IProcessDiskUsageImpl {
-    fn GetReport();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IProcessDiskUsageVtbl(
@@ -530,15 +474,6 @@ pub struct IProcessDiskUsageReport(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IProcessDiskUsageReport {
     type Vtable = IProcessDiskUsageReportVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x401627fd_535d_4c1f_81b8_da54e1be635e);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IProcessDiskUsageReportImpl {
-    fn ReadOperationCount();
-    fn WriteOperationCount();
-    fn OtherOperationCount();
-    fn BytesReadCount();
-    fn BytesWrittenCount();
-    fn OtherBytesCount();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -563,10 +498,6 @@ unsafe impl ::windows::core::Interface for IProcessMemoryUsage {
     type Vtable = IProcessMemoryUsageVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf50b229b_827c_42b7_b07c_0e32627e6b3e);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IProcessMemoryUsageImpl {
-    fn GetReport();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IProcessMemoryUsageVtbl(
@@ -584,21 +515,6 @@ pub struct IProcessMemoryUsageReport(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IProcessMemoryUsageReport {
     type Vtable = IProcessMemoryUsageReportVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc2c77cba_1951_4685_8532_7e749ecf8eeb);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IProcessMemoryUsageReportImpl {
-    fn NonPagedPoolSizeInBytes();
-    fn PageFaultCount();
-    fn PageFileSizeInBytes();
-    fn PagedPoolSizeInBytes();
-    fn PeakNonPagedPoolSizeInBytes();
-    fn PeakPageFileSizeInBytes();
-    fn PeakPagedPoolSizeInBytes();
-    fn PeakVirtualMemorySizeInBytes();
-    fn PeakWorkingSetSizeInBytes();
-    fn PrivatePageCount();
-    fn VirtualMemorySizeInBytes();
-    fn WorkingSetSizeInBytes();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -629,10 +545,6 @@ unsafe impl ::windows::core::Interface for ISystemCpuUsage {
     type Vtable = ISystemCpuUsageVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6037b3ac_02d6_4234_8362_7fe3adc81f5f);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ISystemCpuUsageImpl {
-    fn GetReport();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISystemCpuUsageVtbl(
@@ -650,12 +562,6 @@ pub struct ISystemCpuUsageReport(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISystemCpuUsageReport {
     type Vtable = ISystemCpuUsageReportVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2c26d0b2_9483_4f62_ab57_82b29d9719b8);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ISystemCpuUsageReportImpl {
-    fn KernelTime();
-    fn UserTime();
-    fn IdleTime();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -680,11 +586,6 @@ unsafe impl ::windows::core::Interface for ISystemDiagnosticInfo {
     type Vtable = ISystemDiagnosticInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa290fe05_dff3_407f_9a1b_0b2b317ca800);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ISystemDiagnosticInfoImpl {
-    fn MemoryUsage();
-    fn CpuUsage();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISystemDiagnosticInfoVtbl(
@@ -704,10 +605,6 @@ unsafe impl ::windows::core::Interface for ISystemDiagnosticInfoStatics {
     type Vtable = ISystemDiagnosticInfoStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd404ac21_fc7d_45f0_9a3f_39203aed9f7e);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ISystemDiagnosticInfoStaticsImpl {
-    fn GetForCurrentSystem();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISystemDiagnosticInfoStaticsVtbl(
@@ -725,11 +622,6 @@ pub struct ISystemDiagnosticInfoStatics2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISystemDiagnosticInfoStatics2 {
     type Vtable = ISystemDiagnosticInfoStatics2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x79ded189_6af9_4da9_a422_15f73255b3eb);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ISystemDiagnosticInfoStatics2Impl {
-    fn IsArchitectureSupported();
-    fn PreferredArchitecture();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -750,10 +642,6 @@ unsafe impl ::windows::core::Interface for ISystemMemoryUsage {
     type Vtable = ISystemMemoryUsageVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x17ffc595_1702_49cf_aa27_2f0a32591404);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ISystemMemoryUsageImpl {
-    fn GetReport();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISystemMemoryUsageVtbl(
@@ -771,12 +659,6 @@ pub struct ISystemMemoryUsageReport(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISystemMemoryUsageReport {
     type Vtable = ISystemMemoryUsageReportVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x38663c87_2a9f_403a_bd19_2cf3e8169500);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ISystemMemoryUsageReportImpl {
-    fn TotalPhysicalSizeInBytes();
-    fn AvailableSizeInBytes();
-    fn CommittedSizeInBytes();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2073,3 +1955,5 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Syst
 }
 unsafe impl ::core::marker::Send for SystemMemoryUsageReport {}
 unsafe impl ::core::marker::Sync for SystemMemoryUsageReport {}
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

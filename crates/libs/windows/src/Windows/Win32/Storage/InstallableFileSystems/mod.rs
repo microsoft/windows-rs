@@ -1352,3 +1352,5 @@ pub const WNNC_NET_VMWARE: u32 = 4128768u32;
 pub const WNNC_NET_YAHOO: u32 = 2883584u32;
 #[doc = "*Required features: 'Win32_Storage_InstallableFileSystems'*"]
 pub const WNNC_NET_ZENWORKS: u32 = 3997696u32;
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

@@ -369,17 +369,6 @@ unsafe impl ::windows::core::Interface for ICurrentApp {
     type Vtable = ICurrentAppVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd52dc065_da3f_4685_995e_9b482eb5e603);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ICurrentAppImpl {
-    fn LicenseInformation();
-    fn LinkUri();
-    fn AppId();
-    fn RequestAppPurchaseAsync();
-    fn RequestProductPurchaseAsync();
-    fn LoadListingInformationAsync();
-    fn GetAppReceiptAsync();
-    fn GetProductReceiptAsync();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICurrentAppVtbl(
@@ -411,11 +400,6 @@ unsafe impl ::windows::core::Interface for ICurrentApp2Statics {
     type Vtable = ICurrentApp2StaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdf4e6e2d_3171_4ad3_8614_2c61244373cb);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ICurrentApp2StaticsImpl {
-    fn GetCustomerPurchaseIdAsync();
-    fn GetCustomerCollectionsIdAsync();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICurrentApp2StaticsVtbl(
@@ -436,18 +420,6 @@ pub struct ICurrentAppSimulator(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICurrentAppSimulator {
     type Vtable = ICurrentAppSimulatorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf17f9db1_74cd_4787_9787_19866e9a5559);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ICurrentAppSimulatorImpl {
-    fn LicenseInformation();
-    fn LinkUri();
-    fn AppId();
-    fn RequestAppPurchaseAsync();
-    fn RequestProductPurchaseAsync();
-    fn LoadListingInformationAsync();
-    fn GetAppReceiptAsync();
-    fn GetProductReceiptAsync();
-    fn ReloadSimulatorAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -482,11 +454,6 @@ unsafe impl ::windows::core::Interface for ICurrentAppSimulatorStaticsWithFilter
     type Vtable = ICurrentAppSimulatorStaticsWithFilteringVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x617e70e2_f86f_4b54_9666_dde285092c68);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ICurrentAppSimulatorStaticsWithFilteringImpl {
-    fn LoadListingInformationByProductIdsAsync();
-    fn LoadListingInformationByKeywordsAsync();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICurrentAppSimulatorStaticsWithFilteringVtbl(
@@ -508,10 +475,6 @@ unsafe impl ::windows::core::Interface for ICurrentAppSimulatorWithCampaignId {
     type Vtable = ICurrentAppSimulatorWithCampaignIdVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x84678a43_df00_4672_a43f_b25b1441cfcf);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ICurrentAppSimulatorWithCampaignIdImpl {
-    fn GetAppPurchaseCampaignIdAsync();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICurrentAppSimulatorWithCampaignIdVtbl(
@@ -530,13 +493,6 @@ pub struct ICurrentAppSimulatorWithConsumables(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICurrentAppSimulatorWithConsumables {
     type Vtable = ICurrentAppSimulatorWithConsumablesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4e51f0ab_20e7_4412_9b85_59bb78388667);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ICurrentAppSimulatorWithConsumablesImpl {
-    fn ReportConsumableFulfillmentAsync();
-    fn RequestProductPurchaseWithResultsAsync();
-    fn RequestProductPurchaseWithDisplayPropertiesAsync();
-    fn GetUnfulfilledConsumablesAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -563,12 +519,6 @@ unsafe impl ::windows::core::Interface for ICurrentAppStaticsWithFiltering {
     type Vtable = ICurrentAppStaticsWithFilteringVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd36d6542_9085_438e_97ba_a25c976be2fd);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ICurrentAppStaticsWithFilteringImpl {
-    fn LoadListingInformationByProductIdsAsync();
-    fn LoadListingInformationByKeywordsAsync();
-    fn ReportProductFulfillment();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICurrentAppStaticsWithFilteringVtbl(
@@ -591,10 +541,6 @@ unsafe impl ::windows::core::Interface for ICurrentAppWithCampaignId {
     type Vtable = ICurrentAppWithCampaignIdVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x312f4cd0_36c1_44a6_b32b_432d608e4dd6);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ICurrentAppWithCampaignIdImpl {
-    fn GetAppPurchaseCampaignIdAsync();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICurrentAppWithCampaignIdVtbl(
@@ -613,13 +559,6 @@ pub struct ICurrentAppWithConsumables(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICurrentAppWithConsumables {
     type Vtable = ICurrentAppWithConsumablesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x844e0071_9e4f_4f79_995a_5f91172e6cef);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ICurrentAppWithConsumablesImpl {
-    fn ReportConsumableFulfillmentAsync();
-    fn RequestProductPurchaseWithResultsAsync();
-    fn RequestProductPurchaseWithDisplayPropertiesAsync();
-    fn GetUnfulfilledConsumablesAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -645,15 +584,6 @@ pub struct ILicenseInformation(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ILicenseInformation {
     type Vtable = ILicenseInformationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8eb7dc30_f170_4ed5_8e21_1516da3fd367);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ILicenseInformationImpl {
-    fn ProductLicenses();
-    fn IsActive();
-    fn IsTrial();
-    fn ExpirationDate();
-    fn LicenseChanged();
-    fn RemoveLicenseChanged();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -682,15 +612,6 @@ unsafe impl ::windows::core::Interface for IListingInformation {
     type Vtable = IListingInformationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x588b4abf_bc74_4383_b78c_99606323dece);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IListingInformationImpl {
-    fn CurrentMarket();
-    fn Description();
-    fn ProductListings();
-    fn FormattedPrice();
-    fn Name();
-    fn AgeRating();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IListingInformationVtbl(
@@ -715,13 +636,6 @@ unsafe impl ::windows::core::Interface for IListingInformation2 {
     type Vtable = IListingInformation2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc0fd2c1d_b30e_4384_84ea_72fefa82223e);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IListingInformation2Impl {
-    fn FormattedBasePrice();
-    fn SaleEndDate();
-    fn IsOnSale();
-    fn CurrencyCode();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IListingInformation2Vtbl(
@@ -744,12 +658,6 @@ unsafe impl ::windows::core::Interface for IProductLicense {
     type Vtable = IProductLicenseVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x363308c7_2bcf_4c0e_8f2f_e808aaa8f99d);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IProductLicenseImpl {
-    fn ProductId();
-    fn IsActive();
-    fn ExpirationDate();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IProductLicenseVtbl(
@@ -771,10 +679,6 @@ unsafe impl ::windows::core::Interface for IProductLicenseWithFulfillment {
     type Vtable = IProductLicenseWithFulfillmentVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfc535c8a_f667_40f3_ba3c_045a63abb3ac);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IProductLicenseWithFulfillmentImpl: IProductLicenseImpl {
-    fn IsConsumable();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IProductLicenseWithFulfillmentVtbl(
@@ -792,12 +696,6 @@ pub struct IProductListing(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IProductListing {
     type Vtable = IProductListingVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x45a7d6ad_c750_4d9c_947c_b00dcbf9e9c2);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IProductListingImpl {
-    fn ProductId();
-    fn FormattedPrice();
-    fn Name();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -818,13 +716,6 @@ pub struct IProductListing2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IProductListing2 {
     type Vtable = IProductListing2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf89e290f_73fe_494d_a939_08a9b2495abe);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IProductListing2Impl {
-    fn FormattedBasePrice();
-    fn SaleEndDate();
-    fn IsOnSale();
-    fn CurrencyCode();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -848,10 +739,6 @@ unsafe impl ::windows::core::Interface for IProductListingWithConsumables {
     type Vtable = IProductListingWithConsumablesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeb9e9790_8f6b_481f_93a7_5c3a63068149);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IProductListingWithConsumablesImpl {
-    fn ProductType();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IProductListingWithConsumablesVtbl(
@@ -869,14 +756,6 @@ pub struct IProductListingWithMetadata(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IProductListingWithMetadata {
     type Vtable = IProductListingWithMetadataVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x124da567_23f8_423e_9532_189943c40ace);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IProductListingWithMetadataImpl: IProductListingImpl {
-    fn Description();
-    fn Keywords();
-    fn ProductType();
-    fn Tag();
-    fn ImageUri();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -901,15 +780,6 @@ pub struct IProductPurchaseDisplayProperties(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IProductPurchaseDisplayProperties {
     type Vtable = IProductPurchaseDisplayPropertiesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd70b7420_bc92_401b_a809_c9b2e5dbbdaf);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IProductPurchaseDisplayPropertiesImpl {
-    fn Name();
-    fn SetName();
-    fn Description();
-    fn SetDescription();
-    fn Image();
-    fn SetImage();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -936,10 +806,6 @@ unsafe impl ::windows::core::Interface for IProductPurchaseDisplayPropertiesFact
     type Vtable = IProductPurchaseDisplayPropertiesFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6f491df4_32d6_4b40_b474_b83038a4d9cf);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IProductPurchaseDisplayPropertiesFactoryImpl {
-    fn CreateProductPurchaseDisplayProperties();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IProductPurchaseDisplayPropertiesFactoryVtbl(
@@ -957,13 +823,6 @@ pub struct IPurchaseResults(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPurchaseResults {
     type Vtable = IPurchaseResultsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xed50b37e_8656_4f65_b8c8_ac7e0cb1a1c2);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IPurchaseResultsImpl {
-    fn Status();
-    fn TransactionId();
-    fn ReceiptXml();
-    fn OfferId();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -985,12 +844,6 @@ pub struct IUnfulfilledConsumable(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IUnfulfilledConsumable {
     type Vtable = IUnfulfilledConsumableVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2df7fbbb_1cdd_4cb8_a014_7b9cf8986927);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IUnfulfilledConsumableImpl {
-    fn ProductId();
-    fn TransactionId();
-    fn OfferId();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2039,3 +1892,5 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Unfu
 }
 unsafe impl ::core::marker::Send for UnfulfilledConsumable {}
 unsafe impl ::core::marker::Sync for UnfulfilledConsumable {}
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

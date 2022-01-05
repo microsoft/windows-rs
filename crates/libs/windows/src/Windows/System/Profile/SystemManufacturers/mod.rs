@@ -6,12 +6,6 @@ unsafe impl ::windows::core::Interface for IOemSupportInfo {
     type Vtable = IOemSupportInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8d2eae55_87ef_4266_86d0_c4afbeb29bb9);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IOemSupportInfoImpl {
-    fn SupportLink();
-    fn SupportAppLink();
-    fn SupportProvider();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IOemSupportInfoVtbl(
@@ -34,10 +28,6 @@ unsafe impl ::windows::core::Interface for ISmbiosInformationStatics {
     type Vtable = ISmbiosInformationStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x080cca7c_637c_48c4_b728_f9273812db8e);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ISmbiosInformationStaticsImpl {
-    fn SerialNumber();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISmbiosInformationStaticsVtbl(
@@ -55,16 +45,6 @@ pub struct ISystemSupportDeviceInfo(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISystemSupportDeviceInfo {
     type Vtable = ISystemSupportDeviceInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x05880b99_8247_441b_a996_a1784bab79a8);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ISystemSupportDeviceInfoImpl {
-    fn OperatingSystem();
-    fn FriendlyName();
-    fn SystemManufacturer();
-    fn SystemProductName();
-    fn SystemSku();
-    fn SystemHardwareVersion();
-    fn SystemFirmwareVersion();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -90,11 +70,6 @@ unsafe impl ::windows::core::Interface for ISystemSupportInfoStatics {
     type Vtable = ISystemSupportInfoStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xef750974_c422_45d7_a44d_5c1c0043a2b3);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ISystemSupportInfoStaticsImpl {
-    fn LocalSystemEdition();
-    fn OemSupportInfo();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISystemSupportInfoStaticsVtbl(
@@ -113,10 +88,6 @@ pub struct ISystemSupportInfoStatics2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISystemSupportInfoStatics2 {
     type Vtable = ISystemSupportInfoStatics2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x33f349a4_3fa1_4986_aa4b_057420455e6d);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ISystemSupportInfoStatics2Impl {
-    fn LocalDeviceInfo();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -414,3 +385,5 @@ impl SystemSupportInfo {
 impl ::windows::core::RuntimeName for SystemSupportInfo {
     const NAME: &'static str = "Windows.System.Profile.SystemManufacturers.SystemSupportInfo";
 }
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

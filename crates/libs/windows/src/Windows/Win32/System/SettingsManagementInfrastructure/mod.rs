@@ -60,11 +60,6 @@ unsafe impl ::windows::core::Interface for IItemEnumerator {
     type Vtable = IItemEnumeratorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9f7d7bb7_20b3_11da_81a5_0030f1642e3c);
 }
-pub trait IItemEnumeratorImpl {
-    fn Current();
-    fn MoveNext();
-    fn Reset();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IItemEnumeratorVtbl(
@@ -153,15 +148,6 @@ impl ::core::fmt::Debug for ISettingsContext {
 unsafe impl ::windows::core::Interface for ISettingsContext {
     type Vtable = ISettingsContextVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9f7d7bbd_20b3_11da_81a5_0030f1642e3c);
-}
-pub trait ISettingsContextImpl {
-    fn Serialize();
-    fn Deserialize();
-    fn SetUserData();
-    fn GetUserData();
-    fn GetNamespaces();
-    fn GetStoredSettings();
-    fn RevertSetting();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -303,24 +289,6 @@ unsafe impl ::windows::core::Interface for ISettingsEngine {
     type Vtable = ISettingsEngineVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9f7d7bb9_20b3_11da_81a5_0030f1642e3c);
 }
-pub trait ISettingsEngineImpl {
-    fn GetNamespaces();
-    fn GetNamespace();
-    fn GetErrorDescription();
-    fn CreateSettingsIdentity();
-    fn GetStoreStatus();
-    fn LoadStore();
-    fn UnloadStore();
-    fn RegisterNamespace();
-    fn UnregisterNamespace();
-    fn CreateTargetInfo();
-    fn GetTargetInfo();
-    fn SetTargetInfo();
-    fn CreateSettingsContext();
-    fn SetSettingsContext();
-    fn ApplySettingsContext();
-    fn GetSettingsContext();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISettingsEngineVtbl(
@@ -412,12 +380,6 @@ impl ::core::fmt::Debug for ISettingsIdentity {
 unsafe impl ::windows::core::Interface for ISettingsIdentity {
     type Vtable = ISettingsIdentityVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9f7d7bb6_20b3_11da_81a5_0030f1642e3c);
-}
-pub trait ISettingsIdentityImpl {
-    fn GetAttribute();
-    fn SetAttribute();
-    fn GetFlags();
-    fn SetFlags();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -596,30 +558,6 @@ unsafe impl ::windows::core::Interface for ISettingsItem {
     type Vtable = ISettingsItemVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9f7d7bbb_20b3_11da_81a5_0030f1642e3c);
 }
-pub trait ISettingsItemImpl {
-    fn GetName();
-    fn GetValue();
-    fn SetValue();
-    fn GetSettingType();
-    fn GetDataType();
-    fn GetValueRaw();
-    fn SetValueRaw();
-    fn HasChild();
-    fn Children();
-    fn GetChild();
-    fn GetSettingByPath();
-    fn CreateSettingByPath();
-    fn RemoveSettingByPath();
-    fn GetListKeyInformation();
-    fn CreateListElement();
-    fn RemoveListElement();
-    fn Attributes();
-    fn GetAttribute();
-    fn GetPath();
-    fn GetRestrictionFacets();
-    fn GetRestriction();
-    fn GetKeyValue();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISettingsItemVtbl(
@@ -748,15 +686,6 @@ unsafe impl ::windows::core::Interface for ISettingsNamespace {
     type Vtable = ISettingsNamespaceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9f7d7bba_20b3_11da_81a5_0030f1642e3c);
 }
-pub trait ISettingsNamespaceImpl {
-    fn GetIdentity();
-    fn Settings();
-    fn Save();
-    fn GetSettingByPath();
-    fn CreateSettingByPath();
-    fn RemoveSettingByPath();
-    fn GetAttribute();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISettingsNamespaceVtbl(
@@ -853,14 +782,6 @@ impl ::core::fmt::Debug for ISettingsResult {
 unsafe impl ::windows::core::Interface for ISettingsResult {
     type Vtable = ISettingsResultVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9f7d7bbc_20b3_11da_81a5_0030f1642e3c);
-}
-pub trait ISettingsResultImpl {
-    fn GetDescription();
-    fn GetErrorCode();
-    fn GetContextDescription();
-    fn GetLine();
-    fn GetColumn();
-    fn GetSource();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1035,29 +956,6 @@ impl ::core::fmt::Debug for ITargetInfo {
 unsafe impl ::windows::core::Interface for ITargetInfo {
     type Vtable = ITargetInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9f7d7bb8_20b3_11da_81a5_0030f1642e3c);
-}
-pub trait ITargetInfoImpl {
-    fn GetTargetMode();
-    fn SetTargetMode();
-    fn GetTemporaryStoreLocation();
-    fn SetTemporaryStoreLocation();
-    fn GetTargetID();
-    fn SetTargetID();
-    fn GetTargetProcessorArchitecture();
-    fn SetTargetProcessorArchitecture();
-    fn GetProperty();
-    fn SetProperty();
-    fn GetEnumerator();
-    fn ExpandTarget();
-    fn ExpandTargetPath();
-    fn SetModulePath();
-    fn LoadModule();
-    fn SetWow64Context();
-    fn TranslateWow64();
-    fn SetSchemaHiveLocation();
-    fn GetSchemaHiveLocation();
-    fn SetSchemaHiveMountName();
-    fn GetSchemaHiveMountName();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1289,3 +1187,5 @@ pub const UserUnregistered: WcmUserStatus = 2i32;
 pub const UserLoaded: WcmUserStatus = 3i32;
 #[doc = "*Required features: 'Win32_System_SettingsManagementInfrastructure'*"]
 pub const UserUnloaded: WcmUserStatus = 4i32;
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

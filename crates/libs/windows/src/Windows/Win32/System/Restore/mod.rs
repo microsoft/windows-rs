@@ -218,3 +218,5 @@ impl ::core::default::Default for _RESTOREPTINFOEX {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

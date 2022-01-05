@@ -464,3 +464,5 @@ pub unsafe fn XInputSetState(dwuserindex: u32, pvibration: *const XINPUT_VIBRATI
 pub const XUSER_INDEX_ANY: u32 = 255u32;
 #[doc = "*Required features: 'Win32_UI_Input_XboxController'*"]
 pub const XUSER_MAX_COUNT: u32 = 4u32;
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

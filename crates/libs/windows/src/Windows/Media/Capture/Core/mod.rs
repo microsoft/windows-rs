@@ -6,13 +6,6 @@ unsafe impl ::windows::core::Interface for IVariablePhotoCapturedEventArgs {
     type Vtable = IVariablePhotoCapturedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd1eb4c5c_1b53_4e4a_8b5c_db7887ac949b);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IVariablePhotoCapturedEventArgsImpl {
-    fn Frame();
-    fn CaptureTimeOffset();
-    fn UsedFrameControllerIndex();
-    fn CapturedFrameControlValues();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVariablePhotoCapturedEventArgsVtbl(
@@ -35,16 +28,6 @@ pub struct IVariablePhotoSequenceCapture(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IVariablePhotoSequenceCapture {
     type Vtable = IVariablePhotoSequenceCaptureVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd0112d1d_031e_4041_a6d6_bd742476a8ee);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IVariablePhotoSequenceCaptureImpl {
-    fn StartAsync();
-    fn StopAsync();
-    fn FinishAsync();
-    fn PhotoCaptured();
-    fn RemovePhotoCaptured();
-    fn Stopped();
-    fn RemoveStopped();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -76,10 +59,6 @@ pub struct IVariablePhotoSequenceCapture2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IVariablePhotoSequenceCapture2 {
     type Vtable = IVariablePhotoSequenceCapture2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfe2c62bc_50b0_43e3_917c_e3b92798942f);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IVariablePhotoSequenceCapture2Impl {
-    fn UpdateSettingsAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -337,3 +316,5 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Vari
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

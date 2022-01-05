@@ -122,14 +122,6 @@ unsafe impl ::windows::core::Interface for IFunctionDiscovery {
     type Vtable = IFunctionDiscoveryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4df99b70_e148_4432_b004_4c9eeb535a5e);
 }
-pub trait IFunctionDiscoveryImpl {
-    fn GetInstanceCollection();
-    fn GetInstance();
-    fn CreateInstanceCollectionQuery();
-    fn CreateInstanceQuery();
-    fn AddInstance();
-    fn RemoveInstance();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFunctionDiscoveryVtbl(
@@ -207,11 +199,6 @@ impl ::core::fmt::Debug for IFunctionDiscoveryNotification {
 unsafe impl ::windows::core::Interface for IFunctionDiscoveryNotification {
     type Vtable = IFunctionDiscoveryNotificationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5f6c1ba8_5330_422e_a368_572b244d3f87);
-}
-pub trait IFunctionDiscoveryNotificationImpl {
-    fn OnUpdate();
-    fn OnError();
-    fn OnEvent();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -307,16 +294,6 @@ unsafe impl ::windows::core::Interface for IFunctionDiscoveryProvider {
     type Vtable = IFunctionDiscoveryProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdcde394f_1478_4813_a402_f6fb10657222);
 }
-pub trait IFunctionDiscoveryProviderImpl {
-    fn Initialize();
-    fn Query();
-    fn EndQuery();
-    fn InstancePropertyStoreValidateAccess();
-    fn InstancePropertyStoreOpen();
-    fn InstancePropertyStoreFlush();
-    fn InstanceQueryService();
-    fn InstanceReleased();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFunctionDiscoveryProviderVtbl(
@@ -395,11 +372,6 @@ unsafe impl ::windows::core::Interface for IFunctionDiscoveryProviderFactory {
     type Vtable = IFunctionDiscoveryProviderFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x86443ff0_1ad5_4e68_a45a_40c2c329de3b);
 }
-pub trait IFunctionDiscoveryProviderFactoryImpl {
-    fn CreatePropertyStore();
-    fn CreateInstance();
-    fn CreateFunctionInstanceCollection();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFunctionDiscoveryProviderFactoryVtbl(
@@ -477,12 +449,6 @@ unsafe impl ::windows::core::Interface for IFunctionDiscoveryProviderQuery {
     type Vtable = IFunctionDiscoveryProviderQueryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6876ea98_baec_46db_bc20_75a76e267a3a);
 }
-pub trait IFunctionDiscoveryProviderQueryImpl {
-    fn IsInstanceQuery();
-    fn IsSubcategoryQuery();
-    fn GetQueryConstraints();
-    fn GetPropertyConstraints();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFunctionDiscoveryProviderQueryVtbl(
@@ -545,9 +511,6 @@ impl ::core::fmt::Debug for IFunctionDiscoveryServiceProvider {
 unsafe impl ::windows::core::Interface for IFunctionDiscoveryServiceProvider {
     type Vtable = IFunctionDiscoveryServiceProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4c81ed02_1b04_43f2_a451_69966cbcd1c2);
-}
-pub trait IFunctionDiscoveryServiceProviderImpl {
-    fn Initialize();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -651,13 +614,6 @@ unsafe impl ::windows::core::Interface for IFunctionInstance {
     type Vtable = IFunctionInstanceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x33591c10_0bed_4f02_b0ab_1530d5533ee9);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IFunctionInstanceImpl: IServiceProviderImpl {
-    fn GetID();
-    fn GetProviderInstanceID();
-    fn OpenPropertyStore();
-    fn GetCategory();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFunctionInstanceVtbl(
@@ -749,15 +705,6 @@ unsafe impl ::windows::core::Interface for IFunctionInstanceCollection {
     type Vtable = IFunctionInstanceCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf0a3d895_855c_42a2_948d_2f97d450ecb1);
 }
-pub trait IFunctionInstanceCollectionImpl {
-    fn GetCount();
-    fn Get();
-    fn Item();
-    fn Add();
-    fn Remove();
-    fn Delete();
-    fn DeleteAll();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFunctionInstanceCollectionVtbl(
@@ -833,11 +780,6 @@ unsafe impl ::windows::core::Interface for IFunctionInstanceCollectionQuery {
     type Vtable = IFunctionInstanceCollectionQueryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x57cc6fd2_c09a_4289_bb72_25f04142058e);
 }
-pub trait IFunctionInstanceCollectionQueryImpl {
-    fn AddQueryConstraint();
-    fn AddPropertyConstraint();
-    fn Execute();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFunctionInstanceCollectionQueryVtbl(
@@ -899,9 +841,6 @@ impl ::core::fmt::Debug for IFunctionInstanceQuery {
 unsafe impl ::windows::core::Interface for IFunctionInstanceQuery {
     type Vtable = IFunctionInstanceQueryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6242bc6b_90ec_4b37_bb46_e229fd84ed95);
-}
-pub trait IFunctionInstanceQueryImpl {
-    fn Execute();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -965,11 +904,6 @@ impl ::core::fmt::Debug for IPNPXAssociation {
 unsafe impl ::windows::core::Interface for IPNPXAssociation {
     type Vtable = IPNPXAssociationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0bd7e521_4da6_42d5_81ba_1981b6b94075);
-}
-pub trait IPNPXAssociationImpl {
-    fn Associate();
-    fn Unassociate();
-    fn Delete();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1043,11 +977,6 @@ impl ::core::fmt::Debug for IPNPXDeviceAssociation {
 unsafe impl ::windows::core::Interface for IPNPXDeviceAssociation {
     type Vtable = IPNPXDeviceAssociationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeed366d0_35b8_4fc5_8d20_7e5bd31f6ded);
-}
-pub trait IPNPXDeviceAssociationImpl {
-    fn Associate();
-    fn Unassociate();
-    fn Delete();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1142,15 +1071,6 @@ unsafe impl ::windows::core::Interface for IPropertyStoreCollection {
     type Vtable = IPropertyStoreCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd14d9c30_12d2_42d8_bce4_c60c2bb226fa);
 }
-pub trait IPropertyStoreCollectionImpl {
-    fn GetCount();
-    fn Get();
-    fn Item();
-    fn Add();
-    fn Remove();
-    fn Delete();
-    fn DeleteAll();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPropertyStoreCollectionVtbl(
@@ -1235,12 +1155,6 @@ impl ::core::fmt::Debug for IProviderProperties {
 unsafe impl ::windows::core::Interface for IProviderProperties {
     type Vtable = IProviderPropertiesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcf986ea6_3b5f_4c5f_b88a_2f8b20ceef17);
-}
-pub trait IProviderPropertiesImpl {
-    fn GetCount();
-    fn GetAt();
-    fn GetValue();
-    fn SetValue();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1329,14 +1243,6 @@ unsafe impl ::windows::core::Interface for IProviderPropertyConstraintCollection
     type Vtable = IProviderPropertyConstraintCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf4fae42f_5778_4a13_8540_b5fd8c1398dd);
 }
-pub trait IProviderPropertyConstraintCollectionImpl {
-    fn GetCount();
-    fn Get();
-    fn Item();
-    fn Next();
-    fn Skip();
-    fn Reset();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IProviderPropertyConstraintCollectionVtbl(
@@ -1408,10 +1314,6 @@ impl ::core::fmt::Debug for IProviderPublishing {
 unsafe impl ::windows::core::Interface for IProviderPublishing {
     type Vtable = IProviderPublishingVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcd1b9a04_206c_4a05_a0c8_1635a21a2b7c);
-}
-pub trait IProviderPublishingImpl {
-    fn CreateInstance();
-    fn RemoveInstance();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1495,14 +1397,6 @@ impl ::core::fmt::Debug for IProviderQueryConstraintCollection {
 unsafe impl ::windows::core::Interface for IProviderQueryConstraintCollection {
     type Vtable = IProviderQueryConstraintCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9c243e11_3261_4bcd_b922_84a873d460ae);
-}
-pub trait IProviderQueryConstraintCollectionImpl {
-    fn GetCount();
-    fn Get();
-    fn Item();
-    fn Next();
-    fn Skip();
-    fn Reset();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2302,3 +2196,5 @@ pub type SystemVisibilityFlags = i32;
 pub const SVF_SYSTEM: SystemVisibilityFlags = 0i32;
 #[doc = "*Required features: 'Win32_Devices_FunctionDiscovery'*"]
 pub const SVF_USER: SystemVisibilityFlags = 1i32;
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

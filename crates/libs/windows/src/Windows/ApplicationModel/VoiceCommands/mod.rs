@@ -6,12 +6,6 @@ unsafe impl ::windows::core::Interface for IVoiceCommand {
     type Vtable = IVoiceCommandVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x936f5273_ec82_42a6_a55c_d2d79ec6f920);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IVoiceCommandImpl {
-    fn CommandName();
-    fn Properties();
-    fn SpeechRecognitionResult();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVoiceCommandVtbl(
@@ -34,10 +28,6 @@ unsafe impl ::windows::core::Interface for IVoiceCommandCompletedEventArgs {
     type Vtable = IVoiceCommandCompletedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc85e675d_fe42_432c_9907_09df9fcf64e8);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IVoiceCommandCompletedEventArgsImpl {
-    fn Reason();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVoiceCommandCompletedEventArgsVtbl(
@@ -56,10 +46,6 @@ unsafe impl ::windows::core::Interface for IVoiceCommandConfirmationResult {
     type Vtable = IVoiceCommandConfirmationResultVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa022593e_8221_4526_b083_840972262247);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IVoiceCommandConfirmationResultImpl {
-    fn Confirmed();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVoiceCommandConfirmationResultVtbl(
@@ -77,25 +63,6 @@ pub struct IVoiceCommandContentTile(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IVoiceCommandContentTile {
     type Vtable = IVoiceCommandContentTileVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3eefe9f0_b8c7_4c76_a0de_1607895ee327);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IVoiceCommandContentTileImpl {
-    fn Title();
-    fn SetTitle();
-    fn TextLine1();
-    fn SetTextLine1();
-    fn TextLine2();
-    fn SetTextLine2();
-    fn TextLine3();
-    fn SetTextLine3();
-    fn Image();
-    fn SetImage();
-    fn AppContext();
-    fn SetAppContext();
-    fn AppLaunchArgument();
-    fn SetAppLaunchArgument();
-    fn ContentTileType();
-    fn SetContentTileType();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -132,12 +99,6 @@ unsafe impl ::windows::core::Interface for IVoiceCommandDefinition {
     type Vtable = IVoiceCommandDefinitionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7972aad0_0974_4979_984b_cb8959cd61ae);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IVoiceCommandDefinitionImpl {
-    fn Language();
-    fn Name();
-    fn SetPhraseListAsync();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVoiceCommandDefinitionVtbl(
@@ -158,11 +119,6 @@ pub struct IVoiceCommandDefinitionManagerStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IVoiceCommandDefinitionManagerStatics {
     type Vtable = IVoiceCommandDefinitionManagerStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8fe7a69e_067e_4f16_a18c_5b17e9499940);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IVoiceCommandDefinitionManagerStaticsImpl {
-    fn InstallCommandDefinitionsFromStorageFileAsync();
-    fn InstalledCommandDefinitions();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -185,10 +141,6 @@ unsafe impl ::windows::core::Interface for IVoiceCommandDisambiguationResult {
     type Vtable = IVoiceCommandDisambiguationResultVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xecc68cfe_c9ac_45df_a8ea_feea08ef9c5e);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IVoiceCommandDisambiguationResultImpl {
-    fn SelectedItem();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVoiceCommandDisambiguationResultVtbl(
@@ -206,16 +158,6 @@ pub struct IVoiceCommandResponse(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IVoiceCommandResponse {
     type Vtable = IVoiceCommandResponseVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0284b30e_8a3b_4cc4_a6a1_cad5be2716b5);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IVoiceCommandResponseImpl {
-    fn Message();
-    fn SetMessage();
-    fn RepeatMessage();
-    fn SetRepeatMessage();
-    fn AppLaunchArgument();
-    fn SetAppLaunchArgument();
-    fn VoiceCommandContentTiles();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -242,14 +184,6 @@ unsafe impl ::windows::core::Interface for IVoiceCommandResponseStatics {
     type Vtable = IVoiceCommandResponseStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2932f813_0d3b_49f2_96dd_625019bd3b5d);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IVoiceCommandResponseStaticsImpl {
-    fn MaxSupportedVoiceCommandContentTiles();
-    fn CreateResponse();
-    fn CreateResponseWithTiles();
-    fn CreateResponseForPrompt();
-    fn CreateResponseForPromptWithTiles();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVoiceCommandResponseStaticsVtbl(
@@ -273,19 +207,6 @@ pub struct IVoiceCommandServiceConnection(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IVoiceCommandServiceConnection {
     type Vtable = IVoiceCommandServiceConnectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd894bb9f_21da_44a4_98a2_fb131920a9cc);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IVoiceCommandServiceConnectionImpl {
-    fn GetVoiceCommandAsync();
-    fn RequestConfirmationAsync();
-    fn RequestDisambiguationAsync();
-    fn ReportProgressAsync();
-    fn ReportSuccessAsync();
-    fn ReportFailureAsync();
-    fn RequestAppLaunchAsync();
-    fn Language();
-    fn VoiceCommandCompleted();
-    fn RemoveVoiceCommandCompleted();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -324,10 +245,6 @@ unsafe impl ::windows::core::Interface for IVoiceCommandServiceConnectionStatics
     type Vtable = IVoiceCommandServiceConnectionStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x370ebffb_2d34_42df_8770_074d0f334697);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IVoiceCommandServiceConnectionStaticsImpl {
-    fn FromAppServiceTriggerDetails();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVoiceCommandServiceConnectionStaticsVtbl(
@@ -346,13 +263,6 @@ pub struct IVoiceCommandUserMessage(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IVoiceCommandUserMessage {
     type Vtable = IVoiceCommandUserMessageVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x674eb3c0_44f6_4f07_b979_4c723fc08597);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IVoiceCommandUserMessageImpl {
-    fn DisplayMessage();
-    fn SetDisplayMessage();
-    fn SpokenMessage();
-    fn SetSpokenMessage();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1541,3 +1451,5 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Voic
 }
 unsafe impl ::core::marker::Send for VoiceCommandUserMessage {}
 unsafe impl ::core::marker::Sync for VoiceCommandUserMessage {}
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

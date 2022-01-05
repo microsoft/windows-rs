@@ -49,9 +49,6 @@ unsafe impl ::windows::core::Interface for IDummyHICONIncluder {
     type Vtable = IDummyHICONIncluderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x947990de_cc28_11d2_a0f7_00805f858fb1);
 }
-pub trait IDummyHICONIncluderImpl {
-    fn Dummy();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDummyHICONIncluderVtbl(
@@ -116,10 +113,6 @@ unsafe impl ::windows::core::Interface for IThumbnailExtractor {
     type Vtable = IThumbnailExtractorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x969dc708_5c76_11d1_8d86_0000f804b057);
 }
-pub trait IThumbnailExtractorImpl {
-    fn ExtractThumbnail();
-    fn OnFileUpdated();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IThumbnailExtractorVtbl(
@@ -131,3 +124,5 @@ pub struct IThumbnailExtractorVtbl(
     #[cfg(feature = "Win32_System_Com_StructuredStorage")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstg: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com_StructuredStorage"))] usize,
 );
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

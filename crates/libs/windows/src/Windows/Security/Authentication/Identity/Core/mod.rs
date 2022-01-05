@@ -6,19 +6,6 @@ unsafe impl ::windows::core::Interface for IMicrosoftAccountMultiFactorAuthentic
     type Vtable = IMicrosoftAccountMultiFactorAuthenticationManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0fd340a5_f574_4320_a08e_0a19a82322aa);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IMicrosoftAccountMultiFactorAuthenticationManagerImpl {
-    fn GetOneTimePassCodeAsync();
-    fn AddDeviceAsync();
-    fn RemoveDeviceAsync();
-    fn UpdateWnsChannelAsync();
-    fn GetSessionsAsync();
-    fn GetSessionsAndUnregisteredAccountsAsync();
-    fn ApproveSessionUsingAuthSessionInfoAsync();
-    fn ApproveSessionAsync();
-    fn DenySessionUsingAuthSessionInfoAsync();
-    fn DenySessionAsync();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMicrosoftAccountMultiFactorAuthenticationManagerVtbl(
@@ -56,10 +43,6 @@ unsafe impl ::windows::core::Interface for IMicrosoftAccountMultiFactorAuthentic
     type Vtable = IMicrosoftAccountMultiFactorAuthenticatorStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd964c2e6_f446_4c71_8b79_6ea4024aa9b8);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IMicrosoftAccountMultiFactorAuthenticatorStaticsImpl {
-    fn Current();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMicrosoftAccountMultiFactorAuthenticatorStaticsVtbl(
@@ -77,11 +60,6 @@ pub struct IMicrosoftAccountMultiFactorGetSessionsResult(::windows::core::IUnkno
 unsafe impl ::windows::core::Interface for IMicrosoftAccountMultiFactorGetSessionsResult {
     type Vtable = IMicrosoftAccountMultiFactorGetSessionsResultVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4e23a9a0_e9fa_497a_95de_6d5747bf974c);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IMicrosoftAccountMultiFactorGetSessionsResultImpl {
-    fn Sessions();
-    fn ServiceResponse();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -102,13 +80,6 @@ pub struct IMicrosoftAccountMultiFactorOneTimeCodedInfo(::windows::core::IUnknow
 unsafe impl ::windows::core::Interface for IMicrosoftAccountMultiFactorOneTimeCodedInfo {
     type Vtable = IMicrosoftAccountMultiFactorOneTimeCodedInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x82ba264b_d87c_4668_a976_40cfae547d08);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IMicrosoftAccountMultiFactorOneTimeCodedInfoImpl {
-    fn Code();
-    fn TimeInterval();
-    fn TimeToLive();
-    fn ServiceResponse();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -132,16 +103,6 @@ pub struct IMicrosoftAccountMultiFactorSessionInfo(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMicrosoftAccountMultiFactorSessionInfo {
     type Vtable = IMicrosoftAccountMultiFactorSessionInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5f7eabb4_a278_4635_b765_b494eb260af4);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IMicrosoftAccountMultiFactorSessionInfoImpl {
-    fn UserAccountId();
-    fn SessionId();
-    fn DisplaySessionId();
-    fn ApprovalStatus();
-    fn AuthenticationType();
-    fn RequestTime();
-    fn ExpirationTime();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -168,12 +129,6 @@ pub struct IMicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo(::wind
 unsafe impl ::windows::core::Interface for IMicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo {
     type Vtable = IMicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaa7ec5fb_da3f_4088_a20d_5618afadb2e5);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IMicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfoImpl {
-    fn Sessions();
-    fn UnregisteredAccounts();
-    fn ServiceResponse();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -945,3 +900,5 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Micr
 }
 unsafe impl ::core::marker::Send for MicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo {}
 unsafe impl ::core::marker::Sync for MicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo {}
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

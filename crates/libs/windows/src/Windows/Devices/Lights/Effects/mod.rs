@@ -6,18 +6,6 @@ unsafe impl ::windows::core::Interface for ILampArrayBitmapEffect {
     type Vtable = ILampArrayBitmapEffectVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3238e065_d877_4627_89e5_2a88f7052fa6);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ILampArrayBitmapEffectImpl {
-    fn Duration();
-    fn SetDuration();
-    fn StartDelay();
-    fn SetStartDelay();
-    fn UpdateInterval();
-    fn SetUpdateInterval();
-    fn SuggestedBitmapSize();
-    fn BitmapRequested();
-    fn RemoveBitmapRequested();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILampArrayBitmapEffectVtbl(
@@ -53,10 +41,6 @@ unsafe impl ::windows::core::Interface for ILampArrayBitmapEffectFactory {
     type Vtable = ILampArrayBitmapEffectFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x13608090_e336_4c8f_9053_a92407ca7b1d);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ILampArrayBitmapEffectFactoryImpl {
-    fn CreateInstance();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILampArrayBitmapEffectFactoryVtbl(
@@ -74,11 +58,6 @@ pub struct ILampArrayBitmapRequestedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ILampArrayBitmapRequestedEventArgs {
     type Vtable = ILampArrayBitmapRequestedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc8b4af9e_fe63_4d51_babd_619defb454ba);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ILampArrayBitmapRequestedEventArgsImpl {
-    fn SinceStarted();
-    fn UpdateBitmap();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -100,25 +79,6 @@ pub struct ILampArrayBlinkEffect(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ILampArrayBlinkEffect {
     type Vtable = ILampArrayBlinkEffectVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xebbf35f6_2fc5_4bb3_b3c3_6221a7680d13);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ILampArrayBlinkEffectImpl {
-    fn Color();
-    fn SetColor();
-    fn AttackDuration();
-    fn SetAttackDuration();
-    fn SustainDuration();
-    fn SetSustainDuration();
-    fn DecayDuration();
-    fn SetDecayDuration();
-    fn RepetitionDelay();
-    fn SetRepetitionDelay();
-    fn StartDelay();
-    fn SetStartDelay();
-    fn Occurrences();
-    fn SetOccurrences();
-    fn RepetitionMode();
-    fn SetRepetitionMode();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -165,10 +125,6 @@ unsafe impl ::windows::core::Interface for ILampArrayBlinkEffectFactory {
     type Vtable = ILampArrayBlinkEffectFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x879f1d97_9f50_49b2_a56f_013aa08d55e0);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ILampArrayBlinkEffectFactoryImpl {
-    fn CreateInstance();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILampArrayBlinkEffectFactoryVtbl(
@@ -186,17 +142,6 @@ pub struct ILampArrayColorRampEffect(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ILampArrayColorRampEffect {
     type Vtable = ILampArrayColorRampEffectVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2b004437_40a7_432e_a0b9_0d570c2153ff);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ILampArrayColorRampEffectImpl {
-    fn Color();
-    fn SetColor();
-    fn RampDuration();
-    fn SetRampDuration();
-    fn StartDelay();
-    fn SetStartDelay();
-    fn CompletionBehavior();
-    fn SetCompletionBehavior();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -229,10 +174,6 @@ unsafe impl ::windows::core::Interface for ILampArrayColorRampEffectFactory {
     type Vtable = ILampArrayColorRampEffectFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x520bd133_0c74_4df5_bea7_4899e0266b0f);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ILampArrayColorRampEffectFactoryImpl {
-    fn CreateInstance();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILampArrayColorRampEffectFactoryVtbl(
@@ -250,15 +191,6 @@ pub struct ILampArrayCustomEffect(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ILampArrayCustomEffect {
     type Vtable = ILampArrayCustomEffectVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xec579170_3c34_4876_818b_5765f78b0ee4);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ILampArrayCustomEffectImpl {
-    fn Duration();
-    fn SetDuration();
-    fn UpdateInterval();
-    fn SetUpdateInterval();
-    fn UpdateRequested();
-    fn RemoveUpdateRequested();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -288,10 +220,6 @@ pub struct ILampArrayCustomEffectFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ILampArrayCustomEffectFactory {
     type Vtable = ILampArrayCustomEffectFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x68b4774d_63e5_4af0_a58b_3e535b94e8c9);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ILampArrayCustomEffectFactoryImpl {
-    fn CreateInstance();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -385,10 +313,6 @@ unsafe impl ::windows::core::Interface for ILampArrayEffect {
     type Vtable = ILampArrayEffectVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x11d45590_57fb_4546_b1ce_863107f740df);
 }
-pub trait ILampArrayEffectImpl {
-    fn ZIndex();
-    fn SetZIndex();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILampArrayEffectVtbl(
@@ -407,20 +331,6 @@ pub struct ILampArrayEffectPlaylist(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ILampArrayEffectPlaylist {
     type Vtable = ILampArrayEffectPlaylistVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7de58bfe_6f61_4103_98c7_d6632f7b9169);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ILampArrayEffectPlaylistImpl {
-    fn Append();
-    fn OverrideZIndex();
-    fn Start();
-    fn Stop();
-    fn Pause();
-    fn EffectStartMode();
-    fn SetEffectStartMode();
-    fn Occurrences();
-    fn SetOccurrences();
-    fn RepetitionMode();
-    fn SetRepetitionMode();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -450,12 +360,6 @@ unsafe impl ::windows::core::Interface for ILampArrayEffectPlaylistStatics {
     type Vtable = ILampArrayEffectPlaylistStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfb15235c_ea35_4c7f_a016_f3bfc6a6c47d);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ILampArrayEffectPlaylistStaticsImpl {
-    fn StartAll();
-    fn StopAll();
-    fn PauseAll();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILampArrayEffectPlaylistStaticsVtbl(
@@ -478,17 +382,6 @@ pub struct ILampArraySolidEffect(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ILampArraySolidEffect {
     type Vtable = ILampArraySolidEffectVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x441f8213_43cc_4b33_80eb_c6ddde7dc8ed);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ILampArraySolidEffectImpl {
-    fn Color();
-    fn SetColor();
-    fn Duration();
-    fn SetDuration();
-    fn StartDelay();
-    fn SetStartDelay();
-    fn CompletionBehavior();
-    fn SetCompletionBehavior();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -521,10 +414,6 @@ unsafe impl ::windows::core::Interface for ILampArraySolidEffectFactory {
     type Vtable = ILampArraySolidEffectFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf862a32c_5576_4341_961b_aee1f13cf9dd);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ILampArraySolidEffectFactoryImpl {
-    fn CreateInstance();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILampArraySolidEffectFactoryVtbl(
@@ -542,14 +431,6 @@ pub struct ILampArrayUpdateRequestedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ILampArrayUpdateRequestedEventArgs {
     type Vtable = ILampArrayUpdateRequestedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x73560d6a_576a_48af_8539_67ffa0ab3516);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ILampArrayUpdateRequestedEventArgsImpl {
-    fn SinceStarted();
-    fn SetColor();
-    fn SetColorForIndex();
-    fn SetSingleColorForIndices();
-    fn SetColorsForIndices();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2087,3 +1968,5 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Lamp
 }
 unsafe impl ::core::marker::Send for LampArrayUpdateRequestedEventArgs {}
 unsafe impl ::core::marker::Sync for LampArrayUpdateRequestedEventArgs {}
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

@@ -654,3 +654,5 @@ impl ::core::default::Default for DXGI_SAMPLE_DESC {
 pub const DXGI_STANDARD_MULTISAMPLE_QUALITY_PATTERN: u32 = 4294967295u32;
 #[doc = "*Required features: 'Win32_Graphics_Dxgi_Common'*"]
 pub const _FACDXGI: u32 = 2170u32;
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

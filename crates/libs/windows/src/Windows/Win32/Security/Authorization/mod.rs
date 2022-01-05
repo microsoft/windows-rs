@@ -3730,70 +3730,6 @@ unsafe impl ::windows::core::Interface for IAzApplication {
     type Vtable = IAzApplicationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x987bc7c7_b813_4d27_bede_6ba5ae867e95);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IAzApplicationImpl: IDispatchImpl {
-    fn Name();
-    fn SetName();
-    fn Description();
-    fn SetDescription();
-    fn ApplicationData();
-    fn SetApplicationData();
-    fn AuthzInterfaceClsid();
-    fn SetAuthzInterfaceClsid();
-    fn Version();
-    fn SetVersion();
-    fn GenerateAudits();
-    fn SetGenerateAudits();
-    fn ApplyStoreSacl();
-    fn SetApplyStoreSacl();
-    fn Writable();
-    fn GetProperty();
-    fn SetProperty();
-    fn PolicyAdministrators();
-    fn PolicyReaders();
-    fn AddPolicyAdministrator();
-    fn DeletePolicyAdministrator();
-    fn AddPolicyReader();
-    fn DeletePolicyReader();
-    fn Scopes();
-    fn OpenScope();
-    fn CreateScope();
-    fn DeleteScope();
-    fn Operations();
-    fn OpenOperation();
-    fn CreateOperation();
-    fn DeleteOperation();
-    fn Tasks();
-    fn OpenTask();
-    fn CreateTask();
-    fn DeleteTask();
-    fn ApplicationGroups();
-    fn OpenApplicationGroup();
-    fn CreateApplicationGroup();
-    fn DeleteApplicationGroup();
-    fn Roles();
-    fn OpenRole();
-    fn CreateRole();
-    fn DeleteRole();
-    fn InitializeClientContextFromToken();
-    fn AddPropertyItem();
-    fn DeletePropertyItem();
-    fn Submit();
-    fn InitializeClientContextFromName();
-    fn DelegatedPolicyUsers();
-    fn AddDelegatedPolicyUser();
-    fn DeleteDelegatedPolicyUser();
-    fn InitializeClientContextFromStringSid();
-    fn PolicyAdministratorsName();
-    fn PolicyReadersName();
-    fn AddPolicyAdministratorName();
-    fn DeletePolicyAdministratorName();
-    fn AddPolicyReaderName();
-    fn DeletePolicyReaderName();
-    fn DelegatedPolicyUsersName();
-    fn AddDelegatedPolicyUserName();
-    fn DeleteDelegatedPolicyUserName();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAzApplicationVtbl(
@@ -4381,11 +4317,6 @@ impl ::core::fmt::Debug for IAzApplication2 {
 unsafe impl ::windows::core::Interface for IAzApplication2 {
     type Vtable = IAzApplication2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x086a68af_a249_437c_b18d_d4d86d6a9660);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IAzApplication2Impl: IAzApplicationImpl + IDispatchImpl {
-    fn InitializeClientContextFromToken2();
-    fn InitializeClientContext2();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5075,23 +5006,6 @@ unsafe impl ::windows::core::Interface for IAzApplication3 {
     type Vtable = IAzApplication3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x181c845e_7196_4a7d_ac2e_020c0bb7a303);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IAzApplication3Impl: IAzApplication2Impl + IAzApplicationImpl + IDispatchImpl {
-    fn ScopeExists();
-    fn OpenScope2();
-    fn CreateScope2();
-    fn DeleteScope2();
-    fn RoleDefinitions();
-    fn CreateRoleDefinition();
-    fn OpenRoleDefinition();
-    fn DeleteRoleDefinition();
-    fn RoleAssignments();
-    fn CreateRoleAssignment();
-    fn OpenRoleAssignment();
-    fn DeleteRoleAssignment();
-    fn BizRulesEnabled();
-    fn SetBizRulesEnabled();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAzApplication3Vtbl(
@@ -5513,41 +5427,6 @@ unsafe impl ::windows::core::Interface for IAzApplicationGroup {
     type Vtable = IAzApplicationGroupVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf1b744cd_58a6_4e06_9fbf_36f6d779e21e);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IAzApplicationGroupImpl: IDispatchImpl {
-    fn Name();
-    fn SetName();
-    fn Type();
-    fn SetType();
-    fn LdapQuery();
-    fn SetLdapQuery();
-    fn AppMembers();
-    fn AppNonMembers();
-    fn Members();
-    fn NonMembers();
-    fn Description();
-    fn SetDescription();
-    fn AddAppMember();
-    fn DeleteAppMember();
-    fn AddAppNonMember();
-    fn DeleteAppNonMember();
-    fn AddMember();
-    fn DeleteMember();
-    fn AddNonMember();
-    fn DeleteNonMember();
-    fn Writable();
-    fn GetProperty();
-    fn SetProperty();
-    fn AddPropertyItem();
-    fn DeletePropertyItem();
-    fn Submit();
-    fn AddMemberName();
-    fn DeleteMemberName();
-    fn AddNonMemberName();
-    fn DeleteNonMemberName();
-    fn MembersName();
-    fn NonMembersName();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAzApplicationGroupVtbl(
@@ -5945,16 +5824,6 @@ unsafe impl ::windows::core::Interface for IAzApplicationGroup2 {
     type Vtable = IAzApplicationGroup2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3f0613fc_b71a_464e_a11d_5b881a56cefa);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IAzApplicationGroup2Impl: IAzApplicationGroupImpl + IDispatchImpl {
-    fn BizRule();
-    fn SetBizRule();
-    fn BizRuleLanguage();
-    fn SetBizRuleLanguage();
-    fn BizRuleImportedPath();
-    fn SetBizRuleImportedPath();
-    fn RoleAssignments();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAzApplicationGroup2Vtbl(
@@ -6153,12 +6022,6 @@ unsafe impl ::windows::core::Interface for IAzApplicationGroups {
     type Vtable = IAzApplicationGroupsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4ce66ad5_9f3c_469d_a911_b99887a7e685);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IAzApplicationGroupsImpl: IDispatchImpl {
-    fn Item();
-    fn Count();
-    fn _NewEnum();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAzApplicationGroupsVtbl(
@@ -6284,12 +6147,6 @@ impl ::core::fmt::Debug for IAzApplications {
 unsafe impl ::windows::core::Interface for IAzApplications {
     type Vtable = IAzApplicationsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x929b11a9_95c5_4a84_a29a_20ad42c2f16c);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IAzApplicationsImpl: IDispatchImpl {
-    fn Item();
-    fn Count();
-    fn _NewEnum();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6669,60 +6526,6 @@ impl ::core::fmt::Debug for IAzAuthorizationStore {
 unsafe impl ::windows::core::Interface for IAzAuthorizationStore {
     type Vtable = IAzAuthorizationStoreVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xedbd9ca9_9b82_4f6a_9e8b_98301e450f14);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IAzAuthorizationStoreImpl: IDispatchImpl {
-    fn Description();
-    fn SetDescription();
-    fn ApplicationData();
-    fn SetApplicationData();
-    fn DomainTimeout();
-    fn SetDomainTimeout();
-    fn ScriptEngineTimeout();
-    fn SetScriptEngineTimeout();
-    fn MaxScriptEngines();
-    fn SetMaxScriptEngines();
-    fn GenerateAudits();
-    fn SetGenerateAudits();
-    fn Writable();
-    fn GetProperty();
-    fn SetProperty();
-    fn AddPropertyItem();
-    fn DeletePropertyItem();
-    fn PolicyAdministrators();
-    fn PolicyReaders();
-    fn AddPolicyAdministrator();
-    fn DeletePolicyAdministrator();
-    fn AddPolicyReader();
-    fn DeletePolicyReader();
-    fn Initialize();
-    fn UpdateCache();
-    fn Delete();
-    fn Applications();
-    fn OpenApplication();
-    fn CreateApplication();
-    fn DeleteApplication();
-    fn ApplicationGroups();
-    fn CreateApplicationGroup();
-    fn OpenApplicationGroup();
-    fn DeleteApplicationGroup();
-    fn Submit();
-    fn DelegatedPolicyUsers();
-    fn AddDelegatedPolicyUser();
-    fn DeleteDelegatedPolicyUser();
-    fn TargetMachine();
-    fn ApplyStoreSacl();
-    fn SetApplyStoreSacl();
-    fn PolicyAdministratorsName();
-    fn PolicyReadersName();
-    fn AddPolicyAdministratorName();
-    fn DeletePolicyAdministratorName();
-    fn AddPolicyReaderName();
-    fn DeletePolicyReaderName();
-    fn DelegatedPolicyUsersName();
-    fn AddDelegatedPolicyUserName();
-    fn DeleteDelegatedPolicyUserName();
-    fn CloseApplication();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7224,11 +7027,6 @@ impl ::core::fmt::Debug for IAzAuthorizationStore2 {
 unsafe impl ::windows::core::Interface for IAzAuthorizationStore2 {
     type Vtable = IAzAuthorizationStore2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb11e5584_d577_4273_b6c5_0973e0f8e80d);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IAzAuthorizationStore2Impl: IAzAuthorizationStoreImpl + IDispatchImpl {
-    fn OpenApplication2();
-    fn CreateApplication2();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7778,14 +7576,6 @@ unsafe impl ::windows::core::Interface for IAzAuthorizationStore3 {
     type Vtable = IAzAuthorizationStore3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xabc08425_0c86_4fa0_9be3_7189956c926e);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IAzAuthorizationStore3Impl: IAzAuthorizationStore2Impl + IAzAuthorizationStoreImpl + IDispatchImpl {
-    fn IsUpdateNeeded();
-    fn BizruleGroupSupported();
-    fn UpgradeStoresFunctionalLevel();
-    fn IsFunctionalLevelUpgradeSupported();
-    fn GetSchemaVersion();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAzAuthorizationStore3Vtbl(
@@ -8017,13 +7807,6 @@ unsafe impl ::windows::core::Interface for IAzBizRuleContext {
     type Vtable = IAzBizRuleContextVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe192f17d_d59f_455e_a152_940316cd77b2);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IAzBizRuleContextImpl: IDispatchImpl {
-    fn SetBusinessRuleResult();
-    fn SetBusinessRuleString();
-    fn BusinessRuleString();
-    fn GetParameter();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAzBizRuleContextVtbl(
@@ -8166,15 +7949,6 @@ impl ::core::fmt::Debug for IAzBizRuleInterfaces {
 unsafe impl ::windows::core::Interface for IAzBizRuleInterfaces {
     type Vtable = IAzBizRuleInterfacesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe94128c7_e9da_44cc_b0bd_53036f3aab3d);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IAzBizRuleInterfacesImpl: IDispatchImpl {
-    fn AddInterface();
-    fn AddInterfaces();
-    fn GetInterfaceValue();
-    fn Remove();
-    fn RemoveAll();
-    fn Count();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8321,15 +8095,6 @@ impl ::core::fmt::Debug for IAzBizRuleParameters {
 unsafe impl ::windows::core::Interface for IAzBizRuleParameters {
     type Vtable = IAzBizRuleParametersVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfc17685f_e25d_4dcd_bae1_276ec9533cb5);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IAzBizRuleParametersImpl: IDispatchImpl {
-    fn AddParameter();
-    fn AddParameters();
-    fn GetParameterValue();
-    fn Remove();
-    fn RemoveAll();
-    fn Count();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8533,22 +8298,6 @@ impl ::core::fmt::Debug for IAzClientContext {
 unsafe impl ::windows::core::Interface for IAzClientContext {
     type Vtable = IAzClientContextVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeff1f00b_488a_466d_afd9_a401c5f9eef5);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IAzClientContextImpl: IDispatchImpl {
-    fn AccessCheck();
-    fn GetBusinessRuleString();
-    fn UserDn();
-    fn UserSamCompat();
-    fn UserDisplay();
-    fn UserGuid();
-    fn UserCanonical();
-    fn UserUpn();
-    fn UserDnsSamCompat();
-    fn GetProperty();
-    fn GetRoles();
-    fn RoleForAccessCheck();
-    fn SetRoleForAccessCheck();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8820,15 +8569,6 @@ impl ::core::fmt::Debug for IAzClientContext2 {
 unsafe impl ::windows::core::Interface for IAzClientContext2 {
     type Vtable = IAzClientContext2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2b0c92b8_208a_488a_8f81_e4edb22111cd);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IAzClientContext2Impl: IAzClientContextImpl + IDispatchImpl {
-    fn GetAssignedScopesPage();
-    fn AddRoles();
-    fn AddApplicationGroups();
-    fn AddStringSids();
-    fn SetLDAPQueryDN();
-    fn LDAPQueryDN();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9179,17 +8919,6 @@ unsafe impl ::windows::core::Interface for IAzClientContext3 {
     type Vtable = IAzClientContext3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x11894fde_1deb_4b4b_8907_6d1cda1f5d4f);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IAzClientContext3Impl: IAzClientContext2Impl + IAzClientContextImpl + IDispatchImpl {
-    fn AccessCheck2();
-    fn IsInRoleAssignment();
-    fn GetOperations();
-    fn GetTasks();
-    fn BizRuleParameters();
-    fn BizRuleInterfaces();
-    fn GetGroups();
-    fn Sids();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAzClientContext3Vtbl(
@@ -9359,11 +9088,6 @@ unsafe impl ::windows::core::Interface for IAzNameResolver {
     type Vtable = IAzNameResolverVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x504d0f15_73e2_43df_a870_a64f40714f53);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IAzNameResolverImpl: IDispatchImpl {
-    fn NameFromSid();
-    fn NamesFromSids();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAzNameResolverVtbl(
@@ -9484,11 +9208,6 @@ impl ::core::fmt::Debug for IAzObjectPicker {
 unsafe impl ::windows::core::Interface for IAzObjectPicker {
     type Vtable = IAzObjectPickerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x63130a48_699a_42d8_bf01_c62ac3fb79f9);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IAzObjectPickerImpl: IDispatchImpl {
-    fn GetPrincipals();
-    fn Name();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9663,21 +9382,6 @@ impl ::core::fmt::Debug for IAzOperation {
 unsafe impl ::windows::core::Interface for IAzOperation {
     type Vtable = IAzOperationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5e56b24f_ea01_4d61_be44_c49b5e4eaf74);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IAzOperationImpl: IDispatchImpl {
-    fn Name();
-    fn SetName();
-    fn Description();
-    fn SetDescription();
-    fn ApplicationData();
-    fn SetApplicationData();
-    fn OperationID();
-    fn SetOperationID();
-    fn Writable();
-    fn GetProperty();
-    fn SetProperty();
-    fn Submit();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9897,10 +9601,6 @@ unsafe impl ::windows::core::Interface for IAzOperation2 {
     type Vtable = IAzOperation2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1f5ea01f_44a2_4184_9c48_a75b4dcc8ccc);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IAzOperation2Impl: IAzOperationImpl + IDispatchImpl {
-    fn RoleAssignments();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAzOperation2Vtbl(
@@ -10047,12 +9747,6 @@ unsafe impl ::windows::core::Interface for IAzOperations {
     type Vtable = IAzOperationsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x90ef9c07_9706_49d9_af80_0438a5f3ec35);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IAzOperationsImpl: IDispatchImpl {
-    fn Item();
-    fn Count();
-    fn _NewEnum();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAzOperationsVtbl(
@@ -10172,11 +9866,6 @@ impl ::core::fmt::Debug for IAzPrincipalLocator {
 unsafe impl ::windows::core::Interface for IAzPrincipalLocator {
     type Vtable = IAzPrincipalLocatorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe5c3507d_ad6a_4992_9c7f_74ab480b44cc);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IAzPrincipalLocatorImpl: IDispatchImpl {
-    fn NameResolver();
-    fn ObjectPicker();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -10430,36 +10119,6 @@ impl ::core::fmt::Debug for IAzRole {
 unsafe impl ::windows::core::Interface for IAzRole {
     type Vtable = IAzRoleVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x859e0d8d_62d7_41d8_a034_c0cd5d43fdfa);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IAzRoleImpl: IDispatchImpl {
-    fn Name();
-    fn SetName();
-    fn Description();
-    fn SetDescription();
-    fn ApplicationData();
-    fn SetApplicationData();
-    fn AddAppMember();
-    fn DeleteAppMember();
-    fn AddTask();
-    fn DeleteTask();
-    fn AddOperation();
-    fn DeleteOperation();
-    fn AddMember();
-    fn DeleteMember();
-    fn Writable();
-    fn GetProperty();
-    fn SetProperty();
-    fn AppMembers();
-    fn Members();
-    fn Operations();
-    fn Tasks();
-    fn AddPropertyItem();
-    fn DeletePropertyItem();
-    fn Submit();
-    fn AddMemberName();
-    fn DeleteMemberName();
-    fn MembersName();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -10806,13 +10465,6 @@ unsafe impl ::windows::core::Interface for IAzRoleAssignment {
     type Vtable = IAzRoleAssignmentVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x55647d31_0d5a_4fa3_b4ac_2b5f9ad5ab76);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IAzRoleAssignmentImpl: IAzRoleImpl + IDispatchImpl {
-    fn AddRoleDefinition();
-    fn DeleteRoleDefinition();
-    fn RoleDefinitions();
-    fn Scope();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAzRoleAssignmentVtbl(
@@ -10994,12 +10646,6 @@ impl ::core::fmt::Debug for IAzRoleAssignments {
 unsafe impl ::windows::core::Interface for IAzRoleAssignments {
     type Vtable = IAzRoleAssignmentsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9c80b900_fceb_4d73_a0f4_c83b0bbf2481);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IAzRoleAssignmentsImpl: IDispatchImpl {
-    fn Item();
-    fn Count();
-    fn _NewEnum();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -11293,13 +10939,6 @@ unsafe impl ::windows::core::Interface for IAzRoleDefinition {
     type Vtable = IAzRoleDefinitionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd97fcea1_2599_44f1_9fc3_58e9fbe09466);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IAzRoleDefinitionImpl: IAzTaskImpl + IDispatchImpl {
-    fn RoleAssignments();
-    fn AddRoleDefinition();
-    fn DeleteRoleDefinition();
-    fn RoleDefinitions();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAzRoleDefinitionVtbl(
@@ -11481,12 +11120,6 @@ unsafe impl ::windows::core::Interface for IAzRoleDefinitions {
     type Vtable = IAzRoleDefinitionsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x881f25a5_d755_4550_957a_d503a3b34001);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IAzRoleDefinitionsImpl: IDispatchImpl {
-    fn Item();
-    fn Count();
-    fn _NewEnum();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAzRoleDefinitionsVtbl(
@@ -11612,12 +11245,6 @@ impl ::core::fmt::Debug for IAzRoles {
 unsafe impl ::windows::core::Interface for IAzRoles {
     type Vtable = IAzRolesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x95e0f119_13b4_4dae_b65f_2f7d60d822e4);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IAzRolesImpl: IDispatchImpl {
-    fn Item();
-    fn Count();
-    fn _NewEnum();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -11935,47 +11562,6 @@ impl ::core::fmt::Debug for IAzScope {
 unsafe impl ::windows::core::Interface for IAzScope {
     type Vtable = IAzScopeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00e52487_e08d_4514_b62e_877d5645f5ab);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IAzScopeImpl: IDispatchImpl {
-    fn Name();
-    fn SetName();
-    fn Description();
-    fn SetDescription();
-    fn ApplicationData();
-    fn SetApplicationData();
-    fn Writable();
-    fn GetProperty();
-    fn SetProperty();
-    fn AddPropertyItem();
-    fn DeletePropertyItem();
-    fn PolicyAdministrators();
-    fn PolicyReaders();
-    fn AddPolicyAdministrator();
-    fn DeletePolicyAdministrator();
-    fn AddPolicyReader();
-    fn DeletePolicyReader();
-    fn ApplicationGroups();
-    fn OpenApplicationGroup();
-    fn CreateApplicationGroup();
-    fn DeleteApplicationGroup();
-    fn Roles();
-    fn OpenRole();
-    fn CreateRole();
-    fn DeleteRole();
-    fn Tasks();
-    fn OpenTask();
-    fn CreateTask();
-    fn DeleteTask();
-    fn Submit();
-    fn CanBeDelegated();
-    fn BizrulesWritable();
-    fn PolicyAdministratorsName();
-    fn PolicyReadersName();
-    fn AddPolicyAdministratorName();
-    fn DeletePolicyAdministratorName();
-    fn AddPolicyReaderName();
-    fn DeletePolicyReaderName();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -12427,17 +12013,6 @@ unsafe impl ::windows::core::Interface for IAzScope2 {
     type Vtable = IAzScope2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xee9fe8c9_c9f3_40e2_aa12_d1d8599727fd);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IAzScope2Impl: IAzScopeImpl + IDispatchImpl {
-    fn RoleDefinitions();
-    fn CreateRoleDefinition();
-    fn OpenRoleDefinition();
-    fn DeleteRoleDefinition();
-    fn RoleAssignments();
-    fn CreateRoleAssignment();
-    fn OpenRoleAssignment();
-    fn DeleteRoleAssignment();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAzScope2Vtbl(
@@ -12646,12 +12221,6 @@ impl ::core::fmt::Debug for IAzScopes {
 unsafe impl ::windows::core::Interface for IAzScopes {
     type Vtable = IAzScopesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x78e14853_9f5e_406d_9b91_6bdba6973510);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IAzScopesImpl: IDispatchImpl {
-    fn Item();
-    fn Count();
-    fn _NewEnum();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -12903,35 +12472,6 @@ impl ::core::fmt::Debug for IAzTask {
 unsafe impl ::windows::core::Interface for IAzTask {
     type Vtable = IAzTaskVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcb94e592_2e0e_4a6c_a336_b89a6dc1e388);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IAzTaskImpl: IDispatchImpl {
-    fn Name();
-    fn SetName();
-    fn Description();
-    fn SetDescription();
-    fn ApplicationData();
-    fn SetApplicationData();
-    fn BizRule();
-    fn SetBizRule();
-    fn BizRuleLanguage();
-    fn SetBizRuleLanguage();
-    fn BizRuleImportedPath();
-    fn SetBizRuleImportedPath();
-    fn IsRoleDefinition();
-    fn SetIsRoleDefinition();
-    fn Operations();
-    fn Tasks();
-    fn AddOperation();
-    fn DeleteOperation();
-    fn AddTask();
-    fn DeleteTask();
-    fn Writable();
-    fn GetProperty();
-    fn SetProperty();
-    fn AddPropertyItem();
-    fn DeletePropertyItem();
-    fn Submit();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -13258,10 +12798,6 @@ unsafe impl ::windows::core::Interface for IAzTask2 {
     type Vtable = IAzTask2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x03a9a5ee_48c8_4832_9025_aad503c46526);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IAzTask2Impl: IAzTaskImpl + IDispatchImpl {
-    fn RoleAssignments();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAzTask2Vtbl(
@@ -13437,12 +12973,6 @@ impl ::core::fmt::Debug for IAzTasks {
 unsafe impl ::windows::core::Interface for IAzTasks {
     type Vtable = IAzTasksVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb338ccab_4c85_4388_8c0a_c58592bad398);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IAzTasksImpl: IDispatchImpl {
-    fn Item();
-    fn Count();
-    fn _NewEnum();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -14119,3 +13649,5 @@ pub unsafe fn TreeSetNamedSecurityInfoW<'a, Param0: ::windows::core::IntoParam<'
 }
 #[doc = "*Required features: 'Win32_Security_Authorization'*"]
 pub const _AUTHZ_SS_MAXSIZE: u32 = 128u32;
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

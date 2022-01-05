@@ -2099,12 +2099,6 @@ unsafe impl ::windows::core::Interface for ICoreTextCompositionCompletedEventArg
     type Vtable = ICoreTextCompositionCompletedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1f34ebb6_b79f_4121_a5e7_fda9b8616e30);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ICoreTextCompositionCompletedEventArgsImpl {
-    fn IsCanceled();
-    fn CompositionSegments();
-    fn GetDeferral();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreTextCompositionCompletedEventArgsVtbl(
@@ -2127,11 +2121,6 @@ unsafe impl ::windows::core::Interface for ICoreTextCompositionSegment {
     type Vtable = ICoreTextCompositionSegmentVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x776c6bd9_4ead_4da7_8f47_3a88b523cc34);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ICoreTextCompositionSegmentImpl {
-    fn PreconversionString();
-    fn Range();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreTextCompositionSegmentVtbl(
@@ -2150,11 +2139,6 @@ pub struct ICoreTextCompositionStartedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICoreTextCompositionStartedEventArgs {
     type Vtable = ICoreTextCompositionStartedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x276b16a9_64e7_4ab0_bc4b_a02d73835bfb);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ICoreTextCompositionStartedEventArgsImpl {
-    fn IsCanceled();
-    fn GetDeferral();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2175,40 +2159,6 @@ pub struct ICoreTextEditContext(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICoreTextEditContext {
     type Vtable = ICoreTextEditContextVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbf6608af_4041_47c3_b263_a918eb5eaef2);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ICoreTextEditContextImpl {
-    fn Name();
-    fn SetName();
-    fn InputScope();
-    fn SetInputScope();
-    fn IsReadOnly();
-    fn SetIsReadOnly();
-    fn InputPaneDisplayPolicy();
-    fn SetInputPaneDisplayPolicy();
-    fn TextRequested();
-    fn RemoveTextRequested();
-    fn SelectionRequested();
-    fn RemoveSelectionRequested();
-    fn LayoutRequested();
-    fn RemoveLayoutRequested();
-    fn TextUpdating();
-    fn RemoveTextUpdating();
-    fn SelectionUpdating();
-    fn RemoveSelectionUpdating();
-    fn FormatUpdating();
-    fn RemoveFormatUpdating();
-    fn CompositionStarted();
-    fn RemoveCompositionStarted();
-    fn CompositionCompleted();
-    fn RemoveCompositionCompleted();
-    fn FocusRemoved();
-    fn RemoveFocusRemoved();
-    fn NotifyFocusEnter();
-    fn NotifyFocusLeave();
-    fn NotifyTextChanged();
-    fn NotifySelectionChanged();
-    fn NotifyLayoutChanged();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2276,11 +2226,6 @@ unsafe impl ::windows::core::Interface for ICoreTextEditContext2 {
     type Vtable = ICoreTextEditContext2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb1867dbb_083b_49e1_b281_2b35d62bf466);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ICoreTextEditContext2Impl {
-    fn NotifyFocusLeaveCompleted();
-    fn RemoveNotifyFocusLeaveCompleted();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreTextEditContext2Vtbl(
@@ -2301,19 +2246,6 @@ pub struct ICoreTextFormatUpdatingEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICoreTextFormatUpdatingEventArgs {
     type Vtable = ICoreTextFormatUpdatingEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7310bd33_b4a8_43b1_b37b_0724d4aca7ab);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ICoreTextFormatUpdatingEventArgsImpl {
-    fn Range();
-    fn TextColor();
-    fn BackgroundColor();
-    fn UnderlineColor();
-    fn UnderlineType();
-    fn Reason();
-    fn Result();
-    fn SetResult();
-    fn IsCanceled();
-    fn GetDeferral();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2347,13 +2279,6 @@ unsafe impl ::windows::core::Interface for ICoreTextLayoutBounds {
     type Vtable = ICoreTextLayoutBoundsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe972c974_4436_4917_80d0_a525e4ca6780);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ICoreTextLayoutBoundsImpl {
-    fn TextBounds();
-    fn SetTextBounds();
-    fn ControlBounds();
-    fn SetControlBounds();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreTextLayoutBoundsVtbl(
@@ -2379,13 +2304,6 @@ unsafe impl ::windows::core::Interface for ICoreTextLayoutRequest {
     type Vtable = ICoreTextLayoutRequestVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2555a8cc_51fd_4f03_98bf_ac78174d68e0);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ICoreTextLayoutRequestImpl {
-    fn Range();
-    fn LayoutBounds();
-    fn IsCanceled();
-    fn GetDeferral();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreTextLayoutRequestVtbl(
@@ -2408,10 +2326,6 @@ unsafe impl ::windows::core::Interface for ICoreTextLayoutRequest2 {
     type Vtable = ICoreTextLayoutRequest2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x676de624_cd3d_4bcd_bf01_7f7110954511);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ICoreTextLayoutRequest2Impl {
-    fn LayoutBoundsVisualPixels();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreTextLayoutRequest2Vtbl(
@@ -2430,10 +2344,6 @@ unsafe impl ::windows::core::Interface for ICoreTextLayoutRequestedEventArgs {
     type Vtable = ICoreTextLayoutRequestedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb1dc6ae0_9a7b_4e9e_a566_4a6b5f8ad676);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ICoreTextLayoutRequestedEventArgsImpl {
-    fn Request();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreTextLayoutRequestedEventArgsVtbl(
@@ -2451,13 +2361,6 @@ pub struct ICoreTextSelectionRequest(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICoreTextSelectionRequest {
     type Vtable = ICoreTextSelectionRequestVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf0a70403_208b_4301_883c_74ca7485fd8d);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ICoreTextSelectionRequestImpl {
-    fn Selection();
-    fn SetSelection();
-    fn IsCanceled();
-    fn GetDeferral();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2481,10 +2384,6 @@ unsafe impl ::windows::core::Interface for ICoreTextSelectionRequestedEventArgs 
     type Vtable = ICoreTextSelectionRequestedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x13c6682b_f614_421a_8f4b_9ec8a5a37fcd);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ICoreTextSelectionRequestedEventArgsImpl {
-    fn Request();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreTextSelectionRequestedEventArgsVtbl(
@@ -2502,14 +2401,6 @@ pub struct ICoreTextSelectionUpdatingEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICoreTextSelectionUpdatingEventArgs {
     type Vtable = ICoreTextSelectionUpdatingEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd445839f_fe7f_4bd5_8a26_0922c1b3e639);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ICoreTextSelectionUpdatingEventArgsImpl {
-    fn Selection();
-    fn Result();
-    fn SetResult();
-    fn IsCanceled();
-    fn GetDeferral();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2533,13 +2424,6 @@ pub struct ICoreTextServicesManager(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICoreTextServicesManager {
     type Vtable = ICoreTextServicesManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc2507d83_6e0a_4a8a_bdf8_1948874854ba);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ICoreTextServicesManagerImpl {
-    fn InputLanguage();
-    fn InputLanguageChanged();
-    fn RemoveInputLanguageChanged();
-    fn CreateEditContext();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2565,10 +2449,6 @@ unsafe impl ::windows::core::Interface for ICoreTextServicesManagerStatics {
     type Vtable = ICoreTextServicesManagerStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1520a388_e2cf_4d65_aeb9_b32d86fe39b9);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ICoreTextServicesManagerStaticsImpl {
-    fn GetForCurrentView();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreTextServicesManagerStaticsVtbl(
@@ -2587,10 +2467,6 @@ unsafe impl ::windows::core::Interface for ICoreTextServicesStatics {
     type Vtable = ICoreTextServicesStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x91859a46_eccf_47a4_8ae7_098a9c6fbb15);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ICoreTextServicesStaticsImpl {
-    fn HiddenCharacter();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreTextServicesStaticsVtbl(
@@ -2608,14 +2484,6 @@ pub struct ICoreTextTextRequest(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICoreTextTextRequest {
     type Vtable = ICoreTextTextRequestVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x50d950a9_f51e_4cc1_8ca1_e6346d1a61be);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ICoreTextTextRequestImpl {
-    fn Range();
-    fn Text();
-    fn SetText();
-    fn IsCanceled();
-    fn GetDeferral();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2640,10 +2508,6 @@ unsafe impl ::windows::core::Interface for ICoreTextTextRequestedEventArgs {
     type Vtable = ICoreTextTextRequestedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf096a2d0_41c6_4c02_8b1a_d953b00cabb3);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ICoreTextTextRequestedEventArgsImpl {
-    fn Request();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreTextTextRequestedEventArgsVtbl(
@@ -2661,17 +2525,6 @@ pub struct ICoreTextTextUpdatingEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICoreTextTextUpdatingEventArgs {
     type Vtable = ICoreTextTextUpdatingEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeea7918d_cc2b_4f03_8ff6_02fd217db450);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ICoreTextTextUpdatingEventArgsImpl {
-    fn Range();
-    fn Text();
-    fn NewSelection();
-    fn InputLanguage();
-    fn Result();
-    fn SetResult();
-    fn IsCanceled();
-    fn GetDeferral();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2693,3 +2546,5 @@ pub struct ICoreTextTextUpdatingEventArgsVtbl(
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
 );
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

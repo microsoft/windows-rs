@@ -578,3 +578,5 @@ impl ::core::default::Default for HDEVQUERY__ {
 #[doc = "*Required features: 'Win32_Devices_DeviceQuery', 'Win32_Devices_Properties', 'Win32_Foundation'*"]
 #[cfg(all(feature = "Win32_Devices_Properties", feature = "Win32_Foundation"))]
 pub type PDEV_QUERY_RESULT_CALLBACK = ::core::option::Option<unsafe extern "system" fn(hdevquery: *const HDEVQUERY__, pcontext: *const ::core::ffi::c_void, pactiondata: *const DEV_QUERY_RESULT_ACTION_DATA)>;
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

@@ -59,11 +59,6 @@ unsafe impl ::windows::core::Interface for IWICImageEncoder {
     type Vtable = IWICImageEncoderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x04c75bf8_3ce1_473b_acc5_3cc4f5e94999);
 }
-pub trait IWICImageEncoderImpl {
-    fn WriteFrame();
-    fn WriteFrameThumbnail();
-    fn WriteThumbnail();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWICImageEncoderVtbl(
@@ -278,9 +273,6 @@ unsafe impl ::windows::core::Interface for IWICImagingFactory2 {
     type Vtable = IWICImagingFactory2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7b816b45_1996_4476_b132_de9e247c8af0);
 }
-pub trait IWICImagingFactory2Impl: IWICImagingFactoryImpl {
-    fn CreateImageEncoder();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWICImagingFactory2Vtbl(
@@ -320,3 +312,5 @@ pub struct IWICImagingFactory2Vtbl(
     #[cfg(feature = "Win32_Graphics_Direct2D")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pd2ddevice: ::windows::core::RawPtr, ppwicimageencoder: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct2D"))] usize,
 );
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

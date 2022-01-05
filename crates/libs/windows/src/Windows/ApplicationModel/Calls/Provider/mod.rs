@@ -6,15 +6,6 @@ unsafe impl ::windows::core::Interface for IPhoneCallOrigin {
     type Vtable = IPhoneCallOriginVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x20613479_0ef9_4454_871c_afb66a14b6a5);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IPhoneCallOriginImpl {
-    fn Category();
-    fn SetCategory();
-    fn CategoryDescription();
-    fn SetCategoryDescription();
-    fn Location();
-    fn SetLocation();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPhoneCallOriginVtbl(
@@ -38,11 +29,6 @@ unsafe impl ::windows::core::Interface for IPhoneCallOrigin2 {
     type Vtable = IPhoneCallOrigin2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x04c7e980_9ac2_4768_b536_b68da4957d02);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IPhoneCallOrigin2Impl: IPhoneCallOriginImpl {
-    fn DisplayName();
-    fn SetDisplayName();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPhoneCallOrigin2Vtbl(
@@ -61,11 +47,6 @@ pub struct IPhoneCallOrigin3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPhoneCallOrigin3 {
     type Vtable = IPhoneCallOrigin3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x49330fb4_d1a7_43a2_aeee_c07b6dbaf068);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IPhoneCallOrigin3Impl: IPhoneCallOriginImpl + IPhoneCallOrigin2Impl {
-    fn DisplayPicture();
-    fn SetDisplayPicture();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -88,12 +69,6 @@ unsafe impl ::windows::core::Interface for IPhoneCallOriginManagerStatics {
     type Vtable = IPhoneCallOriginManagerStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xccfc5a0a_9af7_6149_39d0_e076fcce1395);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IPhoneCallOriginManagerStaticsImpl {
-    fn IsCurrentAppActiveCallOriginApp();
-    fn ShowPhoneCallOriginSettingsUI();
-    fn SetCallOrigin();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPhoneCallOriginManagerStaticsVtbl(
@@ -114,10 +89,6 @@ unsafe impl ::windows::core::Interface for IPhoneCallOriginManagerStatics2 {
     type Vtable = IPhoneCallOriginManagerStatics2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8bf3ee3f_40f4_4380_8c7c_aea2c9b8dd7a);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IPhoneCallOriginManagerStatics2Impl: IPhoneCallOriginManagerStaticsImpl {
-    fn RequestSetAsActiveCallOriginAppAsync();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPhoneCallOriginManagerStatics2Vtbl(
@@ -136,10 +107,6 @@ pub struct IPhoneCallOriginManagerStatics3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPhoneCallOriginManagerStatics3 {
     type Vtable = IPhoneCallOriginManagerStatics3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2ed69764_a6e3_50f0_b76a_d67cb39bdfde);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IPhoneCallOriginManagerStatics3Impl {
-    fn IsSupported();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -351,3 +318,5 @@ impl PhoneCallOriginManager {
 impl ::windows::core::RuntimeName for PhoneCallOriginManager {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.Provider.PhoneCallOriginManager";
 }
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

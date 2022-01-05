@@ -683,28 +683,6 @@ unsafe impl ::windows::core::Interface for IHttpBaseProtocolFilter {
     type Vtable = IHttpBaseProtocolFilterVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x71c89b09_e131_4b54_a53c_eb43ff37e9bb);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IHttpBaseProtocolFilterImpl {
-    fn AllowAutoRedirect();
-    fn SetAllowAutoRedirect();
-    fn AllowUI();
-    fn SetAllowUI();
-    fn AutomaticDecompression();
-    fn SetAutomaticDecompression();
-    fn CacheControl();
-    fn CookieManager();
-    fn ClientCertificate();
-    fn SetClientCertificate();
-    fn IgnorableServerCertificateErrors();
-    fn MaxConnectionsPerServer();
-    fn SetMaxConnectionsPerServer();
-    fn ProxyCredential();
-    fn SetProxyCredential();
-    fn ServerCredential();
-    fn SetServerCredential();
-    fn UseProxy();
-    fn SetUseProxy();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHttpBaseProtocolFilterVtbl(
@@ -748,11 +726,6 @@ unsafe impl ::windows::core::Interface for IHttpBaseProtocolFilter2 {
     type Vtable = IHttpBaseProtocolFilter2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2ec30013_9427_4900_a017_fa7da3b5c9ae);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IHttpBaseProtocolFilter2Impl {
-    fn MaxVersion();
-    fn SetMaxVersion();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHttpBaseProtocolFilter2Vtbl(
@@ -772,11 +745,6 @@ unsafe impl ::windows::core::Interface for IHttpBaseProtocolFilter3 {
     type Vtable = IHttpBaseProtocolFilter3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd43f4d4c_bd42_43ae_8717_ad2c8f4b2937);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IHttpBaseProtocolFilter3Impl {
-    fn CookieUsageBehavior();
-    fn SetCookieUsageBehavior();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHttpBaseProtocolFilter3Vtbl(
@@ -795,12 +763,6 @@ pub struct IHttpBaseProtocolFilter4(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IHttpBaseProtocolFilter4 {
     type Vtable = IHttpBaseProtocolFilter4Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9fe36ccf_2983_4893_941f_eb518ca8cef9);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IHttpBaseProtocolFilter4Impl {
-    fn ServerCustomValidationRequested();
-    fn RemoveServerCustomValidationRequested();
-    fn ClearAuthenticationCache();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -824,10 +786,6 @@ unsafe impl ::windows::core::Interface for IHttpBaseProtocolFilter5 {
     type Vtable = IHttpBaseProtocolFilter5Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x416e4993_31e3_4816_bf09_e018ee8dc1f5);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IHttpBaseProtocolFilter5Impl {
-    fn User();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHttpBaseProtocolFilter5Vtbl(
@@ -847,10 +805,6 @@ unsafe impl ::windows::core::Interface for IHttpBaseProtocolFilterStatics {
     type Vtable = IHttpBaseProtocolFilterStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6d4dee0c_e908_494e_b5a3_1263c9b8242a);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IHttpBaseProtocolFilterStaticsImpl {
-    fn CreateForUser();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHttpBaseProtocolFilterStaticsVtbl(
@@ -869,13 +823,6 @@ pub struct IHttpCacheControl(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IHttpCacheControl {
     type Vtable = IHttpCacheControlVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc77e1cb4_3cea_4eb5_ac85_04e186e63ab7);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IHttpCacheControlImpl {
-    fn ReadBehavior();
-    fn SetReadBehavior();
-    fn WriteBehavior();
-    fn SetWriteBehavior();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1000,10 +947,6 @@ unsafe impl ::windows::core::Interface for IHttpFilter {
     type Vtable = IHttpFilterVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa4cb6dd5_0902_439e_bfd7_e12552b165ce);
 }
-#[cfg(feature = "Foundation")]
-pub trait IHttpFilterImpl: IClosableImpl {
-    fn SendRequestAsync();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHttpFilterVtbl(
@@ -1022,16 +965,6 @@ pub struct IHttpServerCustomValidationRequestedEventArgs(::windows::core::IUnkno
 unsafe impl ::windows::core::Interface for IHttpServerCustomValidationRequestedEventArgs {
     type Vtable = IHttpServerCustomValidationRequestedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3165fe32_e7dd_48b7_a361_939c750e63cc);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IHttpServerCustomValidationRequestedEventArgsImpl {
-    fn RequestMessage();
-    fn ServerCertificate();
-    fn ServerCertificateErrorSeverity();
-    fn ServerCertificateErrors();
-    fn ServerIntermediateCertificates();
-    fn Reject();
-    fn GetDeferral();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1055,3 +988,5 @@ pub struct IHttpServerCustomValidationRequestedEventArgsVtbl(
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
 );
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

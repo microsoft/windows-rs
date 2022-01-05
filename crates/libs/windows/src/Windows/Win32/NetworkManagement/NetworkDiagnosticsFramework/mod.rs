@@ -367,9 +367,6 @@ unsafe impl ::windows::core::Interface for INetDiagExtensibleHelper {
     type Vtable = INetDiagExtensibleHelperVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc0b35748_ebf5_11d8_bbe9_505054503030);
 }
-pub trait INetDiagExtensibleHelperImpl {
-    fn ResolveAttributes();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct INetDiagExtensibleHelperVtbl(
@@ -513,26 +510,6 @@ unsafe impl ::windows::core::Interface for INetDiagHelper {
     type Vtable = INetDiagHelperVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc0b35746_ebf5_11d8_bbe9_505054503030);
 }
-pub trait INetDiagHelperImpl {
-    fn Initialize();
-    fn GetDiagnosticsInfo();
-    fn GetKeyAttributes();
-    fn LowHealth();
-    fn HighUtilization();
-    fn GetLowerHypotheses();
-    fn GetDownStreamHypotheses();
-    fn GetHigherHypotheses();
-    fn GetUpStreamHypotheses();
-    fn Repair();
-    fn Validate();
-    fn GetRepairInfo();
-    fn GetLifeTime();
-    fn SetLifeTime();
-    fn GetCacheTime();
-    fn GetAttributes();
-    fn Cancel();
-    fn Cleanup();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct INetDiagHelperVtbl(
@@ -630,11 +607,6 @@ unsafe impl ::windows::core::Interface for INetDiagHelperEx {
     type Vtable = INetDiagHelperExVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x972dab4d_e4e3_4fc6_ae54_5f65ccde4a15);
 }
-pub trait INetDiagHelperExImpl {
-    fn ReconfirmLowHealth();
-    fn SetUtilities();
-    fn ReproduceFailure();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct INetDiagHelperExVtbl(
@@ -696,9 +668,6 @@ unsafe impl ::windows::core::Interface for INetDiagHelperInfo {
     type Vtable = INetDiagHelperInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc0b35747_ebf5_11d8_bbe9_505054503030);
 }
-pub trait INetDiagHelperInfoImpl {
-    fn GetAttributeInfo();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct INetDiagHelperInfoVtbl(
@@ -757,9 +726,6 @@ impl ::core::fmt::Debug for INetDiagHelperUtilFactory {
 unsafe impl ::windows::core::Interface for INetDiagHelperUtilFactory {
     type Vtable = INetDiagHelperUtilFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x104613fb_bc57_4178_95ba_88809698354a);
-}
-pub trait INetDiagHelperUtilFactoryImpl {
-    fn CreateUtilityInstance();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1412,3 +1378,5 @@ impl ::core::default::Default for UiInfo_0 {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

@@ -107,11 +107,6 @@ unsafe impl ::windows::core::Interface for ID3D11On12Device {
     type Vtable = ID3D11On12DeviceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x85611e73_70a9_490e_9614_a9e302777904);
 }
-pub trait ID3D11On12DeviceImpl {
-    fn CreateWrappedResource();
-    fn ReleaseWrappedResources();
-    fn AcquireWrappedResources();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3D11On12DeviceVtbl(
@@ -209,9 +204,6 @@ impl ::core::fmt::Debug for ID3D11On12Device1 {
 unsafe impl ::windows::core::Interface for ID3D11On12Device1 {
     type Vtable = ID3D11On12Device1Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbdb64df4_ea2f_4c70_b861_aaab1258bb5d);
-}
-pub trait ID3D11On12Device1Impl: ID3D11On12DeviceImpl {
-    fn GetD3D12Device();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -343,10 +335,6 @@ unsafe impl ::windows::core::Interface for ID3D11On12Device2 {
     type Vtable = ID3D11On12Device2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdc90f331_4740_43fa_866e_67f12cb58223);
 }
-pub trait ID3D11On12Device2Impl: ID3D11On12Device1Impl + ID3D11On12DeviceImpl {
-    fn UnwrapUnderlyingResource();
-    fn ReturnUnderlyingResource();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3D11On12Device2Vtbl(
@@ -368,3 +356,5 @@ pub struct ID3D11On12Device2Vtbl(
 #[doc = "*Required features: 'Win32_Graphics_Direct3D11on12', 'Win32_Graphics_Direct3D', 'Win32_Graphics_Direct3D11'*"]
 #[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Direct3D11"))]
 pub type PFN_D3D11ON12_CREATE_DEVICE = ::core::option::Option<unsafe extern "system" fn(param0: ::core::option::Option<::windows::core::IUnknown>, param1: u32, param2: *const super::Direct3D::D3D_FEATURE_LEVEL, featurelevels: u32, param4: *const ::core::option::Option<::windows::core::IUnknown>, numqueues: u32, param6: u32, param7: *mut ::core::option::Option<super::Direct3D11::ID3D11Device>, param8: *mut ::core::option::Option<super::Direct3D11::ID3D11DeviceContext>, param9: *mut super::Direct3D::D3D_FEATURE_LEVEL) -> ::windows::core::HRESULT>;
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

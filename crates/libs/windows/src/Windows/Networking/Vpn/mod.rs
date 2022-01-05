@@ -6,13 +6,6 @@ unsafe impl ::windows::core::Interface for IVpnAppId {
     type Vtable = IVpnAppIdVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7b06a635_5c58_41d9_94a7_bfbcf1d8ca54);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IVpnAppIdImpl {
-    fn Type();
-    fn SetType();
-    fn Value();
-    fn SetValue();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVpnAppIdVtbl(
@@ -34,10 +27,6 @@ unsafe impl ::windows::core::Interface for IVpnAppIdFactory {
     type Vtable = IVpnAppIdFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x46adfd2a_0aab_4fdb_821d_d3ddc919788b);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IVpnAppIdFactoryImpl {
-    fn Create();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVpnAppIdFactoryVtbl(
@@ -55,25 +44,6 @@ pub struct IVpnChannel(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IVpnChannel {
     type Vtable = IVpnChannelVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4ac78d07_d1a8_4303_a091_c8d2e0915bc3);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IVpnChannelImpl {
-    fn AssociateTransport();
-    fn Start();
-    fn Stop();
-    fn RequestCredentials();
-    fn RequestVpnPacketBuffer();
-    fn LogDiagnosticMessage();
-    fn Id();
-    fn Configuration();
-    fn ActivityChange();
-    fn RemoveActivityChange();
-    fn SetPlugInContext();
-    fn PlugInContext();
-    fn SystemHealth();
-    fn RequestCustomPrompt();
-    fn SetErrorMessage();
-    fn SetAllowedSslTlsVersions();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -113,21 +83,6 @@ unsafe impl ::windows::core::Interface for IVpnChannel2 {
     type Vtable = IVpnChannel2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2255d165_993b_4629_ad60_f1c3f3537f50);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IVpnChannel2Impl {
-    fn StartWithMainTransport();
-    fn StartExistingTransports();
-    fn ActivityStateChange();
-    fn RemoveActivityStateChange();
-    fn GetVpnSendPacketBuffer();
-    fn GetVpnReceivePacketBuffer();
-    fn RequestCustomPromptAsync();
-    fn RequestCredentialsWithCertificateAsync();
-    fn RequestCredentialsWithOptionsAsync();
-    fn RequestCredentialsSimpleAsync();
-    fn TerminateConnection();
-    fn StartWithTrafficFilter();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVpnChannel2Vtbl(
@@ -166,15 +121,6 @@ unsafe impl ::windows::core::Interface for IVpnChannel4 {
     type Vtable = IVpnChannel4Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd7266ede_2937_419d_9570_486aebb81803);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IVpnChannel4Impl {
-    fn AddAndAssociateTransport();
-    fn StartWithMultipleTransports();
-    fn ReplaceAndAssociateTransport();
-    fn StartReconnectingTransport();
-    fn GetSlotTypeForTransportContext();
-    fn CurrentRequestTransportContext();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVpnChannel4Vtbl(
@@ -200,13 +146,6 @@ unsafe impl ::windows::core::Interface for IVpnChannel5 {
     type Vtable = IVpnChannel5Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xde7a0992_8384_4fbc_882c_1fd23124cd3b);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IVpnChannel5Impl {
-    fn AppendVpnReceivePacketBuffer();
-    fn AppendVpnSendPacketBuffer();
-    fn FlushVpnReceivePacketBuffers();
-    fn FlushVpnSendPacketBuffers();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVpnChannel5Vtbl(
@@ -228,10 +167,6 @@ unsafe impl ::windows::core::Interface for IVpnChannel6 {
     type Vtable = IVpnChannel6Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x55843696_bd63_49c5_abca_5da77885551a);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IVpnChannel6Impl {
-    fn ActivateForeground();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVpnChannel6Vtbl(
@@ -251,10 +186,6 @@ unsafe impl ::windows::core::Interface for IVpnChannelActivityEventArgs {
     type Vtable = IVpnChannelActivityEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa36c88f2_afdc_4775_855d_d4ac0a35fc55);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IVpnChannelActivityEventArgsImpl {
-    fn Type();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVpnChannelActivityEventArgsVtbl(
@@ -273,10 +204,6 @@ unsafe impl ::windows::core::Interface for IVpnChannelActivityStateChangedArgs {
     type Vtable = IVpnChannelActivityStateChangedArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3d750565_fdc0_4bbe_a23b_45fffc6d97a1);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IVpnChannelActivityStateChangedArgsImpl {
-    fn ActivityState();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVpnChannelActivityStateChangedArgsVtbl(
@@ -294,12 +221,6 @@ pub struct IVpnChannelConfiguration(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IVpnChannelConfiguration {
     type Vtable = IVpnChannelConfigurationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0e2ddca2_2012_4fe4_b179_8c652c6d107e);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IVpnChannelConfigurationImpl {
-    fn ServerServiceName();
-    fn ServerHostNameList();
-    fn CustomField();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -321,10 +242,6 @@ pub struct IVpnChannelConfiguration2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IVpnChannelConfiguration2 {
     type Vtable = IVpnChannelConfiguration2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf30b574c_7824_471c_a118_63dbc93ae4c7);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IVpnChannelConfiguration2Impl {
-    fn ServerUris();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -410,9 +327,6 @@ unsafe impl ::windows::core::RuntimeType for IVpnChannelStatics {
 unsafe impl ::windows::core::Interface for IVpnChannelStatics {
     type Vtable = IVpnChannelStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x88eb062d_e818_4ffd_98a6_363e3736c95d);
-}
-pub trait IVpnChannelStaticsImpl {
-    fn ProcessEventAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -528,12 +442,6 @@ unsafe impl ::windows::core::Interface for IVpnCredential {
     type Vtable = IVpnCredentialVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb7e78af3_a46d_404b_8729_1832522853ac);
 }
-pub trait IVpnCredentialImpl {
-    fn PasskeyCredential();
-    fn CertificateCredential();
-    fn AdditionalPin();
-    fn OldPasswordCredential();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVpnCredentialVtbl(
@@ -558,12 +466,6 @@ unsafe impl ::windows::core::Interface for IVpnCustomCheckBox {
     type Vtable = IVpnCustomCheckBoxVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x43878753_03c5_4e61_93d7_a957714c4282);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IVpnCustomCheckBoxImpl: IVpnCustomPromptImpl {
-    fn SetInitialCheckState();
-    fn InitialCheckState();
-    fn Checked();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVpnCustomCheckBoxVtbl(
@@ -583,12 +485,6 @@ pub struct IVpnCustomComboBox(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IVpnCustomComboBox {
     type Vtable = IVpnCustomComboBoxVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9a24158e_dba1_4c6f_8270_dcf3c9761c4c);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IVpnCustomComboBoxImpl: IVpnCustomPromptImpl {
-    fn SetOptionsText();
-    fn OptionsText();
-    fn Selected();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -612,14 +508,6 @@ unsafe impl ::windows::core::Interface for IVpnCustomEditBox {
     type Vtable = IVpnCustomEditBoxVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3002d9a0_cfbf_4c0b_8f3c_66f503c20b39);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IVpnCustomEditBoxImpl: IVpnCustomPromptImpl {
-    fn SetDefaultText();
-    fn DefaultText();
-    fn SetNoEcho();
-    fn NoEcho();
-    fn Text();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVpnCustomEditBoxVtbl(
@@ -642,8 +530,6 @@ unsafe impl ::windows::core::Interface for IVpnCustomErrorBox {
     type Vtable = IVpnCustomErrorBoxVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9ec4efb2_c942_42af_b223_588b48328721);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IVpnCustomErrorBoxImpl: IVpnCustomPromptImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVpnCustomErrorBoxVtbl(
@@ -761,14 +647,6 @@ unsafe impl ::windows::core::Interface for IVpnCustomPrompt {
     type Vtable = IVpnCustomPromptVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9b2ebe7b_87d5_433c_b4f6_eee6aa68a244);
 }
-pub trait IVpnCustomPromptImpl {
-    fn SetLabel();
-    fn Label();
-    fn SetCompulsory();
-    fn Compulsory();
-    fn SetBordered();
-    fn Bordered();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVpnCustomPromptVtbl(
@@ -791,12 +669,6 @@ pub struct IVpnCustomPromptBooleanInput(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IVpnCustomPromptBooleanInput {
     type Vtable = IVpnCustomPromptBooleanInputVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc4c9a69e_ff47_4527_9f27_a49292019979);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IVpnCustomPromptBooleanInputImpl: IVpnCustomPromptElementImpl {
-    fn SetInitialValue();
-    fn InitialValue();
-    fn Value();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -918,14 +790,6 @@ unsafe impl ::windows::core::Interface for IVpnCustomPromptElement {
     type Vtable = IVpnCustomPromptElementVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x73bd5638_6f04_404d_93dd_50a44924a38b);
 }
-pub trait IVpnCustomPromptElementImpl {
-    fn SetDisplayName();
-    fn DisplayName();
-    fn SetCompulsory();
-    fn Compulsory();
-    fn SetEmphasized();
-    fn Emphasized();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVpnCustomPromptElementVtbl(
@@ -949,11 +813,6 @@ unsafe impl ::windows::core::Interface for IVpnCustomPromptOptionSelector {
     type Vtable = IVpnCustomPromptOptionSelectorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3b8f34d9_8ec1_4e95_9a4e_7ba64d38f330);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IVpnCustomPromptOptionSelectorImpl: IVpnCustomPromptElementImpl {
-    fn Options();
-    fn SelectedIndex();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVpnCustomPromptOptionSelectorVtbl(
@@ -974,11 +833,6 @@ unsafe impl ::windows::core::Interface for IVpnCustomPromptText {
     type Vtable = IVpnCustomPromptTextVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3bc8bdee_3a42_49a3_abdd_07b2edea752d);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IVpnCustomPromptTextImpl: IVpnCustomPromptElementImpl {
-    fn SetText();
-    fn Text();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVpnCustomPromptTextVtbl(
@@ -997,14 +851,6 @@ pub struct IVpnCustomPromptTextInput(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IVpnCustomPromptTextInput {
     type Vtable = IVpnCustomPromptTextInputVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc9da9c75_913c_47d5_88ba_48fc48930235);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IVpnCustomPromptTextInputImpl: IVpnCustomPromptElementImpl {
-    fn SetPlaceholderText();
-    fn PlaceholderText();
-    fn SetIsTextHidden();
-    fn IsTextHidden();
-    fn Text();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1028,11 +874,6 @@ unsafe impl ::windows::core::Interface for IVpnCustomTextBox {
     type Vtable = IVpnCustomTextBoxVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdaa4c3ca_8f23_4d36_91f1_76d937827942);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IVpnCustomTextBoxImpl: IVpnCustomPromptImpl {
-    fn SetDisplayText();
-    fn DisplayText();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVpnCustomTextBoxVtbl(
@@ -1051,12 +892,6 @@ pub struct IVpnDomainNameAssignment(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IVpnDomainNameAssignment {
     type Vtable = IVpnDomainNameAssignmentVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4135b141_ccdb_49b5_9401_039a8ae767e9);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IVpnDomainNameAssignmentImpl {
-    fn DomainNameList();
-    fn SetProxyAutoConfigurationUri();
-    fn ProxyAutoConfigurationUri();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1080,15 +915,6 @@ pub struct IVpnDomainNameInfo(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IVpnDomainNameInfo {
     type Vtable = IVpnDomainNameInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xad2eb82f_ea8e_4f7a_843e_1a87e32e1b9a);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IVpnDomainNameInfoImpl {
-    fn SetDomainName();
-    fn DomainName();
-    fn SetDomainNameType();
-    fn DomainNameType();
-    fn DnsServers();
-    fn WebProxyServers();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1114,10 +940,6 @@ pub struct IVpnDomainNameInfo2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IVpnDomainNameInfo2 {
     type Vtable = IVpnDomainNameInfo2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xab871151_6c53_4828_9883_d886de104407);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IVpnDomainNameInfo2Impl {
-    fn WebProxyUris();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1208,9 +1030,6 @@ unsafe impl ::windows::core::Interface for IVpnDomainNameInfoFactory {
     type Vtable = IVpnDomainNameInfoFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2507bb75_028f_4688_8d3a_c4531df37da8);
 }
-pub trait IVpnDomainNameInfoFactoryImpl {
-    fn CreateVpnDomainNameInfo();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVpnDomainNameInfoFactoryVtbl(
@@ -1229,12 +1048,6 @@ pub struct IVpnForegroundActivatedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IVpnForegroundActivatedEventArgs {
     type Vtable = IVpnForegroundActivatedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x85b465b0_cadb_4d70_ac92_543a24dc9ebc);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IVpnForegroundActivatedEventArgsImpl {
-    fn ProfileName();
-    fn SharedContext();
-    fn ActivationOperation();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1257,10 +1070,6 @@ unsafe impl ::windows::core::Interface for IVpnForegroundActivationOperation {
     type Vtable = IVpnForegroundActivationOperationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9e010d57_f17a_4bd5_9b6d_f984f1297d3c);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IVpnForegroundActivationOperationImpl {
-    fn Complete();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVpnForegroundActivationOperationVtbl(
@@ -1279,10 +1088,6 @@ pub struct IVpnInterfaceId(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IVpnInterfaceId {
     type Vtable = IVpnInterfaceIdVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9e2ddca2_1712_4ce4_b179_8c652c6d1011);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IVpnInterfaceIdImpl {
-    fn GetAddressInfo();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1371,9 +1176,6 @@ unsafe impl ::windows::core::Interface for IVpnInterfaceIdFactory {
     type Vtable = IVpnInterfaceIdFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9e2ddca2_1712_4ce4_b179_8c652c6d1000);
 }
-pub trait IVpnInterfaceIdFactoryImpl {
-    fn CreateVpnInterfaceId();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVpnInterfaceIdFactoryVtbl(
@@ -1391,18 +1193,6 @@ pub struct IVpnManagementAgent(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IVpnManagementAgent {
     type Vtable = IVpnManagementAgentVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x193696cd_a5c4_4abe_852b_785be4cb3e34);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IVpnManagementAgentImpl {
-    fn AddProfileFromXmlAsync();
-    fn AddProfileFromObjectAsync();
-    fn UpdateProfileFromXmlAsync();
-    fn UpdateProfileFromObjectAsync();
-    fn GetProfilesAsync();
-    fn DeleteProfileAsync();
-    fn ConnectProfileAsync();
-    fn ConnectProfileWithPasswordCredentialAsync();
-    fn DisconnectProfileAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1439,13 +1229,6 @@ unsafe impl ::windows::core::Interface for IVpnNamespaceAssignment {
     type Vtable = IVpnNamespaceAssignmentVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd7f7db18_307d_4c0e_bd62_8fa270bbadd6);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IVpnNamespaceAssignmentImpl {
-    fn SetNamespaceList();
-    fn NamespaceList();
-    fn SetProxyAutoConfigUri();
-    fn ProxyAutoConfigUri();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVpnNamespaceAssignmentVtbl(
@@ -1470,15 +1253,6 @@ pub struct IVpnNamespaceInfo(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IVpnNamespaceInfo {
     type Vtable = IVpnNamespaceInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x30edfb43_444f_44c5_8167_a35a91f1af94);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IVpnNamespaceInfoImpl {
-    fn SetNamespace();
-    fn Namespace();
-    fn SetDnsServers();
-    fn DnsServers();
-    fn SetWebProxyServers();
-    fn WebProxyServers();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1577,9 +1351,6 @@ unsafe impl ::windows::core::Interface for IVpnNamespaceInfoFactory {
     type Vtable = IVpnNamespaceInfoFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcb3e951a_b0ce_442b_acbb_5f99b202c31c);
 }
-pub trait IVpnNamespaceInfoFactoryImpl {
-    fn CreateVpnNamespaceInfo();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVpnNamespaceInfoFactoryVtbl(
@@ -1598,20 +1369,6 @@ pub struct IVpnNativeProfile(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IVpnNativeProfile {
     type Vtable = IVpnNativeProfileVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa4aee29e_6417_4333_9842_f0a66db69802);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IVpnNativeProfileImpl: IVpnProfileImpl {
-    fn Servers();
-    fn RoutingPolicyType();
-    fn SetRoutingPolicyType();
-    fn NativeProtocolType();
-    fn SetNativeProtocolType();
-    fn UserAuthenticationMethod();
-    fn SetUserAuthenticationMethod();
-    fn TunnelAuthenticationMethod();
-    fn SetTunnelAuthenticationMethod();
-    fn EapConfiguration();
-    fn SetEapConfiguration();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1642,12 +1399,6 @@ unsafe impl ::windows::core::Interface for IVpnNativeProfile2 {
     type Vtable = IVpnNativeProfile2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0fec2467_cdb5_4ac7_b5a3_0afb5ec47682);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IVpnNativeProfile2Impl {
-    fn RequireVpnClientAppUI();
-    fn SetRequireVpnClientAppUI();
-    fn ConnectionStatus();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVpnNativeProfile2Vtbl(
@@ -1667,14 +1418,6 @@ pub struct IVpnPacketBuffer(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IVpnPacketBuffer {
     type Vtable = IVpnPacketBufferVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc2f891fc_4d5c_4a63_b70d_4e307eacce55);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IVpnPacketBufferImpl {
-    fn Buffer();
-    fn SetStatus();
-    fn Status();
-    fn SetTransportAffinity();
-    fn TransportAffinity();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1699,10 +1442,6 @@ unsafe impl ::windows::core::Interface for IVpnPacketBuffer2 {
     type Vtable = IVpnPacketBuffer2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x665e91f0_8805_4bf5_a619_2e84882e6b4f);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IVpnPacketBuffer2Impl {
-    fn AppId();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVpnPacketBuffer2Vtbl(
@@ -1720,11 +1459,6 @@ pub struct IVpnPacketBuffer3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IVpnPacketBuffer3 {
     type Vtable = IVpnPacketBuffer3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe256072f_107b_4c40_b127_5bc53e0ad960);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IVpnPacketBuffer3Impl {
-    fn SetTransportContext();
-    fn TransportContext();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1814,9 +1548,6 @@ unsafe impl ::windows::core::Interface for IVpnPacketBufferFactory {
     type Vtable = IVpnPacketBufferFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9e2ddca2_1712_4ce4_b179_8c652c6d9999);
 }
-pub trait IVpnPacketBufferFactoryImpl {
-    fn CreateVpnPacketBuffer();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVpnPacketBufferFactoryVtbl(
@@ -1834,17 +1565,6 @@ pub struct IVpnPacketBufferList(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IVpnPacketBufferList {
     type Vtable = IVpnPacketBufferListVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc2f891fc_4d5c_4a63_b70d_4e307eacce77);
-}
-#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IVpnPacketBufferListImpl: IIterableImpl<VpnPacketBuffer> {
-    fn Append();
-    fn AddAtBegin();
-    fn RemoveAtEnd();
-    fn RemoveAtBegin();
-    fn Clear();
-    fn SetStatus();
-    fn Status();
-    fn Size();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1871,13 +1591,6 @@ unsafe impl ::windows::core::Interface for IVpnPacketBufferList2 {
     type Vtable = IVpnPacketBufferList2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3e7acfe5_ea1e_482a_8d98_c065f57d89ea);
 }
-#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IVpnPacketBufferList2Impl: IIterableImpl<VpnPacketBuffer> {
-    fn AddLeadingPacket();
-    fn RemoveLeadingPacket();
-    fn AddTrailingPacket();
-    fn RemoveTrailingPacket();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVpnPacketBufferList2Vtbl(
@@ -1898,12 +1611,6 @@ pub struct IVpnPickedCredential(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IVpnPickedCredential {
     type Vtable = IVpnPickedCredentialVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9a793ac7_8854_4e52_ad97_24dd9a842bce);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IVpnPickedCredentialImpl {
-    fn PasskeyCredential();
-    fn AdditionalPin();
-    fn OldPasswordCredential();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2013,13 +1720,6 @@ unsafe impl ::windows::core::Interface for IVpnPlugIn {
     type Vtable = IVpnPlugInVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xceb78d07_d0a8_4703_a091_c8c2c0915bc4);
 }
-pub trait IVpnPlugInImpl {
-    fn Connect();
-    fn Disconnect();
-    fn GetKeepAlivePayload();
-    fn Encapsulate();
-    fn Decapsulate();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVpnPlugInVtbl(
@@ -2041,14 +1741,6 @@ pub struct IVpnPlugInProfile(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IVpnPlugInProfile {
     type Vtable = IVpnPlugInProfileVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0edf0da4_4f00_4589_8d7b_4bf988f6542c);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IVpnPlugInProfileImpl: IVpnProfileImpl {
-    fn ServerUris();
-    fn CustomConfiguration();
-    fn SetCustomConfiguration();
-    fn VpnPluginPackageFamilyName();
-    fn SetVpnPluginPackageFamilyName();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2072,12 +1764,6 @@ pub struct IVpnPlugInProfile2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IVpnPlugInProfile2 {
     type Vtable = IVpnPlugInProfile2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x611c4892_cf94_4ad6_ba99_00f4ff34565e);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IVpnPlugInProfile2Impl: IVpnProfileImpl {
-    fn RequireVpnClientAppUI();
-    fn SetRequireVpnClientAppUI();
-    fn ConnectionStatus();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2235,18 +1921,6 @@ unsafe impl ::windows::core::Interface for IVpnProfile {
     type Vtable = IVpnProfileVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7875b751_b0d7_43db_8a93_d3fe2479e56a);
 }
-pub trait IVpnProfileImpl {
-    fn ProfileName();
-    fn SetProfileName();
-    fn AppTriggers();
-    fn Routes();
-    fn DomainNameInfoList();
-    fn TrafficFilters();
-    fn RememberCredentials();
-    fn SetRememberCredentials();
-    fn AlwaysOn();
-    fn SetAlwaysOn();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVpnProfileVtbl(
@@ -2278,13 +1952,6 @@ unsafe impl ::windows::core::Interface for IVpnRoute {
     type Vtable = IVpnRouteVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb5731b83_0969_4699_938e_7776db29cfb3);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IVpnRouteImpl {
-    fn SetAddress();
-    fn Address();
-    fn SetPrefixSize();
-    fn PrefixSize();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVpnRouteVtbl(
@@ -2305,19 +1972,6 @@ pub struct IVpnRouteAssignment(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IVpnRouteAssignment {
     type Vtable = IVpnRouteAssignmentVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdb64de22_ce39_4a76_9550_f61039f80e48);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IVpnRouteAssignmentImpl {
-    fn SetIpv4InclusionRoutes();
-    fn SetIpv6InclusionRoutes();
-    fn Ipv4InclusionRoutes();
-    fn Ipv6InclusionRoutes();
-    fn SetIpv4ExclusionRoutes();
-    fn SetIpv6ExclusionRoutes();
-    fn Ipv4ExclusionRoutes();
-    fn Ipv6ExclusionRoutes();
-    fn SetExcludeLocalSubnets();
-    fn ExcludeLocalSubnets();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2423,9 +2077,6 @@ unsafe impl ::windows::core::Interface for IVpnRouteFactory {
     type Vtable = IVpnRouteFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbdeab5ff_45cf_4b99_83fb_db3bc2672b02);
 }
-pub trait IVpnRouteFactoryImpl {
-    fn CreateVpnRoute();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVpnRouteFactoryVtbl(
@@ -2443,10 +2094,6 @@ pub struct IVpnSystemHealth(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IVpnSystemHealth {
     type Vtable = IVpnSystemHealthVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x99a8f8af_c0ee_4e75_817a_f231aee5123d);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IVpnSystemHealthImpl {
-    fn StatementOfHealth();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2466,20 +2113,6 @@ pub struct IVpnTrafficFilter(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IVpnTrafficFilter {
     type Vtable = IVpnTrafficFilterVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2f691b60_6c9f_47f5_ac36_bb1b042e2c50);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IVpnTrafficFilterImpl {
-    fn AppId();
-    fn SetAppId();
-    fn AppClaims();
-    fn Protocol();
-    fn SetProtocol();
-    fn LocalPortRanges();
-    fn RemotePortRanges();
-    fn LocalAddressRanges();
-    fn RemoteAddressRanges();
-    fn RoutingPolicyType();
-    fn SetRoutingPolicyType();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2514,14 +2147,6 @@ unsafe impl ::windows::core::Interface for IVpnTrafficFilterAssignment {
     type Vtable = IVpnTrafficFilterAssignmentVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x56ccd45c_e664_471e_89cd_601603b9e0f3);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IVpnTrafficFilterAssignmentImpl {
-    fn TrafficFilterList();
-    fn AllowOutbound();
-    fn SetAllowOutbound();
-    fn AllowInbound();
-    fn SetAllowInbound();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVpnTrafficFilterAssignmentVtbl(
@@ -2544,10 +2169,6 @@ pub struct IVpnTrafficFilterFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IVpnTrafficFilterFactory {
     type Vtable = IVpnTrafficFilterFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x480d41d5_7f99_474c_86ee_96df168318f1);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IVpnTrafficFilterFactoryImpl {
-    fn Create();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7935,3 +7556,5 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &VpnT
 }
 unsafe impl ::core::marker::Send for VpnTrafficFilterAssignment {}
 unsafe impl ::core::marker::Sync for VpnTrafficFilterAssignment {}
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

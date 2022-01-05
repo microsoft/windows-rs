@@ -169,23 +169,6 @@ unsafe impl ::windows::core::Interface for IDynamicPortMapping {
     type Vtable = IDynamicPortMappingVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4fc80282_23b6_4378_9a27_cd8f17c9400c);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IDynamicPortMappingImpl: IDispatchImpl {
-    fn ExternalIPAddress();
-    fn RemoteHost();
-    fn ExternalPort();
-    fn Protocol();
-    fn InternalPort();
-    fn InternalClient();
-    fn Enabled();
-    fn Description();
-    fn LeaseDuration();
-    fn RenewLease();
-    fn EditInternalClient();
-    fn Enable();
-    fn EditDescription();
-    fn EditInternalPort();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDynamicPortMappingVtbl(
@@ -340,14 +323,6 @@ unsafe impl ::windows::core::Interface for IDynamicPortMappingCollection {
     type Vtable = IDynamicPortMappingCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb60de00f_156e_4e8d_9ec1_3a2342c10899);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IDynamicPortMappingCollectionImpl: IDispatchImpl {
-    fn _NewEnum();
-    fn Item();
-    fn Count();
-    fn Remove();
-    fn Add();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDynamicPortMappingCollectionVtbl(
@@ -433,12 +408,6 @@ unsafe impl ::windows::core::Interface for IEnumNetConnection {
     type Vtable = IEnumNetConnectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc08956a0_1cd3_11d1_b1c5_00805fc1270e);
 }
-pub trait IEnumNetConnectionImpl {
-    fn Next();
-    fn Skip();
-    fn Reset();
-    fn Clone();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumNetConnectionVtbl(
@@ -512,12 +481,6 @@ impl ::core::fmt::Debug for IEnumNetSharingEveryConnection {
 unsafe impl ::windows::core::Interface for IEnumNetSharingEveryConnection {
     type Vtable = IEnumNetSharingEveryConnectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc08956b8_1cd3_11d1_b1c5_00805fc1270e);
-}
-pub trait IEnumNetSharingEveryConnectionImpl {
-    fn Next();
-    fn Skip();
-    fn Reset();
-    fn Clone();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -594,12 +557,6 @@ unsafe impl ::windows::core::Interface for IEnumNetSharingPortMapping {
     type Vtable = IEnumNetSharingPortMappingVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc08956b0_1cd3_11d1_b1c5_00805fc1270e);
 }
-pub trait IEnumNetSharingPortMappingImpl {
-    fn Next();
-    fn Skip();
-    fn Reset();
-    fn Clone();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumNetSharingPortMappingVtbl(
@@ -675,12 +632,6 @@ unsafe impl ::windows::core::Interface for IEnumNetSharingPrivateConnection {
     type Vtable = IEnumNetSharingPrivateConnectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc08956b5_1cd3_11d1_b1c5_00805fc1270e);
 }
-pub trait IEnumNetSharingPrivateConnectionImpl {
-    fn Next();
-    fn Skip();
-    fn Reset();
-    fn Clone();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumNetSharingPrivateConnectionVtbl(
@@ -755,12 +706,6 @@ impl ::core::fmt::Debug for IEnumNetSharingPublicConnection {
 unsafe impl ::windows::core::Interface for IEnumNetSharingPublicConnection {
     type Vtable = IEnumNetSharingPublicConnectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc08956b4_1cd3_11d1_b1c5_00805fc1270e);
-}
-pub trait IEnumNetSharingPublicConnectionImpl {
-    fn Next();
-    fn Skip();
-    fn Reset();
-    fn Clone();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -873,11 +818,6 @@ unsafe impl ::windows::core::Interface for INATEventManager {
     type Vtable = INATEventManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x624bd588_9060_4109_b0b0_1adbbcac32df);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait INATEventManagerImpl: IDispatchImpl {
-    fn SetExternalIPAddressCallback();
-    fn SetNumberOfEntriesCallback();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct INATEventManagerVtbl(
@@ -945,9 +885,6 @@ unsafe impl ::windows::core::Interface for INATExternalIPAddressCallback {
     type Vtable = INATExternalIPAddressCallbackVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9c416740_a34e_446f_ba06_abd04c3149ae);
 }
-pub trait INATExternalIPAddressCallbackImpl {
-    fn NewExternalIPAddress();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct INATExternalIPAddressCallbackVtbl(
@@ -1005,9 +942,6 @@ impl ::core::fmt::Debug for INATNumberOfEntriesCallback {
 unsafe impl ::windows::core::Interface for INATNumberOfEntriesCallback {
     type Vtable = INATNumberOfEntriesCallbackVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc83a0a74_91ee_41b6_b67a_67e0f00bbd78);
-}
-pub trait INATNumberOfEntriesCallbackImpl {
-    fn NewNumberOfEntries();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1305,15 +1239,6 @@ unsafe impl ::windows::core::Interface for INetConnection {
     type Vtable = INetConnectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc08956a1_1cd3_11d1_b1c5_00805fc1270e);
 }
-pub trait INetConnectionImpl {
-    fn Connect();
-    fn Disconnect();
-    fn Delete();
-    fn Duplicate();
-    fn GetProperties();
-    fn GetUiObjectClassId();
-    fn Rename();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct INetConnectionVtbl(
@@ -1390,11 +1315,6 @@ unsafe impl ::windows::core::Interface for INetConnectionConnectUi {
     type Vtable = INetConnectionConnectUiVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc08956a3_1cd3_11d1_b1c5_00805fc1270e);
 }
-pub trait INetConnectionConnectUiImpl {
-    fn SetConnection();
-    fn Connect();
-    fn Disconnect();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct INetConnectionConnectUiVtbl(
@@ -1456,9 +1376,6 @@ impl ::core::fmt::Debug for INetConnectionManager {
 unsafe impl ::windows::core::Interface for INetConnectionManager {
     type Vtable = INetConnectionManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc08956a2_1cd3_11d1_b1c5_00805fc1270e);
-}
-pub trait INetConnectionManagerImpl {
-    fn EnumConnections();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1586,15 +1503,6 @@ impl ::core::fmt::Debug for INetConnectionProps {
 unsafe impl ::windows::core::Interface for INetConnectionProps {
     type Vtable = INetConnectionPropsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf4277c95_ce5b_463d_8167_5662d9bcaa72);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait INetConnectionPropsImpl: IDispatchImpl {
-    fn Guid();
-    fn Name();
-    fn DeviceName();
-    fn Status();
-    fn MediaType();
-    fn Characteristics();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1771,21 +1679,6 @@ unsafe impl ::windows::core::Interface for INetFwAuthorizedApplication {
     type Vtable = INetFwAuthorizedApplicationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb5e64ffa_c2c5_444e_a301_fb5e00018050);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait INetFwAuthorizedApplicationImpl: IDispatchImpl {
-    fn Name();
-    fn SetName();
-    fn ProcessImageFileName();
-    fn SetProcessImageFileName();
-    fn IpVersion();
-    fn SetIpVersion();
-    fn Scope();
-    fn SetScope();
-    fn RemoteAddresses();
-    fn SetRemoteAddresses();
-    fn Enabled();
-    fn SetEnabled();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct INetFwAuthorizedApplicationVtbl(
@@ -1934,14 +1827,6 @@ impl ::core::fmt::Debug for INetFwAuthorizedApplications {
 unsafe impl ::windows::core::Interface for INetFwAuthorizedApplications {
     type Vtable = INetFwAuthorizedApplicationsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x644efd52_ccf9_486c_97a2_39f352570b30);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait INetFwAuthorizedApplicationsImpl: IDispatchImpl {
-    fn Count();
-    fn Add();
-    fn Remove();
-    fn Item();
-    fn _NewEnum();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2146,29 +2031,6 @@ unsafe impl ::windows::core::Interface for INetFwIcmpSettings {
     type Vtable = INetFwIcmpSettingsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa6207b2e_7cdd_426a_951e_5e1cbc5afead);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait INetFwIcmpSettingsImpl: IDispatchImpl {
-    fn AllowOutboundDestinationUnreachable();
-    fn SetAllowOutboundDestinationUnreachable();
-    fn AllowRedirect();
-    fn SetAllowRedirect();
-    fn AllowInboundEchoRequest();
-    fn SetAllowInboundEchoRequest();
-    fn AllowOutboundTimeExceeded();
-    fn SetAllowOutboundTimeExceeded();
-    fn AllowOutboundParameterProblem();
-    fn SetAllowOutboundParameterProblem();
-    fn AllowOutboundSourceQuench();
-    fn SetAllowOutboundSourceQuench();
-    fn AllowInboundRouterRequest();
-    fn SetAllowInboundRouterRequest();
-    fn AllowInboundTimestampRequest();
-    fn SetAllowInboundTimestampRequest();
-    fn AllowInboundMaskRequest();
-    fn SetAllowInboundMaskRequest();
-    fn AllowOutboundPacketTooBig();
-    fn SetAllowOutboundPacketTooBig();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct INetFwIcmpSettingsVtbl(
@@ -2318,14 +2180,6 @@ impl ::core::fmt::Debug for INetFwMgr {
 unsafe impl ::windows::core::Interface for INetFwMgr {
     type Vtable = INetFwMgrVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf7898af5_cac4_4632_a2ec_da06e5111af2);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait INetFwMgrImpl: IDispatchImpl {
-    fn LocalPolicy();
-    fn CurrentProfileType();
-    fn RestoreDefaults();
-    fn IsPortAllowed();
-    fn IsIcmpTypeAllowed();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2512,24 +2366,6 @@ unsafe impl ::windows::core::Interface for INetFwOpenPort {
     type Vtable = INetFwOpenPortVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe0483ba0_47ff_4d9c_a6d6_7741d0b195f7);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait INetFwOpenPortImpl: IDispatchImpl {
-    fn Name();
-    fn SetName();
-    fn IpVersion();
-    fn SetIpVersion();
-    fn Protocol();
-    fn SetProtocol();
-    fn Port();
-    fn SetPort();
-    fn Scope();
-    fn SetScope();
-    fn RemoteAddresses();
-    fn SetRemoteAddresses();
-    fn Enabled();
-    fn SetEnabled();
-    fn BuiltIn();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct INetFwOpenPortVtbl(
@@ -2678,14 +2514,6 @@ unsafe impl ::windows::core::Interface for INetFwOpenPorts {
     type Vtable = INetFwOpenPortsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc0e9d7fa_e07e_430a_b19a_090ce82d92e2);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait INetFwOpenPortsImpl: IDispatchImpl {
-    fn Count();
-    fn Add();
-    fn Remove();
-    fn Item();
-    fn _NewEnum();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct INetFwOpenPortsVtbl(
@@ -2806,11 +2634,6 @@ impl ::core::fmt::Debug for INetFwPolicy {
 unsafe impl ::windows::core::Interface for INetFwPolicy {
     type Vtable = INetFwPolicyVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd46d2478_9ac9_4008_9dc7_5563ce5536cc);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait INetFwPolicyImpl: IDispatchImpl {
-    fn CurrentProfile();
-    fn GetProfileByType();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3026,31 +2849,6 @@ unsafe impl ::windows::core::Interface for INetFwPolicy2 {
     type Vtable = INetFwPolicy2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x98325047_c671_4174_8d81_defcd3f03186);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait INetFwPolicy2Impl: IDispatchImpl {
-    fn CurrentProfileTypes();
-    fn FirewallEnabled();
-    fn SetFirewallEnabled();
-    fn ExcludedInterfaces();
-    fn SetExcludedInterfaces();
-    fn BlockAllInboundTraffic();
-    fn SetBlockAllInboundTraffic();
-    fn NotificationsDisabled();
-    fn SetNotificationsDisabled();
-    fn UnicastResponsesToMulticastBroadcastDisabled();
-    fn SetUnicastResponsesToMulticastBroadcastDisabled();
-    fn Rules();
-    fn ServiceRestriction();
-    fn EnableRuleGroup();
-    fn IsRuleGroupEnabled();
-    fn RestoreLocalFirewallDefaults();
-    fn DefaultInboundAction();
-    fn SetDefaultInboundAction();
-    fn DefaultOutboundAction();
-    fn SetDefaultOutboundAction();
-    fn IsRuleGroupCurrentlyEnabled();
-    fn LocalPolicyModifyState();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct INetFwPolicy2Vtbl(
@@ -3212,14 +3010,6 @@ unsafe impl ::windows::core::Interface for INetFwProduct {
     type Vtable = INetFwProductVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x71881699_18f4_458b_b892_3ffce5e07f75);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait INetFwProductImpl: IDispatchImpl {
-    fn RuleCategories();
-    fn SetRuleCategories();
-    fn DisplayName();
-    fn SetDisplayName();
-    fn PathToSignedProductExe();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct INetFwProductVtbl(
@@ -3355,13 +3145,6 @@ impl ::core::fmt::Debug for INetFwProducts {
 unsafe impl ::windows::core::Interface for INetFwProducts {
     type Vtable = INetFwProductsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x39eb36e0_2097_40bd_8af2_63a13b525362);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait INetFwProductsImpl: IDispatchImpl {
-    fn Count();
-    fn Register();
-    fn Item();
-    fn _NewEnum();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3539,23 +3322,6 @@ unsafe impl ::windows::core::Interface for INetFwProfile {
     type Vtable = INetFwProfileVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x174a0dda_e9f9_449d_993b_21ab667ca456);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait INetFwProfileImpl: IDispatchImpl {
-    fn Type();
-    fn FirewallEnabled();
-    fn SetFirewallEnabled();
-    fn ExceptionsNotAllowed();
-    fn SetExceptionsNotAllowed();
-    fn NotificationsDisabled();
-    fn SetNotificationsDisabled();
-    fn UnicastResponsesToMulticastBroadcastDisabled();
-    fn SetUnicastResponsesToMulticastBroadcastDisabled();
-    fn RemoteAdminSettings();
-    fn IcmpSettings();
-    fn GloballyOpenPorts();
-    fn Services();
-    fn AuthorizedApplications();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct INetFwProfileVtbl(
@@ -3713,17 +3479,6 @@ impl ::core::fmt::Debug for INetFwRemoteAdminSettings {
 unsafe impl ::windows::core::Interface for INetFwRemoteAdminSettings {
     type Vtable = INetFwRemoteAdminSettingsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd4becddf_6f73_4a83_b832_9c66874cd20e);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait INetFwRemoteAdminSettingsImpl: IDispatchImpl {
-    fn IpVersion();
-    fn SetIpVersion();
-    fn Scope();
-    fn SetScope();
-    fn RemoteAddresses();
-    fn SetRemoteAddresses();
-    fn Enabled();
-    fn SetEnabled();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4026,45 +3781,6 @@ impl ::core::fmt::Debug for INetFwRule {
 unsafe impl ::windows::core::Interface for INetFwRule {
     type Vtable = INetFwRuleVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaf230d27_baba_4e42_aced_f524f22cfce2);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait INetFwRuleImpl: IDispatchImpl {
-    fn Name();
-    fn SetName();
-    fn Description();
-    fn SetDescription();
-    fn ApplicationName();
-    fn SetApplicationName();
-    fn ServiceName();
-    fn SetServiceName();
-    fn Protocol();
-    fn SetProtocol();
-    fn LocalPorts();
-    fn SetLocalPorts();
-    fn RemotePorts();
-    fn SetRemotePorts();
-    fn LocalAddresses();
-    fn SetLocalAddresses();
-    fn RemoteAddresses();
-    fn SetRemoteAddresses();
-    fn IcmpTypesAndCodes();
-    fn SetIcmpTypesAndCodes();
-    fn Direction();
-    fn SetDirection();
-    fn Interfaces();
-    fn SetInterfaces();
-    fn InterfaceTypes();
-    fn SetInterfaceTypes();
-    fn Enabled();
-    fn SetEnabled();
-    fn Grouping();
-    fn SetGrouping();
-    fn Profiles();
-    fn SetProfiles();
-    fn EdgeTraversal();
-    fn SetEdgeTraversal();
-    fn Action();
-    fn SetAction();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4446,11 +4162,6 @@ impl ::core::fmt::Debug for INetFwRule2 {
 unsafe impl ::windows::core::Interface for INetFwRule2 {
     type Vtable = INetFwRule2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9c27c8da_189b_4dde_89f7_8b39a316782c);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait INetFwRule2Impl: INetFwRuleImpl + IDispatchImpl {
-    fn EdgeTraversalOptions();
-    fn SetEdgeTraversalOptions();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4919,21 +4630,6 @@ unsafe impl ::windows::core::Interface for INetFwRule3 {
     type Vtable = INetFwRule3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb21563ff_d696_4222_ab46_4e89b73ab34a);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait INetFwRule3Impl: INetFwRule2Impl + INetFwRuleImpl + IDispatchImpl {
-    fn LocalAppPackageId();
-    fn SetLocalAppPackageId();
-    fn LocalUserOwner();
-    fn SetLocalUserOwner();
-    fn LocalUserAuthorizedList();
-    fn SetLocalUserAuthorizedList();
-    fn RemoteUserAuthorizedList();
-    fn SetRemoteUserAuthorizedList();
-    fn RemoteMachineAuthorizedList();
-    fn SetRemoteMachineAuthorizedList();
-    fn SecureFlags();
-    fn SetSecureFlags();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct INetFwRule3Vtbl(
@@ -5149,14 +4845,6 @@ unsafe impl ::windows::core::Interface for INetFwRules {
     type Vtable = INetFwRulesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9c4c6277_5027_441e_afae_ca1f542da009);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait INetFwRulesImpl: IDispatchImpl {
-    fn Count();
-    fn Add();
-    fn Remove();
-    fn Item();
-    fn _NewEnum();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct INetFwRulesVtbl(
@@ -5329,21 +5017,6 @@ unsafe impl ::windows::core::Interface for INetFwService {
     type Vtable = INetFwServiceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x79fd57c8_908e_4a36_9888_d5b3f0a444cf);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait INetFwServiceImpl: IDispatchImpl {
-    fn Name();
-    fn Type();
-    fn Customized();
-    fn IpVersion();
-    fn SetIpVersion();
-    fn Scope();
-    fn SetScope();
-    fn RemoteAddresses();
-    fn SetRemoteAddresses();
-    fn Enabled();
-    fn SetEnabled();
-    fn GloballyOpenPorts();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct INetFwServiceVtbl(
@@ -5481,12 +5154,6 @@ unsafe impl ::windows::core::Interface for INetFwServiceRestriction {
     type Vtable = INetFwServiceRestrictionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8267bbe3_f890_491c_b7b6_2db1ef0e5d2b);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait INetFwServiceRestrictionImpl: IDispatchImpl {
-    fn RestrictService();
-    fn ServiceRestricted();
-    fn Rules();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct INetFwServiceRestrictionVtbl(
@@ -5612,12 +5279,6 @@ impl ::core::fmt::Debug for INetFwServices {
 unsafe impl ::windows::core::Interface for INetFwServices {
     type Vtable = INetFwServicesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x79649bb4_903e_421b_94c9_79848e79f6ee);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait INetFwServicesImpl: IDispatchImpl {
-    fn Count();
-    fn Item();
-    fn _NewEnum();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5774,19 +5435,6 @@ unsafe impl ::windows::core::Interface for INetSharingConfiguration {
     type Vtable = INetSharingConfigurationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc08956b6_1cd3_11d1_b1c5_00805fc1270e);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait INetSharingConfigurationImpl: IDispatchImpl {
-    fn SharingEnabled();
-    fn SharingConnectionType();
-    fn DisableSharing();
-    fn EnableSharing();
-    fn InternetFirewallEnabled();
-    fn DisableInternetFirewall();
-    fn EnableInternetFirewall();
-    fn EnumPortMappings();
-    fn AddPortMapping();
-    fn RemovePortMapping();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct INetSharingConfigurationVtbl(
@@ -5913,11 +5561,6 @@ impl ::core::fmt::Debug for INetSharingEveryConnectionCollection {
 unsafe impl ::windows::core::Interface for INetSharingEveryConnectionCollection {
     type Vtable = INetSharingEveryConnectionCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x33c4643c_7811_46fa_a89a_768597bd7223);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait INetSharingEveryConnectionCollectionImpl: IDispatchImpl {
-    fn _NewEnum();
-    fn Count();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6057,15 +5700,6 @@ unsafe impl ::windows::core::Interface for INetSharingManager {
     type Vtable = INetSharingManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc08956b7_1cd3_11d1_b1c5_00805fc1270e);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait INetSharingManagerImpl: IDispatchImpl {
-    fn SharingInstalled();
-    fn EnumPublicConnections();
-    fn EnumPrivateConnections();
-    fn INetSharingConfigurationForINetConnection();
-    fn EnumEveryConnection();
-    fn NetConnectionProps();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct INetSharingManagerVtbl(
@@ -6195,13 +5829,6 @@ unsafe impl ::windows::core::Interface for INetSharingPortMapping {
     type Vtable = INetSharingPortMappingVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc08956b1_1cd3_11d1_b1c5_00805fc1270e);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait INetSharingPortMappingImpl: IDispatchImpl {
-    fn Disable();
-    fn Enable();
-    fn Properties();
-    fn Delete();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct INetSharingPortMappingVtbl(
@@ -6321,11 +5948,6 @@ impl ::core::fmt::Debug for INetSharingPortMappingCollection {
 unsafe impl ::windows::core::Interface for INetSharingPortMappingCollection {
     type Vtable = INetSharingPortMappingCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x02e4a2de_da20_4e34_89c8_ac22275a010b);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait INetSharingPortMappingCollectionImpl: IDispatchImpl {
-    fn _NewEnum();
-    fn Count();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6478,17 +6100,6 @@ unsafe impl ::windows::core::Interface for INetSharingPortMappingProps {
     type Vtable = INetSharingPortMappingPropsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x24b7e9b5_e38f_4685_851b_00892cf5f940);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait INetSharingPortMappingPropsImpl: IDispatchImpl {
-    fn Name();
-    fn IPProtocol();
-    fn ExternalPort();
-    fn InternalPort();
-    fn Options();
-    fn TargetName();
-    fn TargetIPAddress();
-    fn Enabled();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct INetSharingPortMappingPropsVtbl(
@@ -6616,11 +6227,6 @@ unsafe impl ::windows::core::Interface for INetSharingPrivateConnectionCollectio
     type Vtable = INetSharingPrivateConnectionCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x38ae69e0_4409_402a_a2cb_e965c727f840);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait INetSharingPrivateConnectionCollectionImpl: IDispatchImpl {
-    fn _NewEnum();
-    fn Count();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct INetSharingPrivateConnectionCollectionVtbl(
@@ -6738,11 +6344,6 @@ impl ::core::fmt::Debug for INetSharingPublicConnectionCollection {
 unsafe impl ::windows::core::Interface for INetSharingPublicConnectionCollection {
     type Vtable = INetSharingPublicConnectionCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7d7a6355_f372_4971_a149_bfc927be762a);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait INetSharingPublicConnectionCollectionImpl: IDispatchImpl {
-    fn _NewEnum();
-    fn Count();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6909,20 +6510,6 @@ unsafe impl ::windows::core::Interface for IStaticPortMapping {
     type Vtable = IStaticPortMappingVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6f10711f_729b_41e5_93b8_f21d0f818df1);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IStaticPortMappingImpl: IDispatchImpl {
-    fn ExternalIPAddress();
-    fn ExternalPort();
-    fn InternalPort();
-    fn Protocol();
-    fn InternalClient();
-    fn Enabled();
-    fn Description();
-    fn EditInternalClient();
-    fn Enable();
-    fn EditDescription();
-    fn EditInternalPort();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IStaticPortMappingVtbl(
@@ -7073,14 +6660,6 @@ unsafe impl ::windows::core::Interface for IStaticPortMappingCollection {
     type Vtable = IStaticPortMappingCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcd1f3e77_66d6_4664_82c7_36dbb641d0f1);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IStaticPortMappingCollectionImpl: IDispatchImpl {
-    fn _NewEnum();
-    fn Item();
-    fn Count();
-    fn Remove();
-    fn Add();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IStaticPortMappingCollectionVtbl(
@@ -7209,12 +6788,6 @@ impl ::core::fmt::Debug for IUPnPNAT {
 unsafe impl ::windows::core::Interface for IUPnPNAT {
     type Vtable = IUPnPNATVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb171c812_cc76_485a_94d8_b6b3a2794e99);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IUPnPNATImpl: IDispatchImpl {
-    fn StaticPortMappingCollection();
-    fn DynamicPortMappingCollection();
-    fn NATEventManager();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7829,3 +7402,5 @@ pub const FW_DYNAMIC_KEYWORD_ORIGIN_INVALID: _tag_FW_DYNAMIC_KEYWORD_ORIGIN_TYPE
 pub const FW_DYNAMIC_KEYWORD_ORIGIN_LOCAL: _tag_FW_DYNAMIC_KEYWORD_ORIGIN_TYPE = 1i32;
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 pub const FW_DYNAMIC_KEYWORD_ORIGIN_MDM: _tag_FW_DYNAMIC_KEYWORD_ORIGIN_TYPE = 2i32;
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

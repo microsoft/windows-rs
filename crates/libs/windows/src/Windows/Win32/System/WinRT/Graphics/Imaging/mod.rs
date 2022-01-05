@@ -70,9 +70,6 @@ unsafe impl ::windows::core::Interface for ISoftwareBitmapNative {
     type Vtable = ISoftwareBitmapNativeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x94bc8415_04ea_4b2e_af13_4de95aa898eb);
 }
-pub trait ISoftwareBitmapNativeImpl {
-    fn GetData();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISoftwareBitmapNativeVtbl(
@@ -161,10 +158,6 @@ unsafe impl ::windows::core::Interface for ISoftwareBitmapNativeFactory {
     type Vtable = ISoftwareBitmapNativeFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc3c181ec_2914_4791_af02_02d224a10b43);
 }
-pub trait ISoftwareBitmapNativeFactoryImpl {
-    fn CreateFromWICBitmap();
-    fn CreateFromMF2DBuffer2();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISoftwareBitmapNativeFactoryVtbl(
@@ -179,3 +172,5 @@ pub struct ISoftwareBitmapNativeFactoryVtbl(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, data: ::windows::core::RawPtr, subtype: *const ::windows::core::GUID, width: u32, height: u32, forcereadonly: super::super::super::super::Foundation::BOOL, mindisplayaperture: *const super::super::super::super::Media::MediaFoundation::MFVideoArea, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation")))] usize,
 );
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

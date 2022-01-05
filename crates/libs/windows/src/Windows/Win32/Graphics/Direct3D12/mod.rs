@@ -13925,9 +13925,6 @@ unsafe impl ::windows::core::Interface for ID3D12CommandAllocator {
     type Vtable = ID3D12CommandAllocatorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6102dee4_af59_4b09_b999_b44d73f09b24);
 }
-pub trait ID3D12CommandAllocatorImpl: ID3D12PageableImpl + ID3D12DeviceChildImpl + ID3D12ObjectImpl {
-    fn Reset();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3D12CommandAllocatorVtbl(
@@ -14051,9 +14048,6 @@ impl ::core::fmt::Debug for ID3D12CommandList {
 unsafe impl ::windows::core::Interface for ID3D12CommandList {
     type Vtable = ID3D12CommandListVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7116d91c_e7e4_47ce_b8c6_ec8168f437e5);
-}
-pub trait ID3D12CommandListImpl: ID3D12DeviceChildImpl + ID3D12ObjectImpl {
-    fn GetType();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -14244,19 +14238,6 @@ unsafe impl ::windows::core::Interface for ID3D12CommandQueue {
     type Vtable = ID3D12CommandQueueVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0ec870a6_5d7e_4c22_8cfc_5baae07616ed);
 }
-pub trait ID3D12CommandQueueImpl: ID3D12PageableImpl + ID3D12DeviceChildImpl + ID3D12ObjectImpl {
-    fn UpdateTileMappings();
-    fn CopyTileMappings();
-    fn ExecuteCommandLists();
-    fn SetMarker();
-    fn BeginEvent();
-    fn EndEvent();
-    fn Signal();
-    fn Wait();
-    fn GetTimestampFrequency();
-    fn GetClockCalibration();
-    fn GetDesc();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3D12CommandQueueVtbl(
@@ -14409,7 +14390,6 @@ unsafe impl ::windows::core::Interface for ID3D12CommandSignature {
     type Vtable = ID3D12CommandSignatureVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc36a797c_ec80_4f0a_8985_a7b2475082d1);
 }
-pub trait ID3D12CommandSignatureImpl: ID3D12PageableImpl + ID3D12DeviceChildImpl + ID3D12ObjectImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3D12CommandSignatureVtbl(
@@ -14471,9 +14451,6 @@ impl ::core::fmt::Debug for ID3D12Debug {
 unsafe impl ::windows::core::Interface for ID3D12Debug {
     type Vtable = ID3D12DebugVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x344488b7_6846_474b_b989_f027448245e0);
-}
-pub trait ID3D12DebugImpl {
-    fn EnableDebugLayer();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -14537,11 +14514,6 @@ unsafe impl ::windows::core::Interface for ID3D12Debug1 {
     type Vtable = ID3D12Debug1Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaffaa4ca_63fe_4d8e_b8ad_159000af4304);
 }
-pub trait ID3D12Debug1Impl {
-    fn EnableDebugLayer();
-    fn SetEnableGPUBasedValidation();
-    fn SetEnableSynchronizedCommandQueueValidation();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3D12Debug1Vtbl(
@@ -14602,9 +14574,6 @@ impl ::core::fmt::Debug for ID3D12Debug2 {
 unsafe impl ::windows::core::Interface for ID3D12Debug2 {
     type Vtable = ID3D12Debug2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x93a665c4_a3b2_4e5d_b692_a26ae14e3374);
-}
-pub trait ID3D12Debug2Impl {
-    fn SetGPUBasedValidationFlags();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -14691,11 +14660,6 @@ impl ::core::fmt::Debug for ID3D12Debug3 {
 unsafe impl ::windows::core::Interface for ID3D12Debug3 {
     type Vtable = ID3D12Debug3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5cf4e58f_f671_4ff1_a542_3686e3d153d1);
-}
-pub trait ID3D12Debug3Impl: ID3D12DebugImpl {
-    fn SetEnableGPUBasedValidation();
-    fn SetEnableSynchronizedCommandQueueValidation();
-    fn SetGPUBasedValidationFlags();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -14816,9 +14780,6 @@ impl ::core::fmt::Debug for ID3D12Debug4 {
 unsafe impl ::windows::core::Interface for ID3D12Debug4 {
     type Vtable = ID3D12Debug4Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x014b816e_9ec5_4a2f_a845_ffbe441ce13a);
-}
-pub trait ID3D12Debug4Impl: ID3D12Debug3Impl + ID3D12DebugImpl {
-    fn DisableDebugLayer();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -14966,9 +14927,6 @@ unsafe impl ::windows::core::Interface for ID3D12Debug5 {
     type Vtable = ID3D12Debug5Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x548d6b12_09fa_40e0_9069_5dcd589a52c9);
 }
-pub trait ID3D12Debug5Impl: ID3D12Debug4Impl + ID3D12Debug3Impl + ID3D12DebugImpl {
-    fn SetEnableAutoName();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3D12Debug5Vtbl(
@@ -15043,11 +15001,6 @@ unsafe impl ::windows::core::Interface for ID3D12DebugCommandList {
     type Vtable = ID3D12DebugCommandListVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x09e0bf36_54ac_484f_8847_4baeeab6053f);
 }
-pub trait ID3D12DebugCommandListImpl {
-    fn AssertResourceState();
-    fn SetFeatureMask();
-    fn GetFeatureMask();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3D12DebugCommandListVtbl(
@@ -15116,11 +15069,6 @@ impl ::core::fmt::Debug for ID3D12DebugCommandList1 {
 unsafe impl ::windows::core::Interface for ID3D12DebugCommandList1 {
     type Vtable = ID3D12DebugCommandList1Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x102ca951_311b_4b01_b11f_ecb83e061b37);
-}
-pub trait ID3D12DebugCommandList1Impl {
-    fn AssertResourceState();
-    fn SetDebugParameter();
-    fn GetDebugParameter();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -15219,10 +15167,6 @@ unsafe impl ::windows::core::Interface for ID3D12DebugCommandList2 {
     type Vtable = ID3D12DebugCommandList2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaeb575cf_4e06_48be_ba3b_c450fc96652e);
 }
-pub trait ID3D12DebugCommandList2Impl: ID3D12DebugCommandListImpl {
-    fn SetDebugParameter();
-    fn GetDebugParameter();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3D12DebugCommandList2Vtbl(
@@ -15285,9 +15229,6 @@ impl ::core::fmt::Debug for ID3D12DebugCommandQueue {
 unsafe impl ::windows::core::Interface for ID3D12DebugCommandQueue {
     type Vtable = ID3D12DebugCommandQueueVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x09e0bf36_54ac_484f_8847_4baeeab6053a);
-}
-pub trait ID3D12DebugCommandQueueImpl {
-    fn AssertResourceState();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -15355,11 +15296,6 @@ unsafe impl ::windows::core::Interface for ID3D12DebugDevice {
     type Vtable = ID3D12DebugDeviceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3febd6dd_4973_4787_8194_e45f9e28923e);
 }
-pub trait ID3D12DebugDeviceImpl {
-    fn SetFeatureMask();
-    fn GetFeatureMask();
-    fn ReportLiveDeviceObjects();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3D12DebugDeviceVtbl(
@@ -15426,11 +15362,6 @@ impl ::core::fmt::Debug for ID3D12DebugDevice1 {
 unsafe impl ::windows::core::Interface for ID3D12DebugDevice1 {
     type Vtable = ID3D12DebugDevice1Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa9b71770_d099_4a65_a698_3dee10020f88);
-}
-pub trait ID3D12DebugDevice1Impl {
-    fn SetDebugParameter();
-    fn GetDebugParameter();
-    fn ReportLiveDeviceObjects();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -15526,10 +15457,6 @@ impl ::core::fmt::Debug for ID3D12DebugDevice2 {
 unsafe impl ::windows::core::Interface for ID3D12DebugDevice2 {
     type Vtable = ID3D12DebugDevice2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x60eccbc1_378d_4df1_894c_f8ac5ce4d7dd);
-}
-pub trait ID3D12DebugDevice2Impl: ID3D12DebugDeviceImpl {
-    fn SetDebugParameter();
-    fn GetDebugParameter();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -15686,11 +15613,6 @@ impl ::core::fmt::Debug for ID3D12DescriptorHeap {
 unsafe impl ::windows::core::Interface for ID3D12DescriptorHeap {
     type Vtable = ID3D12DescriptorHeapVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8efb471d_616c_4f49_90f7_127bb763fa51);
-}
-pub trait ID3D12DescriptorHeapImpl: ID3D12PageableImpl + ID3D12DeviceChildImpl + ID3D12ObjectImpl {
-    fn GetDesc();
-    fn GetCPUDescriptorHandleForHeapStart();
-    fn GetGPUDescriptorHandleForHeapStart();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -15968,45 +15890,6 @@ impl ::core::fmt::Debug for ID3D12Device {
 unsafe impl ::windows::core::Interface for ID3D12Device {
     type Vtable = ID3D12DeviceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x189819f1_1db6_4b57_be54_1821339b85f7);
-}
-pub trait ID3D12DeviceImpl: ID3D12ObjectImpl {
-    fn GetNodeCount();
-    fn CreateCommandQueue();
-    fn CreateCommandAllocator();
-    fn CreateGraphicsPipelineState();
-    fn CreateComputePipelineState();
-    fn CreateCommandList();
-    fn CheckFeatureSupport();
-    fn CreateDescriptorHeap();
-    fn GetDescriptorHandleIncrementSize();
-    fn CreateRootSignature();
-    fn CreateConstantBufferView();
-    fn CreateShaderResourceView();
-    fn CreateUnorderedAccessView();
-    fn CreateRenderTargetView();
-    fn CreateDepthStencilView();
-    fn CreateSampler();
-    fn CopyDescriptors();
-    fn CopyDescriptorsSimple();
-    fn GetResourceAllocationInfo();
-    fn GetCustomHeapProperties();
-    fn CreateCommittedResource();
-    fn CreateHeap();
-    fn CreatePlacedResource();
-    fn CreateReservedResource();
-    fn CreateSharedHandle();
-    fn OpenSharedHandle();
-    fn OpenSharedHandleByName();
-    fn MakeResident();
-    fn Evict();
-    fn CreateFence();
-    fn GetDeviceRemovedReason();
-    fn GetCopyableFootprints();
-    fn CreateQueryHeap();
-    fn SetStablePowerState();
-    fn CreateCommandSignature();
-    fn GetResourceTiling();
-    fn GetAdapterLuid();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -16366,11 +16249,6 @@ impl ::core::fmt::Debug for ID3D12Device1 {
 unsafe impl ::windows::core::Interface for ID3D12Device1 {
     type Vtable = ID3D12Device1Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x77acce80_638e_4e65_8895_c1f23386863e);
-}
-pub trait ID3D12Device1Impl: ID3D12DeviceImpl + ID3D12ObjectImpl {
-    fn CreatePipelineLibrary();
-    fn SetEventOnMultipleFenceCompletion();
-    fn SetResidencyPriority();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -16759,9 +16637,6 @@ impl ::core::fmt::Debug for ID3D12Device2 {
 unsafe impl ::windows::core::Interface for ID3D12Device2 {
     type Vtable = ID3D12Device2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x30baa41e_b15b_475c_a0bb_1af5c5b64328);
-}
-pub trait ID3D12Device2Impl: ID3D12Device1Impl + ID3D12DeviceImpl + ID3D12ObjectImpl {
-    fn CreatePipelineState();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -17186,11 +17061,6 @@ impl ::core::fmt::Debug for ID3D12Device3 {
 unsafe impl ::windows::core::Interface for ID3D12Device3 {
     type Vtable = ID3D12Device3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x81dadc15_2bad_4392_93c5_101345c4aa98);
-}
-pub trait ID3D12Device3Impl: ID3D12Device2Impl + ID3D12Device1Impl + ID3D12DeviceImpl + ID3D12ObjectImpl {
-    fn OpenExistingHeapFromAddress();
-    fn OpenExistingHeapFromFileMapping();
-    fn EnqueueMakeResident();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -17670,14 +17540,6 @@ impl ::core::fmt::Debug for ID3D12Device4 {
 unsafe impl ::windows::core::Interface for ID3D12Device4 {
     type Vtable = ID3D12Device4Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe865df17_a9ee_46f9_a463_3098315aa2e5);
-}
-pub trait ID3D12Device4Impl: ID3D12Device3Impl + ID3D12Device2Impl + ID3D12Device1Impl + ID3D12DeviceImpl + ID3D12ObjectImpl {
-    fn CreateCommandList1();
-    fn CreateProtectedResourceSession();
-    fn CreateCommittedResource1();
-    fn CreateHeap1();
-    fn CreateReservedResource1();
-    fn GetResourceAllocationInfo1();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -18224,16 +18086,6 @@ impl ::core::fmt::Debug for ID3D12Device5 {
 unsafe impl ::windows::core::Interface for ID3D12Device5 {
     type Vtable = ID3D12Device5Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8b4f173b_2fea_4b80_8f58_4307191ab95d);
-}
-pub trait ID3D12Device5Impl: ID3D12Device4Impl + ID3D12Device3Impl + ID3D12Device2Impl + ID3D12Device1Impl + ID3D12DeviceImpl + ID3D12ObjectImpl {
-    fn CreateLifetimeTracker();
-    fn RemoveDevice();
-    fn EnumerateMetaCommands();
-    fn EnumerateMetaCommandParameters();
-    fn CreateMetaCommand();
-    fn CreateStateObject();
-    fn GetRaytracingAccelerationStructurePrebuildInfo();
-    fn CheckDriverMatchingIdentifier();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -18817,9 +18669,6 @@ impl ::core::fmt::Debug for ID3D12Device6 {
 unsafe impl ::windows::core::Interface for ID3D12Device6 {
     type Vtable = ID3D12Device6Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc70b221b_40e4_4a17_89af_025a0727a6dc);
-}
-pub trait ID3D12Device6Impl: ID3D12Device5Impl + ID3D12Device4Impl + ID3D12Device3Impl + ID3D12Device2Impl + ID3D12Device1Impl + ID3D12DeviceImpl + ID3D12ObjectImpl {
-    fn SetBackgroundProcessingMode();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -19435,10 +19284,6 @@ impl ::core::fmt::Debug for ID3D12Device7 {
 unsafe impl ::windows::core::Interface for ID3D12Device7 {
     type Vtable = ID3D12Device7Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5c014b53_68a1_4b9b_8bd1_dd6046b9358b);
-}
-pub trait ID3D12Device7Impl: ID3D12Device6Impl + ID3D12Device5Impl + ID3D12Device4Impl + ID3D12Device3Impl + ID3D12Device2Impl + ID3D12Device1Impl + ID3D12DeviceImpl + ID3D12ObjectImpl {
-    fn AddToStateObject();
-    fn CreateProtectedResourceSession1();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -20102,13 +19947,6 @@ impl ::core::fmt::Debug for ID3D12Device8 {
 unsafe impl ::windows::core::Interface for ID3D12Device8 {
     type Vtable = ID3D12Device8Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9218e6bb_f944_4f7e_a75c_b1b2c7b701f3);
-}
-pub trait ID3D12Device8Impl: ID3D12Device7Impl + ID3D12Device6Impl + ID3D12Device5Impl + ID3D12Device4Impl + ID3D12Device3Impl + ID3D12Device2Impl + ID3D12Device1Impl + ID3D12DeviceImpl + ID3D12ObjectImpl {
-    fn GetResourceAllocationInfo2();
-    fn CreateCommittedResource2();
-    fn CreatePlacedResource1();
-    fn CreateSamplerFeedbackUnorderedAccessView();
-    fn GetCopyableFootprints1();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -20815,11 +20653,6 @@ unsafe impl ::windows::core::Interface for ID3D12Device9 {
     type Vtable = ID3D12Device9Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4c80e962_f032_4f60_bc9e_ebc2cfa1d83c);
 }
-pub trait ID3D12Device9Impl: ID3D12Device8Impl + ID3D12Device7Impl + ID3D12Device6Impl + ID3D12Device5Impl + ID3D12Device4Impl + ID3D12Device3Impl + ID3D12Device2Impl + ID3D12Device1Impl + ID3D12DeviceImpl + ID3D12ObjectImpl {
-    fn CreateShaderCacheSession();
-    fn ShaderCacheControl();
-    fn CreateCommandQueue1();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3D12Device9Vtbl(
@@ -21015,9 +20848,6 @@ unsafe impl ::windows::core::Interface for ID3D12DeviceChild {
     type Vtable = ID3D12DeviceChildVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x905db94b_a00c_4140_9df5_2b64ca9ea357);
 }
-pub trait ID3D12DeviceChildImpl: ID3D12ObjectImpl {
-    fn GetDevice();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3D12DeviceChildVtbl(
@@ -21087,10 +20917,6 @@ impl ::core::fmt::Debug for ID3D12DeviceRemovedExtendedData {
 unsafe impl ::windows::core::Interface for ID3D12DeviceRemovedExtendedData {
     type Vtable = ID3D12DeviceRemovedExtendedDataVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x98931d33_5ae8_4791_aa3c_1a73a2934e71);
-}
-pub trait ID3D12DeviceRemovedExtendedDataImpl {
-    fn GetAutoBreadcrumbsOutput();
-    fn GetPageFaultAllocationOutput();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -21191,10 +21017,6 @@ impl ::core::fmt::Debug for ID3D12DeviceRemovedExtendedData1 {
 unsafe impl ::windows::core::Interface for ID3D12DeviceRemovedExtendedData1 {
     type Vtable = ID3D12DeviceRemovedExtendedData1Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9727a022_cf1d_4dda_9eba_effa653fc506);
-}
-pub trait ID3D12DeviceRemovedExtendedData1Impl: ID3D12DeviceRemovedExtendedDataImpl {
-    fn GetAutoBreadcrumbsOutput1();
-    fn GetPageFaultAllocationOutput1();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -21330,10 +21152,6 @@ unsafe impl ::windows::core::Interface for ID3D12DeviceRemovedExtendedData2 {
     type Vtable = ID3D12DeviceRemovedExtendedData2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x67fc5816_e4ca_4915_bf18_42541272da54);
 }
-pub trait ID3D12DeviceRemovedExtendedData2Impl: ID3D12DeviceRemovedExtendedData1Impl + ID3D12DeviceRemovedExtendedDataImpl {
-    fn GetPageFaultAllocationOutput2();
-    fn GetDeviceState();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3D12DeviceRemovedExtendedData2Vtbl(
@@ -21408,11 +21226,6 @@ impl ::core::fmt::Debug for ID3D12DeviceRemovedExtendedDataSettings {
 unsafe impl ::windows::core::Interface for ID3D12DeviceRemovedExtendedDataSettings {
     type Vtable = ID3D12DeviceRemovedExtendedDataSettingsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x82bc481c_6b9b_4030_aedb_7ee3d1df1e63);
-}
-pub trait ID3D12DeviceRemovedExtendedDataSettingsImpl {
-    fn SetAutoBreadcrumbsEnablement();
-    fn SetPageFaultEnablement();
-    fn SetWatsonDumpEnablement();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -21504,9 +21317,6 @@ impl ::core::fmt::Debug for ID3D12DeviceRemovedExtendedDataSettings1 {
 unsafe impl ::windows::core::Interface for ID3D12DeviceRemovedExtendedDataSettings1 {
     type Vtable = ID3D12DeviceRemovedExtendedDataSettings1Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdbd5ae51_3317_4f0a_adf9_1d7cedcaae0b);
-}
-pub trait ID3D12DeviceRemovedExtendedDataSettings1Impl: ID3D12DeviceRemovedExtendedDataSettingsImpl {
-    fn SetBreadcrumbContextEnablement();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -21657,11 +21467,6 @@ impl ::core::fmt::Debug for ID3D12Fence {
 unsafe impl ::windows::core::Interface for ID3D12Fence {
     type Vtable = ID3D12FenceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0a753dcf_c4d8_4b91_adf6_be5a60d95a76);
-}
-pub trait ID3D12FenceImpl: ID3D12PageableImpl + ID3D12DeviceChildImpl + ID3D12ObjectImpl {
-    fn GetCompletedValue();
-    fn SetEventOnCompletion();
-    fn Signal();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -21843,9 +21648,6 @@ unsafe impl ::windows::core::Interface for ID3D12Fence1 {
     type Vtable = ID3D12Fence1Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x433685fe_e22b_4ca0_a8db_b5b4f4dd0e4a);
 }
-pub trait ID3D12Fence1Impl: ID3D12FenceImpl + ID3D12PageableImpl + ID3D12DeviceChildImpl + ID3D12ObjectImpl {
-    fn GetCreationFlags();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3D12Fence1Vtbl(
@@ -21894,9 +21696,6 @@ impl ::core::fmt::Debug for ID3D12FunctionParameterReflection {
 unsafe impl ::windows::core::Interface for ID3D12FunctionParameterReflection {
     type Vtable = ID3D12FunctionParameterReflectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xec25f42d_7006_4f2b_b33e_02cc3375733f);
-}
-pub trait ID3D12FunctionParameterReflectionImpl {
-    fn GetDesc();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -21961,15 +21760,6 @@ impl ::core::fmt::Debug for ID3D12FunctionReflection {
 unsafe impl ::windows::core::Interface for ID3D12FunctionReflection {
     type Vtable = ID3D12FunctionReflectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1108795c_2772_4ba9_b2a8_d464dc7e2799);
-}
-pub trait ID3D12FunctionReflectionImpl {
-    fn GetDesc();
-    fn GetConstantBufferByIndex();
-    fn GetConstantBufferByName();
-    fn GetResourceBindingDesc();
-    fn GetVariableByName();
-    fn GetResourceBindingDescByName();
-    fn GetFunctionParameter();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -22332,59 +22122,6 @@ impl ::core::fmt::Debug for ID3D12GraphicsCommandList {
 unsafe impl ::windows::core::Interface for ID3D12GraphicsCommandList {
     type Vtable = ID3D12GraphicsCommandListVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5b160d0f_ac1b_4185_8ba8_b3ae42a5a455);
-}
-pub trait ID3D12GraphicsCommandListImpl: ID3D12CommandListImpl + ID3D12DeviceChildImpl + ID3D12ObjectImpl {
-    fn Close();
-    fn Reset();
-    fn ClearState();
-    fn DrawInstanced();
-    fn DrawIndexedInstanced();
-    fn Dispatch();
-    fn CopyBufferRegion();
-    fn CopyTextureRegion();
-    fn CopyResource();
-    fn CopyTiles();
-    fn ResolveSubresource();
-    fn IASetPrimitiveTopology();
-    fn RSSetViewports();
-    fn RSSetScissorRects();
-    fn OMSetBlendFactor();
-    fn OMSetStencilRef();
-    fn SetPipelineState();
-    fn ResourceBarrier();
-    fn ExecuteBundle();
-    fn SetDescriptorHeaps();
-    fn SetComputeRootSignature();
-    fn SetGraphicsRootSignature();
-    fn SetComputeRootDescriptorTable();
-    fn SetGraphicsRootDescriptorTable();
-    fn SetComputeRoot32BitConstant();
-    fn SetGraphicsRoot32BitConstant();
-    fn SetComputeRoot32BitConstants();
-    fn SetGraphicsRoot32BitConstants();
-    fn SetComputeRootConstantBufferView();
-    fn SetGraphicsRootConstantBufferView();
-    fn SetComputeRootShaderResourceView();
-    fn SetGraphicsRootShaderResourceView();
-    fn SetComputeRootUnorderedAccessView();
-    fn SetGraphicsRootUnorderedAccessView();
-    fn IASetIndexBuffer();
-    fn IASetVertexBuffers();
-    fn SOSetTargets();
-    fn OMSetRenderTargets();
-    fn ClearDepthStencilView();
-    fn ClearRenderTargetView();
-    fn ClearUnorderedAccessViewUint();
-    fn ClearUnorderedAccessViewFloat();
-    fn DiscardResource();
-    fn BeginQuery();
-    fn EndQuery();
-    fn ResolveQueryData();
-    fn SetPredication();
-    fn SetMarker();
-    fn BeginEvent();
-    fn EndEvent();
-    fn ExecuteIndirect();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -22853,14 +22590,6 @@ impl ::core::fmt::Debug for ID3D12GraphicsCommandList1 {
 unsafe impl ::windows::core::Interface for ID3D12GraphicsCommandList1 {
     type Vtable = ID3D12GraphicsCommandList1Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x553103fb_1fe7_4557_bb38_946d7d0e7ca7);
-}
-pub trait ID3D12GraphicsCommandList1Impl: ID3D12GraphicsCommandListImpl + ID3D12CommandListImpl + ID3D12DeviceChildImpl + ID3D12ObjectImpl {
-    fn AtomicCopyBufferUINT();
-    fn AtomicCopyBufferUINT64();
-    fn OMSetDepthBounds();
-    fn SetSamplePositions();
-    fn ResolveSubresourceRegion();
-    fn SetViewInstanceMask();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -23360,9 +23089,6 @@ impl ::core::fmt::Debug for ID3D12GraphicsCommandList2 {
 unsafe impl ::windows::core::Interface for ID3D12GraphicsCommandList2 {
     type Vtable = ID3D12GraphicsCommandList2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x38c3e585_ff17_412c_9150_4fc6f9d72a28);
-}
-pub trait ID3D12GraphicsCommandList2Impl: ID3D12GraphicsCommandList1Impl + ID3D12GraphicsCommandListImpl + ID3D12CommandListImpl + ID3D12DeviceChildImpl + ID3D12ObjectImpl {
-    fn WriteBufferImmediate();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -23887,9 +23613,6 @@ impl ::core::fmt::Debug for ID3D12GraphicsCommandList3 {
 unsafe impl ::windows::core::Interface for ID3D12GraphicsCommandList3 {
     type Vtable = ID3D12GraphicsCommandList3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6fda83a7_b84c_4e38_9ac8_c7bd22016b3d);
-}
-pub trait ID3D12GraphicsCommandList3Impl: ID3D12GraphicsCommandList2Impl + ID3D12GraphicsCommandList1Impl + ID3D12GraphicsCommandListImpl + ID3D12CommandListImpl + ID3D12DeviceChildImpl + ID3D12ObjectImpl {
-    fn SetProtectedResourceSession();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -24473,17 +24196,6 @@ impl ::core::fmt::Debug for ID3D12GraphicsCommandList4 {
 unsafe impl ::windows::core::Interface for ID3D12GraphicsCommandList4 {
     type Vtable = ID3D12GraphicsCommandList4Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8754318e_d3a9_4541_98cf_645b50dc4874);
-}
-pub trait ID3D12GraphicsCommandList4Impl: ID3D12GraphicsCommandList3Impl + ID3D12GraphicsCommandList2Impl + ID3D12GraphicsCommandList1Impl + ID3D12GraphicsCommandListImpl + ID3D12CommandListImpl + ID3D12DeviceChildImpl + ID3D12ObjectImpl {
-    fn BeginRenderPass();
-    fn EndRenderPass();
-    fn InitializeMetaCommand();
-    fn ExecuteMetaCommand();
-    fn BuildRaytracingAccelerationStructure();
-    fn EmitRaytracingAccelerationStructurePostbuildInfo();
-    fn CopyRaytracingAccelerationStructure();
-    fn SetPipelineState1();
-    fn DispatchRays();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -25106,10 +24818,6 @@ impl ::core::fmt::Debug for ID3D12GraphicsCommandList5 {
 unsafe impl ::windows::core::Interface for ID3D12GraphicsCommandList5 {
     type Vtable = ID3D12GraphicsCommandList5Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x55050859_4024_474c_87f5_6472eaee44ea);
-}
-pub trait ID3D12GraphicsCommandList5Impl: ID3D12GraphicsCommandList4Impl + ID3D12GraphicsCommandList3Impl + ID3D12GraphicsCommandList2Impl + ID3D12GraphicsCommandList1Impl + ID3D12GraphicsCommandListImpl + ID3D12CommandListImpl + ID3D12DeviceChildImpl + ID3D12ObjectImpl {
-    fn RSSetShadingRate();
-    fn RSSetShadingRateImage();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -25759,9 +25467,6 @@ unsafe impl ::windows::core::Interface for ID3D12GraphicsCommandList6 {
     type Vtable = ID3D12GraphicsCommandList6Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc3827890_e548_4cfa_96cf_5689a9370f80);
 }
-pub trait ID3D12GraphicsCommandList6Impl: ID3D12GraphicsCommandList5Impl + ID3D12GraphicsCommandList4Impl + ID3D12GraphicsCommandList3Impl + ID3D12GraphicsCommandList2Impl + ID3D12GraphicsCommandList1Impl + ID3D12GraphicsCommandListImpl + ID3D12CommandListImpl + ID3D12DeviceChildImpl + ID3D12ObjectImpl {
-    fn DispatchMesh();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3D12GraphicsCommandList6Vtbl(
@@ -25994,9 +25699,6 @@ unsafe impl ::windows::core::Interface for ID3D12Heap {
     type Vtable = ID3D12HeapVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6b3b2502_6e51_45b3_90ee_9884265e8df3);
 }
-pub trait ID3D12HeapImpl: ID3D12PageableImpl + ID3D12DeviceChildImpl + ID3D12ObjectImpl {
-    fn GetDesc();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3D12HeapVtbl(
@@ -26166,9 +25868,6 @@ impl ::core::fmt::Debug for ID3D12Heap1 {
 unsafe impl ::windows::core::Interface for ID3D12Heap1 {
     type Vtable = ID3D12Heap1Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x572f7389_2168_49e3_9693_d6df5871bf6d);
-}
-pub trait ID3D12Heap1Impl: ID3D12HeapImpl + ID3D12PageableImpl + ID3D12DeviceChildImpl + ID3D12ObjectImpl {
-    fn GetProtectedResourceSession();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -26379,43 +26078,6 @@ impl ::core::fmt::Debug for ID3D12InfoQueue {
 unsafe impl ::windows::core::Interface for ID3D12InfoQueue {
     type Vtable = ID3D12InfoQueueVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0742a90b_c387_483f_b946_30a7e4e61458);
-}
-pub trait ID3D12InfoQueueImpl {
-    fn SetMessageCountLimit();
-    fn ClearStoredMessages();
-    fn GetMessage();
-    fn GetNumMessagesAllowedByStorageFilter();
-    fn GetNumMessagesDeniedByStorageFilter();
-    fn GetNumStoredMessages();
-    fn GetNumStoredMessagesAllowedByRetrievalFilter();
-    fn GetNumMessagesDiscardedByMessageCountLimit();
-    fn GetMessageCountLimit();
-    fn AddStorageFilterEntries();
-    fn GetStorageFilter();
-    fn ClearStorageFilter();
-    fn PushEmptyStorageFilter();
-    fn PushCopyOfStorageFilter();
-    fn PushStorageFilter();
-    fn PopStorageFilter();
-    fn GetStorageFilterStackSize();
-    fn AddRetrievalFilterEntries();
-    fn GetRetrievalFilter();
-    fn ClearRetrievalFilter();
-    fn PushEmptyRetrievalFilter();
-    fn PushCopyOfRetrievalFilter();
-    fn PushRetrievalFilter();
-    fn PopRetrievalFilter();
-    fn GetRetrievalFilterStackSize();
-    fn AddMessage();
-    fn AddApplicationMessage();
-    fn SetBreakOnCategory();
-    fn SetBreakOnSeverity();
-    fn SetBreakOnID();
-    fn GetBreakOnCategory();
-    fn GetBreakOnSeverity();
-    fn GetBreakOnID();
-    fn SetMuteDebugOutput();
-    fn GetMuteDebugOutput();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -26693,10 +26355,6 @@ unsafe impl ::windows::core::Interface for ID3D12InfoQueue1 {
     type Vtable = ID3D12InfoQueue1Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2852dd88_b484_4c0c_b6b1_67168500e600);
 }
-pub trait ID3D12InfoQueue1Impl: ID3D12InfoQueueImpl {
-    fn RegisterMessageCallback();
-    fn UnregisterMessageCallback();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3D12InfoQueue1Vtbl(
@@ -26807,10 +26465,6 @@ unsafe impl ::windows::core::Interface for ID3D12LibraryReflection {
     type Vtable = ID3D12LibraryReflectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8e349d19_54db_4a56_9dc9_119d87bdb804);
 }
-pub trait ID3D12LibraryReflectionImpl {
-    fn GetDesc();
-    fn GetFunctionByIndex();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3D12LibraryReflectionVtbl(
@@ -26869,9 +26523,6 @@ impl ::core::fmt::Debug for ID3D12LifetimeOwner {
 unsafe impl ::windows::core::Interface for ID3D12LifetimeOwner {
     type Vtable = ID3D12LifetimeOwnerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe667af9f_cd56_4f46_83ce_032e595d70a8);
-}
-pub trait ID3D12LifetimeOwnerImpl {
-    fn LifetimeStateUpdated();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -26985,9 +26636,6 @@ impl ::core::fmt::Debug for ID3D12LifetimeTracker {
 unsafe impl ::windows::core::Interface for ID3D12LifetimeTracker {
     type Vtable = ID3D12LifetimeTrackerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3fd03d36_4eb1_424a_a582_494ecb8ba813);
-}
-pub trait ID3D12LifetimeTrackerImpl: ID3D12DeviceChildImpl + ID3D12ObjectImpl {
-    fn DestroyOwnedObject();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -27133,9 +26781,6 @@ unsafe impl ::windows::core::Interface for ID3D12MetaCommand {
     type Vtable = ID3D12MetaCommandVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdbb84c27_36ce_4fc9_b801_f048c46ac570);
 }
-pub trait ID3D12MetaCommandImpl: ID3D12PageableImpl + ID3D12DeviceChildImpl + ID3D12ObjectImpl {
-    fn GetRequiredParameterResourceSize();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3D12MetaCommandVtbl(
@@ -27211,12 +26856,6 @@ impl ::core::fmt::Debug for ID3D12Object {
 unsafe impl ::windows::core::Interface for ID3D12Object {
     type Vtable = ID3D12ObjectVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc4fec28f_7966_4e95_9f94_f431cb56c3b8);
-}
-pub trait ID3D12ObjectImpl {
-    fn GetPrivateData();
-    fn SetPrivateData();
-    fn SetPrivateDataInterface();
-    fn SetName();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -27336,7 +26975,6 @@ unsafe impl ::windows::core::Interface for ID3D12Pageable {
     type Vtable = ID3D12PageableVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x63ee58fb_1268_4835_86da_f008ce62f0d6);
 }
-pub trait ID3D12PageableImpl: ID3D12DeviceChildImpl + ID3D12ObjectImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3D12PageableVtbl(
@@ -27480,13 +27118,6 @@ impl ::core::fmt::Debug for ID3D12PipelineLibrary {
 unsafe impl ::windows::core::Interface for ID3D12PipelineLibrary {
     type Vtable = ID3D12PipelineLibraryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc64226a8_9201_46af_b4cc_53fb9ff7414f);
-}
-pub trait ID3D12PipelineLibraryImpl: ID3D12DeviceChildImpl + ID3D12ObjectImpl {
-    fn StorePipeline();
-    fn LoadGraphicsPipeline();
-    fn LoadComputePipeline();
-    fn GetSerializedSize();
-    fn Serialize();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -27666,9 +27297,6 @@ unsafe impl ::windows::core::Interface for ID3D12PipelineLibrary1 {
     type Vtable = ID3D12PipelineLibrary1Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x80eabf42_2568_4e5e_bd82_c37f86961dc3);
 }
-pub trait ID3D12PipelineLibrary1Impl: ID3D12PipelineLibraryImpl + ID3D12DeviceChildImpl + ID3D12ObjectImpl {
-    fn LoadPipeline();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3D12PipelineLibrary1Vtbl(
@@ -27824,9 +27452,6 @@ unsafe impl ::windows::core::Interface for ID3D12PipelineState {
     type Vtable = ID3D12PipelineStateVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x765a30f3_f624_4c6f_a828_ace948622445);
 }
-pub trait ID3D12PipelineStateImpl: ID3D12PageableImpl + ID3D12DeviceChildImpl + ID3D12ObjectImpl {
-    fn GetCachedBlob();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3D12PipelineStateVtbl(
@@ -27981,9 +27606,6 @@ impl ::core::fmt::Debug for ID3D12ProtectedResourceSession {
 unsafe impl ::windows::core::Interface for ID3D12ProtectedResourceSession {
     type Vtable = ID3D12ProtectedResourceSessionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6cd696f4_f289_40cc_8091_5a6c0a099c3d);
-}
-pub trait ID3D12ProtectedResourceSessionImpl: ID3D12ProtectedSessionImpl + ID3D12DeviceChildImpl + ID3D12ObjectImpl {
-    fn GetDesc();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -28167,9 +27789,6 @@ unsafe impl ::windows::core::Interface for ID3D12ProtectedResourceSession1 {
     type Vtable = ID3D12ProtectedResourceSession1Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd6f12dd6_76fb_406e_8961_4296eefc0409);
 }
-pub trait ID3D12ProtectedResourceSession1Impl: ID3D12ProtectedResourceSessionImpl + ID3D12ProtectedSessionImpl + ID3D12DeviceChildImpl + ID3D12ObjectImpl {
-    fn GetDesc1();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3D12ProtectedResourceSession1Vtbl(
@@ -28300,10 +27919,6 @@ impl ::core::fmt::Debug for ID3D12ProtectedSession {
 unsafe impl ::windows::core::Interface for ID3D12ProtectedSession {
     type Vtable = ID3D12ProtectedSessionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa1533d18_0ac1_4084_85b9_89a96116806b);
-}
-pub trait ID3D12ProtectedSessionImpl: ID3D12DeviceChildImpl + ID3D12ObjectImpl {
-    fn GetStatusFence();
-    fn GetSessionStatus();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -28446,7 +28061,6 @@ unsafe impl ::windows::core::Interface for ID3D12QueryHeap {
     type Vtable = ID3D12QueryHeapVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0d9658ae_ed45_469e_a61d_970ec583cab4);
 }
-pub trait ID3D12QueryHeapImpl: ID3D12PageableImpl + ID3D12DeviceChildImpl + ID3D12ObjectImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3D12QueryHeapVtbl(
@@ -28616,15 +28230,6 @@ impl ::core::fmt::Debug for ID3D12Resource {
 unsafe impl ::windows::core::Interface for ID3D12Resource {
     type Vtable = ID3D12ResourceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x696442be_a72e_4059_bc79_5b5c98040fad);
-}
-pub trait ID3D12ResourceImpl: ID3D12PageableImpl + ID3D12DeviceChildImpl + ID3D12ObjectImpl {
-    fn Map();
-    fn Unmap();
-    fn GetDesc();
-    fn GetGPUVirtualAddress();
-    fn WriteToSubresource();
-    fn ReadFromSubresource();
-    fn GetHeapProperties();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -28827,9 +28432,6 @@ impl ::core::fmt::Debug for ID3D12Resource1 {
 unsafe impl ::windows::core::Interface for ID3D12Resource1 {
     type Vtable = ID3D12Resource1Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9d5e227a_4430_4161_88b3_3eca6bb16e19);
-}
-pub trait ID3D12Resource1Impl: ID3D12ResourceImpl + ID3D12PageableImpl + ID3D12DeviceChildImpl + ID3D12ObjectImpl {
-    fn GetProtectedResourceSession();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -29061,9 +28663,6 @@ unsafe impl ::windows::core::Interface for ID3D12Resource2 {
     type Vtable = ID3D12Resource2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbe36ec3b_ea85_4aeb_a45a_e9d76404a495);
 }
-pub trait ID3D12Resource2Impl: ID3D12Resource1Impl + ID3D12ResourceImpl + ID3D12PageableImpl + ID3D12DeviceChildImpl + ID3D12ObjectImpl {
-    fn GetDesc1();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3D12Resource2Vtbl(
@@ -29194,7 +28793,6 @@ unsafe impl ::windows::core::Interface for ID3D12RootSignature {
     type Vtable = ID3D12RootSignatureVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc54a6b66_72df_4ee8_8be5_a946a1429214);
 }
-pub trait ID3D12RootSignatureImpl: ID3D12DeviceChildImpl + ID3D12ObjectImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3D12RootSignatureVtbl(
@@ -29257,9 +28855,6 @@ unsafe impl ::windows::core::Interface for ID3D12RootSignatureDeserializer {
     type Vtable = ID3D12RootSignatureDeserializerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x34ab647b_3cc8_46ac_841b_c0965645c046);
 }
-pub trait ID3D12RootSignatureDeserializerImpl {
-    fn GetRootSignatureDesc();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3D12RootSignatureDeserializerVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> *mut D3D12_ROOT_SIGNATURE_DESC);
@@ -29312,9 +28907,6 @@ impl ::core::fmt::Debug for ID3D12SDKConfiguration {
 unsafe impl ::windows::core::Interface for ID3D12SDKConfiguration {
     type Vtable = ID3D12SDKConfigurationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe9eb5314_33aa_42b2_a718_d77f58b1f1c7);
-}
-pub trait ID3D12SDKConfigurationImpl {
-    fn SetSDKVersion();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -29448,12 +29040,6 @@ impl ::core::fmt::Debug for ID3D12ShaderCacheSession {
 unsafe impl ::windows::core::Interface for ID3D12ShaderCacheSession {
     type Vtable = ID3D12ShaderCacheSessionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x28e2495d_0f64_4ae4_a6ec_129255dc49a8);
-}
-pub trait ID3D12ShaderCacheSessionImpl: ID3D12DeviceChildImpl + ID3D12ObjectImpl {
-    fn FindValue();
-    fn StoreValue();
-    fn SetDeleteOnDestroy();
-    fn GetDesc();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -29611,27 +29197,6 @@ unsafe impl ::windows::core::Interface for ID3D12ShaderReflection {
     type Vtable = ID3D12ShaderReflectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5a58797d_a72c_478d_8ba2_efc6b0efe88e);
 }
-pub trait ID3D12ShaderReflectionImpl {
-    fn GetDesc();
-    fn GetConstantBufferByIndex();
-    fn GetConstantBufferByName();
-    fn GetResourceBindingDesc();
-    fn GetInputParameterDesc();
-    fn GetOutputParameterDesc();
-    fn GetPatchConstantParameterDesc();
-    fn GetVariableByName();
-    fn GetResourceBindingDescByName();
-    fn GetMovInstructionCount();
-    fn GetMovcInstructionCount();
-    fn GetConversionInstructionCount();
-    fn GetBitwiseInstructionCount();
-    fn GetGSInputPrimitive();
-    fn IsSampleFrequencyShader();
-    fn GetNumInterfaceSlots();
-    fn GetMinFeatureLevel();
-    fn GetThreadGroupSize();
-    fn GetRequiresFlags();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3D12ShaderReflectionVtbl(
@@ -29707,11 +29272,6 @@ impl ::core::fmt::Debug for ID3D12ShaderReflectionConstantBuffer {
 unsafe impl ::windows::core::Interface for ID3D12ShaderReflectionConstantBuffer {
     type Vtable = ID3D12ShaderReflectionConstantBufferVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc59598b4_48b3_4869_b9b1_b1618b14a8b7);
-}
-pub trait ID3D12ShaderReflectionConstantBufferImpl {
-    fn GetDesc();
-    fn GetVariableByIndex();
-    fn GetVariableByName();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -29795,19 +29355,6 @@ unsafe impl ::windows::core::Interface for ID3D12ShaderReflectionType {
     type Vtable = ID3D12ShaderReflectionTypeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe913c351_783d_48ca_a1d1_4f306284ad56);
 }
-pub trait ID3D12ShaderReflectionTypeImpl {
-    fn GetDesc();
-    fn GetMemberTypeByIndex();
-    fn GetMemberTypeByName();
-    fn GetMemberTypeName();
-    fn IsEqual();
-    fn GetSubType();
-    fn GetBaseClass();
-    fn GetNumInterfaces();
-    fn GetInterfaceByIndex();
-    fn IsOfType();
-    fn ImplementsInterface();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3D12ShaderReflectionTypeVtbl(
@@ -29868,12 +29415,6 @@ impl ::core::fmt::Debug for ID3D12ShaderReflectionVariable {
 unsafe impl ::windows::core::Interface for ID3D12ShaderReflectionVariable {
     type Vtable = ID3D12ShaderReflectionVariableVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8337a8a6_a216_444a_b2f4_314733a73aea);
-}
-pub trait ID3D12ShaderReflectionVariableImpl {
-    fn GetDesc();
-    fn GetType();
-    fn GetBuffer();
-    fn GetInterfaceSlot();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -29945,12 +29486,6 @@ impl ::core::fmt::Debug for ID3D12SharingContract {
 unsafe impl ::windows::core::Interface for ID3D12SharingContract {
     type Vtable = ID3D12SharingContractVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0adf7d52_929c_4e61_addb_ffed30de66ef);
-}
-pub trait ID3D12SharingContractImpl {
-    fn Present();
-    fn SharedFenceSignal();
-    fn BeginCapturableWork();
-    fn EndCapturableWork();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -30090,7 +29625,6 @@ unsafe impl ::windows::core::Interface for ID3D12StateObject {
     type Vtable = ID3D12StateObjectVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x47016943_fca8_4594_93ea_af258b55346d);
 }
-pub trait ID3D12StateObjectImpl: ID3D12PageableImpl + ID3D12DeviceChildImpl + ID3D12ObjectImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3D12StateObjectVtbl(
@@ -30166,12 +29700,6 @@ impl ::core::fmt::Debug for ID3D12StateObjectProperties {
 unsafe impl ::windows::core::Interface for ID3D12StateObjectProperties {
     type Vtable = ID3D12StateObjectPropertiesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xde5fa827_9bf9_4f26_89ff_d7f56fde3860);
-}
-pub trait ID3D12StateObjectPropertiesImpl {
-    fn GetShaderIdentifier();
-    fn GetShaderStackSize();
-    fn GetPipelineStackSize();
-    fn SetPipelineStackSize();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -30252,12 +29780,6 @@ unsafe impl ::windows::core::Interface for ID3D12SwapChainAssistant {
     type Vtable = ID3D12SwapChainAssistantVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf1df64b6_57fd_49cd_8807_c0eb88b45c8f);
 }
-pub trait ID3D12SwapChainAssistantImpl {
-    fn GetLUID();
-    fn GetSwapChainObject();
-    fn GetCurrentResourceAndCommandQueue();
-    fn InsertImplicitSync();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3D12SwapChainAssistantVtbl(
@@ -30325,10 +29847,6 @@ unsafe impl ::windows::core::Interface for ID3D12Tools {
     type Vtable = ID3D12ToolsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7071e1f0_e84b_4b33_974f_12fa49de65c5);
 }
-pub trait ID3D12ToolsImpl {
-    fn EnableShaderInstrumentation();
-    fn ShaderInstrumentationEnabled();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3D12ToolsVtbl(
@@ -30394,10 +29912,6 @@ unsafe impl ::windows::core::Interface for ID3D12VersionedRootSignatureDeseriali
     type Vtable = ID3D12VersionedRootSignatureDeserializerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7f91ce67_090c_4bb7_b78e_ed8ff2e31da0);
 }
-pub trait ID3D12VersionedRootSignatureDeserializerImpl {
-    fn GetRootSignatureDescAtVersion();
-    fn GetUnconvertedRootSignatureDesc();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3D12VersionedRootSignatureDeserializerVtbl(
@@ -30427,3 +29941,5 @@ pub type PFN_D3D12_SERIALIZE_ROOT_SIGNATURE = ::core::option::Option<unsafe exte
 #[cfg(feature = "Win32_Graphics_Direct3D")]
 pub type PFN_D3D12_SERIALIZE_VERSIONED_ROOT_SIGNATURE = ::core::option::Option<unsafe extern "system" fn(prootsignature: *const D3D12_VERSIONED_ROOT_SIGNATURE_DESC, ppblob: *mut ::core::option::Option<super::Direct3D::ID3DBlob>, pperrorblob: *mut ::core::option::Option<super::Direct3D::ID3DBlob>) -> ::windows::core::HRESULT>;
 pub const WKPDID_D3DAutoDebugObjectNameW: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd4902e36_757a_4942_9594_b6769afa43cd);
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

@@ -6,12 +6,6 @@ unsafe impl ::windows::core::Interface for IPhoneCallBlockedTriggerDetails {
     type Vtable = IPhoneCallBlockedTriggerDetailsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa4a690a2_e4c1_427f_864e_e470477ddb67);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IPhoneCallBlockedTriggerDetailsImpl {
-    fn PhoneNumber();
-    fn LineId();
-    fn CallBlockedReason();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPhoneCallBlockedTriggerDetailsVtbl(
@@ -32,11 +26,6 @@ unsafe impl ::windows::core::Interface for IPhoneCallOriginDataRequestTriggerDet
     type Vtable = IPhoneCallOriginDataRequestTriggerDetailsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6e9b5b3f_c54b_4e82_4cc9_e329a4184592);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IPhoneCallOriginDataRequestTriggerDetailsImpl {
-    fn RequestId();
-    fn PhoneNumber();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPhoneCallOriginDataRequestTriggerDetailsVtbl(
@@ -55,15 +44,6 @@ pub struct IPhoneIncomingCallDismissedTriggerDetails(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPhoneIncomingCallDismissedTriggerDetails {
     type Vtable = IPhoneIncomingCallDismissedTriggerDetailsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbad30276_83b6_5732_9c38_0c206546196a);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IPhoneIncomingCallDismissedTriggerDetailsImpl {
-    fn LineId();
-    fn PhoneNumber();
-    fn DisplayName();
-    fn DismissalTime();
-    fn TextReplyMessage();
-    fn Reason();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -89,11 +69,6 @@ unsafe impl ::windows::core::Interface for IPhoneIncomingCallNotificationTrigger
     type Vtable = IPhoneIncomingCallNotificationTriggerDetailsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2b0e6044_9b32_5d42_8222_d2812e39fb21);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IPhoneIncomingCallNotificationTriggerDetailsImpl {
-    fn LineId();
-    fn CallId();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPhoneIncomingCallNotificationTriggerDetailsVtbl(
@@ -112,12 +87,6 @@ pub struct IPhoneLineChangedTriggerDetails(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPhoneLineChangedTriggerDetails {
     type Vtable = IPhoneLineChangedTriggerDetailsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc6d321e7_d11d_40d8_b2b7_e40a01d66249);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IPhoneLineChangedTriggerDetailsImpl {
-    fn LineId();
-    fn ChangeType();
-    fn HasLinePropertyChanged();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -138,12 +107,6 @@ pub struct IPhoneNewVoicemailMessageTriggerDetails(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPhoneNewVoicemailMessageTriggerDetails {
     type Vtable = IPhoneNewVoicemailMessageTriggerDetailsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x13a8c01b_b831_48d3_8ba9_8d22a6580dcf);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IPhoneNewVoicemailMessageTriggerDetailsImpl {
-    fn LineId();
-    fn VoicemailCount();
-    fn OperatorMessage();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -960,3 +923,5 @@ unsafe impl ::windows::core::RuntimeType for PhoneTriggerType {
 impl ::windows::core::DefaultType for PhoneTriggerType {
     type DefaultType = Self;
 }
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

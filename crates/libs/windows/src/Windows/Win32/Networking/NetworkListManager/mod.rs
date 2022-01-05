@@ -113,14 +113,6 @@ unsafe impl ::windows::core::Interface for IEnumNetworkConnections {
     type Vtable = IEnumNetworkConnectionsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdcb00006_570f_4a9b_8d69_199fdba5723b);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IEnumNetworkConnectionsImpl: IDispatchImpl {
-    fn _NewEnum();
-    fn Next();
-    fn Skip();
-    fn Reset();
-    fn Clone();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumNetworkConnectionsVtbl(
@@ -255,14 +247,6 @@ impl ::core::fmt::Debug for IEnumNetworks {
 unsafe impl ::windows::core::Interface for IEnumNetworks {
     type Vtable = IEnumNetworksVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdcb00003_570f_4a9b_8d69_199fdba5723b);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IEnumNetworksImpl: IDispatchImpl {
-    fn _NewEnum();
-    fn Next();
-    fn Skip();
-    fn Reset();
-    fn Clone();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -441,22 +425,6 @@ unsafe impl ::windows::core::Interface for INetwork {
     type Vtable = INetworkVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdcb00002_570f_4a9b_8d69_199fdba5723b);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait INetworkImpl: IDispatchImpl {
-    fn GetName();
-    fn SetName();
-    fn GetDescription();
-    fn SetDescription();
-    fn GetNetworkId();
-    fn GetDomainType();
-    fn GetNetworkConnections();
-    fn GetTimeCreatedAndConnected();
-    fn IsConnectedToInternet();
-    fn IsConnected();
-    fn GetConnectivity();
-    fn GetCategory();
-    fn SetCategory();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct INetworkVtbl(
@@ -615,16 +583,6 @@ unsafe impl ::windows::core::Interface for INetworkConnection {
     type Vtable = INetworkConnectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdcb00005_570f_4a9b_8d69_199fdba5723b);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait INetworkConnectionImpl: IDispatchImpl {
-    fn GetNetwork();
-    fn IsConnectedToInternet();
-    fn IsConnected();
-    fn GetConnectivity();
-    fn GetConnectionId();
-    fn GetAdapterId();
-    fn GetDomainType();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct INetworkConnectionVtbl(
@@ -703,10 +661,6 @@ unsafe impl ::windows::core::Interface for INetworkConnectionCost {
     type Vtable = INetworkConnectionCostVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdcb0000a_570f_4a9b_8d69_199fdba5723b);
 }
-pub trait INetworkConnectionCostImpl {
-    fn GetCost();
-    fn GetDataPlanStatus();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct INetworkConnectionCostVtbl(
@@ -770,10 +724,6 @@ unsafe impl ::windows::core::Interface for INetworkConnectionCostEvents {
     type Vtable = INetworkConnectionCostEventsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdcb0000b_570f_4a9b_8d69_199fdba5723b);
 }
-pub trait INetworkConnectionCostEventsImpl {
-    fn ConnectionCostChanged();
-    fn ConnectionDataPlanStatusChanged();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct INetworkConnectionCostEventsVtbl(
@@ -835,10 +785,6 @@ impl ::core::fmt::Debug for INetworkConnectionEvents {
 unsafe impl ::windows::core::Interface for INetworkConnectionEvents {
     type Vtable = INetworkConnectionEventsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdcb00007_570f_4a9b_8d69_199fdba5723b);
-}
-pub trait INetworkConnectionEventsImpl {
-    fn NetworkConnectionConnectivityChanged();
-    fn NetworkConnectionPropertyChanged();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -907,11 +853,6 @@ unsafe impl ::windows::core::Interface for INetworkCostManager {
     type Vtable = INetworkCostManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdcb00008_570f_4a9b_8d69_199fdba5723b);
 }
-pub trait INetworkCostManagerImpl {
-    fn GetCost();
-    fn GetDataPlanStatus();
-    fn SetDestinationAddresses();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct INetworkCostManagerVtbl(
@@ -975,10 +916,6 @@ impl ::core::fmt::Debug for INetworkCostManagerEvents {
 unsafe impl ::windows::core::Interface for INetworkCostManagerEvents {
     type Vtable = INetworkCostManagerEventsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdcb00009_570f_4a9b_8d69_199fdba5723b);
-}
-pub trait INetworkCostManagerEventsImpl {
-    fn CostChanged();
-    fn DataPlanStatusChanged();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1049,12 +986,6 @@ impl ::core::fmt::Debug for INetworkEvents {
 unsafe impl ::windows::core::Interface for INetworkEvents {
     type Vtable = INetworkEventsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdcb00004_570f_4a9b_8d69_199fdba5723b);
-}
-pub trait INetworkEventsImpl {
-    fn NetworkAdded();
-    fn NetworkDeleted();
-    fn NetworkConnectivityChanged();
-    fn NetworkPropertyChanged();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1201,18 +1132,6 @@ unsafe impl ::windows::core::Interface for INetworkListManager {
     type Vtable = INetworkListManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdcb00000_570f_4a9b_8d69_199fdba5723b);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait INetworkListManagerImpl: IDispatchImpl {
-    fn GetNetworks();
-    fn GetNetwork();
-    fn GetNetworkConnections();
-    fn GetNetworkConnection();
-    fn IsConnectedToInternet();
-    fn IsConnected();
-    fn GetConnectivity();
-    fn SetSimulatedProfileInfo();
-    fn ClearSimulatedProfileInfo();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct INetworkListManagerVtbl(
@@ -1285,9 +1204,6 @@ impl ::core::fmt::Debug for INetworkListManagerEvents {
 unsafe impl ::windows::core::Interface for INetworkListManagerEvents {
     type Vtable = INetworkListManagerEventsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdcb00001_570f_4a9b_8d69_199fdba5723b);
-}
-pub trait INetworkListManagerEventsImpl {
-    fn ConnectivityChanged();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1538,3 +1454,5 @@ impl ::core::default::Default for NLM_USAGE_DATA {
     }
 }
 pub const NetworkListManager: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdcb00c01_570f_4a9b_8d69_199fdba5723b);
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

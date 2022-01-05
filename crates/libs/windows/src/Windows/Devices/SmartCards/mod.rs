@@ -168,10 +168,6 @@ unsafe impl ::windows::core::Interface for ICardAddedEventArgs {
     type Vtable = ICardAddedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x18bbef98_f18b_4dd3_b118_dfb2c8e23cc6);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ICardAddedEventArgsImpl {
-    fn SmartCard();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICardAddedEventArgsVtbl(
@@ -190,10 +186,6 @@ unsafe impl ::windows::core::Interface for ICardRemovedEventArgs {
     type Vtable = ICardRemovedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x15331aaf_22d7_4945_afc9_03b46f42a6cd);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ICardRemovedEventArgsImpl {
-    fn SmartCard();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICardRemovedEventArgsVtbl(
@@ -211,11 +203,6 @@ pub struct IKnownSmartCardAppletIds(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IKnownSmartCardAppletIds {
     type Vtable = IKnownSmartCardAppletIdsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7b04d8d8_95b4_4c88_8cea_411e55511efc);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IKnownSmartCardAppletIdsImpl {
-    fn PaymentSystemEnvironment();
-    fn ProximityPaymentSystemEnvironment();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -238,12 +225,6 @@ unsafe impl ::windows::core::Interface for ISmartCard {
     type Vtable = ISmartCardVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1b718871_6434_43f4_b55a_6a29623870aa);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ISmartCardImpl {
-    fn Reader();
-    fn GetStatusAsync();
-    fn GetAnswerToResetAsync();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISmartCardVtbl(
@@ -265,18 +246,6 @@ pub struct ISmartCardAppletIdGroup(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISmartCardAppletIdGroup {
     type Vtable = ISmartCardAppletIdGroupVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7db165e6_6264_56f4_5e03_c86385395eb1);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ISmartCardAppletIdGroupImpl {
-    fn DisplayName();
-    fn SetDisplayName();
-    fn AppletIds();
-    fn SmartCardEmulationCategory();
-    fn SetSmartCardEmulationCategory();
-    fn SmartCardEmulationType();
-    fn SetSmartCardEmulationType();
-    fn AutomaticEnablement();
-    fn SetAutomaticEnablement();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -305,16 +274,6 @@ unsafe impl ::windows::core::Interface for ISmartCardAppletIdGroup2 {
     type Vtable = ISmartCardAppletIdGroup2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6b0ef9dc_9956_4a62_8d4e_d37a68ebc3a6);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ISmartCardAppletIdGroup2Impl {
-    fn Logo();
-    fn SetLogo();
-    fn Description();
-    fn SetDescription();
-    fn Properties();
-    fn SecureUserAuthenticationRequired();
-    fn SetSecureUserAuthenticationRequired();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISmartCardAppletIdGroup2Vtbl(
@@ -342,10 +301,6 @@ unsafe impl ::windows::core::Interface for ISmartCardAppletIdGroupFactory {
     type Vtable = ISmartCardAppletIdGroupFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9105eb4d_4a65_4e41_8061_cbe83f3695e5);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ISmartCardAppletIdGroupFactoryImpl {
-    fn Create();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISmartCardAppletIdGroupFactoryVtbl(
@@ -364,14 +319,6 @@ pub struct ISmartCardAppletIdGroupRegistration(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISmartCardAppletIdGroupRegistration {
     type Vtable = ISmartCardAppletIdGroupRegistrationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdf1208d1_31bb_5596_43b1_6d69a0257b3a);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ISmartCardAppletIdGroupRegistrationImpl {
-    fn ActivationPolicy();
-    fn AppletIdGroup();
-    fn RequestActivationPolicyChangeAsync();
-    fn Id();
-    fn SetAutomaticResponseApdusAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -397,11 +344,6 @@ unsafe impl ::windows::core::Interface for ISmartCardAppletIdGroupRegistration2 
     type Vtable = ISmartCardAppletIdGroupRegistration2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5f5508d8_98a7_4f2e_91d9_6cfcceda407f);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ISmartCardAppletIdGroupRegistration2Impl {
-    fn SmartCardReaderId();
-    fn SetPropertiesAsync();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISmartCardAppletIdGroupRegistration2Vtbl(
@@ -422,10 +364,6 @@ unsafe impl ::windows::core::Interface for ISmartCardAppletIdGroupStatics {
     type Vtable = ISmartCardAppletIdGroupStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xab2899a9_e76c_45cf_bf1d_90eaa6205927);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ISmartCardAppletIdGroupStaticsImpl {
-    fn MaxAppletIds();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISmartCardAppletIdGroupStaticsVtbl(
@@ -443,19 +381,6 @@ pub struct ISmartCardAutomaticResponseApdu(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISmartCardAutomaticResponseApdu {
     type Vtable = ISmartCardAutomaticResponseApduVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x52152bab_c63e_4531_a857_d756d99b986a);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ISmartCardAutomaticResponseApduImpl {
-    fn CommandApdu();
-    fn SetCommandApdu();
-    fn CommandApduBitMask();
-    fn SetCommandApduBitMask();
-    fn ShouldMatchLength();
-    fn SetShouldMatchLength();
-    fn AppletId();
-    fn SetAppletId();
-    fn ResponseApdu();
-    fn SetResponseApdu();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -492,13 +417,6 @@ unsafe impl ::windows::core::Interface for ISmartCardAutomaticResponseApdu2 {
     type Vtable = ISmartCardAutomaticResponseApdu2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x44aebb14_559d_4531_4e51_89db6fa8a57a);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ISmartCardAutomaticResponseApdu2Impl {
-    fn InputState();
-    fn SetInputState();
-    fn OutputState();
-    fn SetOutputState();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISmartCardAutomaticResponseApdu2Vtbl(
@@ -524,11 +442,6 @@ unsafe impl ::windows::core::Interface for ISmartCardAutomaticResponseApdu3 {
     type Vtable = ISmartCardAutomaticResponseApdu3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbf43da74_6576_4392_9367_fe3bc9e2d496);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ISmartCardAutomaticResponseApdu3Impl {
-    fn AllowWhenCryptogramGeneratorNotPrepared();
-    fn SetAllowWhenCryptogramGeneratorNotPrepared();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISmartCardAutomaticResponseApdu3Vtbl(
@@ -548,10 +461,6 @@ unsafe impl ::windows::core::Interface for ISmartCardAutomaticResponseApduFactor
     type Vtable = ISmartCardAutomaticResponseApduFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe97ea2fa_d02c_4c55_b02a_8cff7fa9f05b);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ISmartCardAutomaticResponseApduFactoryImpl {
-    fn Create();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISmartCardAutomaticResponseApduFactoryVtbl(
@@ -570,14 +479,6 @@ pub struct ISmartCardChallengeContext(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISmartCardChallengeContext {
     type Vtable = ISmartCardChallengeContextVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x192a5319_c9c4_4947_81cc_44794a61ef91);
-}
-#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait ISmartCardChallengeContextImpl: IClosableImpl {
-    fn Challenge();
-    fn VerifyResponseAsync();
-    fn ProvisionAsync();
-    fn ProvisionAsyncWithNewCardId();
-    fn ChangeAdministrativeKeyAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -606,10 +507,6 @@ unsafe impl ::windows::core::Interface for ISmartCardConnect {
     type Vtable = ISmartCardConnectVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2fdf87e5_028d_491e_a058_3382c3986f40);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ISmartCardConnectImpl {
-    fn ConnectAsync();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISmartCardConnectVtbl(
@@ -629,10 +526,6 @@ unsafe impl ::windows::core::Interface for ISmartCardConnection {
     type Vtable = ISmartCardConnectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7edb991a_a81a_47bc_a649_156be6b7f231);
 }
-#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait ISmartCardConnectionImpl: IClosableImpl {
-    fn TransmitAsync();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISmartCardConnectionVtbl(
@@ -651,21 +544,6 @@ pub struct ISmartCardCryptogramGenerator(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISmartCardCryptogramGenerator {
     type Vtable = ISmartCardCryptogramGeneratorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe39f587b_edd3_4e49_b594_0ff5e4d0c76f);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ISmartCardCryptogramGeneratorImpl {
-    fn SupportedCryptogramMaterialTypes();
-    fn SupportedCryptogramAlgorithms();
-    fn SupportedCryptogramMaterialPackageFormats();
-    fn SupportedCryptogramMaterialPackageConfirmationResponseFormats();
-    fn SupportedSmartCardCryptogramStorageKeyCapabilities();
-    fn DeleteCryptogramMaterialStorageKeyAsync();
-    fn CreateCryptogramMaterialStorageKeyAsync();
-    fn RequestCryptogramMaterialStorageKeyInfoAsync();
-    fn ImportCryptogramMaterialPackageAsync();
-    fn TryProvePossessionOfCryptogramMaterialPackageAsync();
-    fn RequestUnlockCryptogramMaterialForUseAsync();
-    fn DeleteCryptogramMaterialPackageAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -708,14 +586,6 @@ unsafe impl ::windows::core::Interface for ISmartCardCryptogramGenerator2 {
     type Vtable = ISmartCardCryptogramGenerator2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7116aa34_5d6d_4b4a_96a3_efa47d2a7e25);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ISmartCardCryptogramGenerator2Impl {
-    fn ValidateRequestApduAsync();
-    fn GetAllCryptogramStorageKeyCharacteristicsAsync();
-    fn GetAllCryptogramMaterialPackageCharacteristicsAsync();
-    fn GetAllCryptogramMaterialPackageCharacteristicsWithStorageKeyAsync();
-    fn GetAllCryptogramMaterialCharacteristicsAsync();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISmartCardCryptogramGenerator2Vtbl(
@@ -743,10 +613,6 @@ unsafe impl ::windows::core::Interface for ISmartCardCryptogramGeneratorStatics 
     type Vtable = ISmartCardCryptogramGeneratorStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x09933910_cb9c_4015_967d_5234f3b02900);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ISmartCardCryptogramGeneratorStaticsImpl {
-    fn GetSmartCardCryptogramGeneratorAsync();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISmartCardCryptogramGeneratorStaticsVtbl(
@@ -766,10 +632,6 @@ unsafe impl ::windows::core::Interface for ISmartCardCryptogramGeneratorStatics2
     type Vtable = ISmartCardCryptogramGeneratorStatics2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x09bdf5e5_b4bd_4e23_a588_74469204c128);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ISmartCardCryptogramGeneratorStatics2Impl {
-    fn IsSupported();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISmartCardCryptogramGeneratorStatics2Vtbl(
@@ -787,11 +649,6 @@ pub struct ISmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult(::w
 unsafe impl ::windows::core::Interface for ISmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult {
     type Vtable = ISmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResultVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2798e029_d687_4c92_86c6_399e9a0ecb09);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ISmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResultImpl {
-    fn OperationStatus();
-    fn Characteristics();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -813,11 +670,6 @@ unsafe impl ::windows::core::Interface for ISmartCardCryptogramGetAllCryptogramM
     type Vtable = ISmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResultVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4e6a8a5c_9773_46c4_a32f_b1e543159e04);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ISmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResultImpl {
-    fn OperationStatus();
-    fn Characteristics();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResultVtbl(
@@ -838,11 +690,6 @@ unsafe impl ::windows::core::Interface for ISmartCardCryptogramGetAllCryptogramS
     type Vtable = ISmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResultVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8c7ce857_a7e7_489d_b9d6_368061515012);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ISmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResultImpl {
-    fn OperationStatus();
-    fn Characteristics();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResultVtbl(
@@ -862,17 +709,6 @@ pub struct ISmartCardCryptogramMaterialCharacteristics(::windows::core::IUnknown
 unsafe impl ::windows::core::Interface for ISmartCardCryptogramMaterialCharacteristics {
     type Vtable = ISmartCardCryptogramMaterialCharacteristicsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfc9ac5cc_c1d7_4153_923b_a2d43c6c8d49);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ISmartCardCryptogramMaterialCharacteristicsImpl {
-    fn MaterialName();
-    fn AllowedAlgorithms();
-    fn AllowedProofOfPossessionAlgorithms();
-    fn AllowedValidations();
-    fn MaterialType();
-    fn ProtectionMethod();
-    fn ProtectionVersion();
-    fn MaterialLength();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -902,13 +738,6 @@ unsafe impl ::windows::core::Interface for ISmartCardCryptogramMaterialPackageCh
     type Vtable = ISmartCardCryptogramMaterialPackageCharacteristicsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xffb58e1f_0692_4c47_93cf_34d91f9dcd00);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ISmartCardCryptogramMaterialPackageCharacteristicsImpl {
-    fn PackageName();
-    fn StorageKeyName();
-    fn DateImported();
-    fn PackageFormat();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISmartCardCryptogramMaterialPackageCharacteristicsVtbl(
@@ -931,11 +760,6 @@ unsafe impl ::windows::core::Interface for ISmartCardCryptogramMaterialPossessio
     type Vtable = ISmartCardCryptogramMaterialPossessionProofVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe5b9ab8c_a141_4135_9add_b0d2e3aa1fc9);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ISmartCardCryptogramMaterialPossessionProofImpl {
-    fn OperationStatus();
-    fn Proof();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISmartCardCryptogramMaterialPossessionProofVtbl(
@@ -955,27 +779,6 @@ pub struct ISmartCardCryptogramPlacementStep(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISmartCardCryptogramPlacementStep {
     type Vtable = ISmartCardCryptogramPlacementStepVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x947b03eb_8342_4792_a2e5_925636378a53);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ISmartCardCryptogramPlacementStepImpl {
-    fn Algorithm();
-    fn SetAlgorithm();
-    fn SourceData();
-    fn SetSourceData();
-    fn CryptogramMaterialPackageName();
-    fn SetCryptogramMaterialPackageName();
-    fn CryptogramMaterialName();
-    fn SetCryptogramMaterialName();
-    fn TemplateOffset();
-    fn SetTemplateOffset();
-    fn CryptogramOffset();
-    fn SetCryptogramOffset();
-    fn CryptogramLength();
-    fn SetCryptogramLength();
-    fn CryptogramPlacementOptions();
-    fn SetCryptogramPlacementOptions();
-    fn ChainedOutputStep();
-    fn SetChainedOutputStep();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1014,13 +817,6 @@ unsafe impl ::windows::core::Interface for ISmartCardCryptogramStorageKeyCharact
     type Vtable = ISmartCardCryptogramStorageKeyCharacteristicsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8552546e_4457_4825_b464_635471a39f5c);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ISmartCardCryptogramStorageKeyCharacteristicsImpl {
-    fn StorageKeyName();
-    fn DateCreated();
-    fn Algorithm();
-    fn Capabilities();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISmartCardCryptogramStorageKeyCharacteristicsVtbl(
@@ -1042,16 +838,6 @@ pub struct ISmartCardCryptogramStorageKeyInfo(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISmartCardCryptogramStorageKeyInfo {
     type Vtable = ISmartCardCryptogramStorageKeyInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x77b0f00d_b097_4f61_a26a_9561639c9c3a);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ISmartCardCryptogramStorageKeyInfoImpl {
-    fn OperationStatus();
-    fn PublicKeyBlobType();
-    fn PublicKey();
-    fn AttestationStatus();
-    fn Attestation();
-    fn AttestationCertificateChain();
-    fn Capabilities();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1081,10 +867,6 @@ unsafe impl ::windows::core::Interface for ISmartCardCryptogramStorageKeyInfo2 {
     type Vtable = ISmartCardCryptogramStorageKeyInfo2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x000440f9_f7fd_417d_89e1_fbb0382adc4d);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ISmartCardCryptogramStorageKeyInfo2Impl {
-    fn OperationalRequirements();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISmartCardCryptogramStorageKeyInfo2Vtbl(
@@ -1103,10 +885,6 @@ unsafe impl ::windows::core::Interface for ISmartCardEmulator {
     type Vtable = ISmartCardEmulatorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdfb906b2_875e_47e5_8077_e8bff1b1c6fb);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ISmartCardEmulatorImpl {
-    fn EnablementPolicy();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISmartCardEmulatorVtbl(
@@ -1124,15 +902,6 @@ pub struct ISmartCardEmulator2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISmartCardEmulator2 {
     type Vtable = ISmartCardEmulator2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfe3fc0b8_8529_411a_807b_48edc2a0ab44);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ISmartCardEmulator2Impl {
-    fn ApduReceived();
-    fn RemoveApduReceived();
-    fn ConnectionDeactivated();
-    fn RemoveConnectionDeactivated();
-    fn Start();
-    fn IsHostCardEmulationSupported();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1161,13 +930,6 @@ unsafe impl ::windows::core::Interface for ISmartCardEmulatorApduReceivedEventAr
     type Vtable = ISmartCardEmulatorApduReceivedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd55d1576_69d2_5333_5b5f_f8c0d6e9f09f);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ISmartCardEmulatorApduReceivedEventArgsImpl {
-    fn CommandApdu();
-    fn ConnectionProperties();
-    fn TryRespondAsync();
-    fn AutomaticResponseStatus();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISmartCardEmulatorApduReceivedEventArgsVtbl(
@@ -1191,11 +953,6 @@ unsafe impl ::windows::core::Interface for ISmartCardEmulatorApduReceivedEventAr
     type Vtable = ISmartCardEmulatorApduReceivedEventArgs2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8bf93df0_22e1_4238_8610_94ce4a965425);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ISmartCardEmulatorApduReceivedEventArgs2Impl {
-    fn State();
-    fn TryRespondWithStateAsync();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISmartCardEmulatorApduReceivedEventArgs2Vtbl(
@@ -1215,11 +972,6 @@ pub struct ISmartCardEmulatorApduReceivedEventArgsWithCryptograms(::windows::cor
 unsafe impl ::windows::core::Interface for ISmartCardEmulatorApduReceivedEventArgsWithCryptograms {
     type Vtable = ISmartCardEmulatorApduReceivedEventArgsWithCryptogramsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd550bac7_b7bf_4e29_9294_0c4ac3c941bd);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ISmartCardEmulatorApduReceivedEventArgsWithCryptogramsImpl {
-    fn TryRespondWithCryptogramsAsync();
-    fn TryRespondWithCryptogramsAndStateAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1242,11 +994,6 @@ unsafe impl ::windows::core::Interface for ISmartCardEmulatorConnectionDeactivat
     type Vtable = ISmartCardEmulatorConnectionDeactivatedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2186d8d3_c5eb_5262_43df_62a0a1b55557);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ISmartCardEmulatorConnectionDeactivatedEventArgsImpl {
-    fn ConnectionProperties();
-    fn Reason();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISmartCardEmulatorConnectionDeactivatedEventArgsVtbl(
@@ -1265,11 +1012,6 @@ pub struct ISmartCardEmulatorConnectionProperties(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISmartCardEmulatorConnectionProperties {
     type Vtable = ISmartCardEmulatorConnectionPropertiesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4e2ca5ee_f969_507d_6cf9_34e2d18df311);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ISmartCardEmulatorConnectionPropertiesImpl {
-    fn Id();
-    fn Source();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1290,10 +1032,6 @@ unsafe impl ::windows::core::Interface for ISmartCardEmulatorStatics {
     type Vtable = ISmartCardEmulatorStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7a9bfc4b_c4d3_494f_b8a2_6215d81e85b2);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ISmartCardEmulatorStaticsImpl {
-    fn GetDefaultAsync();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISmartCardEmulatorStaticsVtbl(
@@ -1312,13 +1050,6 @@ pub struct ISmartCardEmulatorStatics2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISmartCardEmulatorStatics2 {
     type Vtable = ISmartCardEmulatorStatics2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x69ae9f8a_b775_488b_8436_6c1e28ed731f);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ISmartCardEmulatorStatics2Impl {
-    fn GetAppletIdGroupRegistrationsAsync();
-    fn RegisterAppletIdGroupAsync();
-    fn UnregisterAppletIdGroupAsync();
-    fn MaxAppletIdGroupRegistrations();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1344,10 +1075,6 @@ unsafe impl ::windows::core::Interface for ISmartCardEmulatorStatics3 {
     type Vtable = ISmartCardEmulatorStatics3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x59ea142a_9f09_43f5_8565_cfa8148e4cb2);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ISmartCardEmulatorStatics3Impl {
-    fn IsSupported();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISmartCardEmulatorStatics3Vtbl(
@@ -1365,21 +1092,6 @@ pub struct ISmartCardPinPolicy(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISmartCardPinPolicy {
     type Vtable = ISmartCardPinPolicyVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x183ce184_4db6_4841_ac9e_2ac1f39b7304);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ISmartCardPinPolicyImpl {
-    fn MinLength();
-    fn SetMinLength();
-    fn MaxLength();
-    fn SetMaxLength();
-    fn UppercaseLetters();
-    fn SetUppercaseLetters();
-    fn LowercaseLetters();
-    fn SetLowercaseLetters();
-    fn Digits();
-    fn SetDigits();
-    fn SpecialCharacters();
-    fn SetSpecialCharacters();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1410,10 +1122,6 @@ unsafe impl ::windows::core::Interface for ISmartCardPinResetDeferral {
     type Vtable = ISmartCardPinResetDeferralVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x18c94aac_7805_4004_85e4_bbefac8f6884);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ISmartCardPinResetDeferralImpl {
-    fn Complete();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISmartCardPinResetDeferralVtbl(
@@ -1431,13 +1139,6 @@ pub struct ISmartCardPinResetRequest(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISmartCardPinResetRequest {
     type Vtable = ISmartCardPinResetRequestVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x12fe3c4d_5fb9_4e8e_9ff6_61f475124fef);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ISmartCardPinResetRequestImpl {
-    fn Challenge();
-    fn Deadline();
-    fn GetDeferral();
-    fn SetResponse();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1462,15 +1163,6 @@ pub struct ISmartCardProvisioning(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISmartCardProvisioning {
     type Vtable = ISmartCardProvisioningVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x19eeedbd_1fab_477c_b712_1a2c5af1fd6e);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ISmartCardProvisioningImpl {
-    fn SmartCard();
-    fn GetIdAsync();
-    fn GetNameAsync();
-    fn GetChallengeContextAsync();
-    fn RequestPinChangeAsync();
-    fn RequestPinResetAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1500,10 +1192,6 @@ unsafe impl ::windows::core::Interface for ISmartCardProvisioning2 {
     type Vtable = ISmartCardProvisioning2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x10fd28eb_3f79_4b66_9b7c_11c149b7d0bc);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ISmartCardProvisioning2Impl {
-    fn GetAuthorityKeyContainerNameAsync();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISmartCardProvisioning2Vtbl(
@@ -1522,13 +1210,6 @@ pub struct ISmartCardProvisioningStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISmartCardProvisioningStatics {
     type Vtable = ISmartCardProvisioningStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x13882848_0d13_4e70_9735_51daeca5254f);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ISmartCardProvisioningStaticsImpl {
-    fn FromSmartCardAsync();
-    fn RequestVirtualSmartCardCreationAsync();
-    fn RequestVirtualSmartCardCreationAsyncWithCardId();
-    fn RequestVirtualSmartCardDeletionAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1555,11 +1236,6 @@ unsafe impl ::windows::core::Interface for ISmartCardProvisioningStatics2 {
     type Vtable = ISmartCardProvisioningStatics2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3447c6a8_c9a0_4bd6_b50d_251f4e8d3a62);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ISmartCardProvisioningStatics2Impl {
-    fn RequestAttestedVirtualSmartCardCreationAsync();
-    fn RequestAttestedVirtualSmartCardCreationAsyncWithCardId();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISmartCardProvisioningStatics2Vtbl(
@@ -1580,18 +1256,6 @@ pub struct ISmartCardReader(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISmartCardReader {
     type Vtable = ISmartCardReaderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1074b4e0_54c2_4df0_817a_14c14378f06c);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ISmartCardReaderImpl {
-    fn DeviceId();
-    fn Name();
-    fn Kind();
-    fn GetStatusAsync();
-    fn FindAllCardsAsync();
-    fn CardAdded();
-    fn RemoveCardAdded();
-    fn CardRemoved();
-    fn RemoveCardRemoved();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1625,12 +1289,6 @@ unsafe impl ::windows::core::Interface for ISmartCardReaderStatics {
     type Vtable = ISmartCardReaderStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x103c04e1_a1ca_48f2_a281_5b6f669af107);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ISmartCardReaderStaticsImpl {
-    fn GetDeviceSelector();
-    fn GetDeviceSelectorWithKind();
-    fn FromIdAsync();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISmartCardReaderStaticsVtbl(
@@ -1651,12 +1309,6 @@ pub struct ISmartCardTriggerDetails(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISmartCardTriggerDetails {
     type Vtable = ISmartCardTriggerDetailsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5f9bf11e_39ef_4f2b_b44f_0a9155b177bc);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ISmartCardTriggerDetailsImpl {
-    fn TriggerType();
-    fn SourceAppletId();
-    fn TriggerData();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1680,12 +1332,6 @@ unsafe impl ::windows::core::Interface for ISmartCardTriggerDetails2 {
     type Vtable = ISmartCardTriggerDetails2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2945c569_8975_4a51_9e1a_5f8a76ee51af);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ISmartCardTriggerDetails2Impl {
-    fn Emulator();
-    fn TryLaunchCurrentAppAsync();
-    fn TryLaunchCurrentAppWithBehaviorAsync();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISmartCardTriggerDetails2Vtbl(
@@ -1707,10 +1353,6 @@ pub struct ISmartCardTriggerDetails3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISmartCardTriggerDetails3 {
     type Vtable = ISmartCardTriggerDetails3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb3e2c27d_18c6_4ba8_8376_ef03d4912666);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ISmartCardTriggerDetails3Impl {
-    fn SmartCard();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6367,3 +6009,5 @@ unsafe impl ::windows::core::RuntimeType for SmartCardUnlockPromptingBehavior {
 impl ::windows::core::DefaultType for SmartCardUnlockPromptingBehavior {
     type DefaultType = Self;
 }
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

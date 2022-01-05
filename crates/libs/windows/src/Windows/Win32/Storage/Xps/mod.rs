@@ -358,11 +358,6 @@ unsafe impl ::windows::core::Interface for IXpsDocumentPackageTarget {
     type Vtable = IXpsDocumentPackageTargetVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3b0b6d38_53ad_41da_b212_d37637a6714e);
 }
-pub trait IXpsDocumentPackageTargetImpl {
-    fn GetXpsOMPackageWriter();
-    fn GetXpsOMFactory();
-    fn GetXpsType();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXpsDocumentPackageTargetVtbl(
@@ -429,10 +424,6 @@ impl ::core::fmt::Debug for IXpsDocumentPackageTarget3D {
 unsafe impl ::windows::core::Interface for IXpsDocumentPackageTarget3D {
     type Vtable = IXpsDocumentPackageTarget3DVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x60ba71b8_3101_4984_9199_f4ea775ff01d);
-}
-pub trait IXpsDocumentPackageTarget3DImpl {
-    fn GetXpsOMPackageWriter3D();
-    fn GetXpsOMFactory();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -527,10 +518,6 @@ impl ::core::fmt::Debug for IXpsOMBrush {
 unsafe impl ::windows::core::Interface for IXpsOMBrush {
     type Vtable = IXpsOMBrushVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x56a3f80c_ea4c_4187_a57b_a2a473b2b42b);
-}
-pub trait IXpsOMBrushImpl: IXpsOMShareableImpl {
-    fn GetOpacity();
-    fn SetOpacity();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -832,21 +819,6 @@ unsafe impl ::windows::core::Interface for IXpsOMCanvas {
     type Vtable = IXpsOMCanvasVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x221d1452_331e_47c6_87e9_6ccefb9b5ba3);
 }
-pub trait IXpsOMCanvasImpl: IXpsOMVisualImpl + IXpsOMShareableImpl {
-    fn GetVisuals();
-    fn GetUseAliasedEdgeMode();
-    fn SetUseAliasedEdgeMode();
-    fn GetAccessibilityShortDescription();
-    fn SetAccessibilityShortDescription();
-    fn GetAccessibilityLongDescription();
-    fn SetAccessibilityLongDescription();
-    fn GetDictionary();
-    fn GetDictionaryLocal();
-    fn SetDictionaryLocal();
-    fn GetDictionaryResource();
-    fn SetDictionaryResource();
-    fn Clone();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXpsOMCanvasVtbl(
@@ -1021,10 +993,6 @@ unsafe impl ::windows::core::Interface for IXpsOMColorProfileResource {
     type Vtable = IXpsOMColorProfileResourceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x67bd7d69_1eef_4bb1_b5e7_6f4f87be8abe);
 }
-pub trait IXpsOMColorProfileResourceImpl: IXpsOMResourceImpl + IXpsOMPartImpl {
-    fn GetStream();
-    fn SetContent();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXpsOMColorProfileResourceVtbl(
@@ -1116,15 +1084,6 @@ impl ::core::fmt::Debug for IXpsOMColorProfileResourceCollection {
 unsafe impl ::windows::core::Interface for IXpsOMColorProfileResourceCollection {
     type Vtable = IXpsOMColorProfileResourceCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x12759630_5fba_4283_8f7d_cca849809edb);
-}
-pub trait IXpsOMColorProfileResourceCollectionImpl {
-    fn GetCount();
-    fn GetAt();
-    fn InsertAt();
-    fn RemoveAt();
-    fn SetAt();
-    fn Append();
-    fn GetByPartName();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1403,42 +1362,6 @@ unsafe impl ::windows::core::Interface for IXpsOMCoreProperties {
     type Vtable = IXpsOMCorePropertiesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3340fe8f_4027_4aa1_8f5f_d35ae45fe597);
 }
-pub trait IXpsOMCorePropertiesImpl: IXpsOMPartImpl {
-    fn GetOwner();
-    fn GetCategory();
-    fn SetCategory();
-    fn GetContentStatus();
-    fn SetContentStatus();
-    fn GetContentType();
-    fn SetContentType();
-    fn GetCreated();
-    fn SetCreated();
-    fn GetCreator();
-    fn SetCreator();
-    fn GetDescription();
-    fn SetDescription();
-    fn GetIdentifier();
-    fn SetIdentifier();
-    fn GetKeywords();
-    fn SetKeywords();
-    fn GetLanguage();
-    fn SetLanguage();
-    fn GetLastModifiedBy();
-    fn SetLastModifiedBy();
-    fn GetLastPrinted();
-    fn SetLastPrinted();
-    fn GetModified();
-    fn SetModified();
-    fn GetRevision();
-    fn SetRevision();
-    fn GetSubject();
-    fn SetSubject();
-    fn GetTitle();
-    fn SetTitle();
-    fn GetVersion();
-    fn SetVersion();
-    fn Clone();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXpsOMCorePropertiesVtbl(
@@ -1587,14 +1510,6 @@ unsafe impl ::windows::core::Interface for IXpsOMDashCollection {
     type Vtable = IXpsOMDashCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x081613f4_74eb_48f2_83b3_37a9ce2d7dc6);
 }
-pub trait IXpsOMDashCollectionImpl {
-    fn GetCount();
-    fn GetAt();
-    fn InsertAt();
-    fn RemoveAt();
-    fn SetAt();
-    fn Append();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXpsOMDashCollectionVtbl(
@@ -1702,18 +1617,6 @@ impl ::core::fmt::Debug for IXpsOMDictionary {
 unsafe impl ::windows::core::Interface for IXpsOMDictionary {
     type Vtable = IXpsOMDictionaryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x897c86b8_8eaf_4ae3_bdde_56419fcf4236);
-}
-pub trait IXpsOMDictionaryImpl {
-    fn GetOwner();
-    fn GetCount();
-    fn GetAt();
-    fn GetByKey();
-    fn GetIndex();
-    fn Append();
-    fn InsertAt();
-    fn RemoveAt();
-    fn SetAt();
-    fn Clone();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1851,16 +1754,6 @@ unsafe impl ::windows::core::Interface for IXpsOMDocument {
     type Vtable = IXpsOMDocumentVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2c2c94cb_ac5f_4254_8ee9_23948309d9f0);
 }
-pub trait IXpsOMDocumentImpl: IXpsOMPartImpl {
-    fn GetOwner();
-    fn GetPageReferences();
-    fn GetPrintTicketResource();
-    fn SetPrintTicketResource();
-    fn GetDocumentStructureResource();
-    fn SetDocumentStructureResource();
-    fn GetSignatureBlockResources();
-    fn Clone();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXpsOMDocumentVtbl(
@@ -1950,14 +1843,6 @@ impl ::core::fmt::Debug for IXpsOMDocumentCollection {
 unsafe impl ::windows::core::Interface for IXpsOMDocumentCollection {
     type Vtable = IXpsOMDocumentCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd1c87f0d_e947_4754_8a25_971478f7e83e);
-}
-pub trait IXpsOMDocumentCollectionImpl {
-    fn GetCount();
-    fn GetAt();
-    fn InsertAt();
-    fn RemoveAt();
-    fn SetAt();
-    fn Append();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2066,12 +1951,6 @@ impl ::core::fmt::Debug for IXpsOMDocumentSequence {
 unsafe impl ::windows::core::Interface for IXpsOMDocumentSequence {
     type Vtable = IXpsOMDocumentSequenceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x56492eb4_d8d5_425e_8256_4c2b64ad0264);
-}
-pub trait IXpsOMDocumentSequenceImpl: IXpsOMPartImpl {
-    fn GetOwner();
-    fn GetDocuments();
-    fn GetPrintTicketResource();
-    fn SetPrintTicketResource();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2199,11 +2078,6 @@ impl ::core::fmt::Debug for IXpsOMDocumentStructureResource {
 unsafe impl ::windows::core::Interface for IXpsOMDocumentStructureResource {
     type Vtable = IXpsOMDocumentStructureResourceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x85febc8a_6b63_48a9_af07_7064e4ecff30);
-}
-pub trait IXpsOMDocumentStructureResourceImpl: IXpsOMResourceImpl + IXpsOMPartImpl {
-    fn GetOwner();
-    fn GetStream();
-    fn SetContent();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2333,11 +2207,6 @@ unsafe impl ::windows::core::Interface for IXpsOMFontResource {
     type Vtable = IXpsOMFontResourceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa8c45708_47d9_4af4_8d20_33b48c9b8485);
 }
-pub trait IXpsOMFontResourceImpl: IXpsOMResourceImpl + IXpsOMPartImpl {
-    fn GetStream();
-    fn SetContent();
-    fn GetEmbeddingOption();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXpsOMFontResourceVtbl(
@@ -2430,15 +2299,6 @@ impl ::core::fmt::Debug for IXpsOMFontResourceCollection {
 unsafe impl ::windows::core::Interface for IXpsOMFontResourceCollection {
     type Vtable = IXpsOMFontResourceCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x70b4a6bb_88d4_4fa8_aaf9_6d9c596fdbad);
-}
-pub trait IXpsOMFontResourceCollectionImpl {
-    fn GetCount();
-    fn GetAt();
-    fn SetAt();
-    fn InsertAt();
-    fn Append();
-    fn RemoveAt();
-    fn GetByPartName();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2573,17 +2433,6 @@ impl ::core::fmt::Debug for IXpsOMGeometry {
 unsafe impl ::windows::core::Interface for IXpsOMGeometry {
     type Vtable = IXpsOMGeometryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x64fcf3d7_4d58_44ba_ad73_a13af6492072);
-}
-pub trait IXpsOMGeometryImpl: IXpsOMShareableImpl {
-    fn GetFigures();
-    fn GetFillRule();
-    fn SetFillRule();
-    fn GetTransform();
-    fn GetTransformLocal();
-    fn SetTransformLocal();
-    fn GetTransformLookup();
-    fn SetTransformLookup();
-    fn Clone();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2724,23 +2573,6 @@ unsafe impl ::windows::core::Interface for IXpsOMGeometryFigure {
     type Vtable = IXpsOMGeometryFigureVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd410dc83_908c_443e_8947_b1795d3c165a);
 }
-pub trait IXpsOMGeometryFigureImpl {
-    fn GetOwner();
-    fn GetSegmentData();
-    fn GetSegmentTypes();
-    fn GetSegmentStrokes();
-    fn SetSegments();
-    fn GetStartPoint();
-    fn SetStartPoint();
-    fn GetIsClosed();
-    fn SetIsClosed();
-    fn GetIsFilled();
-    fn SetIsFilled();
-    fn GetSegmentCount();
-    fn GetSegmentDataCount();
-    fn GetSegmentStrokePattern();
-    fn Clone();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXpsOMGeometryFigureVtbl(
@@ -2839,14 +2671,6 @@ impl ::core::fmt::Debug for IXpsOMGeometryFigureCollection {
 unsafe impl ::windows::core::Interface for IXpsOMGeometryFigureCollection {
     type Vtable = IXpsOMGeometryFigureCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfd48c3f3_a58e_4b5a_8826_1de54abe72b2);
-}
-pub trait IXpsOMGeometryFigureCollectionImpl {
-    fn GetCount();
-    fn GetAt();
-    fn InsertAt();
-    fn RemoveAt();
-    fn SetAt();
-    fn Append();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3214,35 +3038,6 @@ unsafe impl ::windows::core::Interface for IXpsOMGlyphs {
     type Vtable = IXpsOMGlyphsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x819b3199_0a5a_4b64_bec7_a9e17e780de2);
 }
-pub trait IXpsOMGlyphsImpl: IXpsOMVisualImpl + IXpsOMShareableImpl {
-    fn GetUnicodeString();
-    fn GetGlyphIndexCount();
-    fn GetGlyphIndices();
-    fn GetGlyphMappingCount();
-    fn GetGlyphMappings();
-    fn GetProhibitedCaretStopCount();
-    fn GetProhibitedCaretStops();
-    fn GetBidiLevel();
-    fn GetIsSideways();
-    fn GetDeviceFontName();
-    fn GetStyleSimulations();
-    fn SetStyleSimulations();
-    fn GetOrigin();
-    fn SetOrigin();
-    fn GetFontRenderingEmSize();
-    fn SetFontRenderingEmSize();
-    fn GetFontResource();
-    fn SetFontResource();
-    fn GetFontFaceIndex();
-    fn SetFontFaceIndex();
-    fn GetFillBrush();
-    fn GetFillBrushLocal();
-    fn SetFillBrushLocal();
-    fn GetFillBrushLookup();
-    fn SetFillBrushLookup();
-    fn GetGlyphsEditor();
-    fn Clone();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXpsOMGlyphsVtbl(
@@ -3453,26 +3248,6 @@ unsafe impl ::windows::core::Interface for IXpsOMGlyphsEditor {
     type Vtable = IXpsOMGlyphsEditorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa5ab8616_5b16_4b9f_9629_89b323ed7909);
 }
-pub trait IXpsOMGlyphsEditorImpl {
-    fn ApplyEdits();
-    fn GetUnicodeString();
-    fn SetUnicodeString();
-    fn GetGlyphIndexCount();
-    fn GetGlyphIndices();
-    fn SetGlyphIndices();
-    fn GetGlyphMappingCount();
-    fn GetGlyphMappings();
-    fn SetGlyphMappings();
-    fn GetProhibitedCaretStopCount();
-    fn GetProhibitedCaretStops();
-    fn SetProhibitedCaretStops();
-    fn GetBidiLevel();
-    fn SetBidiLevel();
-    fn GetIsSideways();
-    fn SetIsSideways();
-    fn GetDeviceFontName();
-    fn SetDeviceFontName();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXpsOMGlyphsEditorVtbl(
@@ -3656,18 +3431,6 @@ unsafe impl ::windows::core::Interface for IXpsOMGradientBrush {
     type Vtable = IXpsOMGradientBrushVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xedb59622_61a2_42c3_bace_acf2286c06bf);
 }
-pub trait IXpsOMGradientBrushImpl: IXpsOMBrushImpl + IXpsOMShareableImpl {
-    fn GetGradientStops();
-    fn GetTransform();
-    fn GetTransformLocal();
-    fn SetTransformLocal();
-    fn GetTransformLookup();
-    fn SetTransformLookup();
-    fn GetSpreadMethod();
-    fn SetSpreadMethod();
-    fn GetColorInterpolationMode();
-    fn SetColorInterpolationMode();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXpsOMGradientBrushVtbl(
@@ -3763,14 +3526,6 @@ unsafe impl ::windows::core::Interface for IXpsOMGradientStop {
     type Vtable = IXpsOMGradientStopVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5cf4f5cc_3969_49b5_a70a_5550b618fe49);
 }
-pub trait IXpsOMGradientStopImpl {
-    fn GetOwner();
-    fn GetOffset();
-    fn SetOffset();
-    fn GetColor();
-    fn SetColor();
-    fn Clone();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXpsOMGradientStopVtbl(
@@ -3854,14 +3609,6 @@ impl ::core::fmt::Debug for IXpsOMGradientStopCollection {
 unsafe impl ::windows::core::Interface for IXpsOMGradientStopCollection {
     type Vtable = IXpsOMGradientStopCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc9174c3a_3cd3_4319_bda4_11a39392ceef);
-}
-pub trait IXpsOMGradientStopCollectionImpl {
-    fn GetCount();
-    fn GetAt();
-    fn InsertAt();
-    fn RemoveAt();
-    fn SetAt();
-    fn Append();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4075,13 +3822,6 @@ unsafe impl ::windows::core::Interface for IXpsOMImageBrush {
     type Vtable = IXpsOMImageBrushVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3df0b466_d382_49ef_8550_dd94c80242e4);
 }
-pub trait IXpsOMImageBrushImpl: IXpsOMTileBrushImpl + IXpsOMBrushImpl + IXpsOMShareableImpl {
-    fn GetImageResource();
-    fn SetImageResource();
-    fn GetColorProfileResource();
-    fn SetColorProfileResource();
-    fn Clone();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXpsOMImageBrushVtbl(
@@ -4223,11 +3963,6 @@ unsafe impl ::windows::core::Interface for IXpsOMImageResource {
     type Vtable = IXpsOMImageResourceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3db8417d_ae50_485e_9a44_d7758f78a23f);
 }
-pub trait IXpsOMImageResourceImpl: IXpsOMResourceImpl + IXpsOMPartImpl {
-    fn GetStream();
-    fn SetContent();
-    fn GetImageType();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXpsOMImageResourceVtbl(
@@ -4320,15 +4055,6 @@ impl ::core::fmt::Debug for IXpsOMImageResourceCollection {
 unsafe impl ::windows::core::Interface for IXpsOMImageResourceCollection {
     type Vtable = IXpsOMImageResourceCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7a4a1a71_9cde_4b71_b33f_62de843eabfe);
-}
-pub trait IXpsOMImageResourceCollectionImpl {
-    fn GetCount();
-    fn GetAt();
-    fn InsertAt();
-    fn RemoveAt();
-    fn SetAt();
-    fn Append();
-    fn GetByPartName();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4540,13 +4266,6 @@ unsafe impl ::windows::core::Interface for IXpsOMLinearGradientBrush {
     type Vtable = IXpsOMLinearGradientBrushVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x005e279f_c30d_40ff_93ec_1950d3c528db);
 }
-pub trait IXpsOMLinearGradientBrushImpl: IXpsOMGradientBrushImpl + IXpsOMBrushImpl + IXpsOMShareableImpl {
-    fn GetStartPoint();
-    fn SetStartPoint();
-    fn GetEndPoint();
-    fn SetEndPoint();
-    fn Clone();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXpsOMLinearGradientBrushVtbl(
@@ -4664,11 +4383,6 @@ unsafe impl ::windows::core::Interface for IXpsOMMatrixTransform {
     type Vtable = IXpsOMMatrixTransformVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb77330ff_bb37_4501_a93e_f1b1e50bfc46);
 }
-pub trait IXpsOMMatrixTransformImpl: IXpsOMShareableImpl {
-    fn GetMatrix();
-    fn SetMatrix();
-    fn Clone();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXpsOMMatrixTransformVtbl(
@@ -4736,10 +4450,6 @@ impl ::core::fmt::Debug for IXpsOMNameCollection {
 unsafe impl ::windows::core::Interface for IXpsOMNameCollection {
     type Vtable = IXpsOMNameCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4bddf8ec_c915_421b_a166_d173d25653d2);
-}
-pub trait IXpsOMNameCollectionImpl {
-    fn GetCount();
-    fn GetAt();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5022,45 +4732,6 @@ impl ::core::fmt::Debug for IXpsOMObjectFactory {
 unsafe impl ::windows::core::Interface for IXpsOMObjectFactory {
     type Vtable = IXpsOMObjectFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf9b2a685_a50d_4fc2_b764_b56e093ea0ca);
-}
-pub trait IXpsOMObjectFactoryImpl {
-    fn CreatePackage();
-    fn CreatePackageFromFile();
-    fn CreatePackageFromStream();
-    fn CreateStoryFragmentsResource();
-    fn CreateDocumentStructureResource();
-    fn CreateSignatureBlockResource();
-    fn CreateRemoteDictionaryResource();
-    fn CreateRemoteDictionaryResourceFromStream();
-    fn CreatePartResources();
-    fn CreateDocumentSequence();
-    fn CreateDocument();
-    fn CreatePageReference();
-    fn CreatePage();
-    fn CreatePageFromStream();
-    fn CreateCanvas();
-    fn CreateGlyphs();
-    fn CreatePath();
-    fn CreateGeometry();
-    fn CreateGeometryFigure();
-    fn CreateMatrixTransform();
-    fn CreateSolidColorBrush();
-    fn CreateColorProfileResource();
-    fn CreateImageBrush();
-    fn CreateVisualBrush();
-    fn CreateImageResource();
-    fn CreatePrintTicketResource();
-    fn CreateFontResource();
-    fn CreateGradientStop();
-    fn CreateLinearGradientBrush();
-    fn CreateRadialGradientBrush();
-    fn CreateCoreProperties();
-    fn CreateDictionary();
-    fn CreatePartUriCollection();
-    fn CreatePackageWriterOnFile();
-    fn CreatePackageWriterOnStream();
-    fn CreatePartUri();
-    fn CreateReadOnlyStreamOnFile();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5524,20 +5195,6 @@ unsafe impl ::windows::core::Interface for IXpsOMObjectFactory1 {
     type Vtable = IXpsOMObjectFactory1Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0a91b617_d612_4181_bf7c_be5824e9cc8f);
 }
-pub trait IXpsOMObjectFactory1Impl: IXpsOMObjectFactoryImpl {
-    fn GetDocumentTypeFromFile();
-    fn GetDocumentTypeFromStream();
-    fn ConvertHDPhotoToJpegXR();
-    fn ConvertJpegXRToHDPhoto();
-    fn CreatePackageWriterOnFile1();
-    fn CreatePackageWriterOnStream1();
-    fn CreatePackage1();
-    fn CreatePackageFromStream1();
-    fn CreatePackageFromFile1();
-    fn CreatePage1();
-    fn CreatePageFromStream1();
-    fn CreateRemoteDictionaryResourceFromStream1();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXpsOMObjectFactory1Vtbl(
@@ -5716,18 +5373,6 @@ unsafe impl ::windows::core::Interface for IXpsOMPackage {
     type Vtable = IXpsOMPackageVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x18c3df65_81e1_4674_91dc_fc452f5a416f);
 }
-pub trait IXpsOMPackageImpl {
-    fn GetDocumentSequence();
-    fn SetDocumentSequence();
-    fn GetCoreProperties();
-    fn SetCoreProperties();
-    fn GetDiscardControlPartName();
-    fn SetDiscardControlPartName();
-    fn GetThumbnailResource();
-    fn SetThumbnailResource();
-    fn WriteToFile();
-    fn WriteToStream();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXpsOMPackageVtbl(
@@ -5877,11 +5522,6 @@ unsafe impl ::windows::core::Interface for IXpsOMPackage1 {
     type Vtable = IXpsOMPackage1Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x95a9435e_12bb_461b_8e7f_c6adb04cd96a);
 }
-pub trait IXpsOMPackage1Impl: IXpsOMPackageImpl {
-    fn GetDocumentType();
-    fn WriteToFile1();
-    fn WriteToStream1();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXpsOMPackage1Vtbl(
@@ -5959,9 +5599,6 @@ unsafe impl ::windows::core::Interface for IXpsOMPackageTarget {
     type Vtable = IXpsOMPackageTargetVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x219a9db0_4959_47d0_8034_b1ce84f41a4d);
 }
-pub trait IXpsOMPackageTargetImpl {
-    fn CreateXpsOMPackageWriter();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXpsOMPackageTargetVtbl(
@@ -6038,13 +5675,6 @@ impl ::core::fmt::Debug for IXpsOMPackageWriter {
 unsafe impl ::windows::core::Interface for IXpsOMPackageWriter {
     type Vtable = IXpsOMPackageWriterVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4e2aa182_a443_42c6_b41b_4f8e9de73ff9);
-}
-pub trait IXpsOMPackageWriterImpl {
-    fn StartNewDocument();
-    fn AddPage();
-    fn AddResource();
-    fn Close();
-    fn IsClosed();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6157,10 +5787,6 @@ impl ::core::fmt::Debug for IXpsOMPackageWriter3D {
 unsafe impl ::windows::core::Interface for IXpsOMPackageWriter3D {
     type Vtable = IXpsOMPackageWriter3DVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe8a45033_640e_43fa_9bdf_fddeaa31c6a0);
-}
-pub trait IXpsOMPackageWriter3DImpl: IXpsOMPackageWriterImpl {
-    fn AddModelTexture();
-    fn SetModelPrintTicket();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6364,30 +5990,6 @@ impl ::core::fmt::Debug for IXpsOMPage {
 unsafe impl ::windows::core::Interface for IXpsOMPage {
     type Vtable = IXpsOMPageVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd3e18888_f120_4fee_8c68_35296eae91d4);
-}
-pub trait IXpsOMPageImpl: IXpsOMPartImpl {
-    fn GetOwner();
-    fn GetVisuals();
-    fn GetPageDimensions();
-    fn SetPageDimensions();
-    fn GetContentBox();
-    fn SetContentBox();
-    fn GetBleedBox();
-    fn SetBleedBox();
-    fn GetLanguage();
-    fn SetLanguage();
-    fn GetName();
-    fn SetName();
-    fn GetIsHyperlinkTarget();
-    fn SetIsHyperlinkTarget();
-    fn GetDictionary();
-    fn GetDictionaryLocal();
-    fn SetDictionaryLocal();
-    fn GetDictionaryResource();
-    fn SetDictionaryResource();
-    fn Write();
-    fn GenerateUnusedLookupKey();
-    fn Clone();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6645,10 +6247,6 @@ unsafe impl ::windows::core::Interface for IXpsOMPage1 {
     type Vtable = IXpsOMPage1Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x305b60ef_6892_4dda_9cbb_3aa65974508a);
 }
-pub trait IXpsOMPage1Impl: IXpsOMPageImpl + IXpsOMPartImpl {
-    fn GetDocumentType();
-    fn Write1();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXpsOMPage1Vtbl(
@@ -6819,25 +6417,6 @@ unsafe impl ::windows::core::Interface for IXpsOMPageReference {
     type Vtable = IXpsOMPageReferenceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xed360180_6f92_4998_890d_2f208531a0a0);
 }
-pub trait IXpsOMPageReferenceImpl {
-    fn GetOwner();
-    fn GetPage();
-    fn SetPage();
-    fn DiscardPage();
-    fn IsPageLoaded();
-    fn GetAdvisoryPageDimensions();
-    fn SetAdvisoryPageDimensions();
-    fn GetStoryFragmentsResource();
-    fn SetStoryFragmentsResource();
-    fn GetPrintTicketResource();
-    fn SetPrintTicketResource();
-    fn GetThumbnailResource();
-    fn SetThumbnailResource();
-    fn CollectLinkTargets();
-    fn CollectPartResources();
-    fn HasRestrictedFonts();
-    fn Clone();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXpsOMPageReferenceVtbl(
@@ -6935,14 +6514,6 @@ unsafe impl ::windows::core::Interface for IXpsOMPageReferenceCollection {
     type Vtable = IXpsOMPageReferenceCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xca16ba4d_e7b9_45c5_958b_f98022473745);
 }
-pub trait IXpsOMPageReferenceCollectionImpl {
-    fn GetCount();
-    fn GetAt();
-    fn InsertAt();
-    fn RemoveAt();
-    fn SetAt();
-    fn Append();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXpsOMPageReferenceCollectionVtbl(
@@ -7011,10 +6582,6 @@ impl ::core::fmt::Debug for IXpsOMPart {
 unsafe impl ::windows::core::Interface for IXpsOMPart {
     type Vtable = IXpsOMPartVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x74eb2f0b_a91e_4486_afac_0fabeca3dfc6);
-}
-pub trait IXpsOMPartImpl {
-    fn GetPartName();
-    fn SetPartName();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7091,12 +6658,6 @@ impl ::core::fmt::Debug for IXpsOMPartResources {
 unsafe impl ::windows::core::Interface for IXpsOMPartResources {
     type Vtable = IXpsOMPartResourcesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf4cf7729_4864_4275_99b3_a8717163ecaf);
-}
-pub trait IXpsOMPartResourcesImpl {
-    fn GetFontResources();
-    fn GetImageResources();
-    fn GetColorProfileResources();
-    fn GetRemoteDictionaryResources();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7183,14 +6744,6 @@ impl ::core::fmt::Debug for IXpsOMPartUriCollection {
 unsafe impl ::windows::core::Interface for IXpsOMPartUriCollection {
     type Vtable = IXpsOMPartUriCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x57c650d4_067c_4893_8c33_f62a0633730f);
-}
-pub trait IXpsOMPartUriCollectionImpl {
-    fn GetCount();
-    fn GetAt();
-    fn InsertAt();
-    fn RemoveAt();
-    fn SetAt();
-    fn Append();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7613,45 +7166,6 @@ unsafe impl ::windows::core::Interface for IXpsOMPath {
     type Vtable = IXpsOMPathVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x37d38bb6_3ee9_4110_9312_14b194163337);
 }
-pub trait IXpsOMPathImpl: IXpsOMVisualImpl + IXpsOMShareableImpl {
-    fn GetGeometry();
-    fn GetGeometryLocal();
-    fn SetGeometryLocal();
-    fn GetGeometryLookup();
-    fn SetGeometryLookup();
-    fn GetAccessibilityShortDescription();
-    fn SetAccessibilityShortDescription();
-    fn GetAccessibilityLongDescription();
-    fn SetAccessibilityLongDescription();
-    fn GetSnapsToPixels();
-    fn SetSnapsToPixels();
-    fn GetStrokeBrush();
-    fn GetStrokeBrushLocal();
-    fn SetStrokeBrushLocal();
-    fn GetStrokeBrushLookup();
-    fn SetStrokeBrushLookup();
-    fn GetStrokeDashes();
-    fn GetStrokeDashCap();
-    fn SetStrokeDashCap();
-    fn GetStrokeDashOffset();
-    fn SetStrokeDashOffset();
-    fn GetStrokeStartLineCap();
-    fn SetStrokeStartLineCap();
-    fn GetStrokeEndLineCap();
-    fn SetStrokeEndLineCap();
-    fn GetStrokeLineJoin();
-    fn SetStrokeLineJoin();
-    fn GetStrokeMiterLimit();
-    fn SetStrokeMiterLimit();
-    fn GetStrokeThickness();
-    fn SetStrokeThickness();
-    fn GetFillBrush();
-    fn GetFillBrushLocal();
-    fn SetFillBrushLocal();
-    fn GetFillBrushLookup();
-    fn SetFillBrushLookup();
-    fn Clone();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXpsOMPathVtbl(
@@ -7855,10 +7369,6 @@ impl ::core::fmt::Debug for IXpsOMPrintTicketResource {
 unsafe impl ::windows::core::Interface for IXpsOMPrintTicketResource {
     type Vtable = IXpsOMPrintTicketResourceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe7ff32d2_34aa_499b_bbe9_9cd4ee6c59f7);
-}
-pub trait IXpsOMPrintTicketResourceImpl: IXpsOMResourceImpl + IXpsOMPartImpl {
-    fn GetStream();
-    fn SetContent();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8079,15 +7589,6 @@ unsafe impl ::windows::core::Interface for IXpsOMRadialGradientBrush {
     type Vtable = IXpsOMRadialGradientBrushVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x75f207e5_08bf_413c_96b1_b82b4064176b);
 }
-pub trait IXpsOMRadialGradientBrushImpl: IXpsOMGradientBrushImpl + IXpsOMBrushImpl + IXpsOMShareableImpl {
-    fn GetCenter();
-    fn SetCenter();
-    fn GetRadiiSizes();
-    fn SetRadiiSizes();
-    fn GetGradientOrigin();
-    fn SetGradientOrigin();
-    fn Clone();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXpsOMRadialGradientBrushVtbl(
@@ -8222,10 +7723,6 @@ impl ::core::fmt::Debug for IXpsOMRemoteDictionaryResource {
 unsafe impl ::windows::core::Interface for IXpsOMRemoteDictionaryResource {
     type Vtable = IXpsOMRemoteDictionaryResourceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc9bd7cd4_e16a_4bf8_8c84_c950af7a3061);
-}
-pub trait IXpsOMRemoteDictionaryResourceImpl: IXpsOMResourceImpl + IXpsOMPartImpl {
-    fn GetDictionary();
-    fn SetDictionary();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8375,10 +7872,6 @@ unsafe impl ::windows::core::Interface for IXpsOMRemoteDictionaryResource1 {
     type Vtable = IXpsOMRemoteDictionaryResource1Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbf8fc1d4_9d46_4141_ba5f_94bb9250d041);
 }
-pub trait IXpsOMRemoteDictionaryResource1Impl: IXpsOMRemoteDictionaryResourceImpl + IXpsOMResourceImpl + IXpsOMPartImpl {
-    fn GetDocumentType();
-    fn Write1();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXpsOMRemoteDictionaryResource1Vtbl(
@@ -8472,15 +7965,6 @@ unsafe impl ::windows::core::Interface for IXpsOMRemoteDictionaryResourceCollect
     type Vtable = IXpsOMRemoteDictionaryResourceCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5c38db61_7fec_464a_87bd_41e3bef018be);
 }
-pub trait IXpsOMRemoteDictionaryResourceCollectionImpl {
-    fn GetCount();
-    fn GetAt();
-    fn InsertAt();
-    fn RemoveAt();
-    fn SetAt();
-    fn Append();
-    fn GetByPartName();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXpsOMRemoteDictionaryResourceCollectionVtbl(
@@ -8572,7 +8056,6 @@ unsafe impl ::windows::core::Interface for IXpsOMResource {
     type Vtable = IXpsOMResourceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xda2ac0a2_73a2_4975_ad14_74097c3ff3a5);
 }
-pub trait IXpsOMResourceImpl: IXpsOMPartImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXpsOMResourceVtbl(
@@ -8638,10 +8121,6 @@ impl ::core::fmt::Debug for IXpsOMShareable {
 unsafe impl ::windows::core::Interface for IXpsOMShareable {
     type Vtable = IXpsOMShareableVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7137398f_2fc1_454d_8c6a_2c3115a16ece);
-}
-pub trait IXpsOMShareableImpl {
-    fn GetOwner();
-    fn GetType();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8764,11 +8243,6 @@ unsafe impl ::windows::core::Interface for IXpsOMSignatureBlockResource {
     type Vtable = IXpsOMSignatureBlockResourceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4776ad35_2e04_4357_8743_ebf6c171a905);
 }
-pub trait IXpsOMSignatureBlockResourceImpl: IXpsOMResourceImpl + IXpsOMPartImpl {
-    fn GetOwner();
-    fn GetStream();
-    fn SetContent();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXpsOMSignatureBlockResourceVtbl(
@@ -8861,15 +8335,6 @@ impl ::core::fmt::Debug for IXpsOMSignatureBlockResourceCollection {
 unsafe impl ::windows::core::Interface for IXpsOMSignatureBlockResourceCollection {
     type Vtable = IXpsOMSignatureBlockResourceCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xab8f5d8e_351b_4d33_aaed_fa56f0022931);
-}
-pub trait IXpsOMSignatureBlockResourceCollectionImpl {
-    fn GetCount();
-    fn GetAt();
-    fn InsertAt();
-    fn RemoveAt();
-    fn SetAt();
-    fn Append();
-    fn GetByPartName();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9003,11 +8468,6 @@ unsafe impl ::windows::core::Interface for IXpsOMSolidColorBrush {
     type Vtable = IXpsOMSolidColorBrushVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa06f9f05_3be9_4763_98a8_094fc672e488);
 }
-pub trait IXpsOMSolidColorBrushImpl: IXpsOMBrushImpl + IXpsOMShareableImpl {
-    fn GetColor();
-    fn SetColor();
-    fn Clone();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXpsOMSolidColorBrushVtbl(
@@ -9134,11 +8594,6 @@ unsafe impl ::windows::core::Interface for IXpsOMStoryFragmentsResource {
     type Vtable = IXpsOMStoryFragmentsResourceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc2b3ca09_0473_4282_87ae_1780863223f0);
 }
-pub trait IXpsOMStoryFragmentsResourceImpl: IXpsOMResourceImpl + IXpsOMPartImpl {
-    fn GetOwner();
-    fn GetStream();
-    fn SetContent();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXpsOMStoryFragmentsResourceVtbl(
@@ -9205,9 +8660,6 @@ impl ::core::fmt::Debug for IXpsOMThumbnailGenerator {
 unsafe impl ::windows::core::Interface for IXpsOMThumbnailGenerator {
     type Vtable = IXpsOMThumbnailGeneratorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x15b873d5_1971_41e8_83a3_6578403064c7);
-}
-pub trait IXpsOMThumbnailGeneratorImpl {
-    fn GenerateThumbnail();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9373,19 +8825,6 @@ impl ::core::fmt::Debug for IXpsOMTileBrush {
 unsafe impl ::windows::core::Interface for IXpsOMTileBrush {
     type Vtable = IXpsOMTileBrushVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0fc2328d_d722_4a54_b2ec_be90218a789e);
-}
-pub trait IXpsOMTileBrushImpl: IXpsOMBrushImpl + IXpsOMShareableImpl {
-    fn GetTransform();
-    fn GetTransformLocal();
-    fn SetTransformLocal();
-    fn GetTransformLookup();
-    fn SetTransformLookup();
-    fn GetViewbox();
-    fn SetViewbox();
-    fn GetViewport();
-    fn SetViewport();
-    fn GetTileMode();
-    fn SetTileMode();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9613,33 +9052,6 @@ impl ::core::fmt::Debug for IXpsOMVisual {
 unsafe impl ::windows::core::Interface for IXpsOMVisual {
     type Vtable = IXpsOMVisualVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbc3e7333_fb0b_4af3_a819_0b4eaad0d2fd);
-}
-pub trait IXpsOMVisualImpl: IXpsOMShareableImpl {
-    fn GetTransform();
-    fn GetTransformLocal();
-    fn SetTransformLocal();
-    fn GetTransformLookup();
-    fn SetTransformLookup();
-    fn GetClipGeometry();
-    fn GetClipGeometryLocal();
-    fn SetClipGeometryLocal();
-    fn GetClipGeometryLookup();
-    fn SetClipGeometryLookup();
-    fn GetOpacity();
-    fn SetOpacity();
-    fn GetOpacityMaskBrush();
-    fn GetOpacityMaskBrushLocal();
-    fn SetOpacityMaskBrushLocal();
-    fn GetOpacityMaskBrushLookup();
-    fn SetOpacityMaskBrushLookup();
-    fn GetName();
-    fn SetName();
-    fn GetIsHyperlinkTarget();
-    fn SetIsHyperlinkTarget();
-    fn GetHyperlinkNavigateUri();
-    fn SetHyperlinkNavigateUri();
-    fn GetLanguage();
-    fn SetLanguage();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9895,14 +9307,6 @@ unsafe impl ::windows::core::Interface for IXpsOMVisualBrush {
     type Vtable = IXpsOMVisualBrushVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x97e294af_5b37_46b4_8057_874d2f64119b);
 }
-pub trait IXpsOMVisualBrushImpl: IXpsOMTileBrushImpl + IXpsOMBrushImpl + IXpsOMShareableImpl {
-    fn GetVisual();
-    fn GetVisualLocal();
-    fn SetVisualLocal();
-    fn GetVisualLookup();
-    fn SetVisualLookup();
-    fn Clone();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXpsOMVisualBrushVtbl(
@@ -10005,14 +9409,6 @@ impl ::core::fmt::Debug for IXpsOMVisualCollection {
 unsafe impl ::windows::core::Interface for IXpsOMVisualCollection {
     type Vtable = IXpsOMVisualCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x94d8abde_ab91_46a8_82b7_f5b05ef01a96);
-}
-pub trait IXpsOMVisualCollectionImpl {
-    fn GetCount();
-    fn GetAt();
-    fn InsertAt();
-    fn RemoveAt();
-    fn SetAt();
-    fn Append();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -10137,20 +9533,6 @@ unsafe impl ::windows::core::Interface for IXpsSignature {
     type Vtable = IXpsSignatureVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6ae4c93e_1ade_42fb_898b_3a5658284857);
 }
-pub trait IXpsSignatureImpl {
-    fn GetSignatureId();
-    fn GetSignatureValue();
-    fn GetCertificateEnumerator();
-    fn GetSigningTime();
-    fn GetSigningTimeFormat();
-    fn GetSignaturePartName();
-    fn Verify();
-    fn GetPolicy();
-    fn GetCustomObjectEnumerator();
-    fn GetCustomReferenceEnumerator();
-    fn GetSignatureXml();
-    fn SetSignatureXml();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXpsSignatureVtbl(
@@ -10251,13 +9633,6 @@ unsafe impl ::windows::core::Interface for IXpsSignatureBlock {
     type Vtable = IXpsSignatureBlockVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x151fac09_0b97_4ac6_a323_5e4297d4322b);
 }
-pub trait IXpsSignatureBlockImpl {
-    fn GetRequests();
-    fn GetPartName();
-    fn GetDocumentIndex();
-    fn GetDocumentName();
-    fn CreateRequest();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXpsSignatureBlockVtbl(
@@ -10332,11 +9707,6 @@ unsafe impl ::windows::core::Interface for IXpsSignatureBlockCollection {
     type Vtable = IXpsSignatureBlockCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x23397050_fe99_467a_8dce_9237f074ffe4);
 }
-pub trait IXpsSignatureBlockCollectionImpl {
-    fn GetCount();
-    fn GetAt();
-    fn RemoveAt();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXpsSignatureBlockCollectionVtbl(
@@ -10405,11 +9775,6 @@ impl ::core::fmt::Debug for IXpsSignatureCollection {
 unsafe impl ::windows::core::Interface for IXpsSignatureCollection {
     type Vtable = IXpsSignatureCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa2d1d95d_add2_4dff_ab27_6b9c645ff322);
-}
-pub trait IXpsSignatureCollectionImpl {
-    fn GetCount();
-    fn GetAt();
-    fn RemoveAt();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -10523,19 +9888,6 @@ impl ::core::fmt::Debug for IXpsSignatureManager {
 unsafe impl ::windows::core::Interface for IXpsSignatureManager {
     type Vtable = IXpsSignatureManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd3e8d338_fdc4_4afc_80b5_d532a1782ee1);
-}
-pub trait IXpsSignatureManagerImpl {
-    fn LoadPackageFile();
-    fn LoadPackageStream();
-    fn Sign();
-    fn GetSignatureOriginPartName();
-    fn SetSignatureOriginPartName();
-    fn GetSignatures();
-    fn AddSignatureBlock();
-    fn GetSignatureBlocks();
-    fn CreateSigningOptions();
-    fn SavePackageToFile();
-    fn SavePackageToStream();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -10672,20 +10024,6 @@ unsafe impl ::windows::core::Interface for IXpsSignatureRequest {
     type Vtable = IXpsSignatureRequestVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xac58950b_7208_4b2d_b2c4_951083d3b8eb);
 }
-pub trait IXpsSignatureRequestImpl {
-    fn GetIntent();
-    fn SetIntent();
-    fn GetRequestedSigner();
-    fn SetRequestedSigner();
-    fn GetRequestSignByDate();
-    fn SetRequestSignByDate();
-    fn GetSigningLocale();
-    fn SetSigningLocale();
-    fn GetSpotLocation();
-    fn SetSpotLocation();
-    fn GetRequestId();
-    fn GetSignature();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXpsSignatureRequestVtbl(
@@ -10773,11 +10111,6 @@ impl ::core::fmt::Debug for IXpsSignatureRequestCollection {
 unsafe impl ::windows::core::Interface for IXpsSignatureRequestCollection {
     type Vtable = IXpsSignatureRequestCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf0253e68_9f19_412e_9b4f_54d3b0ac6cd9);
-}
-pub trait IXpsSignatureRequestCollectionImpl {
-    fn GetCount();
-    fn GetAt();
-    fn RemoveAt();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -10924,25 +10257,6 @@ impl ::core::fmt::Debug for IXpsSigningOptions {
 unsafe impl ::windows::core::Interface for IXpsSigningOptions {
     type Vtable = IXpsSigningOptionsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7718eae4_3215_49be_af5b_594fef7fcfa6);
-}
-pub trait IXpsSigningOptionsImpl {
-    fn GetSignatureId();
-    fn SetSignatureId();
-    fn GetSignatureMethod();
-    fn SetSignatureMethod();
-    fn GetDigestMethod();
-    fn SetDigestMethod();
-    fn GetSignaturePartName();
-    fn SetSignaturePartName();
-    fn GetPolicy();
-    fn SetPolicy();
-    fn GetSigningTimeFormat();
-    fn SetSigningTimeFormat();
-    fn GetCustomObjects();
-    fn GetCustomReferences();
-    fn GetCertificateSet();
-    fn GetFlags();
-    fn SetFlags();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -11981,3 +11295,5 @@ pub const XPS_TILE_MODE_FLIPXY: XPS_TILE_MODE = 5i32;
 pub const XpsOMObjectFactory: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe974d26d_3d9b_4d47_88cc_3872f2dc3585);
 pub const XpsOMThumbnailGenerator: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7e4a23e2_b969_4761_be35_1a8ced58e323);
 pub const XpsSignatureManager: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb0c43320_2315_44a2_b70a_0943a140a8ee);
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

@@ -1501,10 +1501,6 @@ unsafe impl ::windows::core::Interface for ID3DBlob {
     type Vtable = ID3DBlobVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8ba5fb08_5195_40e2_ac58_0d989c3a0102);
 }
-pub trait ID3DBlobImpl {
-    fn GetBufferPointer();
-    fn GetBufferSize();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3DBlobVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> *mut ::core::ffi::c_void, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> usize);
@@ -1562,10 +1558,6 @@ unsafe impl ::windows::core::Interface for ID3DDestructionNotifier {
     type Vtable = ID3DDestructionNotifierVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa06eb39a_50da_425b_8c31_4eecd6c270f3);
 }
-pub trait ID3DDestructionNotifierImpl {
-    fn RegisterDestructionCallback();
-    fn UnregisterDestructionCallback();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3DDestructionNotifierVtbl(
@@ -1609,10 +1601,6 @@ unsafe impl ::windows::core::Interface for ID3DInclude {
     type Vtable = ID3DIncludeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
 }
-pub trait ID3DIncludeImpl {
-    fn Open();
-    fn Close();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3DIncludeVtbl(#[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, includetype: D3D_INCLUDE_TYPE, pfilename: super::super::Foundation::PSTR, pparentdata: *const ::core::ffi::c_void, ppdata: *mut *mut ::core::ffi::c_void, pbytes: *mut u32) -> ::windows::core::HRESULT, #[cfg(not(feature = "Win32_Foundation"))] usize, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdata: *const ::core::ffi::c_void) -> ::windows::core::HRESULT);
@@ -1622,3 +1610,5 @@ pub const WKPDID_CommentStringW: ::windows::core::GUID = ::windows::core::GUID::
 pub const WKPDID_D3D12UniqueObjectId: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1b39de15_ec04_4bae_ba4d_8cef79fc04c1);
 pub const WKPDID_D3DDebugObjectName: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x429b8c22_9188_4b0c_8742_acb0bf85c200);
 pub const WKPDID_D3DDebugObjectNameW: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4cca5fd8_921f_42c8_8566_70caf2a9b741);
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

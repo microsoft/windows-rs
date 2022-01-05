@@ -2988,10 +2988,6 @@ unsafe impl ::windows::core::Interface for IDWriteAsyncResult {
     type Vtable = IDWriteAsyncResultVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xce25f8fd_863b_4d13_9651_c1f88dc73fe2);
 }
-pub trait IDWriteAsyncResultImpl {
-    fn GetWaitHandle();
-    fn GetResult();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDWriteAsyncResultVtbl(
@@ -3084,16 +3080,6 @@ impl ::core::fmt::Debug for IDWriteBitmapRenderTarget {
 unsafe impl ::windows::core::Interface for IDWriteBitmapRenderTarget {
     type Vtable = IDWriteBitmapRenderTargetVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5e5a32a3_8dff_4773_9ff6_0696eab77267);
-}
-pub trait IDWriteBitmapRenderTargetImpl {
-    fn DrawGlyphRun();
-    fn GetMemoryDC();
-    fn GetPixelsPerDip();
-    fn SetPixelsPerDip();
-    fn GetCurrentTransform();
-    fn SetCurrentTransform();
-    fn GetSize();
-    fn Resize();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3224,10 +3210,6 @@ unsafe impl ::windows::core::Interface for IDWriteBitmapRenderTarget1 {
     type Vtable = IDWriteBitmapRenderTarget1Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x791e8298_3ef3_4230_9880_c9bdecc42064);
 }
-pub trait IDWriteBitmapRenderTarget1Impl: IDWriteBitmapRenderTargetImpl {
-    fn GetTextAntialiasMode();
-    fn SetTextAntialiasMode();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDWriteBitmapRenderTarget1Vtbl(
@@ -3304,10 +3286,6 @@ impl ::core::fmt::Debug for IDWriteColorGlyphRunEnumerator {
 unsafe impl ::windows::core::Interface for IDWriteColorGlyphRunEnumerator {
     type Vtable = IDWriteColorGlyphRunEnumeratorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd31fbe17_f157_41a2_8d24_cb779e0560e8);
-}
-pub trait IDWriteColorGlyphRunEnumeratorImpl {
-    fn MoveNext();
-    fn GetCurrentRun();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3402,9 +3380,6 @@ impl ::core::fmt::Debug for IDWriteColorGlyphRunEnumerator1 {
 unsafe impl ::windows::core::Interface for IDWriteColorGlyphRunEnumerator1 {
     type Vtable = IDWriteColorGlyphRunEnumerator1Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7c5f86da_c7a1_4f05_b8e1_55a179fe5a35);
-}
-pub trait IDWriteColorGlyphRunEnumerator1Impl: IDWriteColorGlyphRunEnumeratorImpl {
-    fn GetCurrentRun();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3571,29 +3546,6 @@ impl ::core::fmt::Debug for IDWriteFactory {
 unsafe impl ::windows::core::Interface for IDWriteFactory {
     type Vtable = IDWriteFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb859ee5a_d838_4b5b_a2e8_1adc7d93db48);
-}
-pub trait IDWriteFactoryImpl {
-    fn GetSystemFontCollection();
-    fn CreateCustomFontCollection();
-    fn RegisterFontCollectionLoader();
-    fn UnregisterFontCollectionLoader();
-    fn CreateFontFileReference();
-    fn CreateCustomFontFileReference();
-    fn CreateFontFace();
-    fn CreateRenderingParams();
-    fn CreateMonitorRenderingParams();
-    fn CreateCustomRenderingParams();
-    fn RegisterFontFileLoader();
-    fn UnregisterFontFileLoader();
-    fn CreateTextFormat();
-    fn CreateTypography();
-    fn GetGdiInterop();
-    fn CreateTextLayout();
-    fn CreateGdiCompatibleTextLayout();
-    fn CreateEllipsisTrimmingSign();
-    fn CreateTextAnalyzer();
-    fn CreateNumberSubstitution();
-    fn CreateGlyphRunAnalysis();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3813,10 +3765,6 @@ impl ::core::fmt::Debug for IDWriteFactory1 {
 unsafe impl ::windows::core::Interface for IDWriteFactory1 {
     type Vtable = IDWriteFactory1Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x30572f99_dac6_41db_a16e_0486307e606a);
-}
-pub trait IDWriteFactory1Impl: IDWriteFactoryImpl {
-    fn GetEudcFontCollection();
-    fn CreateCustomRenderingParams();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4086,13 +4034,6 @@ impl ::core::fmt::Debug for IDWriteFactory2 {
 unsafe impl ::windows::core::Interface for IDWriteFactory2 {
     type Vtable = IDWriteFactory2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0439fc60_ca44_4994_8dee_3a9af7b732ec);
-}
-pub trait IDWriteFactory2Impl: IDWriteFactory1Impl + IDWriteFactoryImpl {
-    fn GetSystemFontFallback();
-    fn CreateFontFallbackBuilder();
-    fn TranslateColorGlyphRun();
-    fn CreateCustomRenderingParams();
-    fn CreateGlyphRunAnalysis();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4436,17 +4377,6 @@ impl ::core::fmt::Debug for IDWriteFactory3 {
 unsafe impl ::windows::core::Interface for IDWriteFactory3 {
     type Vtable = IDWriteFactory3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9a1b41c3_d3bb_466a_87fc_fe67556a3b65);
-}
-pub trait IDWriteFactory3Impl: IDWriteFactory2Impl + IDWriteFactory1Impl + IDWriteFactoryImpl {
-    fn CreateGlyphRunAnalysis();
-    fn CreateCustomRenderingParams();
-    fn CreateFontFaceReference();
-    fn CreateFontFaceReference();
-    fn GetSystemFontSet();
-    fn CreateFontSetBuilder();
-    fn CreateFontCollectionFromFontSet();
-    fn GetSystemFontCollection();
-    fn GetFontDownloadQueue();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4840,11 +4770,6 @@ impl ::core::fmt::Debug for IDWriteFactory4 {
 unsafe impl ::windows::core::Interface for IDWriteFactory4 {
     type Vtable = IDWriteFactory4Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4b0b5bd3_0797_4549_8ac5_fe915cc53856);
-}
-pub trait IDWriteFactory4Impl: IDWriteFactory3Impl + IDWriteFactory2Impl + IDWriteFactory1Impl + IDWriteFactoryImpl {
-    fn TranslateColorGlyphRun();
-    fn ComputeGlyphOrigins();
-    fn ComputeGlyphOrigins();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5289,13 +5214,6 @@ impl ::core::fmt::Debug for IDWriteFactory5 {
 unsafe impl ::windows::core::Interface for IDWriteFactory5 {
     type Vtable = IDWriteFactory5Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x958db99a_be2a_4f09_af7d_65189803d1d3);
-}
-pub trait IDWriteFactory5Impl: IDWriteFactory4Impl + IDWriteFactory3Impl + IDWriteFactory2Impl + IDWriteFactory1Impl + IDWriteFactoryImpl {
-    fn CreateFontSetBuilder();
-    fn CreateInMemoryFontFileLoader();
-    fn CreateHttpFontFileLoader();
-    fn AnalyzeContainerType();
-    fn UnpackFontFile();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5804,15 +5722,6 @@ impl ::core::fmt::Debug for IDWriteFactory6 {
 unsafe impl ::windows::core::Interface for IDWriteFactory6 {
     type Vtable = IDWriteFactory6Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf3744d80_21f7_42eb_b35d_995bc72fc223);
-}
-pub trait IDWriteFactory6Impl: IDWriteFactory5Impl + IDWriteFactory4Impl + IDWriteFactory3Impl + IDWriteFactory2Impl + IDWriteFactory1Impl + IDWriteFactoryImpl {
-    fn CreateFontFaceReference();
-    fn CreateFontResource();
-    fn GetSystemFontSet();
-    fn GetSystemFontCollection();
-    fn CreateFontCollectionFromFontSet();
-    fn CreateFontSetBuilder();
-    fn CreateTextFormat();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6364,10 +6273,6 @@ unsafe impl ::windows::core::Interface for IDWriteFactory7 {
     type Vtable = IDWriteFactory7Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x35d0e0b3_9076_4d2e_a016_a91b568a06b4);
 }
-pub trait IDWriteFactory7Impl: IDWriteFactory6Impl + IDWriteFactory5Impl + IDWriteFactory4Impl + IDWriteFactory3Impl + IDWriteFactory2Impl + IDWriteFactory1Impl + IDWriteFactoryImpl {
-    fn GetSystemFontSet();
-    fn GetSystemFontCollection();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDWriteFactory7Vtbl(
@@ -6548,19 +6453,6 @@ unsafe impl ::windows::core::Interface for IDWriteFont {
     type Vtable = IDWriteFontVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xacd16696_8c14_4f5d_877e_fe3fc1d32737);
 }
-pub trait IDWriteFontImpl {
-    fn GetFontFamily();
-    fn GetWeight();
-    fn GetStretch();
-    fn GetStyle();
-    fn IsSymbolFont();
-    fn GetFaceNames();
-    fn GetInformationalStrings();
-    fn GetSimulations();
-    fn GetMetrics();
-    fn HasCharacter();
-    fn CreateFontFace();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDWriteFontVtbl(
@@ -6715,12 +6607,6 @@ impl ::core::fmt::Debug for IDWriteFont1 {
 unsafe impl ::windows::core::Interface for IDWriteFont1 {
     type Vtable = IDWriteFont1Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xacd16696_8c14_4f5d_877e_fe3fc1d32738);
-}
-pub trait IDWriteFont1Impl: IDWriteFontImpl {
-    fn GetMetrics();
-    fn GetPanose();
-    fn GetUnicodeRanges();
-    fn IsMonospacedFont();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6907,9 +6793,6 @@ impl ::core::fmt::Debug for IDWriteFont2 {
 unsafe impl ::windows::core::Interface for IDWriteFont2 {
     type Vtable = IDWriteFont2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x29748ed6_8c9c_4a6a_be0b_d912e8538944);
-}
-pub trait IDWriteFont2Impl: IDWriteFont1Impl + IDWriteFontImpl {
-    fn IsColorFont();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7143,13 +7026,6 @@ unsafe impl ::windows::core::Interface for IDWriteFont3 {
     type Vtable = IDWriteFont3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x29748ed6_8c9c_4a6a_be0b_d912e8538944);
 }
-pub trait IDWriteFont3Impl: IDWriteFont2Impl + IDWriteFont1Impl + IDWriteFontImpl {
-    fn CreateFontFace();
-    fn Equals();
-    fn GetFontFaceReference();
-    fn HasCharacter();
-    fn GetLocality();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDWriteFont3Vtbl(
@@ -7249,12 +7125,6 @@ impl ::core::fmt::Debug for IDWriteFontCollection {
 unsafe impl ::windows::core::Interface for IDWriteFontCollection {
     type Vtable = IDWriteFontCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa84cee02_3eea_4eee_a827_87c1a02a0fcc);
-}
-pub trait IDWriteFontCollectionImpl {
-    fn GetFontFamilyCount();
-    fn GetFontFamily();
-    fn FindFamilyName();
-    fn GetFontFromFontFace();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7361,10 +7231,6 @@ impl ::core::fmt::Debug for IDWriteFontCollection1 {
 unsafe impl ::windows::core::Interface for IDWriteFontCollection1 {
     type Vtable = IDWriteFontCollection1Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x53585141_d9f8_4095_8321_d73cf6bd116c);
-}
-pub trait IDWriteFontCollection1Impl: IDWriteFontCollectionImpl {
-    fn GetFontSet();
-    fn GetFontFamily();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7513,12 +7379,6 @@ impl ::core::fmt::Debug for IDWriteFontCollection2 {
 unsafe impl ::windows::core::Interface for IDWriteFontCollection2 {
     type Vtable = IDWriteFontCollection2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x514039c6_4617_4064_bf8b_92ea83e506e0);
-}
-pub trait IDWriteFontCollection2Impl: IDWriteFontCollection1Impl + IDWriteFontCollectionImpl {
-    fn GetFontFamily();
-    fn GetMatchingFonts();
-    fn GetFontFamilyModel();
-    fn GetFontSet();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7698,9 +7558,6 @@ unsafe impl ::windows::core::Interface for IDWriteFontCollection3 {
     type Vtable = IDWriteFontCollection3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa4d055a6_f9e3_4e25_93b7_9e309f3af8e9);
 }
-pub trait IDWriteFontCollection3Impl: IDWriteFontCollection2Impl + IDWriteFontCollection1Impl + IDWriteFontCollectionImpl {
-    fn GetExpirationEvent();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDWriteFontCollection3Vtbl(
@@ -7772,9 +7629,6 @@ unsafe impl ::windows::core::Interface for IDWriteFontCollectionLoader {
     type Vtable = IDWriteFontCollectionLoaderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcca920e4_52f0_492b_bfa8_29c72ee0a468);
 }
-pub trait IDWriteFontCollectionLoaderImpl {
-    fn CreateEnumeratorFromKey();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDWriteFontCollectionLoaderVtbl(
@@ -7831,9 +7685,6 @@ impl ::core::fmt::Debug for IDWriteFontDownloadListener {
 unsafe impl ::windows::core::Interface for IDWriteFontDownloadListener {
     type Vtable = IDWriteFontDownloadListenerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb06fe5b9_43ec_4393_881b_dbe4dc72fda7);
-}
-pub trait IDWriteFontDownloadListenerImpl {
-    fn DownloadCompleted();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7908,14 +7759,6 @@ impl ::core::fmt::Debug for IDWriteFontDownloadQueue {
 unsafe impl ::windows::core::Interface for IDWriteFontDownloadQueue {
     type Vtable = IDWriteFontDownloadQueueVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb71e6052_5aea_4fa3_832e_f60d431f7e91);
-}
-pub trait IDWriteFontDownloadQueueImpl {
-    fn AddListener();
-    fn RemoveListener();
-    fn IsEmpty();
-    fn BeginDownload();
-    fn CancelDownload();
-    fn GetGenerationCount();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8042,23 +7885,6 @@ impl ::core::fmt::Debug for IDWriteFontFace {
 unsafe impl ::windows::core::Interface for IDWriteFontFace {
     type Vtable = IDWriteFontFaceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5f49804d_7024_4d43_bfa9_d25984f53849);
-}
-pub trait IDWriteFontFaceImpl {
-    fn GetType();
-    fn GetFiles();
-    fn GetIndex();
-    fn GetSimulations();
-    fn IsSymbolFont();
-    fn GetMetrics();
-    fn GetGlyphCount();
-    fn GetDesignGlyphMetrics();
-    fn GetGlyphIndices();
-    fn TryGetFontTable();
-    fn ReleaseFontTable();
-    fn GetGlyphRunOutline();
-    fn GetRecommendedRenderingMode();
-    fn GetGdiCompatibleMetrics();
-    fn GetGdiCompatibleGlyphMetrics();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8276,20 +8102,6 @@ impl ::core::fmt::Debug for IDWriteFontFace1 {
 unsafe impl ::windows::core::Interface for IDWriteFontFace1 {
     type Vtable = IDWriteFontFace1Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa71efdb4_9fdb_4838_ad90_cfc3be8c3daf);
-}
-pub trait IDWriteFontFace1Impl: IDWriteFontFaceImpl {
-    fn GetMetrics();
-    fn GetGdiCompatibleMetrics();
-    fn GetCaretMetrics();
-    fn GetUnicodeRanges();
-    fn IsMonospacedFont();
-    fn GetDesignGlyphAdvances();
-    fn GetGdiCompatibleGlyphAdvances();
-    fn GetKerningPairAdjustments();
-    fn HasKerningPairs();
-    fn GetRecommendedRenderingMode();
-    fn GetVerticalGlyphVariants();
-    fn HasVerticalGlyphVariants();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8569,13 +8381,6 @@ impl ::core::fmt::Debug for IDWriteFontFace2 {
 unsafe impl ::windows::core::Interface for IDWriteFontFace2 {
     type Vtable = IDWriteFontFace2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd8b768ff_64bc_4e66_982b_ec8e87f693f7);
-}
-pub trait IDWriteFontFace2Impl: IDWriteFontFace1Impl + IDWriteFontFaceImpl {
-    fn IsColorFont();
-    fn GetColorPaletteCount();
-    fn GetPaletteEntryCount();
-    fn GetPaletteEntries();
-    fn GetRecommendedRenderingMode();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8950,22 +8755,6 @@ impl ::core::fmt::Debug for IDWriteFontFace3 {
 unsafe impl ::windows::core::Interface for IDWriteFontFace3 {
     type Vtable = IDWriteFontFace3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd37d7598_09be_4222_a236_2081341cc1f2);
-}
-pub trait IDWriteFontFace3Impl: IDWriteFontFace2Impl + IDWriteFontFace1Impl + IDWriteFontFaceImpl {
-    fn GetFontFaceReference();
-    fn GetPanose();
-    fn GetWeight();
-    fn GetStretch();
-    fn GetStyle();
-    fn GetFamilyNames();
-    fn GetFaceNames();
-    fn GetInformationalStrings();
-    fn HasCharacter();
-    fn GetRecommendedRenderingMode();
-    fn IsCharacterLocal();
-    fn IsGlyphLocal();
-    fn AreCharactersLocal();
-    fn AreGlyphsLocal();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9399,12 +9188,6 @@ impl ::core::fmt::Debug for IDWriteFontFace4 {
 unsafe impl ::windows::core::Interface for IDWriteFontFace4 {
     type Vtable = IDWriteFontFace4Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x27f2a904_4eb8_441d_9678_0563f53e3e2f);
-}
-pub trait IDWriteFontFace4Impl: IDWriteFontFace3Impl + IDWriteFontFace2Impl + IDWriteFontFace1Impl + IDWriteFontFaceImpl {
-    fn GetGlyphImageFormats();
-    fn GetGlyphImageFormats();
-    fn GetGlyphImageData();
-    fn ReleaseGlyphImageData();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9886,13 +9669,6 @@ impl ::core::fmt::Debug for IDWriteFontFace5 {
 unsafe impl ::windows::core::Interface for IDWriteFontFace5 {
     type Vtable = IDWriteFontFace5Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x98eff3a5_b667_479a_b145_e2fa5b9fdc29);
-}
-pub trait IDWriteFontFace5Impl: IDWriteFontFace4Impl + IDWriteFontFace3Impl + IDWriteFontFace2Impl + IDWriteFontFace1Impl + IDWriteFontFaceImpl {
-    fn GetFontAxisValueCount();
-    fn GetFontAxisValues();
-    fn HasVariations();
-    fn GetFontResource();
-    fn Equals();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -10412,10 +10188,6 @@ unsafe impl ::windows::core::Interface for IDWriteFontFace6 {
     type Vtable = IDWriteFontFace6Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc4b1fe1b_6e84_47d5_b54c_a597981b06ad);
 }
-pub trait IDWriteFontFace6Impl: IDWriteFontFace5Impl + IDWriteFontFace4Impl + IDWriteFontFace3Impl + IDWriteFontFace2Impl + IDWriteFontFace1Impl + IDWriteFontFaceImpl {
-    fn GetFamilyNames();
-    fn GetFaceNames();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDWriteFontFace6Vtbl(
@@ -10613,22 +10385,6 @@ unsafe impl ::windows::core::Interface for IDWriteFontFaceReference {
     type Vtable = IDWriteFontFaceReferenceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5e7fa7ca_dde3_424c_89f0_9fcd6fed58cd);
 }
-pub trait IDWriteFontFaceReferenceImpl {
-    fn CreateFontFace();
-    fn CreateFontFaceWithSimulations();
-    fn Equals();
-    fn GetFontFaceIndex();
-    fn GetSimulations();
-    fn GetFontFile();
-    fn GetLocalFileSize();
-    fn GetFileSize();
-    fn GetFileTime();
-    fn GetLocality();
-    fn EnqueueFontDownloadRequest();
-    fn EnqueueCharacterDownloadRequest();
-    fn EnqueueGlyphDownloadRequest();
-    fn EnqueueFileFragmentDownloadRequest();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDWriteFontFaceReferenceVtbl(
@@ -10794,11 +10550,6 @@ unsafe impl ::windows::core::Interface for IDWriteFontFaceReference1 {
     type Vtable = IDWriteFontFaceReference1Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc081fe77_2fd1_41ac_a5a3_34983c4ba61a);
 }
-pub trait IDWriteFontFaceReference1Impl: IDWriteFontFaceReferenceImpl {
-    fn CreateFontFace();
-    fn GetFontAxisValueCount();
-    fn GetFontAxisValues();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDWriteFontFaceReference1Vtbl(
@@ -10875,9 +10626,6 @@ impl ::core::fmt::Debug for IDWriteFontFallback {
 unsafe impl ::windows::core::Interface for IDWriteFontFallback {
     type Vtable = IDWriteFontFallbackVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xefa008f9_f7a1_48bf_b05c_f224713cc0ff);
-}
-pub trait IDWriteFontFallbackImpl {
-    fn MapCharacters();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -10963,9 +10711,6 @@ unsafe impl ::windows::core::Interface for IDWriteFontFallback1 {
     type Vtable = IDWriteFontFallback1Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2397599d_dd0d_4681_bd6a_f4f31eaade77);
 }
-pub trait IDWriteFontFallback1Impl: IDWriteFontFallbackImpl {
-    fn MapCharacters();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDWriteFontFallback1Vtbl(
@@ -11035,11 +10780,6 @@ impl ::core::fmt::Debug for IDWriteFontFallbackBuilder {
 unsafe impl ::windows::core::Interface for IDWriteFontFallbackBuilder {
     type Vtable = IDWriteFontFallbackBuilderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfd882d06_8aba_4fb8_b849_8be8b73e14de);
-}
-pub trait IDWriteFontFallbackBuilderImpl {
-    fn AddMapping();
-    fn AddMappings();
-    fn CreateFontFallback();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -11145,11 +10885,6 @@ impl ::core::fmt::Debug for IDWriteFontFamily {
 unsafe impl ::windows::core::Interface for IDWriteFontFamily {
     type Vtable = IDWriteFontFamilyVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xda20d8ef_812a_4c43_9802_62ec4abd7add);
-}
-pub trait IDWriteFontFamilyImpl: IDWriteFontListImpl {
-    fn GetFamilyNames();
-    fn GetFirstMatchingFont();
-    fn GetMatchingFonts();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -11291,11 +11026,6 @@ impl ::core::fmt::Debug for IDWriteFontFamily1 {
 unsafe impl ::windows::core::Interface for IDWriteFontFamily1 {
     type Vtable = IDWriteFontFamily1Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xda20d8ef_812a_4c43_9802_62ec4abd7adf);
-}
-pub trait IDWriteFontFamily1Impl: IDWriteFontFamilyImpl + IDWriteFontListImpl {
-    fn GetFontLocality();
-    fn GetFont();
-    fn GetFontFaceReference();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -11471,10 +11201,6 @@ unsafe impl ::windows::core::Interface for IDWriteFontFamily2 {
     type Vtable = IDWriteFontFamily2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3ed49e77_a398_4261_b9cf_c126c2131ef3);
 }
-pub trait IDWriteFontFamily2Impl: IDWriteFontFamily1Impl + IDWriteFontFamilyImpl + IDWriteFontListImpl {
-    fn GetMatchingFonts();
-    fn GetFontSet();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDWriteFontFamily2Vtbl(
@@ -11552,11 +11278,6 @@ unsafe impl ::windows::core::Interface for IDWriteFontFile {
     type Vtable = IDWriteFontFileVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x739d886a_cef5_47dc_8769_1a8b41bebbb0);
 }
-pub trait IDWriteFontFileImpl {
-    fn GetReferenceKey();
-    fn GetLoader();
-    fn Analyze();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDWriteFontFileVtbl(
@@ -11624,10 +11345,6 @@ unsafe impl ::windows::core::Interface for IDWriteFontFileEnumerator {
     type Vtable = IDWriteFontFileEnumeratorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x72755049_5ff7_435d_8348_4be97cfa6c7c);
 }
-pub trait IDWriteFontFileEnumeratorImpl {
-    fn MoveNext();
-    fn GetCurrentFontFile();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDWriteFontFileEnumeratorVtbl(
@@ -11687,9 +11404,6 @@ impl ::core::fmt::Debug for IDWriteFontFileLoader {
 unsafe impl ::windows::core::Interface for IDWriteFontFileLoader {
     type Vtable = IDWriteFontFileLoaderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x727cad4e_d6af_4c9e_8a08_d695b11caa49);
-}
-pub trait IDWriteFontFileLoaderImpl {
-    fn CreateStreamFromKey();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -11762,12 +11476,6 @@ unsafe impl ::windows::core::Interface for IDWriteFontFileStream {
     type Vtable = IDWriteFontFileStreamVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6d4865fe_0ab8_4d91_8f62_5dd6be34a3e0);
 }
-pub trait IDWriteFontFileStreamImpl {
-    fn ReadFileFragment();
-    fn ReleaseFileFragment();
-    fn GetFileSize();
-    fn GetLastWriteTime();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDWriteFontFileStreamVtbl(
@@ -11837,11 +11545,6 @@ impl ::core::fmt::Debug for IDWriteFontList {
 unsafe impl ::windows::core::Interface for IDWriteFontList {
     type Vtable = IDWriteFontListVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1a0d8438_1d97_4ec1_aef9_a2fb86ed6acb);
-}
-pub trait IDWriteFontListImpl {
-    fn GetFontCollection();
-    fn GetFontCount();
-    fn GetFont();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -11945,11 +11648,6 @@ impl ::core::fmt::Debug for IDWriteFontList1 {
 unsafe impl ::windows::core::Interface for IDWriteFontList1 {
     type Vtable = IDWriteFontList1Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xda20d8ef_812a_4c43_9802_62ec4abd7ade);
-}
-pub trait IDWriteFontList1Impl: IDWriteFontListImpl {
-    fn GetFontLocality();
-    fn GetFont();
-    fn GetFontFaceReference();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -12082,9 +11780,6 @@ unsafe impl ::windows::core::Interface for IDWriteFontList2 {
     type Vtable = IDWriteFontList2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc0763a34_77af_445a_b735_08c37b0a5bf5);
 }
-pub trait IDWriteFontList2Impl: IDWriteFontList1Impl + IDWriteFontListImpl {
-    fn GetFontSet();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDWriteFontList2Vtbl(
@@ -12196,20 +11891,6 @@ impl ::core::fmt::Debug for IDWriteFontResource {
 unsafe impl ::windows::core::Interface for IDWriteFontResource {
     type Vtable = IDWriteFontResourceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1f803a76_6871_48e8_987f_b975551c50f2);
-}
-pub trait IDWriteFontResourceImpl {
-    fn GetFontFile();
-    fn GetFontFaceIndex();
-    fn GetFontAxisCount();
-    fn GetDefaultFontAxisValues();
-    fn GetFontAxisRanges();
-    fn GetFontAxisAttributes();
-    fn GetAxisNames();
-    fn GetAxisValueNameCount();
-    fn GetAxisValueNames();
-    fn HasVariations();
-    fn CreateFontFace();
-    fn CreateFontFaceReference();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -12328,18 +12009,6 @@ impl ::core::fmt::Debug for IDWriteFontSet {
 unsafe impl ::windows::core::Interface for IDWriteFontSet {
     type Vtable = IDWriteFontSetVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x53585141_d9f8_4095_8321_d73cf6bd116b);
-}
-pub trait IDWriteFontSetImpl {
-    fn GetFontCount();
-    fn GetFontFaceReference();
-    fn FindFontFaceReference();
-    fn FindFontFace();
-    fn GetPropertyValues();
-    fn GetPropertyValues();
-    fn GetPropertyValues();
-    fn GetPropertyOccurrenceCount();
-    fn GetMatchingFonts();
-    fn GetMatchingFonts();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -12547,21 +12216,6 @@ impl ::core::fmt::Debug for IDWriteFontSet1 {
 unsafe impl ::windows::core::Interface for IDWriteFontSet1 {
     type Vtable = IDWriteFontSet1Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7e9fda85_6c92_4053_bc47_7ae3530db4d3);
-}
-pub trait IDWriteFontSet1Impl: IDWriteFontSetImpl {
-    fn GetMatchingFonts();
-    fn GetFirstFontResources();
-    fn GetFilteredFonts();
-    fn GetFilteredFonts();
-    fn GetFilteredFonts();
-    fn GetFilteredFontIndices();
-    fn GetFilteredFontIndices();
-    fn GetFontAxisRanges();
-    fn GetFontAxisRanges();
-    fn GetFontFaceReference();
-    fn CreateFontResource();
-    fn CreateFontFace();
-    fn GetFontLocality();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -12812,9 +12466,6 @@ impl ::core::fmt::Debug for IDWriteFontSet2 {
 unsafe impl ::windows::core::Interface for IDWriteFontSet2 {
     type Vtable = IDWriteFontSet2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdc7ead19_e54c_43af_b2da_4e2b79ba3f7f);
-}
-pub trait IDWriteFontSet2Impl: IDWriteFontSet1Impl + IDWriteFontSetImpl {
-    fn GetExpirationEvent();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -13101,11 +12752,6 @@ unsafe impl ::windows::core::Interface for IDWriteFontSet3 {
     type Vtable = IDWriteFontSet3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7c073ef2_a7f4_4045_8c32_8ab8ae640f90);
 }
-pub trait IDWriteFontSet3Impl: IDWriteFontSet2Impl + IDWriteFontSet1Impl + IDWriteFontSetImpl {
-    fn GetFontSourceType();
-    fn GetFontSourceNameLength();
-    fn GetFontSourceName();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDWriteFontSet3Vtbl(
@@ -13217,12 +12863,6 @@ unsafe impl ::windows::core::Interface for IDWriteFontSetBuilder {
     type Vtable = IDWriteFontSetBuilderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2f642afe_9c68_4f40_b8be_457401afcb3d);
 }
-pub trait IDWriteFontSetBuilderImpl {
-    fn AddFontFaceReference();
-    fn AddFontFaceReference();
-    fn AddFontSet();
-    fn CreateFontSet();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDWriteFontSetBuilderVtbl(
@@ -13321,9 +12961,6 @@ impl ::core::fmt::Debug for IDWriteFontSetBuilder1 {
 unsafe impl ::windows::core::Interface for IDWriteFontSetBuilder1 {
     type Vtable = IDWriteFontSetBuilder1Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3ff7715f_3cdc_4dc6_9b72_ec5621dccafd);
-}
-pub trait IDWriteFontSetBuilder1Impl: IDWriteFontSetBuilderImpl {
-    fn AddFontFile();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -13455,10 +13092,6 @@ unsafe impl ::windows::core::Interface for IDWriteFontSetBuilder2 {
     type Vtable = IDWriteFontSetBuilder2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xee5ba612_b131_463c_8f4f_3189b9401e45);
 }
-pub trait IDWriteFontSetBuilder2Impl: IDWriteFontSetBuilder1Impl + IDWriteFontSetBuilderImpl {
-    fn AddFont();
-    fn AddFontFile();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDWriteFontSetBuilder2Vtbl(
@@ -13549,13 +13182,6 @@ impl ::core::fmt::Debug for IDWriteGdiInterop {
 unsafe impl ::windows::core::Interface for IDWriteGdiInterop {
     type Vtable = IDWriteGdiInteropVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1edd9491_9853_4299_898f_6432983b6f3a);
-}
-pub trait IDWriteGdiInteropImpl {
-    fn CreateFontFromLOGFONT();
-    fn ConvertFontToLOGFONT();
-    fn ConvertFontFaceToLOGFONT();
-    fn CreateFontFaceFromHdc();
-    fn CreateBitmapRenderTarget();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -13692,12 +13318,6 @@ unsafe impl ::windows::core::Interface for IDWriteGdiInterop1 {
     type Vtable = IDWriteGdiInterop1Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4556be70_3abd_4f70_90be_421780a6f515);
 }
-pub trait IDWriteGdiInterop1Impl: IDWriteGdiInteropImpl {
-    fn CreateFontFromLOGFONT();
-    fn GetFontSignature();
-    fn GetFontSignature();
-    fn GetMatchingFontsByLOGFONT();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDWriteGdiInterop1Vtbl(
@@ -13782,11 +13402,6 @@ impl ::core::fmt::Debug for IDWriteGlyphRunAnalysis {
 unsafe impl ::windows::core::Interface for IDWriteGlyphRunAnalysis {
     type Vtable = IDWriteGlyphRunAnalysisVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7d97dbf7_e085_42d4_81e3_6a883bded118);
-}
-pub trait IDWriteGlyphRunAnalysisImpl {
-    fn GetAlphaTextureBounds();
-    fn CreateAlphaTexture();
-    fn GetAlphaBlendParams();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -13879,10 +13494,6 @@ unsafe impl ::windows::core::Interface for IDWriteInMemoryFontFileLoader {
     type Vtable = IDWriteInMemoryFontFileLoaderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdc102f47_a12d_4b1c_822d_9e117e33043f);
 }
-pub trait IDWriteInMemoryFontFileLoaderImpl: IDWriteFontFileLoaderImpl {
-    fn CreateInMemoryFontFileReference();
-    fn GetFileCount();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDWriteInMemoryFontFileLoaderVtbl(
@@ -13957,12 +13568,6 @@ impl ::core::fmt::Debug for IDWriteInlineObject {
 unsafe impl ::windows::core::Interface for IDWriteInlineObject {
     type Vtable = IDWriteInlineObjectVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8339fde3_106f_47ab_8373_1c6295eb10b3);
-}
-pub trait IDWriteInlineObjectImpl {
-    fn Draw();
-    fn GetMetrics();
-    fn GetOverhangMetrics();
-    fn GetBreakConditions();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -14063,11 +13668,6 @@ unsafe impl ::windows::core::Interface for IDWriteLocalFontFileLoader {
     type Vtable = IDWriteLocalFontFileLoaderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb2d9f3ec_c9fe_4a11_a2ec_d86208f7c0a2);
 }
-pub trait IDWriteLocalFontFileLoaderImpl: IDWriteFontFileLoaderImpl {
-    fn GetFilePathLengthFromKey();
-    fn GetFilePathFromKey();
-    fn GetLastWriteTimeFromKey();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDWriteLocalFontFileLoaderVtbl(
@@ -14155,14 +13755,6 @@ unsafe impl ::windows::core::Interface for IDWriteLocalizedStrings {
     type Vtable = IDWriteLocalizedStringsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x08256209_099a_4b34_b86d_c22b110e7771);
 }
-pub trait IDWriteLocalizedStringsImpl {
-    fn GetCount();
-    fn FindLocaleName();
-    fn GetLocaleNameLength();
-    fn GetLocaleName();
-    fn GetStringLength();
-    fn GetString();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDWriteLocalizedStringsVtbl(
@@ -14223,7 +13815,6 @@ unsafe impl ::windows::core::Interface for IDWriteNumberSubstitution {
     type Vtable = IDWriteNumberSubstitutionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x14885cc9_bab0_4f90_b6ed_5c366a2cd03d);
 }
-pub trait IDWriteNumberSubstitutionImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDWriteNumberSubstitutionVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32);
@@ -14287,11 +13878,6 @@ impl ::core::fmt::Debug for IDWritePixelSnapping {
 unsafe impl ::windows::core::Interface for IDWritePixelSnapping {
     type Vtable = IDWritePixelSnappingVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeaf3a2da_ecf4_4d24_b644_b34f6842024b);
-}
-pub trait IDWritePixelSnappingImpl {
-    fn IsPixelSnappingDisabled();
-    fn GetCurrentTransform();
-    fn GetPixelsPerDip();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -14389,11 +13975,6 @@ impl ::core::fmt::Debug for IDWriteRemoteFontFileLoader {
 unsafe impl ::windows::core::Interface for IDWriteRemoteFontFileLoader {
     type Vtable = IDWriteRemoteFontFileLoaderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x68648c83_6ede_46c0_ab46_20083a887fde);
-}
-pub trait IDWriteRemoteFontFileLoaderImpl: IDWriteFontFileLoaderImpl {
-    fn CreateRemoteStreamFromKey();
-    fn GetLocalityFromKey();
-    fn CreateFontFileReferenceFromUrl();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -14509,12 +14090,6 @@ unsafe impl ::windows::core::Interface for IDWriteRemoteFontFileStream {
     type Vtable = IDWriteRemoteFontFileStreamVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4db3757a_2c72_4ed9_b2b6_1ababe1aff9c);
 }
-pub trait IDWriteRemoteFontFileStreamImpl: IDWriteFontFileStreamImpl {
-    fn GetLocalFileSize();
-    fn GetFileFragmentLocality();
-    fn GetLocality();
-    fn BeginDownload();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDWriteRemoteFontFileStreamVtbl(
@@ -14595,13 +14170,6 @@ impl ::core::fmt::Debug for IDWriteRenderingParams {
 unsafe impl ::windows::core::Interface for IDWriteRenderingParams {
     type Vtable = IDWriteRenderingParamsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2f0da53a_2add_47cd_82ee_d9ec34688e75);
-}
-pub trait IDWriteRenderingParamsImpl {
-    fn GetGamma();
-    fn GetEnhancedContrast();
-    fn GetClearTypeLevel();
-    fn GetPixelGeometry();
-    fn GetRenderingMode();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -14703,9 +14271,6 @@ impl ::core::fmt::Debug for IDWriteRenderingParams1 {
 unsafe impl ::windows::core::Interface for IDWriteRenderingParams1 {
     type Vtable = IDWriteRenderingParams1Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x94413cf4_a6fc_4248_8b50_6674348fcad3);
-}
-pub trait IDWriteRenderingParams1Impl: IDWriteRenderingParamsImpl {
-    fn GetGrayscaleEnhancedContrast();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -14832,9 +14397,6 @@ impl ::core::fmt::Debug for IDWriteRenderingParams2 {
 unsafe impl ::windows::core::Interface for IDWriteRenderingParams2 {
     type Vtable = IDWriteRenderingParams2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf9d711c3_9777_40ae_87e8_3e5af9bf0948);
-}
-pub trait IDWriteRenderingParams2Impl: IDWriteRenderingParams1Impl + IDWriteRenderingParamsImpl {
-    fn GetGridFitMode();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -14987,9 +14549,6 @@ unsafe impl ::windows::core::Interface for IDWriteRenderingParams3 {
     type Vtable = IDWriteRenderingParams3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb7924baa_391b_412a_8c5c_e44cc2d867dc);
 }
-pub trait IDWriteRenderingParams3Impl: IDWriteRenderingParams2Impl + IDWriteRenderingParams1Impl + IDWriteRenderingParamsImpl {
-    fn GetRenderingMode1();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDWriteRenderingParams3Vtbl(
@@ -15074,13 +14633,6 @@ unsafe impl ::windows::core::Interface for IDWriteStringList {
     type Vtable = IDWriteStringListVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcfee3140_1157_47ca_8b85_31bfcf3f2d0e);
 }
-pub trait IDWriteStringListImpl {
-    fn GetCount();
-    fn GetLocaleNameLength();
-    fn GetLocaleName();
-    fn GetStringLength();
-    fn GetString();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDWriteStringListVtbl(
@@ -15155,12 +14707,6 @@ impl ::core::fmt::Debug for IDWriteTextAnalysisSink {
 unsafe impl ::windows::core::Interface for IDWriteTextAnalysisSink {
     type Vtable = IDWriteTextAnalysisSinkVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5810cd44_0ca0_4701_b3fa_bec5182ae4f6);
-}
-pub trait IDWriteTextAnalysisSinkImpl {
-    fn SetScriptAnalysis();
-    fn SetLineBreakpoints();
-    fn SetBidiLevel();
-    fn SetNumberSubstitution();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -15259,9 +14805,6 @@ unsafe impl ::windows::core::Interface for IDWriteTextAnalysisSink1 {
     type Vtable = IDWriteTextAnalysisSink1Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb0d941a0_85e7_4d8b_9fd3_5ced9934482a);
 }
-pub trait IDWriteTextAnalysisSink1Impl: IDWriteTextAnalysisSinkImpl {
-    fn SetGlyphOrientation();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDWriteTextAnalysisSink1Vtbl(
@@ -15339,13 +14882,6 @@ impl ::core::fmt::Debug for IDWriteTextAnalysisSource {
 unsafe impl ::windows::core::Interface for IDWriteTextAnalysisSource {
     type Vtable = IDWriteTextAnalysisSourceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x688e1a58_5094_47c8_adc8_fbcea60ae92b);
-}
-pub trait IDWriteTextAnalysisSourceImpl {
-    fn GetTextAtPosition();
-    fn GetTextBeforePosition();
-    fn GetParagraphReadingDirection();
-    fn GetLocaleName();
-    fn GetNumberSubstitution();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -15447,9 +14983,6 @@ impl ::core::fmt::Debug for IDWriteTextAnalysisSource1 {
 unsafe impl ::windows::core::Interface for IDWriteTextAnalysisSource1 {
     type Vtable = IDWriteTextAnalysisSource1Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x639cfad8_0fb4_4b21_a58a_067920120009);
-}
-pub trait IDWriteTextAnalysisSource1Impl: IDWriteTextAnalysisSourceImpl {
-    fn GetVerticalGlyphOrientation();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -15666,15 +15199,6 @@ impl ::core::fmt::Debug for IDWriteTextAnalyzer {
 unsafe impl ::windows::core::Interface for IDWriteTextAnalyzer {
     type Vtable = IDWriteTextAnalyzerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb7e6163e_7f46_43b4_84b3_e4e6249c365d);
-}
-pub trait IDWriteTextAnalyzerImpl {
-    fn AnalyzeScript();
-    fn AnalyzeBidi();
-    fn AnalyzeNumberSubstitution();
-    fn AnalyzeLineBreakpoints();
-    fn GetGlyphs();
-    fn GetGlyphPlacements();
-    fn GetGdiCompatibleGlyphPlacements();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -16001,17 +15525,6 @@ impl ::core::fmt::Debug for IDWriteTextAnalyzer1 {
 unsafe impl ::windows::core::Interface for IDWriteTextAnalyzer1 {
     type Vtable = IDWriteTextAnalyzer1Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x80dad800_e21f_4e83_96ce_bfcce500db7c);
-}
-pub trait IDWriteTextAnalyzer1Impl: IDWriteTextAnalyzerImpl {
-    fn ApplyCharacterSpacing();
-    fn GetBaseline();
-    fn AnalyzeVerticalGlyphOrientation();
-    fn GetGlyphOrientationTransform();
-    fn GetScriptProperties();
-    fn GetTextComplexity();
-    fn GetJustificationOpportunities();
-    fn JustifyGlyphAdvances();
-    fn GetJustifiedGlyphs();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -16388,11 +15901,6 @@ unsafe impl ::windows::core::Interface for IDWriteTextAnalyzer2 {
     type Vtable = IDWriteTextAnalyzer2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x553a9ff3_5693_4df7_b52b_74806f7f2eb9);
 }
-pub trait IDWriteTextAnalyzer2Impl: IDWriteTextAnalyzer1Impl + IDWriteTextAnalyzerImpl {
-    fn GetGlyphOrientationTransform();
-    fn GetTypographicFeatures();
-    fn CheckTypographicFeature();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDWriteTextAnalyzer2Vtbl(
@@ -16600,33 +16108,6 @@ impl ::core::fmt::Debug for IDWriteTextFormat {
 unsafe impl ::windows::core::Interface for IDWriteTextFormat {
     type Vtable = IDWriteTextFormatVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9c906818_31d7_4fd3_a151_7c5e225db55a);
-}
-pub trait IDWriteTextFormatImpl {
-    fn SetTextAlignment();
-    fn SetParagraphAlignment();
-    fn SetWordWrapping();
-    fn SetReadingDirection();
-    fn SetFlowDirection();
-    fn SetIncrementalTabStop();
-    fn SetTrimming();
-    fn SetLineSpacing();
-    fn GetTextAlignment();
-    fn GetParagraphAlignment();
-    fn GetWordWrapping();
-    fn GetReadingDirection();
-    fn GetFlowDirection();
-    fn GetIncrementalTabStop();
-    fn GetTrimming();
-    fn GetLineSpacing();
-    fn GetFontCollection();
-    fn GetFontFamilyNameLength();
-    fn GetFontFamilyName();
-    fn GetFontWeight();
-    fn GetFontStyle();
-    fn GetFontStretch();
-    fn GetFontSize();
-    fn GetLocaleNameLength();
-    fn GetLocaleName();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -16864,16 +16345,6 @@ impl ::core::fmt::Debug for IDWriteTextFormat1 {
 unsafe impl ::windows::core::Interface for IDWriteTextFormat1 {
     type Vtable = IDWriteTextFormat1Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5f174b49_0d8b_4cfb_8bca_f1cce9d06c67);
-}
-pub trait IDWriteTextFormat1Impl: IDWriteTextFormatImpl {
-    fn SetVerticalGlyphOrientation();
-    fn GetVerticalGlyphOrientation();
-    fn SetLastLineWrapping();
-    fn GetLastLineWrapping();
-    fn SetOpticalAlignment();
-    fn GetOpticalAlignment();
-    fn SetFontFallback();
-    fn GetFontFallback();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -17150,10 +16621,6 @@ impl ::core::fmt::Debug for IDWriteTextFormat2 {
 unsafe impl ::windows::core::Interface for IDWriteTextFormat2 {
     type Vtable = IDWriteTextFormat2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf67e0edd_9e3d_4ecc_8c32_4183253dfe70);
-}
-pub trait IDWriteTextFormat2Impl: IDWriteTextFormat1Impl + IDWriteTextFormatImpl {
-    fn SetLineSpacing();
-    fn GetLineSpacing();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -17472,13 +16939,6 @@ impl ::core::fmt::Debug for IDWriteTextFormat3 {
 unsafe impl ::windows::core::Interface for IDWriteTextFormat3 {
     type Vtable = IDWriteTextFormat3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6d3b5641_e550_430d_a85b_b7bf48a93427);
-}
-pub trait IDWriteTextFormat3Impl: IDWriteTextFormat2Impl + IDWriteTextFormat1Impl + IDWriteTextFormatImpl {
-    fn SetFontAxisValues();
-    fn GetFontAxisValueCount();
-    fn GetFontAxisValues();
-    fn GetAutomaticFontAxes();
-    fn SetAutomaticFontAxes();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -17869,47 +17329,6 @@ impl ::core::fmt::Debug for IDWriteTextLayout {
 unsafe impl ::windows::core::Interface for IDWriteTextLayout {
     type Vtable = IDWriteTextLayoutVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x53737037_6d14_410b_9bfe_0b182bb70961);
-}
-pub trait IDWriteTextLayoutImpl: IDWriteTextFormatImpl {
-    fn SetMaxWidth();
-    fn SetMaxHeight();
-    fn SetFontCollection();
-    fn SetFontFamilyName();
-    fn SetFontWeight();
-    fn SetFontStyle();
-    fn SetFontStretch();
-    fn SetFontSize();
-    fn SetUnderline();
-    fn SetStrikethrough();
-    fn SetDrawingEffect();
-    fn SetInlineObject();
-    fn SetTypography();
-    fn SetLocaleName();
-    fn GetMaxWidth();
-    fn GetMaxHeight();
-    fn GetFontCollection();
-    fn GetFontFamilyNameLength();
-    fn GetFontFamilyName();
-    fn GetFontWeight();
-    fn GetFontStyle();
-    fn GetFontStretch();
-    fn GetFontSize();
-    fn GetUnderline();
-    fn GetStrikethrough();
-    fn GetDrawingEffect();
-    fn GetInlineObject();
-    fn GetTypography();
-    fn GetLocaleNameLength();
-    fn GetLocaleName();
-    fn Draw();
-    fn GetLineMetrics();
-    fn GetMetrics();
-    fn GetOverhangMetrics();
-    fn GetClusterMetrics();
-    fn DetermineMinWidth();
-    fn HitTestPoint();
-    fn HitTestTextPosition();
-    fn HitTestTextRange();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -18372,12 +17791,6 @@ impl ::core::fmt::Debug for IDWriteTextLayout1 {
 unsafe impl ::windows::core::Interface for IDWriteTextLayout1 {
     type Vtable = IDWriteTextLayout1Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9064d822_80a7_465c_a986_df65f78b8feb);
-}
-pub trait IDWriteTextLayout1Impl: IDWriteTextLayoutImpl + IDWriteTextFormatImpl {
-    fn SetPairKerning();
-    fn GetPairKerning();
-    fn SetCharacterSpacing();
-    fn GetCharacterSpacing();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -18906,17 +18319,6 @@ impl ::core::fmt::Debug for IDWriteTextLayout2 {
 unsafe impl ::windows::core::Interface for IDWriteTextLayout2 {
     type Vtable = IDWriteTextLayout2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1093c18f_8d5e_43f0_b064_0917311b525e);
-}
-pub trait IDWriteTextLayout2Impl: IDWriteTextLayout1Impl + IDWriteTextLayoutImpl + IDWriteTextFormatImpl {
-    fn GetMetrics();
-    fn SetVerticalGlyphOrientation();
-    fn GetVerticalGlyphOrientation();
-    fn SetLastLineWrapping();
-    fn GetLastLineWrapping();
-    fn SetOpticalAlignment();
-    fn GetOpticalAlignment();
-    fn SetFontFallback();
-    fn GetFontFallback();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -19494,12 +18896,6 @@ impl ::core::fmt::Debug for IDWriteTextLayout3 {
 unsafe impl ::windows::core::Interface for IDWriteTextLayout3 {
     type Vtable = IDWriteTextLayout3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x07ddcd52_020e_4de8_ac33_6c953d83f92d);
-}
-pub trait IDWriteTextLayout3Impl: IDWriteTextLayout2Impl + IDWriteTextLayout1Impl + IDWriteTextLayoutImpl + IDWriteTextFormatImpl {
-    fn InvalidateLayout();
-    fn SetLineSpacing();
-    fn GetLineSpacing();
-    fn GetLineMetrics();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -20123,13 +19519,6 @@ unsafe impl ::windows::core::Interface for IDWriteTextLayout4 {
     type Vtable = IDWriteTextLayout4Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x05a9bf42_223f_4441_b5fb_8263685f55e9);
 }
-pub trait IDWriteTextLayout4Impl: IDWriteTextLayout3Impl + IDWriteTextLayout2Impl + IDWriteTextLayout1Impl + IDWriteTextLayoutImpl + IDWriteTextFormatImpl {
-    fn SetFontAxisValues();
-    fn GetFontAxisValueCount();
-    fn GetFontAxisValues();
-    fn GetAutomaticFontAxes();
-    fn SetAutomaticFontAxes();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDWriteTextLayout4Vtbl(
@@ -20343,12 +19732,6 @@ unsafe impl ::windows::core::Interface for IDWriteTextRenderer {
     type Vtable = IDWriteTextRendererVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xef8a8135_5cc6_45fe_8825_c5a0724eb819);
 }
-pub trait IDWriteTextRendererImpl: IDWritePixelSnappingImpl {
-    fn DrawGlyphRun();
-    fn DrawUnderline();
-    fn DrawStrikethrough();
-    fn DrawInlineObject();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDWriteTextRendererVtbl(
@@ -20509,12 +19892,6 @@ unsafe impl ::windows::core::Interface for IDWriteTextRenderer1 {
     type Vtable = IDWriteTextRenderer1Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd3e0e934_22a0_427e_aae4_7d9574b59db1);
 }
-pub trait IDWriteTextRenderer1Impl: IDWriteTextRendererImpl + IDWritePixelSnappingImpl {
-    fn DrawGlyphRun();
-    fn DrawUnderline();
-    fn DrawStrikethrough();
-    fn DrawInlineObject();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDWriteTextRenderer1Vtbl(
@@ -20600,11 +19977,6 @@ unsafe impl ::windows::core::Interface for IDWriteTypography {
     type Vtable = IDWriteTypographyVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x55f1112b_1dc2_4b3c_9541_f46894ed85b6);
 }
-pub trait IDWriteTypographyImpl {
-    fn AddFontFeature();
-    fn GetFontFeatureCount();
-    fn GetFontFeature();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDWriteTypographyVtbl(
@@ -20615,3 +19987,5 @@ pub struct IDWriteTypographyVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fontfeatureindex: u32, fontfeature: *mut DWRITE_FONT_FEATURE) -> ::windows::core::HRESULT,
 );
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

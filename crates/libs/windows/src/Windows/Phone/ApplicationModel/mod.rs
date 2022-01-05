@@ -86,10 +86,6 @@ unsafe impl ::windows::core::Interface for IApplicationProfileStatics {
     type Vtable = IApplicationProfileStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd5008ab4_7e7a_11e1_a7f2_b0a14824019b);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IApplicationProfileStaticsImpl {
-    fn Modes();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IApplicationProfileStaticsVtbl(
@@ -101,3 +97,5 @@ pub struct IApplicationProfileStaticsVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ApplicationProfileModes) -> ::windows::core::HRESULT,
 );
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

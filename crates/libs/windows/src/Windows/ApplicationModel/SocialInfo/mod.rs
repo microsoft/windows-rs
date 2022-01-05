@@ -10,19 +10,6 @@ unsafe impl ::windows::core::Interface for ISocialFeedChildItem {
     type Vtable = ISocialFeedChildItemVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0b6a985a_d59d_40be_980c_488a2ab30a83);
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
-pub trait ISocialFeedChildItemImpl {
-    fn Author();
-    fn PrimaryContent();
-    fn SecondaryContent();
-    fn Timestamp();
-    fn SetTimestamp();
-    fn TargetUri();
-    fn SetTargetUri();
-    fn Thumbnails();
-    fn SharedItem();
-    fn SetSharedItem();
-}
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
@@ -63,15 +50,6 @@ unsafe impl ::windows::core::Interface for ISocialFeedContent {
     type Vtable = ISocialFeedContentVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa234e429_3e39_494d_a37c_f462a2494514);
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
-pub trait ISocialFeedContentImpl {
-    fn Title();
-    fn SetTitle();
-    fn Message();
-    fn SetMessage();
-    fn TargetUri();
-    fn SetTargetUri();
-}
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
@@ -103,29 +81,6 @@ pub struct ISocialFeedItem(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISocialFeedItem {
     type Vtable = ISocialFeedItemVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4f1392ab_1f72_4d33_b695_de3e1db60317);
-}
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
-pub trait ISocialFeedItemImpl {
-    fn Author();
-    fn PrimaryContent();
-    fn SecondaryContent();
-    fn Timestamp();
-    fn SetTimestamp();
-    fn TargetUri();
-    fn SetTargetUri();
-    fn Thumbnails();
-    fn SharedItem();
-    fn SetSharedItem();
-    fn BadgeStyle();
-    fn SetBadgeStyle();
-    fn BadgeCountValue();
-    fn SetBadgeCountValue();
-    fn RemoteId();
-    fn SetRemoteId();
-    fn ChildItem();
-    fn SetChildItem();
-    fn Style();
-    fn SetStyle();
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
@@ -187,18 +142,6 @@ unsafe impl ::windows::core::Interface for ISocialFeedSharedItem {
     type Vtable = ISocialFeedSharedItemVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7bfb9e40_a6aa_45a7_9ff6_54c42105dd1f);
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
-pub trait ISocialFeedSharedItemImpl {
-    fn OriginalSource();
-    fn SetOriginalSource();
-    fn Content();
-    fn Timestamp();
-    fn SetTimestamp();
-    fn TargetUri();
-    fn SetTargetUri();
-    fn SetThumbnail();
-    fn Thumbnail();
-}
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
@@ -237,16 +180,6 @@ unsafe impl ::windows::core::Interface for ISocialItemThumbnail {
     type Vtable = ISocialItemThumbnailVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5cbf831a_3f08_497f_917f_57e09d84b141);
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
-pub trait ISocialItemThumbnailImpl {
-    fn TargetUri();
-    fn SetTargetUri();
-    fn ImageUri();
-    fn SetImageUri();
-    fn BitmapSize();
-    fn SetBitmapSize();
-    fn SetImageAsync();
-}
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
@@ -280,17 +213,6 @@ pub struct ISocialUserInfo(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISocialUserInfo {
     type Vtable = ISocialUserInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9e5e1bd1_90d0_4e1d_9554_844d46607f61);
-}
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
-pub trait ISocialUserInfoImpl {
-    fn DisplayName();
-    fn SetDisplayName();
-    fn UserName();
-    fn SetUserName();
-    fn RemoteId();
-    fn SetRemoteId();
-    fn TargetUri();
-    fn SetTargetUri();
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
@@ -1538,3 +1460,5 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Soci
 unsafe impl ::core::marker::Send for SocialUserInfo {}
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Sync for SocialUserInfo {}
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

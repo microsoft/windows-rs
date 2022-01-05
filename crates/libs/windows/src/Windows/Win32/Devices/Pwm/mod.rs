@@ -327,3 +327,5 @@ pub type PWM_POLARITY = i32;
 pub const PWM_ACTIVE_HIGH: PWM_POLARITY = 0i32;
 #[doc = "*Required features: 'Win32_Devices_Pwm'*"]
 pub const PWM_ACTIVE_LOW: PWM_POLARITY = 1i32;
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

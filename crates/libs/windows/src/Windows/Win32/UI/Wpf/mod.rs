@@ -66,11 +66,6 @@ unsafe impl ::windows::core::Interface for IMILBitmapEffect {
     type Vtable = IMILBitmapEffectVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8a6ff321_c944_4a1b_9944_9954af301258);
 }
-pub trait IMILBitmapEffectImpl {
-    fn GetOutput();
-    fn GetParentEffect();
-    fn SetInputSource();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMILBitmapEffectVtbl(
@@ -137,10 +132,6 @@ impl ::core::fmt::Debug for IMILBitmapEffectConnections {
 unsafe impl ::windows::core::Interface for IMILBitmapEffectConnections {
     type Vtable = IMILBitmapEffectConnectionsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc2b5d861_9b1a_4374_89b0_dec4874d6a81);
-}
-pub trait IMILBitmapEffectConnectionsImpl {
-    fn GetInputConnector();
-    fn GetOutputConnector();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -215,12 +206,6 @@ impl ::core::fmt::Debug for IMILBitmapEffectConnectionsInfo {
 unsafe impl ::windows::core::Interface for IMILBitmapEffectConnectionsInfo {
     type Vtable = IMILBitmapEffectConnectionsInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x476b538a_c765_4237_ba4a_d6a880ff0cfc);
-}
-pub trait IMILBitmapEffectConnectionsInfoImpl {
-    fn GetNumberInputs();
-    fn GetNumberOutputs();
-    fn GetInputConnectorInfo();
-    fn GetOutputConnectorInfo();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -328,10 +313,6 @@ unsafe impl ::windows::core::Interface for IMILBitmapEffectConnector {
     type Vtable = IMILBitmapEffectConnectorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf59567b3_76c1_4d47_ba1e_79f955e350ef);
 }
-pub trait IMILBitmapEffectConnectorImpl: IMILBitmapEffectConnectorInfoImpl {
-    fn IsConnected();
-    fn GetBitmapEffect();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMILBitmapEffectConnectorVtbl(
@@ -410,12 +391,6 @@ unsafe impl ::windows::core::Interface for IMILBitmapEffectConnectorInfo {
     type Vtable = IMILBitmapEffectConnectorInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf66d2e4b_b46b_42fc_859e_3da0ecdb3c43);
 }
-pub trait IMILBitmapEffectConnectorInfoImpl {
-    fn GetIndex();
-    fn GetOptimalFormat();
-    fn GetNumberFormats();
-    fn GetFormat();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMILBitmapEffectConnectorInfoVtbl(
@@ -480,10 +455,6 @@ impl ::core::fmt::Debug for IMILBitmapEffectEvents {
 unsafe impl ::windows::core::Interface for IMILBitmapEffectEvents {
     type Vtable = IMILBitmapEffectEventsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2e880dd8_f8ce_457b_8199_d60bb3d7ef98);
-}
-pub trait IMILBitmapEffectEventsImpl {
-    fn PropertyChange();
-    fn DirtyRegion();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -555,11 +526,6 @@ unsafe impl ::windows::core::Interface for IMILBitmapEffectFactory {
     type Vtable = IMILBitmapEffectFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x33a9df34_a403_4ec7_b07e_bc0682370845);
 }
-pub trait IMILBitmapEffectFactoryImpl {
-    fn CreateEffect();
-    fn CreateContext();
-    fn CreateEffectOuter();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMILBitmapEffectFactoryVtbl(
@@ -629,11 +595,6 @@ unsafe impl ::windows::core::Interface for IMILBitmapEffectGroup {
     type Vtable = IMILBitmapEffectGroupVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2f952360_698a_4ac6_81a1_bcfdf08eb8e8);
 }
-pub trait IMILBitmapEffectGroupImpl {
-    fn GetInteriorInputConnector();
-    fn GetInteriorOutputConnector();
-    fn Add();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMILBitmapEffectGroupVtbl(
@@ -702,11 +663,6 @@ impl ::core::fmt::Debug for IMILBitmapEffectGroupImpl {
 unsafe impl ::windows::core::Interface for IMILBitmapEffectGroupImpl {
     type Vtable = IMILBitmapEffectGroupImplVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x78fed518_1cfc_4807_8b85_6b6e51398f62);
-}
-pub trait IMILBitmapEffectGroupImplImpl {
-    fn Preprocess();
-    fn GetNumberChildren();
-    fn GetChildren();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -796,15 +752,6 @@ impl ::core::fmt::Debug for IMILBitmapEffectImpl {
 unsafe impl ::windows::core::Interface for IMILBitmapEffectImpl {
     type Vtable = IMILBitmapEffectImplVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcc2468f2_9936_47be_b4af_06b5df5dbcbb);
-}
-pub trait IMILBitmapEffectImplImpl {
-    fn IsInPlaceModificationAllowed();
-    fn SetParentEffect();
-    fn GetInputSource();
-    fn GetInputSourceBounds();
-    fn GetInputBitmapSource();
-    fn GetOutputBitmapSource();
-    fn Initialize();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -947,10 +894,6 @@ unsafe impl ::windows::core::Interface for IMILBitmapEffectInputConnector {
     type Vtable = IMILBitmapEffectInputConnectorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa9b4ecaa_7a3c_45e7_8573_f4b81b60dd6c);
 }
-pub trait IMILBitmapEffectInputConnectorImpl: IMILBitmapEffectConnectorImpl + IMILBitmapEffectConnectorInfoImpl {
-    fn ConnectTo();
-    fn GetConnection();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMILBitmapEffectInputConnectorVtbl(
@@ -1016,9 +959,6 @@ unsafe impl ::windows::core::Interface for IMILBitmapEffectInteriorInputConnecto
     type Vtable = IMILBitmapEffectInteriorInputConnectorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x20287e9e_86a2_4e15_953d_eb1438a5b842);
 }
-pub trait IMILBitmapEffectInteriorInputConnectorImpl {
-    fn GetInputConnector();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMILBitmapEffectInteriorInputConnectorVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinputconnector: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT);
@@ -1071,9 +1011,6 @@ impl ::core::fmt::Debug for IMILBitmapEffectInteriorOutputConnector {
 unsafe impl ::windows::core::Interface for IMILBitmapEffectInteriorOutputConnector {
     type Vtable = IMILBitmapEffectInteriorOutputConnectorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00bbb6dc_acc9_4bfc_b344_8bee383dfefa);
-}
-pub trait IMILBitmapEffectInteriorOutputConnectorImpl {
-    fn GetOutputConnector();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1203,10 +1140,6 @@ unsafe impl ::windows::core::Interface for IMILBitmapEffectOutputConnector {
     type Vtable = IMILBitmapEffectOutputConnectorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x92957aad_841b_4866_82ec_8752468b07fd);
 }
-pub trait IMILBitmapEffectOutputConnectorImpl: IMILBitmapEffectConnectorImpl + IMILBitmapEffectConnectorInfoImpl {
-    fn GetNumberConnections();
-    fn GetConnection();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMILBitmapEffectOutputConnectorVtbl(
@@ -1274,10 +1207,6 @@ impl ::core::fmt::Debug for IMILBitmapEffectOutputConnectorImpl {
 unsafe impl ::windows::core::Interface for IMILBitmapEffectOutputConnectorImpl {
     type Vtable = IMILBitmapEffectOutputConnectorImplVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x21fae777_8b39_4bfa_9f2d_f3941ed36913);
-}
-pub trait IMILBitmapEffectOutputConnectorImplImpl {
-    fn AddBackLink();
-    fn RemoveBackLink();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1361,14 +1290,6 @@ unsafe impl ::windows::core::Interface for IMILBitmapEffectPrimitive {
     type Vtable = IMILBitmapEffectPrimitiveVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x67e31025_3091_4dfc_98d6_dd494551461d);
 }
-pub trait IMILBitmapEffectPrimitiveImpl {
-    fn GetOutput();
-    fn TransformPoint();
-    fn TransformRect();
-    fn HasAffineTransform();
-    fn HasInverseTransform();
-    fn GetAffineMatrix();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMILBitmapEffectPrimitiveVtbl(
@@ -1438,10 +1359,6 @@ impl ::core::fmt::Debug for IMILBitmapEffectPrimitiveImpl {
 unsafe impl ::windows::core::Interface for IMILBitmapEffectPrimitiveImpl {
     type Vtable = IMILBitmapEffectPrimitiveImplVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xce41e00b_efa6_44e7_b007_dd042e3ae126);
-}
-pub trait IMILBitmapEffectPrimitiveImplImpl {
-    fn IsDirty();
-    fn IsVolatile();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1531,16 +1448,6 @@ unsafe impl ::windows::core::Interface for IMILBitmapEffectRenderContext {
     type Vtable = IMILBitmapEffectRenderContextVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x12a2ec7e_2d33_44b2_b334_1abb7846e390);
 }
-pub trait IMILBitmapEffectRenderContextImpl {
-    fn SetOutputPixelFormat();
-    fn GetOutputPixelFormat();
-    fn SetUseSoftwareRenderer();
-    fn SetInitialTransform();
-    fn GetFinalTransform();
-    fn SetOutputDPI();
-    fn GetOutputDPI();
-    fn SetRegionOfInterest();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMILBitmapEffectRenderContextVtbl(
@@ -1622,13 +1529,6 @@ unsafe impl ::windows::core::Interface for IMILBitmapEffectRenderContextImpl {
     type Vtable = IMILBitmapEffectRenderContextImplVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4d25accb_797d_4fd2_b128_dffeff84fcc3);
 }
-pub trait IMILBitmapEffectRenderContextImplImpl {
-    fn GetUseSoftwareRenderer();
-    fn GetTransform();
-    fn UpdateTransform();
-    fn GetOutputBounds();
-    fn UpdateOutputBounds();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMILBitmapEffectRenderContextImplVtbl(
@@ -1705,12 +1605,6 @@ impl ::core::fmt::Debug for IMILBitmapEffects {
 unsafe impl ::windows::core::Interface for IMILBitmapEffects {
     type Vtable = IMILBitmapEffectsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x51ac3dce_67c5_448b_9180_ad3eabddd5dd);
-}
-pub trait IMILBitmapEffectsImpl {
-    fn _NewEnum();
-    fn Parent();
-    fn Item();
-    fn Count();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1834,3 +1728,5 @@ impl ::core::default::Default for MilRectD {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

@@ -8,32 +8,6 @@ unsafe impl ::windows::core::Interface for IPaymentAddress {
     type Vtable = IPaymentAddressVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5f2264e9_6f3a_4166_a018_0a0b06bb32b5);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IPaymentAddressImpl {
-    fn Country();
-    fn SetCountry();
-    fn AddressLines();
-    fn SetAddressLines();
-    fn Region();
-    fn SetRegion();
-    fn City();
-    fn SetCity();
-    fn DependentLocality();
-    fn SetDependentLocality();
-    fn PostalCode();
-    fn SetPostalCode();
-    fn SortingCode();
-    fn SetSortingCode();
-    fn LanguageCode();
-    fn SetLanguageCode();
-    fn Organization();
-    fn SetOrganization();
-    fn Recipient();
-    fn SetRecipient();
-    fn PhoneNumber();
-    fn SetPhoneNumber();
-    fn Properties();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPaymentAddressVtbl(
@@ -77,10 +51,6 @@ unsafe impl ::windows::core::Interface for IPaymentCanMakePaymentResult {
     type Vtable = IPaymentCanMakePaymentResultVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7696fe55_d5d3_4d3d_b345_45591759c510);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IPaymentCanMakePaymentResultImpl {
-    fn Status();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPaymentCanMakePaymentResultVtbl(
@@ -99,10 +69,6 @@ unsafe impl ::windows::core::Interface for IPaymentCanMakePaymentResultFactory {
     type Vtable = IPaymentCanMakePaymentResultFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbbdcaa3e_7d49_4f69_aa53_2a0f8164b7c9);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IPaymentCanMakePaymentResultFactoryImpl {
-    fn Create();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPaymentCanMakePaymentResultFactoryVtbl(
@@ -120,15 +86,6 @@ pub struct IPaymentCurrencyAmount(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPaymentCurrencyAmount {
     type Vtable = IPaymentCurrencyAmountVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe3a3e9e0_b41f_4987_bdcb_071331f2daa4);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IPaymentCurrencyAmountImpl {
-    fn Currency();
-    fn SetCurrency();
-    fn CurrencySystem();
-    fn SetCurrencySystem();
-    fn Value();
-    fn SetValue();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -153,11 +110,6 @@ unsafe impl ::windows::core::Interface for IPaymentCurrencyAmountFactory {
     type Vtable = IPaymentCurrencyAmountFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3257d338_140c_4575_8535_f773178c09a7);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IPaymentCurrencyAmountFactoryImpl {
-    fn Create();
-    fn CreateWithCurrencySystem();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPaymentCurrencyAmountFactoryVtbl(
@@ -176,17 +128,6 @@ pub struct IPaymentDetails(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPaymentDetails {
     type Vtable = IPaymentDetailsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x53bb2d7d_e0eb_4053_8eae_ce7c48e02945);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IPaymentDetailsImpl {
-    fn Total();
-    fn SetTotal();
-    fn DisplayItems();
-    fn SetDisplayItems();
-    fn ShippingOptions();
-    fn SetShippingOptions();
-    fn Modifiers();
-    fn SetModifiers();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -219,11 +160,6 @@ unsafe impl ::windows::core::Interface for IPaymentDetailsFactory {
     type Vtable = IPaymentDetailsFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcfe8afee_c0ea_4ca1_8bc7_6de67b1f3763);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IPaymentDetailsFactoryImpl {
-    fn Create();
-    fn CreateWithDisplayItems();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPaymentDetailsFactoryVtbl(
@@ -243,13 +179,6 @@ pub struct IPaymentDetailsModifier(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPaymentDetailsModifier {
     type Vtable = IPaymentDetailsModifierVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbe1c7d65_4323_41d7_b305_dfcb765f69de);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IPaymentDetailsModifierImpl {
-    fn JsonData();
-    fn SupportedMethodIds();
-    fn Total();
-    fn AdditionalDisplayItems();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -274,12 +203,6 @@ unsafe impl ::windows::core::Interface for IPaymentDetailsModifierFactory {
     type Vtable = IPaymentDetailsModifierFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x79005286_54de_429c_9e4f_5dce6e10ebce);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IPaymentDetailsModifierFactoryImpl {
-    fn Create();
-    fn CreateWithAdditionalDisplayItems();
-    fn CreateWithAdditionalDisplayItemsAndJsonData();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPaymentDetailsModifierFactoryVtbl(
@@ -302,15 +225,6 @@ pub struct IPaymentItem(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPaymentItem {
     type Vtable = IPaymentItemVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x685ac88b_79b2_4b76_9e03_a876223dfe72);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IPaymentItemImpl {
-    fn Label();
-    fn SetLabel();
-    fn Amount();
-    fn SetAmount();
-    fn Pending();
-    fn SetPending();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -335,10 +249,6 @@ unsafe impl ::windows::core::Interface for IPaymentItemFactory {
     type Vtable = IPaymentItemFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc6ab7ad8_2503_4d1d_a778_02b2e5927b2c);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IPaymentItemFactoryImpl {
-    fn Create();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPaymentItemFactoryVtbl(
@@ -356,12 +266,6 @@ pub struct IPaymentMediator(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPaymentMediator {
     type Vtable = IPaymentMediatorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfb0ee829_ec0c_449a_83da_7ae3073365a2);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IPaymentMediatorImpl {
-    fn GetSupportedMethodIdsAsync();
-    fn SubmitPaymentRequestAsync();
-    fn SubmitPaymentRequestWithChangeHandlerAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -386,10 +290,6 @@ unsafe impl ::windows::core::Interface for IPaymentMediator2 {
     type Vtable = IPaymentMediator2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xceef98f1_e407_4128_8e73_d93d5f822786);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IPaymentMediator2Impl {
-    fn CanMakePaymentAsync();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPaymentMediator2Vtbl(
@@ -408,11 +308,6 @@ pub struct IPaymentMerchantInfo(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPaymentMerchantInfo {
     type Vtable = IPaymentMerchantInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x63445050_0e94_4ed6_aacb_e6012bd327a7);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IPaymentMerchantInfoImpl {
-    fn PackageFullName();
-    fn Uri();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -434,10 +329,6 @@ unsafe impl ::windows::core::Interface for IPaymentMerchantInfoFactory {
     type Vtable = IPaymentMerchantInfoFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9e89ced3_ccb7_4167_a8ec_e10ae96dbcd1);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IPaymentMerchantInfoFactoryImpl {
-    fn Create();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPaymentMerchantInfoFactoryVtbl(
@@ -456,11 +347,6 @@ pub struct IPaymentMethodData(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPaymentMethodData {
     type Vtable = IPaymentMethodDataVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd1d3caf4_de98_4129_b1b7_c3ad86237bf4);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IPaymentMethodDataImpl {
-    fn SupportedMethodIds();
-    fn JsonData();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -482,11 +368,6 @@ unsafe impl ::windows::core::Interface for IPaymentMethodDataFactory {
     type Vtable = IPaymentMethodDataFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8addd27f_9baa_4a82_8342_a8210992a36b);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IPaymentMethodDataFactoryImpl {
-    fn Create();
-    fn CreateWithJsonData();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPaymentMethodDataFactoryVtbl(
@@ -507,19 +388,6 @@ pub struct IPaymentOptions(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPaymentOptions {
     type Vtable = IPaymentOptionsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaaa30854_1f2b_4365_8251_01b58915a5bc);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IPaymentOptionsImpl {
-    fn RequestPayerEmail();
-    fn SetRequestPayerEmail();
-    fn RequestPayerName();
-    fn SetRequestPayerName();
-    fn RequestPayerPhoneNumber();
-    fn SetRequestPayerPhoneNumber();
-    fn RequestShipping();
-    fn SetRequestShipping();
-    fn ShippingType();
-    fn SetShippingType();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -548,13 +416,6 @@ unsafe impl ::windows::core::Interface for IPaymentRequest {
     type Vtable = IPaymentRequestVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb74942e1_ed7b_47eb_bc08_78cc5d6896b6);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IPaymentRequestImpl {
-    fn MerchantInfo();
-    fn Details();
-    fn MethodData();
-    fn Options();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPaymentRequestVtbl(
@@ -577,10 +438,6 @@ unsafe impl ::windows::core::Interface for IPaymentRequest2 {
     type Vtable = IPaymentRequest2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb63ccfb5_5998_493e_a04c_67048a50f141);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IPaymentRequest2Impl {
-    fn Id();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPaymentRequest2Vtbl(
@@ -598,13 +455,6 @@ pub struct IPaymentRequestChangedArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPaymentRequestChangedArgs {
     type Vtable = IPaymentRequestChangedArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc6145e44_cd8b_4be4_b555_27c99194c0c5);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IPaymentRequestChangedArgsImpl {
-    fn ChangeKind();
-    fn ShippingAddress();
-    fn SelectedShippingOption();
-    fn Acknowledge();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -626,15 +476,6 @@ pub struct IPaymentRequestChangedResult(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPaymentRequestChangedResult {
     type Vtable = IPaymentRequestChangedResultVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdf699e5c_16c4_47ad_9401_8440ec0757db);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IPaymentRequestChangedResultImpl {
-    fn ChangeAcceptedByMerchant();
-    fn SetChangeAcceptedByMerchant();
-    fn Message();
-    fn SetMessage();
-    fn UpdatedPaymentDetails();
-    fn SetUpdatedPaymentDetails();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -659,11 +500,6 @@ unsafe impl ::windows::core::Interface for IPaymentRequestChangedResultFactory {
     type Vtable = IPaymentRequestChangedResultFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x08740f56_1d33_4431_814b_67ea24bf21db);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IPaymentRequestChangedResultFactoryImpl {
-    fn Create();
-    fn CreateWithPaymentDetails();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPaymentRequestChangedResultFactoryVtbl(
@@ -682,12 +518,6 @@ pub struct IPaymentRequestFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPaymentRequestFactory {
     type Vtable = IPaymentRequestFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3e8a79dc_6b74_42d3_b103_f0de35fb1848);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IPaymentRequestFactoryImpl {
-    fn Create();
-    fn CreateWithMerchantInfo();
-    fn CreateWithMerchantInfoAndOptions();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -712,10 +542,6 @@ unsafe impl ::windows::core::Interface for IPaymentRequestFactory2 {
     type Vtable = IPaymentRequestFactory2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe6ce1325_a506_4372_b7ef_1a031d5662d1);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IPaymentRequestFactory2Impl {
-    fn CreateWithMerchantInfoOptionsAndId();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPaymentRequestFactory2Vtbl(
@@ -735,11 +561,6 @@ unsafe impl ::windows::core::Interface for IPaymentRequestSubmitResult {
     type Vtable = IPaymentRequestSubmitResultVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7b9c3912_30f2_4e90_b249_8ce7d78ffe56);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IPaymentRequestSubmitResultImpl {
-    fn Status();
-    fn Response();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPaymentRequestSubmitResultVtbl(
@@ -758,16 +579,6 @@ pub struct IPaymentResponse(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPaymentResponse {
     type Vtable = IPaymentResponseVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe1389457_8bd2_4888_9fa8_97985545108e);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IPaymentResponseImpl {
-    fn PaymentToken();
-    fn ShippingOption();
-    fn ShippingAddress();
-    fn PayerEmail();
-    fn PayerName();
-    fn PayerPhoneNumber();
-    fn CompleteAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -794,17 +605,6 @@ unsafe impl ::windows::core::Interface for IPaymentShippingOption {
     type Vtable = IPaymentShippingOptionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x13372ada_9753_4574_8966_93145a76c7f9);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IPaymentShippingOptionImpl {
-    fn Label();
-    fn SetLabel();
-    fn Amount();
-    fn SetAmount();
-    fn Tag();
-    fn SetTag();
-    fn IsSelected();
-    fn SetIsSelected();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPaymentShippingOptionVtbl(
@@ -830,12 +630,6 @@ unsafe impl ::windows::core::Interface for IPaymentShippingOptionFactory {
     type Vtable = IPaymentShippingOptionFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5de5f917_b2d7_446b_9d73_6123fbca3bc6);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IPaymentShippingOptionFactoryImpl {
-    fn Create();
-    fn CreateWithSelected();
-    fn CreateWithSelectedAndTag();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPaymentShippingOptionFactoryVtbl(
@@ -856,11 +650,6 @@ unsafe impl ::windows::core::Interface for IPaymentToken {
     type Vtable = IPaymentTokenVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbbcac013_ccd0_41f2_b2a1_0a2e4b5dce25);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IPaymentTokenImpl {
-    fn PaymentMethodId();
-    fn JsonDetails();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPaymentTokenVtbl(
@@ -879,11 +668,6 @@ pub struct IPaymentTokenFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPaymentTokenFactory {
     type Vtable = IPaymentTokenFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x988cd7aa_4753_4904_8373_dd7b08b995c1);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IPaymentTokenFactoryImpl {
-    fn Create();
-    fn CreateWithJsonDetails();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3404,3 +3188,5 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Paym
 }
 unsafe impl ::core::marker::Send for PaymentToken {}
 unsafe impl ::core::marker::Sync for PaymentToken {}
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

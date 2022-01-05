@@ -2278,11 +2278,6 @@ unsafe impl ::windows::core::Interface for IBitmapBuffer {
     type Vtable = IBitmapBufferVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa53e04c4_399c_438c_b28f_a63a6b83d1a1);
 }
-#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IBitmapBufferImpl: IClosableImpl + IMemoryBufferImpl {
-    fn GetPlaneCount();
-    fn GetPlaneDescription();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBitmapBufferVtbl(
@@ -2301,13 +2296,6 @@ pub struct IBitmapCodecInformation(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IBitmapCodecInformation {
     type Vtable = IBitmapCodecInformationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x400caaf2_c4b0_4392_a3b0_6f6f9ba95cb4);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IBitmapCodecInformationImpl {
-    fn CodecId();
-    fn FileExtensions();
-    fn FriendlyName();
-    fn MimeTypes();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2332,14 +2320,6 @@ unsafe impl ::windows::core::Interface for IBitmapDecoder {
     type Vtable = IBitmapDecoderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xacef22ba_1d74_4c91_9dfc_9620745233e6);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IBitmapDecoderImpl {
-    fn BitmapContainerProperties();
-    fn DecoderInformation();
-    fn FrameCount();
-    fn GetPreviewAsync();
-    fn GetFrameAsync();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBitmapDecoderVtbl(
@@ -2363,19 +2343,6 @@ pub struct IBitmapDecoderStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IBitmapDecoderStatics {
     type Vtable = IBitmapDecoderStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x438ccb26_bcef_4e95_bad6_23a822e58d01);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IBitmapDecoderStaticsImpl {
-    fn BmpDecoderId();
-    fn JpegDecoderId();
-    fn PngDecoderId();
-    fn TiffDecoderId();
-    fn GifDecoderId();
-    fn JpegXRDecoderId();
-    fn IcoDecoderId();
-    fn GetDecoderInformationEnumerator();
-    fn CreateAsync();
-    fn CreateWithIdAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2407,11 +2374,6 @@ unsafe impl ::windows::core::Interface for IBitmapDecoderStatics2 {
     type Vtable = IBitmapDecoderStatics2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x50ba68ea_99a1_40c4_80d9_aef0dafa6c3f);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IBitmapDecoderStatics2Impl {
-    fn HeifDecoderId();
-    fn WebpDecoderId();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBitmapDecoderStatics2Vtbl(
@@ -2430,23 +2392,6 @@ pub struct IBitmapEncoder(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IBitmapEncoder {
     type Vtable = IBitmapEncoderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2bc468e3_e1f8_4b54_95e8_32919551ce62);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IBitmapEncoderImpl {
-    fn EncoderInformation();
-    fn BitmapProperties();
-    fn BitmapContainerProperties();
-    fn IsThumbnailGenerated();
-    fn SetIsThumbnailGenerated();
-    fn GeneratedThumbnailWidth();
-    fn SetGeneratedThumbnailWidth();
-    fn GeneratedThumbnailHeight();
-    fn SetGeneratedThumbnailHeight();
-    fn BitmapTransform();
-    fn SetPixelData();
-    fn GoToNextFrameAsync();
-    fn GoToNextFrameWithEncodingOptionsAsync();
-    fn FlushAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2482,20 +2427,6 @@ unsafe impl ::windows::core::Interface for IBitmapEncoderStatics {
     type Vtable = IBitmapEncoderStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa74356a7_a4e4_4eb9_8e40_564de7e1ccb2);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IBitmapEncoderStaticsImpl {
-    fn BmpEncoderId();
-    fn JpegEncoderId();
-    fn PngEncoderId();
-    fn TiffEncoderId();
-    fn GifEncoderId();
-    fn JpegXREncoderId();
-    fn GetEncoderInformationEnumerator();
-    fn CreateAsync();
-    fn CreateWithEncodingOptionsAsync();
-    fn CreateForTranscodingAsync();
-    fn CreateForInPlacePropertyEncodingAsync();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBitmapEncoderStaticsVtbl(
@@ -2529,10 +2460,6 @@ unsafe impl ::windows::core::Interface for IBitmapEncoderStatics2 {
     type Vtable = IBitmapEncoderStatics2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x33cbc259_fe31_41b1_b812_086d21e87e16);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IBitmapEncoderStatics2Impl {
-    fn HeifEncoderId();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBitmapEncoderStatics2Vtbl(
@@ -2550,10 +2477,6 @@ pub struct IBitmapEncoderWithSoftwareBitmap(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IBitmapEncoderWithSoftwareBitmap {
     type Vtable = IBitmapEncoderWithSoftwareBitmapVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x686cd241_4330_4c77_ace4_0334968b1768);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IBitmapEncoderWithSoftwareBitmapImpl {
-    fn SetSoftwareBitmap();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2732,20 +2655,6 @@ unsafe impl ::windows::core::RuntimeType for IBitmapFrame {
 unsafe impl ::windows::core::Interface for IBitmapFrame {
     type Vtable = IBitmapFrameVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x72a49a1c_8081_438d_91bc_94ecfc8185c6);
-}
-pub trait IBitmapFrameImpl {
-    fn GetThumbnailAsync();
-    fn BitmapProperties();
-    fn BitmapPixelFormat();
-    fn BitmapAlphaMode();
-    fn DpiX();
-    fn DpiY();
-    fn PixelWidth();
-    fn PixelHeight();
-    fn OrientedPixelWidth();
-    fn OrientedPixelHeight();
-    fn GetPixelDataAsync();
-    fn GetPixelDataTransformedAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2988,11 +2897,6 @@ unsafe impl ::windows::core::Interface for IBitmapFrameWithSoftwareBitmap {
     type Vtable = IBitmapFrameWithSoftwareBitmapVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfe287c9a_420c_4963_87ad_691436e08383);
 }
-pub trait IBitmapFrameWithSoftwareBitmapImpl: IBitmapFrameImpl {
-    fn GetSoftwareBitmapAsync();
-    fn GetSoftwareBitmapConvertedAsync();
-    fn GetSoftwareBitmapTransformedAsync();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBitmapFrameWithSoftwareBitmapVtbl(
@@ -3015,10 +2919,6 @@ pub struct IBitmapProperties(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IBitmapProperties {
     type Vtable = IBitmapPropertiesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xea9f4f1b_b505_4450_a4d1_e8ca94529d8d);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IBitmapPropertiesImpl: IBitmapPropertiesViewImpl {
-    fn SetPropertiesAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3109,9 +3009,6 @@ unsafe impl ::windows::core::Interface for IBitmapPropertiesView {
     type Vtable = IBitmapPropertiesViewVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7e0fe87a_3a70_48f8_9c55_196cf5a545f5);
 }
-pub trait IBitmapPropertiesViewImpl {
-    fn GetPropertiesAsync();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBitmapPropertiesViewVtbl(
@@ -3130,21 +3027,6 @@ pub struct IBitmapTransform(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IBitmapTransform {
     type Vtable = IBitmapTransformVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xae755344_e268_4d35_adcf_e995d31a8d34);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IBitmapTransformImpl {
-    fn ScaledWidth();
-    fn SetScaledWidth();
-    fn ScaledHeight();
-    fn SetScaledHeight();
-    fn InterpolationMode();
-    fn SetInterpolationMode();
-    fn Flip();
-    fn SetFlip();
-    fn Rotation();
-    fn SetRotation();
-    fn Bounds();
-    fn SetBounds();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3175,11 +3057,6 @@ unsafe impl ::windows::core::Interface for IBitmapTypedValue {
     type Vtable = IBitmapTypedValueVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcd8044a9_2443_4000_b0cd_79316c56f589);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IBitmapTypedValueImpl {
-    fn Value();
-    fn Type();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBitmapTypedValueVtbl(
@@ -3200,10 +3077,6 @@ unsafe impl ::windows::core::Interface for IBitmapTypedValueFactory {
     type Vtable = IBitmapTypedValueFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x92dbb599_ce13_46bb_9545_cb3a3f63eb8b);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IBitmapTypedValueFactoryImpl {
-    fn Create();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBitmapTypedValueFactoryVtbl(
@@ -3223,10 +3096,6 @@ unsafe impl ::windows::core::Interface for IPixelDataProvider {
     type Vtable = IPixelDataProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdd831f25_185c_4595_9fb9_ccbe6ec18a6f);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IPixelDataProviderImpl {
-    fn DetachPixelData();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPixelDataProviderVtbl(
@@ -3244,23 +3113,6 @@ pub struct ISoftwareBitmap(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISoftwareBitmap {
     type Vtable = ISoftwareBitmapVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x689e0708_7eef_483f_963f_da938818e073);
-}
-#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait ISoftwareBitmapImpl: IClosableImpl {
-    fn BitmapPixelFormat();
-    fn BitmapAlphaMode();
-    fn PixelWidth();
-    fn PixelHeight();
-    fn IsReadOnly();
-    fn SetDpiX();
-    fn DpiX();
-    fn SetDpiY();
-    fn DpiY();
-    fn LockBuffer();
-    fn CopyTo();
-    fn CopyFromBuffer();
-    fn CopyToBuffer();
-    fn GetReadOnlyView();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3295,11 +3147,6 @@ unsafe impl ::windows::core::Interface for ISoftwareBitmapFactory {
     type Vtable = ISoftwareBitmapFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc99feb69_2d62_4d47_a6b3_4fdb6a07fdf8);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ISoftwareBitmapFactoryImpl {
-    fn Create();
-    fn CreateWithAlpha();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISoftwareBitmapFactoryVtbl(
@@ -3318,16 +3165,6 @@ pub struct ISoftwareBitmapStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISoftwareBitmapStatics {
     type Vtable = ISoftwareBitmapStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdf0385db_672f_4a9d_806e_c2442f343e86);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ISoftwareBitmapStaticsImpl {
-    fn Copy();
-    fn Convert();
-    fn ConvertWithAlpha();
-    fn CreateCopyFromBuffer();
-    fn CreateCopyWithAlphaFromBuffer();
-    fn CreateCopyFromSurfaceAsync();
-    fn CreateCopyWithAlphaFromSurfaceAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4189,3 +4026,5 @@ unsafe impl ::windows::core::RuntimeType for TiffCompressionMode {
 impl ::windows::core::DefaultType for TiffCompressionMode {
     type DefaultType = Self;
 }
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

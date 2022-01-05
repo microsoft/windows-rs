@@ -1656,18 +1656,6 @@ unsafe impl ::windows::core::Interface for IFileInformationFactory {
     type Vtable = IFileInformationFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x401d88be_960f_4d6d_a7d0_1a3861e76c83);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IFileInformationFactoryImpl {
-    fn GetItemsAsync();
-    fn GetItemsAsyncDefaultStartAndCount();
-    fn GetFilesAsync();
-    fn GetFilesAsyncDefaultStartAndCount();
-    fn GetFoldersAsync();
-    fn GetFoldersAsyncDefaultStartAndCount();
-    fn GetVirtualizedItemsVector();
-    fn GetVirtualizedFilesVector();
-    fn GetVirtualizedFoldersVector();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFileInformationFactoryVtbl(
@@ -1699,13 +1687,6 @@ pub struct IFileInformationFactoryFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IFileInformationFactoryFactory {
     type Vtable = IFileInformationFactoryFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x84ea0e7d_e4a2_4f00_8afa_af5e0f826bd5);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IFileInformationFactoryFactoryImpl {
-    fn CreateWithMode();
-    fn CreateWithModeAndSize();
-    fn CreateWithModeAndSizeAndOptions();
-    fn CreateWithModeAndSizeAndOptionsAndFlags();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1877,18 +1858,6 @@ unsafe impl ::windows::core::Interface for IStorageItemInformation {
     type Vtable = IStorageItemInformationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x87a5cb8b_8972_4f40_8de0_d86fb179d8fa);
 }
-pub trait IStorageItemInformationImpl {
-    fn MusicProperties();
-    fn VideoProperties();
-    fn ImageProperties();
-    fn DocumentProperties();
-    fn BasicProperties();
-    fn Thumbnail();
-    fn ThumbnailUpdated();
-    fn RemoveThumbnailUpdated();
-    fn PropertiesUpdated();
-    fn RemovePropertiesUpdated();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IStorageItemInformationVtbl(
@@ -1919,3 +1888,5 @@ pub struct IStorageItemInformationVtbl(
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, eventcookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
 );
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

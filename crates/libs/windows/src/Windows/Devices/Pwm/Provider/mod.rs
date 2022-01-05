@@ -132,18 +132,6 @@ unsafe impl ::windows::core::Interface for IPwmControllerProvider {
     type Vtable = IPwmControllerProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1300593b_e2e3_40a4_b7d9_48dff0377a52);
 }
-pub trait IPwmControllerProviderImpl {
-    fn PinCount();
-    fn ActualFrequency();
-    fn SetDesiredFrequency();
-    fn MaxFrequency();
-    fn MinFrequency();
-    fn AcquirePin();
-    fn ReleasePin();
-    fn EnablePin();
-    fn DisablePin();
-    fn SetPulseParameters();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPwmControllerProviderVtbl(
@@ -241,9 +229,6 @@ unsafe impl ::windows::core::Interface for IPwmProvider {
     type Vtable = IPwmProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa3301228_52f1_47b0_9349_66ba43d25902);
 }
-pub trait IPwmProviderImpl {
-    fn GetControllers();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPwmProviderVtbl(
@@ -256,3 +241,5 @@ pub struct IPwmProviderVtbl(
     #[cfg(feature = "Foundation_Collections")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

@@ -352,27 +352,6 @@ unsafe impl ::windows::core::Interface for ICallFrame {
     type Vtable = ICallFrameVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd573b4b0_894e_11d2_b8b6_00c04fb9618a);
 }
-pub trait ICallFrameImpl {
-    fn GetInfo();
-    fn GetIIDAndMethod();
-    fn GetNames();
-    fn GetStackLocation();
-    fn SetStackLocation();
-    fn SetReturnValue();
-    fn GetReturnValue();
-    fn GetParamInfo();
-    fn SetParam();
-    fn GetParam();
-    fn Copy();
-    fn Free();
-    fn FreeParam();
-    fn WalkFrame();
-    fn GetMarshalSizeMax();
-    fn Marshal();
-    fn Unmarshal();
-    fn ReleaseMarshalData();
-    fn Invoke();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICallFrameVtbl(
@@ -457,9 +436,6 @@ unsafe impl ::windows::core::Interface for ICallFrameEvents {
     type Vtable = ICallFrameEventsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfd5e0843_fc91_11d0_97d7_00c04fb9618a);
 }
-pub trait ICallFrameEventsImpl {
-    fn OnCall();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICallFrameEventsVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pframe: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
@@ -512,9 +488,6 @@ impl ::core::fmt::Debug for ICallFrameWalker {
 unsafe impl ::windows::core::Interface for ICallFrameWalker {
     type Vtable = ICallFrameWalkerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x08b23919_392d_11d2_b8a4_00c04fb9618a);
-}
-pub trait ICallFrameWalkerImpl {
-    fn OnWalkInterface();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -588,12 +561,6 @@ impl ::core::fmt::Debug for ICallIndirect {
 unsafe impl ::windows::core::Interface for ICallIndirect {
     type Vtable = ICallIndirectVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd573b4b1_894e_11d2_b8b6_00c04fb9618a);
-}
-pub trait ICallIndirectImpl {
-    fn CallIndirect();
-    fn GetMethodInfo();
-    fn GetStackSize();
-    fn GetIID();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -701,10 +668,6 @@ unsafe impl ::windows::core::Interface for ICallInterceptor {
     type Vtable = ICallInterceptorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x60c7ca75_896d_11d2_b8b6_00c04fb9618a);
 }
-pub trait ICallInterceptorImpl: ICallIndirectImpl {
-    fn RegisterSink();
-    fn GetRegisteredSink();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICallInterceptorVtbl(
@@ -775,10 +738,6 @@ unsafe impl ::windows::core::Interface for ICallUnmarshal {
     type Vtable = ICallUnmarshalVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5333b003_2e42_11d2_b89d_00c04fb9618a);
 }
-pub trait ICallUnmarshalImpl {
-    fn Unmarshal();
-    fn ReleaseMarshalData();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICallUnmarshalVtbl(
@@ -844,10 +803,6 @@ unsafe impl ::windows::core::Interface for IInterfaceRelated {
     type Vtable = IInterfaceRelatedVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd1fb5a79_7706_11d1_adba_00c04fc2adc0);
 }
-pub trait IInterfaceRelatedImpl {
-    fn SetIID();
-    fn GetIID();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInterfaceRelatedVtbl(
@@ -857,3 +812,5 @@ pub struct IInterfaceRelatedVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, piid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
 );
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

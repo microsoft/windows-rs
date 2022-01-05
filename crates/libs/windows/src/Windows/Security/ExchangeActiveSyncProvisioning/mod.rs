@@ -861,15 +861,6 @@ unsafe impl ::windows::core::Interface for IEasClientDeviceInformation {
     type Vtable = IEasClientDeviceInformationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x54dfd981_1968_4ca3_b958_e595d16505eb);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IEasClientDeviceInformationImpl {
-    fn Id();
-    fn OperatingSystem();
-    fn FriendlyName();
-    fn SystemManufacturer();
-    fn SystemProductName();
-    fn SystemSku();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEasClientDeviceInformationVtbl(
@@ -893,11 +884,6 @@ unsafe impl ::windows::core::Interface for IEasClientDeviceInformation2 {
     type Vtable = IEasClientDeviceInformation2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xffb35923_bb26_4d6a_81bc_165aee0ad754);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IEasClientDeviceInformation2Impl: IEasClientDeviceInformationImpl {
-    fn SystemHardwareVersion();
-    fn SystemFirmwareVersion();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEasClientDeviceInformation2Vtbl(
@@ -916,27 +902,6 @@ pub struct IEasClientSecurityPolicy(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IEasClientSecurityPolicy {
     type Vtable = IEasClientSecurityPolicyVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x45b72362_dfba_4a9b_aced_6fe2adcb6420);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IEasClientSecurityPolicyImpl {
-    fn RequireEncryption();
-    fn SetRequireEncryption();
-    fn MinPasswordLength();
-    fn SetMinPasswordLength();
-    fn DisallowConvenienceLogon();
-    fn SetDisallowConvenienceLogon();
-    fn MinPasswordComplexCharacters();
-    fn SetMinPasswordComplexCharacters();
-    fn PasswordExpiration();
-    fn SetPasswordExpiration();
-    fn PasswordHistory();
-    fn SetPasswordHistory();
-    fn MaxPasswordFailedAttempts();
-    fn SetMaxPasswordFailedAttempts();
-    fn MaxInactivityTimeLock();
-    fn SetMaxInactivityTimeLock();
-    fn CheckCompliance();
-    fn ApplyAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -978,18 +943,6 @@ unsafe impl ::windows::core::Interface for IEasComplianceResults {
     type Vtable = IEasComplianceResultsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x463c299c_7f19_4c66_b403_cb45dd57a2b3);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IEasComplianceResultsImpl {
-    fn Compliant();
-    fn RequireEncryptionResult();
-    fn MinPasswordLengthResult();
-    fn DisallowConvenienceLogonResult();
-    fn MinPasswordComplexCharactersResult();
-    fn PasswordExpirationResult();
-    fn PasswordHistoryResult();
-    fn MaxPasswordFailedAttemptsResult();
-    fn MaxInactivityTimeLockResult();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEasComplianceResultsVtbl(
@@ -1016,10 +969,6 @@ unsafe impl ::windows::core::Interface for IEasComplianceResults2 {
     type Vtable = IEasComplianceResults2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2fbe60c9_1aa8_47f5_88bb_cb3ef0bffb15);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IEasComplianceResults2Impl: IEasComplianceResultsImpl {
-    fn EncryptionProviderType();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEasComplianceResults2Vtbl(
@@ -1031,3 +980,5 @@ pub struct IEasComplianceResults2Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut EasEncryptionProviderType) -> ::windows::core::HRESULT,
 );
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

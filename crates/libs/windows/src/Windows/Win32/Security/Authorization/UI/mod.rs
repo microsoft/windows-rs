@@ -145,9 +145,6 @@ unsafe impl ::windows::core::Interface for IEffectivePermission {
     type Vtable = IEffectivePermissionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3853dc76_9f35_407c_88a1_d19344365fbc);
 }
-pub trait IEffectivePermissionImpl {
-    fn GetEffectivePermission();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEffectivePermissionVtbl(
@@ -239,9 +236,6 @@ impl ::core::fmt::Debug for IEffectivePermission2 {
 unsafe impl ::windows::core::Interface for IEffectivePermission2 {
     type Vtable = IEffectivePermission2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x941fabca_dd47_4fca_90bb_b0e10255f20d);
-}
-pub trait IEffectivePermission2Impl {
-    fn ComputeEffectivePermissionWithSecondarySecurity();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -348,15 +342,6 @@ unsafe impl ::windows::core::Interface for ISecurityInformation {
     type Vtable = ISecurityInformationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x965fc360_16ff_11d0_91cb_00aa00bbb723);
 }
-pub trait ISecurityInformationImpl {
-    fn GetObjectInformation();
-    fn GetSecurity();
-    fn SetSecurity();
-    fn GetAccessRights();
-    fn MapGeneric();
-    fn GetInheritTypes();
-    fn PropertySheetPageCallback();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISecurityInformationVtbl(
@@ -432,10 +417,6 @@ unsafe impl ::windows::core::Interface for ISecurityInformation2 {
     type Vtable = ISecurityInformation2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc3ccfdb4_6f88_11d2_a3ce_00c04fb1782a);
 }
-pub trait ISecurityInformation2Impl {
-    fn IsDaclCanonical();
-    fn LookupSids();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISecurityInformation2Vtbl(
@@ -503,10 +484,6 @@ unsafe impl ::windows::core::Interface for ISecurityInformation3 {
     type Vtable = ISecurityInformation3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe2cdc9cc_31bd_4f8f_8c8b_b641af516a1a);
 }
-pub trait ISecurityInformation3Impl {
-    fn GetFullResourceName();
-    fn OpenElevatedEditor();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISecurityInformation3Vtbl(
@@ -568,9 +545,6 @@ unsafe impl ::windows::core::Interface for ISecurityInformation4 {
     type Vtable = ISecurityInformation4Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xea961070_cd14_4621_ace4_f63c03e583e4);
 }
-pub trait ISecurityInformation4Impl {
-    fn GetSecondarySecurity();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISecurityInformation4Vtbl(
@@ -629,9 +603,6 @@ impl ::core::fmt::Debug for ISecurityObjectTypeInfo {
 unsafe impl ::windows::core::Interface for ISecurityObjectTypeInfo {
     type Vtable = ISecurityObjectTypeInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfc3066eb_79ef_444b_9111_d18a75ebf2fa);
-}
-pub trait ISecurityObjectTypeInfoImpl {
-    fn GetInheritSource();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1004,3 +975,5 @@ pub const SI_RESET_DACL_TREE: i32 = 16384i32;
 pub const SI_RESET_SACL_TREE: i32 = 32768i32;
 #[doc = "*Required features: 'Win32_Security_Authorization_UI'*"]
 pub const SI_SERVER_IS_DC: i32 = 4096i32;
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

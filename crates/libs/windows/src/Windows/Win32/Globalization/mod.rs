@@ -2537,9 +2537,6 @@ unsafe impl ::windows::core::Interface for IComprehensiveSpellCheckProvider {
     type Vtable = IComprehensiveSpellCheckProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0c58f8de_8e94_479e_9717_70c42c4ad2c3);
 }
-pub trait IComprehensiveSpellCheckProviderImpl {
-    fn ComprehensiveCheck();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IComprehensiveSpellCheckProviderVtbl(
@@ -2619,12 +2616,6 @@ unsafe impl ::windows::core::Interface for IEnumCodePage {
     type Vtable = IEnumCodePageVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x275c23e3_3747_11d0_9fea_00aa003f8646);
 }
-pub trait IEnumCodePageImpl {
-    fn Clone();
-    fn Next();
-    fn Reset();
-    fn Skip();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumCodePageVtbl(
@@ -2697,12 +2688,6 @@ impl ::core::fmt::Debug for IEnumRfc1766 {
 unsafe impl ::windows::core::Interface for IEnumRfc1766 {
     type Vtable = IEnumRfc1766Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3dc39d1d_c030_11d0_b81b_00c04fc9b31f);
-}
-pub trait IEnumRfc1766Impl {
-    fn Clone();
-    fn Next();
-    fn Reset();
-    fn Skip();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2777,12 +2762,6 @@ unsafe impl ::windows::core::Interface for IEnumScript {
     type Vtable = IEnumScriptVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xae5f1430_388b_11d2_8380_00c04f8f5da1);
 }
-pub trait IEnumScriptImpl {
-    fn Clone();
-    fn Next();
-    fn Reset();
-    fn Skip();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumScriptVtbl(
@@ -2843,9 +2822,6 @@ impl ::core::fmt::Debug for IEnumSpellingError {
 unsafe impl ::windows::core::Interface for IEnumSpellingError {
     type Vtable = IEnumSpellingErrorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x803e3bd4_2828_4410_8290_418d1d73c762);
-}
-pub trait IEnumSpellingErrorImpl {
-    fn Next();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2939,12 +2915,6 @@ unsafe impl ::windows::core::Interface for IMLangCodePages {
     type Vtable = IMLangCodePagesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x359f3443_bd4a_11d0_b188_00aa0038c969);
 }
-pub trait IMLangCodePagesImpl {
-    fn GetCharCodePages();
-    fn GetStrCodePages();
-    fn CodePageToCodePages();
-    fn CodePagesToCodePage();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMLangCodePagesVtbl(
@@ -3034,15 +3004,6 @@ impl ::core::fmt::Debug for IMLangConvertCharset {
 unsafe impl ::windows::core::Interface for IMLangConvertCharset {
     type Vtable = IMLangConvertCharsetVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd66d6f98_cdaa_11d0_b822_00c04fc9b31f);
-}
-pub trait IMLangConvertCharsetImpl {
-    fn Initialize();
-    fn GetSourceCodePage();
-    fn GetDestinationCodePage();
-    fn GetProperty();
-    fn DoConversion();
-    fn DoConversionToUnicode();
-    fn DoConversionFromUnicode();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3165,12 +3126,6 @@ impl ::core::fmt::Debug for IMLangFontLink {
 unsafe impl ::windows::core::Interface for IMLangFontLink {
     type Vtable = IMLangFontLinkVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x359f3441_bd4a_11d0_b188_00aa0038c969);
-}
-pub trait IMLangFontLinkImpl: IMLangCodePagesImpl {
-    fn GetFontCodePages();
-    fn MapFont();
-    fn ReleaseFont();
-    fn ResetFontMapping();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3312,15 +3267,6 @@ unsafe impl ::windows::core::Interface for IMLangFontLink2 {
     type Vtable = IMLangFontLink2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdccfc162_2b38_11d2_b7ec_00c04f8f5d9a);
 }
-pub trait IMLangFontLink2Impl: IMLangCodePagesImpl {
-    fn GetFontCodePages();
-    fn ReleaseFont();
-    fn ResetFontMapping();
-    fn MapFont();
-    fn GetFontUnicodeRanges();
-    fn GetScriptFontInfo();
-    fn CodePageToScriptID();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMLangFontLink2Vtbl(
@@ -3403,11 +3349,6 @@ unsafe impl ::windows::core::Interface for IMLangLineBreakConsole {
     type Vtable = IMLangLineBreakConsoleVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf5be2ee1_bfd7_11d0_b188_00aa0038c969);
 }
-pub trait IMLangLineBreakConsoleImpl {
-    fn BreakLineML();
-    fn BreakLineW();
-    fn BreakLineA();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMLangLineBreakConsoleVtbl(
@@ -3482,12 +3423,6 @@ impl ::core::fmt::Debug for IMLangString {
 unsafe impl ::windows::core::Interface for IMLangString {
     type Vtable = IMLangStringVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc04d65ce_b70d_11d0_b188_00aa0038c969);
-}
-pub trait IMLangStringImpl {
-    fn Sync();
-    fn GetLength();
-    fn SetMLStr();
-    fn GetMLStr();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3620,16 +3555,6 @@ unsafe impl ::windows::core::Interface for IMLangStringAStr {
     type Vtable = IMLangStringAStrVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc04d65d2_b70d_11d0_b188_00aa0038c969);
 }
-pub trait IMLangStringAStrImpl: IMLangStringImpl {
-    fn SetAStr();
-    fn SetStrBufA();
-    fn GetAStr();
-    fn GetStrBufA();
-    fn LockAStr();
-    fn UnlockAStr();
-    fn SetLocale();
-    fn GetLocale();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMLangStringAStrVtbl(
@@ -3722,13 +3647,6 @@ unsafe impl ::windows::core::Interface for IMLangStringBufA {
     type Vtable = IMLangStringBufAVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd24acd23_ba72_11d0_b188_00aa0038c969);
 }
-pub trait IMLangStringBufAImpl {
-    fn GetStatus();
-    fn LockBuf();
-    fn UnlockBuf();
-    fn Insert();
-    fn Delete();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMLangStringBufAVtbl(
@@ -3809,13 +3727,6 @@ impl ::core::fmt::Debug for IMLangStringBufW {
 unsafe impl ::windows::core::Interface for IMLangStringBufW {
     type Vtable = IMLangStringBufWVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd24acd21_ba72_11d0_b188_00aa0038c969);
-}
-pub trait IMLangStringBufWImpl {
-    fn GetStatus();
-    fn LockBuf();
-    fn UnlockBuf();
-    fn Insert();
-    fn Delete();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3948,16 +3859,6 @@ impl ::core::fmt::Debug for IMLangStringWStr {
 unsafe impl ::windows::core::Interface for IMLangStringWStr {
     type Vtable = IMLangStringWStrVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc04d65d0_b70d_11d0_b188_00aa0038c969);
-}
-pub trait IMLangStringWStrImpl: IMLangStringImpl {
-    fn SetWStr();
-    fn SetStrBufW();
-    fn GetWStr();
-    fn GetStrBufW();
-    fn LockWStr();
-    fn UnlockWStr();
-    fn SetLocale();
-    fn GetLocale();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4101,23 +4002,6 @@ impl ::core::fmt::Debug for IMultiLanguage {
 unsafe impl ::windows::core::Interface for IMultiLanguage {
     type Vtable = IMultiLanguageVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x275c23e1_3747_11d0_9fea_00aa003f8646);
-}
-pub trait IMultiLanguageImpl {
-    fn GetNumberOfCodePageInfo();
-    fn GetCodePageInfo();
-    fn GetFamilyCodePage();
-    fn EnumCodePages();
-    fn GetCharsetInfo();
-    fn IsConvertible();
-    fn ConvertString();
-    fn ConvertStringToUnicode();
-    fn ConvertStringFromUnicode();
-    fn ConvertStringReset();
-    fn GetRfc1766FromLcid();
-    fn GetLcidFromRfc1766();
-    fn EnumRfc1766();
-    fn GetRfc1766Info();
-    fn CreateConvertCharset();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4322,35 +4206,6 @@ impl ::core::fmt::Debug for IMultiLanguage2 {
 unsafe impl ::windows::core::Interface for IMultiLanguage2 {
     type Vtable = IMultiLanguage2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdccfc164_2b38_11d2_b7ec_00c04f8f5d9a);
-}
-pub trait IMultiLanguage2Impl {
-    fn GetNumberOfCodePageInfo();
-    fn GetCodePageInfo();
-    fn GetFamilyCodePage();
-    fn EnumCodePages();
-    fn GetCharsetInfo();
-    fn IsConvertible();
-    fn ConvertString();
-    fn ConvertStringToUnicode();
-    fn ConvertStringFromUnicode();
-    fn ConvertStringReset();
-    fn GetRfc1766FromLcid();
-    fn GetLcidFromRfc1766();
-    fn EnumRfc1766();
-    fn GetRfc1766Info();
-    fn CreateConvertCharset();
-    fn ConvertStringInIStream();
-    fn ConvertStringToUnicodeEx();
-    fn ConvertStringFromUnicodeEx();
-    fn DetectCodepageInIStream();
-    fn DetectInputCodepage();
-    fn ValidateCodePage();
-    fn GetCodePageDescription();
-    fn IsCodePageInstallable();
-    fn SetMimeDBSource();
-    fn GetNumberOfScripts();
-    fn EnumScripts();
-    fn ValidateCodePageEx();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4606,10 +4461,6 @@ unsafe impl ::windows::core::Interface for IMultiLanguage3 {
     type Vtable = IMultiLanguage3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4e5868ab_b157_4623_9acc_6a1d9caebe04);
 }
-pub trait IMultiLanguage3Impl: IMultiLanguage2Impl {
-    fn DetectOutboundCodePage();
-    fn DetectOutboundCodePageInIStream();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMultiLanguage3Vtbl(
@@ -4729,12 +4580,6 @@ impl ::core::fmt::Debug for IOptionDescription {
 unsafe impl ::windows::core::Interface for IOptionDescription {
     type Vtable = IOptionDescriptionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x432e5f85_35cf_4606_a801_6f70277e1d7a);
-}
-pub trait IOptionDescriptionImpl {
-    fn Id();
-    fn Heading();
-    fn Description();
-    fn Labels();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4892,18 +4737,6 @@ unsafe impl ::windows::core::Interface for ISpellCheckProvider {
     type Vtable = ISpellCheckProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x73e976e0_8ed4_4eb1_80d7_1be0a16b0c38);
 }
-pub trait ISpellCheckProviderImpl {
-    fn LanguageTag();
-    fn Check();
-    fn Suggest();
-    fn GetOptionValue();
-    fn SetOptionValue();
-    fn OptionIds();
-    fn Id();
-    fn LocalizedName();
-    fn GetOptionDescription();
-    fn InitializeWordlist();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpellCheckProviderVtbl(
@@ -4993,11 +4826,6 @@ impl ::core::fmt::Debug for ISpellCheckProviderFactory {
 unsafe impl ::windows::core::Interface for ISpellCheckProviderFactory {
     type Vtable = ISpellCheckProviderFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9f671e11_77d6_4c92_aefb_615215e3a4be);
-}
-pub trait ISpellCheckProviderFactoryImpl {
-    fn SupportedLanguages();
-    fn IsSupported();
-    fn CreateSpellCheckProvider();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5134,22 +4962,6 @@ impl ::core::fmt::Debug for ISpellChecker {
 unsafe impl ::windows::core::Interface for ISpellChecker {
     type Vtable = ISpellCheckerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb6fd0b71_e2bc_4653_8d05_f197e412770b);
-}
-pub trait ISpellCheckerImpl {
-    fn LanguageTag();
-    fn Check();
-    fn Suggest();
-    fn Add();
-    fn Ignore();
-    fn AutoCorrect();
-    fn GetOptionValue();
-    fn OptionIds();
-    fn Id();
-    fn LocalizedName();
-    fn SpellCheckerChanged();
-    fn RemoveSpellCheckerChanged();
-    fn GetOptionDescription();
-    fn ComprehensiveCheck();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5332,9 +5144,6 @@ unsafe impl ::windows::core::Interface for ISpellChecker2 {
     type Vtable = ISpellChecker2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe7ed1c71_87f7_4378_a840_c9200dacee47);
 }
-pub trait ISpellChecker2Impl: ISpellCheckerImpl {
-    fn Remove();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpellChecker2Vtbl(
@@ -5419,9 +5228,6 @@ unsafe impl ::windows::core::Interface for ISpellCheckerChangedEventHandler {
     type Vtable = ISpellCheckerChangedEventHandlerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0b83a5b0_792f_4eab_9799_acf52c5ed08a);
 }
-pub trait ISpellCheckerChangedEventHandlerImpl {
-    fn Invoke();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpellCheckerChangedEventHandlerVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
@@ -5487,11 +5293,6 @@ impl ::core::fmt::Debug for ISpellCheckerFactory {
 unsafe impl ::windows::core::Interface for ISpellCheckerFactory {
     type Vtable = ISpellCheckerFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8e018a9d_2415_4677_bf08_794ea61f94bb);
-}
-pub trait ISpellCheckerFactoryImpl {
-    fn SupportedLanguages();
-    fn IsSupported();
-    fn CreateSpellChecker();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5572,12 +5373,6 @@ unsafe impl ::windows::core::Interface for ISpellingError {
     type Vtable = ISpellingErrorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb7c82d61_fbe8_4b47_9b27_6c0d2e0de0a3);
 }
-pub trait ISpellingErrorImpl {
-    fn StartIndex();
-    fn Length();
-    fn CorrectiveAction();
-    fn Replacement();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpellingErrorVtbl(
@@ -5644,10 +5439,6 @@ impl ::core::fmt::Debug for IUserDictionariesRegistrar {
 unsafe impl ::windows::core::Interface for IUserDictionariesRegistrar {
     type Vtable = IUserDictionariesRegistrarVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaa176b85_0e12_4844_8e1a_eef1da77f586);
-}
-pub trait IUserDictionariesRegistrarImpl {
-    fn RegisterUserDictionary();
-    fn UnregisterUserDictionary();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -29263,3 +29054,5 @@ pub unsafe fn utrans_unregisterID(id: *const u16, idlength: i32) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

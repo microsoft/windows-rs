@@ -5401,3 +5401,5 @@ pub const LoginOptions: TARGET_INFORMATION_CLASS = 7i32;
 pub const WmiScsiAddressGuid: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x53f5630f_b6bf_11d0_94f2_00a0c91efb8b);
 #[repr(C)]
 pub struct _ADAPTER_OBJECT(pub u8);
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

@@ -56,10 +56,6 @@ unsafe impl ::windows::core::Interface for IGraphicsCaptureItemInterop {
     type Vtable = IGraphicsCaptureItemInteropVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3628e81b_3cac_4c60_b7f4_23ce0e0c3356);
 }
-pub trait IGraphicsCaptureItemInteropImpl {
-    fn CreateForWindow();
-    fn CreateForMonitor();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGraphicsCaptureItemInteropVtbl(
@@ -71,3 +67,5 @@ pub struct IGraphicsCaptureItemInteropVtbl(
     #[cfg(feature = "Win32_Graphics_Gdi")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, monitor: super::super::super::super::Graphics::Gdi::HMONITOR, riid: *const ::windows::core::GUID, result: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Gdi"))] usize,
 );
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

@@ -788,12 +788,6 @@ unsafe impl ::windows::core::Interface for IDnssdRegistrationResult {
     type Vtable = IDnssdRegistrationResultVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3d786ad2_e606_5350_73ea_7e97f066162f);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IDnssdRegistrationResultImpl {
-    fn Status();
-    fn IPAddress();
-    fn HasInstanceNameChanged();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDnssdRegistrationResultVtbl(
@@ -813,24 +807,6 @@ pub struct IDnssdServiceInstance(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDnssdServiceInstance {
     type Vtable = IDnssdServiceInstanceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe246db7e_98a5_4ca1_b9e4_c253d33c35ff);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IDnssdServiceInstanceImpl {
-    fn DnssdServiceInstanceName();
-    fn SetDnssdServiceInstanceName();
-    fn HostName();
-    fn SetHostName();
-    fn Port();
-    fn SetPort();
-    fn Priority();
-    fn SetPriority();
-    fn Weight();
-    fn SetWeight();
-    fn TextAttributes();
-    fn RegisterStreamSocketListenerAsync1();
-    fn RegisterStreamSocketListenerAsync2();
-    fn RegisterDatagramSocketAsync1();
-    fn RegisterDatagramSocketAsync2();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -869,10 +845,6 @@ unsafe impl ::windows::core::Interface for IDnssdServiceInstanceFactory {
     type Vtable = IDnssdServiceInstanceFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6cb061a1_c478_4331_9684_4af2186c0a2b);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IDnssdServiceInstanceFactoryImpl {
-    fn Create();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDnssdServiceInstanceFactoryVtbl(
@@ -890,18 +862,6 @@ pub struct IDnssdServiceWatcher(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDnssdServiceWatcher {
     type Vtable = IDnssdServiceWatcherVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcc34d9c1_db7d_4b69_983d_c6f83f205682);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IDnssdServiceWatcherImpl {
-    fn Added();
-    fn RemoveAdded();
-    fn EnumerationCompleted();
-    fn RemoveEnumerationCompleted();
-    fn Stopped();
-    fn RemoveStopped();
-    fn Status();
-    fn Start();
-    fn Stop();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -928,3 +888,5 @@ pub struct IDnssdServiceWatcherVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

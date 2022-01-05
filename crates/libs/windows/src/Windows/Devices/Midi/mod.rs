@@ -6,11 +6,6 @@ unsafe impl ::windows::core::Interface for IMidiChannelPressureMessage {
     type Vtable = IMidiChannelPressureMessageVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbe1fa860_62b4_4d52_a37e_92e54d35b909);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IMidiChannelPressureMessageImpl: IMidiMessageImpl {
-    fn Channel();
-    fn Pressure();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMidiChannelPressureMessageVtbl(
@@ -30,10 +25,6 @@ unsafe impl ::windows::core::Interface for IMidiChannelPressureMessageFactory {
     type Vtable = IMidiChannelPressureMessageFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6218ed2f_2284_412a_94cf_10fb04842c6c);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IMidiChannelPressureMessageFactoryImpl {
-    fn CreateMidiChannelPressureMessage();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMidiChannelPressureMessageFactoryVtbl(
@@ -51,12 +42,6 @@ pub struct IMidiControlChangeMessage(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMidiControlChangeMessage {
     type Vtable = IMidiControlChangeMessageVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb7e15f83_780d_405f_b781_3e1598c97f40);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IMidiControlChangeMessageImpl: IMidiMessageImpl {
-    fn Channel();
-    fn Controller();
-    fn ControlValue();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -78,10 +63,6 @@ unsafe impl ::windows::core::Interface for IMidiControlChangeMessageFactory {
     type Vtable = IMidiControlChangeMessageFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2ab14321_956c_46ad_9752_f87f55052fe3);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IMidiControlChangeMessageFactoryImpl {
-    fn CreateMidiControlChangeMessage();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMidiControlChangeMessageFactoryVtbl(
@@ -99,12 +80,6 @@ pub struct IMidiInPort(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMidiInPort {
     type Vtable = IMidiInPortVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd5c1d9db_971a_4eaf_a23d_ea19fe607ff9);
-}
-#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IMidiInPortImpl: IClosableImpl {
-    fn MessageReceived();
-    fn RemoveMessageReceived();
-    fn DeviceId();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -127,11 +102,6 @@ pub struct IMidiInPortStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMidiInPortStatics {
     type Vtable = IMidiInPortStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x44c439dc_67ff_4a6e_8bac_fdb6610cf296);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IMidiInPortStaticsImpl {
-    fn FromIdAsync();
-    fn GetDeviceSelector();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -240,11 +210,6 @@ unsafe impl ::windows::core::Interface for IMidiMessage {
     type Vtable = IMidiMessageVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x79767945_1094_4283_9be0_289fc0ee8334);
 }
-pub trait IMidiMessageImpl {
-    fn Timestamp();
-    fn RawData();
-    fn Type();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMidiMessageVtbl(
@@ -267,10 +232,6 @@ unsafe impl ::windows::core::Interface for IMidiMessageReceivedEventArgs {
     type Vtable = IMidiMessageReceivedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x76566e56_f328_4b51_907d_b3a8ce96bf80);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IMidiMessageReceivedEventArgsImpl {
-    fn Message();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMidiMessageReceivedEventArgsVtbl(
@@ -288,12 +249,6 @@ pub struct IMidiNoteOffMessage(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMidiNoteOffMessage {
     type Vtable = IMidiNoteOffMessageVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x16fd8af4_198e_4d8f_a654_d305a293548f);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IMidiNoteOffMessageImpl: IMidiMessageImpl {
-    fn Channel();
-    fn Note();
-    fn Velocity();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -315,10 +270,6 @@ unsafe impl ::windows::core::Interface for IMidiNoteOffMessageFactory {
     type Vtable = IMidiNoteOffMessageFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa6b240e0_a749_425f_8af4_a4d979cc15b5);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IMidiNoteOffMessageFactoryImpl {
-    fn CreateMidiNoteOffMessage();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMidiNoteOffMessageFactoryVtbl(
@@ -336,12 +287,6 @@ pub struct IMidiNoteOnMessage(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMidiNoteOnMessage {
     type Vtable = IMidiNoteOnMessageVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe0224af5_6181_46dd_afa2_410004c057aa);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IMidiNoteOnMessageImpl: IMidiMessageImpl {
-    fn Channel();
-    fn Note();
-    fn Velocity();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -362,10 +307,6 @@ pub struct IMidiNoteOnMessageFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMidiNoteOnMessageFactory {
     type Vtable = IMidiNoteOnMessageFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9b4280a0_59c1_420e_b517_15a10aa9606b);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IMidiNoteOnMessageFactoryImpl {
-    fn CreateMidiNoteOnMessage();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -497,12 +438,6 @@ unsafe impl ::windows::core::Interface for IMidiOutPort {
     type Vtable = IMidiOutPortVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x931d6d9f_57a2_4a3a_adb8_4640886f6693);
 }
-#[cfg(feature = "Foundation")]
-pub trait IMidiOutPortImpl: IClosableImpl {
-    fn SendMessage();
-    fn SendBuffer();
-    fn DeviceId();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMidiOutPortVtbl(
@@ -524,11 +459,6 @@ unsafe impl ::windows::core::Interface for IMidiOutPortStatics {
     type Vtable = IMidiOutPortStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x065cc3e9_0f88_448b_9b64_a95826c65b8f);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IMidiOutPortStaticsImpl {
-    fn FromIdAsync();
-    fn GetDeviceSelector();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMidiOutPortStaticsVtbl(
@@ -549,11 +479,6 @@ unsafe impl ::windows::core::Interface for IMidiPitchBendChangeMessage {
     type Vtable = IMidiPitchBendChangeMessageVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x29df4cb1_2e9f_4faf_8c2b_9cb82a9079ca);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IMidiPitchBendChangeMessageImpl: IMidiMessageImpl {
-    fn Channel();
-    fn Bend();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMidiPitchBendChangeMessageVtbl(
@@ -573,10 +498,6 @@ unsafe impl ::windows::core::Interface for IMidiPitchBendChangeMessageFactory {
     type Vtable = IMidiPitchBendChangeMessageFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf5eedf55_cfc8_4926_b30e_a3622393306c);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IMidiPitchBendChangeMessageFactoryImpl {
-    fn CreateMidiPitchBendChangeMessage();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMidiPitchBendChangeMessageFactoryVtbl(
@@ -594,12 +515,6 @@ pub struct IMidiPolyphonicKeyPressureMessage(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMidiPolyphonicKeyPressureMessage {
     type Vtable = IMidiPolyphonicKeyPressureMessageVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1f7337fe_ace8_48a0_868e_7cdbf20f04d6);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IMidiPolyphonicKeyPressureMessageImpl: IMidiMessageImpl {
-    fn Channel();
-    fn Note();
-    fn Pressure();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -621,10 +536,6 @@ unsafe impl ::windows::core::Interface for IMidiPolyphonicKeyPressureMessageFact
     type Vtable = IMidiPolyphonicKeyPressureMessageFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe98f483e_c4b3_4dd2_917c_e349815a1b3b);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IMidiPolyphonicKeyPressureMessageFactoryImpl {
-    fn CreateMidiPolyphonicKeyPressureMessage();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMidiPolyphonicKeyPressureMessageFactoryVtbl(
@@ -642,11 +553,6 @@ pub struct IMidiProgramChangeMessage(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMidiProgramChangeMessage {
     type Vtable = IMidiProgramChangeMessageVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9cbb3c78_7a3e_4327_aa98_20b8e4485af8);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IMidiProgramChangeMessageImpl: IMidiMessageImpl {
-    fn Channel();
-    fn Program();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -667,10 +573,6 @@ unsafe impl ::windows::core::Interface for IMidiProgramChangeMessageFactory {
     type Vtable = IMidiProgramChangeMessageFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd6b04387_524b_4104_9c99_6572bfd2e261);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IMidiProgramChangeMessageFactoryImpl {
-    fn CreateMidiProgramChangeMessage();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMidiProgramChangeMessageFactoryVtbl(
@@ -688,10 +590,6 @@ pub struct IMidiSongPositionPointerMessage(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMidiSongPositionPointerMessage {
     type Vtable = IMidiSongPositionPointerMessageVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4ca50c56_ec5e_4ae4_a115_88dc57cc2b79);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IMidiSongPositionPointerMessageImpl: IMidiMessageImpl {
-    fn Beats();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -711,10 +609,6 @@ unsafe impl ::windows::core::Interface for IMidiSongPositionPointerMessageFactor
     type Vtable = IMidiSongPositionPointerMessageFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9c00e996_f10b_4fea_b395_f5d6cf80f64e);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IMidiSongPositionPointerMessageFactoryImpl {
-    fn CreateMidiSongPositionPointerMessage();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMidiSongPositionPointerMessageFactoryVtbl(
@@ -732,10 +626,6 @@ pub struct IMidiSongSelectMessage(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMidiSongSelectMessage {
     type Vtable = IMidiSongSelectMessageVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x49f0f27f_6d83_4741_a5bf_4629f6be974f);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IMidiSongSelectMessageImpl: IMidiMessageImpl {
-    fn Song();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -755,10 +645,6 @@ unsafe impl ::windows::core::Interface for IMidiSongSelectMessageFactory {
     type Vtable = IMidiSongSelectMessageFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x848878e4_8748_4129_a66c_a05493f75daa);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IMidiSongSelectMessageFactoryImpl {
-    fn CreateMidiSongSelectMessage();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMidiSongSelectMessageFactoryVtbl(
@@ -776,12 +662,6 @@ pub struct IMidiSynthesizer(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMidiSynthesizer {
     type Vtable = IMidiSynthesizerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf0da155e_db90_405f_b8ae_21d2e17f2e45);
-}
-#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IMidiSynthesizerImpl: IClosableImpl + IMidiOutPortImpl {
-    fn AudioDevice();
-    fn Volume();
-    fn SetVolume();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -803,12 +683,6 @@ pub struct IMidiSynthesizerStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMidiSynthesizerStatics {
     type Vtable = IMidiSynthesizerStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4224eaa8_6629_4d6b_aa8f_d4521a5a31ce);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IMidiSynthesizerStaticsImpl {
-    fn CreateAsync();
-    fn CreateFromAudioDeviceAsync();
-    fn IsSynthesizer();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -833,10 +707,6 @@ unsafe impl ::windows::core::Interface for IMidiSystemExclusiveMessageFactory {
     type Vtable = IMidiSystemExclusiveMessageFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x083de222_3b74_4320_9b42_0ca8545f8a24);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IMidiSystemExclusiveMessageFactoryImpl {
-    fn CreateMidiSystemExclusiveMessage();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMidiSystemExclusiveMessageFactoryVtbl(
@@ -856,11 +726,6 @@ unsafe impl ::windows::core::Interface for IMidiTimeCodeMessage {
     type Vtable = IMidiTimeCodeMessageVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0bf7087d_fa63_4a1c_8deb_c0e87796a6d7);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IMidiTimeCodeMessageImpl: IMidiMessageImpl {
-    fn FrameType();
-    fn Values();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMidiTimeCodeMessageVtbl(
@@ -879,10 +744,6 @@ pub struct IMidiTimeCodeMessageFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMidiTimeCodeMessageFactory {
     type Vtable = IMidiTimeCodeMessageFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeb3099c5_771c_40de_b961_175a7489a85e);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IMidiTimeCodeMessageFactoryImpl {
-    fn CreateMidiTimeCodeMessage();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4074,3 +3935,5 @@ impl<'a> ::windows::core::IntoParam<'a, IMidiMessage> for &MidiTuneRequestMessag
 }
 unsafe impl ::core::marker::Send for MidiTuneRequestMessage {}
 unsafe impl ::core::marker::Sync for MidiTuneRequestMessage {}
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

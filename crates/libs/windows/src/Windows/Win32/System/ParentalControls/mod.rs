@@ -90,9 +90,6 @@ unsafe impl ::windows::core::Interface for IWPCGamesSettings {
     type Vtable = IWPCGamesSettingsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x95e87780_e158_489e_b452_bbb850790715);
 }
-pub trait IWPCGamesSettingsImpl: IWPCSettingsImpl {
-    fn IsBlocked();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWPCGamesSettingsVtbl(
@@ -167,11 +164,6 @@ unsafe impl ::windows::core::Interface for IWPCProviderConfig {
     type Vtable = IWPCProviderConfigVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbef54196_2d02_4a26_b6e5_d65af295d0f1);
 }
-pub trait IWPCProviderConfigImpl {
-    fn GetUserSummary();
-    fn Configure();
-    fn RequestOverride();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWPCProviderConfigVtbl(
@@ -238,10 +230,6 @@ unsafe impl ::windows::core::Interface for IWPCProviderState {
     type Vtable = IWPCProviderStateVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x50b6a267_c4bd_450b_adb5_759073837c9e);
 }
-pub trait IWPCProviderStateImpl {
-    fn Enable();
-    fn Disable();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWPCProviderStateVtbl(
@@ -300,9 +288,6 @@ impl ::core::fmt::Debug for IWPCProviderSupport {
 unsafe impl ::windows::core::Interface for IWPCProviderSupport {
     type Vtable = IWPCProviderSupportVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x41eba572_23ed_4779_bec1_8df96206c44c);
-}
-pub trait IWPCProviderSupportImpl {
-    fn GetCurrent();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -368,11 +353,6 @@ impl ::core::fmt::Debug for IWPCSettings {
 unsafe impl ::windows::core::Interface for IWPCSettings {
     type Vtable = IWPCSettingsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8fdf6ca1_0189_47e4_b670_1a8a4636e340);
-}
-pub trait IWPCSettingsImpl {
-    fn IsLoggingRequired();
-    fn GetLastSettingsChangeTime();
-    fn GetRestrictions();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -478,10 +458,6 @@ impl ::core::fmt::Debug for IWPCWebSettings {
 unsafe impl ::windows::core::Interface for IWPCWebSettings {
     type Vtable = IWPCWebSettingsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xffccbdb8_0992_4c30_b0f1_1cbb09c240aa);
-}
-pub trait IWPCWebSettingsImpl: IWPCSettingsImpl {
-    fn GetSettings();
-    fn RequestURLOverride();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -591,9 +567,6 @@ unsafe impl ::windows::core::Interface for IWindowsParentalControls {
     type Vtable = IWindowsParentalControlsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x28b4d88b_e072_49e6_804d_26edbe21a7b9);
 }
-pub trait IWindowsParentalControlsImpl: IWindowsParentalControlsCoreImpl {
-    fn GetGamesSettings();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWindowsParentalControlsVtbl(
@@ -676,12 +649,6 @@ impl ::core::fmt::Debug for IWindowsParentalControlsCore {
 unsafe impl ::windows::core::Interface for IWindowsParentalControlsCore {
     type Vtable = IWindowsParentalControlsCoreVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4ff40a0f_3f3b_4d7c_a41b_4f39d7b44d05);
-}
-pub trait IWindowsParentalControlsCoreImpl {
-    fn GetVisibility();
-    fn GetUserSettings();
-    fn GetWebSettings();
-    fn GetWebFilterInfo();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1555,3 +1522,5 @@ pub const WPC_WEB: u32 = 24u32;
 pub const WindowsParentalControls: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe77cc89b_7401_4c04_8ced_149db35add04);
 pub const WpcProviderSupport: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbb18c7a0_2186_4be0_97d8_04847b628e02);
 pub const WpcSettingsProvider: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x355dffaa_3b9f_435c_b428_5d44290bc5f2);
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

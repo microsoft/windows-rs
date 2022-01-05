@@ -616,3 +616,5 @@ impl ::core::default::Default for TOKEN_VALUE {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

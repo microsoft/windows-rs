@@ -6,19 +6,6 @@ unsafe impl ::windows::core::Interface for ISceneLightingEffect {
     type Vtable = ISceneLightingEffectVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x91bb5e52_95d1_4f8b_9a5a_6408b24b8c6a);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ISceneLightingEffectImpl {
-    fn AmbientAmount();
-    fn SetAmbientAmount();
-    fn DiffuseAmount();
-    fn SetDiffuseAmount();
-    fn NormalMapSource();
-    fn SetNormalMapSource();
-    fn SpecularAmount();
-    fn SetSpecularAmount();
-    fn SpecularShine();
-    fn SetSpecularShine();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISceneLightingEffectVtbl(
@@ -47,11 +34,6 @@ pub struct ISceneLightingEffect2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISceneLightingEffect2 {
     type Vtable = ISceneLightingEffect2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9e270e81_72f0_4c5c_95f8_8a6e0024f409);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ISceneLightingEffect2Impl {
-    fn ReflectanceModel();
-    fn SetReflectanceModel();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -325,3 +307,5 @@ unsafe impl ::windows::core::RuntimeType for SceneLightingEffectReflectanceModel
 impl ::windows::core::DefaultType for SceneLightingEffectReflectanceModel {
     type DefaultType = Self;
 }
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

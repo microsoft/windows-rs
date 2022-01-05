@@ -2719,17 +2719,6 @@ unsafe impl ::windows::core::Interface for IBlock {
     type Vtable = IBlockVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4bce0016_dd47_4350_8cb0_e171600ac896);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IBlockImpl {
-    fn TextAlignment();
-    fn SetTextAlignment();
-    fn LineHeight();
-    fn SetLineHeight();
-    fn LineStackingStrategy();
-    fn SetLineStackingStrategy();
-    fn Margin();
-    fn SetMargin();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBlockVtbl(
@@ -2755,11 +2744,6 @@ unsafe impl ::windows::core::Interface for IBlock2 {
     type Vtable = IBlock2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5ec7bdf3_1333_4a92_8318_6caedc12ef89);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IBlock2Impl {
-    fn HorizontalTextAlignment();
-    fn SetHorizontalTextAlignment();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBlock2Vtbl(
@@ -2779,10 +2763,6 @@ unsafe impl ::windows::core::Interface for IBlockFactory {
     type Vtable = IBlockFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x07110532_4f59_4f3b_9ce5_25784c430507);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IBlockFactoryImpl {
-    fn CreateInstance();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBlockFactoryVtbl(
@@ -2800,13 +2780,6 @@ pub struct IBlockStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IBlockStatics {
     type Vtable = IBlockStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf86a8c34_8d18_4c53_aebd_91e610a5e010);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IBlockStaticsImpl {
-    fn TextAlignmentProperty();
-    fn LineHeightProperty();
-    fn LineStackingStrategyProperty();
-    fn MarginProperty();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2829,10 +2802,6 @@ unsafe impl ::windows::core::Interface for IBlockStatics2 {
     type Vtable = IBlockStatics2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaf01a4d6_03e3_4cee_9b02_2bfc308b27a9);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IBlockStatics2Impl {
-    fn HorizontalTextAlignmentProperty();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBlockStatics2Vtbl(
@@ -2851,8 +2820,6 @@ unsafe impl ::windows::core::Interface for IBold {
     type Vtable = IBoldVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xade73784_1b59_4da4_bb23_0f20e885b4bf);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IBoldImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBoldVtbl(
@@ -2870,8 +2837,6 @@ unsafe impl ::windows::core::Interface for IContactContentLinkProvider {
     type Vtable = IContactContentLinkProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf92fd29b_589b_4abd_9d37_35a1468f021e);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IContactContentLinkProviderImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IContactContentLinkProviderVtbl(
@@ -2888,45 +2853,6 @@ pub struct IContentLink(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IContentLink {
     type Vtable = IContentLinkVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6c60c3e1_528c_42f8_92be_34b8c68be304);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IContentLinkImpl {
-    fn Info();
-    fn SetInfo();
-    fn Background();
-    fn SetBackground();
-    fn Cursor();
-    fn SetCursor();
-    fn XYFocusLeft();
-    fn SetXYFocusLeft();
-    fn XYFocusRight();
-    fn SetXYFocusRight();
-    fn XYFocusUp();
-    fn SetXYFocusUp();
-    fn XYFocusDown();
-    fn SetXYFocusDown();
-    fn ElementSoundMode();
-    fn SetElementSoundMode();
-    fn FocusState();
-    fn XYFocusUpNavigationStrategy();
-    fn SetXYFocusUpNavigationStrategy();
-    fn XYFocusDownNavigationStrategy();
-    fn SetXYFocusDownNavigationStrategy();
-    fn XYFocusLeftNavigationStrategy();
-    fn SetXYFocusLeftNavigationStrategy();
-    fn XYFocusRightNavigationStrategy();
-    fn SetXYFocusRightNavigationStrategy();
-    fn IsTabStop();
-    fn SetIsTabStop();
-    fn TabIndex();
-    fn SetTabIndex();
-    fn Invoked();
-    fn RemoveInvoked();
-    fn GotFocus();
-    fn RemoveGotFocus();
-    fn LostFocus();
-    fn RemoveLostFocus();
-    fn Focus();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3001,12 +2927,6 @@ unsafe impl ::windows::core::Interface for IContentLinkInvokedEventArgs {
     type Vtable = IContentLinkInvokedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x546717c1_e8df_4593_9639_97595fdf8310);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IContentLinkInvokedEventArgsImpl {
-    fn ContentLinkInfo();
-    fn Handled();
-    fn SetHandled();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IContentLinkInvokedEventArgsVtbl(
@@ -3028,8 +2948,6 @@ unsafe impl ::windows::core::Interface for IContentLinkProvider {
     type Vtable = IContentLinkProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x730587fd_bfdc_4cb3_904d_b65ab339bbf5);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IContentLinkProviderImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IContentLinkProviderVtbl(
@@ -3047,8 +2965,6 @@ unsafe impl ::windows::core::Interface for IContentLinkProviderCollection {
     type Vtable = IContentLinkProviderCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf5b84d0c_a9f4_4d1a_a13c_10def1843734);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IContentLinkProviderCollectionImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IContentLinkProviderCollectionVtbl(
@@ -3065,10 +2981,6 @@ pub struct IContentLinkProviderFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IContentLinkProviderFactory {
     type Vtable = IContentLinkProviderFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x57d60d3b_ef1a_4e8e_839b_d36ef3a503e0);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IContentLinkProviderFactoryImpl {
-    fn CreateInstance();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3087,23 +2999,6 @@ pub struct IContentLinkStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IContentLinkStatics {
     type Vtable = IContentLinkStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa34e3063_eb16_484e_a3df_522b9a832e6e);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IContentLinkStaticsImpl {
-    fn BackgroundProperty();
-    fn CursorProperty();
-    fn XYFocusLeftProperty();
-    fn XYFocusRightProperty();
-    fn XYFocusUpProperty();
-    fn XYFocusDownProperty();
-    fn ElementSoundModeProperty();
-    fn FocusStateProperty();
-    fn XYFocusUpNavigationStrategyProperty();
-    fn XYFocusDownNavigationStrategyProperty();
-    fn XYFocusLeftNavigationStrategyProperty();
-    fn XYFocusRightNavigationStrategyProperty();
-    fn IsTabStopProperty();
-    fn TabIndexProperty();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3135,25 +3030,6 @@ pub struct IGlyphs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGlyphs {
     type Vtable = IGlyphsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd079498b_f2b1_4281_99a2_e4d05932b2b5);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IGlyphsImpl {
-    fn UnicodeString();
-    fn SetUnicodeString();
-    fn Indices();
-    fn SetIndices();
-    fn FontUri();
-    fn SetFontUri();
-    fn StyleSimulations();
-    fn SetStyleSimulations();
-    fn FontRenderingEmSize();
-    fn SetFontRenderingEmSize();
-    fn OriginX();
-    fn SetOriginX();
-    fn OriginY();
-    fn SetOriginY();
-    fn Fill();
-    fn SetFill();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3194,13 +3070,6 @@ unsafe impl ::windows::core::Interface for IGlyphs2 {
     type Vtable = IGlyphs2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaa8bfe5c_3754_4bee_bbe1_4403ee9b86f0);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IGlyphs2Impl {
-    fn IsColorFontEnabled();
-    fn SetIsColorFontEnabled();
-    fn ColorFontPaletteIndex();
-    fn SetColorFontPaletteIndex();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGlyphs2Vtbl(
@@ -3221,17 +3090,6 @@ pub struct IGlyphsStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGlyphsStatics {
     type Vtable = IGlyphsStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x225cf4c5_fdf1_43ed_958f_414e86f103f2);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IGlyphsStaticsImpl {
-    fn UnicodeStringProperty();
-    fn IndicesProperty();
-    fn FontUriProperty();
-    fn StyleSimulationsProperty();
-    fn FontRenderingEmSizeProperty();
-    fn OriginXProperty();
-    fn OriginYProperty();
-    fn FillProperty();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3258,11 +3116,6 @@ unsafe impl ::windows::core::Interface for IGlyphsStatics2 {
     type Vtable = IGlyphsStatics2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x10489aa7_1615_4a33_aa02_d7ef2aefc739);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IGlyphsStatics2Impl {
-    fn IsColorFontEnabledProperty();
-    fn ColorFontPaletteIndexProperty();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGlyphsStatics2Vtbl(
@@ -3281,13 +3134,6 @@ pub struct IHyperlink(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IHyperlink {
     type Vtable = IHyperlinkVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0fe2363b_14e9_4152_9e58_5aea5b21f08d);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IHyperlinkImpl {
-    fn NavigateUri();
-    fn SetNavigateUri();
-    fn Click();
-    fn RemoveClick();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3314,11 +3160,6 @@ unsafe impl ::windows::core::Interface for IHyperlink2 {
     type Vtable = IHyperlink2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4ce9da5f_7cff_4291_b78f_dfec72490576);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IHyperlink2Impl {
-    fn UnderlineStyle();
-    fn SetUnderlineStyle();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHyperlink2Vtbl(
@@ -3337,19 +3178,6 @@ pub struct IHyperlink3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IHyperlink3 {
     type Vtable = IHyperlink3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc3f157d9_e5d3_4fb7_8702_4f6d85dd9e0a);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IHyperlink3Impl {
-    fn XYFocusLeft();
-    fn SetXYFocusLeft();
-    fn XYFocusRight();
-    fn SetXYFocusRight();
-    fn XYFocusUp();
-    fn SetXYFocusUp();
-    fn XYFocusDown();
-    fn SetXYFocusDown();
-    fn ElementSoundMode();
-    fn SetElementSoundMode();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3377,23 +3205,6 @@ pub struct IHyperlink4(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IHyperlink4 {
     type Vtable = IHyperlink4Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf7d02959_82fb_400a_a407_5a4ee677988a);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IHyperlink4Impl {
-    fn FocusState();
-    fn XYFocusUpNavigationStrategy();
-    fn SetXYFocusUpNavigationStrategy();
-    fn XYFocusDownNavigationStrategy();
-    fn SetXYFocusDownNavigationStrategy();
-    fn XYFocusLeftNavigationStrategy();
-    fn SetXYFocusLeftNavigationStrategy();
-    fn XYFocusRightNavigationStrategy();
-    fn SetXYFocusRightNavigationStrategy();
-    fn GotFocus();
-    fn RemoveGotFocus();
-    fn LostFocus();
-    fn RemoveLostFocus();
-    fn Focus();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3438,13 +3249,6 @@ unsafe impl ::windows::core::Interface for IHyperlink5 {
     type Vtable = IHyperlink5Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x607dd7d2_0945_4328_91ee_94ccec2ea6c3);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IHyperlink5Impl {
-    fn IsTabStop();
-    fn SetIsTabStop();
-    fn TabIndex();
-    fn SetTabIndex();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHyperlink5Vtbl(
@@ -3466,8 +3270,6 @@ unsafe impl ::windows::core::Interface for IHyperlinkClickEventArgs {
     type Vtable = IHyperlinkClickEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc755916b_7bdc_4be7_b373_9240a503d870);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IHyperlinkClickEventArgsImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHyperlinkClickEventArgsVtbl(
@@ -3484,10 +3286,6 @@ pub struct IHyperlinkStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IHyperlinkStatics {
     type Vtable = IHyperlinkStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3a44d3d4_fd41_41db_8c72_3b790acd9fd3);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IHyperlinkStaticsImpl {
-    fn NavigateUriProperty();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3507,10 +3305,6 @@ unsafe impl ::windows::core::Interface for IHyperlinkStatics2 {
     type Vtable = IHyperlinkStatics2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5028d8b7_7adf_43ee_a4ae_9c925f755716);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IHyperlinkStatics2Impl {
-    fn UnderlineStyleProperty();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHyperlinkStatics2Vtbl(
@@ -3528,14 +3322,6 @@ pub struct IHyperlinkStatics3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IHyperlinkStatics3 {
     type Vtable = IHyperlinkStatics3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3e15dea0_205e_4947_99a5_74e757e8e1b4);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IHyperlinkStatics3Impl {
-    fn XYFocusLeftProperty();
-    fn XYFocusRightProperty();
-    fn XYFocusUpProperty();
-    fn XYFocusDownProperty();
-    fn ElementSoundModeProperty();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3559,14 +3345,6 @@ unsafe impl ::windows::core::Interface for IHyperlinkStatics4 {
     type Vtable = IHyperlinkStatics4Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0476b378_8faa_4e24_b3b6_e9de4d3c708c);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IHyperlinkStatics4Impl {
-    fn FocusStateProperty();
-    fn XYFocusUpNavigationStrategyProperty();
-    fn XYFocusDownNavigationStrategyProperty();
-    fn XYFocusLeftNavigationStrategyProperty();
-    fn XYFocusRightNavigationStrategyProperty();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHyperlinkStatics4Vtbl(
@@ -3589,11 +3367,6 @@ unsafe impl ::windows::core::Interface for IHyperlinkStatics5 {
     type Vtable = IHyperlinkStatics5Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x59308cea_1e49_4921_bd88_a2878d07e30e);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IHyperlinkStatics5Impl {
-    fn IsTabStopProperty();
-    fn TabIndexProperty();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHyperlinkStatics5Vtbl(
@@ -3613,8 +3386,6 @@ unsafe impl ::windows::core::Interface for IInline {
     type Vtable = IInlineVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0c92712d_1bc9_4931_8cb1_1aeadf1cc685);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IInlineImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInlineVtbl(
@@ -3631,10 +3402,6 @@ pub struct IInlineFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IInlineFactory {
     type Vtable = IInlineFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4058acd1_2f90_4b8f_99dd_4218ef5f03de);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IInlineFactoryImpl {
-    fn CreateInstance();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3653,11 +3420,6 @@ pub struct IInlineUIContainer(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IInlineUIContainer {
     type Vtable = IInlineUIContainerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1416ce81_28ee_452e_b121_5fc4f60b86a6);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IInlineUIContainerImpl {
-    fn Child();
-    fn SetChild();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3678,8 +3440,6 @@ unsafe impl ::windows::core::Interface for IItalic {
     type Vtable = IItalicVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x91f4619c_fcbb_4157_802c_76f63b5fb657);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IItalicImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IItalicVtbl(
@@ -3697,8 +3457,6 @@ unsafe impl ::windows::core::Interface for ILineBreak {
     type Vtable = ILineBreakVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x645589c4_f769_41ed_895b_8a1b2fb31562);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ILineBreakImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILineBreakVtbl(
@@ -3715,12 +3473,6 @@ pub struct IParagraph(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IParagraph {
     type Vtable = IParagraphVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf83ef59a_fa61_4bef_ae33_0b0ad756a84d);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IParagraphImpl {
-    fn Inlines();
-    fn TextIndent();
-    fn SetTextIndent();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3743,10 +3495,6 @@ unsafe impl ::windows::core::Interface for IParagraphStatics {
     type Vtable = IParagraphStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xef08889a_535b_4e4c_8d84_283b33e98a37);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IParagraphStaticsImpl {
-    fn TextIndentProperty();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IParagraphStaticsVtbl(
@@ -3765,8 +3513,6 @@ unsafe impl ::windows::core::Interface for IPlaceContentLinkProvider {
     type Vtable = IPlaceContentLinkProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x10348a4c_2366_41be_90c8_3258b53b5483);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IPlaceContentLinkProviderImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPlaceContentLinkProviderVtbl(
@@ -3783,13 +3529,6 @@ pub struct IRun(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IRun {
     type Vtable = IRunVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x59553c83_0e14_49bd_b84b_c526f3034349);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IRunImpl {
-    fn Text();
-    fn SetText();
-    fn FlowDirection();
-    fn SetFlowDirection();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3812,10 +3551,6 @@ unsafe impl ::windows::core::Interface for IRunStatics {
     type Vtable = IRunStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe9303cef_65a0_4b8d_a7f7_8fdb287b46f3);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IRunStaticsImpl {
-    fn FlowDirectionProperty();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRunStaticsVtbl(
@@ -3833,11 +3568,6 @@ pub struct ISpan(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISpan {
     type Vtable = ISpanVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9839d4a9_02af_4811_aa15_6bef3acac97a);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ISpanImpl {
-    fn Inlines();
-    fn SetInlines();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3860,10 +3590,6 @@ unsafe impl ::windows::core::Interface for ISpanFactory {
     type Vtable = ISpanFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5b916f5c_cd2d_40c0_956a_386448322f79);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ISpanFactoryImpl {
-    fn CreateInstance();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpanFactoryVtbl(
@@ -3881,31 +3607,6 @@ pub struct ITextElement(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ITextElement {
     type Vtable = ITextElementVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe83b0062_d776_4f92_baea_40e77d4791d5);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ITextElementImpl {
-    fn Name();
-    fn FontSize();
-    fn SetFontSize();
-    fn FontFamily();
-    fn SetFontFamily();
-    fn FontWeight();
-    fn SetFontWeight();
-    fn FontStyle();
-    fn SetFontStyle();
-    fn FontStretch();
-    fn SetFontStretch();
-    fn CharacterSpacing();
-    fn SetCharacterSpacing();
-    fn Foreground();
-    fn SetForeground();
-    fn Language();
-    fn SetLanguage();
-    fn ContentStart();
-    fn ContentEnd();
-    fn ElementStart();
-    fn ElementEnd();
-    fn FindName();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3956,11 +3657,6 @@ unsafe impl ::windows::core::Interface for ITextElement2 {
     type Vtable = ITextElement2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa8076aa8_f892_49f6_8cd2_89addaf06d2d);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ITextElement2Impl {
-    fn IsTextScaleFactorEnabled();
-    fn SetIsTextScaleFactorEnabled();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITextElement2Vtbl(
@@ -3979,15 +3675,6 @@ pub struct ITextElement3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ITextElement3 {
     type Vtable = ITextElement3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd1db340f_1bc4_4ca8_bcf7_770bff9b27ab);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ITextElement3Impl {
-    fn AllowFocusOnInteraction();
-    fn SetAllowFocusOnInteraction();
-    fn AccessKey();
-    fn SetAccessKey();
-    fn ExitDisplayModeOnAccessKeyInvoked();
-    fn SetExitDisplayModeOnAccessKeyInvoked();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4011,27 +3698,6 @@ pub struct ITextElement4(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ITextElement4 {
     type Vtable = ITextElement4Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb196e222_ca0e_48a9_83bc_36ce50566ac7);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ITextElement4Impl {
-    fn TextDecorations();
-    fn SetTextDecorations();
-    fn IsAccessKeyScope();
-    fn SetIsAccessKeyScope();
-    fn AccessKeyScopeOwner();
-    fn SetAccessKeyScopeOwner();
-    fn KeyTipPlacementMode();
-    fn SetKeyTipPlacementMode();
-    fn KeyTipHorizontalOffset();
-    fn SetKeyTipHorizontalOffset();
-    fn KeyTipVerticalOffset();
-    fn SetKeyTipVerticalOffset();
-    fn AccessKeyDisplayRequested();
-    fn RemoveAccessKeyDisplayRequested();
-    fn AccessKeyDisplayDismissed();
-    fn RemoveAccessKeyDisplayDismissed();
-    fn AccessKeyInvoked();
-    fn RemoveAccessKeyInvoked();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4078,11 +3744,6 @@ unsafe impl ::windows::core::Interface for ITextElement5 {
     type Vtable = ITextElement5Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbd9552f3_540d_58bf_b6a8_07556aeda2ea);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ITextElement5Impl {
-    fn XamlRoot();
-    fn SetXamlRoot();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITextElement5Vtbl(
@@ -4102,8 +3763,6 @@ unsafe impl ::windows::core::Interface for ITextElementFactory {
     type Vtable = ITextElementFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x35007285_cf47_4bfe_b1bc_39c93af4ae80);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ITextElementFactoryImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITextElementFactoryVtbl(
@@ -4120,10 +3779,6 @@ pub struct ITextElementOverrides(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ITextElementOverrides {
     type Vtable = ITextElementOverridesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0ce21ee7_4f76_4dd9_bf91_163beccf84bc);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ITextElementOverridesImpl {
-    fn OnDisconnectVisualChildren();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4142,17 +3797,6 @@ pub struct ITextElementStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ITextElementStatics {
     type Vtable = ITextElementStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0a2f9b98_6c03_4470_a79b_3298a10482ce);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ITextElementStaticsImpl {
-    fn FontSizeProperty();
-    fn FontFamilyProperty();
-    fn FontWeightProperty();
-    fn FontStyleProperty();
-    fn FontStretchProperty();
-    fn CharacterSpacingProperty();
-    fn ForegroundProperty();
-    fn LanguageProperty();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4179,10 +3823,6 @@ unsafe impl ::windows::core::Interface for ITextElementStatics2 {
     type Vtable = ITextElementStatics2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x164297b2_982b_49e1_8c03_ca43bc4d5b6d);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ITextElementStatics2Impl {
-    fn IsTextScaleFactorEnabledProperty();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITextElementStatics2Vtbl(
@@ -4200,12 +3840,6 @@ pub struct ITextElementStatics3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ITextElementStatics3 {
     type Vtable = ITextElementStatics3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcfefcfaf_0fa1_45ec_9a4e_9b33664dc8b1);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ITextElementStatics3Impl {
-    fn AllowFocusOnInteractionProperty();
-    fn AccessKeyProperty();
-    fn ExitDisplayModeOnAccessKeyInvokedProperty();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4226,15 +3860,6 @@ pub struct ITextElementStatics4(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ITextElementStatics4 {
     type Vtable = ITextElementStatics4Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfd8f641e_6b12_40d5_b6ef_d1bd12ac9066);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ITextElementStatics4Impl {
-    fn TextDecorationsProperty();
-    fn IsAccessKeyScopeProperty();
-    fn AccessKeyScopeOwnerProperty();
-    fn KeyTipPlacementModeProperty();
-    fn KeyTipHorizontalOffsetProperty();
-    fn KeyTipVerticalOffsetProperty();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4258,14 +3883,6 @@ pub struct ITextHighlighter(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ITextHighlighter {
     type Vtable = ITextHighlighterVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xba6cb54b_7d75_4535_b30d_a81a00b637a4);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ITextHighlighterImpl {
-    fn Ranges();
-    fn Foreground();
-    fn SetForeground();
-    fn Background();
-    fn SetBackground();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4294,8 +3911,6 @@ unsafe impl ::windows::core::Interface for ITextHighlighterBase {
     type Vtable = ITextHighlighterBaseVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd957601a_5f0d_4cdf_9758_97e0eb95c8fa);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ITextHighlighterBaseImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITextHighlighterBaseVtbl(
@@ -4313,8 +3928,6 @@ unsafe impl ::windows::core::Interface for ITextHighlighterBaseFactory {
     type Vtable = ITextHighlighterBaseFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9592b2d0_eadc_4c74_92c8_6e896e22506d);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ITextHighlighterBaseFactoryImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITextHighlighterBaseFactoryVtbl(
@@ -4331,10 +3944,6 @@ pub struct ITextHighlighterFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ITextHighlighterFactory {
     type Vtable = ITextHighlighterFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x70125461_9a8f_4fa0_b235_8ffaa507bef2);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ITextHighlighterFactoryImpl {
-    fn CreateInstance();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4354,11 +3963,6 @@ unsafe impl ::windows::core::Interface for ITextHighlighterStatics {
     type Vtable = ITextHighlighterStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb3b009c4_3a7e_49cc_ab84_29c405488765);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ITextHighlighterStaticsImpl {
-    fn ForegroundProperty();
-    fn BackgroundProperty();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITextHighlighterStaticsVtbl(
@@ -4377,15 +3981,6 @@ pub struct ITextPointer(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ITextPointer {
     type Vtable = ITextPointerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xac687aa1_6a41_43ff_851e_45348aa2cf7b);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ITextPointerImpl {
-    fn Parent();
-    fn VisualParent();
-    fn LogicalDirection();
-    fn Offset();
-    fn GetCharacterRect();
-    fn GetPositionAtOffset();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4411,8 +4006,6 @@ unsafe impl ::windows::core::Interface for ITypography {
     type Vtable = ITypographyVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x866f65d5_ea97_42ab_9288_9c01aebc7a97);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ITypographyImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITypographyVtbl(
@@ -4429,138 +4022,6 @@ pub struct ITypographyStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ITypographyStatics {
     type Vtable = ITypographyStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x67b9ec88_6c57_4ce0_95f1_d4b9ed632fb4);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ITypographyStaticsImpl {
-    fn AnnotationAlternatesProperty();
-    fn GetAnnotationAlternates();
-    fn SetAnnotationAlternates();
-    fn EastAsianExpertFormsProperty();
-    fn GetEastAsianExpertForms();
-    fn SetEastAsianExpertForms();
-    fn EastAsianLanguageProperty();
-    fn GetEastAsianLanguage();
-    fn SetEastAsianLanguage();
-    fn EastAsianWidthsProperty();
-    fn GetEastAsianWidths();
-    fn SetEastAsianWidths();
-    fn StandardLigaturesProperty();
-    fn GetStandardLigatures();
-    fn SetStandardLigatures();
-    fn ContextualLigaturesProperty();
-    fn GetContextualLigatures();
-    fn SetContextualLigatures();
-    fn DiscretionaryLigaturesProperty();
-    fn GetDiscretionaryLigatures();
-    fn SetDiscretionaryLigatures();
-    fn HistoricalLigaturesProperty();
-    fn GetHistoricalLigatures();
-    fn SetHistoricalLigatures();
-    fn StandardSwashesProperty();
-    fn GetStandardSwashes();
-    fn SetStandardSwashes();
-    fn ContextualSwashesProperty();
-    fn GetContextualSwashes();
-    fn SetContextualSwashes();
-    fn ContextualAlternatesProperty();
-    fn GetContextualAlternates();
-    fn SetContextualAlternates();
-    fn StylisticAlternatesProperty();
-    fn GetStylisticAlternates();
-    fn SetStylisticAlternates();
-    fn StylisticSet1Property();
-    fn GetStylisticSet1();
-    fn SetStylisticSet1();
-    fn StylisticSet2Property();
-    fn GetStylisticSet2();
-    fn SetStylisticSet2();
-    fn StylisticSet3Property();
-    fn GetStylisticSet3();
-    fn SetStylisticSet3();
-    fn StylisticSet4Property();
-    fn GetStylisticSet4();
-    fn SetStylisticSet4();
-    fn StylisticSet5Property();
-    fn GetStylisticSet5();
-    fn SetStylisticSet5();
-    fn StylisticSet6Property();
-    fn GetStylisticSet6();
-    fn SetStylisticSet6();
-    fn StylisticSet7Property();
-    fn GetStylisticSet7();
-    fn SetStylisticSet7();
-    fn StylisticSet8Property();
-    fn GetStylisticSet8();
-    fn SetStylisticSet8();
-    fn StylisticSet9Property();
-    fn GetStylisticSet9();
-    fn SetStylisticSet9();
-    fn StylisticSet10Property();
-    fn GetStylisticSet10();
-    fn SetStylisticSet10();
-    fn StylisticSet11Property();
-    fn GetStylisticSet11();
-    fn SetStylisticSet11();
-    fn StylisticSet12Property();
-    fn GetStylisticSet12();
-    fn SetStylisticSet12();
-    fn StylisticSet13Property();
-    fn GetStylisticSet13();
-    fn SetStylisticSet13();
-    fn StylisticSet14Property();
-    fn GetStylisticSet14();
-    fn SetStylisticSet14();
-    fn StylisticSet15Property();
-    fn GetStylisticSet15();
-    fn SetStylisticSet15();
-    fn StylisticSet16Property();
-    fn GetStylisticSet16();
-    fn SetStylisticSet16();
-    fn StylisticSet17Property();
-    fn GetStylisticSet17();
-    fn SetStylisticSet17();
-    fn StylisticSet18Property();
-    fn GetStylisticSet18();
-    fn SetStylisticSet18();
-    fn StylisticSet19Property();
-    fn GetStylisticSet19();
-    fn SetStylisticSet19();
-    fn StylisticSet20Property();
-    fn GetStylisticSet20();
-    fn SetStylisticSet20();
-    fn CapitalsProperty();
-    fn GetCapitals();
-    fn SetCapitals();
-    fn CapitalSpacingProperty();
-    fn GetCapitalSpacing();
-    fn SetCapitalSpacing();
-    fn KerningProperty();
-    fn GetKerning();
-    fn SetKerning();
-    fn CaseSensitiveFormsProperty();
-    fn GetCaseSensitiveForms();
-    fn SetCaseSensitiveForms();
-    fn HistoricalFormsProperty();
-    fn GetHistoricalForms();
-    fn SetHistoricalForms();
-    fn FractionProperty();
-    fn GetFraction();
-    fn SetFraction();
-    fn NumeralStyleProperty();
-    fn GetNumeralStyle();
-    fn SetNumeralStyle();
-    fn NumeralAlignmentProperty();
-    fn GetNumeralAlignment();
-    fn SetNumeralAlignment();
-    fn SlashedZeroProperty();
-    fn GetSlashedZero();
-    fn SetSlashedZero();
-    fn MathematicalGreekProperty();
-    fn GetMathematicalGreek();
-    fn SetMathematicalGreek();
-    fn VariantsProperty();
-    fn GetVariants();
-    fn SetVariants();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4708,8 +4169,6 @@ unsafe impl ::windows::core::Interface for IUnderline {
     type Vtable = IUnderlineVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa5fa8202_61c0_47d7_93ef_bc0b577c5f26);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IUnderlineImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUnderlineVtbl(
@@ -8238,3 +7697,5 @@ unsafe impl ::windows::core::RuntimeType for UnderlineStyle {
 impl ::windows::core::DefaultType for UnderlineStyle {
     type DefaultType = Self;
 }
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

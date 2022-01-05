@@ -68,10 +68,6 @@ unsafe impl ::windows::core::Interface for IUPnPAddressFamilyControl {
     type Vtable = IUPnPAddressFamilyControlVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe3bf6178_694e_459f_a5a6_191ea0ffa1c7);
 }
-pub trait IUPnPAddressFamilyControlImpl {
-    fn SetAddressFamily();
-    fn GetAddressFamily();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUPnPAddressFamilyControlVtbl(
@@ -129,9 +125,6 @@ impl ::core::fmt::Debug for IUPnPAsyncResult {
 unsafe impl ::windows::core::Interface for IUPnPAsyncResult {
     type Vtable = IUPnPAsyncResultVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4d65fd08_d13e_4274_9c8b_dd8d028c8644);
-}
-pub trait IUPnPAsyncResultImpl {
-    fn AsyncOperationComplete();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -262,16 +255,6 @@ unsafe impl ::windows::core::Interface for IUPnPDescriptionDocument {
     type Vtable = IUPnPDescriptionDocumentVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x11d1c1b2_7daa_4c9e_9595_7f82ed206d1e);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IUPnPDescriptionDocumentImpl: IDispatchImpl {
-    fn ReadyState();
-    fn Load();
-    fn LoadAsync();
-    fn LoadResult();
-    fn Abort();
-    fn RootDevice();
-    fn DeviceByUDN();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUPnPDescriptionDocumentVtbl(
@@ -345,9 +328,6 @@ impl ::core::fmt::Debug for IUPnPDescriptionDocumentCallback {
 unsafe impl ::windows::core::Interface for IUPnPDescriptionDocumentCallback {
     type Vtable = IUPnPDescriptionDocumentCallbackVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x77394c69_5486_40d6_9bc3_4991983e02da);
-}
-pub trait IUPnPDescriptionDocumentCallbackImpl {
-    fn LoadComplete();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -551,28 +531,6 @@ unsafe impl ::windows::core::Interface for IUPnPDevice {
     type Vtable = IUPnPDeviceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3d44d0d1_98c9_4889_acd1_f9d674bf2221);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IUPnPDeviceImpl: IDispatchImpl {
-    fn IsRootDevice();
-    fn RootDevice();
-    fn ParentDevice();
-    fn HasChildren();
-    fn Children();
-    fn UniqueDeviceName();
-    fn FriendlyName();
-    fn Type();
-    fn PresentationURL();
-    fn ManufacturerName();
-    fn ManufacturerURL();
-    fn ModelName();
-    fn ModelNumber();
-    fn Description();
-    fn ModelURL();
-    fn UPC();
-    fn SerialNumber();
-    fn IconURL();
-    fn Services();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUPnPDeviceVtbl(
@@ -676,10 +634,6 @@ unsafe impl ::windows::core::Interface for IUPnPDeviceControl {
     type Vtable = IUPnPDeviceControlVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x204810ba_73b2_11d4_bf42_00b0d0118b56);
 }
-pub trait IUPnPDeviceControlImpl {
-    fn Initialize();
-    fn GetServiceObject();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUPnPDeviceControlVtbl(
@@ -742,9 +696,6 @@ unsafe impl ::windows::core::Interface for IUPnPDeviceControlHttpHeaders {
     type Vtable = IUPnPDeviceControlHttpHeadersVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x204810bb_73b2_11d4_bf42_00b0d0118b56);
 }
-pub trait IUPnPDeviceControlHttpHeadersImpl {
-    fn GetAdditionalResponseHeaders();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUPnPDeviceControlHttpHeadersVtbl(
@@ -805,9 +756,6 @@ unsafe impl ::windows::core::Interface for IUPnPDeviceDocumentAccess {
     type Vtable = IUPnPDeviceDocumentAccessVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe7772804_3287_418e_9072_cf2b47238981);
 }
-pub trait IUPnPDeviceDocumentAccessImpl {
-    fn GetDocumentURL();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUPnPDeviceDocumentAccessVtbl(
@@ -867,9 +815,6 @@ impl ::core::fmt::Debug for IUPnPDeviceDocumentAccessEx {
 unsafe impl ::windows::core::Interface for IUPnPDeviceDocumentAccessEx {
     type Vtable = IUPnPDeviceDocumentAccessExVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc4bc4050_6178_4bd1_a4b8_6398321f3247);
-}
-pub trait IUPnPDeviceDocumentAccessExImpl {
-    fn GetDocument();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -997,14 +942,6 @@ unsafe impl ::windows::core::Interface for IUPnPDeviceFinder {
     type Vtable = IUPnPDeviceFinderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xadda3d55_6f72_4319_bff9_18600a539b10);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IUPnPDeviceFinderImpl: IDispatchImpl {
-    fn FindByType();
-    fn CreateAsyncFind();
-    fn StartAsyncFind();
-    fn CancelAsyncFind();
-    fn FindByUDN();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUPnPDeviceFinderVtbl(
@@ -1077,9 +1014,6 @@ unsafe impl ::windows::core::Interface for IUPnPDeviceFinderAddCallbackWithInter
     type Vtable = IUPnPDeviceFinderAddCallbackWithInterfaceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x983dfc0b_1796_44df_8975_ca545b620ee5);
 }
-pub trait IUPnPDeviceFinderAddCallbackWithInterfaceImpl {
-    fn DeviceAddedWithInterface();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUPnPDeviceFinderAddCallbackWithInterfaceVtbl(
@@ -1146,11 +1080,6 @@ unsafe impl ::windows::core::Interface for IUPnPDeviceFinderCallback {
     type Vtable = IUPnPDeviceFinderCallbackVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x415a984a_88b3_49f3_92af_0508bedf0d6c);
 }
-pub trait IUPnPDeviceFinderCallbackImpl {
-    fn DeviceAdded();
-    fn DeviceRemoved();
-    fn SearchComplete();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUPnPDeviceFinderCallbackVtbl(
@@ -1215,10 +1144,6 @@ impl ::core::fmt::Debug for IUPnPDeviceProvider {
 unsafe impl ::windows::core::Interface for IUPnPDeviceProvider {
     type Vtable = IUPnPDeviceProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x204810b8_73b2_11d4_bf42_00b0d0118b56);
-}
-pub trait IUPnPDeviceProviderImpl {
-    fn Start();
-    fn Stop();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1337,12 +1262,6 @@ unsafe impl ::windows::core::Interface for IUPnPDevices {
     type Vtable = IUPnPDevicesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfdbc0c73_bda3_4c66_ac4f_f2d96fdad68c);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IUPnPDevicesImpl: IDispatchImpl {
-    fn Count();
-    fn _NewEnum();
-    fn Item();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUPnPDevicesVtbl(
@@ -1416,10 +1335,6 @@ unsafe impl ::windows::core::Interface for IUPnPEventSink {
     type Vtable = IUPnPEventSinkVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x204810b4_73b2_11d4_bf42_00b0d0118b56);
 }
-pub trait IUPnPEventSinkImpl {
-    fn OnStateChanged();
-    fn OnStateChangedSafe();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUPnPEventSinkVtbl(
@@ -1483,10 +1398,6 @@ unsafe impl ::windows::core::Interface for IUPnPEventSource {
     type Vtable = IUPnPEventSourceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x204810b5_73b2_11d4_bf42_00b0d0118b56);
 }
-pub trait IUPnPEventSourceImpl {
-    fn Advise();
-    fn Unadvise();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUPnPEventSourceVtbl(
@@ -1545,9 +1456,6 @@ impl ::core::fmt::Debug for IUPnPHttpHeaderControl {
 unsafe impl ::windows::core::Interface for IUPnPHttpHeaderControl {
     type Vtable = IUPnPHttpHeaderControlVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0405af4f_8b5c_447c_80f2_b75984a31f3c);
-}
-pub trait IUPnPHttpHeaderControlImpl {
-    fn AddRequestHeaders();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1636,14 +1544,6 @@ unsafe impl ::windows::core::Interface for IUPnPRegistrar {
     type Vtable = IUPnPRegistrarVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x204810b6_73b2_11d4_bf42_00b0d0118b56);
 }
-pub trait IUPnPRegistrarImpl {
-    fn RegisterDevice();
-    fn RegisterRunningDevice();
-    fn RegisterDeviceProvider();
-    fn GetUniqueDeviceName();
-    fn UnregisterDevice();
-    fn UnregisterDeviceProvider();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUPnPRegistrarVtbl(
@@ -1726,11 +1626,6 @@ unsafe impl ::windows::core::Interface for IUPnPRemoteEndpointInfo {
     type Vtable = IUPnPRemoteEndpointInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc92eb863_0269_4aff_9c72_75321bba2952);
 }
-pub trait IUPnPRemoteEndpointInfoImpl {
-    fn GetDwordValue();
-    fn GetStringValue();
-    fn GetGuidValue();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUPnPRemoteEndpointInfoVtbl(
@@ -1798,10 +1693,6 @@ impl ::core::fmt::Debug for IUPnPReregistrar {
 unsafe impl ::windows::core::Interface for IUPnPReregistrar {
     type Vtable = IUPnPReregistrarVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x204810b7_73b2_11d4_bf42_00b0d0118b56);
-}
-pub trait IUPnPReregistrarImpl {
-    fn ReregisterDevice();
-    fn ReregisterRunningDevice();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1937,15 +1828,6 @@ unsafe impl ::windows::core::Interface for IUPnPService {
     type Vtable = IUPnPServiceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa295019c_dc65_47dd_90dc_7fe918a1ab44);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IUPnPServiceImpl: IDispatchImpl {
-    fn QueryStateVariable();
-    fn InvokeAction();
-    fn ServiceTypeIdentifier();
-    fn AddCallback();
-    fn Id();
-    fn LastTransportStatus();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUPnPServiceVtbl(
@@ -2062,17 +1944,6 @@ unsafe impl ::windows::core::Interface for IUPnPServiceAsync {
     type Vtable = IUPnPServiceAsyncVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x098bdaf5_5ec1_49e7_a260_b3a11dd8680c);
 }
-pub trait IUPnPServiceAsyncImpl {
-    fn BeginInvokeAction();
-    fn EndInvokeAction();
-    fn BeginQueryStateVariable();
-    fn EndQueryStateVariable();
-    fn BeginSubscribeToEvents();
-    fn EndSubscribeToEvents();
-    fn BeginSCPDDownload();
-    fn EndSCPDDownload();
-    fn CancelAsyncOperation();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUPnPServiceAsyncVtbl(
@@ -2148,10 +2019,6 @@ unsafe impl ::windows::core::Interface for IUPnPServiceCallback {
     type Vtable = IUPnPServiceCallbackVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x31fadca9_ab73_464b_b67d_5c1d0f83c8b8);
 }
-pub trait IUPnPServiceCallbackImpl {
-    fn StateVariableChanged();
-    fn ServiceInstanceDied();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUPnPServiceCallbackVtbl(
@@ -2219,10 +2086,6 @@ unsafe impl ::windows::core::Interface for IUPnPServiceDocumentAccess {
     type Vtable = IUPnPServiceDocumentAccessVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x21905529_0a5e_4589_825d_7e6d87ea6998);
 }
-pub trait IUPnPServiceDocumentAccessImpl {
-    fn GetDocumentURL();
-    fn GetDocument();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUPnPServiceDocumentAccessVtbl(
@@ -2282,9 +2145,6 @@ impl ::core::fmt::Debug for IUPnPServiceEnumProperty {
 unsafe impl ::windows::core::Interface for IUPnPServiceEnumProperty {
     type Vtable = IUPnPServiceEnumPropertyVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x38873b37_91bb_49f4_b249_2e8efbb8a816);
-}
-pub trait IUPnPServiceEnumPropertyImpl {
-    fn SetServiceEnumProperty();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2395,12 +2255,6 @@ impl ::core::fmt::Debug for IUPnPServices {
 unsafe impl ::windows::core::Interface for IUPnPServices {
     type Vtable = IUPnPServicesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3f8c8e9e_9a7a_4dc8_bc41_ff31fa374956);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IUPnPServicesImpl: IDispatchImpl {
-    fn Count();
-    fn _NewEnum();
-    fn Item();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2710,3 +2564,5 @@ pub const UPnPRegistrar: ::windows::core::GUID = ::windows::core::GUID::from_u12
 pub const UPnPRemoteEndpointInfo: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2e5e84e9_4049_4244_b728_2d24227157c7);
 pub const UPnPService: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc624ba95_fbcb_4409_8c03_8cceec533ef1);
 pub const UPnPServices: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc0bc4b4a_a406_4efc_932f_b8546b8100cc);
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

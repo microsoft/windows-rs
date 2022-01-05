@@ -3865,17 +3865,6 @@ unsafe impl ::windows::core::Interface for IDisplayAdapter {
     type Vtable = IDisplayAdapterVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa56f5287_f000_5f2e_b5ac_3783a2b69af5);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IDisplayAdapterImpl {
-    fn Id();
-    fn DeviceInterfacePath();
-    fn SourceCount();
-    fn PciVendorId();
-    fn PciDeviceId();
-    fn PciSubSystemId();
-    fn PciRevision();
-    fn Properties();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDisplayAdapterVtbl(
@@ -3903,10 +3892,6 @@ unsafe impl ::windows::core::Interface for IDisplayAdapterStatics {
     type Vtable = IDisplayAdapterStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1dac3cda_481f_5469_8470_82c4ba680a28);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IDisplayAdapterStaticsImpl {
-    fn FromId();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDisplayAdapterStaticsVtbl(
@@ -3925,16 +3910,6 @@ pub struct IDisplayDevice(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDisplayDevice {
     type Vtable = IDisplayDeviceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa4c9b62c_335f_5731_8cb4_c1ccd4731070);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IDisplayDeviceImpl {
-    fn CreateScanoutSource();
-    fn CreatePrimary();
-    fn CreateTaskPool();
-    fn CreatePeriodicFence();
-    fn WaitForVBlank();
-    fn CreateSimpleScanout();
-    fn IsCapabilitySupported();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3961,10 +3936,6 @@ unsafe impl ::windows::core::Interface for IDisplayDevice2 {
     type Vtable = IDisplayDevice2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3fefe50c_0940_54bd_a02f_f9c7a536ad60);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IDisplayDevice2Impl {
-    fn CreateSimpleScanoutWithDirtyRectsAndOptions();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDisplayDevice2Vtbl(
@@ -3984,8 +3955,6 @@ unsafe impl ::windows::core::Interface for IDisplayFence {
     type Vtable = IDisplayFenceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x04dcf9ef_3406_5700_8fec_77eba4c5a74b);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IDisplayFenceImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDisplayFenceVtbl(
@@ -4002,28 +3971,6 @@ pub struct IDisplayManager(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDisplayManager {
     type Vtable = IDisplayManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4ed9245b_15ec_56e2_9072_7fe5084a31a7);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IDisplayManagerImpl {
-    fn GetCurrentTargets();
-    fn GetCurrentAdapters();
-    fn TryAcquireTarget();
-    fn ReleaseTarget();
-    fn TryReadCurrentStateForAllTargets();
-    fn TryAcquireTargetsAndReadCurrentState();
-    fn TryAcquireTargetsAndCreateEmptyState();
-    fn TryAcquireTargetsAndCreateSubstate();
-    fn CreateDisplayDevice();
-    fn Enabled();
-    fn RemoveEnabled();
-    fn Disabled();
-    fn RemoveDisabled();
-    fn Changed();
-    fn RemoveChanged();
-    fn PathsFailedOrInvalidated();
-    fn RemovePathsFailedOrInvalidated();
-    fn Start();
-    fn Stop();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4074,12 +4021,6 @@ unsafe impl ::windows::core::Interface for IDisplayManagerChangedEventArgs {
     type Vtable = IDisplayManagerChangedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6abfa285_6cca_5731_bcdc_42e5d2f5c50f);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IDisplayManagerChangedEventArgsImpl {
-    fn Handled();
-    fn SetHandled();
-    fn GetDeferral();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDisplayManagerChangedEventArgsVtbl(
@@ -4100,12 +4041,6 @@ pub struct IDisplayManagerDisabledEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDisplayManagerDisabledEventArgs {
     type Vtable = IDisplayManagerDisabledEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8726dde4_6793_5973_a11f_5ffbc93fdb90);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IDisplayManagerDisabledEventArgsImpl {
-    fn Handled();
-    fn SetHandled();
-    fn GetDeferral();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4128,12 +4063,6 @@ unsafe impl ::windows::core::Interface for IDisplayManagerEnabledEventArgs {
     type Vtable = IDisplayManagerEnabledEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf0cf3f6f_42fa_59a2_b297_26e1713de848);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IDisplayManagerEnabledEventArgsImpl {
-    fn Handled();
-    fn SetHandled();
-    fn GetDeferral();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDisplayManagerEnabledEventArgsVtbl(
@@ -4154,12 +4083,6 @@ pub struct IDisplayManagerPathsFailedOrInvalidatedEventArgs(::windows::core::IUn
 unsafe impl ::windows::core::Interface for IDisplayManagerPathsFailedOrInvalidatedEventArgs {
     type Vtable = IDisplayManagerPathsFailedOrInvalidatedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x03a65659_1dec_5c15_b2a2_8fe9129869fe);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IDisplayManagerPathsFailedOrInvalidatedEventArgsImpl {
-    fn Handled();
-    fn SetHandled();
-    fn GetDeferral();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4182,12 +4105,6 @@ unsafe impl ::windows::core::Interface for IDisplayManagerResultWithState {
     type Vtable = IDisplayManagerResultWithStateVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8e656aa6_6614_54be_bfef_4994547f7be1);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IDisplayManagerResultWithStateImpl {
-    fn ErrorCode();
-    fn ExtendedErrorCode();
-    fn State();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDisplayManagerResultWithStateVtbl(
@@ -4208,10 +4125,6 @@ unsafe impl ::windows::core::Interface for IDisplayManagerStatics {
     type Vtable = IDisplayManagerStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2b6b9446_b999_5535_9d69_53f092c780a1);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IDisplayManagerStaticsImpl {
-    fn Create();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDisplayManagerStaticsVtbl(
@@ -4229,18 +4142,6 @@ pub struct IDisplayModeInfo(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDisplayModeInfo {
     type Vtable = IDisplayModeInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x48d513a0_f79b_5a74_a05e_da821f470868);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IDisplayModeInfoImpl {
-    fn SourceResolution();
-    fn IsStereo();
-    fn SourcePixelFormat();
-    fn TargetResolution();
-    fn PresentationRate();
-    fn IsInterlaced();
-    fn GetWireFormatSupportedBitsPerChannel();
-    fn IsWireFormatSupported();
-    fn Properties();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4273,10 +4174,6 @@ unsafe impl ::windows::core::Interface for IDisplayModeInfo2 {
     type Vtable = IDisplayModeInfo2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc86fa386_0ddb_5473_bfb0_4b7807b5f909);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IDisplayModeInfo2Impl {
-    fn PhysicalPresentationRate();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDisplayModeInfo2Vtbl(
@@ -4295,33 +4192,6 @@ pub struct IDisplayPath(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDisplayPath {
     type Vtable = IDisplayPathVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb3dfd64a_7460_5cde_811b_d5ae9f3d9f84);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IDisplayPathImpl {
-    fn View();
-    fn Target();
-    fn Status();
-    fn SourceResolution();
-    fn SetSourceResolution();
-    fn SourcePixelFormat();
-    fn SetSourcePixelFormat();
-    fn IsStereo();
-    fn SetIsStereo();
-    fn TargetResolution();
-    fn SetTargetResolution();
-    fn PresentationRate();
-    fn SetPresentationRate();
-    fn IsInterlaced();
-    fn SetIsInterlaced();
-    fn WireFormat();
-    fn SetWireFormat();
-    fn Rotation();
-    fn SetRotation();
-    fn Scaling();
-    fn SetScaling();
-    fn FindModes();
-    fn ApplyPropertiesFromMode();
-    fn Properties();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4376,11 +4246,6 @@ unsafe impl ::windows::core::Interface for IDisplayPath2 {
     type Vtable = IDisplayPath2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf32459c5_e994_570b_9ec8_ef42c35a8547);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IDisplayPath2Impl {
-    fn PhysicalPresentationRate();
-    fn SetPhysicalPresentationRate();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDisplayPath2Vtbl(
@@ -4401,16 +4266,6 @@ pub struct IDisplayPrimaryDescription(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDisplayPrimaryDescription {
     type Vtable = IDisplayPrimaryDescriptionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x872591d2_d533_50ff_a85e_06696194b77c);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IDisplayPrimaryDescriptionImpl {
-    fn Width();
-    fn Height();
-    fn Format();
-    fn ColorSpace();
-    fn IsStereo();
-    fn MultisampleDescription();
-    fn Properties();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4440,10 +4295,6 @@ unsafe impl ::windows::core::Interface for IDisplayPrimaryDescriptionFactory {
     type Vtable = IDisplayPrimaryDescriptionFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1a6aff7b_3637_5c46_b479_76d576216e65);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IDisplayPrimaryDescriptionFactoryImpl {
-    fn CreateInstance();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDisplayPrimaryDescriptionFactoryVtbl(
@@ -4462,10 +4313,6 @@ pub struct IDisplayPrimaryDescriptionStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDisplayPrimaryDescriptionStatics {
     type Vtable = IDisplayPrimaryDescriptionStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe60e4cfb_36c9_56dd_8fa1_6ff8c4e0ff07);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IDisplayPrimaryDescriptionStaticsImpl {
-    fn CreateWithProperties();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4486,8 +4333,6 @@ unsafe impl ::windows::core::Interface for IDisplayScanout {
     type Vtable = IDisplayScanoutVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe3051828_1ba5_50e7_8a39_bb1fd2f4f8b9);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IDisplayScanoutImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDisplayScanoutVtbl(
@@ -4504,12 +4349,6 @@ pub struct IDisplaySource(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDisplaySource {
     type Vtable = IDisplaySourceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xecd15fc1_eadc_51bc_971d_3bc628db2dd4);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IDisplaySourceImpl {
-    fn AdapterId();
-    fn SourceId();
-    fn GetMetadata();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4533,12 +4372,6 @@ unsafe impl ::windows::core::Interface for IDisplaySource2 {
     type Vtable = IDisplaySource2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x71e18952_b321_5af4_bfe8_03fbea31e40d);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IDisplaySource2Impl {
-    fn Status();
-    fn StatusChanged();
-    fn RemoveStatusChanged();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDisplaySource2Vtbl(
@@ -4560,23 +4393,6 @@ pub struct IDisplayState(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDisplayState {
     type Vtable = IDisplayStateVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x08129321_11b5_5cb2_99f8_e90b479a8a1d);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IDisplayStateImpl {
-    fn IsReadOnly();
-    fn IsStale();
-    fn Targets();
-    fn Views();
-    fn Properties();
-    fn ConnectTarget();
-    fn ConnectTargetToView();
-    fn CanConnectTargetToView();
-    fn GetViewForTarget();
-    fn GetPathForTarget();
-    fn DisconnectTarget();
-    fn TryFunctionalize();
-    fn TryApply();
-    fn Clone();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4612,11 +4428,6 @@ unsafe impl ::windows::core::Interface for IDisplayStateOperationResult {
     type Vtable = IDisplayStateOperationResultVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfcadbfdf_dc27_5638_b7f2_ebdfa4f7ea93);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IDisplayStateOperationResultImpl {
-    fn Status();
-    fn ExtendedErrorCode();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDisplayStateOperationResultVtbl(
@@ -4636,8 +4447,6 @@ unsafe impl ::windows::core::Interface for IDisplaySurface {
     type Vtable = IDisplaySurfaceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x594f6cc6_139a_56d6_a4b1_15fe2cb76adb);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IDisplaySurfaceImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDisplaySurfaceVtbl(
@@ -4654,23 +4463,6 @@ pub struct IDisplayTarget(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDisplayTarget {
     type Vtable = IDisplayTargetVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaec57c6f_47b4_546b_987c_e73fa791fe3a);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IDisplayTargetImpl {
-    fn Adapter();
-    fn DeviceInterfacePath();
-    fn AdapterRelativeId();
-    fn IsConnected();
-    fn IsVirtualModeEnabled();
-    fn IsVirtualTopologyEnabled();
-    fn UsageKind();
-    fn MonitorPersistence();
-    fn StableMonitorId();
-    fn TryGetMonitor();
-    fn Properties();
-    fn IsStale();
-    fn IsSame();
-    fn IsEqual();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4704,11 +4496,6 @@ unsafe impl ::windows::core::Interface for IDisplayTask {
     type Vtable = IDisplayTaskVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5e087448_135b_5bb0_bf63_637f84227c7a);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IDisplayTaskImpl {
-    fn SetScanout();
-    fn SetWait();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDisplayTaskVtbl(
@@ -4728,10 +4515,6 @@ unsafe impl ::windows::core::Interface for IDisplayTask2 {
     type Vtable = IDisplayTask2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0957ea19_bd55_55de_9267_c97b61e71c37);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IDisplayTask2Impl {
-    fn SetSignal();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDisplayTask2Vtbl(
@@ -4749,11 +4532,6 @@ pub struct IDisplayTaskPool(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDisplayTaskPool {
     type Vtable = IDisplayTaskPoolVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc676253d_237d_5548_aafa_3e517fefef1c);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IDisplayTaskPoolImpl {
-    fn CreateTask();
-    fn ExecuteTask();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4775,10 +4553,6 @@ unsafe impl ::windows::core::Interface for IDisplayTaskPool2 {
     type Vtable = IDisplayTaskPool2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x46b879b6_5d17_5955_a872_eb38003db586);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IDisplayTaskPool2Impl {
-    fn TryExecuteTask();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDisplayTaskPool2Vtbl(
@@ -4796,12 +4570,6 @@ pub struct IDisplayTaskResult(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDisplayTaskResult {
     type Vtable = IDisplayTaskResultVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6fbc7d67_f9b1_55e0_9d88_d3a5197a3f59);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IDisplayTaskResultImpl {
-    fn PresentStatus();
-    fn PresentId();
-    fn SourceStatus();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4822,14 +4590,6 @@ pub struct IDisplayView(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDisplayView {
     type Vtable = IDisplayViewVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb0c98ca1_b759_5b59_b1ad_f0786aa9e53d);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IDisplayViewImpl {
-    fn Paths();
-    fn ContentResolution();
-    fn SetContentResolution();
-    fn SetPrimaryPath();
-    fn Properties();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4857,15 +4617,6 @@ unsafe impl ::windows::core::Interface for IDisplayWireFormat {
     type Vtable = IDisplayWireFormatVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1acc967d_872c_5a38_bbb9_1d4872b76255);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IDisplayWireFormatImpl {
-    fn PixelEncoding();
-    fn BitsPerChannel();
-    fn ColorSpace();
-    fn Eotf();
-    fn HdrMetadata();
-    fn Properties();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDisplayWireFormatVtbl(
@@ -4890,10 +4641,6 @@ unsafe impl ::windows::core::Interface for IDisplayWireFormatFactory {
     type Vtable = IDisplayWireFormatFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb2efc8d5_09d6_55e6_ad22_9014b3d25229);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IDisplayWireFormatFactoryImpl {
-    fn CreateInstance();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDisplayWireFormatFactoryVtbl(
@@ -4912,10 +4659,6 @@ unsafe impl ::windows::core::Interface for IDisplayWireFormatStatics {
     type Vtable = IDisplayWireFormatStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc575a22d_c3e6_5f7a_bdfb_87c6ab8661d5);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IDisplayWireFormatStaticsImpl {
-    fn CreateWithProperties();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDisplayWireFormatStaticsVtbl(
@@ -4928,3 +4671,5 @@ pub struct IDisplayWireFormatStaticsVtbl(
     #[cfg(feature = "Foundation_Collections")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, extraproperties: ::windows::core::RawPtr, pixelencoding: DisplayWireFormatPixelEncoding, bitsperchannel: i32, colorspace: DisplayWireFormatColorSpace, eotf: DisplayWireFormatEotf, hdrmetadata: DisplayWireFormatHdrMetadata, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

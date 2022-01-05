@@ -16,6 +16,7 @@ mod names;
 mod replacements;
 mod signatures;
 mod structs;
+mod implements;
 
 use cfg::*;
 use functions::*;
@@ -65,6 +66,22 @@ pub fn gen_namespace(gen: &Gen) -> String {
         #functions
         #types
     };
+
+    tokens.into_string()
+}
+
+pub fn gen_namespace_impl(gen: &Gen) -> String {
+    let tree = TypeReader::get().get_namespace(gen.namespace).expect("Namespace not found");
+    let mut tokens = TokenStream::new();
+
+    for entry in tree.types.values() {
+        for def in &entry.def {
+            if let ElementType::TypeDef(def) = def {
+                let def = &def.clone().with_generics();
+                tokens.combine(&implements::gen(def, gen));
+            }
+        }
+    }
 
     tokens.into_string()
 }

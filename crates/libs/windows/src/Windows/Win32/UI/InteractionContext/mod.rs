@@ -1012,3 +1012,5 @@ pub const TRANSLATION_PARAMETER_MIN_CONTACT_COUNT: TRANSLATION_PARAMETER = 0i32;
 pub const TRANSLATION_PARAMETER_MAX_CONTACT_COUNT: TRANSLATION_PARAMETER = 1i32;
 #[doc = "*Required features: 'Win32_UI_InteractionContext'*"]
 pub const TRANSLATION_PARAMETER_MAX: TRANSLATION_PARAMETER = -1i32;
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

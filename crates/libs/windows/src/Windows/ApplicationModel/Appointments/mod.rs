@@ -3820,34 +3820,6 @@ unsafe impl ::windows::core::Interface for IAppointment {
     type Vtable = IAppointmentVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdd002f2f_2bdd_4076_90a3_22c275312965);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IAppointmentImpl {
-    fn StartTime();
-    fn SetStartTime();
-    fn Duration();
-    fn SetDuration();
-    fn Location();
-    fn SetLocation();
-    fn Subject();
-    fn SetSubject();
-    fn Details();
-    fn SetDetails();
-    fn Reminder();
-    fn SetReminder();
-    fn Organizer();
-    fn SetOrganizer();
-    fn Invitees();
-    fn Recurrence();
-    fn SetRecurrence();
-    fn BusyStatus();
-    fn SetBusyStatus();
-    fn AllDay();
-    fn SetAllDay();
-    fn Sensitivity();
-    fn SetSensitivity();
-    fn Uri();
-    fn SetUri();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppointmentVtbl(
@@ -3899,29 +3871,6 @@ unsafe impl ::windows::core::Interface for IAppointment2 {
     type Vtable = IAppointment2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5e85983c_540f_3452_9b5c_0dd7ad4c65a2);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IAppointment2Impl: IAppointmentImpl {
-    fn LocalId();
-    fn CalendarId();
-    fn RoamingId();
-    fn SetRoamingId();
-    fn OriginalStartTime();
-    fn IsResponseRequested();
-    fn SetIsResponseRequested();
-    fn AllowNewTimeProposal();
-    fn SetAllowNewTimeProposal();
-    fn OnlineMeetingLink();
-    fn SetOnlineMeetingLink();
-    fn ReplyTime();
-    fn SetReplyTime();
-    fn UserResponse();
-    fn SetUserResponse();
-    fn HasInvitees();
-    fn IsCanceledMeeting();
-    fn SetIsCanceledMeeting();
-    fn IsOrganizedByUser();
-    fn SetIsOrganizedByUser();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppointment2Vtbl(
@@ -3962,14 +3911,6 @@ unsafe impl ::windows::core::Interface for IAppointment3 {
     type Vtable = IAppointment3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbfcc45a9_8961_4991_934b_c48768e5a96c);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IAppointment3Impl: IAppointmentImpl + IAppointment2Impl {
-    fn ChangeNumber();
-    fn RemoteChangeNumber();
-    fn SetRemoteChangeNumber();
-    fn DetailsKind();
-    fn SetDetailsKind();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppointment3Vtbl(
@@ -3991,35 +3932,6 @@ pub struct IAppointmentCalendar(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppointmentCalendar {
     type Vtable = IAppointmentCalendarVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5273819d_8339_3d4f_a02f_64084452bb5d);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IAppointmentCalendarImpl {
-    fn DisplayColor();
-    fn DisplayName();
-    fn SetDisplayName();
-    fn LocalId();
-    fn IsHidden();
-    fn OtherAppReadAccess();
-    fn SetOtherAppReadAccess();
-    fn OtherAppWriteAccess();
-    fn SetOtherAppWriteAccess();
-    fn SourceDisplayName();
-    fn SummaryCardView();
-    fn SetSummaryCardView();
-    fn FindAppointmentsAsync();
-    fn FindAppointmentsAsyncWithOptions();
-    fn FindExceptionsFromMasterAsync();
-    fn FindAllInstancesAsync();
-    fn FindAllInstancesAsyncWithOptions();
-    fn GetAppointmentAsync();
-    fn GetAppointmentInstanceAsync();
-    fn FindUnexpandedAppointmentsAsync();
-    fn FindUnexpandedAppointmentsAsyncWithOptions();
-    fn DeleteAsync();
-    fn SaveAsync();
-    fn DeleteAppointmentAsync();
-    fn DeleteAppointmentInstanceAsync();
-    fn SaveAppointmentAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4079,34 +3991,6 @@ unsafe impl ::windows::core::Interface for IAppointmentCalendar2 {
     type Vtable = IAppointmentCalendar2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x18e7e422_2467_4e1c_a459_d8a29303d092);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IAppointmentCalendar2Impl: IAppointmentCalendarImpl {
-    fn SyncManager();
-    fn RemoteId();
-    fn SetRemoteId();
-    fn SetDisplayColor();
-    fn SetIsHidden();
-    fn UserDataAccountId();
-    fn CanCreateOrUpdateAppointments();
-    fn SetCanCreateOrUpdateAppointments();
-    fn CanCancelMeetings();
-    fn SetCanCancelMeetings();
-    fn CanForwardMeetings();
-    fn SetCanForwardMeetings();
-    fn CanProposeNewTimeForMeetings();
-    fn SetCanProposeNewTimeForMeetings();
-    fn CanUpdateMeetingResponses();
-    fn SetCanUpdateMeetingResponses();
-    fn CanNotifyInvitees();
-    fn SetCanNotifyInvitees();
-    fn MustNofityInvitees();
-    fn SetMustNofityInvitees();
-    fn TryCreateOrUpdateAppointmentAsync();
-    fn TryCancelMeetingAsync();
-    fn TryForwardMeetingAsync();
-    fn TryProposeNewTimeForMeetingAsync();
-    fn TryUpdateMeetingResponseAsync();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppointmentCalendar2Vtbl(
@@ -4155,10 +4039,6 @@ unsafe impl ::windows::core::Interface for IAppointmentCalendar3 {
     type Vtable = IAppointmentCalendar3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeb23d22b_a685_42ae_8495_b3119adb4167);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IAppointmentCalendar3Impl {
-    fn RegisterSyncManagerAsync();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppointmentCalendar3Vtbl(
@@ -4177,15 +4057,6 @@ pub struct IAppointmentCalendarSyncManager(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppointmentCalendarSyncManager {
     type Vtable = IAppointmentCalendarSyncManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2b21b3a0_4aff_4392_bc5f_5645ffcffb17);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IAppointmentCalendarSyncManagerImpl {
-    fn Status();
-    fn LastSuccessfulSyncTime();
-    fn LastAttemptedSyncTime();
-    fn SyncAsync();
-    fn SyncStatusChanged();
-    fn RemoveSyncStatusChanged();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4215,12 +4086,6 @@ unsafe impl ::windows::core::Interface for IAppointmentCalendarSyncManager2 {
     type Vtable = IAppointmentCalendarSyncManager2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x647528ad_0d29_4c7c_aaa7_bf996805537c);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IAppointmentCalendarSyncManager2Impl {
-    fn SetStatus();
-    fn SetLastSuccessfulSyncTime();
-    fn SetLastAttemptedSyncTime();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppointmentCalendarSyncManager2Vtbl(
@@ -4243,11 +4108,6 @@ unsafe impl ::windows::core::Interface for IAppointmentConflictResult {
     type Vtable = IAppointmentConflictResultVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd5cdf0be_2f2f_3b7d_af0a_a7e20f3a46e3);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IAppointmentConflictResultImpl {
-    fn Type();
-    fn Date();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppointmentConflictResultVtbl(
@@ -4267,12 +4127,6 @@ pub struct IAppointmentException(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppointmentException {
     type Vtable = IAppointmentExceptionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa2076767_16f6_4bce_9f5a_8600b8019fcb);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IAppointmentExceptionImpl {
-    fn Appointment();
-    fn ExceptionProperties();
-    fn IsDeleted();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4295,13 +4149,6 @@ unsafe impl ::windows::core::Interface for IAppointmentInvitee {
     type Vtable = IAppointmentInviteeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x13bf0796_9842_495b_b0e7_ef8f79c0701d);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IAppointmentInviteeImpl: IAppointmentParticipantImpl {
-    fn Role();
-    fn SetRole();
-    fn Response();
-    fn SetResponse();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppointmentInviteeVtbl(
@@ -4322,23 +4169,6 @@ pub struct IAppointmentManagerForUser(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppointmentManagerForUser {
     type Vtable = IAppointmentManagerForUserVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x70261423_73cc_4660_b318_b01365302a03);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IAppointmentManagerForUserImpl {
-    fn ShowAddAppointmentAsync();
-    fn ShowAddAppointmentWithPlacementAsync();
-    fn ShowReplaceAppointmentAsync();
-    fn ShowReplaceAppointmentWithPlacementAsync();
-    fn ShowReplaceAppointmentWithPlacementAndDateAsync();
-    fn ShowRemoveAppointmentAsync();
-    fn ShowRemoveAppointmentWithPlacementAsync();
-    fn ShowRemoveAppointmentWithPlacementAndDateAsync();
-    fn ShowTimeFrameAsync();
-    fn ShowAppointmentDetailsAsync();
-    fn ShowAppointmentDetailsWithDateAsync();
-    fn ShowEditNewAppointmentAsync();
-    fn RequestStoreAsync();
-    fn User();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4385,18 +4215,6 @@ unsafe impl ::windows::core::Interface for IAppointmentManagerStatics {
     type Vtable = IAppointmentManagerStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3a30fa01_5c40_499d_b33f_a43050f74fc4);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IAppointmentManagerStaticsImpl {
-    fn ShowAddAppointmentAsync();
-    fn ShowAddAppointmentWithPlacementAsync();
-    fn ShowReplaceAppointmentAsync();
-    fn ShowReplaceAppointmentWithPlacementAsync();
-    fn ShowReplaceAppointmentWithPlacementAndDateAsync();
-    fn ShowRemoveAppointmentAsync();
-    fn ShowRemoveAppointmentWithPlacementAsync();
-    fn ShowRemoveAppointmentWithPlacementAndDateAsync();
-    fn ShowTimeFrameAsync();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppointmentManagerStaticsVtbl(
@@ -4432,13 +4250,6 @@ unsafe impl ::windows::core::Interface for IAppointmentManagerStatics2 {
     type Vtable = IAppointmentManagerStatics2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0a81f60d_d04f_4034_af72_a36573b45ff0);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IAppointmentManagerStatics2Impl {
-    fn ShowAppointmentDetailsAsync();
-    fn ShowAppointmentDetailsWithDateAsync();
-    fn ShowEditNewAppointmentAsync();
-    fn RequestStoreAsync();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppointmentManagerStatics2Vtbl(
@@ -4463,10 +4274,6 @@ pub struct IAppointmentManagerStatics3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppointmentManagerStatics3 {
     type Vtable = IAppointmentManagerStatics3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2f9ae09c_b34c_4dc7_a35d_cafd88ae3ec6);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IAppointmentManagerStatics3Impl {
-    fn GetForUser();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4574,12 +4381,6 @@ unsafe impl ::windows::core::Interface for IAppointmentParticipant {
     type Vtable = IAppointmentParticipantVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x615e2902_9718_467b_83fb_b293a19121de);
 }
-pub trait IAppointmentParticipantImpl {
-    fn DisplayName();
-    fn SetDisplayName();
-    fn Address();
-    fn SetAddress();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppointmentParticipantVtbl(
@@ -4600,32 +4401,6 @@ pub struct IAppointmentPropertiesStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppointmentPropertiesStatics {
     type Vtable = IAppointmentPropertiesStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x25141fe9_68ae_3aae_855f_bc4441caa234);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IAppointmentPropertiesStaticsImpl {
-    fn Subject();
-    fn Location();
-    fn StartTime();
-    fn Duration();
-    fn Reminder();
-    fn BusyStatus();
-    fn Sensitivity();
-    fn OriginalStartTime();
-    fn IsResponseRequested();
-    fn AllowNewTimeProposal();
-    fn AllDay();
-    fn Details();
-    fn OnlineMeetingLink();
-    fn ReplyTime();
-    fn Organizer();
-    fn UserResponse();
-    fn HasInvitees();
-    fn IsCanceledMeeting();
-    fn IsOrganizedByUser();
-    fn Recurrence();
-    fn Uri();
-    fn Invitees();
-    fn DefaultProperties();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4668,12 +4443,6 @@ unsafe impl ::windows::core::Interface for IAppointmentPropertiesStatics2 {
     type Vtable = IAppointmentPropertiesStatics2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdffc434b_b017_45dd_8af5_d163d10801bb);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IAppointmentPropertiesStatics2Impl: IAppointmentPropertiesStaticsImpl {
-    fn ChangeNumber();
-    fn RemoteChangeNumber();
-    fn DetailsKind();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppointmentPropertiesStatics2Vtbl(
@@ -4693,25 +4462,6 @@ pub struct IAppointmentRecurrence(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppointmentRecurrence {
     type Vtable = IAppointmentRecurrenceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd87b3e83_15a6_487b_b959_0c361e60e954);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IAppointmentRecurrenceImpl {
-    fn Unit();
-    fn SetUnit();
-    fn Occurrences();
-    fn SetOccurrences();
-    fn Until();
-    fn SetUntil();
-    fn Interval();
-    fn SetInterval();
-    fn DaysOfWeek();
-    fn SetDaysOfWeek();
-    fn WeekOfMonth();
-    fn SetWeekOfMonth();
-    fn Month();
-    fn SetMonth();
-    fn Day();
-    fn SetDay();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4750,12 +4500,6 @@ unsafe impl ::windows::core::Interface for IAppointmentRecurrence2 {
     type Vtable = IAppointmentRecurrence2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3df3a2e0_05a7_4f50_9f86_b03f9436254d);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IAppointmentRecurrence2Impl: IAppointmentRecurrenceImpl {
-    fn RecurrenceType();
-    fn TimeZone();
-    fn SetTimeZone();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppointmentRecurrence2Vtbl(
@@ -4776,10 +4520,6 @@ unsafe impl ::windows::core::Interface for IAppointmentRecurrence3 {
     type Vtable = IAppointmentRecurrence3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x89ff96d9_da4d_4a17_8dd2_1cebc2b5ff9d);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IAppointmentRecurrence3Impl: IAppointmentRecurrenceImpl + IAppointmentRecurrence2Impl {
-    fn CalendarIdentifier();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppointmentRecurrence3Vtbl(
@@ -4797,30 +4537,6 @@ pub struct IAppointmentStore(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppointmentStore {
     type Vtable = IAppointmentStoreVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa461918c_7a47_4d96_96c9_15cd8a05a735);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IAppointmentStoreImpl {
-    fn ChangeTracker();
-    fn CreateAppointmentCalendarAsync();
-    fn GetAppointmentCalendarAsync();
-    fn GetAppointmentAsync();
-    fn GetAppointmentInstanceAsync();
-    fn FindAppointmentCalendarsAsync();
-    fn FindAppointmentCalendarsAsyncWithOptions();
-    fn FindAppointmentsAsync();
-    fn FindAppointmentsAsyncWithOptions();
-    fn FindConflictAsync();
-    fn FindConflictAsyncWithInstanceStart();
-    fn MoveAppointmentAsync();
-    fn ShowAddAppointmentAsync();
-    fn ShowReplaceAppointmentAsync();
-    fn ShowReplaceAppointmentWithPlacementAndDateAsync();
-    fn ShowRemoveAppointmentAsync();
-    fn ShowRemoveAppointmentWithPlacementAndDateAsync();
-    fn ShowAppointmentDetailsAsync();
-    fn ShowAppointmentDetailsWithDateAsync();
-    fn ShowEditNewAppointmentAsync();
-    fn FindLocalIdsFromRoamingIdAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4880,12 +4596,6 @@ unsafe impl ::windows::core::Interface for IAppointmentStore2 {
     type Vtable = IAppointmentStore2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x25c48c20_1c41_424f_8084_67c1cfe0a854);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IAppointmentStore2Impl: IAppointmentStoreImpl {
-    fn StoreChanged();
-    fn RemoveStoreChanged();
-    fn CreateAppointmentCalendarInAccountAsync();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppointmentStore2Vtbl(
@@ -4909,10 +4619,6 @@ unsafe impl ::windows::core::Interface for IAppointmentStore3 {
     type Vtable = IAppointmentStore3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4251940b_b078_470a_9a40_c2e01761f72f);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IAppointmentStore3Impl {
-    fn GetChangeTracker();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppointmentStore3Vtbl(
@@ -4930,11 +4636,6 @@ pub struct IAppointmentStoreChange(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppointmentStoreChange {
     type Vtable = IAppointmentStoreChangeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa5a6e035_0a33_3654_8463_b543e90c3b79);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IAppointmentStoreChangeImpl {
-    fn Appointment();
-    fn ChangeType();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4955,10 +4656,6 @@ unsafe impl ::windows::core::Interface for IAppointmentStoreChange2 {
     type Vtable = IAppointmentStoreChange2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb37d0dce_5211_4402_a608_a96fe70b8ee2);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IAppointmentStoreChange2Impl: IAppointmentStoreChangeImpl {
-    fn AppointmentCalendar();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppointmentStoreChange2Vtbl(
@@ -4976,12 +4673,6 @@ pub struct IAppointmentStoreChangeReader(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppointmentStoreChangeReader {
     type Vtable = IAppointmentStoreChangeReaderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8b2409f1_65f3_42a0_961d_4c209bf30370);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IAppointmentStoreChangeReaderImpl {
-    fn ReadBatchAsync();
-    fn AcceptChanges();
-    fn AcceptChangesThrough();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5004,12 +4695,6 @@ unsafe impl ::windows::core::Interface for IAppointmentStoreChangeTracker {
     type Vtable = IAppointmentStoreChangeTrackerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1b25f4b1_8ece_4f17_93c8_e6412458fd5c);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IAppointmentStoreChangeTrackerImpl {
-    fn GetChangeReader();
-    fn Enable();
-    fn Reset();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppointmentStoreChangeTrackerVtbl(
@@ -5030,10 +4715,6 @@ unsafe impl ::windows::core::Interface for IAppointmentStoreChangeTracker2 {
     type Vtable = IAppointmentStoreChangeTracker2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb66aaf45_9542_4cf7_8550_eb370e0c08d3);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IAppointmentStoreChangeTracker2Impl {
-    fn IsTracking();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppointmentStoreChangeTracker2Vtbl(
@@ -5051,10 +4732,6 @@ pub struct IAppointmentStoreChangedDeferral(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppointmentStoreChangedDeferral {
     type Vtable = IAppointmentStoreChangedDeferralVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4cb82026_fedb_4bc3_9662_95a9befdf4df);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IAppointmentStoreChangedDeferralImpl {
-    fn Complete();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5074,10 +4751,6 @@ unsafe impl ::windows::core::Interface for IAppointmentStoreChangedEventArgs {
     type Vtable = IAppointmentStoreChangedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2285f8b9_0791_417e_bfea_cc6d41636c8c);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IAppointmentStoreChangedEventArgsImpl {
-    fn GetDeferral();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppointmentStoreChangedEventArgsVtbl(
@@ -5096,8 +4769,6 @@ unsafe impl ::windows::core::Interface for IAppointmentStoreNotificationTriggerD
     type Vtable = IAppointmentStoreNotificationTriggerDetailsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9b33cb11_c301_421e_afef_047ecfa76adb);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IAppointmentStoreNotificationTriggerDetailsImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppointmentStoreNotificationTriggerDetailsVtbl(
@@ -5114,15 +4785,6 @@ pub struct IFindAppointmentsOptions(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IFindAppointmentsOptions {
     type Vtable = IFindAppointmentsOptionsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x55f7dc55_9942_3086_82b5_2cb29f64d5f5);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IFindAppointmentsOptionsImpl {
-    fn CalendarIds();
-    fn FetchProperties();
-    fn IncludeHidden();
-    fn SetIncludeHidden();
-    fn MaxCount();
-    fn SetMaxCount();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5176,3 +4838,5 @@ unsafe impl ::windows::core::RuntimeType for RecurrenceType {
 impl ::windows::core::DefaultType for RecurrenceType {
     type DefaultType = Self;
 }
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

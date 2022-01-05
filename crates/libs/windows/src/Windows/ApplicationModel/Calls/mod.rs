@@ -362,10 +362,6 @@ unsafe impl ::windows::core::Interface for ICallAnswerEventArgs {
     type Vtable = ICallAnswerEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfd789617_2dd7_4c8c_b2bd_95d17a5bb733);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ICallAnswerEventArgsImpl {
-    fn AcceptedMedia();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICallAnswerEventArgsVtbl(
@@ -383,10 +379,6 @@ pub struct ICallRejectEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICallRejectEventArgs {
     type Vtable = ICallRejectEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xda47fad7_13d4_4d92_a1c2_b77811ee37ec);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ICallRejectEventArgsImpl {
-    fn RejectReason();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -406,10 +398,6 @@ unsafe impl ::windows::core::Interface for ICallStateChangeEventArgs {
     type Vtable = ICallStateChangeEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeab2349e_66f5_47f9_9fb5_459c5198c720);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ICallStateChangeEventArgsImpl {
-    fn State();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICallStateChangeEventArgsVtbl(
@@ -428,10 +416,6 @@ unsafe impl ::windows::core::Interface for ILockScreenCallEndCallDeferral {
     type Vtable = ILockScreenCallEndCallDeferralVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2dd7ed0d_98ed_4041_9632_50ff812b773f);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ILockScreenCallEndCallDeferralImpl {
-    fn Complete();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILockScreenCallEndCallDeferralVtbl(
@@ -449,11 +433,6 @@ pub struct ILockScreenCallEndRequestedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ILockScreenCallEndRequestedEventArgs {
     type Vtable = ILockScreenCallEndRequestedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8190a363_6f27_46e9_aeb6_c0ae83e47dc7);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ILockScreenCallEndRequestedEventArgsImpl {
-    fn GetDeferral();
-    fn Deadline();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -474,16 +453,6 @@ pub struct ILockScreenCallUI(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ILockScreenCallUI {
     type Vtable = ILockScreenCallUIVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc596fd8d_73c9_4a14_b021_ec1c50a3b727);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ILockScreenCallUIImpl {
-    fn Dismiss();
-    fn EndRequested();
-    fn RemoveEndRequested();
-    fn Closed();
-    fn RemoveClosed();
-    fn CallTitle();
-    fn SetCallTitle();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -513,10 +482,6 @@ unsafe impl ::windows::core::Interface for IMuteChangeEventArgs {
     type Vtable = IMuteChangeEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8585e159_0c41_432c_814d_c5f1fdf530be);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IMuteChangeEventArgsImpl {
-    fn Muted();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMuteChangeEventArgsVtbl(
@@ -534,39 +499,6 @@ pub struct IPhoneCall(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPhoneCall {
     type Vtable = IPhoneCallVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc14ed0f8_c17d_59d2_9628_66e545b6cd21);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IPhoneCallImpl {
-    fn StatusChanged();
-    fn RemoveStatusChanged();
-    fn AudioDeviceChanged();
-    fn RemoveAudioDeviceChanged();
-    fn IsMutedChanged();
-    fn RemoveIsMutedChanged();
-    fn CallId();
-    fn IsMuted();
-    fn Status();
-    fn AudioDevice();
-    fn GetPhoneCallInfo();
-    fn GetPhoneCallInfoAsync();
-    fn End();
-    fn EndAsync();
-    fn SendDtmfKey();
-    fn SendDtmfKeyAsync();
-    fn AcceptIncoming();
-    fn AcceptIncomingAsync();
-    fn Hold();
-    fn HoldAsync();
-    fn ResumeFromHold();
-    fn ResumeFromHoldAsync();
-    fn Mute();
-    fn MuteAsync();
-    fn Unmute();
-    fn UnmuteAsync();
-    fn RejectIncoming();
-    fn RejectIncomingAsync();
-    fn ChangeAudioDevice();
-    fn ChangeAudioDeviceAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -631,14 +563,6 @@ unsafe impl ::windows::core::Interface for IPhoneCallBlockingStatics {
     type Vtable = IPhoneCallBlockingStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x19646f84_2b79_26f1_a46f_694be043f313);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IPhoneCallBlockingStaticsImpl {
-    fn BlockUnknownNumbers();
-    fn SetBlockUnknownNumbers();
-    fn BlockPrivateNumbers();
-    fn SetBlockPrivateNumbers();
-    fn SetCallBlockingListAsync();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPhoneCallBlockingStaticsVtbl(
@@ -661,43 +585,6 @@ pub struct IPhoneCallHistoryEntry(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPhoneCallHistoryEntry {
     type Vtable = IPhoneCallHistoryEntryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfab0e129_32a4_4b85_83d1_f90d8c23a857);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IPhoneCallHistoryEntryImpl {
-    fn Id();
-    fn Address();
-    fn SetAddress();
-    fn Duration();
-    fn SetDuration();
-    fn IsCallerIdBlocked();
-    fn SetIsCallerIdBlocked();
-    fn IsEmergency();
-    fn SetIsEmergency();
-    fn IsIncoming();
-    fn SetIsIncoming();
-    fn IsMissed();
-    fn SetIsMissed();
-    fn IsRinging();
-    fn SetIsRinging();
-    fn IsSeen();
-    fn SetIsSeen();
-    fn IsSuppressed();
-    fn SetIsSuppressed();
-    fn IsVoicemail();
-    fn SetIsVoicemail();
-    fn Media();
-    fn SetMedia();
-    fn OtherAppReadAccess();
-    fn SetOtherAppReadAccess();
-    fn RemoteId();
-    fn SetRemoteId();
-    fn SourceDisplayName();
-    fn SourceId();
-    fn SetSourceId();
-    fn SourceIdKind();
-    fn SetSourceIdKind();
-    fn StartTime();
-    fn SetStartTime();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -754,17 +641,6 @@ unsafe impl ::windows::core::Interface for IPhoneCallHistoryEntryAddress {
     type Vtable = IPhoneCallHistoryEntryAddressVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x30f159da_3955_4042_84e6_66eebf82e67f);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IPhoneCallHistoryEntryAddressImpl {
-    fn ContactId();
-    fn SetContactId();
-    fn DisplayName();
-    fn SetDisplayName();
-    fn RawAddress();
-    fn SetRawAddress();
-    fn RawAddressKind();
-    fn SetRawAddressKind();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPhoneCallHistoryEntryAddressVtbl(
@@ -790,10 +666,6 @@ unsafe impl ::windows::core::Interface for IPhoneCallHistoryEntryAddressFactory 
     type Vtable = IPhoneCallHistoryEntryAddressFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfb0fadba_c7f0_4bb6_9f6b_ba5d73209aca);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IPhoneCallHistoryEntryAddressFactoryImpl {
-    fn Create();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPhoneCallHistoryEntryAddressFactoryVtbl(
@@ -811,12 +683,6 @@ pub struct IPhoneCallHistoryEntryQueryOptions(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPhoneCallHistoryEntryQueryOptions {
     type Vtable = IPhoneCallHistoryEntryQueryOptionsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9c5fe15c_8bed_40ca_b06e_c4ca8eae5c87);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IPhoneCallHistoryEntryQueryOptionsImpl {
-    fn DesiredMedia();
-    fn SetDesiredMedia();
-    fn SourceIds();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -839,10 +705,6 @@ unsafe impl ::windows::core::Interface for IPhoneCallHistoryEntryReader {
     type Vtable = IPhoneCallHistoryEntryReaderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x61ece4be_8d86_479f_8404_a9846920fee6);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IPhoneCallHistoryEntryReaderImpl {
-    fn ReadBatchAsync();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPhoneCallHistoryEntryReaderVtbl(
@@ -861,11 +723,6 @@ pub struct IPhoneCallHistoryManagerForUser(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPhoneCallHistoryManagerForUser {
     type Vtable = IPhoneCallHistoryManagerForUserVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd925c523_f55f_4353_9db4_0205a5265a55);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IPhoneCallHistoryManagerForUserImpl {
-    fn RequestStoreAsync();
-    fn User();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -888,10 +745,6 @@ unsafe impl ::windows::core::Interface for IPhoneCallHistoryManagerStatics {
     type Vtable = IPhoneCallHistoryManagerStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf5a6da39_b31f_4f45_ac8e_1b08893c1b50);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IPhoneCallHistoryManagerStaticsImpl {
-    fn RequestStoreAsync();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPhoneCallHistoryManagerStaticsVtbl(
@@ -911,10 +764,6 @@ unsafe impl ::windows::core::Interface for IPhoneCallHistoryManagerStatics2 {
     type Vtable = IPhoneCallHistoryManagerStatics2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xefd474f0_a2db_4188_9e92_bc3cfa6813cf);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IPhoneCallHistoryManagerStatics2Impl {
-    fn GetForUser();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPhoneCallHistoryManagerStatics2Vtbl(
@@ -933,21 +782,6 @@ pub struct IPhoneCallHistoryStore(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPhoneCallHistoryStore {
     type Vtable = IPhoneCallHistoryStoreVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2f907db8_b40e_422b_8545_cb1910a61c52);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IPhoneCallHistoryStoreImpl {
-    fn GetEntryAsync();
-    fn GetEntryReader();
-    fn GetEntryReaderWithOptions();
-    fn SaveEntryAsync();
-    fn DeleteEntryAsync();
-    fn DeleteEntriesAsync();
-    fn MarkEntryAsSeenAsync();
-    fn MarkEntriesAsSeenAsync();
-    fn GetUnseenCountAsync();
-    fn MarkAllAsSeenAsync();
-    fn GetSourcesUnseenCountAsync();
-    fn MarkSourcesAsSeenAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -988,15 +822,6 @@ unsafe impl ::windows::core::Interface for IPhoneCallInfo {
     type Vtable = IPhoneCallInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x22b42577_3e4d_5dc6_89c2_469fe5ffc189);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IPhoneCallInfoImpl {
-    fn LineId();
-    fn IsHoldSupported();
-    fn StartTime();
-    fn PhoneNumber();
-    fn DisplayName();
-    fn CallDirection();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPhoneCallInfoVtbl(
@@ -1021,10 +846,6 @@ unsafe impl ::windows::core::Interface for IPhoneCallManagerStatics {
     type Vtable = IPhoneCallManagerStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x60edac78_78a6_4872_a3ef_98325ec8b843);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IPhoneCallManagerStaticsImpl {
-    fn ShowPhoneCallUI();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPhoneCallManagerStaticsVtbl(
@@ -1042,15 +863,6 @@ pub struct IPhoneCallManagerStatics2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPhoneCallManagerStatics2 {
     type Vtable = IPhoneCallManagerStatics2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc7e3c8bc_2370_431c_98fd_43be5f03086d);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IPhoneCallManagerStatics2Impl {
-    fn CallStateChanged();
-    fn RemoveCallStateChanged();
-    fn IsCallActive();
-    fn IsCallIncoming();
-    fn ShowPhoneCallSettingsUI();
-    fn RequestStoreAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1078,10 +890,6 @@ unsafe impl ::windows::core::Interface for IPhoneCallStatics {
     type Vtable = IPhoneCallStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2218eeab_f60b_53e7_ba13_5aeafbc22957);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IPhoneCallStaticsImpl {
-    fn GetFromId();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPhoneCallStaticsVtbl(
@@ -1099,12 +907,6 @@ pub struct IPhoneCallStore(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPhoneCallStore {
     type Vtable = IPhoneCallStoreVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5f610748_18a6_4173_86d1_28be9dc62dba);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IPhoneCallStoreImpl {
-    fn IsEmergencyPhoneNumberAsync();
-    fn GetDefaultLineAsync();
-    fn RequestLineWatcher();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1128,10 +930,6 @@ unsafe impl ::windows::core::Interface for IPhoneCallVideoCapabilities {
     type Vtable = IPhoneCallVideoCapabilitiesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x02382786_b16a_4fdb_be3b_c4240e13ad0d);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IPhoneCallVideoCapabilitiesImpl {
-    fn IsVideoCallingCapable();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPhoneCallVideoCapabilitiesVtbl(
@@ -1149,10 +947,6 @@ pub struct IPhoneCallVideoCapabilitiesManagerStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPhoneCallVideoCapabilitiesManagerStatics {
     type Vtable = IPhoneCallVideoCapabilitiesManagerStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf3c64b56_f00b_4a1c_a0c6_ee1910749ce7);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IPhoneCallVideoCapabilitiesManagerStaticsImpl {
-    fn GetCapabilitiesAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1173,11 +967,6 @@ unsafe impl ::windows::core::Interface for IPhoneCallsResult {
     type Vtable = IPhoneCallsResultVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1bfad365_57cf_57dd_986d_b057c91eac33);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IPhoneCallsResultImpl {
-    fn OperationStatus();
-    fn AllActivePhoneCalls();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPhoneCallsResultVtbl(
@@ -1197,21 +986,6 @@ pub struct IPhoneDialOptions(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPhoneDialOptions {
     type Vtable = IPhoneDialOptionsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb639c4b8_f06f_36cb_a863_823742b5f2d4);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IPhoneDialOptionsImpl {
-    fn Number();
-    fn SetNumber();
-    fn DisplayName();
-    fn SetDisplayName();
-    fn Contact();
-    fn SetContact();
-    fn ContactPhone();
-    fn SetContactPhone();
-    fn Media();
-    fn SetMedia();
-    fn AudioEndpoint();
-    fn SetAudioEndpoint();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1245,26 +1019,6 @@ pub struct IPhoneLine(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPhoneLine {
     type Vtable = IPhoneLineVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x27c66f30_6a69_34ca_a2ba_65302530c311);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IPhoneLineImpl {
-    fn LineChanged();
-    fn RemoveLineChanged();
-    fn Id();
-    fn DisplayColor();
-    fn NetworkState();
-    fn DisplayName();
-    fn Voicemail();
-    fn NetworkName();
-    fn CellularDetails();
-    fn Transport();
-    fn CanDial();
-    fn SupportsTile();
-    fn VideoCallingCapabilities();
-    fn LineConfiguration();
-    fn IsImmediateDialNumberAsync();
-    fn Dial();
-    fn DialWithOptions();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1304,11 +1058,6 @@ unsafe impl ::windows::core::Interface for IPhoneLine2 {
     type Vtable = IPhoneLine2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0167f56a_5344_5d64_8af3_a31a950e916a);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IPhoneLine2Impl {
-    fn EnableTextReply();
-    fn TransportDeviceId();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPhoneLine2Vtbl(
@@ -1327,13 +1076,6 @@ pub struct IPhoneLine3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPhoneLine3 {
     type Vtable = IPhoneLine3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe2e33cf7_2406_57f3_826a_e5a5f40d6fb5);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IPhoneLine3Impl {
-    fn DialWithResult();
-    fn DialWithResultAsync();
-    fn GetAllActivePhoneCalls();
-    fn GetAllActivePhoneCallsAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1358,14 +1100,6 @@ unsafe impl ::windows::core::Interface for IPhoneLineCellularDetails {
     type Vtable = IPhoneLineCellularDetailsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x192601d5_147c_4769_b673_98a5ec8426cb);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IPhoneLineCellularDetailsImpl {
-    fn SimState();
-    fn SimSlotIndex();
-    fn IsModemOn();
-    fn RegistrationRejectCode();
-    fn GetNetworkOperatorDisplayText();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPhoneLineCellularDetailsVtbl(
@@ -1388,11 +1122,6 @@ unsafe impl ::windows::core::Interface for IPhoneLineConfiguration {
     type Vtable = IPhoneLineConfigurationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfe265862_f64f_4312_b2a8_4e257721aa95);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IPhoneLineConfigurationImpl {
-    fn IsVideoCallingEnabled();
-    fn ExtendedProperties();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPhoneLineConfigurationVtbl(
@@ -1413,11 +1142,6 @@ unsafe impl ::windows::core::Interface for IPhoneLineDialResult {
     type Vtable = IPhoneLineDialResultVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe825a30a_5c7f_546f_b918_3ad2fe70fb34);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IPhoneLineDialResultImpl {
-    fn DialCallStatus();
-    fn DialedCall();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPhoneLineDialResultVtbl(
@@ -1437,10 +1161,6 @@ unsafe impl ::windows::core::Interface for IPhoneLineStatics {
     type Vtable = IPhoneLineStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf38b5f23_ceb0_404f_bcf2_ba9f697d8adf);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IPhoneLineStaticsImpl {
-    fn FromIdAsync();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPhoneLineStaticsVtbl(
@@ -1459,19 +1179,6 @@ pub struct IPhoneLineTransportDevice(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPhoneLineTransportDevice {
     type Vtable = IPhoneLineTransportDeviceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xefa8f889_cffa_59f4_97e4_74705b7dc490);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IPhoneLineTransportDeviceImpl {
-    fn DeviceId();
-    fn Transport();
-    fn RequestAccessAsync();
-    fn RegisterApp();
-    fn RegisterAppForUser();
-    fn UnregisterApp();
-    fn UnregisterAppForUser();
-    fn IsRegistered();
-    fn Connect();
-    fn ConnectAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1504,15 +1211,6 @@ unsafe impl ::windows::core::Interface for IPhoneLineTransportDevice2 {
     type Vtable = IPhoneLineTransportDevice2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x64c885f2_ecf4_5761_8c04_3c248ce61690);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IPhoneLineTransportDevice2Impl {
-    fn AudioRoutingStatus();
-    fn AudioRoutingStatusChanged();
-    fn RemoveAudioRoutingStatusChanged();
-    fn InBandRingingEnabled();
-    fn InBandRingingEnabledChanged();
-    fn RemoveInBandRingingEnabledChanged();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPhoneLineTransportDevice2Vtbl(
@@ -1540,12 +1238,6 @@ unsafe impl ::windows::core::Interface for IPhoneLineTransportDeviceStatics {
     type Vtable = IPhoneLineTransportDeviceStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0f3121ac_d609_51a1_96f3_fb00d1819252);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IPhoneLineTransportDeviceStaticsImpl {
-    fn FromId();
-    fn GetDeviceSelector();
-    fn GetDeviceSelectorForPhoneLineTransport();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPhoneLineTransportDeviceStaticsVtbl(
@@ -1565,22 +1257,6 @@ pub struct IPhoneLineWatcher(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPhoneLineWatcher {
     type Vtable = IPhoneLineWatcherVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8a45cd0a_6323_44e0_a6f6_9f21f64dc90a);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IPhoneLineWatcherImpl {
-    fn Start();
-    fn Stop();
-    fn LineAdded();
-    fn RemoveLineAdded();
-    fn LineRemoved();
-    fn RemoveLineRemoved();
-    fn LineUpdated();
-    fn RemoveLineUpdated();
-    fn EnumerationCompleted();
-    fn RemoveEnumerationCompleted();
-    fn Stopped();
-    fn RemoveStopped();
-    fn Status();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1622,10 +1298,6 @@ unsafe impl ::windows::core::Interface for IPhoneLineWatcherEventArgs {
     type Vtable = IPhoneLineWatcherEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd07c753e_9e12_4a37_82b7_ad535dad6a67);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IPhoneLineWatcherEventArgsImpl {
-    fn LineId();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPhoneLineWatcherEventArgsVtbl(
@@ -1643,13 +1315,6 @@ pub struct IPhoneVoicemail(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPhoneVoicemail {
     type Vtable = IPhoneVoicemailVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc9ce77f6_6e9f_3a8b_b727_6e0cf6998224);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IPhoneVoicemailImpl {
-    fn Number();
-    fn MessageCount();
-    fn Type();
-    fn DialVoicemailAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1672,20 +1337,6 @@ pub struct IVoipCallCoordinator(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IVoipCallCoordinator {
     type Vtable = IVoipCallCoordinatorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4f118bcf_e8ef_4434_9c5f_a8d893fafe79);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IVoipCallCoordinatorImpl {
-    fn ReserveCallResourcesAsync();
-    fn MuteStateChanged();
-    fn RemoveMuteStateChanged();
-    fn RequestNewIncomingCall();
-    fn RequestNewOutgoingCall();
-    fn NotifyMuted();
-    fn NotifyUnmuted();
-    fn RequestOutgoingUpgradeToVideoCall();
-    fn RequestIncomingUpgradeToVideoCall();
-    fn TerminateCellularCall();
-    fn CancelUpgrade();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1720,10 +1371,6 @@ unsafe impl ::windows::core::Interface for IVoipCallCoordinator2 {
     type Vtable = IVoipCallCoordinator2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbeb4a9f3_c704_4234_89ce_e88cc0d28fbe);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IVoipCallCoordinator2Impl: IVoipCallCoordinatorImpl {
-    fn SetupNewAcceptedCall();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVoipCallCoordinator2Vtbl(
@@ -1741,11 +1388,6 @@ pub struct IVoipCallCoordinator3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IVoipCallCoordinator3 {
     type Vtable = IVoipCallCoordinator3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x338d0cbf_9b55_4021_87ca_e64b9bd666c7);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IVoipCallCoordinator3Impl: IVoipCallCoordinatorImpl {
-    fn RequestNewAppInitiatedCall();
-    fn RequestNewIncomingCallWithContactRemoteId();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1767,10 +1409,6 @@ unsafe impl ::windows::core::Interface for IVoipCallCoordinator4 {
     type Vtable = IVoipCallCoordinator4Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x83737239_9311_468f_bb49_47e0dfb5d93e);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IVoipCallCoordinator4Impl: IVoipCallCoordinatorImpl {
-    fn ReserveOneProcessCallResourcesAsync();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVoipCallCoordinator4Vtbl(
@@ -1790,10 +1428,6 @@ unsafe impl ::windows::core::Interface for IVoipCallCoordinatorStatics {
     type Vtable = IVoipCallCoordinatorStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7f5d1f2b_e04a_4d10_b31a_a55c922cc2fb);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IVoipCallCoordinatorStaticsImpl {
-    fn GetDefault();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVoipCallCoordinatorStaticsVtbl(
@@ -1811,29 +1445,6 @@ pub struct IVoipPhoneCall(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IVoipPhoneCall {
     type Vtable = IVoipPhoneCallVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6cf1f19a_7794_4a5a_8c68_ae87947a6990);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IVoipPhoneCallImpl {
-    fn EndRequested();
-    fn RemoveEndRequested();
-    fn HoldRequested();
-    fn RemoveHoldRequested();
-    fn ResumeRequested();
-    fn RemoveResumeRequested();
-    fn AnswerRequested();
-    fn RemoveAnswerRequested();
-    fn RejectRequested();
-    fn RemoveRejectRequested();
-    fn NotifyCallHeld();
-    fn NotifyCallActive();
-    fn NotifyCallEnded();
-    fn ContactName();
-    fn SetContactName();
-    fn StartTime();
-    fn SetStartTime();
-    fn CallMedia();
-    fn SetCallMedia();
-    fn NotifyCallReady();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1884,10 +1495,6 @@ unsafe impl ::windows::core::Interface for IVoipPhoneCall2 {
     type Vtable = IVoipPhoneCall2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x741b46e1_245f_41f3_9399_3141d25b52e3);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IVoipPhoneCall2Impl: IVoipPhoneCallImpl {
-    fn TryShowAppUI();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVoipPhoneCall2Vtbl(
@@ -1905,10 +1512,6 @@ pub struct IVoipPhoneCall3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IVoipPhoneCall3 {
     type Vtable = IVoipPhoneCall3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0d891522_e258_4aa9_907a_1aa413c25523);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IVoipPhoneCall3Impl: IVoipPhoneCallImpl + IVoipPhoneCall2Impl {
-    fn NotifyCallAccepted();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6707,3 +6310,5 @@ unsafe impl ::windows::core::RuntimeType for VoipPhoneCallState {
 impl ::windows::core::DefaultType for VoipPhoneCallState {
     type DefaultType = Self;
 }
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

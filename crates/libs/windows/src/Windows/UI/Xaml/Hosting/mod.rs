@@ -915,10 +915,6 @@ unsafe impl ::windows::core::Interface for IDesignerAppExitedEventArgs {
     type Vtable = IDesignerAppExitedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf6aac86a_0cad_410c_8f62_dc2936151c74);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IDesignerAppExitedEventArgsImpl {
-    fn ExitCode();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDesignerAppExitedEventArgsVtbl(
@@ -936,14 +932,6 @@ pub struct IDesignerAppManager(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDesignerAppManager {
     type Vtable = IDesignerAppManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa6272caa_d5c6_40cb_abd9_27ba43831bb7);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IDesignerAppManagerImpl {
-    fn AppUserModelId();
-    fn DesignerAppExited();
-    fn RemoveDesignerAppExited();
-    fn CreateNewViewAsync();
-    fn LoadObjectIntoAppAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -971,10 +959,6 @@ unsafe impl ::windows::core::Interface for IDesignerAppManagerFactory {
     type Vtable = IDesignerAppManagerFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8f9d633b_1266_4c0e_8499_0db85bbd4c43);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IDesignerAppManagerFactoryImpl {
-    fn Create();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDesignerAppManagerFactoryVtbl(
@@ -992,14 +976,6 @@ pub struct IDesignerAppView(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDesignerAppView {
     type Vtable = IDesignerAppViewVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5c777cea_dd71_4a84_a56f_dacb4b14706f);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IDesignerAppViewImpl {
-    fn ApplicationViewId();
-    fn AppUserModelId();
-    fn ViewState();
-    fn ViewSize();
-    fn UpdateViewAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1024,17 +1000,6 @@ pub struct IDesktopWindowXamlSource(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDesktopWindowXamlSource {
     type Vtable = IDesktopWindowXamlSourceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd585bfe1_00ff_51be_ba1d_a1329956ea0a);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IDesktopWindowXamlSourceImpl {
-    fn Content();
-    fn SetContent();
-    fn HasFocus();
-    fn TakeFocusRequested();
-    fn RemoveTakeFocusRequested();
-    fn GotFocus();
-    fn RemoveGotFocus();
-    fn NavigateFocus();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1065,10 +1030,6 @@ unsafe impl ::windows::core::Interface for IDesktopWindowXamlSourceFactory {
     type Vtable = IDesktopWindowXamlSourceFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5cd61dc0_2561_56e1_8e75_6e44173805e3);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IDesktopWindowXamlSourceFactoryImpl {
-    fn CreateInstance();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDesktopWindowXamlSourceFactoryVtbl(
@@ -1086,10 +1047,6 @@ pub struct IDesktopWindowXamlSourceGotFocusEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDesktopWindowXamlSourceGotFocusEventArgs {
     type Vtable = IDesktopWindowXamlSourceGotFocusEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x39be4849_d9cc_5b70_8f05_1ad9a4aaa342);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IDesktopWindowXamlSourceGotFocusEventArgsImpl {
-    fn Request();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1109,10 +1066,6 @@ unsafe impl ::windows::core::Interface for IDesktopWindowXamlSourceTakeFocusRequ
     type Vtable = IDesktopWindowXamlSourceTakeFocusRequestedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfe61e4b9_a7af_52b3_bdb9_c3305c0b8df2);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IDesktopWindowXamlSourceTakeFocusRequestedEventArgsImpl {
-    fn Request();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDesktopWindowXamlSourceTakeFocusRequestedEventArgsVtbl(
@@ -1131,8 +1084,6 @@ unsafe impl ::windows::core::Interface for IElementCompositionPreview {
     type Vtable = IElementCompositionPreviewVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb6f1a676_cfe6_46ac_acf6_c4687bb65e60);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IElementCompositionPreviewImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IElementCompositionPreviewVtbl(
@@ -1149,13 +1100,6 @@ pub struct IElementCompositionPreviewStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IElementCompositionPreviewStatics {
     type Vtable = IElementCompositionPreviewStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x08c92b38_ec99_4c55_bc85_a1c180b27646);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IElementCompositionPreviewStaticsImpl {
-    fn GetElementVisual();
-    fn GetElementChildVisual();
-    fn SetElementChildVisual();
-    fn GetScrollViewerManipulationPropertySet();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1182,13 +1126,6 @@ unsafe impl ::windows::core::Interface for IElementCompositionPreviewStatics2 {
     type Vtable = IElementCompositionPreviewStatics2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x24148fbb_23d6_4f37_ba0c_0733e799722d);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IElementCompositionPreviewStatics2Impl {
-    fn SetImplicitShowAnimation();
-    fn SetImplicitHideAnimation();
-    fn SetIsTranslationEnabled();
-    fn GetPointerPositionPropertySet();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IElementCompositionPreviewStatics2Vtbl(
@@ -1213,11 +1150,6 @@ unsafe impl ::windows::core::Interface for IElementCompositionPreviewStatics3 {
     type Vtable = IElementCompositionPreviewStatics3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x843bc4c3_c105_59fe_a3d1_373c1d3e6fbc);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IElementCompositionPreviewStatics3Impl {
-    fn SetAppWindowContent();
-    fn GetAppWindowContent();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IElementCompositionPreviewStatics3Vtbl(
@@ -1239,8 +1171,6 @@ unsafe impl ::windows::core::Interface for IWindowsXamlManager {
     type Vtable = IWindowsXamlManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x56096c31_1aa0_5288_8818_6e74a2dcaff5);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IWindowsXamlManagerImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWindowsXamlManagerVtbl(
@@ -1257,10 +1187,6 @@ pub struct IWindowsXamlManagerStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IWindowsXamlManagerStatics {
     type Vtable = IWindowsXamlManagerStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x28258a12_7d82_505b_b210_712b04a58882);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IWindowsXamlManagerStaticsImpl {
-    fn InitializeForCurrentThread();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1279,12 +1205,6 @@ pub struct IXamlSourceFocusNavigationRequest(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IXamlSourceFocusNavigationRequest {
     type Vtable = IXamlSourceFocusNavigationRequestVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfbb93bb5_1496_5a80_ac00_e757359755e6);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IXamlSourceFocusNavigationRequestImpl {
-    fn Reason();
-    fn HintRect();
-    fn CorrelationId();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1306,12 +1226,6 @@ pub struct IXamlSourceFocusNavigationRequestFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IXamlSourceFocusNavigationRequestFactory {
     type Vtable = IXamlSourceFocusNavigationRequestFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe746ab8f_b4ef_5390_97e5_cc0a2779c574);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IXamlSourceFocusNavigationRequestFactoryImpl {
-    fn CreateInstance();
-    fn CreateInstanceWithHintRect();
-    fn CreateInstanceWithHintRectAndCorrelationId();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1335,10 +1249,6 @@ unsafe impl ::windows::core::Interface for IXamlSourceFocusNavigationResult {
     type Vtable = IXamlSourceFocusNavigationResultVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x88d55a5f_9603_5d8f_9cc7_d1c4070d9801);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IXamlSourceFocusNavigationResultImpl {
-    fn WasFocusMoved();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXamlSourceFocusNavigationResultVtbl(
@@ -1357,10 +1267,6 @@ unsafe impl ::windows::core::Interface for IXamlSourceFocusNavigationResultFacto
     type Vtable = IXamlSourceFocusNavigationResultFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x43bbadbf_f9e1_5527_b8c5_09339ff2ca76);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IXamlSourceFocusNavigationResultFactoryImpl {
-    fn CreateInstance();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXamlSourceFocusNavigationResultFactoryVtbl(
@@ -1378,18 +1284,6 @@ pub struct IXamlUIPresenter(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IXamlUIPresenter {
     type Vtable = IXamlUIPresenterVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa714944a_1619_4fc6_b31b_89512ef022a2);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IXamlUIPresenterImpl {
-    fn RootElement();
-    fn SetRootElement();
-    fn ThemeKey();
-    fn SetThemeKey();
-    fn ThemeResourcesXaml();
-    fn SetThemeResourcesXaml();
-    fn SetSize();
-    fn Render();
-    fn Present();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1486,9 +1380,6 @@ unsafe impl ::windows::core::Interface for IXamlUIPresenterHost {
     type Vtable = IXamlUIPresenterHostVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaafb84cd_9f6d_4f80_ac2c_0e6cb9f31659);
 }
-pub trait IXamlUIPresenterHostImpl {
-    fn ResolveFileResource();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXamlUIPresenterHostVtbl(
@@ -1575,9 +1466,6 @@ unsafe impl ::windows::core::RuntimeType for IXamlUIPresenterHost2 {
 unsafe impl ::windows::core::Interface for IXamlUIPresenterHost2 {
     type Vtable = IXamlUIPresenterHost2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x61595672_7ca4_4a21_b56a_88f4812388ca);
-}
-pub trait IXamlUIPresenterHost2Impl {
-    fn GetGenericXamlFilePath();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1666,9 +1554,6 @@ unsafe impl ::windows::core::Interface for IXamlUIPresenterHost3 {
     type Vtable = IXamlUIPresenterHost3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb14292bf_7320_41bb_9f26_4d6fd34db45a);
 }
-pub trait IXamlUIPresenterHost3Impl {
-    fn ResolveDictionaryResource();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXamlUIPresenterHost3Vtbl(
@@ -1686,13 +1571,6 @@ pub struct IXamlUIPresenterStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IXamlUIPresenterStatics {
     type Vtable = IXamlUIPresenterStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x71eaeac8_45e1_4192_85aa_3a422edd23cf);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IXamlUIPresenterStaticsImpl {
-    fn CompleteTimelinesAutomatically();
-    fn SetCompleteTimelinesAutomatically();
-    fn SetHost();
-    fn NotifyWindowSizeChanged();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1714,11 +1592,6 @@ pub struct IXamlUIPresenterStatics2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IXamlUIPresenterStatics2 {
     type Vtable = IXamlUIPresenterStatics2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5c6b68d2_cf1c_4f53_bf09_6a745f7a9703);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IXamlUIPresenterStatics2Impl {
-    fn GetFlyoutPlacementTargetInfo();
-    fn GetFlyoutPlacement();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2281,3 +2154,5 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Xaml
 }
 unsafe impl ::core::marker::Send for XamlUIPresenter {}
 unsafe impl ::core::marker::Sync for XamlUIPresenter {}
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

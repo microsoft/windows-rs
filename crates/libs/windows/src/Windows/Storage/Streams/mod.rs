@@ -2058,11 +2058,6 @@ unsafe impl ::windows::core::Interface for IBuffer {
     type Vtable = IBufferVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x905a0fe0_bc53_11df_8c49_001e4fc686da);
 }
-pub trait IBufferImpl {
-    fn Capacity();
-    fn Length();
-    fn SetLength();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBufferVtbl(
@@ -2083,10 +2078,6 @@ unsafe impl ::windows::core::Interface for IBufferFactory {
     type Vtable = IBufferFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x71af914d_c10f_484b_bc50_14bc623b3a27);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IBufferFactoryImpl {
-    fn Create();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBufferFactoryVtbl(
@@ -2104,11 +2095,6 @@ pub struct IBufferStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IBufferStatics {
     type Vtable = IBufferStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe901e65b_d716_475a_a90a_af7229b1e741);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IBufferStaticsImpl {
-    fn CreateCopyFromMemoryBuffer();
-    fn CreateMemoryBufferOverIBuffer();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2199,9 +2185,6 @@ unsafe impl ::windows::core::RuntimeType for IContentTypeProvider {
 unsafe impl ::windows::core::Interface for IContentTypeProvider {
     type Vtable = IContentTypeProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x97d098a5_3b99_4de9_88a5_e11d2f50c795);
-}
-pub trait IContentTypeProviderImpl {
-    fn ContentType();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2481,34 +2464,6 @@ unsafe impl ::windows::core::Interface for IDataReader {
     type Vtable = IDataReaderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe2b50029_b4c1_4314_a4b8_fb813a2f275e);
 }
-pub trait IDataReaderImpl {
-    fn UnconsumedBufferLength();
-    fn UnicodeEncoding();
-    fn SetUnicodeEncoding();
-    fn ByteOrder();
-    fn SetByteOrder();
-    fn InputStreamOptions();
-    fn SetInputStreamOptions();
-    fn ReadByte();
-    fn ReadBytes();
-    fn ReadBuffer();
-    fn ReadBoolean();
-    fn ReadGuid();
-    fn ReadInt16();
-    fn ReadInt32();
-    fn ReadInt64();
-    fn ReadUInt16();
-    fn ReadUInt32();
-    fn ReadUInt64();
-    fn ReadSingle();
-    fn ReadDouble();
-    fn ReadString();
-    fn ReadDateTime();
-    fn ReadTimeSpan();
-    fn LoadAsync();
-    fn DetachBuffer();
-    fn DetachStream();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDataReaderVtbl(
@@ -2555,10 +2510,6 @@ unsafe impl ::windows::core::Interface for IDataReaderFactory {
     type Vtable = IDataReaderFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd7527847_57da_4e15_914c_06806699a098);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IDataReaderFactoryImpl {
-    fn CreateDataReader();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDataReaderFactoryVtbl(
@@ -2576,10 +2527,6 @@ pub struct IDataReaderStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDataReaderStatics {
     type Vtable = IDataReaderStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x11fcbfc8_f93a_471b_b121_f379e349313c);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IDataReaderStaticsImpl {
-    fn FromBuffer();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2826,35 +2773,6 @@ unsafe impl ::windows::core::Interface for IDataWriter {
     type Vtable = IDataWriterVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x64b89265_d341_4922_b38a_dd4af8808c4e);
 }
-pub trait IDataWriterImpl {
-    fn UnstoredBufferLength();
-    fn UnicodeEncoding();
-    fn SetUnicodeEncoding();
-    fn ByteOrder();
-    fn SetByteOrder();
-    fn WriteByte();
-    fn WriteBytes();
-    fn WriteBuffer();
-    fn WriteBufferRange();
-    fn WriteBoolean();
-    fn WriteGuid();
-    fn WriteInt16();
-    fn WriteInt32();
-    fn WriteInt64();
-    fn WriteUInt16();
-    fn WriteUInt32();
-    fn WriteUInt64();
-    fn WriteSingle();
-    fn WriteDouble();
-    fn WriteDateTime();
-    fn WriteTimeSpan();
-    fn WriteString();
-    fn MeasureString();
-    fn StoreAsync();
-    fn FlushAsync();
-    fn DetachBuffer();
-    fn DetachStream();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDataWriterVtbl(
@@ -2903,10 +2821,6 @@ unsafe impl ::windows::core::Interface for IDataWriterFactory {
     type Vtable = IDataWriterFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x338c67c2_8b84_4c2b_9c50_7b8767847a1f);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IDataWriterFactoryImpl {
-    fn CreateDataWriter();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDataWriterFactoryVtbl(
@@ -2924,17 +2838,6 @@ pub struct IFileRandomAccessStreamStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IFileRandomAccessStreamStatics {
     type Vtable = IFileRandomAccessStreamStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x73550107_3b57_4b5d_8345_554d2fc621f0);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IFileRandomAccessStreamStaticsImpl {
-    fn OpenAsync();
-    fn OpenWithOptionsAsync();
-    fn OpenTransactedWriteAsync();
-    fn OpenTransactedWriteWithOptionsAsync();
-    fn OpenForUserAsync();
-    fn OpenForUserWithOptionsAsync();
-    fn OpenTransactedWriteForUserAsync();
-    fn OpenTransactedWriteForUserWithOptionsAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3071,10 +2974,6 @@ unsafe impl ::windows::core::Interface for IInputStream {
     type Vtable = IInputStreamVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x905a0fe2_bc53_11df_8c49_001e4fc686da);
 }
-#[cfg(feature = "Foundation")]
-pub trait IInputStreamImpl: IClosableImpl {
-    fn ReadAsync();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInputStreamVtbl(
@@ -3163,9 +3062,6 @@ unsafe impl ::windows::core::RuntimeType for IInputStreamReference {
 unsafe impl ::windows::core::Interface for IInputStreamReference {
     type Vtable = IInputStreamReferenceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x43929d18_5ec9_4b5a_919c_4205b0c804b6);
-}
-pub trait IInputStreamReferenceImpl {
-    fn OpenSequentialReadAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3297,11 +3193,6 @@ unsafe impl ::windows::core::Interface for IOutputStream {
     type Vtable = IOutputStreamVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x905a0fe6_bc53_11df_8c49_001e4fc686da);
 }
-#[cfg(feature = "Foundation")]
-pub trait IOutputStreamImpl: IClosableImpl {
-    fn WriteAsync();
-    fn FlushAsync();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IOutputStreamVtbl(
@@ -3398,10 +3289,6 @@ unsafe impl ::windows::core::RuntimeType for IPropertySetSerializer {
 unsafe impl ::windows::core::Interface for IPropertySetSerializer {
     type Vtable = IPropertySetSerializerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6e8ebf1c_ef3d_4376_b20e_5be638aeac77);
-}
-pub trait IPropertySetSerializerImpl {
-    fn Serialize();
-    fn Deserialize();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3654,18 +3541,6 @@ unsafe impl ::windows::core::Interface for IRandomAccessStream {
     type Vtable = IRandomAccessStreamVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x905a0fe1_bc53_11df_8c49_001e4fc686da);
 }
-#[cfg(feature = "Foundation")]
-pub trait IRandomAccessStreamImpl: IClosableImpl + IInputStreamImpl + IOutputStreamImpl {
-    fn Size();
-    fn SetSize();
-    fn GetInputStreamAt();
-    fn GetOutputStreamAt();
-    fn Position();
-    fn Seek();
-    fn CloneStream();
-    fn CanRead();
-    fn CanWrite();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRandomAccessStreamVtbl(
@@ -3762,9 +3637,6 @@ unsafe impl ::windows::core::Interface for IRandomAccessStreamReference {
     type Vtable = IRandomAccessStreamReferenceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x33ee3134_1dd6_4e3a_8067_d1c162e8642b);
 }
-pub trait IRandomAccessStreamReferenceImpl {
-    fn OpenReadAsync();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRandomAccessStreamReferenceVtbl(
@@ -3783,12 +3655,6 @@ pub struct IRandomAccessStreamReferenceStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IRandomAccessStreamReferenceStatics {
     type Vtable = IRandomAccessStreamReferenceStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x857309dc_3fbf_4e7d_986f_ef3b1a07a964);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IRandomAccessStreamReferenceStaticsImpl {
-    fn CreateFromFile();
-    fn CreateFromUri();
-    fn CreateFromStream();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3810,12 +3676,6 @@ pub struct IRandomAccessStreamStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IRandomAccessStreamStatics {
     type Vtable = IRandomAccessStreamStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x524cedcf_6e29_4ce5_9573_6b753db66c3a);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IRandomAccessStreamStaticsImpl {
-    fn CopyAsync();
-    fn CopySizeAsync();
-    fn CopyAndCloseAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4122,8 +3982,6 @@ unsafe impl ::windows::core::Interface for IRandomAccessStreamWithContentType {
     type Vtable = IRandomAccessStreamWithContentTypeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcc254827_4b3d_438f_9232_10c76bc7e038);
 }
-#[cfg(feature = "Foundation")]
-pub trait IRandomAccessStreamWithContentTypeImpl: IClosableImpl + IContentTypeProviderImpl + IInputStreamImpl + IOutputStreamImpl + IRandomAccessStreamImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRandomAccessStreamWithContentTypeVtbl(
@@ -5213,3 +5071,5 @@ unsafe impl ::windows::core::RuntimeType for UnicodeEncoding {
 impl ::windows::core::DefaultType for UnicodeEncoding {
     type DefaultType = Self;
 }
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

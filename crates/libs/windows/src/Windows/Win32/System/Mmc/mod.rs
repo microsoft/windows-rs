@@ -92,8 +92,6 @@ unsafe impl ::windows::core::Interface for AppEvents {
     type Vtable = AppEventsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfc7a4252_78ac_4532_8c5a_563cfe138863);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait AppEventsImpl: IDispatchImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct AppEventsVtbl(
@@ -392,18 +390,6 @@ unsafe impl ::windows::core::Interface for Column {
     type Vtable = ColumnVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfd1c5f63_2b16_4d06_9ab3_f45350b940ab);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait ColumnImpl: IDispatchImpl {
-    fn Name();
-    fn Width();
-    fn SetWidth();
-    fn DisplayPosition();
-    fn SetDisplayPosition();
-    fn Hidden();
-    fn SetHidden();
-    fn SetAsSortColumn();
-    fn IsSortColumn();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ColumnVtbl(
@@ -538,12 +524,6 @@ unsafe impl ::windows::core::Interface for Columns {
     type Vtable = ColumnsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x383d4d97_fc44_478b_b139_6323dc48611c);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait ColumnsImpl: IDispatchImpl {
-    fn Item();
-    fn Count();
-    fn _NewEnum();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ColumnsVtbl(
@@ -669,12 +649,6 @@ impl ::core::fmt::Debug for ContextMenu {
 unsafe impl ::windows::core::Interface for ContextMenu {
     type Vtable = ContextMenuVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdab39ce0_25e6_4e07_8362_ba9c95706545);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait ContextMenuImpl: IDispatchImpl {
-    fn _NewEnum();
-    fn Item();
-    fn Count();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -875,25 +849,6 @@ unsafe impl ::windows::core::Interface for Document {
     type Vtable = DocumentVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x225120d6_1e0f_40a3_93fe_1079e6a8017b);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait DocumentImpl: IDispatchImpl {
-    fn Save();
-    fn SaveAs();
-    fn Close();
-    fn Views();
-    fn SnapIns();
-    fn ActiveView();
-    fn Name();
-    fn SetName();
-    fn Location();
-    fn IsSaved();
-    fn Mode();
-    fn SetMode();
-    fn RootNode();
-    fn ScopeNamespace();
-    fn CreateProperties();
-    fn Application();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct DocumentVtbl(
@@ -1055,16 +1010,6 @@ unsafe impl ::windows::core::Interface for Extension {
     type Vtable = ExtensionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xad4d6ca6_912f_409b_a26e_7fd234aef542);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait ExtensionImpl: IDispatchImpl {
-    fn Name();
-    fn Vendor();
-    fn Version();
-    fn Extensions();
-    fn SnapinCLSID();
-    fn EnableAllExtensions();
-    fn Enable();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ExtensionVtbl(
@@ -1194,12 +1139,6 @@ impl ::core::fmt::Debug for Extensions {
 unsafe impl ::windows::core::Interface for Extensions {
     type Vtable = ExtensionsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x82dbea43_8ca4_44bc_a2ca_d18741059ec8);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait ExtensionsImpl: IDispatchImpl {
-    fn _NewEnum();
-    fn Item();
-    fn Count();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1358,20 +1297,6 @@ unsafe impl ::windows::core::Interface for Frame {
     type Vtable = FrameVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe5e2d970_5bb3_4306_8804_b0968a31c8e6);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait FrameImpl: IDispatchImpl {
-    fn Maximize();
-    fn Minimize();
-    fn Restore();
-    fn Top();
-    fn SetTop();
-    fn Bottom();
-    fn SetBottom();
-    fn Left();
-    fn SetLeft();
-    fn Right();
-    fn SetRight();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct FrameVtbl(
@@ -1465,12 +1390,6 @@ unsafe impl ::windows::core::Interface for IColumnData {
     type Vtable = IColumnDataVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x547c1354_024d_11d3_a707_00c04f8ef4cb);
 }
-pub trait IColumnDataImpl {
-    fn SetColumnConfigData();
-    fn GetColumnConfigData();
-    fn SetColumnSortData();
-    fn GetColumnSortData();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IColumnDataVtbl(
@@ -1560,15 +1479,6 @@ impl ::core::fmt::Debug for IComponent {
 unsafe impl ::windows::core::Interface for IComponent {
     type Vtable = IComponentVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x43136eb2_d36c_11cf_adbc_00aa00a80033);
-}
-pub trait IComponentImpl {
-    fn Initialize();
-    fn Notify();
-    fn Destroy();
-    fn QueryDataObject();
-    fn GetResultViewType();
-    fn GetDisplayInfo();
-    fn CompareObjects();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1704,11 +1614,6 @@ unsafe impl ::windows::core::Interface for IComponent2 {
     type Vtable = IComponent2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x79a2d615_4a10_4ed4_8c65_8633f9335095);
 }
-pub trait IComponent2Impl: IComponentImpl {
-    fn QueryDispatch();
-    fn GetResultViewType2();
-    fn RestoreResultView();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IComponent2Vtbl(
@@ -1812,15 +1717,6 @@ impl ::core::fmt::Debug for IComponentData {
 unsafe impl ::windows::core::Interface for IComponentData {
     type Vtable = IComponentDataVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x955ab28a_5218_11d0_a985_00c04fd8d565);
-}
-pub trait IComponentDataImpl {
-    fn Initialize();
-    fn CreateComponent();
-    fn Notify();
-    fn Destroy();
-    fn QueryDataObject();
-    fn GetDisplayInfo();
-    fn CompareObjects();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1945,9 +1841,6 @@ unsafe impl ::windows::core::Interface for IComponentData2 {
     type Vtable = IComponentData2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcca0f2d2_82de_41b5_bf47_3b2076273d5c);
 }
-pub trait IComponentData2Impl: IComponentDataImpl {
-    fn QueryDispatch();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IComponentData2Vtbl(
@@ -2065,19 +1958,6 @@ impl ::core::fmt::Debug for IConsole {
 unsafe impl ::windows::core::Interface for IConsole {
     type Vtable = IConsoleVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x43136eb1_d36c_11cf_adbc_00aa00a80033);
-}
-pub trait IConsoleImpl {
-    fn SetHeader();
-    fn SetToolbar();
-    fn QueryResultView();
-    fn QueryScopeImageList();
-    fn QueryResultImageList();
-    fn UpdateAllViews();
-    fn MessageBox();
-    fn QueryConsoleVerb();
-    fn SelectScopeItem();
-    fn GetMainWindow();
-    fn NewWindow();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2231,11 +2111,6 @@ impl ::core::fmt::Debug for IConsole2 {
 unsafe impl ::windows::core::Interface for IConsole2 {
     type Vtable = IConsole2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x103d842a_aa63_11d1_a7e1_00c04fd8d565);
-}
-pub trait IConsole2Impl: IConsoleImpl {
-    fn Expand();
-    fn IsTaskpadViewPreferred();
-    fn SetStatusText();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2419,9 +2294,6 @@ unsafe impl ::windows::core::Interface for IConsole3 {
     type Vtable = IConsole3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4f85efdb_d0e1_498c_8d4a_d010dfdd404f);
 }
-pub trait IConsole3Impl: IConsole2Impl + IConsoleImpl {
-    fn RenameScopeItem();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IConsole3Vtbl(
@@ -2524,15 +2396,6 @@ impl ::core::fmt::Debug for IConsoleNameSpace {
 unsafe impl ::windows::core::Interface for IConsoleNameSpace {
     type Vtable = IConsoleNameSpaceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbedeb620_f24d_11cf_8afc_00aa003ca9f6);
-}
-pub trait IConsoleNameSpaceImpl {
-    fn InsertItem();
-    fn DeleteItem();
-    fn SetItem();
-    fn GetItem();
-    fn GetChildItem();
-    fn GetNextItem();
-    fn GetParentItem();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2655,10 +2518,6 @@ unsafe impl ::windows::core::Interface for IConsoleNameSpace2 {
     type Vtable = IConsoleNameSpace2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x255f18cc_65db_11d1_a7dc_00c04fd8d565);
 }
-pub trait IConsoleNameSpace2Impl: IConsoleNameSpaceImpl {
-    fn Expand();
-    fn AddExtension();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IConsoleNameSpace2Vtbl(
@@ -2731,10 +2590,6 @@ unsafe impl ::windows::core::Interface for IConsolePower {
     type Vtable = IConsolePowerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1cfbdd0e_62ca_49ce_a3af_dbb2de61b068);
 }
-pub trait IConsolePowerImpl {
-    fn SetExecutionState();
-    fn ResetIdleTimer();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IConsolePowerVtbl(
@@ -2794,9 +2649,6 @@ impl ::core::fmt::Debug for IConsolePowerSink {
 unsafe impl ::windows::core::Interface for IConsolePowerSink {
     type Vtable = IConsolePowerSinkVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3333759f_fe4f_4975_b143_fec0a5dd6d65);
-}
-pub trait IConsolePowerSinkImpl {
-    fn OnPowerBroadcast();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2872,12 +2724,6 @@ unsafe impl ::windows::core::Interface for IConsoleVerb {
     type Vtable = IConsoleVerbVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe49f7a60_74af_11d0_a286_00c04fd8fe93);
 }
-pub trait IConsoleVerbImpl {
-    fn GetVerbState();
-    fn SetVerbState();
-    fn SetDefaultVerb();
-    fn GetDefaultVerb();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IConsoleVerbVtbl(
@@ -2941,9 +2787,6 @@ unsafe impl ::windows::core::Interface for IContextMenuCallback {
     type Vtable = IContextMenuCallbackVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x43136eb7_d36c_11cf_adbc_00aa00a80033);
 }
-pub trait IContextMenuCallbackImpl {
-    fn AddItem();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IContextMenuCallbackVtbl(
@@ -3002,9 +2845,6 @@ impl ::core::fmt::Debug for IContextMenuCallback2 {
 unsafe impl ::windows::core::Interface for IContextMenuCallback2 {
     type Vtable = IContextMenuCallback2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe178bc0e_2ed0_4b5e_8097_42c9087e8b33);
-}
-pub trait IContextMenuCallback2Impl {
-    fn AddItem();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3105,12 +2945,6 @@ unsafe impl ::windows::core::Interface for IContextMenuProvider {
     type Vtable = IContextMenuProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x43136eb6_d36c_11cf_adbc_00aa00a80033);
 }
-pub trait IContextMenuProviderImpl: IContextMenuCallbackImpl {
-    fn EmptyMenuList();
-    fn AddPrimaryExtensionItems();
-    fn AddThirdPartyExtensionItems();
-    fn ShowContextMenu();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IContextMenuProviderVtbl(
@@ -3185,11 +3019,6 @@ unsafe impl ::windows::core::Interface for IControlbar {
     type Vtable = IControlbarVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x69fb811e_6c1c_11d0_a2cb_00c04fd909dd);
 }
-pub trait IControlbarImpl {
-    fn Create();
-    fn Attach();
-    fn Detach();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IControlbarVtbl(
@@ -3249,9 +3078,6 @@ impl ::core::fmt::Debug for IDisplayHelp {
 unsafe impl ::windows::core::Interface for IDisplayHelp {
     type Vtable = IDisplayHelpVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcc593830_b926_11d1_8063_0000f875a9ce);
-}
-pub trait IDisplayHelpImpl {
-    fn ShowTopic();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3325,12 +3151,6 @@ unsafe impl ::windows::core::Interface for IEnumTASK {
     type Vtable = IEnumTASKVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x338698b1_5a02_11d1_9fec_00600832db4a);
 }
-pub trait IEnumTASKImpl {
-    fn Next();
-    fn Skip();
-    fn Reset();
-    fn Clone();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumTASKVtbl(
@@ -3398,10 +3218,6 @@ unsafe impl ::windows::core::Interface for IExtendContextMenu {
     type Vtable = IExtendContextMenuVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4f3b7a4f_cfac_11cf_b8e3_00c04fd8d5b0);
 }
-pub trait IExtendContextMenuImpl {
-    fn AddMenuItems();
-    fn Command();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IExtendContextMenuVtbl(
@@ -3467,10 +3283,6 @@ unsafe impl ::windows::core::Interface for IExtendControlbar {
     type Vtable = IExtendControlbarVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x49506520_6f40_11d0_a98b_00c04fd8d565);
 }
-pub trait IExtendControlbarImpl {
-    fn SetControlbar();
-    fn ControlbarNotify();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IExtendControlbarVtbl(
@@ -3535,10 +3347,6 @@ impl ::core::fmt::Debug for IExtendPropertySheet {
 unsafe impl ::windows::core::Interface for IExtendPropertySheet {
     type Vtable = IExtendPropertySheetVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x85de64dc_ef21_11cf_a285_00c04fd8dbe6);
-}
-pub trait IExtendPropertySheetImpl {
-    fn CreatePropertyPages();
-    fn QueryPagesFor();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3630,9 +3438,6 @@ impl ::core::fmt::Debug for IExtendPropertySheet2 {
 unsafe impl ::windows::core::Interface for IExtendPropertySheet2 {
     type Vtable = IExtendPropertySheet2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb7a87232_4a51_11d1_a7ea_00c04fd909dd);
-}
-pub trait IExtendPropertySheet2Impl: IExtendPropertySheetImpl {
-    fn GetWatermarks();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3727,14 +3532,6 @@ unsafe impl ::windows::core::Interface for IExtendTaskPad {
     type Vtable = IExtendTaskPadVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8dee6511_554d_11d1_9fea_00600832db4a);
 }
-pub trait IExtendTaskPadImpl {
-    fn TaskNotify();
-    fn EnumTasks();
-    fn GetTitle();
-    fn GetDescriptiveText();
-    fn GetBackground();
-    fn GetListPadInfo();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IExtendTaskPadVtbl(
@@ -3803,9 +3600,6 @@ impl ::core::fmt::Debug for IExtendView {
 unsafe impl ::windows::core::Interface for IExtendView {
     type Vtable = IExtendViewVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x89995cee_d2ed_4c0e_ae5e_df7e76f3fa53);
-}
-pub trait IExtendViewImpl {
-    fn GetViews();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3889,14 +3683,6 @@ impl ::core::fmt::Debug for IHeaderCtrl {
 unsafe impl ::windows::core::Interface for IHeaderCtrl {
     type Vtable = IHeaderCtrlVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x43136eb3_d36c_11cf_adbc_00aa00a80033);
-}
-pub trait IHeaderCtrlImpl {
-    fn InsertColumn();
-    fn DeleteColumn();
-    fn SetColumnText();
-    fn GetColumnText();
-    fn SetColumnWidth();
-    fn GetColumnWidth();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4022,11 +3808,6 @@ unsafe impl ::windows::core::Interface for IHeaderCtrl2 {
     type Vtable = IHeaderCtrl2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9757abb8_1b32_11d1_a7ce_00c04fd8d565);
 }
-pub trait IHeaderCtrl2Impl: IHeaderCtrlImpl {
-    fn SetChangeTimeOut();
-    fn SetColumnFilter();
-    fn GetColumnFilter();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHeaderCtrl2Vtbl(
@@ -4101,10 +3882,6 @@ unsafe impl ::windows::core::Interface for IImageList {
     type Vtable = IImageListVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x43136eb8_d36c_11cf_adbc_00aa00a80033);
 }
-pub trait IImageListImpl {
-    fn ImageListSetIcon();
-    fn ImageListSetStrip();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IImageListVtbl(
@@ -4166,9 +3943,6 @@ impl ::core::fmt::Debug for IMMCVersionInfo {
 unsafe impl ::windows::core::Interface for IMMCVersionInfo {
     type Vtable = IMMCVersionInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa8d2c5fe_cdcb_4b9d_bde5_a27343ff54bc);
-}
-pub trait IMMCVersionInfoImpl {
-    fn GetMMCVersion();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4232,11 +4006,6 @@ impl ::core::fmt::Debug for IMenuButton {
 unsafe impl ::windows::core::Interface for IMenuButton {
     type Vtable = IMenuButtonVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x951ed750_d080_11d0_b197_000000000000);
-}
-pub trait IMenuButtonImpl {
-    fn AddButton();
-    fn SetButton();
-    fn SetButtonState();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4314,12 +4083,6 @@ unsafe impl ::windows::core::Interface for IMessageView {
     type Vtable = IMessageViewVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x80f94174_fccc_11d2_b991_00c04f8ecd78);
 }
-pub trait IMessageViewImpl {
-    fn SetTitleText();
-    fn SetBodyText();
-    fn SetIcon();
-    fn Clear();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMessageViewVtbl(
@@ -4384,9 +4147,6 @@ unsafe impl ::windows::core::Interface for INodeProperties {
     type Vtable = INodePropertiesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x15bc4d24_a522_4406_aa55_0749537a6865);
 }
-pub trait INodePropertiesImpl {
-    fn GetProperty();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct INodePropertiesVtbl(
@@ -4450,10 +4210,6 @@ impl ::core::fmt::Debug for IPropertySheetCallback {
 unsafe impl ::windows::core::Interface for IPropertySheetCallback {
     type Vtable = IPropertySheetCallbackVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x85de64dd_ef21_11cf_a285_00c04fd8dbe6);
-}
-pub trait IPropertySheetCallbackImpl {
-    fn AddPage();
-    fn RemovePage();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4534,13 +4290,6 @@ unsafe impl ::windows::core::Interface for IPropertySheetProvider {
     type Vtable = IPropertySheetProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x85de64de_ef21_11cf_a285_00c04fd8dbe6);
 }
-pub trait IPropertySheetProviderImpl {
-    fn CreatePropertySheet();
-    fn FindPropertySheet();
-    fn AddPrimaryPages();
-    fn AddExtensionPages();
-    fn Show();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPropertySheetProviderVtbl(
@@ -4614,11 +4363,6 @@ impl ::core::fmt::Debug for IRequiredExtensions {
 unsafe impl ::windows::core::Interface for IRequiredExtensions {
     type Vtable = IRequiredExtensionsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x72782d7a_a4a0_11d1_af0f_00c04fb6dd2c);
-}
-pub trait IRequiredExtensionsImpl {
-    fn EnableAllExtensions();
-    fn GetFirstExtension();
-    fn GetNextExtension();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4743,23 +4487,6 @@ impl ::core::fmt::Debug for IResultData {
 unsafe impl ::windows::core::Interface for IResultData {
     type Vtable = IResultDataVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x31da5fa0_e0eb_11cf_9f21_00aa003ca9f6);
-}
-pub trait IResultDataImpl {
-    fn InsertItem();
-    fn DeleteItem();
-    fn FindItemByLParam();
-    fn DeleteAllRsltItems();
-    fn SetItem();
-    fn GetItem();
-    fn GetNextItem();
-    fn ModifyItemState();
-    fn ModifyViewStyle();
-    fn SetViewMode();
-    fn GetViewMode();
-    fn UpdateItem();
-    fn Sort();
-    fn SetDescBarText();
-    fn SetItemCount();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4928,9 +4655,6 @@ unsafe impl ::windows::core::Interface for IResultData2 {
     type Vtable = IResultData2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0f36e0eb_a7f1_4a81_be5a_9247f7de4b1b);
 }
-pub trait IResultData2Impl: IResultDataImpl {
-    fn RenameResultItem();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IResultData2Vtbl(
@@ -5011,9 +4735,6 @@ unsafe impl ::windows::core::Interface for IResultDataCompare {
     type Vtable = IResultDataCompareVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe8315a52_7a1a_11d0_a2d2_00c04fd909dd);
 }
-pub trait IResultDataCompareImpl {
-    fn Compare();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IResultDataCompareVtbl(
@@ -5073,9 +4794,6 @@ impl ::core::fmt::Debug for IResultDataCompareEx {
 unsafe impl ::windows::core::Interface for IResultDataCompareEx {
     type Vtable = IResultDataCompareExVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x96933476_0251_11d3_aeb0_00c04f8ecd78);
-}
-pub trait IResultDataCompareExImpl {
-    fn Compare();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5145,11 +4863,6 @@ impl ::core::fmt::Debug for IResultOwnerData {
 unsafe impl ::windows::core::Interface for IResultOwnerData {
     type Vtable = IResultOwnerDataVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9cb396d8_ea83_11d0_aef1_00c04fb6dd2c);
-}
-pub trait IResultOwnerDataImpl {
-    fn FindItem();
-    fn CacheHint();
-    fn SortItems();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5237,13 +4950,6 @@ unsafe impl ::windows::core::Interface for ISnapinAbout {
     type Vtable = ISnapinAboutVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1245208c_a151_11d0_a7d7_00c04fd909dd);
 }
-pub trait ISnapinAboutImpl {
-    fn GetSnapinDescription();
-    fn GetProvider();
-    fn GetSnapinVersion();
-    fn GetSnapinImage();
-    fn GetStaticFolderImage();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISnapinAboutVtbl(
@@ -5311,9 +5017,6 @@ impl ::core::fmt::Debug for ISnapinHelp {
 unsafe impl ::windows::core::Interface for ISnapinHelp {
     type Vtable = ISnapinHelpVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa6b15ace_df59_11d0_a7dd_00c04fd909dd);
-}
-pub trait ISnapinHelpImpl {
-    fn GetHelpTopic();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5401,9 +5104,6 @@ unsafe impl ::windows::core::Interface for ISnapinHelp2 {
     type Vtable = ISnapinHelp2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4861a010_20f9_11d2_a510_00c04fb6dd2c);
 }
-pub trait ISnapinHelp2Impl: ISnapinHelpImpl {
-    fn GetLinkedTopics();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISnapinHelp2Vtbl(
@@ -5473,11 +5173,6 @@ unsafe impl ::windows::core::Interface for ISnapinProperties {
     type Vtable = ISnapinPropertiesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf7889da9_4a02_4837_bf89_1a6f2a021010);
 }
-pub trait ISnapinPropertiesImpl {
-    fn Initialize();
-    fn QueryPropertyNames();
-    fn PropertiesChanged();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISnapinPropertiesVtbl(
@@ -5538,9 +5233,6 @@ impl ::core::fmt::Debug for ISnapinPropertiesCallback {
 unsafe impl ::windows::core::Interface for ISnapinPropertiesCallback {
     type Vtable = ISnapinPropertiesCallbackVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa50fa2e5_7e61_45eb_a8d4_9a07b3e851a8);
-}
-pub trait ISnapinPropertiesCallbackImpl {
-    fn AddPropertyName();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5631,15 +5323,6 @@ impl ::core::fmt::Debug for IStringTable {
 unsafe impl ::windows::core::Interface for IStringTable {
     type Vtable = IStringTableVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xde40b7a4_0f65_11d2_8e25_00c04f8ecd78);
-}
-pub trait IStringTableImpl {
-    fn AddString();
-    fn GetString();
-    fn GetStringLength();
-    fn DeleteString();
-    fn DeleteAllStrings();
-    fn FindString();
-    fn Enumerate();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5734,14 +5417,6 @@ unsafe impl ::windows::core::Interface for IToolbar {
     type Vtable = IToolbarVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x43136eb9_d36c_11cf_adbc_00aa00a80033);
 }
-pub trait IToolbarImpl {
-    fn AddBitmap();
-    fn AddButtons();
-    fn InsertButton();
-    fn DeleteButton();
-    fn GetButtonState();
-    fn SetButtonState();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IToolbarVtbl(
@@ -5809,9 +5484,6 @@ impl ::core::fmt::Debug for IViewExtensionCallback {
 unsafe impl ::windows::core::Interface for IViewExtensionCallback {
     type Vtable = IViewExtensionCallbackVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x34dd928a_7599_41e5_9f5e_d6bc3062c2da);
-}
-pub trait IViewExtensionCallbackImpl {
-    fn AddView();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6929,15 +6601,6 @@ unsafe impl ::windows::core::Interface for MenuItem {
     type Vtable = MenuItemVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0178fad1_b361_4b27_96ad_67c57ebf2e1d);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait MenuItemImpl: IDispatchImpl {
-    fn DisplayName();
-    fn LanguageIndependentName();
-    fn Path();
-    fn LanguageIndependentPath();
-    fn Execute();
-    fn Enabled();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct MenuItemVtbl(
@@ -7078,14 +6741,6 @@ unsafe impl ::windows::core::Interface for Node {
     type Vtable = NodeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf81ed800_7839_4447_945d_8e15da59ca55);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait NodeImpl: IDispatchImpl {
-    fn Name();
-    fn Property();
-    fn Bookmark();
-    fn IsScopeNode();
-    fn Nodetype();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct NodeVtbl(
@@ -7213,12 +6868,6 @@ impl ::core::fmt::Debug for Nodes {
 unsafe impl ::windows::core::Interface for Nodes {
     type Vtable = NodesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x313b01df_b22f_4d42_b1b8_483cdcf51d35);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait NodesImpl: IDispatchImpl {
-    fn _NewEnum();
-    fn Item();
-    fn Count();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7350,13 +6999,6 @@ unsafe impl ::windows::core::Interface for Properties {
     type Vtable = PropertiesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2886abc2_a425_42b2_91c6_e25c0e04581c);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait PropertiesImpl: IDispatchImpl {
-    fn _NewEnum();
-    fn Item();
-    fn Count();
-    fn Remove();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct PropertiesVtbl(
@@ -7484,12 +7126,6 @@ impl ::core::fmt::Debug for Property {
 unsafe impl ::windows::core::Interface for Property {
     type Vtable = PropertyVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4600c3a5_e301_41d8_b6d0_ef2e4212e0ca);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait PropertyImpl: IDispatchImpl {
-    fn Value();
-    fn SetValue();
-    fn Name();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8229,14 +7865,6 @@ unsafe impl ::windows::core::Interface for ScopeNamespace {
     type Vtable = ScopeNamespaceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xebbb48dc_1a3b_4d86_b786_c21b28389012);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait ScopeNamespaceImpl: IDispatchImpl {
-    fn GetParent();
-    fn GetChild();
-    fn GetNext();
-    fn GetRoot();
-    fn Expand();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ScopeNamespaceVtbl(
@@ -8383,16 +8011,6 @@ unsafe impl ::windows::core::Interface for SnapIn {
     type Vtable = SnapInVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3be910f6_3459_49c6_a1bb_41e6be9df3ea);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait SnapInImpl: IDispatchImpl {
-    fn Name();
-    fn Vendor();
-    fn Version();
-    fn Extensions();
-    fn SnapinCLSID();
-    fn Properties();
-    fn EnableAllExtensions();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct SnapInVtbl(
@@ -8531,14 +8149,6 @@ impl ::core::fmt::Debug for SnapIns {
 unsafe impl ::windows::core::Interface for SnapIns {
     type Vtable = SnapInsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2ef3de1d_b12a_49d1_92c5_0b00798768f1);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait SnapInsImpl: IDispatchImpl {
-    fn _NewEnum();
-    fn Item();
-    fn Count();
-    fn Add();
-    fn Remove();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8856,51 +8466,6 @@ unsafe impl ::windows::core::Interface for View {
     type Vtable = ViewVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6efc2da2_b38c_457e_9abb_ed2d189b8c38);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait ViewImpl: IDispatchImpl {
-    fn ActiveScopeNode();
-    fn SetActiveScopeNode();
-    fn Selection();
-    fn ListItems();
-    fn SnapinScopeObject();
-    fn SnapinSelectionObject();
-    fn Is();
-    fn Document();
-    fn SelectAll();
-    fn Select();
-    fn Deselect();
-    fn IsSelected();
-    fn DisplayScopeNodePropertySheet();
-    fn DisplaySelectionPropertySheet();
-    fn CopyScopeNode();
-    fn CopySelection();
-    fn DeleteScopeNode();
-    fn DeleteSelection();
-    fn RenameScopeNode();
-    fn RenameSelectedItem();
-    fn ScopeNodeContextMenu();
-    fn SelectionContextMenu();
-    fn RefreshScopeNode();
-    fn RefreshSelection();
-    fn ExecuteSelectionMenuItem();
-    fn ExecuteScopeNodeMenuItem();
-    fn ExecuteShellCommand();
-    fn Frame();
-    fn Close();
-    fn ScopeTreeVisible();
-    fn SetScopeTreeVisible();
-    fn Back();
-    fn Forward();
-    fn SetStatusBarText();
-    fn Memento();
-    fn ViewMemento();
-    fn Columns();
-    fn CellContents();
-    fn ExportList();
-    fn ListViewMode();
-    fn SetListViewMode();
-    fn ControlObject();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ViewVtbl(
@@ -9087,13 +8652,6 @@ unsafe impl ::windows::core::Interface for Views {
     type Vtable = ViewsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd6b8c29d_a1ff_4d72_aab0_e381e9b9338d);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait ViewsImpl: IDispatchImpl {
-    fn Item();
-    fn Count();
-    fn Add();
-    fn _NewEnum();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ViewsVtbl(
@@ -9252,21 +8810,6 @@ impl ::core::fmt::Debug for _AppEvents {
 unsafe impl ::windows::core::Interface for _AppEvents {
     type Vtable = _AppEventsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xde46cbdd_53f5_4635_af54_4fe71e923d3f);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait _AppEventsImpl: IDispatchImpl {
-    fn OnQuit();
-    fn OnDocumentOpen();
-    fn OnDocumentClose();
-    fn OnSnapInAdded();
-    fn OnSnapInRemoved();
-    fn OnNewView();
-    fn OnViewClose();
-    fn OnViewChange();
-    fn OnSelectionChange();
-    fn OnContextMenuExecuted();
-    fn OnToolbarButtonClicked();
-    fn OnListUpdated();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9445,21 +8988,6 @@ unsafe impl ::windows::core::Interface for _Application {
     type Vtable = _ApplicationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa3afb9cc_b653_4741_86ab_f0470ec1384c);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait _ApplicationImpl: IDispatchImpl {
-    fn Help();
-    fn Quit();
-    fn Document();
-    fn Load();
-    fn Frame();
-    fn Visible();
-    fn Show();
-    fn Hide();
-    fn UserControl();
-    fn SetUserControl();
-    fn VersionMajor();
-    fn VersionMinor();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct _ApplicationVtbl(
@@ -9606,11 +9134,6 @@ unsafe impl ::windows::core::Interface for _EventConnector {
     type Vtable = _EventConnectorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc0bccd30_de44_4528_8403_a05a6a1cc8ea);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait _EventConnectorImpl: IDispatchImpl {
-    fn ConnectTo();
-    fn Disconnect();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct _EventConnectorVtbl(
@@ -9662,3 +9185,5 @@ pub const ViewOption_NoToolBars: _ViewOptions = 2i32;
 pub const ViewOption_NotPersistable: _ViewOptions = 4i32;
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const ViewOption_ActionPaneHidden: _ViewOptions = 8i32;
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

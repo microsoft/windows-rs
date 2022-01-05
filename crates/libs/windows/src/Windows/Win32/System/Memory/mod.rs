@@ -2494,3 +2494,5 @@ impl ::core::default::Default for WIN32_MEMORY_REGION_INFORMATION_0_0 {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

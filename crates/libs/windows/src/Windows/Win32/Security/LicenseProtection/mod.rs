@@ -42,3 +42,5 @@ pub unsafe fn ValidateLicenseKeyProtection<'a, Param0: ::windows::core::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

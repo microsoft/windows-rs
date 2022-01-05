@@ -76,12 +76,6 @@ unsafe impl ::windows::core::Interface for IVssAdmin {
     type Vtable = IVssAdminVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x77ed5996_2f63_11d3_8a39_00c04f72d8e3);
 }
-pub trait IVssAdminImpl {
-    fn RegisterProvider();
-    fn UnregisterProvider();
-    fn QueryProviders();
-    fn AbortAllSnapshotsInProgress();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVssAdminVtbl(
@@ -189,11 +183,6 @@ unsafe impl ::windows::core::Interface for IVssAdminEx {
     type Vtable = IVssAdminExVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7858a9f8_b1fa_41a6_964f_b9b36b8cd8d8);
 }
-pub trait IVssAdminExImpl: IVssAdminImpl {
-    fn GetProviderCapability();
-    fn GetProviderContext();
-    fn SetProviderContext();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVssAdminExVtbl(
@@ -264,11 +253,6 @@ impl ::core::fmt::Debug for IVssAsync {
 unsafe impl ::windows::core::Interface for IVssAsync {
     type Vtable = IVssAsyncVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x507c37b4_cf5b_4e95_b0af_14eb9767467e);
-}
-pub trait IVssAsyncImpl {
-    fn Cancel();
-    fn Wait();
-    fn QueryStatus();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -501,46 +485,6 @@ impl ::core::fmt::Debug for IVssComponent {
 unsafe impl ::windows::core::Interface for IVssComponent {
     type Vtable = IVssComponentVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd2c72c96_c121_4518_b627_e5a93d010ead);
-}
-pub trait IVssComponentImpl {
-    fn GetLogicalPath();
-    fn GetComponentType();
-    fn GetComponentName();
-    fn GetBackupSucceeded();
-    fn GetAlternateLocationMappingCount();
-    fn GetAlternateLocationMapping();
-    fn SetBackupMetadata();
-    fn GetBackupMetadata();
-    fn AddPartialFile();
-    fn GetPartialFileCount();
-    fn GetPartialFile();
-    fn IsSelectedForRestore();
-    fn GetAdditionalRestores();
-    fn GetNewTargetCount();
-    fn GetNewTarget();
-    fn AddDirectedTarget();
-    fn GetDirectedTargetCount();
-    fn GetDirectedTarget();
-    fn SetRestoreMetadata();
-    fn GetRestoreMetadata();
-    fn SetRestoreTarget();
-    fn GetRestoreTarget();
-    fn SetPreRestoreFailureMsg();
-    fn GetPreRestoreFailureMsg();
-    fn SetPostRestoreFailureMsg();
-    fn GetPostRestoreFailureMsg();
-    fn SetBackupStamp();
-    fn GetBackupStamp();
-    fn GetPreviousBackupStamp();
-    fn GetBackupOptions();
-    fn GetRestoreOptions();
-    fn GetRestoreSubcomponentCount();
-    fn GetRestoreSubcomponent();
-    fn GetFileRestoreStatus();
-    fn AddDifferencedFilesByLastModifyTime();
-    fn AddDifferencedFilesByLastModifyLSN();
-    fn GetDifferencedFilesCount();
-    fn GetDifferencedFile();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -889,15 +833,6 @@ impl ::core::fmt::Debug for IVssComponentEx {
 unsafe impl ::windows::core::Interface for IVssComponentEx {
     type Vtable = IVssComponentExVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x156c8b5e_f131_4bd7_9c97_d1923be7e1fa);
-}
-pub trait IVssComponentExImpl: IVssComponentImpl {
-    fn SetPrepareForBackupFailureMsg();
-    fn SetPostSnapshotFailureMsg();
-    fn GetPrepareForBackupFailureMsg();
-    fn GetPostSnapshotFailureMsg();
-    fn GetAuthoritativeRestore();
-    fn GetRollForward();
-    fn GetRestoreName();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1290,10 +1225,6 @@ unsafe impl ::windows::core::Interface for IVssComponentEx2 {
     type Vtable = IVssComponentEx2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3b5be0f2_07a9_4e4b_bdd3_cfdc8e2c0d2d);
 }
-pub trait IVssComponentEx2Impl: IVssComponentExImpl + IVssComponentImpl {
-    fn SetFailure();
-    fn GetFailure();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVssComponentEx2Vtbl(
@@ -1459,15 +1390,6 @@ unsafe impl ::windows::core::Interface for IVssCreateExpressWriterMetadata {
     type Vtable = IVssCreateExpressWriterMetadataVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9c772e77_b26e_427f_92dd_c996f41ea5e3);
 }
-pub trait IVssCreateExpressWriterMetadataImpl {
-    fn AddExcludeFiles();
-    fn AddComponent();
-    fn AddFilesToFileGroup();
-    fn SetRestoreMethod();
-    fn AddComponentDependency();
-    fn SetBackupSchema();
-    fn SaveAsXML();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVssCreateExpressWriterMetadataVtbl(
@@ -1573,20 +1495,6 @@ unsafe impl ::windows::core::Interface for IVssCreateWriterMetadata {
     type Vtable = IVssCreateWriterMetadataVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
 }
-pub trait IVssCreateWriterMetadataImpl {
-    fn AddIncludeFiles();
-    fn AddExcludeFiles();
-    fn AddComponent();
-    fn AddDatabaseFiles();
-    fn AddDatabaseLogFiles();
-    fn AddFilesToFileGroup();
-    fn SetRestoreMethod();
-    fn AddAlternateLocationMapping();
-    fn AddComponentDependency();
-    fn SetBackupSchema();
-    fn GetDocument();
-    fn SaveAsXML();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVssCreateWriterMetadataVtbl(
@@ -1686,14 +1594,6 @@ impl ::core::fmt::Debug for IVssDifferentialSoftwareSnapshotMgmt {
 unsafe impl ::windows::core::Interface for IVssDifferentialSoftwareSnapshotMgmt {
     type Vtable = IVssDifferentialSoftwareSnapshotMgmtVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x214a0f28_b737_4026_b847_4f9e37d79529);
-}
-pub trait IVssDifferentialSoftwareSnapshotMgmtImpl {
-    fn AddDiffArea();
-    fn ChangeDiffAreaMaximumSize();
-    fn QueryVolumesSupportedForDiffAreas();
-    fn QueryDiffAreasForVolume();
-    fn QueryDiffAreasOnVolume();
-    fn QueryDiffAreasForSnapshot();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1818,12 +1718,6 @@ impl ::core::fmt::Debug for IVssDifferentialSoftwareSnapshotMgmt2 {
 unsafe impl ::windows::core::Interface for IVssDifferentialSoftwareSnapshotMgmt2 {
     type Vtable = IVssDifferentialSoftwareSnapshotMgmt2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x949d7353_675f_4275_8969_f044c6277815);
-}
-pub trait IVssDifferentialSoftwareSnapshotMgmt2Impl: IVssDifferentialSoftwareSnapshotMgmtImpl {
-    fn ChangeDiffAreaMaximumSizeEx();
-    fn MigrateDiffAreas();
-    fn QueryMigrationStatus();
-    fn SetSnapshotPriority();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1996,13 +1890,6 @@ unsafe impl ::windows::core::Interface for IVssDifferentialSoftwareSnapshotMgmt3
     type Vtable = IVssDifferentialSoftwareSnapshotMgmt3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x383f7e71_a4c5_401f_b27f_f826289f8458);
 }
-pub trait IVssDifferentialSoftwareSnapshotMgmt3Impl: IVssDifferentialSoftwareSnapshotMgmt2Impl + IVssDifferentialSoftwareSnapshotMgmtImpl {
-    fn SetVolumeProtectLevel();
-    fn GetVolumeProtectLevel();
-    fn ClearVolumeProtectFault();
-    fn DeleteUnusedDiffAreas();
-    fn QuerySnapshotDeltaBitmap();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVssDifferentialSoftwareSnapshotMgmt3Vtbl(
@@ -2088,12 +1975,6 @@ unsafe impl ::windows::core::Interface for IVssEnumMgmtObject {
     type Vtable = IVssEnumMgmtObjectVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x01954e6b_9254_4e6e_808c_c9e05d007696);
 }
-pub trait IVssEnumMgmtObjectImpl {
-    fn Next();
-    fn Skip();
-    fn Reset();
-    fn Clone();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVssEnumMgmtObjectVtbl(
@@ -2165,12 +2046,6 @@ impl ::core::fmt::Debug for IVssEnumObject {
 unsafe impl ::windows::core::Interface for IVssEnumObject {
     type Vtable = IVssEnumObjectVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xae1c7110_2f60_11d3_8a39_00c04f72d8e3);
-}
-pub trait IVssEnumObjectImpl {
-    fn Next();
-    fn Skip();
-    fn Reset();
-    fn Clone();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2248,12 +2123,6 @@ impl ::core::fmt::Debug for IVssExpressWriter {
 unsafe impl ::windows::core::Interface for IVssExpressWriter {
     type Vtable = IVssExpressWriterVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe33affdc_59c7_47b1_97d5_4266598f6235);
-}
-pub trait IVssExpressWriterImpl {
-    fn CreateMetadata();
-    fn LoadMetadata();
-    fn Register();
-    fn Unregister();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2352,16 +2221,6 @@ unsafe impl ::windows::core::Interface for IVssFileShareSnapshotProvider {
     type Vtable = IVssFileShareSnapshotProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc8636060_7c2e_11df_8c4a_0800200c9a66);
 }
-pub trait IVssFileShareSnapshotProviderImpl {
-    fn SetContext();
-    fn GetSnapshotProperties();
-    fn Query();
-    fn DeleteSnapshots();
-    fn BeginPrepareSnapshot();
-    fn IsPathSupported();
-    fn IsPathSnapshotted();
-    fn SetSnapshotProperty();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVssFileShareSnapshotProviderVtbl(
@@ -2455,14 +2314,6 @@ impl ::core::fmt::Debug for IVssHardwareSnapshotProvider {
 unsafe impl ::windows::core::Interface for IVssHardwareSnapshotProvider {
     type Vtable = IVssHardwareSnapshotProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9593a157_44e9_4344_bbeb_44fbf9b06b10);
-}
-pub trait IVssHardwareSnapshotProviderImpl {
-    fn AreLunsSupported();
-    fn FillInLunInfo();
-    fn BeginPrepareSnapshot();
-    fn GetTargetLuns();
-    fn LocateLuns();
-    fn OnLunEmpty();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2599,12 +2450,6 @@ unsafe impl ::windows::core::Interface for IVssHardwareSnapshotProviderEx {
     type Vtable = IVssHardwareSnapshotProviderExVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7f5ba925_cdb1_4d11_a71f_339eb7e709fd);
 }
-pub trait IVssHardwareSnapshotProviderExImpl: IVssHardwareSnapshotProviderImpl {
-    fn GetProviderCapabilities();
-    fn OnLunStateChange();
-    fn ResyncLuns();
-    fn OnReuseLuns();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVssHardwareSnapshotProviderExVtbl(
@@ -2704,15 +2549,6 @@ unsafe impl ::windows::core::Interface for IVssProviderCreateSnapshotSet {
     type Vtable = IVssProviderCreateSnapshotSetVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5f894e5b_1e39_4778_8e23_9abad9f0e08c);
 }
-pub trait IVssProviderCreateSnapshotSetImpl {
-    fn EndPrepareSnapshots();
-    fn PreCommitSnapshots();
-    fn CommitSnapshots();
-    fn PostCommitSnapshots();
-    fn PreFinalCommitSnapshots();
-    fn PostFinalCommitSnapshots();
-    fn AbortSnapshots();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVssProviderCreateSnapshotSetVtbl(
@@ -2780,10 +2616,6 @@ impl ::core::fmt::Debug for IVssProviderNotifications {
 unsafe impl ::windows::core::Interface for IVssProviderNotifications {
     type Vtable = IVssProviderNotificationsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe561901f_03a5_4afe_86d0_72baeece7004);
-}
-pub trait IVssProviderNotificationsImpl {
-    fn OnLoad();
-    fn OnUnload();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2855,11 +2687,6 @@ unsafe impl ::windows::core::Interface for IVssSnapshotMgmt {
     type Vtable = IVssSnapshotMgmtVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfa7df749_66e7_4986_a27f_e2f04ae53772);
 }
-pub trait IVssSnapshotMgmtImpl {
-    fn GetProviderMgmtInterface();
-    fn QueryVolumesSupportedForSnapshots();
-    fn QuerySnapshotsByVolume();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVssSnapshotMgmtVtbl(
@@ -2919,9 +2746,6 @@ impl ::core::fmt::Debug for IVssSnapshotMgmt2 {
 unsafe impl ::windows::core::Interface for IVssSnapshotMgmt2 {
     type Vtable = IVssSnapshotMgmt2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0f61ec39_fe82_45f2_a3f0_768b5d427102);
-}
-pub trait IVssSnapshotMgmt2Impl {
-    fn GetMinDiffAreaSize();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3019,18 +2843,6 @@ unsafe impl ::windows::core::Interface for IVssSoftwareSnapshotProvider {
     type Vtable = IVssSoftwareSnapshotProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x609e123e_2c5a_44d3_8f01_0b1d9a47d1ff);
 }
-pub trait IVssSoftwareSnapshotProviderImpl {
-    fn SetContext();
-    fn GetSnapshotProperties();
-    fn Query();
-    fn DeleteSnapshots();
-    fn BeginPrepareSnapshot();
-    fn IsVolumeSupported();
-    fn IsVolumeSnapshotted();
-    fn SetSnapshotProperty();
-    fn RevertToSnapshot();
-    fn QueryRevertStatus();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVssSoftwareSnapshotProviderVtbl(
@@ -3110,11 +2922,6 @@ impl ::core::fmt::Debug for IVssWMDependency {
 unsafe impl ::windows::core::Interface for IVssWMDependency {
     type Vtable = IVssWMDependencyVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
-}
-pub trait IVssWMDependencyImpl {
-    fn GetWriterId();
-    fn GetLogicalPath();
-    fn GetComponentName();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3201,13 +3008,6 @@ unsafe impl ::windows::core::Interface for IVssWMFiledesc {
     type Vtable = IVssWMFiledescVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
 }
-pub trait IVssWMFiledescImpl {
-    fn GetPath();
-    fn GetFilespec();
-    fn GetRecursive();
-    fn GetAlternateLocation();
-    fn GetBackupTypeMask();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVssWMFiledescVtbl(
@@ -3260,11 +3060,6 @@ impl ::core::fmt::Debug for IVssWriterComponents {
 unsafe impl ::windows::core::Interface for IVssWriterComponents {
     type Vtable = IVssWriterComponentsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
-}
-pub trait IVssWriterComponentsImpl {
-    fn GetComponentCount();
-    fn GetWriterInfo();
-    fn GetComponent();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3410,30 +3205,6 @@ impl ::core::fmt::Debug for IVssWriterImpl {
 unsafe impl ::windows::core::Interface for IVssWriterImpl {
     type Vtable = IVssWriterImplVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
-}
-pub trait IVssWriterImplImpl {
-    fn Initialize();
-    fn Subscribe();
-    fn Unsubscribe();
-    fn Uninitialize();
-    fn GetCurrentVolumeArray();
-    fn GetCurrentVolumeCount();
-    fn GetSnapshotDeviceName();
-    fn GetCurrentSnapshotSetId();
-    fn GetContext();
-    fn GetCurrentLevel();
-    fn IsPathAffected();
-    fn IsBootableSystemStateBackedUp();
-    fn AreComponentsSelected();
-    fn GetBackupType();
-    fn GetRestoreType();
-    fn SetWriterFailure();
-    fn IsPartialFileSupportEnabled();
-    fn InstallAlternateWriter();
-    fn GetIdentityInformation();
-    fn SetWriterFailureEx();
-    fn GetSessionId();
-    fn IsWriterShuttingDown();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4482,3 +4253,5 @@ pub const VSS_WS_FAILED_AT_BACKUPSHUTDOWN: VSS_WRITER_STATE = 15i32;
 #[doc = "*Required features: 'Win32_Storage_Vss'*"]
 pub const VSS_WS_COUNT: VSS_WRITER_STATE = 16i32;
 pub const VssSnapshotMgmt: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0b5a2c52_3eb9_470a_96e2_6c6d4570e40f);
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

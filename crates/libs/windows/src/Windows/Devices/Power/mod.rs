@@ -255,13 +255,6 @@ unsafe impl ::windows::core::Interface for IBattery {
     type Vtable = IBatteryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbc894fc6_0072_47c8_8b5d_614aaa7a437e);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IBatteryImpl {
-    fn DeviceId();
-    fn GetReport();
-    fn ReportUpdated();
-    fn RemoveReportUpdated();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBatteryVtbl(
@@ -284,14 +277,6 @@ pub struct IBatteryReport(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IBatteryReport {
     type Vtable = IBatteryReportVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc9858c3a_4e13_420a_a8d0_24f18f395401);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IBatteryReportImpl {
-    fn ChargeRateInMilliwatts();
-    fn DesignCapacityInMilliwattHours();
-    fn FullChargeCapacityInMilliwattHours();
-    fn RemainingCapacityInMilliwattHours();
-    fn Status();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -320,12 +305,6 @@ unsafe impl ::windows::core::Interface for IBatteryStatics {
     type Vtable = IBatteryStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x79cd72b6_9e5e_4452_bea6_dfcd541e597f);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IBatteryStaticsImpl {
-    fn AggregateBattery();
-    fn FromIdAsync();
-    fn GetDeviceSelector();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBatteryStaticsVtbl(
@@ -340,3 +319,5 @@ pub struct IBatteryStaticsVtbl(
     #[cfg(not(feature = "Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 );
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

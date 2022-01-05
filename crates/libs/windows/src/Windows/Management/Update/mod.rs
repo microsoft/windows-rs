@@ -6,13 +6,6 @@ unsafe impl ::windows::core::Interface for IPreviewBuildsManager {
     type Vtable = IPreviewBuildsManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfa07dd61_7e4f_59f7_7c9f_def9051c5f62);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IPreviewBuildsManagerImpl {
-    fn ArePreviewBuildsAllowed();
-    fn SetArePreviewBuildsAllowed();
-    fn GetCurrentState();
-    fn SyncAsync();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPreviewBuildsManagerVtbl(
@@ -35,11 +28,6 @@ unsafe impl ::windows::core::Interface for IPreviewBuildsManagerStatics {
     type Vtable = IPreviewBuildsManagerStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3e422887_b112_5a70_7da1_97d78d32aa29);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IPreviewBuildsManagerStaticsImpl {
-    fn GetDefault();
-    fn IsSupported();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPreviewBuildsManagerStaticsVtbl(
@@ -58,10 +46,6 @@ pub struct IPreviewBuildsState(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPreviewBuildsState {
     type Vtable = IPreviewBuildsStateVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa2f2903e_b223_5f63_7546_3e8eac070a2e);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IPreviewBuildsStateImpl {
-    fn Properties();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -279,3 +263,5 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prev
 }
 unsafe impl ::core::marker::Send for PreviewBuildsState {}
 unsafe impl ::core::marker::Sync for PreviewBuildsState {}
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

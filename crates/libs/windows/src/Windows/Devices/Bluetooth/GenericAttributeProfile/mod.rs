@@ -5644,25 +5644,6 @@ unsafe impl ::windows::core::Interface for IGattCharacteristic {
     type Vtable = IGattCharacteristicVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x59cb50c1_5934_4f68_a198_eb864fa44e6b);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IGattCharacteristicImpl {
-    fn GetDescriptors();
-    fn CharacteristicProperties();
-    fn ProtectionLevel();
-    fn SetProtectionLevel();
-    fn UserDescription();
-    fn Uuid();
-    fn AttributeHandle();
-    fn PresentationFormats();
-    fn ReadValueAsync();
-    fn ReadValueWithCacheModeAsync();
-    fn WriteValueAsync();
-    fn WriteValueWithOptionAsync();
-    fn ReadClientCharacteristicConfigurationDescriptorAsync();
-    fn WriteClientCharacteristicConfigurationDescriptorAsync();
-    fn ValueChanged();
-    fn RemoveValueChanged();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGattCharacteristicVtbl(
@@ -5706,11 +5687,6 @@ unsafe impl ::windows::core::Interface for IGattCharacteristic2 {
     type Vtable = IGattCharacteristic2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xae1ab578_ec06_4764_b780_9835a1d35d6e);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IGattCharacteristic2Impl: IGattCharacteristicImpl {
-    fn Service();
-    fn GetAllDescriptors();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGattCharacteristic2Vtbl(
@@ -5730,16 +5706,6 @@ pub struct IGattCharacteristic3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGattCharacteristic3 {
     type Vtable = IGattCharacteristic3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3f3c663e_93d4_406b_b817_db81f8ed53b3);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IGattCharacteristic3Impl {
-    fn GetDescriptorsAsync();
-    fn GetDescriptorsWithCacheModeAsync();
-    fn GetDescriptorsForUuidAsync();
-    fn GetDescriptorsForUuidWithCacheModeAsync();
-    fn WriteValueWithResultAsync();
-    fn WriteValueWithResultAndOptionAsync();
-    fn WriteClientCharacteristicConfigurationDescriptorWithResultAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5772,10 +5738,6 @@ unsafe impl ::windows::core::Interface for IGattCharacteristicStatics {
     type Vtable = IGattCharacteristicStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x59cb50c3_5934_4f68_a198_eb864fa44e6b);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IGattCharacteristicStaticsImpl {
-    fn ConvertShortIdToUuid();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGattCharacteristicStaticsVtbl(
@@ -5794,30 +5756,6 @@ pub struct IGattCharacteristicUuidsStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGattCharacteristicUuidsStatics {
     type Vtable = IGattCharacteristicUuidsStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x58fa4586_b1de_470c_b7de_0d11ff44f4b7);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IGattCharacteristicUuidsStaticsImpl {
-    fn BatteryLevel();
-    fn BloodPressureFeature();
-    fn BloodPressureMeasurement();
-    fn BodySensorLocation();
-    fn CscFeature();
-    fn CscMeasurement();
-    fn GlucoseFeature();
-    fn GlucoseMeasurement();
-    fn GlucoseMeasurementContext();
-    fn HeartRateControlPoint();
-    fn HeartRateMeasurement();
-    fn IntermediateCuffPressure();
-    fn IntermediateTemperature();
-    fn MeasurementInterval();
-    fn RecordAccessControlPoint();
-    fn RscFeature();
-    fn RscMeasurement();
-    fn SCControlPoint();
-    fn SensorLocation();
-    fn TemperatureMeasurement();
-    fn TemperatureType();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5856,69 +5794,6 @@ pub struct IGattCharacteristicUuidsStatics2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGattCharacteristicUuidsStatics2 {
     type Vtable = IGattCharacteristicUuidsStatics2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1855b425_d46e_4a2c_9c3f_ed6dea29e7be);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IGattCharacteristicUuidsStatics2Impl {
-    fn AlertCategoryId();
-    fn AlertCategoryIdBitMask();
-    fn AlertLevel();
-    fn AlertNotificationControlPoint();
-    fn AlertStatus();
-    fn GapAppearance();
-    fn BootKeyboardInputReport();
-    fn BootKeyboardOutputReport();
-    fn BootMouseInputReport();
-    fn CurrentTime();
-    fn CyclingPowerControlPoint();
-    fn CyclingPowerFeature();
-    fn CyclingPowerMeasurement();
-    fn CyclingPowerVector();
-    fn DateTime();
-    fn DayDateTime();
-    fn DayOfWeek();
-    fn GapDeviceName();
-    fn DstOffset();
-    fn ExactTime256();
-    fn FirmwareRevisionString();
-    fn HardwareRevisionString();
-    fn HidControlPoint();
-    fn HidInformation();
-    fn Ieee1107320601RegulatoryCertificationDataList();
-    fn LnControlPoint();
-    fn LnFeature();
-    fn LocalTimeInformation();
-    fn LocationAndSpeed();
-    fn ManufacturerNameString();
-    fn ModelNumberString();
-    fn Navigation();
-    fn NewAlert();
-    fn GapPeripheralPreferredConnectionParameters();
-    fn GapPeripheralPrivacyFlag();
-    fn PnpId();
-    fn PositionQuality();
-    fn ProtocolMode();
-    fn GapReconnectionAddress();
-    fn ReferenceTimeInformation();
-    fn Report();
-    fn ReportMap();
-    fn RingerControlPoint();
-    fn RingerSetting();
-    fn ScanIntervalWindow();
-    fn ScanRefresh();
-    fn SerialNumberString();
-    fn GattServiceChanged();
-    fn SoftwareRevisionString();
-    fn SupportedNewAlertCategory();
-    fn SupportUnreadAlertCategory();
-    fn SystemId();
-    fn TimeAccuracy();
-    fn TimeSource();
-    fn TimeUpdateControlPoint();
-    fn TimeUpdateState();
-    fn TimeWithDst();
-    fn TimeZone();
-    fn TxPowerLevel();
-    fn UnreadAlertStatus();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5997,12 +5872,6 @@ unsafe impl ::windows::core::Interface for IGattCharacteristicsResult {
     type Vtable = IGattCharacteristicsResultVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1194945c_b257_4f3e_9db7_f68bc9a9aef2);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IGattCharacteristicsResultImpl {
-    fn Status();
-    fn ProtocolError();
-    fn Characteristics();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGattCharacteristicsResultVtbl(
@@ -6025,12 +5894,6 @@ unsafe impl ::windows::core::Interface for IGattClientNotificationResult {
     type Vtable = IGattClientNotificationResultVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x506d5599_0112_419a_8e3b_ae21afabd2c2);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IGattClientNotificationResultImpl {
-    fn SubscribedClient();
-    fn Status();
-    fn ProtocolError();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGattClientNotificationResultVtbl(
@@ -6052,10 +5915,6 @@ unsafe impl ::windows::core::Interface for IGattClientNotificationResult2 {
     type Vtable = IGattClientNotificationResult2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8faec497_45e0_497e_9582_29a1fe281ad5);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IGattClientNotificationResult2Impl {
-    fn BytesSent();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGattClientNotificationResult2Vtbl(
@@ -6073,16 +5932,6 @@ pub struct IGattDescriptor(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGattDescriptor {
     type Vtable = IGattDescriptorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x92055f2b_8084_4344_b4c2_284de19a8506);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IGattDescriptorImpl {
-    fn ProtectionLevel();
-    fn SetProtectionLevel();
-    fn Uuid();
-    fn AttributeHandle();
-    fn ReadValueAsync();
-    fn ReadValueWithCacheModeAsync();
-    fn WriteValueAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6111,10 +5960,6 @@ unsafe impl ::windows::core::Interface for IGattDescriptor2 {
     type Vtable = IGattDescriptor2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8f563d39_d630_406c_ba11_10cdd16b0e5e);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IGattDescriptor2Impl {
-    fn WriteValueWithResultAsync();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGattDescriptor2Vtbl(
@@ -6134,10 +5979,6 @@ unsafe impl ::windows::core::Interface for IGattDescriptorStatics {
     type Vtable = IGattDescriptorStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x92055f2d_8084_4344_b4c2_284de19a8506);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IGattDescriptorStaticsImpl {
-    fn ConvertShortIdToUuid();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGattDescriptorStaticsVtbl(
@@ -6156,15 +5997,6 @@ pub struct IGattDescriptorUuidsStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGattDescriptorUuidsStatics {
     type Vtable = IGattDescriptorUuidsStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa6f862ce_9cfc_42f1_9185_ff37b75181d3);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IGattDescriptorUuidsStaticsImpl {
-    fn CharacteristicAggregateFormat();
-    fn CharacteristicExtendedProperties();
-    fn CharacteristicPresentationFormat();
-    fn CharacteristicUserDescription();
-    fn ClientCharacteristicConfiguration();
-    fn ServerCharacteristicConfiguration();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6189,12 +6021,6 @@ unsafe impl ::windows::core::Interface for IGattDescriptorsResult {
     type Vtable = IGattDescriptorsResultVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9bc091f3_95e7_4489_8d25_ff81955a57b9);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IGattDescriptorsResultImpl {
-    fn Status();
-    fn ProtocolError();
-    fn Descriptors();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGattDescriptorsResultVtbl(
@@ -6216,14 +6042,6 @@ pub struct IGattDeviceService(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGattDeviceService {
     type Vtable = IGattDeviceServiceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xac7b7c05_b33c_47cf_990f_6b8f5577df71);
-}
-#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IGattDeviceServiceImpl: IClosableImpl {
-    fn GetCharacteristics();
-    fn GetIncludedServices();
-    fn DeviceId();
-    fn Uuid();
-    fn AttributeHandle();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6249,13 +6067,6 @@ unsafe impl ::windows::core::Interface for IGattDeviceService2 {
     type Vtable = IGattDeviceService2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfc54520b_0b0d_4708_bae0_9ffd9489bc59);
 }
-#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IGattDeviceService2Impl: IClosableImpl + IGattDeviceServiceImpl {
-    fn Device();
-    fn ParentServices();
-    fn GetAllCharacteristics();
-    fn GetAllIncludedServices();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGattDeviceService2Vtbl(
@@ -6280,22 +6091,6 @@ pub struct IGattDeviceService3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGattDeviceService3 {
     type Vtable = IGattDeviceService3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb293a950_0c53_437c_a9b3_5c3210c6e569);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IGattDeviceService3Impl {
-    fn DeviceAccessInformation();
-    fn Session();
-    fn SharingMode();
-    fn RequestAccessAsync();
-    fn OpenAsync();
-    fn GetCharacteristicsAsync();
-    fn GetCharacteristicsWithCacheModeAsync();
-    fn GetCharacteristicsForUuidAsync();
-    fn GetCharacteristicsForUuidWithCacheModeAsync();
-    fn GetIncludedServicesAsync();
-    fn GetIncludedServicesWithCacheModeAsync();
-    fn GetIncludedServicesForUuidAsync();
-    fn GetIncludedServicesForUuidWithCacheModeAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6338,13 +6133,6 @@ unsafe impl ::windows::core::Interface for IGattDeviceServiceStatics {
     type Vtable = IGattDeviceServiceStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x196d0022_faad_45dc_ae5b_2ac3184e84db);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IGattDeviceServiceStaticsImpl {
-    fn FromIdAsync();
-    fn GetDeviceSelectorFromUuid();
-    fn GetDeviceSelectorFromShortId();
-    fn ConvertShortIdToUuid();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGattDeviceServiceStaticsVtbl(
@@ -6369,14 +6157,6 @@ unsafe impl ::windows::core::Interface for IGattDeviceServiceStatics2 {
     type Vtable = IGattDeviceServiceStatics2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0604186e_24a6_4b0d_a2f2_30cc01545d25);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IGattDeviceServiceStatics2Impl {
-    fn FromIdWithSharingModeAsync();
-    fn GetDeviceSelectorForBluetoothDeviceId();
-    fn GetDeviceSelectorForBluetoothDeviceIdWithCacheMode();
-    fn GetDeviceSelectorForBluetoothDeviceIdAndUuid();
-    fn GetDeviceSelectorForBluetoothDeviceIdAndUuidWithCacheMode();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGattDeviceServiceStatics2Vtbl(
@@ -6400,12 +6180,6 @@ unsafe impl ::windows::core::Interface for IGattDeviceServicesResult {
     type Vtable = IGattDeviceServicesResultVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x171dd3ee_016d_419d_838a_576cf475a3d8);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IGattDeviceServicesResultImpl {
-    fn Status();
-    fn ProtocolError();
-    fn Services();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGattDeviceServicesResultVtbl(
@@ -6427,27 +6201,6 @@ pub struct IGattLocalCharacteristic(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGattLocalCharacteristic {
     type Vtable = IGattLocalCharacteristicVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaede376d_5412_4d74_92a8_8deb8526829c);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IGattLocalCharacteristicImpl {
-    fn Uuid();
-    fn StaticValue();
-    fn CharacteristicProperties();
-    fn ReadProtectionLevel();
-    fn WriteProtectionLevel();
-    fn CreateDescriptorAsync();
-    fn Descriptors();
-    fn UserDescription();
-    fn PresentationFormats();
-    fn SubscribedClients();
-    fn SubscribedClientsChanged();
-    fn RemoveSubscribedClientsChanged();
-    fn ReadRequested();
-    fn RemoveReadRequested();
-    fn WriteRequested();
-    fn RemoveWriteRequested();
-    fn NotifyValueAsync();
-    fn NotifyValueForSubscribedClientAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6497,20 +6250,6 @@ unsafe impl ::windows::core::Interface for IGattLocalCharacteristicParameters {
     type Vtable = IGattLocalCharacteristicParametersVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfaf73db4_4cff_44c7_8445_040e6ead0063);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IGattLocalCharacteristicParametersImpl {
-    fn SetStaticValue();
-    fn StaticValue();
-    fn SetCharacteristicProperties();
-    fn CharacteristicProperties();
-    fn SetReadProtectionLevel();
-    fn ReadProtectionLevel();
-    fn SetWriteProtectionLevel();
-    fn WriteProtectionLevel();
-    fn SetUserDescription();
-    fn UserDescription();
-    fn PresentationFormats();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGattLocalCharacteristicParametersVtbl(
@@ -6542,11 +6281,6 @@ unsafe impl ::windows::core::Interface for IGattLocalCharacteristicResult {
     type Vtable = IGattLocalCharacteristicResultVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7975de9b_0170_4397_9666_92f863f12ee6);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IGattLocalCharacteristicResultImpl {
-    fn Characteristic();
-    fn Error();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGattLocalCharacteristicResultVtbl(
@@ -6565,17 +6299,6 @@ pub struct IGattLocalDescriptor(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGattLocalDescriptor {
     type Vtable = IGattLocalDescriptorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf48ebe06_789d_4a4b_8652_bd017b5d2fc6);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IGattLocalDescriptorImpl {
-    fn Uuid();
-    fn StaticValue();
-    fn ReadProtectionLevel();
-    fn WriteProtectionLevel();
-    fn ReadRequested();
-    fn RemoveReadRequested();
-    fn WriteRequested();
-    fn RemoveWriteRequested();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6607,15 +6330,6 @@ unsafe impl ::windows::core::Interface for IGattLocalDescriptorParameters {
     type Vtable = IGattLocalDescriptorParametersVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5fdede6a_f3c1_4b66_8c4b_e3d2293b40e9);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IGattLocalDescriptorParametersImpl {
-    fn SetStaticValue();
-    fn StaticValue();
-    fn SetReadProtectionLevel();
-    fn ReadProtectionLevel();
-    fn SetWriteProtectionLevel();
-    fn WriteProtectionLevel();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGattLocalDescriptorParametersVtbl(
@@ -6641,11 +6355,6 @@ unsafe impl ::windows::core::Interface for IGattLocalDescriptorResult {
     type Vtable = IGattLocalDescriptorResultVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x375791be_321f_4366_bfc1_3bc6b82c79f8);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IGattLocalDescriptorResultImpl {
-    fn Descriptor();
-    fn Error();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGattLocalDescriptorResultVtbl(
@@ -6664,12 +6373,6 @@ pub struct IGattLocalService(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGattLocalService {
     type Vtable = IGattLocalServiceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf513e258_f7f7_4902_b803_57fcc7d6fe83);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IGattLocalServiceImpl {
-    fn Uuid();
-    fn CreateCharacteristicAsync();
-    fn Characteristics();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6693,14 +6396,6 @@ unsafe impl ::windows::core::Interface for IGattPresentationFormat {
     type Vtable = IGattPresentationFormatVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x196d0021_faad_45dc_ae5b_2ac3184e84db);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IGattPresentationFormatImpl {
-    fn FormatType();
-    fn Exponent();
-    fn Unit();
-    fn Namespace();
-    fn Description();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGattPresentationFormatVtbl(
@@ -6723,10 +6418,6 @@ unsafe impl ::windows::core::Interface for IGattPresentationFormatStatics {
     type Vtable = IGattPresentationFormatStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x196d0020_faad_45dc_ae5b_2ac3184e84db);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IGattPresentationFormatStaticsImpl {
-    fn BluetoothSigAssignedNumbers();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGattPresentationFormatStaticsVtbl(
@@ -6745,10 +6436,6 @@ unsafe impl ::windows::core::Interface for IGattPresentationFormatStatics2 {
     type Vtable = IGattPresentationFormatStatics2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa9c21713_b82f_435e_b634_21fd85a43c07);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IGattPresentationFormatStatics2Impl: IGattPresentationFormatStaticsImpl {
-    fn FromParts();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGattPresentationFormatStatics2Vtbl(
@@ -6766,36 +6453,6 @@ pub struct IGattPresentationFormatTypesStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGattPresentationFormatTypesStatics {
     type Vtable = IGattPresentationFormatTypesStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfaf1ba0a_30ba_409c_bef7_cffb6d03b8fb);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IGattPresentationFormatTypesStaticsImpl {
-    fn Boolean();
-    fn Bit2();
-    fn Nibble();
-    fn UInt8();
-    fn UInt12();
-    fn UInt16();
-    fn UInt24();
-    fn UInt32();
-    fn UInt48();
-    fn UInt64();
-    fn UInt128();
-    fn SInt8();
-    fn SInt12();
-    fn SInt16();
-    fn SInt24();
-    fn SInt32();
-    fn SInt48();
-    fn SInt64();
-    fn SInt128();
-    fn Float32();
-    fn Float64();
-    fn SFloat();
-    fn Float();
-    fn DUInt16();
-    fn Utf8();
-    fn Utf16();
-    fn Struct();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6841,26 +6498,6 @@ unsafe impl ::windows::core::Interface for IGattProtocolErrorStatics {
     type Vtable = IGattProtocolErrorStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xca46c5c5_0ecc_4809_bea3_cf79bc991e37);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IGattProtocolErrorStaticsImpl {
-    fn InvalidHandle();
-    fn ReadNotPermitted();
-    fn WriteNotPermitted();
-    fn InvalidPdu();
-    fn InsufficientAuthentication();
-    fn RequestNotSupported();
-    fn InvalidOffset();
-    fn InsufficientAuthorization();
-    fn PrepareQueueFull();
-    fn AttributeNotFound();
-    fn AttributeNotLong();
-    fn InsufficientEncryptionKeySize();
-    fn InvalidAttributeValueLength();
-    fn UnlikelyError();
-    fn InsufficientEncryption();
-    fn UnsupportedGroupType();
-    fn InsufficientResources();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGattProtocolErrorStaticsVtbl(
@@ -6895,11 +6532,6 @@ unsafe impl ::windows::core::Interface for IGattReadClientCharacteristicConfigur
     type Vtable = IGattReadClientCharacteristicConfigurationDescriptorResultVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x63a66f09_1aea_4c4c_a50f_97bae474b348);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IGattReadClientCharacteristicConfigurationDescriptorResultImpl {
-    fn Status();
-    fn ClientCharacteristicConfigurationDescriptor();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGattReadClientCharacteristicConfigurationDescriptorResultVtbl(
@@ -6919,10 +6551,6 @@ unsafe impl ::windows::core::Interface for IGattReadClientCharacteristicConfigur
     type Vtable = IGattReadClientCharacteristicConfigurationDescriptorResult2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1bf1a59d_ba4d_4622_8651_f4ee150d0a5d);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IGattReadClientCharacteristicConfigurationDescriptorResult2Impl {
-    fn ProtocolError();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGattReadClientCharacteristicConfigurationDescriptorResult2Vtbl(
@@ -6941,16 +6569,6 @@ pub struct IGattReadRequest(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGattReadRequest {
     type Vtable = IGattReadRequestVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf1dd6535_6acd_42a6_a4bb_d789dae0043e);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IGattReadRequestImpl {
-    fn Offset();
-    fn Length();
-    fn State();
-    fn StateChanged();
-    fn RemoveStateChanged();
-    fn RespondWithValue();
-    fn RespondWithProtocolError();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6979,12 +6597,6 @@ unsafe impl ::windows::core::Interface for IGattReadRequestedEventArgs {
     type Vtable = IGattReadRequestedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x93497243_f39c_484b_8ab6_996ba486cfa3);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IGattReadRequestedEventArgsImpl {
-    fn Session();
-    fn GetDeferral();
-    fn GetRequestAsync();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGattReadRequestedEventArgsVtbl(
@@ -7007,11 +6619,6 @@ unsafe impl ::windows::core::Interface for IGattReadResult {
     type Vtable = IGattReadResultVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x63a66f08_1aea_4c4c_a50f_97bae474b348);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IGattReadResultImpl {
-    fn Status();
-    fn Value();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGattReadResultVtbl(
@@ -7032,10 +6639,6 @@ unsafe impl ::windows::core::Interface for IGattReadResult2 {
     type Vtable = IGattReadResult2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa10f50a0_fb43_48af_baaa_638a5c6329fe);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IGattReadResult2Impl {
-    fn ProtocolError();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGattReadResult2Vtbl(
@@ -7054,11 +6657,6 @@ pub struct IGattReliableWriteTransaction(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGattReliableWriteTransaction {
     type Vtable = IGattReliableWriteTransactionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x63a66f07_1aea_4c4c_a50f_97bae474b348);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IGattReliableWriteTransactionImpl {
-    fn WriteValue();
-    fn CommitAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7081,10 +6679,6 @@ unsafe impl ::windows::core::Interface for IGattReliableWriteTransaction2 {
     type Vtable = IGattReliableWriteTransaction2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x51113987_ef12_462f_9fb2_a1a43a679416);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IGattReliableWriteTransaction2Impl {
-    fn CommitWithResultAsync();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGattReliableWriteTransaction2Vtbl(
@@ -7104,11 +6698,6 @@ unsafe impl ::windows::core::Interface for IGattRequestStateChangedEventArgs {
     type Vtable = IGattRequestStateChangedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe834d92c_27be_44b3_9d0d_4fc6e808dd3f);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IGattRequestStateChangedEventArgsImpl {
-    fn State();
-    fn Error();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGattRequestStateChangedEventArgsVtbl(
@@ -7127,16 +6716,6 @@ pub struct IGattServiceProvider(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGattServiceProvider {
     type Vtable = IGattServiceProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7822b3cd_2889_4f86_a051_3f0aed1c2760);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IGattServiceProviderImpl {
-    fn Service();
-    fn AdvertisementStatus();
-    fn AdvertisementStatusChanged();
-    fn RemoveAdvertisementStatusChanged();
-    fn StartAdvertising();
-    fn StartAdvertisingWithParameters();
-    fn StopAdvertising();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7164,11 +6743,6 @@ unsafe impl ::windows::core::Interface for IGattServiceProviderAdvertisementStat
     type Vtable = IGattServiceProviderAdvertisementStatusChangedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x59a5aa65_fa21_4ffc_b155_04d928012686);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IGattServiceProviderAdvertisementStatusChangedEventArgsImpl {
-    fn Error();
-    fn Status();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGattServiceProviderAdvertisementStatusChangedEventArgsVtbl(
@@ -7187,13 +6761,6 @@ pub struct IGattServiceProviderAdvertisingParameters(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGattServiceProviderAdvertisingParameters {
     type Vtable = IGattServiceProviderAdvertisingParametersVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe2ce31ab_6315_4c22_9bd7_781dbc3d8d82);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IGattServiceProviderAdvertisingParametersImpl {
-    fn SetIsConnectable();
-    fn IsConnectable();
-    fn SetIsDiscoverable();
-    fn IsDiscoverable();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7216,11 +6783,6 @@ unsafe impl ::windows::core::Interface for IGattServiceProviderAdvertisingParame
     type Vtable = IGattServiceProviderAdvertisingParameters2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xff68468d_ca92_4434_9743_0e90988ad879);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IGattServiceProviderAdvertisingParameters2Impl {
-    fn SetServiceData();
-    fn ServiceData();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGattServiceProviderAdvertisingParameters2Vtbl(
@@ -7242,11 +6804,6 @@ unsafe impl ::windows::core::Interface for IGattServiceProviderResult {
     type Vtable = IGattServiceProviderResultVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x764696d8_c53e_428c_8a48_67afe02c3ae6);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IGattServiceProviderResultImpl {
-    fn Error();
-    fn ServiceProvider();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGattServiceProviderResultVtbl(
@@ -7266,10 +6823,6 @@ unsafe impl ::windows::core::Interface for IGattServiceProviderStatics {
     type Vtable = IGattServiceProviderStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x31794063_5256_4054_a4f4_7bbe7755a57e);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IGattServiceProviderStaticsImpl {
-    fn CreateAsync();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGattServiceProviderStaticsVtbl(
@@ -7288,18 +6841,6 @@ pub struct IGattServiceUuidsStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGattServiceUuidsStatics {
     type Vtable = IGattServiceUuidsStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6dc57058_9aba_4417_b8f2_dce016d34ee2);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IGattServiceUuidsStaticsImpl {
-    fn Battery();
-    fn BloodPressure();
-    fn CyclingSpeedAndCadence();
-    fn GenericAccess();
-    fn GenericAttribute();
-    fn Glucose();
-    fn HealthThermometer();
-    fn HeartRate();
-    fn RunningSpeedAndCadence();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7326,22 +6867,6 @@ pub struct IGattServiceUuidsStatics2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGattServiceUuidsStatics2 {
     type Vtable = IGattServiceUuidsStatics2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd2ae94f5_3d15_4f79_9c0c_eaafa675155c);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IGattServiceUuidsStatics2Impl {
-    fn AlertNotification();
-    fn CurrentTime();
-    fn CyclingPower();
-    fn DeviceInformation();
-    fn HumanInterfaceDevice();
-    fn ImmediateAlert();
-    fn LinkLoss();
-    fn LocationAndNavigation();
-    fn NextDstChange();
-    fn PhoneAlertStatus();
-    fn ReferenceTimeUpdate();
-    fn ScanParameters();
-    fn TxPower();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7372,19 +6897,6 @@ pub struct IGattSession(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGattSession {
     type Vtable = IGattSessionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd23b5143_e04e_4c24_999c_9c256f9856b1);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IGattSessionImpl {
-    fn DeviceId();
-    fn CanMaintainConnection();
-    fn SetMaintainConnection();
-    fn MaintainConnection();
-    fn MaxPduSize();
-    fn SessionStatus();
-    fn MaxPduSizeChanged();
-    fn RemoveMaxPduSizeChanged();
-    fn SessionStatusChanged();
-    fn RemoveSessionStatusChanged();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7417,10 +6929,6 @@ unsafe impl ::windows::core::Interface for IGattSessionStatics {
     type Vtable = IGattSessionStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2e65b95c_539f_4db7_82a8_73bdbbf73ebf);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IGattSessionStaticsImpl {
-    fn FromDeviceIdAsync();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGattSessionStaticsVtbl(
@@ -7440,11 +6948,6 @@ unsafe impl ::windows::core::Interface for IGattSessionStatusChangedEventArgs {
     type Vtable = IGattSessionStatusChangedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7605b72e_837f_404c_ab34_3163f39ddf32);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IGattSessionStatusChangedEventArgsImpl {
-    fn Error();
-    fn Status();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGattSessionStatusChangedEventArgsVtbl(
@@ -7463,13 +6966,6 @@ pub struct IGattSubscribedClient(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGattSubscribedClient {
     type Vtable = IGattSubscribedClientVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x736e9001_15a4_4ec2_9248_e3f20d463be9);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IGattSubscribedClientImpl {
-    fn Session();
-    fn MaxNotificationSize();
-    fn MaxNotificationSizeChanged();
-    fn RemoveMaxNotificationSizeChanged();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7494,11 +6990,6 @@ unsafe impl ::windows::core::Interface for IGattValueChangedEventArgs {
     type Vtable = IGattValueChangedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd21bdb54_06e3_4ed8_a263_acfac8ba7313);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IGattValueChangedEventArgsImpl {
-    fn CharacteristicValue();
-    fn Timestamp();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGattValueChangedEventArgsVtbl(
@@ -7519,17 +7010,6 @@ pub struct IGattWriteRequest(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGattWriteRequest {
     type Vtable = IGattWriteRequestVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaeb6a9ed_de2f_4fc2_a9a8_94ea7844f13d);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IGattWriteRequestImpl {
-    fn Value();
-    fn Offset();
-    fn Option();
-    fn State();
-    fn StateChanged();
-    fn RemoveStateChanged();
-    fn Respond();
-    fn RespondWithProtocolError();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7559,12 +7039,6 @@ unsafe impl ::windows::core::Interface for IGattWriteRequestedEventArgs {
     type Vtable = IGattWriteRequestedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2dec8bbe_a73a_471a_94d5_037deadd0806);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IGattWriteRequestedEventArgsImpl {
-    fn Session();
-    fn GetDeferral();
-    fn GetRequestAsync();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGattWriteRequestedEventArgsVtbl(
@@ -7587,11 +7061,6 @@ unsafe impl ::windows::core::Interface for IGattWriteResult {
     type Vtable = IGattWriteResultVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4991ddb1_cb2b_44f7_99fc_d29a2871dc9b);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IGattWriteResultImpl {
-    fn Status();
-    fn ProtocolError();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGattWriteResultVtbl(
@@ -7605,3 +7074,5 @@ pub struct IGattWriteResultVtbl(
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
 );
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

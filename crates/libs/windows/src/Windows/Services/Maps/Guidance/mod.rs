@@ -1928,12 +1928,6 @@ unsafe impl ::windows::core::Interface for IGuidanceAudioNotificationRequestedEv
     type Vtable = IGuidanceAudioNotificationRequestedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xca2aa24a_c7c2_4d4c_9d7c_499576bceddb);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IGuidanceAudioNotificationRequestedEventArgsImpl {
-    fn AudioNotification();
-    fn AudioFilePaths();
-    fn AudioText();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGuidanceAudioNotificationRequestedEventArgsVtbl(
@@ -1955,11 +1949,6 @@ unsafe impl ::windows::core::Interface for IGuidanceLaneInfo {
     type Vtable = IGuidanceLaneInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8404d114_6581_43b7_ac15_c9079bf90df1);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IGuidanceLaneInfoImpl {
-    fn LaneMarkers();
-    fn IsOnRoute();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGuidanceLaneInfoVtbl(
@@ -1978,21 +1967,6 @@ pub struct IGuidanceManeuver(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGuidanceManeuver {
     type Vtable = IGuidanceManeuverVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfc09326c_ecc9_4928_a2a1_7232b99b94a1);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IGuidanceManeuverImpl {
-    fn StartLocation();
-    fn DistanceFromRouteStart();
-    fn DistanceFromPreviousManeuver();
-    fn DepartureRoadName();
-    fn NextRoadName();
-    fn DepartureShortRoadName();
-    fn NextShortRoadName();
-    fn Kind();
-    fn StartAngle();
-    fn EndAngle();
-    fn RoadSignpost();
-    fn InstructionText();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2024,14 +1998,6 @@ unsafe impl ::windows::core::Interface for IGuidanceMapMatchedCoordinate {
     type Vtable = IGuidanceMapMatchedCoordinateVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb7acb168_2912_4a99_aff1_798609b981fe);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IGuidanceMapMatchedCoordinateImpl {
-    fn Location();
-    fn CurrentHeading();
-    fn CurrentSpeed();
-    fn IsOnStreet();
-    fn Road();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGuidanceMapMatchedCoordinateVtbl(
@@ -2054,37 +2020,6 @@ pub struct IGuidanceNavigator(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGuidanceNavigator {
     type Vtable = IGuidanceNavigatorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x08f17ef7_8e3f_4d9a_be8a_108f9a012c67);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IGuidanceNavigatorImpl {
-    fn StartNavigating();
-    fn StartSimulating();
-    fn StartTracking();
-    fn Pause();
-    fn Resume();
-    fn Stop();
-    fn RepeatLastAudioNotification();
-    fn AudioMeasurementSystem();
-    fn SetAudioMeasurementSystem();
-    fn AudioNotifications();
-    fn SetAudioNotifications();
-    fn GuidanceUpdated();
-    fn RemoveGuidanceUpdated();
-    fn DestinationReached();
-    fn RemoveDestinationReached();
-    fn Rerouting();
-    fn RemoveRerouting();
-    fn Rerouted();
-    fn RemoveRerouted();
-    fn RerouteFailed();
-    fn RemoveRerouteFailed();
-    fn UserLocationLost();
-    fn RemoveUserLocationLost();
-    fn UserLocationRestored();
-    fn RemoveUserLocationRestored();
-    fn SetGuidanceVoice();
-    fn UpdateUserLocation();
-    fn UpdateUserLocationWithPositionOverride();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2147,13 +2082,6 @@ unsafe impl ::windows::core::Interface for IGuidanceNavigator2 {
     type Vtable = IGuidanceNavigator2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6cdc50d1_041c_4bf3_b633_a101fc2f6b57);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IGuidanceNavigator2Impl {
-    fn AudioNotificationRequested();
-    fn RemoveAudioNotificationRequested();
-    fn IsGuidanceAudioMuted();
-    fn SetIsGuidanceAudioMuted();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGuidanceNavigator2Vtbl(
@@ -2177,10 +2105,6 @@ unsafe impl ::windows::core::Interface for IGuidanceNavigatorStatics {
     type Vtable = IGuidanceNavigatorStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00fd9513_4456_4e66_a143_3add6be08426);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IGuidanceNavigatorStaticsImpl {
-    fn GetCurrent();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGuidanceNavigatorStaticsVtbl(
@@ -2198,10 +2122,6 @@ pub struct IGuidanceNavigatorStatics2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGuidanceNavigatorStatics2 {
     type Vtable = IGuidanceNavigatorStatics2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x54c5c3e2_7784_4c85_8c95_d0c6efb43965);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IGuidanceNavigatorStatics2Impl {
-    fn UseAppProvidedVoice();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2221,10 +2141,6 @@ unsafe impl ::windows::core::Interface for IGuidanceReroutedEventArgs {
     type Vtable = IGuidanceReroutedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x115d4008_d528_454e_bb94_a50341d2c9f1);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IGuidanceReroutedEventArgsImpl {
-    fn Route();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGuidanceReroutedEventArgsVtbl(
@@ -2242,18 +2158,6 @@ pub struct IGuidanceRoadSegment(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGuidanceRoadSegment {
     type Vtable = IGuidanceRoadSegmentVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb32758a6_be78_4c63_afe7_6c2957479b3e);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IGuidanceRoadSegmentImpl {
-    fn RoadName();
-    fn ShortRoadName();
-    fn SpeedLimit();
-    fn TravelTime();
-    fn Path();
-    fn Id();
-    fn IsHighway();
-    fn IsTunnel();
-    fn IsTollRoad();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2283,10 +2187,6 @@ unsafe impl ::windows::core::Interface for IGuidanceRoadSegment2 {
     type Vtable = IGuidanceRoadSegment2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2474a61d_1723_49f1_895b_47a2c4aa9c55);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IGuidanceRoadSegment2Impl {
-    fn IsScenic();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGuidanceRoadSegment2Vtbl(
@@ -2304,14 +2204,6 @@ pub struct IGuidanceRoadSignpost(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGuidanceRoadSignpost {
     type Vtable = IGuidanceRoadSignpostVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf1a728b6_f77a_4742_8312_53300f9845f0);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IGuidanceRoadSignpostImpl {
-    fn ExitNumber();
-    fn Exit();
-    fn BackgroundColor();
-    fn ForegroundColor();
-    fn ExitDirections();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2337,16 +2229,6 @@ pub struct IGuidanceRoute(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGuidanceRoute {
     type Vtable = IGuidanceRouteVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3a14545d_801a_40bd_a286_afb2010cce6c);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IGuidanceRouteImpl {
-    fn Duration();
-    fn Distance();
-    fn Maneuvers();
-    fn BoundingBox();
-    fn Path();
-    fn RoadSegments();
-    fn ConvertToMapRoute();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2377,11 +2259,6 @@ unsafe impl ::windows::core::Interface for IGuidanceRouteStatics {
     type Vtable = IGuidanceRouteStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf56d926a_55ed_49c1_b09c_4b8223b50db3);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IGuidanceRouteStaticsImpl {
-    fn CanCreateFromMapRoute();
-    fn TryCreateFromMapRoute();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGuidanceRouteStaticsVtbl(
@@ -2400,16 +2277,6 @@ pub struct IGuidanceTelemetryCollector(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGuidanceTelemetryCollector {
     type Vtable = IGuidanceTelemetryCollectorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdb1f8da5_b878_4d92_98dd_347d23d38262);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IGuidanceTelemetryCollectorImpl {
-    fn Enabled();
-    fn SetEnabled();
-    fn ClearLocalData();
-    fn SpeedTrigger();
-    fn SetSpeedTrigger();
-    fn UploadFrequency();
-    fn SetUploadFrequency();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2435,10 +2302,6 @@ unsafe impl ::windows::core::Interface for IGuidanceTelemetryCollectorStatics {
     type Vtable = IGuidanceTelemetryCollectorStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x36532047_f160_44fb_b578_94577ca05990);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IGuidanceTelemetryCollectorStaticsImpl {
-    fn GetCurrent();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGuidanceTelemetryCollectorStaticsVtbl(
@@ -2456,23 +2319,6 @@ pub struct IGuidanceUpdatedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGuidanceUpdatedEventArgs {
     type Vtable = IGuidanceUpdatedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfdac160b_9e8d_4de3_a9fa_b06321d18db9);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IGuidanceUpdatedEventArgsImpl {
-    fn Mode();
-    fn NextManeuver();
-    fn NextManeuverDistance();
-    fn AfterNextManeuver();
-    fn AfterNextManeuverDistance();
-    fn DistanceToDestination();
-    fn ElapsedDistance();
-    fn ElapsedTime();
-    fn TimeToDestination();
-    fn RoadName();
-    fn Route();
-    fn CurrentLocation();
-    fn IsNewManeuver();
-    fn LaneInfo();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2501,3 +2347,5 @@ pub struct IGuidanceUpdatedEventArgsVtbl(
     #[cfg(feature = "Foundation_Collections")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

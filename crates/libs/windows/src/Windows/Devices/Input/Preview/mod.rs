@@ -1104,16 +1104,6 @@ unsafe impl ::windows::core::Interface for IGazeDevicePreview {
     type Vtable = IGazeDevicePreviewVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe79e7ee9_b389_11e7_b201_c8d3ffb75721);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IGazeDevicePreviewImpl {
-    fn Id();
-    fn CanTrackEyes();
-    fn CanTrackHead();
-    fn ConfigurationState();
-    fn RequestCalibrationAsync();
-    fn GetNumericControlDescriptions();
-    fn GetBooleanControlDescriptions();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGazeDevicePreviewVtbl(
@@ -1141,10 +1131,6 @@ unsafe impl ::windows::core::Interface for IGazeDeviceWatcherAddedPreviewEventAr
     type Vtable = IGazeDeviceWatcherAddedPreviewEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe79e7eed_b389_11e7_b201_c8d3ffb75721);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IGazeDeviceWatcherAddedPreviewEventArgsImpl {
-    fn Device();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGazeDeviceWatcherAddedPreviewEventArgsVtbl(
@@ -1162,19 +1148,6 @@ pub struct IGazeDeviceWatcherPreview(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGazeDeviceWatcherPreview {
     type Vtable = IGazeDeviceWatcherPreviewVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe79e7ee7_b389_11e7_b201_c8d3ffb75721);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IGazeDeviceWatcherPreviewImpl {
-    fn Added();
-    fn RemoveAdded();
-    fn Removed();
-    fn RemoveRemoved();
-    fn Updated();
-    fn RemoveUpdated();
-    fn EnumerationCompleted();
-    fn RemoveEnumerationCompleted();
-    fn Start();
-    fn Stop();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1211,10 +1184,6 @@ unsafe impl ::windows::core::Interface for IGazeDeviceWatcherRemovedPreviewEvent
     type Vtable = IGazeDeviceWatcherRemovedPreviewEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf2631f08_0e3f_431f_a606_50b35af94a1c);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IGazeDeviceWatcherRemovedPreviewEventArgsImpl {
-    fn Device();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGazeDeviceWatcherRemovedPreviewEventArgsVtbl(
@@ -1233,10 +1202,6 @@ unsafe impl ::windows::core::Interface for IGazeDeviceWatcherUpdatedPreviewEvent
     type Vtable = IGazeDeviceWatcherUpdatedPreviewEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7fe830ef_7f08_4737_88e1_4a83ae4e4885);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IGazeDeviceWatcherUpdatedPreviewEventArgsImpl {
-    fn Device();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGazeDeviceWatcherUpdatedPreviewEventArgsVtbl(
@@ -1254,12 +1219,6 @@ pub struct IGazeEnteredPreviewEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGazeEnteredPreviewEventArgs {
     type Vtable = IGazeEnteredPreviewEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2567bf43_1225_489f_9dd1_daa7c50fbf4b);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IGazeEnteredPreviewEventArgsImpl {
-    fn Handled();
-    fn SetHandled();
-    fn CurrentPoint();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1281,12 +1240,6 @@ unsafe impl ::windows::core::Interface for IGazeExitedPreviewEventArgs {
     type Vtable = IGazeExitedPreviewEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5d0af07e_7d83_40ef_9f0a_fbc1bbdcc5ac);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IGazeExitedPreviewEventArgsImpl {
-    fn Handled();
-    fn SetHandled();
-    fn CurrentPoint();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGazeExitedPreviewEventArgsVtbl(
@@ -1306,15 +1259,6 @@ pub struct IGazeInputSourcePreview(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGazeInputSourcePreview {
     type Vtable = IGazeInputSourcePreviewVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe79e7ee8_b389_11e7_b201_c8d3ffb75721);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IGazeInputSourcePreviewImpl {
-    fn GazeMoved();
-    fn RemoveGazeMoved();
-    fn GazeEntered();
-    fn RemoveGazeEntered();
-    fn GazeExited();
-    fn RemoveGazeExited();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1345,11 +1289,6 @@ unsafe impl ::windows::core::Interface for IGazeInputSourcePreviewStatics {
     type Vtable = IGazeInputSourcePreviewStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe79e7ee6_b389_11e7_b201_c8d3ffb75721);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IGazeInputSourcePreviewStaticsImpl {
-    fn GetForCurrentView();
-    fn CreateWatcher();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGazeInputSourcePreviewStaticsVtbl(
@@ -1368,13 +1307,6 @@ pub struct IGazeMovedPreviewEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGazeMovedPreviewEventArgs {
     type Vtable = IGazeMovedPreviewEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe79e7eeb_b389_11e7_b201_c8d3ffb75721);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IGazeMovedPreviewEventArgsImpl {
-    fn Handled();
-    fn SetHandled();
-    fn CurrentPoint();
-    fn GetIntermediatePoints();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1398,14 +1330,6 @@ unsafe impl ::windows::core::Interface for IGazePointPreview {
     type Vtable = IGazePointPreviewVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe79e7eea_b389_11e7_b201_c8d3ffb75721);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IGazePointPreviewImpl {
-    fn SourceDevice();
-    fn EyeGazePosition();
-    fn HeadGazePosition();
-    fn Timestamp();
-    fn HidInputReport();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGazePointPreviewVtbl(
@@ -1424,3 +1348,5 @@ pub struct IGazePointPreviewVtbl(
     #[cfg(feature = "Devices_HumanInterfaceDevice")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Devices_HumanInterfaceDevice"))] usize,
 );
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

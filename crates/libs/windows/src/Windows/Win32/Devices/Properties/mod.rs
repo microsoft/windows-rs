@@ -768,3 +768,5 @@ pub const DEVPROP_TYPE_UINT64: u32 = 9u32;
 pub const MAX_DEVPROP_TYPE: u32 = 25u32;
 #[doc = "*Required features: 'Win32_Devices_Properties'*"]
 pub const MAX_DEVPROP_TYPEMOD: u32 = 8192u32;
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

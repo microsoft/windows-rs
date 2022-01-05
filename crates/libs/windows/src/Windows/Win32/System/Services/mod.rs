@@ -2815,3 +2815,5 @@ pub unsafe fn WaitServiceState<'a, Param0: ::windows::core::IntoParam<'a, super:
 }
 #[repr(C)]
 pub struct _SC_NOTIFICATION_REGISTRATION(pub u8);
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

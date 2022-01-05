@@ -776,39 +776,6 @@ unsafe impl ::windows::core::Interface for IADsTSUserEx {
     type Vtable = IADsTSUserExVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc4930e79_2989_4462_8a60_2fcf2f2955ef);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IADsTSUserExImpl: IDispatchImpl {
-    fn TerminalServicesProfilePath();
-    fn SetTerminalServicesProfilePath();
-    fn TerminalServicesHomeDirectory();
-    fn SetTerminalServicesHomeDirectory();
-    fn TerminalServicesHomeDrive();
-    fn SetTerminalServicesHomeDrive();
-    fn AllowLogon();
-    fn SetAllowLogon();
-    fn EnableRemoteControl();
-    fn SetEnableRemoteControl();
-    fn MaxDisconnectionTime();
-    fn SetMaxDisconnectionTime();
-    fn MaxConnectionTime();
-    fn SetMaxConnectionTime();
-    fn MaxIdleTime();
-    fn SetMaxIdleTime();
-    fn ReconnectionAction();
-    fn SetReconnectionAction();
-    fn BrokenConnectionAction();
-    fn SetBrokenConnectionAction();
-    fn ConnectClientDrivesAtLogon();
-    fn SetConnectClientDrivesAtLogon();
-    fn ConnectClientPrintersAtLogon();
-    fn SetConnectClientPrintersAtLogon();
-    fn DefaultToMainPrinter();
-    fn SetDefaultToMainPrinter();
-    fn TerminalServicesWorkDirectory();
-    fn SetTerminalServicesWorkDirectory();
-    fn TerminalServicesInitialProgram();
-    fn SetTerminalServicesInitialProgram();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IADsTSUserExVtbl(
@@ -929,12 +896,6 @@ unsafe impl ::windows::core::Interface for IAudioDeviceEndpoint {
     type Vtable = IAudioDeviceEndpointVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd4952f5a_a0b2_4cc4_8b82_9358488dd8ac);
 }
-pub trait IAudioDeviceEndpointImpl {
-    fn SetBuffer();
-    fn GetRTCaps();
-    fn GetEventDrivenCapable();
-    fn WriteExclusiveModeParametersToSharedMemory();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAudioDeviceEndpointVtbl(
@@ -1018,13 +979,6 @@ unsafe impl ::windows::core::Interface for IAudioEndpoint {
     type Vtable = IAudioEndpointVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x30a99515_1527_4451_af9f_00c5f0234daf);
 }
-pub trait IAudioEndpointImpl {
-    fn GetFrameFormat();
-    fn GetFramesPerPacket();
-    fn GetLatency();
-    fn SetStreamFlags();
-    fn SetEventHandle();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAudioEndpointVtbl(
@@ -1095,11 +1049,6 @@ impl ::core::fmt::Debug for IAudioEndpointControl {
 unsafe impl ::windows::core::Interface for IAudioEndpointControl {
     type Vtable = IAudioEndpointControlVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc684b72a_6df4_4774_bdf9_76b77509b653);
-}
-pub trait IAudioEndpointControlImpl {
-    fn Start();
-    fn Reset();
-    fn Stop();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1172,12 +1121,6 @@ unsafe impl ::windows::core::Interface for IAudioEndpointRT {
     type Vtable = IAudioEndpointRTVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdfd2005f_a6e5_4d39_a265_939ada9fbb4d);
 }
-pub trait IAudioEndpointRTImpl {
-    fn GetCurrentPadding();
-    fn ProcessingComplete();
-    fn SetPinInactive();
-    fn SetPinActive();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAudioEndpointRTVtbl(
@@ -1247,11 +1190,6 @@ unsafe impl ::windows::core::Interface for IAudioInputEndpointRT {
     type Vtable = IAudioInputEndpointRTVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8026ab61_92b2_43c1_a1df_5c37ebd08d82);
 }
-pub trait IAudioInputEndpointRTImpl {
-    fn GetInputDataPointer();
-    fn ReleaseInputDataPointer();
-    fn PulseEndpoint();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAudioInputEndpointRTVtbl(
@@ -1320,11 +1258,6 @@ impl ::core::fmt::Debug for IAudioOutputEndpointRT {
 unsafe impl ::windows::core::Interface for IAudioOutputEndpointRT {
     type Vtable = IAudioOutputEndpointRTVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8fa906e4_c31c_4e31_932e_19a66385e9aa);
-}
-pub trait IAudioOutputEndpointRTImpl {
-    fn GetOutputDataPointer();
-    fn ReleaseOutputDataPointer();
-    fn PulseEndpoint();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1474,19 +1407,6 @@ unsafe impl ::windows::core::Interface for IRemoteDesktopClient {
     type Vtable = IRemoteDesktopClientVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x57d25668_625a_4905_be4e_304caa13f89c);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IRemoteDesktopClientImpl: IDispatchImpl {
-    fn Connect();
-    fn Disconnect();
-    fn Reconnect();
-    fn Settings();
-    fn Actions();
-    fn TouchPointer();
-    fn DeleteSavedCredentials();
-    fn UpdateSessionDisplaySettings();
-    fn attachEvent();
-    fn detachEvent();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRemoteDesktopClientVtbl(
@@ -1624,13 +1544,6 @@ unsafe impl ::windows::core::Interface for IRemoteDesktopClientActions {
     type Vtable = IRemoteDesktopClientActionsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7d54bc4e_1028_45d4_8b0a_b9b6bffba176);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IRemoteDesktopClientActionsImpl: IDispatchImpl {
-    fn SuspendScreenUpdates();
-    fn ResumeScreenUpdates();
-    fn ExecuteRemoteAction();
-    fn GetSnapshot();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRemoteDesktopClientActionsVtbl(
@@ -1763,13 +1676,6 @@ impl ::core::fmt::Debug for IRemoteDesktopClientSettings {
 unsafe impl ::windows::core::Interface for IRemoteDesktopClientSettings {
     type Vtable = IRemoteDesktopClientSettingsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x48a0f2a7_2713_431f_bbac_6f4558e7d64d);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IRemoteDesktopClientSettingsImpl: IDispatchImpl {
-    fn ApplySettings();
-    fn RetrieveSettings();
-    fn GetRdpProperty();
-    fn SetRdpProperty();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1912,15 +1818,6 @@ unsafe impl ::windows::core::Interface for IRemoteDesktopClientTouchPointer {
     type Vtable = IRemoteDesktopClientTouchPointerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x260ec22d_8cbc_44b5_9e88_2a37f6c93ae9);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IRemoteDesktopClientTouchPointerImpl: IDispatchImpl {
-    fn SetEnabled();
-    fn Enabled();
-    fn SetEventsEnabled();
-    fn EventsEnabled();
-    fn SetPointerSpeed();
-    fn PointerSpeed();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRemoteDesktopClientTouchPointerVtbl(
@@ -1992,9 +1889,6 @@ unsafe impl ::windows::core::Interface for IRemoteSystemAdditionalInfoProvider {
     type Vtable = IRemoteSystemAdditionalInfoProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeeaa3d5f_ec63_4d27_af38_e86b1d7292cb);
 }
-pub trait IRemoteSystemAdditionalInfoProviderImpl {
-    fn GetAdditionalInfo();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRemoteSystemAdditionalInfoProviderVtbl(
@@ -2052,9 +1946,6 @@ impl ::core::fmt::Debug for ITSGAccountingEngine {
 unsafe impl ::windows::core::Interface for ITSGAccountingEngine {
     type Vtable = ITSGAccountingEngineVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4ce2a0c9_e874_4f1a_86f4_06bbb9115338);
-}
-pub trait ITSGAccountingEngineImpl {
-    fn DoAccounting();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2127,12 +2018,6 @@ unsafe impl ::windows::core::Interface for ITSGAuthenticateUserSink {
     type Vtable = ITSGAuthenticateUserSinkVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2c3e2e73_a782_47f9_8dfb_77ee1ed27a03);
 }
-pub trait ITSGAuthenticateUserSinkImpl {
-    fn OnUserAuthenticated();
-    fn OnUserAuthenticationFailed();
-    fn ReauthenticateUser();
-    fn DisconnectUser();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITSGAuthenticateUserSinkVtbl(
@@ -2198,10 +2083,6 @@ unsafe impl ::windows::core::Interface for ITSGAuthenticationEngine {
     type Vtable = ITSGAuthenticationEngineVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9ee3e5bf_04ab_4691_998c_d7f622321a56);
 }
-pub trait ITSGAuthenticationEngineImpl {
-    fn AuthenticateUser();
-    fn CancelAuthentication();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITSGAuthenticationEngineVtbl(
@@ -2260,9 +2141,6 @@ unsafe impl ::windows::core::Interface for ITSGAuthorizeConnectionSink {
     type Vtable = ITSGAuthorizeConnectionSinkVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc27ece33_7781_4318_98ef_1cf2da7b7005);
 }
-pub trait ITSGAuthorizeConnectionSinkImpl {
-    fn OnConnectionAuthorized();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITSGAuthorizeConnectionSinkVtbl(
@@ -2320,9 +2198,6 @@ impl ::core::fmt::Debug for ITSGAuthorizeResourceSink {
 unsafe impl ::windows::core::Interface for ITSGAuthorizeResourceSink {
     type Vtable = ITSGAuthorizeResourceSinkVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfeddfcd4_fa12_4435_ae55_7ad1a9779af7);
-}
-pub trait ITSGAuthorizeResourceSinkImpl {
-    fn OnChannelAuthorized();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2398,12 +2273,6 @@ unsafe impl ::windows::core::Interface for ITSGPolicyEngine {
     type Vtable = ITSGPolicyEngineVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8bc24f08_6223_42f4_a5b4_8e37cd135bbd);
 }
-pub trait ITSGPolicyEngineImpl {
-    fn AuthorizeConnection();
-    fn AuthorizeResource();
-    fn Refresh();
-    fn IsQuarantineEnabled();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITSGPolicyEngineVtbl(
@@ -2470,10 +2339,6 @@ impl ::core::fmt::Debug for ITsSbBaseNotifySink {
 unsafe impl ::windows::core::Interface for ITsSbBaseNotifySink {
     type Vtable = ITsSbBaseNotifySinkVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x808a6537_1282_4989_9e09_f43938b71722);
-}
-pub trait ITsSbBaseNotifySinkImpl {
-    fn OnError();
-    fn OnReportStatus();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2611,23 +2476,6 @@ unsafe impl ::windows::core::Interface for ITsSbClientConnection {
     type Vtable = ITsSbClientConnectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x18857499_ad61_4b1b_b7df_cbcd41fb8338);
 }
-pub trait ITsSbClientConnectionImpl {
-    fn UserName();
-    fn Domain();
-    fn InitialProgram();
-    fn LoadBalanceResult();
-    fn FarmName();
-    fn PutContext();
-    fn GetContext();
-    fn Environment();
-    fn ConnectionError();
-    fn SamUserAccount();
-    fn ClientConnectionPropertySet();
-    fn IsFirstAssignment();
-    fn RdFarmType();
-    fn UserSidString();
-    fn GetDisconnectedSession();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITsSbClientConnectionVtbl(
@@ -2757,8 +2605,6 @@ unsafe impl ::windows::core::Interface for ITsSbClientConnectionPropertySet {
     type Vtable = ITsSbClientConnectionPropertySetVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe51995b0_46d6_11dd_aa21_cedc55d89593);
 }
-#[cfg(feature = "Win32_System_Com_StructuredStorage")]
-pub trait ITsSbClientConnectionPropertySetImpl: ITsSbPropertySetImpl + IPropertyBagImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITsSbClientConnectionPropertySetVtbl(
@@ -2834,12 +2680,6 @@ impl ::core::fmt::Debug for ITsSbEnvironment {
 unsafe impl ::windows::core::Interface for ITsSbEnvironment {
     type Vtable = ITsSbEnvironmentVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8c87f7f7_bf51_4a5c_87bf_8e94fb6e2256);
-}
-pub trait ITsSbEnvironmentImpl {
-    fn Name();
-    fn ServerWeight();
-    fn EnvironmentPropertySet();
-    fn SetEnvironmentPropertySet();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2952,8 +2792,6 @@ unsafe impl ::windows::core::Interface for ITsSbEnvironmentPropertySet {
     type Vtable = ITsSbEnvironmentPropertySetVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd0d1bf7e_7acf_11dd_a243_e51156d89593);
 }
-#[cfg(feature = "Win32_System_Com_StructuredStorage")]
-pub trait ITsSbEnvironmentPropertySetImpl: ITsSbPropertySetImpl + IPropertyBagImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITsSbEnvironmentPropertySetVtbl(
@@ -3024,11 +2862,6 @@ unsafe impl ::windows::core::Interface for ITsSbFilterPluginStore {
     type Vtable = ITsSbFilterPluginStoreVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x85b44b0f_ed78_413f_9702_fa6d3b5ee755);
 }
-pub trait ITsSbFilterPluginStoreImpl {
-    fn SaveProperties();
-    fn EnumerateProperties();
-    fn DeleteProperties();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITsSbFilterPluginStoreVtbl(
@@ -3094,10 +2927,6 @@ impl ::core::fmt::Debug for ITsSbGenericNotifySink {
 unsafe impl ::windows::core::Interface for ITsSbGenericNotifySink {
     type Vtable = ITsSbGenericNotifySinkVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4c4c8c4f_300b_46ad_9164_8468a7e7568c);
-}
-pub trait ITsSbGenericNotifySinkImpl {
-    fn OnCompleted();
-    fn GetWaitTimeout();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3191,15 +3020,6 @@ unsafe impl ::windows::core::Interface for ITsSbGlobalStore {
     type Vtable = ITsSbGlobalStoreVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9ab60f7b_bd72_4d9f_8a3a_a0ea5574e635);
 }
-pub trait ITsSbGlobalStoreImpl {
-    fn QueryTarget();
-    fn QuerySessionBySessionId();
-    fn EnumerateFarms();
-    fn EnumerateTargets();
-    fn EnumerateEnvironmentsByProvider();
-    fn EnumerateSessions();
-    fn GetFarmProperty();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITsSbGlobalStoreVtbl(
@@ -3271,9 +3091,6 @@ impl ::core::fmt::Debug for ITsSbLoadBalanceResult {
 unsafe impl ::windows::core::Interface for ITsSbLoadBalanceResult {
     type Vtable = ITsSbLoadBalanceResultVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x24fdb7ac_fea6_11dc_9672_9a8956d89593);
-}
-pub trait ITsSbLoadBalanceResultImpl {
-    fn TargetName();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3360,9 +3177,6 @@ impl ::core::fmt::Debug for ITsSbLoadBalancing {
 unsafe impl ::windows::core::Interface for ITsSbLoadBalancing {
     type Vtable = ITsSbLoadBalancingVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x24329274_9eb7_11dc_ae98_f2b456d89593);
-}
-pub trait ITsSbLoadBalancingImpl: ITsSbPluginImpl {
-    fn GetMostSuitableTarget();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3452,9 +3266,6 @@ unsafe impl ::windows::core::Interface for ITsSbLoadBalancingNotifySink {
     type Vtable = ITsSbLoadBalancingNotifySinkVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5f8a8297_3244_4e6a_958a_27c822c1e141);
 }
-pub trait ITsSbLoadBalancingNotifySinkImpl: ITsSbBaseNotifySinkImpl {
-    fn OnGetMostSuitableTarget();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITsSbLoadBalancingNotifySinkVtbl(
@@ -3543,9 +3354,6 @@ unsafe impl ::windows::core::Interface for ITsSbOrchestration {
     type Vtable = ITsSbOrchestrationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x64fc1172_9eb7_11dc_8b00_3aba56d89593);
 }
-pub trait ITsSbOrchestrationImpl: ITsSbPluginImpl {
-    fn PrepareTargetForConnect();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITsSbOrchestrationVtbl(
@@ -3632,9 +3440,6 @@ impl ::core::fmt::Debug for ITsSbOrchestrationNotifySink {
 unsafe impl ::windows::core::Interface for ITsSbOrchestrationNotifySink {
     type Vtable = ITsSbOrchestrationNotifySinkVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x36c37d61_926b_442f_bca5_118c6d50dcf2);
-}
-pub trait ITsSbOrchestrationNotifySinkImpl: ITsSbBaseNotifySinkImpl {
-    fn OnReadyToConnect();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3723,9 +3528,6 @@ unsafe impl ::windows::core::Interface for ITsSbPlacement {
     type Vtable = ITsSbPlacementVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdaadee5f_6d32_480e_9e36_ddab2329f06d);
 }
-pub trait ITsSbPlacementImpl: ITsSbPluginImpl {
-    fn QueryEnvironmentForTarget();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITsSbPlacementVtbl(
@@ -3813,9 +3615,6 @@ unsafe impl ::windows::core::Interface for ITsSbPlacementNotifySink {
     type Vtable = ITsSbPlacementNotifySinkVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x68a0c487_2b4f_46c2_94a1_6ce685183634);
 }
-pub trait ITsSbPlacementNotifySinkImpl: ITsSbBaseNotifySinkImpl {
-    fn OnQueryEnvironmentCompleted();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITsSbPlacementNotifySinkVtbl(
@@ -3878,10 +3677,6 @@ impl ::core::fmt::Debug for ITsSbPlugin {
 unsafe impl ::windows::core::Interface for ITsSbPlugin {
     type Vtable = ITsSbPluginVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x48cd7406_caab_465f_a5d6_baa863b9ea4f);
-}
-pub trait ITsSbPluginImpl {
-    fn Initialize();
-    fn Terminate();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3972,10 +3767,6 @@ impl ::core::fmt::Debug for ITsSbPluginNotifySink {
 unsafe impl ::windows::core::Interface for ITsSbPluginNotifySink {
     type Vtable = ITsSbPluginNotifySinkVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x44dfe30b_c3be_40f5_bf82_7a95bb795adf);
-}
-pub trait ITsSbPluginNotifySinkImpl: ITsSbBaseNotifySinkImpl {
-    fn OnInitialized();
-    fn OnTerminated();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4087,8 +3878,6 @@ unsafe impl ::windows::core::Interface for ITsSbPluginPropertySet {
     type Vtable = ITsSbPluginPropertySetVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x95006e34_7eff_4b6c_bb40_49a4fda7cea6);
 }
-#[cfg(feature = "Win32_System_Com_StructuredStorage")]
-pub trait ITsSbPluginPropertySetImpl: ITsSbPropertySetImpl + IPropertyBagImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITsSbPluginPropertySetVtbl(
@@ -4179,8 +3968,6 @@ unsafe impl ::windows::core::Interface for ITsSbPropertySet {
     type Vtable = ITsSbPropertySetVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5c025171_bb1e_4baf_a212_6d5e9774b33b);
 }
-#[cfg(feature = "Win32_System_Com_StructuredStorage")]
-pub trait ITsSbPropertySetImpl: IPropertyBagImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITsSbPropertySetVtbl(
@@ -4301,20 +4088,6 @@ unsafe impl ::windows::core::Interface for ITsSbProvider {
     type Vtable = ITsSbProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x87a4098f_6d7b_44dd_bc17_8ce44e370d52);
 }
-pub trait ITsSbProviderImpl {
-    fn CreateTargetObject();
-    fn CreateLoadBalanceResultObject();
-    fn CreateSessionObject();
-    fn CreatePluginPropertySet();
-    fn CreateTargetPropertySetObject();
-    fn CreateEnvironmentObject();
-    fn GetResourcePluginStore();
-    fn GetFilterPluginStore();
-    fn RegisterForNotification();
-    fn UnRegisterForNotification();
-    fn GetInstanceOfGlobalStore();
-    fn CreateEnvironmentPropertySetObject();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITsSbProviderVtbl(
@@ -4433,12 +4206,6 @@ unsafe impl ::windows::core::Interface for ITsSbProvisioning {
     type Vtable = ITsSbProvisioningVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2f6f0dbb_9e4f_462b_9c3f_fccc3dcb6232);
 }
-pub trait ITsSbProvisioningImpl: ITsSbPluginImpl {
-    fn CreateVirtualMachines();
-    fn PatchVirtualMachines();
-    fn DeleteVirtualMachines();
-    fn CancelJob();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITsSbProvisioningVtbl(
@@ -4528,14 +4295,6 @@ unsafe impl ::windows::core::Interface for ITsSbProvisioningPluginNotifySink {
     type Vtable = ITsSbProvisioningPluginNotifySinkVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaca87a8e_818b_4581_a032_49c3dfb9c701);
 }
-pub trait ITsSbProvisioningPluginNotifySinkImpl {
-    fn OnJobCreated();
-    fn OnVirtualMachineStatusChanged();
-    fn OnJobCompleted();
-    fn OnJobCancelled();
-    fn LockVirtualMachine();
-    fn OnVirtualMachineHostStatusChanged();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITsSbProvisioningPluginNotifySinkVtbl(
@@ -4609,11 +4368,6 @@ unsafe impl ::windows::core::Interface for ITsSbResourceNotification {
     type Vtable = ITsSbResourceNotificationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x65d3e85a_c39b_11dc_b92d_3cd255d89593);
 }
-pub trait ITsSbResourceNotificationImpl {
-    fn NotifySessionChange();
-    fn NotifyTargetChange();
-    fn NotifyClientConnectionStateChange();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITsSbResourceNotificationVtbl(
@@ -4683,11 +4437,6 @@ impl ::core::fmt::Debug for ITsSbResourceNotificationEx {
 unsafe impl ::windows::core::Interface for ITsSbResourceNotificationEx {
     type Vtable = ITsSbResourceNotificationExVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa8a47fde_ca91_44d2_b897_3aa28a43b2b7);
-}
-pub trait ITsSbResourceNotificationExImpl {
-    fn NotifySessionChangeEx();
-    fn NotifyTargetChangeEx();
-    fn NotifyClientConnectionStateChangeEx();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4775,7 +4524,6 @@ unsafe impl ::windows::core::Interface for ITsSbResourcePlugin {
     type Vtable = ITsSbResourcePluginVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xea8db42c_98ed_4535_a88b_2a164f35490f);
 }
-pub trait ITsSbResourcePluginImpl: ITsSbPluginImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITsSbResourcePluginVtbl(
@@ -4970,36 +4718,6 @@ unsafe impl ::windows::core::Interface for ITsSbResourcePluginStore {
     type Vtable = ITsSbResourcePluginStoreVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5c38f65f_bcf1_4036_a6bf_9e3cccae0b63);
 }
-pub trait ITsSbResourcePluginStoreImpl {
-    fn QueryTarget();
-    fn QuerySessionBySessionId();
-    fn AddTargetToStore();
-    fn AddSessionToStore();
-    fn AddEnvironmentToStore();
-    fn RemoveEnvironmentFromStore();
-    fn EnumerateFarms();
-    fn QueryEnvironment();
-    fn EnumerateEnvironments();
-    fn SaveTarget();
-    fn SaveEnvironment();
-    fn SaveSession();
-    fn SetTargetProperty();
-    fn SetEnvironmentProperty();
-    fn SetTargetState();
-    fn SetSessionState();
-    fn EnumerateTargets();
-    fn EnumerateSessions();
-    fn GetFarmProperty();
-    fn DeleteTarget();
-    fn SetTargetPropertyWithVersionCheck();
-    fn SetEnvironmentPropertyWithVersionCheck();
-    fn AcquireTargetLock();
-    fn ReleaseTargetLock();
-    fn TestAndSetServerState();
-    fn SetServerWaitingToStart();
-    fn GetServerState();
-    fn SetServerDrainMode();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITsSbResourcePluginStoreVtbl(
@@ -5108,10 +4826,6 @@ impl ::core::fmt::Debug for ITsSbServiceNotification {
 unsafe impl ::windows::core::Interface for ITsSbServiceNotification {
     type Vtable = ITsSbServiceNotificationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x86cb68ae_86e0_4f57_8a64_bb7406bc5550);
-}
-pub trait ITsSbServiceNotificationImpl {
-    fn NotifyServiceFailure();
-    fn NotifyServiceSuccess();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5254,25 +4968,6 @@ impl ::core::fmt::Debug for ITsSbSession {
 unsafe impl ::windows::core::Interface for ITsSbSession {
     type Vtable = ITsSbSessionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd453aac7_b1d8_4c5e_ba34_9afb4c8c5510);
-}
-pub trait ITsSbSessionImpl {
-    fn SessionId();
-    fn TargetName();
-    fn SetTargetName();
-    fn Username();
-    fn Domain();
-    fn State();
-    fn SetState();
-    fn CreateTime();
-    fn SetCreateTime();
-    fn DisconnectTime();
-    fn SetDisconnectTime();
-    fn InitialProgram();
-    fn SetInitialProgram();
-    fn ClientDisplay();
-    fn SetClientDisplay();
-    fn ProtocolType();
-    fn SetProtocolType();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5449,27 +5144,6 @@ unsafe impl ::windows::core::Interface for ITsSbTarget {
     type Vtable = ITsSbTargetVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x16616ecc_272d_411d_b324_126893033856);
 }
-pub trait ITsSbTargetImpl {
-    fn TargetName();
-    fn SetTargetName();
-    fn FarmName();
-    fn SetFarmName();
-    fn TargetFQDN();
-    fn SetTargetFQDN();
-    fn TargetNetbios();
-    fn SetTargetNetbios();
-    fn IpAddresses();
-    fn SetIpAddresses();
-    fn TargetState();
-    fn SetTargetState();
-    fn TargetPropertySet();
-    fn SetTargetPropertySet();
-    fn EnvironmentName();
-    fn SetEnvironmentName();
-    fn NumSessions();
-    fn NumPendingConnections();
-    fn TargetLoad();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITsSbTargetVtbl(
@@ -5605,8 +5279,6 @@ unsafe impl ::windows::core::Interface for ITsSbTargetPropertySet {
     type Vtable = ITsSbTargetPropertySetVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf7bda5d6_994c_4e11_a079_2763b61830ac);
 }
-#[cfg(feature = "Win32_System_Com_StructuredStorage")]
-pub trait ITsSbTargetPropertySetImpl: ITsSbPropertySetImpl + IPropertyBagImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITsSbTargetPropertySetVtbl(
@@ -5716,17 +5388,6 @@ unsafe impl ::windows::core::Interface for ITsSbTaskInfo {
     type Vtable = ITsSbTaskInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x523d1083_89be_48dd_99ea_04e82ffa7265);
 }
-pub trait ITsSbTaskInfoImpl {
-    fn TargetId();
-    fn StartTime();
-    fn EndTime();
-    fn Deadline();
-    fn Identifier();
-    fn Label();
-    fn Context();
-    fn Plugin();
-    fn Status();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITsSbTaskInfoVtbl(
@@ -5832,10 +5493,6 @@ impl ::core::fmt::Debug for ITsSbTaskPlugin {
 unsafe impl ::windows::core::Interface for ITsSbTaskPlugin {
     type Vtable = ITsSbTaskPluginVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfa22ef0f_8705_41be_93bc_44bdbcf1c9c4);
-}
-pub trait ITsSbTaskPluginImpl: ITsSbPluginImpl {
-    fn InitializeTaskPlugin();
-    fn SetTaskQueue();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5953,12 +5610,6 @@ unsafe impl ::windows::core::Interface for ITsSbTaskPluginNotifySink {
     type Vtable = ITsSbTaskPluginNotifySinkVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6aaf899e_c2ec_45ee_aa37_45e60895261a);
 }
-pub trait ITsSbTaskPluginNotifySinkImpl: ITsSbBaseNotifySinkImpl {
-    fn OnSetTaskTime();
-    fn OnDeleteTaskTime();
-    fn OnUpdateTaskStatus();
-    fn OnReportTasks();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITsSbTaskPluginNotifySinkVtbl(
@@ -6026,9 +5677,6 @@ unsafe impl ::windows::core::Interface for IWRdsEnhancedFastReconnectArbitrator 
     type Vtable = IWRdsEnhancedFastReconnectArbitratorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5718ae9b_47f2_499f_b634_d8175bd51131);
 }
-pub trait IWRdsEnhancedFastReconnectArbitratorImpl {
-    fn GetSessionForEnhancedFastReconnect();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWRdsEnhancedFastReconnectArbitratorVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psessionidarray: *const i32, dwsessioncount: u32, presultsessionid: *mut i32) -> ::windows::core::HRESULT);
@@ -6088,11 +5736,6 @@ impl ::core::fmt::Debug for IWRdsGraphicsChannel {
 unsafe impl ::windows::core::Interface for IWRdsGraphicsChannel {
     type Vtable = IWRdsGraphicsChannelVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x684b7a0b_edff_43ad_d5a2_4a8d5388f401);
-}
-pub trait IWRdsGraphicsChannelImpl {
-    fn Write();
-    fn Close();
-    fn Open();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6170,13 +5813,6 @@ unsafe impl ::windows::core::Interface for IWRdsGraphicsChannelEvents {
     type Vtable = IWRdsGraphicsChannelEventsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x67f2368c_d674_4fae_66a5_d20628a640d2);
 }
-pub trait IWRdsGraphicsChannelEventsImpl {
-    fn OnDataReceived();
-    fn OnClose();
-    fn OnChannelOpened();
-    fn OnDataSent();
-    fn OnMetricsUpdate();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWRdsGraphicsChannelEventsVtbl(
@@ -6239,9 +5875,6 @@ impl ::core::fmt::Debug for IWRdsGraphicsChannelManager {
 unsafe impl ::windows::core::Interface for IWRdsGraphicsChannelManager {
     type Vtable = IWRdsGraphicsChannelManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0fd57159_e83e_476a_a8b9_4a7976e71e18);
-}
-pub trait IWRdsGraphicsChannelManagerImpl {
-    fn CreateChannel();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6411,32 +6044,6 @@ unsafe impl ::windows::core::Interface for IWRdsProtocolConnection {
     type Vtable = IWRdsProtocolConnectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x324ed94f_fdaf_4ff6_81a8_42abe755830b);
 }
-pub trait IWRdsProtocolConnectionImpl {
-    fn GetLogonErrorRedirector();
-    fn AcceptConnection();
-    fn GetClientData();
-    fn GetClientMonitorData();
-    fn GetUserCredentials();
-    fn GetLicenseConnection();
-    fn AuthenticateClientToSession();
-    fn NotifySessionId();
-    fn GetInputHandles();
-    fn GetVideoHandle();
-    fn ConnectNotify();
-    fn IsUserAllowedToLogon();
-    fn SessionArbitrationEnumeration();
-    fn LogonNotify();
-    fn PreDisconnect();
-    fn DisconnectNotify();
-    fn Close();
-    fn GetProtocolStatus();
-    fn GetLastInputTime();
-    fn SetErrorInfo();
-    fn CreateVirtualChannel();
-    fn QueryProperty();
-    fn GetShadowConnection();
-    fn NotifyCommandProcessCreated();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWRdsProtocolConnectionVtbl(
@@ -6543,13 +6150,6 @@ unsafe impl ::windows::core::Interface for IWRdsProtocolConnectionCallback {
     type Vtable = IWRdsProtocolConnectionCallbackVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf1d70332_d070_4ef1_a088_78313536c2d6);
 }
-pub trait IWRdsProtocolConnectionCallbackImpl {
-    fn OnReady();
-    fn BrokenConnection();
-    fn StopScreenUpdates();
-    fn RedrawWindow();
-    fn GetConnectionId();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWRdsProtocolConnectionCallbackVtbl(
@@ -6617,10 +6217,6 @@ impl ::core::fmt::Debug for IWRdsProtocolConnectionSettings {
 unsafe impl ::windows::core::Interface for IWRdsProtocolConnectionSettings {
     type Vtable = IWRdsProtocolConnectionSettingsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x83fcf5d3_f6f4_ea94_9cd2_32f280e1e510);
-}
-pub trait IWRdsProtocolConnectionSettingsImpl {
-    fn SetConnectionSetting();
-    fn GetConnectionSetting();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6695,12 +6291,6 @@ unsafe impl ::windows::core::Interface for IWRdsProtocolLicenseConnection {
     type Vtable = IWRdsProtocolLicenseConnectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1d6a145f_d095_4424_957a_407fae822d84);
 }
-pub trait IWRdsProtocolLicenseConnectionImpl {
-    fn RequestLicensingCapabilities();
-    fn SendClientLicense();
-    fn RequestClientLicense();
-    fn ProtocolComplete();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWRdsProtocolLicenseConnectionVtbl(
@@ -6771,11 +6361,6 @@ unsafe impl ::windows::core::Interface for IWRdsProtocolListener {
     type Vtable = IWRdsProtocolListenerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfcbc131b_c686_451d_a773_e279e230f540);
 }
-pub trait IWRdsProtocolListenerImpl {
-    fn GetSettings();
-    fn StartListen();
-    fn StopListen();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWRdsProtocolListenerVtbl(
@@ -6836,9 +6421,6 @@ impl ::core::fmt::Debug for IWRdsProtocolListenerCallback {
 unsafe impl ::windows::core::Interface for IWRdsProtocolListenerCallback {
     type Vtable = IWRdsProtocolListenerCallbackVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3ab27e5b_4449_4dc1_b74a_91621d4fe984);
-}
-pub trait IWRdsProtocolListenerCallbackImpl {
-    fn OnConnected();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6915,12 +6497,6 @@ impl ::core::fmt::Debug for IWRdsProtocolLogonErrorRedirector {
 unsafe impl ::windows::core::Interface for IWRdsProtocolLogonErrorRedirector {
     type Vtable = IWRdsProtocolLogonErrorRedirectorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x519fe83b_142a_4120_a3d5_a405d315281a);
-}
-pub trait IWRdsProtocolLogonErrorRedirectorImpl {
-    fn OnBeginPainting();
-    fn RedirectStatus();
-    fn RedirectMessage();
-    fn RedirectLogonError();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7017,16 +6593,6 @@ unsafe impl ::windows::core::Interface for IWRdsProtocolManager {
     type Vtable = IWRdsProtocolManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdc796967_3abb_40cd_a446_105276b58950);
 }
-pub trait IWRdsProtocolManagerImpl {
-    fn Initialize();
-    fn CreateListener();
-    fn NotifyServiceStateChange();
-    fn NotifySessionOfServiceStart();
-    fn NotifySessionOfServiceStop();
-    fn NotifySessionStateChange();
-    fn NotifySettingsChange();
-    fn Uninitialize();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWRdsProtocolManagerVtbl(
@@ -7101,10 +6667,6 @@ unsafe impl ::windows::core::Interface for IWRdsProtocolSettings {
     type Vtable = IWRdsProtocolSettingsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x654a5a6a_2550_47eb_b6f7_ebd637475265);
 }
-pub trait IWRdsProtocolSettingsImpl {
-    fn GetSettings();
-    fn MergeSettings();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWRdsProtocolSettingsVtbl(
@@ -7169,10 +6731,6 @@ impl ::core::fmt::Debug for IWRdsProtocolShadowCallback {
 unsafe impl ::windows::core::Interface for IWRdsProtocolShadowCallback {
     type Vtable = IWRdsProtocolShadowCallbackVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe0667ce0_0372_40d6_adb2_a0f3322674d6);
-}
-pub trait IWRdsProtocolShadowCallbackImpl {
-    fn StopShadow();
-    fn InvokeTargetShadow();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7242,11 +6800,6 @@ impl ::core::fmt::Debug for IWRdsProtocolShadowConnection {
 unsafe impl ::windows::core::Interface for IWRdsProtocolShadowConnection {
     type Vtable = IWRdsProtocolShadowConnectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9ae85ce6_cade_4548_8feb_99016597f60a);
-}
-pub trait IWRdsProtocolShadowConnectionImpl {
-    fn Start();
-    fn Stop();
-    fn DoTarget();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7324,12 +6877,6 @@ unsafe impl ::windows::core::Interface for IWRdsWddmIddProps {
     type Vtable = IWRdsWddmIddPropsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1382df4d_a289_43d1_a184_144726f9af90);
 }
-pub trait IWRdsWddmIddPropsImpl {
-    fn GetHardwareId();
-    fn OnDriverLoad();
-    fn OnDriverUnload();
-    fn EnableWddmIdd();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWRdsWddmIddPropsVtbl(
@@ -7393,9 +6940,6 @@ impl ::core::fmt::Debug for IWTSBitmapRenderService {
 unsafe impl ::windows::core::Interface for IWTSBitmapRenderService {
     type Vtable = IWTSBitmapRenderServiceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xea326091_05fe_40c1_b49c_3d2ef4626a0e);
-}
-pub trait IWTSBitmapRenderServiceImpl {
-    fn GetMappedRenderer();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7463,11 +7007,6 @@ unsafe impl ::windows::core::Interface for IWTSBitmapRenderer {
     type Vtable = IWTSBitmapRendererVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5b7acc97_f3c9_46f7_8c5b_fa685d3441b1);
 }
-pub trait IWTSBitmapRendererImpl {
-    fn Render();
-    fn GetRendererStatistics();
-    fn RemoveMapping();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWTSBitmapRendererVtbl(
@@ -7527,9 +7066,6 @@ impl ::core::fmt::Debug for IWTSBitmapRendererCallback {
 unsafe impl ::windows::core::Interface for IWTSBitmapRendererCallback {
     type Vtable = IWTSBitmapRendererCallbackVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd782928e_fe4e_4e77_ae90_9cd0b3e3b353);
-}
-pub trait IWTSBitmapRendererCallbackImpl {
-    fn OnTargetSizeChanged();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7591,9 +7127,6 @@ unsafe impl ::windows::core::Interface for IWTSListener {
     type Vtable = IWTSListenerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa1230206_9a39_4d58_8674_cdb4dff4e73b);
 }
-pub trait IWTSListenerImpl {
-    fn GetConfiguration();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWTSListenerVtbl(
@@ -7652,9 +7185,6 @@ impl ::core::fmt::Debug for IWTSListenerCallback {
 unsafe impl ::windows::core::Interface for IWTSListenerCallback {
     type Vtable = IWTSListenerCallbackVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa1230203_d6a7_11d8_b9fd_000bdbd1f198);
-}
-pub trait IWTSListenerCallbackImpl {
-    fn OnNewChannelConnection();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7726,12 +7256,6 @@ unsafe impl ::windows::core::Interface for IWTSPlugin {
     type Vtable = IWTSPluginVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa1230201_1439_4e62_a414_190d0ac3d40e);
 }
-pub trait IWTSPluginImpl {
-    fn Initialize();
-    fn Connected();
-    fn Disconnected();
-    fn Terminated();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWTSPluginVtbl(
@@ -7792,9 +7316,6 @@ impl ::core::fmt::Debug for IWTSPluginServiceProvider {
 unsafe impl ::windows::core::Interface for IWTSPluginServiceProvider {
     type Vtable = IWTSPluginServiceProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd3e07363_087c_476c_86a7_dbb15f46ddb4);
-}
-pub trait IWTSPluginServiceProviderImpl {
-    fn GetService();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7954,31 +7475,6 @@ unsafe impl ::windows::core::Interface for IWTSProtocolConnection {
     type Vtable = IWTSProtocolConnectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x23083765_9095_4648_98bf_ef81c914032d);
 }
-pub trait IWTSProtocolConnectionImpl {
-    fn GetLogonErrorRedirector();
-    fn SendPolicyData();
-    fn AcceptConnection();
-    fn GetClientData();
-    fn GetUserCredentials();
-    fn GetLicenseConnection();
-    fn AuthenticateClientToSession();
-    fn NotifySessionId();
-    fn GetProtocolHandles();
-    fn ConnectNotify();
-    fn IsUserAllowedToLogon();
-    fn SessionArbitrationEnumeration();
-    fn LogonNotify();
-    fn GetUserData();
-    fn DisconnectNotify();
-    fn Close();
-    fn GetProtocolStatus();
-    fn GetLastInputTime();
-    fn SetErrorInfo();
-    fn SendBeep();
-    fn CreateVirtualChannel();
-    fn QueryProperty();
-    fn GetShadowConnection();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWTSProtocolConnectionVtbl(
@@ -8083,13 +7579,6 @@ unsafe impl ::windows::core::Interface for IWTSProtocolConnectionCallback {
     type Vtable = IWTSProtocolConnectionCallbackVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x23083765_75eb_41fe_b4fb_e086242afa0f);
 }
-pub trait IWTSProtocolConnectionCallbackImpl {
-    fn OnReady();
-    fn BrokenConnection();
-    fn StopScreenUpdates();
-    fn RedrawWindow();
-    fn DisplayIOCtl();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWTSProtocolConnectionCallbackVtbl(
@@ -8164,12 +7653,6 @@ unsafe impl ::windows::core::Interface for IWTSProtocolLicenseConnection {
     type Vtable = IWTSProtocolLicenseConnectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x23083765_178c_4079_8e4a_fea6496a4d70);
 }
-pub trait IWTSProtocolLicenseConnectionImpl {
-    fn RequestLicensingCapabilities();
-    fn SendClientLicense();
-    fn RequestClientLicense();
-    fn ProtocolComplete();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWTSProtocolLicenseConnectionVtbl(
@@ -8235,10 +7718,6 @@ unsafe impl ::windows::core::Interface for IWTSProtocolListener {
     type Vtable = IWTSProtocolListenerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x23083765_45f0_4394_8f69_32b2bc0ef4ca);
 }
-pub trait IWTSProtocolListenerImpl {
-    fn StartListen();
-    fn StopListen();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWTSProtocolListenerVtbl(
@@ -8297,9 +7776,6 @@ impl ::core::fmt::Debug for IWTSProtocolListenerCallback {
 unsafe impl ::windows::core::Interface for IWTSProtocolListenerCallback {
     type Vtable = IWTSProtocolListenerCallbackVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x23083765_1a2d_4de2_97de_4a35f260f0b3);
-}
-pub trait IWTSProtocolListenerCallbackImpl {
-    fn OnConnected();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8370,12 +7846,6 @@ impl ::core::fmt::Debug for IWTSProtocolLogonErrorRedirector {
 unsafe impl ::windows::core::Interface for IWTSProtocolLogonErrorRedirector {
     type Vtable = IWTSProtocolLogonErrorRedirectorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfd9b61a7_2916_4627_8dee_4328711ad6cb);
-}
-pub trait IWTSProtocolLogonErrorRedirectorImpl {
-    fn OnBeginPainting();
-    fn RedirectStatus();
-    fn RedirectMessage();
-    fn RedirectLogonError();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8458,13 +7928,6 @@ unsafe impl ::windows::core::Interface for IWTSProtocolManager {
     type Vtable = IWTSProtocolManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf9eaf6cc_ed79_4f01_821d_1f881b9f66cc);
 }
-pub trait IWTSProtocolManagerImpl {
-    fn CreateListener();
-    fn NotifyServiceStateChange();
-    fn NotifySessionOfServiceStart();
-    fn NotifySessionOfServiceStop();
-    fn NotifySessionStateChange();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWTSProtocolManagerVtbl(
@@ -8531,10 +7994,6 @@ impl ::core::fmt::Debug for IWTSProtocolShadowCallback {
 unsafe impl ::windows::core::Interface for IWTSProtocolShadowCallback {
     type Vtable = IWTSProtocolShadowCallbackVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x503a2504_aae5_4ab1_93e0_6d1c4bc6f71a);
-}
-pub trait IWTSProtocolShadowCallbackImpl {
-    fn StopShadow();
-    fn InvokeTargetShadow();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8604,11 +8063,6 @@ impl ::core::fmt::Debug for IWTSProtocolShadowConnection {
 unsafe impl ::windows::core::Interface for IWTSProtocolShadowConnection {
     type Vtable = IWTSProtocolShadowConnectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xee3b0c14_37fb_456b_bab3_6d6cd51e13bf);
-}
-pub trait IWTSProtocolShadowConnectionImpl {
-    fn Start();
-    fn Stop();
-    fn DoTarget();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8695,14 +8149,6 @@ unsafe impl ::windows::core::Interface for IWTSSBPlugin {
     type Vtable = IWTSSBPluginVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdc44be78_b18d_4399_b210_641bf67a002c);
 }
-pub trait IWTSSBPluginImpl {
-    fn Initialize();
-    fn WTSSBX_MachineChangeNotification();
-    fn WTSSBX_SessionChangeNotification();
-    fn WTSSBX_GetMostSuitableServer();
-    fn Terminated();
-    fn WTSSBX_GetUserExternalSession();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWTSSBPluginVtbl(
@@ -8772,10 +8218,6 @@ unsafe impl ::windows::core::Interface for IWTSVirtualChannel {
     type Vtable = IWTSVirtualChannelVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa1230207_d6a7_11d8_b9fd_000bdbd1f198);
 }
-pub trait IWTSVirtualChannelImpl {
-    fn Write();
-    fn Close();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWTSVirtualChannelVtbl(
@@ -8838,10 +8280,6 @@ unsafe impl ::windows::core::Interface for IWTSVirtualChannelCallback {
     type Vtable = IWTSVirtualChannelCallbackVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa1230204_d6a7_11d8_b9fd_000bdbd1f198);
 }
-pub trait IWTSVirtualChannelCallbackImpl {
-    fn OnDataReceived();
-    fn OnClose();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWTSVirtualChannelCallbackVtbl(
@@ -8900,9 +8338,6 @@ impl ::core::fmt::Debug for IWTSVirtualChannelManager {
 unsafe impl ::windows::core::Interface for IWTSVirtualChannelManager {
     type Vtable = IWTSVirtualChannelManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa1230205_d6a7_11d8_b9fd_000bdbd1f198);
-}
-pub trait IWTSVirtualChannelManagerImpl {
-    fn CreateListener();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8972,11 +8407,6 @@ impl ::core::fmt::Debug for IWorkspace {
 unsafe impl ::windows::core::Interface for IWorkspace {
     type Vtable = IWorkspaceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb922bbb8_4c55_4fea_8496_beb0b44285e5);
-}
-pub trait IWorkspaceImpl {
-    fn GetWorkspaceNames();
-    fn StartRemoteApplication();
-    fn GetProcessId();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9075,9 +8505,6 @@ impl ::core::fmt::Debug for IWorkspace2 {
 unsafe impl ::windows::core::Interface for IWorkspace2 {
     type Vtable = IWorkspace2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x96d8d7cf_783e_4286_834c_ebc0e95f783c);
-}
-pub trait IWorkspace2Impl: IWorkspaceImpl {
-    fn StartRemoteApplicationEx();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9210,10 +8637,6 @@ unsafe impl ::windows::core::Interface for IWorkspace3 {
     type Vtable = IWorkspace3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1becbe4a_d654_423b_afeb_be8d532c13c6);
 }
-pub trait IWorkspace3Impl: IWorkspace2Impl + IWorkspaceImpl {
-    fn GetClaimsToken2();
-    fn SetClaimsToken();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWorkspace3Vtbl(
@@ -9293,11 +8716,6 @@ unsafe impl ::windows::core::Interface for IWorkspaceClientExt {
     type Vtable = IWorkspaceClientExtVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x12b952f4_41ca_4f21_a829_a6d07d9a16e5);
 }
-pub trait IWorkspaceClientExtImpl {
-    fn GetResourceId();
-    fn GetResourceDisplayName();
-    fn IssueDisconnect();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWorkspaceClientExtVtbl(
@@ -9363,10 +8781,6 @@ impl ::core::fmt::Debug for IWorkspaceRegistration {
 unsafe impl ::windows::core::Interface for IWorkspaceRegistration {
     type Vtable = IWorkspaceRegistrationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb922bbb8_4c55_4fea_8496_beb0b44285e6);
-}
-pub trait IWorkspaceRegistrationImpl {
-    fn AddResource();
-    fn RemoveResource();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9460,10 +8874,6 @@ unsafe impl ::windows::core::Interface for IWorkspaceRegistration2 {
     type Vtable = IWorkspaceRegistration2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcf59f654_39bb_44d8_94d0_4635728957e9);
 }
-pub trait IWorkspaceRegistration2Impl: IWorkspaceRegistrationImpl {
-    fn AddResourceEx();
-    fn RemoveResourceEx();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWorkspaceRegistration2Vtbl(
@@ -9536,11 +8946,6 @@ impl ::core::fmt::Debug for IWorkspaceReportMessage {
 unsafe impl ::windows::core::Interface for IWorkspaceReportMessage {
     type Vtable = IWorkspaceReportMessageVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa7c06739_500f_4e8c_99a8_2bd6955899eb);
-}
-pub trait IWorkspaceReportMessageImpl {
-    fn RegisterErrorLogMessage();
-    fn IsErrorMessageRegistered();
-    fn RegisterErrorEvent();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9672,14 +9077,6 @@ impl ::core::fmt::Debug for IWorkspaceResTypeRegistry {
 unsafe impl ::windows::core::Interface for IWorkspaceResTypeRegistry {
     type Vtable = IWorkspaceResTypeRegistryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1d428c79_6e2e_4351_a361_c0401a03a0ba);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IWorkspaceResTypeRegistryImpl: IDispatchImpl {
-    fn AddResourceType();
-    fn DeleteResourceType();
-    fn GetRegisteredFileExtensions();
-    fn GetResourceTypeInfo();
-    fn ModifyResourceType();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9832,16 +9229,6 @@ impl ::core::fmt::Debug for IWorkspaceScriptable {
 unsafe impl ::windows::core::Interface for IWorkspaceScriptable {
     type Vtable = IWorkspaceScriptableVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xefea49a2_dda5_429d_8f42_b23b92c4c347);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IWorkspaceScriptableImpl: IDispatchImpl {
-    fn DisconnectWorkspace();
-    fn StartWorkspace();
-    fn IsWorkspaceCredentialSpecified();
-    fn IsWorkspaceSSOEnabled();
-    fn ClearWorkspaceCredential();
-    fn OnAuthenticated();
-    fn DisconnectWorkspaceByFriendlyName();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -10027,11 +9414,6 @@ impl ::core::fmt::Debug for IWorkspaceScriptable2 {
 unsafe impl ::windows::core::Interface for IWorkspaceScriptable2 {
     type Vtable = IWorkspaceScriptable2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xefea49a2_dda5_429d_8f42_b33ba2c4c348);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IWorkspaceScriptable2Impl: IWorkspaceScriptableImpl + IDispatchImpl {
-    fn StartWorkspaceEx();
-    fn ResourceDismissed();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -10260,10 +9642,6 @@ unsafe impl ::windows::core::Interface for IWorkspaceScriptable3 {
     type Vtable = IWorkspaceScriptable3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x531e6512_2cbf_4bd2_80a5_d90a71636a9a);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IWorkspaceScriptable3Impl: IWorkspaceScriptable2Impl + IWorkspaceScriptableImpl + IDispatchImpl {
-    fn StartWorkspaceEx2();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWorkspaceScriptable3Vtbl(
@@ -10376,14 +9754,6 @@ impl ::core::fmt::Debug for ItsPubPlugin {
 unsafe impl ::windows::core::Interface for ItsPubPlugin {
     type Vtable = ItsPubPluginVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x70c04b05_f347_412b_822f_36c99c54ca45);
-}
-pub trait ItsPubPluginImpl {
-    fn GetResourceList();
-    fn GetResource();
-    fn GetCacheLastUpdateTime();
-    fn pluginName();
-    fn pluginVersion();
-    fn ResolveResource();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -10521,12 +9891,6 @@ impl ::core::fmt::Debug for ItsPubPlugin2 {
 unsafe impl ::windows::core::Interface for ItsPubPlugin2 {
     type Vtable = ItsPubPlugin2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfa4ce418_aad7_4ec6_bad1_0a321ba465d5);
-}
-pub trait ItsPubPlugin2Impl: ItsPubPluginImpl {
-    fn GetResource2List();
-    fn GetResource2();
-    fn ResolvePersonalDesktop();
-    fn DeletePersonalDesktopAssignment();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -16089,8 +15453,6 @@ unsafe impl ::windows::core::Interface for _ITSWkspEvents {
     type Vtable = _ITSWkspEventsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb922bbb8_4c55_4fea_8496_beb0b44285e9);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait _ITSWkspEventsImpl: IDispatchImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct _ITSWkspEventsVtbl(
@@ -16312,3 +15674,5 @@ impl ::core::default::Default for pluginResource2FileAssociation {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

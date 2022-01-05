@@ -6,17 +6,6 @@ unsafe impl ::windows::core::Interface for IQuickLink {
     type Vtable = IQuickLinkVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x603e4308_f0be_4adc_acc9_8b27ab9cf556);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IQuickLinkImpl {
-    fn Title();
-    fn SetTitle();
-    fn Thumbnail();
-    fn SetThumbnail();
-    fn Id();
-    fn SetId();
-    fn SupportedDataFormats();
-    fn SupportedFileTypes();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IQuickLinkVtbl(
@@ -46,18 +35,6 @@ unsafe impl ::windows::core::Interface for IShareOperation {
     type Vtable = IShareOperationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2246bab8_d0f8_41c1_a82a_4137db6504fb);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IShareOperationImpl {
-    fn Data();
-    fn QuickLinkId();
-    fn RemoveThisQuickLink();
-    fn ReportStarted();
-    fn ReportDataRetrieved();
-    fn ReportSubmittedBackgroundTask();
-    fn ReportCompletedWithQuickLink();
-    fn ReportCompleted();
-    fn ReportError();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IShareOperationVtbl(
@@ -84,10 +61,6 @@ unsafe impl ::windows::core::Interface for IShareOperation2 {
     type Vtable = IShareOperation2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0ffb97c1_9778_4a09_8e5b_cb5e482d0555);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IShareOperation2Impl {
-    fn DismissUI();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IShareOperation2Vtbl(
@@ -105,10 +78,6 @@ pub struct IShareOperation3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IShareOperation3 {
     type Vtable = IShareOperation3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5ef6b382_b7a7_4571_a2a6_994a034988b2);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IShareOperation3Impl {
-    fn Contacts();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -395,3 +364,5 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Shar
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

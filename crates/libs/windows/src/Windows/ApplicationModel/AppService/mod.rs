@@ -920,10 +920,6 @@ unsafe impl ::windows::core::Interface for IAppServiceCatalogStatics {
     type Vtable = IAppServiceCatalogStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xef0d2507_d132_4c85_8395_3c31d5a1e941);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IAppServiceCatalogStaticsImpl {
-    fn FindAppServiceProvidersAsync();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppServiceCatalogStaticsVtbl(
@@ -943,10 +939,6 @@ unsafe impl ::windows::core::Interface for IAppServiceClosedEventArgs {
     type Vtable = IAppServiceClosedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xde6016f6_cb03_4d35_ac8d_cc6303239731);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IAppServiceClosedEventArgsImpl {
-    fn Status();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppServiceClosedEventArgsVtbl(
@@ -964,19 +956,6 @@ pub struct IAppServiceConnection(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppServiceConnection {
     type Vtable = IAppServiceConnectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9dd474a2_871f_4d52_89a9_9e090531bd27);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IAppServiceConnectionImpl {
-    fn AppServiceName();
-    fn SetAppServiceName();
-    fn PackageFamilyName();
-    fn SetPackageFamilyName();
-    fn OpenAsync();
-    fn SendMessageAsync();
-    fn RequestReceived();
-    fn RemoveRequestReceived();
-    fn ServiceClosed();
-    fn RemoveServiceClosed();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1011,12 +990,6 @@ unsafe impl ::windows::core::Interface for IAppServiceConnection2 {
     type Vtable = IAppServiceConnection2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8bdfcd5f_2302_4fbd_8061_52511c2f8bf9);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IAppServiceConnection2Impl {
-    fn OpenRemoteAsync();
-    fn User();
-    fn SetUser();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppServiceConnection2Vtbl(
@@ -1040,10 +1013,6 @@ unsafe impl ::windows::core::Interface for IAppServiceConnectionStatics {
     type Vtable = IAppServiceConnectionStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xadc56ce9_d408_5673_8637_827a4b274168);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IAppServiceConnectionStaticsImpl {
-    fn SendStatelessMessageAsync();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppServiceConnectionStaticsVtbl(
@@ -1063,10 +1032,6 @@ unsafe impl ::windows::core::Interface for IAppServiceDeferral {
     type Vtable = IAppServiceDeferralVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7e1b5322_eab0_4248_ae04_fdf93838e472);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IAppServiceDeferralImpl {
-    fn Complete();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppServiceDeferralVtbl(
@@ -1084,11 +1049,6 @@ pub struct IAppServiceRequest(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppServiceRequest {
     type Vtable = IAppServiceRequestVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x20e58d9d_18de_4b01_80ba_90a76204e3c8);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IAppServiceRequestImpl {
-    fn Message();
-    fn SendResponseAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1111,11 +1071,6 @@ unsafe impl ::windows::core::Interface for IAppServiceRequestReceivedEventArgs {
     type Vtable = IAppServiceRequestReceivedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6e122360_ff65_44ae_9e45_857fe4180681);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IAppServiceRequestReceivedEventArgsImpl {
-    fn Request();
-    fn GetDeferral();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppServiceRequestReceivedEventArgsVtbl(
@@ -1134,11 +1089,6 @@ pub struct IAppServiceResponse(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppServiceResponse {
     type Vtable = IAppServiceResponseVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8d503cec_9aa3_4e68_9559_9de63e372ce4);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IAppServiceResponseImpl {
-    fn Message();
-    fn Status();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1160,12 +1110,6 @@ unsafe impl ::windows::core::Interface for IAppServiceTriggerDetails {
     type Vtable = IAppServiceTriggerDetailsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x88a2dcac_ad28_41b8_80bb_bdf1b2169e19);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IAppServiceTriggerDetailsImpl {
-    fn Name();
-    fn CallerPackageFamilyName();
-    fn AppServiceConnection();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppServiceTriggerDetailsVtbl(
@@ -1186,10 +1130,6 @@ unsafe impl ::windows::core::Interface for IAppServiceTriggerDetails2 {
     type Vtable = IAppServiceTriggerDetails2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe83d54b2_28cc_43f2_b465_c0482e59e2dc);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IAppServiceTriggerDetails2Impl {
-    fn IsRemoteSystemConnection();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppServiceTriggerDetails2Vtbl(
@@ -1207,10 +1147,6 @@ pub struct IAppServiceTriggerDetails3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppServiceTriggerDetails3 {
     type Vtable = IAppServiceTriggerDetails3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfbd71e21_7939_4e68_9e3c_7780147aabb6);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IAppServiceTriggerDetails3Impl {
-    fn CheckCallerForCapabilityAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1231,10 +1167,6 @@ unsafe impl ::windows::core::Interface for IAppServiceTriggerDetails4 {
     type Vtable = IAppServiceTriggerDetails4Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1185b180_8861_5e30_ab55_1cf4d08bbf6d);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IAppServiceTriggerDetails4Impl {
-    fn CallerRemoteConnectionToken();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppServiceTriggerDetails4Vtbl(
@@ -1252,11 +1184,6 @@ pub struct IStatelessAppServiceResponse(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IStatelessAppServiceResponse {
     type Vtable = IStatelessAppServiceResponseVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x43754af7_a9ec_52fe_82e7_939b68dc9388);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IStatelessAppServiceResponseImpl {
-    fn Message();
-    fn Status();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1407,3 +1334,5 @@ unsafe impl ::windows::core::RuntimeType for StatelessAppServiceResponseStatus {
 impl ::windows::core::DefaultType for StatelessAppServiceResponseStatus {
     type DefaultType = Self;
 }
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

@@ -25,10 +25,6 @@ unsafe impl ::windows::core::Interface for IHtmlUtilities {
     type Vtable = IHtmlUtilitiesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfec00add_2399_4fac_b5a7_05e9acd7181d);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IHtmlUtilitiesImpl {
-    fn ConvertToText();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHtmlUtilitiesVtbl(
@@ -40,3 +36,5 @@ pub struct IHtmlUtilitiesVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, html: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 );
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

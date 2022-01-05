@@ -75,9 +75,6 @@ unsafe impl ::windows::core::Interface for II2cControllerProvider {
     type Vtable = II2cControllerProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x61c2bb82_4510_4163_a87c_4e15a9558980);
 }
-pub trait II2cControllerProviderImpl {
-    fn GetDeviceProvider();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct II2cControllerProviderVtbl(
@@ -236,16 +233,6 @@ unsafe impl ::windows::core::Interface for II2cDeviceProvider {
     type Vtable = II2cDeviceProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xad342654_57e8_453e_8329_d1e447d103a9);
 }
-#[cfg(feature = "Foundation")]
-pub trait II2cDeviceProviderImpl: IClosableImpl {
-    fn DeviceId();
-    fn Write();
-    fn WritePartial();
-    fn Read();
-    fn ReadPartial();
-    fn WriteRead();
-    fn WriteReadPartial();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct II2cDeviceProviderVtbl(
@@ -340,9 +327,6 @@ unsafe impl ::windows::core::Interface for II2cProvider {
     type Vtable = II2cProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6f13083e_bf62_4fe2_a95a_f08999669818);
 }
-pub trait II2cProviderImpl {
-    fn GetControllersAsync();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct II2cProviderVtbl(
@@ -361,15 +345,6 @@ pub struct IProviderI2cConnectionSettings(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IProviderI2cConnectionSettings {
     type Vtable = IProviderI2cConnectionSettingsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe9db4e34_e510_44b7_809d_f2f85b555339);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IProviderI2cConnectionSettingsImpl {
-    fn SlaveAddress();
-    fn SetSlaveAddress();
-    fn BusSpeed();
-    fn SetBusSpeed();
-    fn SharingMode();
-    fn SetSharingMode();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -636,3 +611,5 @@ unsafe impl ::windows::core::RuntimeType for ProviderI2cTransferStatus {
 impl ::windows::core::DefaultType for ProviderI2cTransferStatus {
     type DefaultType = Self;
 }
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

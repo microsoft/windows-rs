@@ -2222,19 +2222,6 @@ unsafe impl ::windows::core::Interface for IDeviceModelPlugIn {
     type Vtable = IDeviceModelPlugInVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1cd63475_07c4_46fe_a903_d655316d11fd);
 }
-pub trait IDeviceModelPlugInImpl {
-    fn Initialize();
-    fn GetNumChannels();
-    fn DeviceToColorimetricColors();
-    fn ColorimetricToDeviceColors();
-    fn ColorimetricToDeviceColorsWithBlack();
-    fn SetTransformDeviceModelInfo();
-    fn GetPrimarySamples();
-    fn GetGamutBoundaryMeshSize();
-    fn GetGamutBoundaryMesh();
-    fn GetNeutralAxisSize();
-    fn GetNeutralAxis();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDeviceModelPlugInVtbl(
@@ -2308,10 +2295,6 @@ impl ::core::fmt::Debug for IGamutMapModelPlugIn {
 unsafe impl ::windows::core::Interface for IGamutMapModelPlugIn {
     type Vtable = IGamutMapModelPlugInVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2dd80115_ad1e_41f6_a219_a4f4b583d1f9);
-}
-pub trait IGamutMapModelPlugInImpl {
-    fn Initialize();
-    fn SourceToDestinationAppearanceColors();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3738,3 +3721,5 @@ impl ::core::default::Default for YxyCOLOR {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

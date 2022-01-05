@@ -1383,14 +1383,6 @@ unsafe impl ::windows::core::Interface for IMarshal {
     type Vtable = IMarshalVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000003_0000_0000_c000_000000000046);
 }
-pub trait IMarshalImpl {
-    fn GetUnmarshalClass();
-    fn GetMarshalSizeMax();
-    fn MarshalInterface();
-    fn UnmarshalInterface();
-    fn ReleaseMarshalData();
-    fn DisconnectObject();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMarshalVtbl(
@@ -1493,7 +1485,6 @@ unsafe impl ::windows::core::Interface for IMarshal2 {
     type Vtable = IMarshal2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x000001cf_0000_0000_c000_000000000046);
 }
-pub trait IMarshal2Impl: IMarshalImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMarshal2Vtbl(
@@ -1645,9 +1636,6 @@ impl ::core::fmt::Debug for IMarshalingStream {
 unsafe impl ::windows::core::Interface for IMarshalingStream {
     type Vtable = IMarshalingStreamVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd8f2f5e6_6102_4863_9f26_389a4676efde);
-}
-pub trait IMarshalingStreamImpl: IStreamImpl + ISequentialStreamImpl {
-    fn GetMarshalingContextAttribute();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2140,3 +2128,5 @@ pub unsafe fn VARIANT_UserUnmarshal64(param0: *const u32, param1: *const u8, par
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

@@ -1259,13 +1259,6 @@ unsafe impl ::windows::core::Interface for ICoreFrameworkInputView {
     type Vtable = ICoreFrameworkInputViewVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd77c94ae_46b8_5d4a_9489_8ddec3d639a6);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ICoreFrameworkInputViewImpl {
-    fn PrimaryViewAnimationStarting();
-    fn RemovePrimaryViewAnimationStarting();
-    fn OcclusionsChanged();
-    fn RemoveOcclusionsChanged();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreFrameworkInputViewVtbl(
@@ -1291,12 +1284,6 @@ unsafe impl ::windows::core::Interface for ICoreFrameworkInputViewAnimationStart
     type Vtable = ICoreFrameworkInputViewAnimationStartingEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc0ec901c_bba4_501b_ae8b_65c9e756a719);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ICoreFrameworkInputViewAnimationStartingEventArgsImpl {
-    fn Occlusions();
-    fn FrameworkAnimationRecommended();
-    fn AnimationDuration();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreFrameworkInputViewAnimationStartingEventArgsVtbl(
@@ -1319,11 +1306,6 @@ unsafe impl ::windows::core::Interface for ICoreFrameworkInputViewOcclusionsChan
     type Vtable = ICoreFrameworkInputViewOcclusionsChangedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf36f4949_c82c_53d1_a75d_2b2baf0d9b0d);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ICoreFrameworkInputViewOcclusionsChangedEventArgsImpl {
-    fn Occlusions();
-    fn Handled();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreFrameworkInputViewOcclusionsChangedEventArgsVtbl(
@@ -1344,11 +1326,6 @@ unsafe impl ::windows::core::Interface for ICoreFrameworkInputViewStatics {
     type Vtable = ICoreFrameworkInputViewStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6eebd9b6_eac2_5f8b_975f_772ee3e42eeb);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ICoreFrameworkInputViewStaticsImpl {
-    fn GetForUIContext();
-    fn GetForCurrentView();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreFrameworkInputViewStaticsVtbl(
@@ -1367,14 +1344,6 @@ pub struct ICoreInputView(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICoreInputView {
     type Vtable = ICoreInputViewVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc770cd7a_7001_4c32_bf94_25c1f554cbf1);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ICoreInputViewImpl {
-    fn OcclusionsChanged();
-    fn RemoveOcclusionsChanged();
-    fn GetCoreInputViewOcclusions();
-    fn TryShowPrimaryView();
-    fn TryHidePrimaryView();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1400,14 +1369,6 @@ pub struct ICoreInputView2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICoreInputView2 {
     type Vtable = ICoreInputView2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0ed726c1_e09a_4ae8_aedf_dfa4857d1a01);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ICoreInputView2Impl {
-    fn XYFocusTransferringFromPrimaryView();
-    fn RemoveXYFocusTransferringFromPrimaryView();
-    fn XYFocusTransferredToPrimaryView();
-    fn RemoveXYFocusTransferredToPrimaryView();
-    fn TryTransferXYFocusToPrimaryView();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1436,12 +1397,6 @@ unsafe impl ::windows::core::Interface for ICoreInputView3 {
     type Vtable = ICoreInputView3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbc941653_3ab9_4849_8f58_46e7f0353cfc);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ICoreInputView3Impl {
-    fn TryShow();
-    fn TryShowWithKind();
-    fn TryHide();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreInputView3Vtbl(
@@ -1461,13 +1416,6 @@ pub struct ICoreInputView4(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICoreInputView4 {
     type Vtable = ICoreInputView4Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x002863d6_d9ef_57eb_8cef_77f6ce1b7ee7);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ICoreInputView4Impl {
-    fn PrimaryViewShowing();
-    fn RemovePrimaryViewShowing();
-    fn PrimaryViewHiding();
-    fn RemovePrimaryViewHiding();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1493,14 +1441,6 @@ pub struct ICoreInputView5(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICoreInputView5 {
     type Vtable = ICoreInputView5Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x136316e0_c6d5_5c57_811e_1ad8a99ba6ab);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ICoreInputView5Impl {
-    fn IsKindSupported();
-    fn SupportedKindsChanged();
-    fn RemoveSupportedKindsChanged();
-    fn PrimaryViewAnimationStarting();
-    fn RemovePrimaryViewAnimationStarting();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1528,13 +1468,6 @@ unsafe impl ::windows::core::Interface for ICoreInputViewAnimationStartingEventA
     type Vtable = ICoreInputViewAnimationStartingEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa9144af2_b55c_5ea1_b8ab_5340f3e94897);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ICoreInputViewAnimationStartingEventArgsImpl {
-    fn Occlusions();
-    fn Handled();
-    fn SetHandled();
-    fn AnimationDuration();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreInputViewAnimationStartingEventArgsVtbl(
@@ -1558,10 +1491,6 @@ unsafe impl ::windows::core::Interface for ICoreInputViewHidingEventArgs {
     type Vtable = ICoreInputViewHidingEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeada47bd_bac5_5336_848d_41083584daad);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ICoreInputViewHidingEventArgsImpl {
-    fn TryCancel();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreInputViewHidingEventArgsVtbl(
@@ -1579,11 +1508,6 @@ pub struct ICoreInputViewOcclusion(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICoreInputViewOcclusion {
     type Vtable = ICoreInputViewOcclusionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcc36ce06_3865_4177_b5f5_8b65e0b9ce84);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ICoreInputViewOcclusionImpl {
-    fn OccludingRect();
-    fn OcclusionKind();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1604,12 +1528,6 @@ pub struct ICoreInputViewOcclusionsChangedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICoreInputViewOcclusionsChangedEventArgs {
     type Vtable = ICoreInputViewOcclusionsChangedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbe1027e8_b3ee_4df7_9554_89cdc66082c2);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ICoreInputViewOcclusionsChangedEventArgsImpl {
-    fn Occlusions();
-    fn Handled();
-    fn SetHandled();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1632,10 +1550,6 @@ unsafe impl ::windows::core::Interface for ICoreInputViewShowingEventArgs {
     type Vtable = ICoreInputViewShowingEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xca52261b_fb9e_5daf_a98c_262b8b76af50);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ICoreInputViewShowingEventArgsImpl {
-    fn TryCancel();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreInputViewShowingEventArgsVtbl(
@@ -1653,10 +1567,6 @@ pub struct ICoreInputViewStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICoreInputViewStatics {
     type Vtable = ICoreInputViewStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7d9b97cd_edbe_49cf_a54f_337de052907f);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ICoreInputViewStaticsImpl {
-    fn GetForCurrentView();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1676,10 +1586,6 @@ unsafe impl ::windows::core::Interface for ICoreInputViewStatics2 {
     type Vtable = ICoreInputViewStatics2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7ebc0862_d049_4e52_87b0_1e90e98c49ed);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ICoreInputViewStatics2Impl {
-    fn GetForUIContext();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreInputViewStatics2Vtbl(
@@ -1697,15 +1603,6 @@ pub struct ICoreInputViewTransferringXYFocusEventArgs(::windows::core::IUnknown)
 unsafe impl ::windows::core::Interface for ICoreInputViewTransferringXYFocusEventArgs {
     type Vtable = ICoreInputViewTransferringXYFocusEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x04de169f_ba02_4850_8b55_d82d03ba6d7f);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ICoreInputViewTransferringXYFocusEventArgsImpl {
-    fn Origin();
-    fn Direction();
-    fn SetTransferHandled();
-    fn TransferHandled();
-    fn SetKeepPrimaryViewVisible();
-    fn KeepPrimaryViewVisible();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1731,14 +1628,6 @@ unsafe impl ::windows::core::Interface for IUISettingsController {
     type Vtable = IUISettingsControllerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x78a51ac4_15c0_5a1b_a75b_acbf9cb8bb9e);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IUISettingsControllerImpl {
-    fn SetAdvancedEffectsEnabled();
-    fn SetAnimationsEnabled();
-    fn SetAutoHideScrollBars();
-    fn SetMessageDuration();
-    fn SetTextScaleFactor();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUISettingsControllerVtbl(
@@ -1760,10 +1649,6 @@ pub struct IUISettingsControllerStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IUISettingsControllerStatics {
     type Vtable = IUISettingsControllerStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeb3c68cc_c220_578c_8119_7db324ed26a6);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IUISettingsControllerStaticsImpl {
-    fn RequestDefaultAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1888,3 +1773,5 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &UISe
 }
 unsafe impl ::core::marker::Send for UISettingsController {}
 unsafe impl ::core::marker::Sync for UISettingsController {}
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

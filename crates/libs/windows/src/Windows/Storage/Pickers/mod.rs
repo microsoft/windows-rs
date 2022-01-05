@@ -1332,20 +1332,6 @@ unsafe impl ::windows::core::Interface for IFileOpenPicker {
     type Vtable = IFileOpenPickerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2ca8278a_12c5_4c5f_8977_94547793c241);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IFileOpenPickerImpl {
-    fn ViewMode();
-    fn SetViewMode();
-    fn SettingsIdentifier();
-    fn SetSettingsIdentifier();
-    fn SuggestedStartLocation();
-    fn SetSuggestedStartLocation();
-    fn CommitButtonText();
-    fn SetCommitButtonText();
-    fn FileTypeFilter();
-    fn PickSingleFileAsync();
-    fn PickMultipleFilesAsync();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFileOpenPickerVtbl(
@@ -1377,12 +1363,6 @@ unsafe impl ::windows::core::Interface for IFileOpenPicker2 {
     type Vtable = IFileOpenPicker2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8ceb6cd2_b446_46f7_b265_90f8e55ad650);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IFileOpenPicker2Impl {
-    fn ContinuationData();
-    fn PickSingleFileAndContinue();
-    fn PickMultipleFilesAndContinue();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFileOpenPicker2Vtbl(
@@ -1406,10 +1386,6 @@ unsafe impl ::windows::core::Interface for IFileOpenPicker3 {
     type Vtable = IFileOpenPicker3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd9a5c5b3_c5dc_5b98_bd80_a8d0ca0584d8);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IFileOpenPicker3Impl {
-    fn User();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFileOpenPicker3Vtbl(
@@ -1428,10 +1404,6 @@ pub struct IFileOpenPickerStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IFileOpenPickerStatics {
     type Vtable = IFileOpenPickerStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6821573b_2f02_4833_96d4_abbfad72b67b);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IFileOpenPickerStaticsImpl {
-    fn ResumePickSingleFileAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1452,10 +1424,6 @@ unsafe impl ::windows::core::Interface for IFileOpenPickerStatics2 {
     type Vtable = IFileOpenPickerStatics2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe8917415_eddd_5c98_b6f3_366fdfcad392);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IFileOpenPickerStatics2Impl {
-    fn CreateForUser();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFileOpenPickerStatics2Vtbl(
@@ -1475,10 +1443,6 @@ unsafe impl ::windows::core::Interface for IFileOpenPickerWithOperationId {
     type Vtable = IFileOpenPickerWithOperationIdVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3f57b569_2522_4ca5_aa73_a15509f1fcbf);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IFileOpenPickerWithOperationIdImpl {
-    fn PickSingleFileAsync();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFileOpenPickerWithOperationIdVtbl(
@@ -1497,23 +1461,6 @@ pub struct IFileSavePicker(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IFileSavePicker {
     type Vtable = IFileSavePickerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3286ffcb_617f_4cc5_af6a_b3fdf29ad145);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IFileSavePickerImpl {
-    fn SettingsIdentifier();
-    fn SetSettingsIdentifier();
-    fn SuggestedStartLocation();
-    fn SetSuggestedStartLocation();
-    fn CommitButtonText();
-    fn SetCommitButtonText();
-    fn FileTypeChoices();
-    fn DefaultFileExtension();
-    fn SetDefaultFileExtension();
-    fn SuggestedSaveFile();
-    fn SetSuggestedSaveFile();
-    fn SuggestedFileName();
-    fn SetSuggestedFileName();
-    fn PickSaveFileAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1548,11 +1495,6 @@ unsafe impl ::windows::core::Interface for IFileSavePicker2 {
     type Vtable = IFileSavePicker2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0ec313a2_d24b_449a_8197_e89104fd42cc);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IFileSavePicker2Impl {
-    fn ContinuationData();
-    fn PickSaveFileAndContinue();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFileSavePicker2Vtbl(
@@ -1574,11 +1516,6 @@ unsafe impl ::windows::core::Interface for IFileSavePicker3 {
     type Vtable = IFileSavePicker3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x698aec69_ba3c_4e51_bd90_4abcbbf4cfaf);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IFileSavePicker3Impl {
-    fn EnterpriseId();
-    fn SetEnterpriseId();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFileSavePicker3Vtbl(
@@ -1597,10 +1534,6 @@ pub struct IFileSavePicker4(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IFileSavePicker4 {
     type Vtable = IFileSavePicker4Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe7d83a5a_ddfa_5de0_8b70_c842c21988ec);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IFileSavePicker4Impl {
-    fn User();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1621,10 +1554,6 @@ unsafe impl ::windows::core::Interface for IFileSavePickerStatics {
     type Vtable = IFileSavePickerStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x28e3cf9e_961c_5e2c_aed7_e64737f4ce37);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IFileSavePickerStaticsImpl {
-    fn CreateForUser();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFileSavePickerStaticsVtbl(
@@ -1643,19 +1572,6 @@ pub struct IFolderPicker(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IFolderPicker {
     type Vtable = IFolderPickerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x084f7799_f3fb_400a_99b1_7b4a772fd60d);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IFolderPickerImpl {
-    fn ViewMode();
-    fn SetViewMode();
-    fn SettingsIdentifier();
-    fn SetSettingsIdentifier();
-    fn SuggestedStartLocation();
-    fn SetSuggestedStartLocation();
-    fn CommitButtonText();
-    fn SetCommitButtonText();
-    fn FileTypeFilter();
-    fn PickSingleFolderAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1686,11 +1602,6 @@ unsafe impl ::windows::core::Interface for IFolderPicker2 {
     type Vtable = IFolderPicker2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8eb3ba97_dc85_4616_be94_9660881f2f5d);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IFolderPicker2Impl {
-    fn ContinuationData();
-    fn PickFolderAndContinue();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFolderPicker2Vtbl(
@@ -1712,10 +1623,6 @@ unsafe impl ::windows::core::Interface for IFolderPicker3 {
     type Vtable = IFolderPicker3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x673b1e29_d326_53c0_bd24_a25c714cee36);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IFolderPicker3Impl {
-    fn User();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFolderPicker3Vtbl(
@@ -1734,10 +1641,6 @@ pub struct IFolderPickerStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IFolderPickerStatics {
     type Vtable = IFolderPickerStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9be34740_7ca1_5942_a3c8_46f2551ecff3);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IFolderPickerStaticsImpl {
-    fn CreateForUser();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1825,3 +1728,5 @@ unsafe impl ::windows::core::RuntimeType for PickerViewMode {
 impl ::windows::core::DefaultType for PickerViewMode {
     type DefaultType = Self;
 }
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

@@ -138,18 +138,6 @@ unsafe impl ::windows::core::Interface for IAdcControllerProvider {
     type Vtable = IAdcControllerProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbe545828_816d_4de5_a048_aba06958aaa8);
 }
-pub trait IAdcControllerProviderImpl {
-    fn ChannelCount();
-    fn ResolutionInBits();
-    fn MinValue();
-    fn MaxValue();
-    fn ChannelMode();
-    fn SetChannelMode();
-    fn IsChannelModeSupported();
-    fn AcquireChannel();
-    fn ReleaseChannel();
-    fn ReadValue();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAdcControllerProviderVtbl(
@@ -247,9 +235,6 @@ unsafe impl ::windows::core::Interface for IAdcProvider {
     type Vtable = IAdcProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x28953668_9359_4c57_bc88_e275e81638c9);
 }
-pub trait IAdcProviderImpl {
-    fn GetControllers();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAdcProviderVtbl(
@@ -295,3 +280,5 @@ unsafe impl ::windows::core::RuntimeType for ProviderAdcChannelMode {
 impl ::windows::core::DefaultType for ProviderAdcChannelMode {
     type DefaultType = Self;
 }
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

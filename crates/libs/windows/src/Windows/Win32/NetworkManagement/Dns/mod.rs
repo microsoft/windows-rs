@@ -5483,3 +5483,5 @@ impl ::core::default::Default for _DnsRecordOptW_1 {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

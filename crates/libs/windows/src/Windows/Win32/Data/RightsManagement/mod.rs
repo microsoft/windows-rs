@@ -1706,3 +1706,5 @@ pub const DRM_USAGEPOLICY_TYPE_OSEXCLUSION: DRM_USAGEPOLICY_TYPE = 3i32;
 pub const MSDRM_CLIENT_ZONE: u32 = 52992u32;
 #[doc = "*Required features: 'Win32_Data_RightsManagement'*"]
 pub const MSDRM_POLICY_ZONE: u32 = 37632u32;
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

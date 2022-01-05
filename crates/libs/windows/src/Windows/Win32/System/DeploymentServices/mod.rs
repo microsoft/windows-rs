@@ -161,13 +161,6 @@ unsafe impl ::windows::core::Interface for IWdsTransportCacheable {
     type Vtable = IWdsTransportCacheableVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x46ad894b_0bab_47dc_84b2_7b553f1d8f80);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IWdsTransportCacheableImpl: IDispatchImpl {
-    fn Dirty();
-    fn Discard();
-    fn Refresh();
-    fn Commit();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWdsTransportCacheableVtbl(
@@ -341,21 +334,6 @@ unsafe impl ::windows::core::Interface for IWdsTransportClient {
     type Vtable = IWdsTransportClientVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb5dbc93a_cabe_46ca_837f_3e44e93c6545);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IWdsTransportClientImpl: IDispatchImpl {
-    fn Session();
-    fn Id();
-    fn Name();
-    fn MacAddress();
-    fn IpAddress();
-    fn PercentCompletion();
-    fn JoinDuration();
-    fn CpuUtilization();
-    fn MemoryUtilization();
-    fn NetworkUtilization();
-    fn UserIdentity();
-    fn Disconnect();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWdsTransportClientVtbl(
@@ -493,12 +471,6 @@ impl ::core::fmt::Debug for IWdsTransportCollection {
 unsafe impl ::windows::core::Interface for IWdsTransportCollection {
     type Vtable = IWdsTransportCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb8ba4b1a_2ff4_43ab_996c_b2b10a91a6eb);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IWdsTransportCollectionImpl: IDispatchImpl {
-    fn Count();
-    fn Item();
-    fn _NewEnum();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -648,18 +620,6 @@ impl ::core::fmt::Debug for IWdsTransportConfigurationManager {
 unsafe impl ::windows::core::Interface for IWdsTransportConfigurationManager {
     type Vtable = IWdsTransportConfigurationManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x84cc4779_42dd_4792_891e_1321d6d74b44);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IWdsTransportConfigurationManagerImpl: IDispatchImpl {
-    fn ServicePolicy();
-    fn DiagnosticsPolicy();
-    fn WdsTransportServicesRunning();
-    fn EnableWdsTransportServices();
-    fn DisableWdsTransportServices();
-    fn StartWdsTransportServices();
-    fn StopWdsTransportServices();
-    fn RestartWdsTransportServices();
-    fn NotifyWdsTransportServices();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -840,10 +800,6 @@ unsafe impl ::windows::core::Interface for IWdsTransportConfigurationManager2 {
     type Vtable = IWdsTransportConfigurationManager2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd0d85caf_a153_4f1d_a9dd_96f431c50717);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IWdsTransportConfigurationManager2Impl: IWdsTransportConfigurationManagerImpl + IDispatchImpl {
-    fn MulticastSessionPolicy();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWdsTransportConfigurationManager2Vtbl(
@@ -985,14 +941,6 @@ unsafe impl ::windows::core::Interface for IWdsTransportContent {
     type Vtable = IWdsTransportContentVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd405d711_0296_4ab4_a860_ac7d32e65798);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IWdsTransportContentImpl: IDispatchImpl {
-    fn Namespace();
-    fn Id();
-    fn Name();
-    fn RetrieveSessions();
-    fn Terminate();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWdsTransportContentVtbl(
@@ -1128,13 +1076,6 @@ impl ::core::fmt::Debug for IWdsTransportContentProvider {
 unsafe impl ::windows::core::Interface for IWdsTransportContentProvider {
     type Vtable = IWdsTransportContentProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb9489f24_f219_4acf_aad7_265c7c08a6ae);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IWdsTransportContentProviderImpl: IDispatchImpl {
-    fn Name();
-    fn Description();
-    fn FilePath();
-    fn InitializationRoutine();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1305,13 +1246,6 @@ unsafe impl ::windows::core::Interface for IWdsTransportDiagnosticsPolicy {
     type Vtable = IWdsTransportDiagnosticsPolicyVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x13b33efc_7856_4f61_9a59_8de67b6b87b6);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IWdsTransportDiagnosticsPolicyImpl: IWdsTransportCacheableImpl + IDispatchImpl {
-    fn Enabled();
-    fn SetEnabled();
-    fn Components();
-    fn SetComponents();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWdsTransportDiagnosticsPolicyVtbl(
@@ -1431,10 +1365,6 @@ impl ::core::fmt::Debug for IWdsTransportManager {
 unsafe impl ::windows::core::Interface for IWdsTransportManager {
     type Vtable = IWdsTransportManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5b0d35f5_1b13_4afd_b878_6526dc340b5d);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IWdsTransportManagerImpl: IDispatchImpl {
-    fn GetWdsTransportServer();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1616,17 +1546,6 @@ impl ::core::fmt::Debug for IWdsTransportMulticastSessionPolicy {
 unsafe impl ::windows::core::Interface for IWdsTransportMulticastSessionPolicy {
     type Vtable = IWdsTransportMulticastSessionPolicyVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4e5753cf_68ec_4504_a951_4a003266606b);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IWdsTransportMulticastSessionPolicyImpl: IWdsTransportCacheableImpl + IDispatchImpl {
-    fn SlowClientHandling();
-    fn SetSlowClientHandling();
-    fn AutoDisconnectThreshold();
-    fn SetAutoDisconnectThreshold();
-    fn MultistreamStreamCount();
-    fn SetMultistreamStreamCount();
-    fn SlowClientFallback();
-    fn SetSlowClientFallback();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1852,30 +1771,6 @@ impl ::core::fmt::Debug for IWdsTransportNamespace {
 unsafe impl ::windows::core::Interface for IWdsTransportNamespace {
     type Vtable = IWdsTransportNamespaceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfa561f57_fbef_4ed3_b056_127cb1b33b84);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IWdsTransportNamespaceImpl: IDispatchImpl {
-    fn Type();
-    fn Id();
-    fn Name();
-    fn SetName();
-    fn FriendlyName();
-    fn SetFriendlyName();
-    fn Description();
-    fn SetDescription();
-    fn ContentProvider();
-    fn SetContentProvider();
-    fn Configuration();
-    fn SetConfiguration();
-    fn Registered();
-    fn Tombstoned();
-    fn TombstoneTime();
-    fn TransmissionStarted();
-    fn Register();
-    fn Deregister();
-    fn Clone();
-    fn Refresh();
-    fn RetrieveContents();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2141,8 +2036,6 @@ unsafe impl ::windows::core::Interface for IWdsTransportNamespaceAutoCast {
     type Vtable = IWdsTransportNamespaceAutoCastVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xad931a72_c4bd_4c41_8fbc_59c9c748df9e);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IWdsTransportNamespaceAutoCastImpl: IWdsTransportNamespaceImpl + IDispatchImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWdsTransportNamespaceAutoCastVtbl(
@@ -2297,12 +2190,6 @@ impl ::core::fmt::Debug for IWdsTransportNamespaceManager {
 unsafe impl ::windows::core::Interface for IWdsTransportNamespaceManager {
     type Vtable = IWdsTransportNamespaceManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3e22d9f6_3777_4d98_83e1_f98696717ba3);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IWdsTransportNamespaceManagerImpl: IDispatchImpl {
-    fn CreateNamespace();
-    fn RetrieveNamespace();
-    fn RetrieveNamespaces();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2546,10 +2433,6 @@ impl ::core::fmt::Debug for IWdsTransportNamespaceScheduledCast {
 unsafe impl ::windows::core::Interface for IWdsTransportNamespaceScheduledCast {
     type Vtable = IWdsTransportNamespaceScheduledCastVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3840cecf_d76c_416e_a4cc_31c741d2874b);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IWdsTransportNamespaceScheduledCastImpl: IWdsTransportNamespaceImpl + IDispatchImpl {
-    fn StartTransmission();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2858,13 +2741,6 @@ unsafe impl ::windows::core::Interface for IWdsTransportNamespaceScheduledCastAu
     type Vtable = IWdsTransportNamespaceScheduledCastAutoStartVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd606af3d_ea9c_4219_961e_7491d618d9b9);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IWdsTransportNamespaceScheduledCastAutoStartImpl: IWdsTransportNamespaceScheduledCastImpl + IWdsTransportNamespaceImpl + IDispatchImpl {
-    fn MinimumClients();
-    fn SetMinimumClients();
-    fn StartTime();
-    fn SetStartTime();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWdsTransportNamespaceScheduledCastAutoStartVtbl(
@@ -3158,8 +3034,6 @@ unsafe impl ::windows::core::Interface for IWdsTransportNamespaceScheduledCastMa
     type Vtable = IWdsTransportNamespaceScheduledCastManualStartVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x013e6e4c_e6a7_4fb5_b7ff_d9f5da805c31);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IWdsTransportNamespaceScheduledCastManualStartImpl: IWdsTransportNamespaceScheduledCastImpl + IWdsTransportNamespaceImpl + IDispatchImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWdsTransportNamespaceScheduledCastManualStartVtbl(
@@ -3323,14 +3197,6 @@ unsafe impl ::windows::core::Interface for IWdsTransportServer {
     type Vtable = IWdsTransportServerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x09ccd093_830d_4344_a30a_73ae8e8fca90);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IWdsTransportServerImpl: IDispatchImpl {
-    fn Name();
-    fn SetupManager();
-    fn ConfigurationManager();
-    fn NamespaceManager();
-    fn DisconnectClient();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWdsTransportServerVtbl(
@@ -3492,10 +3358,6 @@ impl ::core::fmt::Debug for IWdsTransportServer2 {
 unsafe impl ::windows::core::Interface for IWdsTransportServer2 {
     type Vtable = IWdsTransportServer2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x256e999f_6df4_4538_81b9_857b9ab8fb47);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IWdsTransportServer2Impl: IWdsTransportServerImpl + IDispatchImpl {
-    fn TftpManager();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3704,21 +3566,6 @@ impl ::core::fmt::Debug for IWdsTransportServicePolicy {
 unsafe impl ::windows::core::Interface for IWdsTransportServicePolicy {
     type Vtable = IWdsTransportServicePolicyVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb9468578_9f2b_48cc_b27a_a60799c2750c);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IWdsTransportServicePolicyImpl: IWdsTransportCacheableImpl + IDispatchImpl {
-    fn IpAddressSource();
-    fn SetIpAddressSource();
-    fn StartIpAddress();
-    fn SetStartIpAddress();
-    fn EndIpAddress();
-    fn SetEndIpAddress();
-    fn StartPort();
-    fn SetStartPort();
-    fn EndPort();
-    fn SetEndPort();
-    fn NetworkProfile();
-    fn SetNetworkProfile();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3988,15 +3835,6 @@ unsafe impl ::windows::core::Interface for IWdsTransportServicePolicy2 {
     type Vtable = IWdsTransportServicePolicy2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x65c19e5c_aa7e_4b91_8944_91e0e5572797);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IWdsTransportServicePolicy2Impl: IWdsTransportServicePolicyImpl + IWdsTransportCacheableImpl + IDispatchImpl {
-    fn UdpPortPolicy();
-    fn SetUdpPortPolicy();
-    fn TftpMaximumBlockSize();
-    fn SetTftpMaximumBlockSize();
-    fn EnableTftpVariableWindowExtension();
-    fn SetEnableTftpVariableWindowExtension();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWdsTransportServicePolicy2Vtbl(
@@ -4170,17 +4008,6 @@ unsafe impl ::windows::core::Interface for IWdsTransportSession {
     type Vtable = IWdsTransportSessionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf4efea88_65b1_4f30_a4b9_2793987796fb);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IWdsTransportSessionImpl: IDispatchImpl {
-    fn Content();
-    fn Id();
-    fn NetworkInterfaceName();
-    fn NetworkInterfaceAddress();
-    fn TransferRate();
-    fn MasterClientId();
-    fn RetrieveClients();
-    fn Terminate();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWdsTransportSessionVtbl(
@@ -4321,14 +4148,6 @@ impl ::core::fmt::Debug for IWdsTransportSetupManager {
 unsafe impl ::windows::core::Interface for IWdsTransportSetupManager {
     type Vtable = IWdsTransportSetupManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf7238425_efa8_40a4_aef9_c98d969c0b75);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IWdsTransportSetupManagerImpl: IDispatchImpl {
-    fn Version();
-    fn InstalledFeatures();
-    fn Protocols();
-    fn RegisterContentProvider();
-    fn DeregisterContentProvider();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4498,11 +4317,6 @@ unsafe impl ::windows::core::Interface for IWdsTransportSetupManager2 {
     type Vtable = IWdsTransportSetupManager2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x02be79da_7e9e_4366_8b6e_2aa9a91be47f);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IWdsTransportSetupManager2Impl: IWdsTransportSetupManagerImpl + IDispatchImpl {
-    fn TftpCapabilities();
-    fn ContentProviders();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWdsTransportSetupManager2Vtbl(
@@ -4655,16 +4469,6 @@ unsafe impl ::windows::core::Interface for IWdsTransportTftpClient {
     type Vtable = IWdsTransportTftpClientVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb022d3ae_884d_4d85_b146_53320e76ef62);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IWdsTransportTftpClientImpl: IDispatchImpl {
-    fn FileName();
-    fn IpAddress();
-    fn Timeout();
-    fn CurrentFileOffset();
-    fn FileSize();
-    fn BlockSize();
-    fn WindowSize();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWdsTransportTftpClientVtbl(
@@ -4784,10 +4588,6 @@ impl ::core::fmt::Debug for IWdsTransportTftpManager {
 unsafe impl ::windows::core::Interface for IWdsTransportTftpManager {
     type Vtable = IWdsTransportTftpManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1327a7c8_ae8a_4fb3_8150_136227c37e9a);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IWdsTransportTftpManagerImpl: IDispatchImpl {
-    fn RetrieveTftpClients();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7372,3 +7172,5 @@ pub const WdsTransportSession: ::windows::core::GUID = ::windows::core::GUID::fr
 pub const WdsTransportSetupManager: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc7beeaad_9f04_4923_9f0c_fbf52bc7590f);
 pub const WdsTransportTftpClient: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x50343925_7c5c_4c8c_96c4_ad9fa5005fba);
 pub const WdsTransportTftpManager: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc8e9dca2_3241_4e4d_b806_bc74019dfeda);
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

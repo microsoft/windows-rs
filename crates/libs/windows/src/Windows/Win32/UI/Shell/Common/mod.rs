@@ -129,10 +129,6 @@ unsafe impl ::windows::core::Interface for IObjectArray {
     type Vtable = IObjectArrayVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x92ca9dcd_5622_4bba_a805_5e9f541bd8c9);
 }
-pub trait IObjectArrayImpl {
-    fn GetCount();
-    fn GetAt();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IObjectArrayVtbl(
@@ -232,12 +228,6 @@ impl ::core::fmt::Debug for IObjectCollection {
 unsafe impl ::windows::core::Interface for IObjectCollection {
     type Vtable = IObjectCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5632b1a4_e38a_400a_928a_d4cd63230295);
-}
-pub trait IObjectCollectionImpl: IObjectArrayImpl {
-    fn AddObject();
-    fn AddFromArray();
-    fn RemoveObjectAt();
-    fn Clear();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -502,3 +492,5 @@ pub const STRRET_WSTR: STRRET_TYPE = 0i32;
 pub const STRRET_OFFSET: STRRET_TYPE = 1i32;
 #[doc = "*Required features: 'Win32_UI_Shell_Common'*"]
 pub const STRRET_CSTR: STRRET_TYPE = 2i32;
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

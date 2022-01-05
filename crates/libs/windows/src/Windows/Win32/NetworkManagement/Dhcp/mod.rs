@@ -9828,3 +9828,5 @@ pub const V5_ADDRESS_STATE_DOOM: u32 = 3u32;
 pub const V5_ADDRESS_STATE_OFFERED: u32 = 0u32;
 #[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const WARNING_EXTENDED_LESS: i32 = 20026i32;
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

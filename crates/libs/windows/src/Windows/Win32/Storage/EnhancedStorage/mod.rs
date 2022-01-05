@@ -518,14 +518,6 @@ unsafe impl ::windows::core::Interface for IEnhancedStorageACT {
     type Vtable = IEnhancedStorageACTVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6e7781f4_e0f2_4239_b976_a01abab52930);
 }
-pub trait IEnhancedStorageACTImpl {
-    fn Authorize();
-    fn Unauthorize();
-    fn GetAuthorizationState();
-    fn GetMatchingVolume();
-    fn GetUniqueIdentity();
-    fn GetSilos();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnhancedStorageACTVtbl(
@@ -646,10 +638,6 @@ impl ::core::fmt::Debug for IEnhancedStorageACT2 {
 unsafe impl ::windows::core::Interface for IEnhancedStorageACT2 {
     type Vtable = IEnhancedStorageACT2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4da57d2e_8eb3_41f6_a07e_98b52b88242b);
-}
-pub trait IEnhancedStorageACT2Impl: IEnhancedStorageACTImpl {
-    fn GetDeviceName();
-    fn IsDeviceRemovable();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -812,11 +800,6 @@ unsafe impl ::windows::core::Interface for IEnhancedStorageACT3 {
     type Vtable = IEnhancedStorageACT3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x022150a1_113d_11df_bb61_001aa01bbc58);
 }
-pub trait IEnhancedStorageACT3Impl: IEnhancedStorageACT2Impl + IEnhancedStorageACTImpl {
-    fn UnauthorizeEx();
-    fn IsQueueFrozen();
-    fn GetShellExtSupport();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnhancedStorageACT3Vtbl(
@@ -911,13 +894,6 @@ unsafe impl ::windows::core::Interface for IEnhancedStorageSilo {
     type Vtable = IEnhancedStorageSiloVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5aef78c6_2242_4703_bf49_44b29357a359);
 }
-pub trait IEnhancedStorageSiloImpl {
-    fn GetInfo();
-    fn GetActions();
-    fn SendCommand();
-    fn GetPortableDevice();
-    fn GetDevicePath();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnhancedStorageSiloVtbl(
@@ -993,11 +969,6 @@ unsafe impl ::windows::core::Interface for IEnhancedStorageSiloAction {
     type Vtable = IEnhancedStorageSiloActionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb6f7f311_206f_4ff8_9c4b_27efee77a86f);
 }
-pub trait IEnhancedStorageSiloActionImpl {
-    fn GetName();
-    fn GetDescription();
-    fn Invoke();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnhancedStorageSiloActionVtbl(
@@ -1064,10 +1035,6 @@ impl ::core::fmt::Debug for IEnumEnhancedStorageACT {
 unsafe impl ::windows::core::Interface for IEnumEnhancedStorageACT {
     type Vtable = IEnumEnhancedStorageACTVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x09b224bd_1335_4631_a7ff_cfd3a92646d7);
-}
-pub trait IEnumEnhancedStorageACTImpl {
-    fn GetACTs();
-    fn GetMatchingACT();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4504,3 +4471,5 @@ pub const SYNC_STATE_SYNCING: u32 = 5u32;
 #[doc = "*Required features: 'Win32_Storage_EnhancedStorage'*"]
 pub const SYNC_STATE_SYNCNOTRUN: u32 = 1u32;
 pub const WPD_CATEGORY_ENHANCED_STORAGE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c);
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

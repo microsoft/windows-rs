@@ -866,3 +866,5 @@ impl ::core::default::Default for VDM_SEGINFO {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

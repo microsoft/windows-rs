@@ -1014,3 +1014,5 @@ pub const VBS_ENCLAVE_REPORT_VERSION_CURRENT: u32 = 1u32;
 pub const VBS_ENCLAVE_VARDATA_INVALID: u32 = 0u32;
 #[doc = "*Required features: 'Win32_System_Environment'*"]
 pub const VBS_ENCLAVE_VARDATA_MODULE: u32 = 1u32;
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

@@ -17702,3 +17702,5 @@ pub unsafe fn UpdateDriverForPlugAndPlayDevicesW<'a, Param0: ::windows::core::In
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

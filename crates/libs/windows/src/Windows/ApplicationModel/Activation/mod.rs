@@ -5699,11 +5699,6 @@ unsafe impl ::windows::core::Interface for IActivatedEventArgs {
     type Vtable = IActivatedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcf651713_cd08_4fd8_b697_a281b6544e2e);
 }
-pub trait IActivatedEventArgsImpl {
-    fn Kind();
-    fn PreviousExecutionState();
-    fn SplashScreen();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IActivatedEventArgsVtbl(
@@ -5840,9 +5835,6 @@ unsafe impl ::windows::core::Interface for IActivatedEventArgsWithUser {
     type Vtable = IActivatedEventArgsWithUserVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1cf09b9e_9962_4936_80ff_afc8e8ae5c8c);
 }
-pub trait IActivatedEventArgsWithUserImpl: IActivatedEventArgsImpl {
-    fn User();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IActivatedEventArgsWithUserVtbl(
@@ -5977,9 +5969,6 @@ unsafe impl ::windows::core::Interface for IApplicationViewActivatedEventArgs {
     type Vtable = IApplicationViewActivatedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x930cef4b_b829_40fc_88f4_8513e8a64738);
 }
-pub trait IApplicationViewActivatedEventArgsImpl: IActivatedEventArgsImpl {
-    fn CurrentlyShownApplicationViewId();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IApplicationViewActivatedEventArgsVtbl(
@@ -6112,9 +6101,6 @@ unsafe impl ::windows::core::RuntimeType for IAppointmentsProviderActivatedEvent
 unsafe impl ::windows::core::Interface for IAppointmentsProviderActivatedEventArgs {
     type Vtable = IAppointmentsProviderActivatedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3364c405_933c_4e7d_a034_500fb8dcd9f3);
-}
-pub trait IAppointmentsProviderActivatedEventArgsImpl: IActivatedEventArgsImpl {
-    fn Verb();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6279,9 +6265,6 @@ unsafe impl ::windows::core::RuntimeType for IAppointmentsProviderAddAppointment
 unsafe impl ::windows::core::Interface for IAppointmentsProviderAddAppointmentActivatedEventArgs {
     type Vtable = IAppointmentsProviderAddAppointmentActivatedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa2861367_cee5_4e4d_9ed7_41c34ec18b02);
-}
-pub trait IAppointmentsProviderAddAppointmentActivatedEventArgsImpl: IActivatedEventArgsImpl + IAppointmentsProviderActivatedEventArgsImpl {
-    fn AddAppointmentOperation();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6448,9 +6431,6 @@ unsafe impl ::windows::core::Interface for IAppointmentsProviderRemoveAppointmen
     type Vtable = IAppointmentsProviderRemoveAppointmentActivatedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x751f3ab8_0b8e_451c_9f15_966e699bac25);
 }
-pub trait IAppointmentsProviderRemoveAppointmentActivatedEventArgsImpl: IActivatedEventArgsImpl + IAppointmentsProviderActivatedEventArgsImpl {
-    fn RemoveAppointmentOperation();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppointmentsProviderRemoveAppointmentActivatedEventArgsVtbl(
@@ -6615,9 +6595,6 @@ unsafe impl ::windows::core::RuntimeType for IAppointmentsProviderReplaceAppoint
 unsafe impl ::windows::core::Interface for IAppointmentsProviderReplaceAppointmentActivatedEventArgs {
     type Vtable = IAppointmentsProviderReplaceAppointmentActivatedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1551b7d4_a981_4067_8a62_0524e4ade121);
-}
-pub trait IAppointmentsProviderReplaceAppointmentActivatedEventArgsImpl: IActivatedEventArgsImpl + IAppointmentsProviderActivatedEventArgsImpl {
-    fn ReplaceAppointmentOperation();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6800,11 +6777,6 @@ unsafe impl ::windows::core::Interface for IAppointmentsProviderShowAppointmentD
     type Vtable = IAppointmentsProviderShowAppointmentDetailsActivatedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3958f065_9841_4ca5_999b_885198b9ef2a);
 }
-pub trait IAppointmentsProviderShowAppointmentDetailsActivatedEventArgsImpl: IActivatedEventArgsImpl + IAppointmentsProviderActivatedEventArgsImpl {
-    fn InstanceStartDate();
-    fn LocalId();
-    fn RoamingId();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppointmentsProviderShowAppointmentDetailsActivatedEventArgsVtbl(
@@ -6981,10 +6953,6 @@ unsafe impl ::windows::core::Interface for IAppointmentsProviderShowTimeFrameAct
     type Vtable = IAppointmentsProviderShowTimeFrameActivatedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9baeaba6_0e0b_49aa_babc_12b1dc774986);
 }
-pub trait IAppointmentsProviderShowTimeFrameActivatedEventArgsImpl: IActivatedEventArgsImpl + IAppointmentsProviderActivatedEventArgsImpl {
-    fn TimeToShow();
-    fn Duration();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppointmentsProviderShowTimeFrameActivatedEventArgsVtbl(
@@ -7075,9 +7043,6 @@ unsafe impl ::windows::core::RuntimeType for IBackgroundActivatedEventArgs {
 unsafe impl ::windows::core::Interface for IBackgroundActivatedEventArgs {
     type Vtable = IBackgroundActivatedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xab14bee0_e760_440e_a91c_44796de3a92d);
-}
-pub trait IBackgroundActivatedEventArgsImpl {
-    fn TaskInstance();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7213,9 +7178,6 @@ unsafe impl ::windows::core::Interface for IBarcodeScannerPreviewActivatedEventA
     type Vtable = IBarcodeScannerPreviewActivatedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6772797c_99bf_4349_af22_e4123560371c);
 }
-pub trait IBarcodeScannerPreviewActivatedEventArgsImpl: IActivatedEventArgsImpl {
-    fn ConnectionId();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBarcodeScannerPreviewActivatedEventArgsVtbl(
@@ -7349,9 +7311,6 @@ unsafe impl ::windows::core::RuntimeType for ICachedFileUpdaterActivatedEventArg
 unsafe impl ::windows::core::Interface for ICachedFileUpdaterActivatedEventArgs {
     type Vtable = ICachedFileUpdaterActivatedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd06eb1c7_3805_4ecb_b757_6cf15e26fef3);
-}
-pub trait ICachedFileUpdaterActivatedEventArgsImpl: IActivatedEventArgsImpl {
-    fn CachedFileUpdaterUI();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7495,10 +7454,6 @@ unsafe impl ::windows::core::Interface for ICameraSettingsActivatedEventArgs {
     type Vtable = ICameraSettingsActivatedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfb67a508_2dad_490a_9170_dca036eb114b);
 }
-pub trait ICameraSettingsActivatedEventArgsImpl: IActivatedEventArgsImpl {
-    fn VideoDeviceController();
-    fn VideoDeviceExtension();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICameraSettingsActivatedEventArgsVtbl(
@@ -7633,9 +7588,6 @@ unsafe impl ::windows::core::Interface for ICommandLineActivatedEventArgs {
     type Vtable = ICommandLineActivatedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4506472c_006a_48eb_8afb_d07ab25e3366);
 }
-pub trait ICommandLineActivatedEventArgsImpl: IActivatedEventArgsImpl {
-    fn Operation();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICommandLineActivatedEventArgsVtbl(
@@ -7653,14 +7605,6 @@ pub struct ICommandLineActivationOperation(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICommandLineActivationOperation {
     type Vtable = ICommandLineActivationOperationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x994b2841_c59e_4f69_bcfd_b61ed4e622eb);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ICommandLineActivationOperationImpl {
-    fn Arguments();
-    fn CurrentDirectoryPath();
-    fn SetExitCode();
-    fn ExitCode();
-    fn GetDeferral();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7799,9 +7743,6 @@ unsafe impl ::windows::core::RuntimeType for IContactActivatedEventArgs {
 unsafe impl ::windows::core::Interface for IContactActivatedEventArgs {
     type Vtable = IContactActivatedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd627a1c4_c025_4c41_9def_f1eafad075e7);
-}
-pub trait IContactActivatedEventArgsImpl: IActivatedEventArgsImpl {
-    fn Verb();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7983,11 +7924,6 @@ unsafe impl ::windows::core::Interface for IContactCallActivatedEventArgs {
     type Vtable = IContactCallActivatedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc2df14c7_30eb_41c6_b3bc_5b1694f9dab3);
 }
-pub trait IContactCallActivatedEventArgsImpl: IActivatedEventArgsImpl + IContactActivatedEventArgsImpl {
-    fn ServiceId();
-    fn ServiceUserId();
-    fn Contact();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IContactCallActivatedEventArgsVtbl(
@@ -8163,10 +8099,6 @@ unsafe impl ::windows::core::RuntimeType for IContactMapActivatedEventArgs {
 unsafe impl ::windows::core::Interface for IContactMapActivatedEventArgs {
     type Vtable = IContactMapActivatedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb32bf870_eee7_4ad2_aaf1_a87effcf00a4);
-}
-pub trait IContactMapActivatedEventArgsImpl: IActivatedEventArgsImpl + IContactActivatedEventArgsImpl {
-    fn Address();
-    fn Contact();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8351,11 +8283,6 @@ unsafe impl ::windows::core::Interface for IContactMessageActivatedEventArgs {
     type Vtable = IContactMessageActivatedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xde598db2_0e03_43b0_bf56_bcc40b3162df);
 }
-pub trait IContactMessageActivatedEventArgsImpl: IActivatedEventArgsImpl + IContactActivatedEventArgsImpl {
-    fn ServiceId();
-    fn ServiceUserId();
-    fn Contact();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IContactMessageActivatedEventArgsVtbl(
@@ -8455,10 +8382,6 @@ unsafe impl ::windows::core::RuntimeType for IContactPanelActivatedEventArgs {
 unsafe impl ::windows::core::Interface for IContactPanelActivatedEventArgs {
     type Vtable = IContactPanelActivatedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x52bb63e4_d3d4_4b63_8051_4af2082cab80);
-}
-pub trait IContactPanelActivatedEventArgsImpl {
-    fn ContactPanel();
-    fn Contact();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8596,9 +8519,6 @@ unsafe impl ::windows::core::RuntimeType for IContactPickerActivatedEventArgs {
 unsafe impl ::windows::core::Interface for IContactPickerActivatedEventArgs {
     type Vtable = IContactPickerActivatedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xce57aae7_6449_45a7_971f_d113be7a8936);
-}
-pub trait IContactPickerActivatedEventArgsImpl: IActivatedEventArgsImpl {
-    fn ContactPickerUI();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8780,11 +8700,6 @@ unsafe impl ::windows::core::RuntimeType for IContactPostActivatedEventArgs {
 unsafe impl ::windows::core::Interface for IContactPostActivatedEventArgs {
     type Vtable = IContactPostActivatedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb35a3c67_f1e7_4655_ad6e_4857588f552f);
-}
-pub trait IContactPostActivatedEventArgsImpl: IActivatedEventArgsImpl + IContactActivatedEventArgsImpl {
-    fn ServiceId();
-    fn ServiceUserId();
-    fn Contact();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8969,11 +8884,6 @@ unsafe impl ::windows::core::Interface for IContactVideoCallActivatedEventArgs {
     type Vtable = IContactVideoCallActivatedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x61079db8_e3e7_4b4f_858d_5c63a96ef684);
 }
-pub trait IContactVideoCallActivatedEventArgsImpl: IActivatedEventArgsImpl + IContactActivatedEventArgsImpl {
-    fn ServiceId();
-    fn ServiceUserId();
-    fn Contact();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IContactVideoCallActivatedEventArgsVtbl(
@@ -9110,9 +9020,6 @@ unsafe impl ::windows::core::Interface for IContactsProviderActivatedEventArgs {
     type Vtable = IContactsProviderActivatedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4580dca8_5750_4916_aa52_c0829521eb94);
 }
-pub trait IContactsProviderActivatedEventArgsImpl: IActivatedEventArgsImpl {
-    fn Verb();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IContactsProviderActivatedEventArgsVtbl(
@@ -9246,9 +9153,6 @@ unsafe impl ::windows::core::RuntimeType for IContinuationActivatedEventArgs {
 unsafe impl ::windows::core::Interface for IContinuationActivatedEventArgs {
     type Vtable = IContinuationActivatedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe58106b5_155f_4a94_a742_c7e08f4e188c);
-}
-pub trait IContinuationActivatedEventArgsImpl: IActivatedEventArgsImpl {
-    fn ContinuationData();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9392,10 +9296,6 @@ unsafe impl ::windows::core::Interface for IDeviceActivatedEventArgs {
     type Vtable = IDeviceActivatedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcd50b9a9_ce10_44d2_8234_c355a073ef33);
 }
-pub trait IDeviceActivatedEventArgsImpl: IActivatedEventArgsImpl {
-    fn DeviceInformationId();
-    fn Verb();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDeviceActivatedEventArgsVtbl(
@@ -9530,9 +9430,6 @@ unsafe impl ::windows::core::RuntimeType for IDevicePairingActivatedEventArgs {
 unsafe impl ::windows::core::Interface for IDevicePairingActivatedEventArgs {
     type Vtable = IDevicePairingActivatedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeba0d1e4_ecc6_4148_94ed_f4b37ec05b3e);
-}
-pub trait IDevicePairingActivatedEventArgsImpl: IActivatedEventArgsImpl {
-    fn DeviceInformation();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9706,9 +9603,6 @@ unsafe impl ::windows::core::Interface for IDialReceiverActivatedEventArgs {
     type Vtable = IDialReceiverActivatedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfb777ed7_85ee_456e_a44d_85d730e70aed);
 }
-pub trait IDialReceiverActivatedEventArgsImpl: IActivatedEventArgsImpl + ILaunchActivatedEventArgsImpl {
-    fn AppName();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDialReceiverActivatedEventArgsVtbl(
@@ -9851,10 +9745,6 @@ unsafe impl ::windows::core::Interface for IFileActivatedEventArgs {
     type Vtable = IFileActivatedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbb2afc33_93b1_42ed_8b26_236dd9c78496);
 }
-pub trait IFileActivatedEventArgsImpl: IActivatedEventArgsImpl {
-    fn Files();
-    fn Verb();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFileActivatedEventArgsVtbl(
@@ -9989,9 +9879,6 @@ unsafe impl ::windows::core::RuntimeType for IFileActivatedEventArgsWithCallerPa
 unsafe impl ::windows::core::Interface for IFileActivatedEventArgsWithCallerPackageFamilyName {
     type Vtable = IFileActivatedEventArgsWithCallerPackageFamilyNameVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2d60f06b_d25f_4d25_8653_e1c5e1108309);
-}
-pub trait IFileActivatedEventArgsWithCallerPackageFamilyNameImpl: IActivatedEventArgsImpl {
-    fn CallerPackageFamilyName();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -10166,9 +10053,6 @@ unsafe impl ::windows::core::Interface for IFileActivatedEventArgsWithNeighborin
     type Vtable = IFileActivatedEventArgsWithNeighboringFilesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x433ba1a4_e1e2_48fd_b7fc_b5d6eee65033);
 }
-pub trait IFileActivatedEventArgsWithNeighboringFilesImpl: IActivatedEventArgsImpl + IFileActivatedEventArgsImpl {
-    fn NeighboringFilesQuery();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFileActivatedEventArgsWithNeighboringFilesVtbl(
@@ -10304,9 +10188,6 @@ unsafe impl ::windows::core::Interface for IFileOpenPickerActivatedEventArgs {
     type Vtable = IFileOpenPickerActivatedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x72827082_5525_4bf2_bc09_1f5095d4964d);
 }
-pub trait IFileOpenPickerActivatedEventArgsImpl: IActivatedEventArgsImpl {
-    fn FileOpenPickerUI();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFileOpenPickerActivatedEventArgsVtbl(
@@ -10394,9 +10275,6 @@ unsafe impl ::windows::core::RuntimeType for IFileOpenPickerActivatedEventArgs2 
 unsafe impl ::windows::core::Interface for IFileOpenPickerActivatedEventArgs2 {
     type Vtable = IFileOpenPickerActivatedEventArgs2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5e731f66_8d1f_45fb_af1d_73205c8fc7a1);
-}
-pub trait IFileOpenPickerActivatedEventArgs2Impl {
-    fn CallerPackageFamilyName();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -10588,10 +10466,6 @@ unsafe impl ::windows::core::Interface for IFileOpenPickerContinuationEventArgs 
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf0fa3f3a_d4e8_4ad3_9c34_2308f32fcec9);
 }
 #[cfg(feature = "deprecated")]
-pub trait IFileOpenPickerContinuationEventArgsImpl: IActivatedEventArgsImpl + IContinuationActivatedEventArgsImpl {
-    fn Files();
-}
-#[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFileOpenPickerContinuationEventArgsVtbl(
@@ -10727,9 +10601,6 @@ unsafe impl ::windows::core::Interface for IFileSavePickerActivatedEventArgs {
     type Vtable = IFileSavePickerActivatedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x81c19cf1_74e6_4387_82eb_bb8fd64b4346);
 }
-pub trait IFileSavePickerActivatedEventArgsImpl: IActivatedEventArgsImpl {
-    fn FileSavePickerUI();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFileSavePickerActivatedEventArgsVtbl(
@@ -10825,10 +10696,6 @@ unsafe impl ::windows::core::RuntimeType for IFileSavePickerActivatedEventArgs2 
 unsafe impl ::windows::core::Interface for IFileSavePickerActivatedEventArgs2 {
     type Vtable = IFileSavePickerActivatedEventArgs2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6b73fe13_2cf2_4d48_8cbc_af67d23f1ce7);
-}
-pub trait IFileSavePickerActivatedEventArgs2Impl {
-    fn CallerPackageFamilyName();
-    fn EnterpriseId();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -11019,10 +10886,6 @@ unsafe impl ::windows::core::RuntimeType for IFileSavePickerContinuationEventArg
 unsafe impl ::windows::core::Interface for IFileSavePickerContinuationEventArgs {
     type Vtable = IFileSavePickerContinuationEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2c846fe1_3bad_4f33_8c8b_e46fae824b4b);
-}
-#[cfg(feature = "deprecated")]
-pub trait IFileSavePickerContinuationEventArgsImpl: IActivatedEventArgsImpl + IContinuationActivatedEventArgsImpl {
-    fn File();
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
@@ -11216,10 +11079,6 @@ unsafe impl ::windows::core::Interface for IFolderPickerContinuationEventArgs {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x51882366_9f4b_498f_beb0_42684f6e1c29);
 }
 #[cfg(feature = "deprecated")]
-pub trait IFolderPickerContinuationEventArgsImpl: IActivatedEventArgsImpl + IContinuationActivatedEventArgsImpl {
-    fn Folder();
-}
-#[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFolderPickerContinuationEventArgsVtbl(
@@ -11361,10 +11220,6 @@ unsafe impl ::windows::core::RuntimeType for ILaunchActivatedEventArgs {
 unsafe impl ::windows::core::Interface for ILaunchActivatedEventArgs {
     type Vtable = ILaunchActivatedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfbc93e26_a14a_4b4f_82b0_33bed920af52);
-}
-pub trait ILaunchActivatedEventArgsImpl: IActivatedEventArgsImpl {
-    fn Arguments();
-    fn TileId();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -11538,9 +11393,6 @@ unsafe impl ::windows::core::Interface for ILaunchActivatedEventArgs2 {
     type Vtable = ILaunchActivatedEventArgs2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0fd37ebc_9dc9_46b5_9ace_bd95d4565345);
 }
-pub trait ILaunchActivatedEventArgs2Impl: IActivatedEventArgsImpl + ILaunchActivatedEventArgsImpl {
-    fn TileActivatedInfo();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILaunchActivatedEventArgs2Vtbl(
@@ -11673,9 +11525,6 @@ unsafe impl ::windows::core::RuntimeType for ILockScreenActivatedEventArgs {
 unsafe impl ::windows::core::Interface for ILockScreenActivatedEventArgs {
     type Vtable = ILockScreenActivatedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3ca77966_6108_4a41_8220_ee7d133c8532);
-}
-pub trait ILockScreenActivatedEventArgsImpl: IActivatedEventArgsImpl {
-    fn Info();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -11849,9 +11698,6 @@ unsafe impl ::windows::core::Interface for ILockScreenCallActivatedEventArgs {
     type Vtable = ILockScreenCallActivatedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x06f37fbe_b5f2_448b_b13e_e328ac1c516a);
 }
-pub trait ILockScreenCallActivatedEventArgsImpl: IActivatedEventArgsImpl + ILaunchActivatedEventArgsImpl {
-    fn CallUI();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILockScreenCallActivatedEventArgsVtbl(
@@ -11986,9 +11832,6 @@ unsafe impl ::windows::core::Interface for IPhoneCallActivatedEventArgs {
     type Vtable = IPhoneCallActivatedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x54615221_a3c1_4ced_b62f_8c60523619ad);
 }
-pub trait IPhoneCallActivatedEventArgsImpl: IActivatedEventArgsImpl {
-    fn LineId();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPhoneCallActivatedEventArgsVtbl(
@@ -12121,9 +11964,6 @@ unsafe impl ::windows::core::RuntimeType for IPickerReturnedActivatedEventArgs {
 unsafe impl ::windows::core::Interface for IPickerReturnedActivatedEventArgs {
     type Vtable = IPickerReturnedActivatedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x360defb9_a9d3_4984_a4ed_9ec734604921);
-}
-pub trait IPickerReturnedActivatedEventArgsImpl: IActivatedEventArgsImpl {
-    fn PickerOperationId();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -12258,9 +12098,6 @@ unsafe impl ::windows::core::Interface for IPrelaunchActivatedEventArgs {
     type Vtable = IPrelaunchActivatedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0c44717b_19f7_48d6_b046_cf22826eaa74);
 }
-pub trait IPrelaunchActivatedEventArgsImpl: IActivatedEventArgsImpl {
-    fn PrelaunchActivated();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrelaunchActivatedEventArgsVtbl(
@@ -12394,9 +12231,6 @@ unsafe impl ::windows::core::RuntimeType for IPrint3DWorkflowActivatedEventArgs 
 unsafe impl ::windows::core::Interface for IPrint3DWorkflowActivatedEventArgs {
     type Vtable = IPrint3DWorkflowActivatedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3f57e78b_f2ac_4619_8302_ef855e1c9b90);
-}
-pub trait IPrint3DWorkflowActivatedEventArgsImpl: IActivatedEventArgsImpl {
-    fn Workflow();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -12533,9 +12367,6 @@ unsafe impl ::windows::core::Interface for IPrintTaskSettingsActivatedEventArgs 
     type Vtable = IPrintTaskSettingsActivatedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xee30a0c9_ce56_4865_ba8e_8954ac271107);
 }
-pub trait IPrintTaskSettingsActivatedEventArgsImpl: IActivatedEventArgsImpl {
-    fn Configuration();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintTaskSettingsActivatedEventArgsVtbl(
@@ -12670,9 +12501,6 @@ unsafe impl ::windows::core::RuntimeType for IProtocolActivatedEventArgs {
 unsafe impl ::windows::core::Interface for IProtocolActivatedEventArgs {
     type Vtable = IProtocolActivatedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6095f4dd_b7c0_46ab_81fe_d90f36d00d24);
-}
-pub trait IProtocolActivatedEventArgsImpl: IActivatedEventArgsImpl {
-    fn Uri();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -12817,10 +12645,6 @@ unsafe impl ::windows::core::Interface for IProtocolActivatedEventArgsWithCaller
     type Vtable = IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndDataVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd84a0c12_5c8f_438c_83cb_c28fcc0b2fdb);
 }
-pub trait IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndDataImpl: IActivatedEventArgsImpl {
-    fn CallerPackageFamilyName();
-    fn Data();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndDataVtbl(
@@ -12957,9 +12781,6 @@ unsafe impl ::windows::core::Interface for IProtocolForResultsActivatedEventArgs
     type Vtable = IProtocolForResultsActivatedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe75132c2_7ae7_4517_80ac_dbe8d7cc5b9c);
 }
-pub trait IProtocolForResultsActivatedEventArgsImpl: IActivatedEventArgsImpl {
-    fn ProtocolForResultsOperation();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IProtocolForResultsActivatedEventArgsVtbl(
@@ -13093,9 +12914,6 @@ unsafe impl ::windows::core::RuntimeType for IRestrictedLaunchActivatedEventArgs
 unsafe impl ::windows::core::Interface for IRestrictedLaunchActivatedEventArgs {
     type Vtable = IRestrictedLaunchActivatedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe0b7ac81_bfc3_4344_a5da_19fd5a27baae);
-}
-pub trait IRestrictedLaunchActivatedEventArgsImpl: IActivatedEventArgsImpl {
-    fn SharedContext();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -13238,10 +13056,6 @@ unsafe impl ::windows::core::Interface for ISearchActivatedEventArgs {
     type Vtable = ISearchActivatedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8cb36951_58c8_43e3_94bc_41d33f8b630e);
 }
-pub trait ISearchActivatedEventArgsImpl: IActivatedEventArgsImpl {
-    fn QueryText();
-    fn Language();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISearchActivatedEventArgsVtbl(
@@ -13330,9 +13144,6 @@ unsafe impl ::windows::core::RuntimeType for ISearchActivatedEventArgsWithLingui
 unsafe impl ::windows::core::Interface for ISearchActivatedEventArgsWithLinguisticDetails {
     type Vtable = ISearchActivatedEventArgsWithLinguisticDetailsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc09f33da_08ab_4931_9b7c_451025f21f81);
-}
-pub trait ISearchActivatedEventArgsWithLinguisticDetailsImpl {
-    fn LinguisticDetails();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -13469,9 +13280,6 @@ unsafe impl ::windows::core::Interface for IShareTargetActivatedEventArgs {
     type Vtable = IShareTargetActivatedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4bdaf9c8_cdb2_4acb_bfc3_6648563378ec);
 }
-pub trait IShareTargetActivatedEventArgsImpl: IActivatedEventArgsImpl {
-    fn ShareOperation();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IShareTargetActivatedEventArgsVtbl(
@@ -13490,12 +13298,6 @@ pub struct ISplashScreen(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISplashScreen {
     type Vtable = ISplashScreenVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xca4d975c_d4d6_43f0_97c0_0833c6391c24);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ISplashScreenImpl {
-    fn ImageLocation();
-    fn Dismissed();
-    fn RemoveDismissed();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -13635,9 +13437,6 @@ unsafe impl ::windows::core::Interface for IStartupTaskActivatedEventArgs {
     type Vtable = IStartupTaskActivatedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x03b11a58_5276_4d91_8621_54611864d5fa);
 }
-pub trait IStartupTaskActivatedEventArgsImpl: IActivatedEventArgsImpl {
-    fn TaskId();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IStartupTaskActivatedEventArgsVtbl(
@@ -13655,10 +13454,6 @@ pub struct ITileActivatedInfo(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ITileActivatedInfo {
     type Vtable = ITileActivatedInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x80e4a3b1_3980_4f17_b738_89194e0b8f65);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ITileActivatedInfoImpl {
-    fn RecentlyShownNotifications();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -13803,10 +13598,6 @@ unsafe impl ::windows::core::Interface for IToastNotificationActivatedEventArgs 
     type Vtable = IToastNotificationActivatedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x92a86f82_5290_431d_be85_c4aaeeb8685f);
 }
-pub trait IToastNotificationActivatedEventArgsImpl: IActivatedEventArgsImpl {
-    fn Argument();
-    fn UserInput();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IToastNotificationActivatedEventArgsVtbl(
@@ -13943,9 +13734,6 @@ unsafe impl ::windows::core::Interface for IUserDataAccountProviderActivatedEven
     type Vtable = IUserDataAccountProviderActivatedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1bc9f723_8ef1_4a51_a63a_fe711eeab607);
 }
-pub trait IUserDataAccountProviderActivatedEventArgsImpl: IActivatedEventArgsImpl {
-    fn Operation();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUserDataAccountProviderActivatedEventArgsVtbl(
@@ -14081,9 +13869,6 @@ unsafe impl ::windows::core::Interface for IViewSwitcherProvider {
     type Vtable = IViewSwitcherProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x33f288a6_5c2c_4d27_bac7_7536088f1219);
 }
-pub trait IViewSwitcherProviderImpl: IActivatedEventArgsImpl {
-    fn ViewSwitcher();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IViewSwitcherProviderVtbl(
@@ -14218,9 +14003,6 @@ unsafe impl ::windows::core::RuntimeType for IVoiceCommandActivatedEventArgs {
 unsafe impl ::windows::core::Interface for IVoiceCommandActivatedEventArgs {
     type Vtable = IVoiceCommandActivatedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xab92dcfd_8d43_4de6_9775_20704b581b00);
-}
-pub trait IVoiceCommandActivatedEventArgsImpl: IActivatedEventArgsImpl {
-    fn Result();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -14373,11 +14155,6 @@ unsafe impl ::windows::core::Interface for IWalletActionActivatedEventArgs {
     type Vtable = IWalletActionActivatedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfcfc027b_1a1a_4d22_923f_ae6f45fa52d9);
 }
-pub trait IWalletActionActivatedEventArgsImpl: IActivatedEventArgsImpl {
-    fn ItemId();
-    fn ActionKind();
-    fn ActionId();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWalletActionActivatedEventArgsVtbl(
@@ -14514,9 +14291,6 @@ unsafe impl ::windows::core::RuntimeType for IWebAccountProviderActivatedEventAr
 unsafe impl ::windows::core::Interface for IWebAccountProviderActivatedEventArgs {
     type Vtable = IWebAccountProviderActivatedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x72b71774_98ea_4ccf_9752_46d9051004f1);
-}
-pub trait IWebAccountProviderActivatedEventArgsImpl: IActivatedEventArgsImpl {
-    fn Operation();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -14683,9 +14457,6 @@ unsafe impl ::windows::core::RuntimeType for IWebAuthenticationBrokerContinuatio
 unsafe impl ::windows::core::Interface for IWebAuthenticationBrokerContinuationEventArgs {
     type Vtable = IWebAuthenticationBrokerContinuationEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x75dda3d4_7714_453d_b7ff_b95e3a1709da);
-}
-pub trait IWebAuthenticationBrokerContinuationEventArgsImpl: IActivatedEventArgsImpl + IContinuationActivatedEventArgsImpl {
-    fn WebAuthenticationResult();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -18854,3 +18625,5 @@ impl<'a> ::windows::core::IntoParam<'a, IWebAuthenticationBrokerContinuationEven
 }
 unsafe impl ::core::marker::Send for WebAuthenticationBrokerContinuationEventArgs {}
 unsafe impl ::core::marker::Sync for WebAuthenticationBrokerContinuationEventArgs {}
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

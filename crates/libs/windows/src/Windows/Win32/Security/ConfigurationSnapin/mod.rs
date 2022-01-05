@@ -60,12 +60,6 @@ unsafe impl ::windows::core::Interface for ISceSvcAttachmentData {
     type Vtable = ISceSvcAttachmentDataVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x17c35fde_200d_11d1_affb_00c04fb984f9);
 }
-pub trait ISceSvcAttachmentDataImpl {
-    fn GetData();
-    fn Initialize();
-    fn FreeBuffer();
-    fn CloseHandle();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISceSvcAttachmentDataVtbl(
@@ -134,11 +128,6 @@ impl ::core::fmt::Debug for ISceSvcAttachmentPersistInfo {
 unsafe impl ::windows::core::Interface for ISceSvcAttachmentPersistInfo {
     type Vtable = ISceSvcAttachmentPersistInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6d90e0d0_200d_11d1_affb_00c04fb984f9);
-}
-pub trait ISceSvcAttachmentPersistInfoImpl {
-    fn Save();
-    fn IsDirty();
-    fn FreeBuffer();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -400,3 +389,5 @@ pub const SCE_LOG_LEVEL_DEBUG: SCE_LOG_ERR_LEVEL = 3u32;
 pub const cNodetypeSceAnalysisServices: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x678050c7_1ff8_11d1_affb_00c04fb984f9);
 pub const cNodetypeSceEventLog: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2ce06698_4bf3_11d1_8c30_00c04fb984f9);
 pub const cNodetypeSceTemplateServices: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x24a7f717_1f0c_11d1_affb_00c04fb984f9);
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

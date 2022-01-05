@@ -102,10 +102,6 @@ unsafe impl ::windows::core::Interface for IGraphicsEffect {
     type Vtable = IGraphicsEffectVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcb51c0ce_8fe6_4636_b202_861faa07d8f3);
 }
-pub trait IGraphicsEffectImpl: IGraphicsEffectSourceImpl {
-    fn Name();
-    fn SetName();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGraphicsEffectVtbl(
@@ -185,7 +181,6 @@ unsafe impl ::windows::core::Interface for IGraphicsEffectSource {
     type Vtable = IGraphicsEffectSourceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2d8f9ddc_4339_4eb9_9216_f9deb75658a2);
 }
-pub trait IGraphicsEffectSourceImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGraphicsEffectSourceVtbl(
@@ -196,3 +191,5 @@ pub struct IGraphicsEffectSourceVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
 );
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

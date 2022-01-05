@@ -309,9 +309,6 @@ unsafe impl ::windows::core::Interface for IAMWMBufferPass {
     type Vtable = IAMWMBufferPassVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6dd816d7_e740_4123_9e24_2444412644d8);
 }
-pub trait IAMWMBufferPassImpl {
-    fn SetNotify();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAMWMBufferPassVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcallback: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
@@ -364,9 +361,6 @@ impl ::core::fmt::Debug for IAMWMBufferPassCallback {
 unsafe impl ::windows::core::Interface for IAMWMBufferPassCallback {
     type Vtable = IAMWMBufferPassCallbackVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb25b8372_d2d2_44b2_8653_1b8dae332489);
-}
-pub trait IAMWMBufferPassCallbackImpl {
-    fn Notify();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -462,16 +456,6 @@ unsafe impl ::windows::core::Interface for INSNetSourceCreator {
     type Vtable = INSNetSourceCreatorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0c0e4080_9081_11d2_beec_0060082f2054);
 }
-pub trait INSNetSourceCreatorImpl {
-    fn Initialize();
-    fn CreateNetSource();
-    fn GetNetSourceProperties();
-    fn GetNetSourceSharedNamespace();
-    fn GetNetSourceAdminInterface();
-    fn GetNumProtocolsSupported();
-    fn GetProtocolName();
-    fn Shutdown();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct INSNetSourceCreatorVtbl(
@@ -558,13 +542,6 @@ impl ::core::fmt::Debug for INSSBuffer {
 unsafe impl ::windows::core::Interface for INSSBuffer {
     type Vtable = INSSBufferVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe1cd3524_03d7_11d2_9eed_006097d2d7cf);
-}
-pub trait INSSBufferImpl {
-    fn GetLength();
-    fn SetLength();
-    fn GetMaxLength();
-    fn GetBuffer();
-    fn GetBufferAndLength();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -674,10 +651,6 @@ impl ::core::fmt::Debug for INSSBuffer2 {
 unsafe impl ::windows::core::Interface for INSSBuffer2 {
     type Vtable = INSSBuffer2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4f528693_1035_43fe_b428_757561ad3a68);
-}
-pub trait INSSBuffer2Impl: INSSBufferImpl {
-    fn GetSampleProperties();
-    fn SetSampleProperties();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -817,10 +790,6 @@ impl ::core::fmt::Debug for INSSBuffer3 {
 unsafe impl ::windows::core::Interface for INSSBuffer3 {
     type Vtable = INSSBuffer3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc87ceaaf_75be_4bc4_84eb_ac2798507672);
-}
-pub trait INSSBuffer3Impl: INSSBuffer2Impl + INSSBufferImpl {
-    fn SetProperty();
-    fn GetProperty();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -992,10 +961,6 @@ unsafe impl ::windows::core::Interface for INSSBuffer4 {
     type Vtable = INSSBuffer4Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb6b8fd5a_32e2_49d4_a910_c26cc85465ed);
 }
-pub trait INSSBuffer4Impl: INSSBuffer3Impl + INSSBuffer2Impl + INSSBufferImpl {
-    fn GetPropertyCount();
-    fn GetPropertyByIndex();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct INSSBuffer4Vtbl(
@@ -1076,12 +1041,6 @@ impl ::core::fmt::Debug for IWMAddressAccess {
 unsafe impl ::windows::core::Interface for IWMAddressAccess {
     type Vtable = IWMAddressAccessVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbb3c6389_1633_4e92_af14_9f3173ba39d0);
-}
-pub trait IWMAddressAccessImpl {
-    fn GetAccessEntryCount();
-    fn GetAccessEntry();
-    fn AddAccessEntry();
-    fn RemoveAccessEntry();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1187,10 +1146,6 @@ unsafe impl ::windows::core::Interface for IWMAddressAccess2 {
     type Vtable = IWMAddressAccess2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x65a83fc2_3e98_4d4d_81b5_2a742886b33d);
 }
-pub trait IWMAddressAccess2Impl: IWMAddressAccessImpl {
-    fn GetAccessEntryEx();
-    fn AddAccessEntryEx();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMAddressAccess2Vtbl(
@@ -1265,11 +1220,6 @@ impl ::core::fmt::Debug for IWMAuthorizer {
 unsafe impl ::windows::core::Interface for IWMAuthorizer {
     type Vtable = IWMAuthorizerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd9b67d36_a9ad_4eb4_baef_db284ef5504c);
-}
-pub trait IWMAuthorizerImpl {
-    fn GetCertCount();
-    fn GetCert();
-    fn GetSharedData();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1354,14 +1304,6 @@ impl ::core::fmt::Debug for IWMBackupRestoreProps {
 unsafe impl ::windows::core::Interface for IWMBackupRestoreProps {
     type Vtable = IWMBackupRestorePropsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3c8e0da6_996f_4ff3_a1af_4838f9377e2e);
-}
-pub trait IWMBackupRestorePropsImpl {
-    fn GetPropCount();
-    fn GetPropByIndex();
-    fn GetPropByName();
-    fn SetProp();
-    fn RemoveProp();
-    fn RemoveAllProps();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1474,12 +1416,6 @@ unsafe impl ::windows::core::Interface for IWMBandwidthSharing {
     type Vtable = IWMBandwidthSharingVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xad694af1_f8d9_42f8_bc47_70311b0c4f9e);
 }
-pub trait IWMBandwidthSharingImpl: IWMStreamListImpl {
-    fn GetType();
-    fn SetType();
-    fn GetBandwidth();
-    fn SetBandwidth();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMBandwidthSharingVtbl(
@@ -1548,10 +1484,6 @@ impl ::core::fmt::Debug for IWMClientConnections {
 unsafe impl ::windows::core::Interface for IWMClientConnections {
     type Vtable = IWMClientConnectionsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x73c66010_a299_41df_b1f0_ccf03b09c1c6);
-}
-pub trait IWMClientConnectionsImpl {
-    fn GetClientCount();
-    fn GetClientProperties();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1642,9 +1574,6 @@ unsafe impl ::windows::core::Interface for IWMClientConnections2 {
     type Vtable = IWMClientConnections2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4091571e_4701_4593_bb3d_d5f5f0c74246);
 }
-pub trait IWMClientConnections2Impl: IWMClientConnectionsImpl {
-    fn GetClientInfo();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMClientConnections2Vtbl(
@@ -1714,11 +1643,6 @@ impl ::core::fmt::Debug for IWMCodecAMVideoAccelerator {
 unsafe impl ::windows::core::Interface for IWMCodecAMVideoAccelerator {
     type Vtable = IWMCodecAMVideoAcceleratorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd98ee251_34e0_4a2d_9312_9b4c788d9fa1);
-}
-pub trait IWMCodecAMVideoAcceleratorImpl {
-    fn SetAcceleratorInterface();
-    fn NegotiateConnection();
-    fn SetPlayerNotify();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1791,11 +1715,6 @@ impl ::core::fmt::Debug for IWMCodecInfo {
 unsafe impl ::windows::core::Interface for IWMCodecInfo {
     type Vtable = IWMCodecInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa970f41e_34de_4a98_b3ba_e4b3ca7528f0);
-}
-pub trait IWMCodecInfoImpl {
-    fn GetCodecInfoCount();
-    fn GetCodecFormatCount();
-    fn GetCodecFormat();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1896,10 +1815,6 @@ impl ::core::fmt::Debug for IWMCodecInfo2 {
 unsafe impl ::windows::core::Interface for IWMCodecInfo2 {
     type Vtable = IWMCodecInfo2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaa65e273_b686_4056_91ec_dd768d4df710);
-}
-pub trait IWMCodecInfo2Impl: IWMCodecInfoImpl {
-    fn GetCodecName();
-    fn GetCodecFormatDesc();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2045,12 +1960,6 @@ unsafe impl ::windows::core::Interface for IWMCodecInfo3 {
     type Vtable = IWMCodecInfo3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7e51f487_4d93_4f98_8ab4_27d0565adc51);
 }
-pub trait IWMCodecInfo3Impl: IWMCodecInfo2Impl + IWMCodecInfoImpl {
-    fn GetCodecFormatProp();
-    fn GetCodecProp();
-    fn SetCodecEnumerationSetting();
-    fn GetCodecEnumerationSetting();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMCodecInfo3Vtbl(
@@ -2127,10 +2036,6 @@ unsafe impl ::windows::core::Interface for IWMCodecVideoAccelerator {
     type Vtable = IWMCodecVideoAcceleratorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x990641b0_739f_4e94_a808_9888da8f75af);
 }
-pub trait IWMCodecVideoAcceleratorImpl {
-    fn NegotiateConnection();
-    fn SetPlayerNotify();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMCodecVideoAcceleratorVtbl(
@@ -2191,9 +2096,6 @@ unsafe impl ::windows::core::Interface for IWMCredentialCallback {
     type Vtable = IWMCredentialCallbackVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x342e0eb7_e651_450c_975b_2ace2c90c48e);
 }
-pub trait IWMCredentialCallbackImpl {
-    fn AcquireCredentials();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMCredentialCallbackVtbl(
@@ -2252,9 +2154,6 @@ impl ::core::fmt::Debug for IWMDRMEditor {
 unsafe impl ::windows::core::Interface for IWMDRMEditor {
     type Vtable = IWMDRMEditorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xff130ebc_a6c3_42a6_b401_c3382c3e08b3);
-}
-pub trait IWMDRMEditorImpl {
-    fn GetDRMProperty();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2318,10 +2217,6 @@ impl ::core::fmt::Debug for IWMDRMMessageParser {
 unsafe impl ::windows::core::Interface for IWMDRMMessageParser {
     type Vtable = IWMDRMMessageParserVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa73a0072_25a0_4c99_b4a5_ede8101a6c39);
-}
-pub trait IWMDRMMessageParserImpl {
-    fn ParseRegistrationReqMsg();
-    fn ParseLicenseRequestMsg();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2411,16 +2306,6 @@ impl ::core::fmt::Debug for IWMDRMReader {
 unsafe impl ::windows::core::Interface for IWMDRMReader {
     type Vtable = IWMDRMReaderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd2827540_3ee7_432c_b14c_dc17f085d3b3);
-}
-pub trait IWMDRMReaderImpl {
-    fn AcquireLicense();
-    fn CancelLicenseAcquisition();
-    fn Individualize();
-    fn CancelIndividualization();
-    fn MonitorLicenseAcquisition();
-    fn CancelMonitorLicenseAcquisition();
-    fn SetDRMProperty();
-    fn GetDRMProperty();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2554,12 +2439,6 @@ impl ::core::fmt::Debug for IWMDRMReader2 {
 unsafe impl ::windows::core::Interface for IWMDRMReader2 {
     type Vtable = IWMDRMReader2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbefe7a75_9f1d_4075_b9d9_a3c37bda49a0);
-}
-pub trait IWMDRMReader2Impl: IWMDRMReaderImpl {
-    fn SetEvaluateOutputLevelLicenses();
-    fn GetPlayOutputLevels();
-    fn GetCopyOutputLevels();
-    fn TryNextLicense();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2723,9 +2602,6 @@ unsafe impl ::windows::core::Interface for IWMDRMReader3 {
     type Vtable = IWMDRMReader3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe08672de_f1e7_4ff4_a0a3_fc4b08e4caf8);
 }
-pub trait IWMDRMReader3Impl: IWMDRMReader2Impl + IWMDRMReaderImpl {
-    fn GetInclusionList();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMDRMReader3Vtbl(
@@ -2799,9 +2675,6 @@ unsafe impl ::windows::core::Interface for IWMDRMTranscryptionManager {
     type Vtable = IWMDRMTranscryptionManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb1a887b2_a4f0_407a_b02e_efbd23bbecdf);
 }
-pub trait IWMDRMTranscryptionManagerImpl {
-    fn CreateTranscryptor();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMDRMTranscryptionManagerVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pptranscryptor: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT);
@@ -2866,12 +2739,6 @@ impl ::core::fmt::Debug for IWMDRMTranscryptor {
 unsafe impl ::windows::core::Interface for IWMDRMTranscryptor {
     type Vtable = IWMDRMTranscryptorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x69059850_6e6f_4bb2_806f_71863ddfc471);
-}
-pub trait IWMDRMTranscryptorImpl {
-    fn Initialize();
-    fn Seek();
-    fn Read();
-    fn Close();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2987,12 +2854,6 @@ unsafe impl ::windows::core::Interface for IWMDRMTranscryptor2 {
     type Vtable = IWMDRMTranscryptor2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe0da439f_d331_496a_bece_18e5bac5dd23);
 }
-pub trait IWMDRMTranscryptor2Impl: IWMDRMTranscryptorImpl {
-    fn SeekEx();
-    fn ZeroAdjustTimestamps();
-    fn GetSeekStartTime();
-    fn GetDuration();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMDRMTranscryptor2Vtbl(
@@ -3075,12 +2936,6 @@ impl ::core::fmt::Debug for IWMDRMWriter {
 unsafe impl ::windows::core::Interface for IWMDRMWriter {
     type Vtable = IWMDRMWriterVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd6ea5dd0_12a0_43f4_90ab_a3fd451e6a07);
-}
-pub trait IWMDRMWriterImpl {
-    fn GenerateKeySeed();
-    fn GenerateKeyID();
-    fn GenerateSigningKeyPair();
-    fn SetDRMAttribute();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3186,9 +3041,6 @@ impl ::core::fmt::Debug for IWMDRMWriter2 {
 unsafe impl ::windows::core::Interface for IWMDRMWriter2 {
     type Vtable = IWMDRMWriter2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x38ee7a94_40e2_4e10_aa3f_33fd3210ed5b);
-}
-pub trait IWMDRMWriter2Impl: IWMDRMWriterImpl {
-    fn SetWMDRMNetEncryption();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3321,9 +3173,6 @@ unsafe impl ::windows::core::Interface for IWMDRMWriter3 {
     type Vtable = IWMDRMWriter3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa7184082_a4aa_4dde_ac9c_e75dbd1117ce);
 }
-pub trait IWMDRMWriter3Impl: IWMDRMWriter2Impl + IWMDRMWriterImpl {
-    fn SetProtectStreamSamples();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMDRMWriter3Vtbl(
@@ -3416,14 +3265,6 @@ unsafe impl ::windows::core::Interface for IWMDeviceRegistration {
     type Vtable = IWMDeviceRegistrationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf6211f03_8d21_4e94_93e6_8510805f2d99);
 }
-pub trait IWMDeviceRegistrationImpl {
-    fn RegisterDevice();
-    fn UnregisterDevice();
-    fn GetRegistrationStats();
-    fn GetFirstRegisteredDevice();
-    fn GetNextRegisteredDevice();
-    fn GetRegisteredDeviceByID();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMDeviceRegistrationVtbl(
@@ -3486,9 +3327,6 @@ impl ::core::fmt::Debug for IWMGetSecureChannel {
 unsafe impl ::windows::core::Interface for IWMGetSecureChannel {
     type Vtable = IWMGetSecureChannelVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x94bc0598_c3d2_11d3_bedf_00c04f612986);
-}
-pub trait IWMGetSecureChannelImpl {
-    fn GetPeerSecureChannelInterface();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3595,20 +3433,6 @@ impl ::core::fmt::Debug for IWMHeaderInfo {
 unsafe impl ::windows::core::Interface for IWMHeaderInfo {
     type Vtable = IWMHeaderInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x96406bda_2b2b_11d3_b36b_00c04f6108ff);
-}
-pub trait IWMHeaderInfoImpl {
-    fn GetAttributeCount();
-    fn GetAttributeByIndex();
-    fn GetAttributeByName();
-    fn SetAttribute();
-    fn GetMarkerCount();
-    fn GetMarker();
-    fn AddMarker();
-    fn RemoveMarker();
-    fn GetScriptCount();
-    fn GetScript();
-    fn AddScript();
-    fn RemoveScript();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3768,10 +3592,6 @@ impl ::core::fmt::Debug for IWMHeaderInfo2 {
 unsafe impl ::windows::core::Interface for IWMHeaderInfo2 {
     type Vtable = IWMHeaderInfo2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x15cf9781_454e_482e_b393_85fae487a810);
-}
-pub trait IWMHeaderInfo2Impl: IWMHeaderInfoImpl {
-    fn GetCodecInfoCount();
-    fn GetCodecInfo();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3988,15 +3808,6 @@ unsafe impl ::windows::core::Interface for IWMHeaderInfo3 {
     type Vtable = IWMHeaderInfo3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x15cc68e3_27cc_4ecd_b222_3f5d02d80bd5);
 }
-pub trait IWMHeaderInfo3Impl: IWMHeaderInfo2Impl + IWMHeaderInfoImpl {
-    fn GetAttributeCountEx();
-    fn GetAttributeIndices();
-    fn GetAttributeByIndexEx();
-    fn ModifyAttribute();
-    fn AddAttribute();
-    fn DeleteAttribute();
-    fn AddCodecInfo();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMHeaderInfo3Vtbl(
@@ -4087,9 +3898,6 @@ unsafe impl ::windows::core::Interface for IWMIStreamProps {
     type Vtable = IWMIStreamPropsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6816dad3_2b4b_4c8e_8149_874c3483a753);
 }
-pub trait IWMIStreamPropsImpl {
-    fn GetProperty();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMIStreamPropsVtbl(
@@ -4154,10 +3962,6 @@ unsafe impl ::windows::core::Interface for IWMImageInfo {
     type Vtable = IWMImageInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9f0aa3b6_7267_4d89_88f2_ba915aa5c4c6);
 }
-pub trait IWMImageInfoImpl {
-    fn GetImageCount();
-    fn GetImage();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMImageInfoVtbl(
@@ -4221,10 +4025,6 @@ impl ::core::fmt::Debug for IWMIndexer {
 unsafe impl ::windows::core::Interface for IWMIndexer {
     type Vtable = IWMIndexerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6d7cdc71_9888_11d3_8edc_00c04f6109cf);
-}
-pub trait IWMIndexerImpl {
-    fn StartIndexing();
-    fn Cancel();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4313,9 +4113,6 @@ impl ::core::fmt::Debug for IWMIndexer2 {
 unsafe impl ::windows::core::Interface for IWMIndexer2 {
     type Vtable = IWMIndexer2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb70f1e42_6255_4df0_a6b9_02b212d9e2bb);
-}
-pub trait IWMIndexer2Impl: IWMIndexerImpl {
-    fn Configure();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4418,10 +4215,6 @@ unsafe impl ::windows::core::Interface for IWMInputMediaProps {
     type Vtable = IWMInputMediaPropsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x96406bd5_2b2b_11d3_b36b_00c04f6108ff);
 }
-pub trait IWMInputMediaPropsImpl: IWMMediaPropsImpl {
-    fn GetConnectionName();
-    fn GetGroupName();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMInputMediaPropsVtbl(
@@ -4499,11 +4292,6 @@ unsafe impl ::windows::core::Interface for IWMLanguageList {
     type Vtable = IWMLanguageListVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdf683f00_2d49_4d8e_92b7_fb19f6a0dc57);
 }
-pub trait IWMLanguageListImpl {
-    fn GetLanguageCount();
-    fn GetLanguageDetails();
-    fn AddLanguageByRFC1766String();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMLanguageListVtbl(
@@ -4569,10 +4357,6 @@ unsafe impl ::windows::core::Interface for IWMLicenseBackup {
     type Vtable = IWMLicenseBackupVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x05e5ac9f_3fb6_4508_bb43_a4067ba1ebe8);
 }
-pub trait IWMLicenseBackupImpl {
-    fn BackupLicenses();
-    fn CancelLicenseBackup();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMLicenseBackupVtbl(
@@ -4635,10 +4419,6 @@ unsafe impl ::windows::core::Interface for IWMLicenseRestore {
     type Vtable = IWMLicenseRestoreVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc70b6334_a22e_4efb_a245_15e65a004a13);
 }
-pub trait IWMLicenseRestoreImpl {
-    fn RestoreLicenses();
-    fn CancelLicenseRestore();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMLicenseRestoreVtbl(
@@ -4700,10 +4480,6 @@ impl ::core::fmt::Debug for IWMLicenseRevocationAgent {
 unsafe impl ::windows::core::Interface for IWMLicenseRevocationAgent {
     type Vtable = IWMLicenseRevocationAgentVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6967f2c9_4e26_4b57_8894_799880f7ac7b);
-}
-pub trait IWMLicenseRevocationAgentImpl {
-    fn GetLRBChallenge();
-    fn ProcessLRB();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4774,11 +4550,6 @@ unsafe impl ::windows::core::Interface for IWMMediaProps {
     type Vtable = IWMMediaPropsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x96406bce_2b2b_11d3_b36b_00c04f6108ff);
 }
-pub trait IWMMediaPropsImpl {
-    fn GetType();
-    fn GetMediaType();
-    fn SetMediaType();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMMediaPropsVtbl(
@@ -4848,11 +4619,6 @@ impl ::core::fmt::Debug for IWMMetadataEditor {
 unsafe impl ::windows::core::Interface for IWMMetadataEditor {
     type Vtable = IWMMetadataEditorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x96406bd9_2b2b_11d3_b36b_00c04f6108ff);
-}
-pub trait IWMMetadataEditorImpl {
-    fn Open();
-    fn Close();
-    fn Flush();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4947,9 +4713,6 @@ impl ::core::fmt::Debug for IWMMetadataEditor2 {
 unsafe impl ::windows::core::Interface for IWMMetadataEditor2 {
     type Vtable = IWMMetadataEditor2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x203cffe3_2e18_4fdf_b59d_6e71530534cf);
-}
-pub trait IWMMetadataEditor2Impl: IWMMetadataEditorImpl {
-    fn OpenEx();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5049,10 +4812,6 @@ impl ::core::fmt::Debug for IWMMutualExclusion {
 unsafe impl ::windows::core::Interface for IWMMutualExclusion {
     type Vtable = IWMMutualExclusionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x96406bde_2b2b_11d3_b36b_00c04f6108ff);
-}
-pub trait IWMMutualExclusionImpl: IWMStreamListImpl {
-    fn GetType();
-    fn SetType();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5217,18 +4976,6 @@ unsafe impl ::windows::core::Interface for IWMMutualExclusion2 {
     type Vtable = IWMMutualExclusion2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0302b57d_89d1_4ba2_85c9_166f2c53eb91);
 }
-pub trait IWMMutualExclusion2Impl: IWMMutualExclusionImpl + IWMStreamListImpl {
-    fn GetName();
-    fn SetName();
-    fn GetRecordCount();
-    fn AddRecord();
-    fn RemoveRecord();
-    fn GetRecordName();
-    fn SetRecordName();
-    fn GetStreamsForRecord();
-    fn AddStreamForRecord();
-    fn RemoveStreamForRecord();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMMutualExclusion2Vtbl(
@@ -5345,10 +5092,6 @@ unsafe impl ::windows::core::Interface for IWMOutputMediaProps {
     type Vtable = IWMOutputMediaPropsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x96406bd7_2b2b_11d3_b36b_00c04f6108ff);
 }
-pub trait IWMOutputMediaPropsImpl: IWMMediaPropsImpl {
-    fn GetStreamGroupName();
-    fn GetConnectionName();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMOutputMediaPropsVtbl(
@@ -5418,10 +5161,6 @@ impl ::core::fmt::Debug for IWMPacketSize {
 unsafe impl ::windows::core::Interface for IWMPacketSize {
     type Vtable = IWMPacketSizeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcdfb97ab_188f_40b3_b643_5b7903975c59);
-}
-pub trait IWMPacketSizeImpl {
-    fn GetMaxPacketSize();
-    fn SetMaxPacketSize();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5515,10 +5254,6 @@ unsafe impl ::windows::core::Interface for IWMPacketSize2 {
     type Vtable = IWMPacketSize2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8bfc2b9e_b646_4233_a877_1c6a079669dc);
 }
-pub trait IWMPacketSize2Impl: IWMPacketSizeImpl {
-    fn GetMinPacketSize();
-    fn SetMinPacketSize();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPacketSize2Vtbl(
@@ -5579,9 +5314,6 @@ unsafe impl ::windows::core::Interface for IWMPlayerHook {
     type Vtable = IWMPlayerHookVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe5b7ca9a_0f1c_4f66_9002_74ec50d8b304);
 }
-pub trait IWMPlayerHookImpl {
-    fn PreDecode();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPlayerHookVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT);
@@ -5634,9 +5366,6 @@ impl ::core::fmt::Debug for IWMPlayerTimestampHook {
 unsafe impl ::windows::core::Interface for IWMPlayerTimestampHook {
     type Vtable = IWMPlayerTimestampHookVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x28580dda_d98e_48d0_b7ae_69e473a02825);
-}
-pub trait IWMPlayerTimestampHookImpl {
-    fn MapTimestamp();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5769,26 +5498,6 @@ impl ::core::fmt::Debug for IWMProfile {
 unsafe impl ::windows::core::Interface for IWMProfile {
     type Vtable = IWMProfileVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x96406bdb_2b2b_11d3_b36b_00c04f6108ff);
-}
-pub trait IWMProfileImpl {
-    fn GetVersion();
-    fn GetName();
-    fn SetName();
-    fn GetDescription();
-    fn SetDescription();
-    fn GetStreamCount();
-    fn GetStream();
-    fn GetStreamByNumber();
-    fn RemoveStream();
-    fn RemoveStreamByNumber();
-    fn AddStream();
-    fn ReconfigStream();
-    fn CreateNewStream();
-    fn GetMutualExclusionCount();
-    fn GetMutualExclusion();
-    fn RemoveMutualExclusion();
-    fn AddMutualExclusion();
-    fn CreateNewMutualExclusion();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5972,9 +5681,6 @@ impl ::core::fmt::Debug for IWMProfile2 {
 unsafe impl ::windows::core::Interface for IWMProfile2 {
     type Vtable = IWMProfile2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x07e72d33_d94e_4be7_8843_60ae5ff7e5f5);
-}
-pub trait IWMProfile2Impl: IWMProfileImpl {
-    fn GetProfileID();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6235,20 +5941,6 @@ unsafe impl ::windows::core::Interface for IWMProfile3 {
     type Vtable = IWMProfile3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00ef96cc_a461_4546_8bcd_c9a28f0e06f5);
 }
-pub trait IWMProfile3Impl: IWMProfile2Impl + IWMProfileImpl {
-    fn GetStorageFormat();
-    fn SetStorageFormat();
-    fn GetBandwidthSharingCount();
-    fn GetBandwidthSharing();
-    fn RemoveBandwidthSharing();
-    fn AddBandwidthSharing();
-    fn CreateNewBandwidthSharing();
-    fn GetStreamPrioritization();
-    fn SetStreamPrioritization();
-    fn RemoveStreamPrioritization();
-    fn CreateNewStreamPrioritization();
-    fn GetExpectedPacketCount();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMProfile3Vtbl(
@@ -6366,14 +6058,6 @@ impl ::core::fmt::Debug for IWMProfileManager {
 unsafe impl ::windows::core::Interface for IWMProfileManager {
     type Vtable = IWMProfileManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd16679f2_6ca0_472d_8d31_2f5d55aee155);
-}
-pub trait IWMProfileManagerImpl {
-    fn CreateEmptyProfile();
-    fn LoadProfileByID();
-    fn LoadProfileByData();
-    fn SaveProfile();
-    fn GetSystemProfileCount();
-    fn LoadSystemProfile();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6494,10 +6178,6 @@ unsafe impl ::windows::core::Interface for IWMProfileManager2 {
     type Vtable = IWMProfileManager2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7a924e51_73c1_494d_8019_23d37ed9b89a);
 }
-pub trait IWMProfileManager2Impl: IWMProfileManagerImpl {
-    fn GetSystemProfileVersion();
-    fn SetSystemProfileVersion();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMProfileManager2Vtbl(
@@ -6567,10 +6247,6 @@ impl ::core::fmt::Debug for IWMProfileManagerLanguage {
 unsafe impl ::windows::core::Interface for IWMProfileManagerLanguage {
     type Vtable = IWMProfileManagerLanguageVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xba4dcc78_7ee0_4ab8_b27a_dbce8bc51454);
-}
-pub trait IWMProfileManagerLanguageImpl {
-    fn GetUserLanguageID();
-    fn SetUserLanguageID();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6653,14 +6329,6 @@ unsafe impl ::windows::core::Interface for IWMPropertyVault {
     type Vtable = IWMPropertyVaultVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x72995a79_5090_42a4_9c8c_d9d0b6d34be5);
 }
-pub trait IWMPropertyVaultImpl {
-    fn GetPropertyCount();
-    fn GetPropertyByName();
-    fn SetProperty();
-    fn GetPropertyByIndex();
-    fn CopyPropertiesFrom();
-    fn Clear();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPropertyVaultVtbl(
@@ -6725,9 +6393,6 @@ impl ::core::fmt::Debug for IWMProximityDetection {
 unsafe impl ::windows::core::Interface for IWMProximityDetection {
     type Vtable = IWMProximityDetectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6a9fd8ee_b651_4bf0_b849_7d4ece79a2b1);
-}
-pub trait IWMProximityDetectionImpl {
-    fn StartDetection();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6831,19 +6496,6 @@ unsafe impl ::windows::core::Interface for IWMReader {
     type Vtable = IWMReaderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x96406bd6_2b2b_11d3_b36b_00c04f6108ff);
 }
-pub trait IWMReaderImpl {
-    fn Open();
-    fn Close();
-    fn GetOutputCount();
-    fn GetOutputProps();
-    fn SetOutputProps();
-    fn GetOutputFormatCount();
-    fn GetOutputFormat();
-    fn Start();
-    fn Stop();
-    fn Pause();
-    fn Resume();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMReaderVtbl(
@@ -6916,10 +6568,6 @@ impl ::core::fmt::Debug for IWMReaderAccelerator {
 unsafe impl ::windows::core::Interface for IWMReaderAccelerator {
     type Vtable = IWMReaderAcceleratorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbddc4d08_944d_4d52_a612_46c3fda07dd4);
-}
-pub trait IWMReaderAcceleratorImpl {
-    fn GetCodecInterface();
-    fn Notify();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7077,28 +6725,6 @@ impl ::core::fmt::Debug for IWMReaderAdvanced {
 unsafe impl ::windows::core::Interface for IWMReaderAdvanced {
     type Vtable = IWMReaderAdvancedVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x96406bea_2b2b_11d3_b36b_00c04f6108ff);
-}
-pub trait IWMReaderAdvancedImpl {
-    fn SetUserProvidedClock();
-    fn GetUserProvidedClock();
-    fn DeliverTime();
-    fn SetManualStreamSelection();
-    fn GetManualStreamSelection();
-    fn SetStreamsSelected();
-    fn GetStreamSelected();
-    fn SetReceiveSelectionCallbacks();
-    fn GetReceiveSelectionCallbacks();
-    fn SetReceiveStreamSamples();
-    fn GetReceiveStreamSamples();
-    fn SetAllocateForOutput();
-    fn GetAllocateForOutput();
-    fn SetAllocateForStream();
-    fn GetAllocateForStream();
-    fn GetStatistics();
-    fn SetClientInfo();
-    fn GetMaxOutputSampleSize();
-    fn GetMaxStreamSampleSize();
-    fn NotifyLateDelivery();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7376,23 +7002,6 @@ impl ::core::fmt::Debug for IWMReaderAdvanced2 {
 unsafe impl ::windows::core::Interface for IWMReaderAdvanced2 {
     type Vtable = IWMReaderAdvanced2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xae14a945_b90c_4d0d_9127_80d665f7d73e);
-}
-pub trait IWMReaderAdvanced2Impl: IWMReaderAdvancedImpl {
-    fn SetPlayMode();
-    fn GetPlayMode();
-    fn GetBufferProgress();
-    fn GetDownloadProgress();
-    fn GetSaveAsProgress();
-    fn SaveFileAs();
-    fn GetProtocolName();
-    fn StartAtMarker();
-    fn GetOutputSetting();
-    fn SetOutputSetting();
-    fn Preroll();
-    fn SetLogClientID();
-    fn GetLogClientID();
-    fn StopBuffering();
-    fn OpenStream();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7720,10 +7329,6 @@ impl ::core::fmt::Debug for IWMReaderAdvanced3 {
 unsafe impl ::windows::core::Interface for IWMReaderAdvanced3 {
     type Vtable = IWMReaderAdvanced3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5dc0674b_f04b_4a4e_9f2a_b1afde2c8100);
-}
-pub trait IWMReaderAdvanced3Impl: IWMReaderAdvanced2Impl + IWMReaderAdvancedImpl {
-    fn StopNetStreaming();
-    fn StartAtPosition();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8118,17 +7723,6 @@ impl ::core::fmt::Debug for IWMReaderAdvanced4 {
 unsafe impl ::windows::core::Interface for IWMReaderAdvanced4 {
     type Vtable = IWMReaderAdvanced4Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x945a76a2_12ae_4d48_bd3c_cd1d90399b85);
-}
-pub trait IWMReaderAdvanced4Impl: IWMReaderAdvanced3Impl + IWMReaderAdvanced2Impl + IWMReaderAdvancedImpl {
-    fn GetLanguageCount();
-    fn GetLanguage();
-    fn GetMaxSpeedFactor();
-    fn IsUsingFastCache();
-    fn AddLogParam();
-    fn SendLogParams();
-    fn CanSaveFileAs();
-    fn CancelSaveFileAs();
-    fn GetURL();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8561,9 +8155,6 @@ impl ::core::fmt::Debug for IWMReaderAdvanced5 {
 unsafe impl ::windows::core::Interface for IWMReaderAdvanced5 {
     type Vtable = IWMReaderAdvanced5Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x24c44db0_55d1_49ae_a5cc_f13815e36363);
-}
-pub trait IWMReaderAdvanced5Impl: IWMReaderAdvanced4Impl + IWMReaderAdvanced3Impl + IWMReaderAdvanced2Impl + IWMReaderAdvancedImpl {
-    fn SetPlayerHook();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9022,9 +8613,6 @@ unsafe impl ::windows::core::Interface for IWMReaderAdvanced6 {
     type Vtable = IWMReaderAdvanced6Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x18a2e7f8_428f_4acd_8a00_e64639bc93de);
 }
-pub trait IWMReaderAdvanced6Impl: IWMReaderAdvanced5Impl + IWMReaderAdvanced4Impl + IWMReaderAdvanced3Impl + IWMReaderAdvanced2Impl + IWMReaderAdvancedImpl {
-    fn SetProtectStreamSamples();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMReaderAdvanced6Vtbl(
@@ -9158,10 +8746,6 @@ unsafe impl ::windows::core::Interface for IWMReaderAllocatorEx {
     type Vtable = IWMReaderAllocatorExVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9f762fa7_a22e_428d_93c9_ac82f3aafe5a);
 }
-pub trait IWMReaderAllocatorExImpl {
-    fn AllocateForStreamEx();
-    fn AllocateForOutputEx();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMReaderAllocatorExVtbl(
@@ -9244,9 +8828,6 @@ unsafe impl ::windows::core::Interface for IWMReaderCallback {
     type Vtable = IWMReaderCallbackVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x96406bd8_2b2b_11d3_b36b_00c04f6108ff);
 }
-pub trait IWMReaderCallbackImpl: IWMStatusCallbackImpl {
-    fn OnSample();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMReaderCallbackVtbl(
@@ -9325,14 +8906,6 @@ impl ::core::fmt::Debug for IWMReaderCallbackAdvanced {
 unsafe impl ::windows::core::Interface for IWMReaderCallbackAdvanced {
     type Vtable = IWMReaderCallbackAdvancedVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x96406beb_2b2b_11d3_b36b_00c04f6108ff);
-}
-pub trait IWMReaderCallbackAdvancedImpl {
-    fn OnStreamSample();
-    fn OnTime();
-    fn OnStreamSelection();
-    fn OnOutputPropsChanged();
-    fn AllocateForStream();
-    fn AllocateForOutput();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9559,41 +9132,6 @@ impl ::core::fmt::Debug for IWMReaderNetworkConfig {
 unsafe impl ::windows::core::Interface for IWMReaderNetworkConfig {
     type Vtable = IWMReaderNetworkConfigVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x96406bec_2b2b_11d3_b36b_00c04f6108ff);
-}
-pub trait IWMReaderNetworkConfigImpl {
-    fn GetBufferingTime();
-    fn SetBufferingTime();
-    fn GetUDPPortRanges();
-    fn SetUDPPortRanges();
-    fn GetProxySettings();
-    fn SetProxySettings();
-    fn GetProxyHostName();
-    fn SetProxyHostName();
-    fn GetProxyPort();
-    fn SetProxyPort();
-    fn GetProxyExceptionList();
-    fn SetProxyExceptionList();
-    fn GetProxyBypassForLocal();
-    fn SetProxyBypassForLocal();
-    fn GetForceRerunAutoProxyDetection();
-    fn SetForceRerunAutoProxyDetection();
-    fn GetEnableMulticast();
-    fn SetEnableMulticast();
-    fn GetEnableHTTP();
-    fn SetEnableHTTP();
-    fn GetEnableUDP();
-    fn SetEnableUDP();
-    fn GetEnableTCP();
-    fn SetEnableTCP();
-    fn ResetProtocolRollover();
-    fn GetConnectionBandwidth();
-    fn SetConnectionBandwidth();
-    fn GetNumProtocolsSupported();
-    fn GetSupportedProtocolName();
-    fn AddLoggingUrl();
-    fn GetLoggingUrl();
-    fn GetLoggingUrlCount();
-    fn ResetLoggingUrlList();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9957,21 +9495,6 @@ unsafe impl ::windows::core::Interface for IWMReaderNetworkConfig2 {
     type Vtable = IWMReaderNetworkConfig2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd979a853_042b_4050_8387_c939db22013f);
 }
-pub trait IWMReaderNetworkConfig2Impl: IWMReaderNetworkConfigImpl {
-    fn GetEnableContentCaching();
-    fn SetEnableContentCaching();
-    fn GetEnableFastCache();
-    fn SetEnableFastCache();
-    fn GetAcceleratedStreamingDuration();
-    fn SetAcceleratedStreamingDuration();
-    fn GetAutoReconnectLimit();
-    fn SetAutoReconnectLimit();
-    fn GetEnableResends();
-    fn SetEnableResends();
-    fn GetEnableThinning();
-    fn SetEnableThinning();
-    fn GetMaxNetPacketSize();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMReaderNetworkConfig2Vtbl(
@@ -10119,12 +9642,6 @@ unsafe impl ::windows::core::Interface for IWMReaderPlaylistBurn {
     type Vtable = IWMReaderPlaylistBurnVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf28c0300_9baa_4477_a846_1744d9cbf533);
 }
-pub trait IWMReaderPlaylistBurnImpl {
-    fn InitPlaylistBurn();
-    fn GetInitResults();
-    fn Cancel();
-    fn EndPlaylistBurn();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMReaderPlaylistBurnVtbl(
@@ -10195,11 +9712,6 @@ unsafe impl ::windows::core::Interface for IWMReaderStreamClock {
     type Vtable = IWMReaderStreamClockVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x96406bed_2b2b_11d3_b36b_00c04f6108ff);
 }
-pub trait IWMReaderStreamClockImpl {
-    fn GetTime();
-    fn SetTimer();
-    fn KillTimer();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMReaderStreamClockVtbl(
@@ -10264,10 +9776,6 @@ unsafe impl ::windows::core::Interface for IWMReaderTimecode {
     type Vtable = IWMReaderTimecodeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf369e2f0_e081_4fe6_8450_b810b2f410d1);
 }
-pub trait IWMReaderTimecodeImpl {
-    fn GetTimecodeRangeCount();
-    fn GetTimecodeRangeBounds();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMReaderTimecodeVtbl(
@@ -10326,9 +9834,6 @@ unsafe impl ::windows::core::Interface for IWMReaderTypeNegotiation {
     type Vtable = IWMReaderTypeNegotiationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfdbe5592_81a1_41ea_93bd_735cad1adc05);
 }
-pub trait IWMReaderTypeNegotiationImpl {
-    fn TryOutputProps();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMReaderTypeNegotiationVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwoutputnum: u32, poutput: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
@@ -10384,10 +9889,6 @@ impl ::core::fmt::Debug for IWMRegisterCallback {
 unsafe impl ::windows::core::Interface for IWMRegisterCallback {
     type Vtable = IWMRegisterCallbackVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcf4b1f99_4de2_4e49_a363_252740d99bc1);
-}
-pub trait IWMRegisterCallbackImpl {
-    fn Advise();
-    fn Unadvise();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -10516,22 +10017,6 @@ unsafe impl ::windows::core::Interface for IWMRegisteredDevice {
     type Vtable = IWMRegisteredDeviceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa4503bec_5508_4148_97ac_bfa75760a70d);
 }
-pub trait IWMRegisteredDeviceImpl {
-    fn GetDeviceSerialNumber();
-    fn GetDeviceCertificate();
-    fn GetDeviceType();
-    fn GetAttributeCount();
-    fn GetAttributeByIndex();
-    fn GetAttributeByName();
-    fn SetAttributeByName();
-    fn Approve();
-    fn IsValid();
-    fn IsApproved();
-    fn IsWmdrmCompliant();
-    fn IsOpened();
-    fn Open();
-    fn Close();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMRegisteredDeviceVtbl(
@@ -10615,10 +10100,6 @@ impl ::core::fmt::Debug for IWMSBufferAllocator {
 unsafe impl ::windows::core::Interface for IWMSBufferAllocator {
     type Vtable = IWMSBufferAllocatorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x61103ca4_2033_11d2_9ef1_006097d2d7cf);
-}
-pub trait IWMSBufferAllocatorImpl {
-    fn AllocateBuffer();
-    fn AllocatePageSizeBuffer();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -10727,19 +10208,6 @@ unsafe impl ::windows::core::Interface for IWMSInternalAdminNetSource {
     type Vtable = IWMSInternalAdminNetSourceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8bb23e5f_d127_4afb_8d02_ae5b66d54c78);
 }
-pub trait IWMSInternalAdminNetSourceImpl {
-    fn Initialize();
-    fn GetNetSourceCreator();
-    fn SetCredentials();
-    fn GetCredentials();
-    fn DeleteCredentials();
-    fn GetCredentialFlags();
-    fn SetCredentialFlags();
-    fn FindProxyForURL();
-    fn RegisterProxyFailure();
-    fn ShutdownProxyContext();
-    fn IsUsingIE();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMSInternalAdminNetSourceVtbl(
@@ -10828,12 +10296,6 @@ impl ::core::fmt::Debug for IWMSInternalAdminNetSource2 {
 unsafe impl ::windows::core::Interface for IWMSInternalAdminNetSource2 {
     type Vtable = IWMSInternalAdminNetSource2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe74d58c3_cf77_4b51_af17_744687c43eae);
-}
-pub trait IWMSInternalAdminNetSource2Impl {
-    fn SetCredentialsEx();
-    fn GetCredentialsEx();
-    fn DeleteCredentialsEx();
-    fn FindProxyForURLEx();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -10978,15 +10440,6 @@ impl ::core::fmt::Debug for IWMSInternalAdminNetSource3 {
 unsafe impl ::windows::core::Interface for IWMSInternalAdminNetSource3 {
     type Vtable = IWMSInternalAdminNetSource3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6b63d08e_4590_44af_9eb3_57ff1e73bf80);
-}
-pub trait IWMSInternalAdminNetSource3Impl: IWMSInternalAdminNetSource2Impl {
-    fn GetNetSourceCreator2();
-    fn FindProxyForURLEx2();
-    fn RegisterProxyFailure2();
-    fn ShutdownProxyContext2();
-    fn IsUsingIE2();
-    fn SetCredentialsEx2();
-    fn GetCredentialsEx2();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -11140,19 +10593,6 @@ unsafe impl ::windows::core::Interface for IWMSecureChannel {
     type Vtable = IWMSecureChannelVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2720598a_d0f2_4189_bd10_91c46ef0936f);
 }
-pub trait IWMSecureChannelImpl: IWMAuthorizerImpl {
-    fn WMSC_AddCertificate();
-    fn WMSC_AddSignature();
-    fn WMSC_Connect();
-    fn WMSC_IsConnected();
-    fn WMSC_Disconnect();
-    fn WMSC_GetValidCertificate();
-    fn WMSC_Encrypt();
-    fn WMSC_Decrypt();
-    fn WMSC_Lock();
-    fn WMSC_Unlock();
-    fn WMSC_SetSharedData();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMSecureChannelVtbl(
@@ -11223,9 +10663,6 @@ impl ::core::fmt::Debug for IWMStatusCallback {
 unsafe impl ::windows::core::Interface for IWMStatusCallback {
     type Vtable = IWMStatusCallbackVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6d7cdc70_9888_11d3_8edc_00c04f6109cf);
-}
-pub trait IWMStatusCallbackImpl {
-    fn OnStatus();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -11331,19 +10768,6 @@ impl ::core::fmt::Debug for IWMStreamConfig {
 unsafe impl ::windows::core::Interface for IWMStreamConfig {
     type Vtable = IWMStreamConfigVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x96406bdc_2b2b_11d3_b36b_00c04f6108ff);
-}
-pub trait IWMStreamConfigImpl {
-    fn GetStreamType();
-    fn GetStreamNumber();
-    fn SetStreamNumber();
-    fn GetStreamName();
-    fn SetStreamName();
-    fn GetConnectionName();
-    fn SetConnectionName();
-    fn GetBitrate();
-    fn SetBitrate();
-    fn GetBufferWindow();
-    fn SetBufferWindow();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -11509,14 +10933,6 @@ impl ::core::fmt::Debug for IWMStreamConfig2 {
 unsafe impl ::windows::core::Interface for IWMStreamConfig2 {
     type Vtable = IWMStreamConfig2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7688d8cb_fc0d_43bd_9459_5a8dec200cfa);
-}
-pub trait IWMStreamConfig2Impl: IWMStreamConfigImpl {
-    fn GetTransportType();
-    fn SetTransportType();
-    fn AddDataUnitExtension();
-    fn GetDataUnitExtensionCount();
-    fn GetDataUnitExtension();
-    fn RemoveAllDataUnitExtensions();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -11719,10 +11135,6 @@ unsafe impl ::windows::core::Interface for IWMStreamConfig3 {
     type Vtable = IWMStreamConfig3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcb164104_3aa9_45a7_9ac9_4daee131d6e1);
 }
-pub trait IWMStreamConfig3Impl: IWMStreamConfig2Impl + IWMStreamConfigImpl {
-    fn GetLanguage();
-    fn SetLanguage();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMStreamConfig3Vtbl(
@@ -11812,11 +11224,6 @@ unsafe impl ::windows::core::Interface for IWMStreamList {
     type Vtable = IWMStreamListVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x96406bdd_2b2b_11d3_b36b_00c04f6108ff);
 }
-pub trait IWMStreamListImpl {
-    fn GetStreams();
-    fn AddStream();
-    fn RemoveStream();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMStreamListVtbl(
@@ -11881,10 +11288,6 @@ impl ::core::fmt::Debug for IWMStreamPrioritization {
 unsafe impl ::windows::core::Interface for IWMStreamPrioritization {
     type Vtable = IWMStreamPrioritizationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8c1c6090_f9a8_4748_8ec3_dd1108ba1e77);
-}
-pub trait IWMStreamPrioritizationImpl {
-    fn GetPriorityRecords();
-    fn SetPriorityRecords();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -12041,29 +11444,6 @@ impl ::core::fmt::Debug for IWMSyncReader {
 unsafe impl ::windows::core::Interface for IWMSyncReader {
     type Vtable = IWMSyncReaderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9397f121_7705_4dc9_b049_98b698188414);
-}
-pub trait IWMSyncReaderImpl {
-    fn Open();
-    fn Close();
-    fn SetRange();
-    fn SetRangeByFrame();
-    fn GetNextSample();
-    fn SetStreamsSelected();
-    fn GetStreamSelected();
-    fn SetReadStreamSamples();
-    fn GetReadStreamSamples();
-    fn GetOutputSetting();
-    fn SetOutputSetting();
-    fn GetOutputCount();
-    fn GetOutputProps();
-    fn SetOutputProps();
-    fn GetOutputFormatCount();
-    fn GetOutputFormat();
-    fn GetOutputNumberForStream();
-    fn GetStreamNumberForOutput();
-    fn GetMaxOutputSampleSize();
-    fn GetMaxStreamSampleSize();
-    fn OpenStream();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -12291,14 +11671,6 @@ unsafe impl ::windows::core::Interface for IWMSyncReader2 {
     type Vtable = IWMSyncReader2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfaed3d21_1b6b_4af7_8cb6_3e189bbc187b);
 }
-pub trait IWMSyncReader2Impl: IWMSyncReaderImpl {
-    fn SetRangeByTimecode();
-    fn SetRangeByFrameEx();
-    fn SetAllocateForOutput();
-    fn GetAllocateForOutput();
-    fn SetAllocateForStream();
-    fn GetAllocateForStream();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMSyncReader2Vtbl(
@@ -12437,12 +11809,6 @@ unsafe impl ::windows::core::Interface for IWMVideoMediaProps {
     type Vtable = IWMVideoMediaPropsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x96406bcf_2b2b_11d3_b36b_00c04f6108ff);
 }
-pub trait IWMVideoMediaPropsImpl: IWMMediaPropsImpl {
-    fn GetMaxKeyFrameSpacing();
-    fn SetMaxKeyFrameSpacing();
-    fn GetQuality();
-    fn SetQuality();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMVideoMediaPropsVtbl(
@@ -12514,10 +11880,6 @@ impl ::core::fmt::Debug for IWMWatermarkInfo {
 unsafe impl ::windows::core::Interface for IWMWatermarkInfo {
     type Vtable = IWMWatermarkInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6f497062_f2e2_4624_8ea7_9dd40d81fc8d);
-}
-pub trait IWMWatermarkInfoImpl {
-    fn GetWatermarkEntryCount();
-    fn GetWatermarkEntry();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -12631,21 +11993,6 @@ impl ::core::fmt::Debug for IWMWriter {
 unsafe impl ::windows::core::Interface for IWMWriter {
     type Vtable = IWMWriterVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x96406bd4_2b2b_11d3_b36b_00c04f6108ff);
-}
-pub trait IWMWriterImpl {
-    fn SetProfileByID();
-    fn SetProfile();
-    fn SetOutputFilename();
-    fn GetInputCount();
-    fn GetInputProps();
-    fn SetInputProps();
-    fn GetInputFormatCount();
-    fn GetInputFormat();
-    fn BeginWriting();
-    fn EndWriting();
-    fn AllocateSample();
-    fn WriteSample();
-    fn Flush();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -12764,19 +12111,6 @@ impl ::core::fmt::Debug for IWMWriterAdvanced {
 unsafe impl ::windows::core::Interface for IWMWriterAdvanced {
     type Vtable = IWMWriterAdvancedVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x96406be3_2b2b_11d3_b36b_00c04f6108ff);
-}
-pub trait IWMWriterAdvancedImpl {
-    fn GetSinkCount();
-    fn GetSink();
-    fn AddSink();
-    fn RemoveSink();
-    fn WriteStreamSample();
-    fn SetLiveSource();
-    fn IsRealTime();
-    fn GetWriterTime();
-    fn GetStatistics();
-    fn SetSyncTolerance();
-    fn GetSyncTolerance();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -12924,10 +12258,6 @@ impl ::core::fmt::Debug for IWMWriterAdvanced2 {
 unsafe impl ::windows::core::Interface for IWMWriterAdvanced2 {
     type Vtable = IWMWriterAdvanced2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x962dc1ec_c046_4db8_9cc7_26ceae500817);
-}
-pub trait IWMWriterAdvanced2Impl: IWMWriterAdvancedImpl {
-    fn GetInputSetting();
-    fn SetInputSetting();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -13109,10 +12439,6 @@ unsafe impl ::windows::core::Interface for IWMWriterAdvanced3 {
     type Vtable = IWMWriterAdvanced3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2cd6492d_7c37_4e76_9d3b_59261183a22e);
 }
-pub trait IWMWriterAdvanced3Impl: IWMWriterAdvanced2Impl + IWMWriterAdvancedImpl {
-    fn GetStatisticsEx();
-    fn SetNonBlocking();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMWriterAdvanced3Vtbl(
@@ -13231,9 +12557,6 @@ impl ::core::fmt::Debug for IWMWriterFileSink {
 unsafe impl ::windows::core::Interface for IWMWriterFileSink {
     type Vtable = IWMWriterFileSinkVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x96406be5_2b2b_11d3_b36b_00c04f6108ff);
-}
-pub trait IWMWriterFileSinkImpl: IWMWriterSinkImpl {
-    fn Open();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -13396,15 +12719,6 @@ impl ::core::fmt::Debug for IWMWriterFileSink2 {
 unsafe impl ::windows::core::Interface for IWMWriterFileSink2 {
     type Vtable = IWMWriterFileSink2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x14282ba7_4aef_4205_8ce5_c229035a05bc);
-}
-pub trait IWMWriterFileSink2Impl: IWMWriterFileSinkImpl + IWMWriterSinkImpl {
-    fn Start();
-    fn Stop();
-    fn IsStopped();
-    fn GetFileDuration();
-    fn GetFileSize();
-    fn Close();
-    fn IsClosed();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -13637,16 +12951,6 @@ unsafe impl ::windows::core::Interface for IWMWriterFileSink3 {
     type Vtable = IWMWriterFileSink3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3fea4feb_2945_47a7_a1dd_c53a8fc4c45c);
 }
-pub trait IWMWriterFileSink3Impl: IWMWriterFileSink2Impl + IWMWriterFileSinkImpl + IWMWriterSinkImpl {
-    fn SetAutoIndexing();
-    fn GetAutoIndexing();
-    fn SetControlStream();
-    fn GetMode();
-    fn OnDataUnitEx();
-    fn SetUnbufferedIO();
-    fn GetUnbufferedIO();
-    fn CompleteOperations();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMWriterFileSink3Vtbl(
@@ -13807,16 +13111,6 @@ unsafe impl ::windows::core::Interface for IWMWriterNetworkSink {
     type Vtable = IWMWriterNetworkSinkVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x96406be7_2b2b_11d3_b36b_00c04f6108ff);
 }
-pub trait IWMWriterNetworkSinkImpl: IWMWriterSinkImpl {
-    fn SetMaximumClients();
-    fn GetMaximumClients();
-    fn SetNetworkProtocol();
-    fn GetNetworkProtocol();
-    fn GetHostURL();
-    fn Open();
-    fn Disconnect();
-    fn Close();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMWriterNetworkSinkVtbl(
@@ -13929,17 +13223,6 @@ unsafe impl ::windows::core::Interface for IWMWriterPostView {
     type Vtable = IWMWriterPostViewVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x81e20ce4_75ef_491a_8004_fc53c45bdc3e);
 }
-pub trait IWMWriterPostViewImpl {
-    fn SetPostViewCallback();
-    fn SetReceivePostViewSamples();
-    fn GetReceivePostViewSamples();
-    fn GetPostViewProps();
-    fn SetPostViewProps();
-    fn GetPostViewFormatCount();
-    fn GetPostViewFormat();
-    fn SetAllocateForPostView();
-    fn GetAllocateForPostView();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMWriterPostViewVtbl(
@@ -14037,10 +13320,6 @@ unsafe impl ::windows::core::Interface for IWMWriterPostViewCallback {
     type Vtable = IWMWriterPostViewCallbackVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd9d6549d_a193_4f24_b308_03123d9b7f8d);
 }
-pub trait IWMWriterPostViewCallbackImpl: IWMStatusCallbackImpl {
-    fn OnPostViewSample();
-    fn AllocateForPostView();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMWriterPostViewCallbackVtbl(
@@ -14116,13 +13395,6 @@ impl ::core::fmt::Debug for IWMWriterPreprocess {
 unsafe impl ::windows::core::Interface for IWMWriterPreprocess {
     type Vtable = IWMWriterPreprocessVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfc54a285_38c4_45b5_aa23_85b9f7cb424b);
-}
-pub trait IWMWriterPreprocessImpl {
-    fn GetMaxPreprocessingPasses();
-    fn SetNumPreprocessingPasses();
-    fn BeginPreprocessingPass();
-    fn PreprocessSample();
-    fn EndPreprocessingPass();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -14237,11 +13509,6 @@ unsafe impl ::windows::core::Interface for IWMWriterPushSink {
     type Vtable = IWMWriterPushSinkVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdc10e6a5_072c_467d_bf57_6330a9dde12a);
 }
-pub trait IWMWriterPushSinkImpl: IWMWriterSinkImpl {
-    fn Connect();
-    fn Disconnect();
-    fn EndSession();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMWriterPushSinkVtbl(
@@ -14326,13 +13593,6 @@ impl ::core::fmt::Debug for IWMWriterSink {
 unsafe impl ::windows::core::Interface for IWMWriterSink {
     type Vtable = IWMWriterSinkVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x96406be4_2b2b_11d3_b36b_00c04f6108ff);
-}
-pub trait IWMWriterSinkImpl {
-    fn OnHeader();
-    fn IsRealTime();
-    fn AllocateDataUnit();
-    fn OnDataUnit();
-    fn OnEndWriting();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -16741,3 +16001,5 @@ pub const g_wszWMYear: &'static str = "WM/Year";
 pub const g_wszWatermarkCLSID: &'static str = "WatermarkCLSID";
 #[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub const g_wszWatermarkConfig: &'static str = "WatermarkConfig";
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

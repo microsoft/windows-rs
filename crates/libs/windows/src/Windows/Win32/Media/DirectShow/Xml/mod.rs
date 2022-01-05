@@ -60,11 +60,6 @@ unsafe impl ::windows::core::Interface for IXMLGraphBuilder {
     type Vtable = IXMLGraphBuilderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1bb05960_5fbf_11d2_a521_44df07c10000);
 }
-pub trait IXMLGraphBuilderImpl {
-    fn BuildFromXML();
-    fn SaveToXML();
-    fn BuildFromXMLFile();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXMLGraphBuilderVtbl(
@@ -78,3 +73,5 @@ pub struct IXMLGraphBuilderVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pgraph: ::windows::core::RawPtr, wszfilename: super::super::super::Foundation::PWSTR, wszbaseurl: super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

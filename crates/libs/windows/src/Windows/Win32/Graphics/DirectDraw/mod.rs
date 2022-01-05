@@ -14316,12 +14316,6 @@ unsafe impl ::windows::core::Interface for IDDVideoPortContainer {
     type Vtable = IDDVideoPortContainerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6c142760_a733_11ce_a521_0020af0be560);
 }
-pub trait IDDVideoPortContainerImpl {
-    fn CreateVideoPort();
-    fn EnumVideoPorts();
-    fn GetVideoPortConnectInfo();
-    fn QueryVideoPortStatus();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDDVideoPortContainerVtbl(
@@ -14463,28 +14457,6 @@ impl ::core::fmt::Debug for IDirectDraw {
 unsafe impl ::windows::core::Interface for IDirectDraw {
     type Vtable = IDirectDrawVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6c14db80_a733_11ce_a521_0020af0be560);
-}
-pub trait IDirectDrawImpl {
-    fn Compact();
-    fn CreateClipper();
-    fn CreatePalette();
-    fn CreateSurface();
-    fn DuplicateSurface();
-    fn EnumDisplayModes();
-    fn EnumSurfaces();
-    fn FlipToGDISurface();
-    fn GetCaps();
-    fn GetDisplayMode();
-    fn GetFourCCCodes();
-    fn GetGDISurface();
-    fn GetMonitorFrequency();
-    fn GetScanLine();
-    fn GetVerticalBlankStatus();
-    fn Initialize();
-    fn RestoreDisplayMode();
-    fn SetCooperativeLevel();
-    fn SetDisplayMode();
-    fn WaitForVerticalBlank();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -14649,29 +14621,6 @@ impl ::core::fmt::Debug for IDirectDraw2 {
 unsafe impl ::windows::core::Interface for IDirectDraw2 {
     type Vtable = IDirectDraw2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb3a6f3e0_2b43_11cf_a2de_00aa00b93356);
-}
-pub trait IDirectDraw2Impl {
-    fn Compact();
-    fn CreateClipper();
-    fn CreatePalette();
-    fn CreateSurface();
-    fn DuplicateSurface();
-    fn EnumDisplayModes();
-    fn EnumSurfaces();
-    fn FlipToGDISurface();
-    fn GetCaps();
-    fn GetDisplayMode();
-    fn GetFourCCCodes();
-    fn GetGDISurface();
-    fn GetMonitorFrequency();
-    fn GetScanLine();
-    fn GetVerticalBlankStatus();
-    fn Initialize();
-    fn RestoreDisplayMode();
-    fn SetCooperativeLevel();
-    fn SetDisplayMode();
-    fn WaitForVerticalBlank();
-    fn GetAvailableVidMem();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -14856,33 +14805,6 @@ impl ::core::fmt::Debug for IDirectDraw4 {
 unsafe impl ::windows::core::Interface for IDirectDraw4 {
     type Vtable = IDirectDraw4Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9c59509a_39bd_11d1_8c4a_00c04fd930c5);
-}
-pub trait IDirectDraw4Impl {
-    fn Compact();
-    fn CreateClipper();
-    fn CreatePalette();
-    fn CreateSurface();
-    fn DuplicateSurface();
-    fn EnumDisplayModes();
-    fn EnumSurfaces();
-    fn FlipToGDISurface();
-    fn GetCaps();
-    fn GetDisplayMode();
-    fn GetFourCCCodes();
-    fn GetGDISurface();
-    fn GetMonitorFrequency();
-    fn GetScanLine();
-    fn GetVerticalBlankStatus();
-    fn Initialize();
-    fn RestoreDisplayMode();
-    fn SetCooperativeLevel();
-    fn SetDisplayMode();
-    fn WaitForVerticalBlank();
-    fn GetAvailableVidMem();
-    fn GetSurfaceFromDC();
-    fn RestoreAllSurfaces();
-    fn TestCooperativeLevel();
-    fn GetDeviceIdentifier();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -15083,35 +15005,6 @@ unsafe impl ::windows::core::Interface for IDirectDraw7 {
     type Vtable = IDirectDraw7Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x15e65ec0_3b9c_11d2_b92f_00609797ea5b);
 }
-pub trait IDirectDraw7Impl {
-    fn Compact();
-    fn CreateClipper();
-    fn CreatePalette();
-    fn CreateSurface();
-    fn DuplicateSurface();
-    fn EnumDisplayModes();
-    fn EnumSurfaces();
-    fn FlipToGDISurface();
-    fn GetCaps();
-    fn GetDisplayMode();
-    fn GetFourCCCodes();
-    fn GetGDISurface();
-    fn GetMonitorFrequency();
-    fn GetScanLine();
-    fn GetVerticalBlankStatus();
-    fn Initialize();
-    fn RestoreDisplayMode();
-    fn SetCooperativeLevel();
-    fn SetDisplayMode();
-    fn WaitForVerticalBlank();
-    fn GetAvailableVidMem();
-    fn GetSurfaceFromDC();
-    fn RestoreAllSurfaces();
-    fn TestCooperativeLevel();
-    fn GetDeviceIdentifier();
-    fn StartModeTest();
-    fn EvaluateMode();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectDraw7Vtbl(
@@ -15226,14 +15119,6 @@ unsafe impl ::windows::core::Interface for IDirectDrawClipper {
     type Vtable = IDirectDrawClipperVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6c14db85_a733_11ce_a521_0020af0be560);
 }
-pub trait IDirectDrawClipperImpl {
-    fn GetClipList();
-    fn GetHWnd();
-    fn Initialize();
-    fn IsClipListChanged();
-    fn SetClipList();
-    fn SetHWnd();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectDrawClipperVtbl(
@@ -15305,10 +15190,6 @@ unsafe impl ::windows::core::Interface for IDirectDrawColorControl {
     type Vtable = IDirectDrawColorControlVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4b9f0ee0_0d7e_11d0_9b06_00a0c903a3b8);
 }
-pub trait IDirectDrawColorControlImpl {
-    fn GetColorControls();
-    fn SetColorControls();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectDrawColorControlVtbl(
@@ -15370,10 +15251,6 @@ impl ::core::fmt::Debug for IDirectDrawGammaControl {
 unsafe impl ::windows::core::Interface for IDirectDrawGammaControl {
     type Vtable = IDirectDrawGammaControlVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x69c11c3e_b46b_11d1_ad7a_00c04fc29b4e);
-}
-pub trait IDirectDrawGammaControlImpl {
-    fn GetGammaRamp();
-    fn SetGammaRamp();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -15440,11 +15317,6 @@ impl ::core::fmt::Debug for IDirectDrawKernel {
 unsafe impl ::windows::core::Interface for IDirectDrawKernel {
     type Vtable = IDirectDrawKernelVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8d56c120_6a08_11d0_9b06_00a0c903a3b8);
-}
-pub trait IDirectDrawKernelImpl {
-    fn GetCaps();
-    fn GetKernelHandle();
-    fn ReleaseKernelHandle();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -15519,12 +15391,6 @@ impl ::core::fmt::Debug for IDirectDrawPalette {
 unsafe impl ::windows::core::Interface for IDirectDrawPalette {
     type Vtable = IDirectDrawPaletteVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6c14db84_a733_11ce_a521_0020af0be560);
-}
-pub trait IDirectDrawPaletteImpl {
-    fn GetCaps();
-    fn GetEntries();
-    fn Initialize();
-    fn SetEntries();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -15726,41 +15592,6 @@ impl ::core::fmt::Debug for IDirectDrawSurface {
 unsafe impl ::windows::core::Interface for IDirectDrawSurface {
     type Vtable = IDirectDrawSurfaceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6c14db81_a733_11ce_a521_0020af0be560);
-}
-pub trait IDirectDrawSurfaceImpl {
-    fn AddAttachedSurface();
-    fn AddOverlayDirtyRect();
-    fn Blt();
-    fn BltBatch();
-    fn BltFast();
-    fn DeleteAttachedSurface();
-    fn EnumAttachedSurfaces();
-    fn EnumOverlayZOrders();
-    fn Flip();
-    fn GetAttachedSurface();
-    fn GetBltStatus();
-    fn GetCaps();
-    fn GetClipper();
-    fn GetColorKey();
-    fn GetDC();
-    fn GetFlipStatus();
-    fn GetOverlayPosition();
-    fn GetPalette();
-    fn GetPixelFormat();
-    fn GetSurfaceDesc();
-    fn Initialize();
-    fn IsLost();
-    fn Lock();
-    fn ReleaseDC();
-    fn Restore();
-    fn SetClipper();
-    fn SetColorKey();
-    fn SetOverlayPosition();
-    fn SetPalette();
-    fn Unlock();
-    fn UpdateOverlay();
-    fn UpdateOverlayDisplay();
-    fn UpdateOverlayZOrder();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -16008,44 +15839,6 @@ impl ::core::fmt::Debug for IDirectDrawSurface2 {
 unsafe impl ::windows::core::Interface for IDirectDrawSurface2 {
     type Vtable = IDirectDrawSurface2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x57805885_6eec_11cf_9441_a82303c10e27);
-}
-pub trait IDirectDrawSurface2Impl {
-    fn AddAttachedSurface();
-    fn AddOverlayDirtyRect();
-    fn Blt();
-    fn BltBatch();
-    fn BltFast();
-    fn DeleteAttachedSurface();
-    fn EnumAttachedSurfaces();
-    fn EnumOverlayZOrders();
-    fn Flip();
-    fn GetAttachedSurface();
-    fn GetBltStatus();
-    fn GetCaps();
-    fn GetClipper();
-    fn GetColorKey();
-    fn GetDC();
-    fn GetFlipStatus();
-    fn GetOverlayPosition();
-    fn GetPalette();
-    fn GetPixelFormat();
-    fn GetSurfaceDesc();
-    fn Initialize();
-    fn IsLost();
-    fn Lock();
-    fn ReleaseDC();
-    fn Restore();
-    fn SetClipper();
-    fn SetColorKey();
-    fn SetOverlayPosition();
-    fn SetPalette();
-    fn Unlock();
-    fn UpdateOverlay();
-    fn UpdateOverlayDisplay();
-    fn UpdateOverlayZOrder();
-    fn GetDDInterface();
-    fn PageLock();
-    fn PageUnlock();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -16300,45 +16093,6 @@ impl ::core::fmt::Debug for IDirectDrawSurface3 {
 unsafe impl ::windows::core::Interface for IDirectDrawSurface3 {
     type Vtable = IDirectDrawSurface3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xda044e00_69b2_11d0_a1d5_00aa00b8dfbb);
-}
-pub trait IDirectDrawSurface3Impl {
-    fn AddAttachedSurface();
-    fn AddOverlayDirtyRect();
-    fn Blt();
-    fn BltBatch();
-    fn BltFast();
-    fn DeleteAttachedSurface();
-    fn EnumAttachedSurfaces();
-    fn EnumOverlayZOrders();
-    fn Flip();
-    fn GetAttachedSurface();
-    fn GetBltStatus();
-    fn GetCaps();
-    fn GetClipper();
-    fn GetColorKey();
-    fn GetDC();
-    fn GetFlipStatus();
-    fn GetOverlayPosition();
-    fn GetPalette();
-    fn GetPixelFormat();
-    fn GetSurfaceDesc();
-    fn Initialize();
-    fn IsLost();
-    fn Lock();
-    fn ReleaseDC();
-    fn Restore();
-    fn SetClipper();
-    fn SetColorKey();
-    fn SetOverlayPosition();
-    fn SetPalette();
-    fn Unlock();
-    fn UpdateOverlay();
-    fn UpdateOverlayDisplay();
-    fn UpdateOverlayZOrder();
-    fn GetDDInterface();
-    fn PageLock();
-    fn PageUnlock();
-    fn SetSurfaceDesc();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -16615,50 +16369,6 @@ impl ::core::fmt::Debug for IDirectDrawSurface4 {
 unsafe impl ::windows::core::Interface for IDirectDrawSurface4 {
     type Vtable = IDirectDrawSurface4Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0b2b8630_ad35_11d0_8ea6_00609797ea5b);
-}
-pub trait IDirectDrawSurface4Impl {
-    fn AddAttachedSurface();
-    fn AddOverlayDirtyRect();
-    fn Blt();
-    fn BltBatch();
-    fn BltFast();
-    fn DeleteAttachedSurface();
-    fn EnumAttachedSurfaces();
-    fn EnumOverlayZOrders();
-    fn Flip();
-    fn GetAttachedSurface();
-    fn GetBltStatus();
-    fn GetCaps();
-    fn GetClipper();
-    fn GetColorKey();
-    fn GetDC();
-    fn GetFlipStatus();
-    fn GetOverlayPosition();
-    fn GetPalette();
-    fn GetPixelFormat();
-    fn GetSurfaceDesc();
-    fn Initialize();
-    fn IsLost();
-    fn Lock();
-    fn ReleaseDC();
-    fn Restore();
-    fn SetClipper();
-    fn SetColorKey();
-    fn SetOverlayPosition();
-    fn SetPalette();
-    fn Unlock();
-    fn UpdateOverlay();
-    fn UpdateOverlayDisplay();
-    fn UpdateOverlayZOrder();
-    fn GetDDInterface();
-    fn PageLock();
-    fn PageUnlock();
-    fn SetSurfaceDesc();
-    fn SetPrivateData();
-    fn GetPrivateData();
-    fn FreePrivateData();
-    fn GetUniquenessValue();
-    fn ChangeUniquenessValue();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -16958,54 +16668,6 @@ unsafe impl ::windows::core::Interface for IDirectDrawSurface7 {
     type Vtable = IDirectDrawSurface7Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x06675a80_3b9b_11d2_b92f_00609797ea5b);
 }
-pub trait IDirectDrawSurface7Impl {
-    fn AddAttachedSurface();
-    fn AddOverlayDirtyRect();
-    fn Blt();
-    fn BltBatch();
-    fn BltFast();
-    fn DeleteAttachedSurface();
-    fn EnumAttachedSurfaces();
-    fn EnumOverlayZOrders();
-    fn Flip();
-    fn GetAttachedSurface();
-    fn GetBltStatus();
-    fn GetCaps();
-    fn GetClipper();
-    fn GetColorKey();
-    fn GetDC();
-    fn GetFlipStatus();
-    fn GetOverlayPosition();
-    fn GetPalette();
-    fn GetPixelFormat();
-    fn GetSurfaceDesc();
-    fn Initialize();
-    fn IsLost();
-    fn Lock();
-    fn ReleaseDC();
-    fn Restore();
-    fn SetClipper();
-    fn SetColorKey();
-    fn SetOverlayPosition();
-    fn SetPalette();
-    fn Unlock();
-    fn UpdateOverlay();
-    fn UpdateOverlayDisplay();
-    fn UpdateOverlayZOrder();
-    fn GetDDInterface();
-    fn PageLock();
-    fn PageUnlock();
-    fn SetSurfaceDesc();
-    fn SetPrivateData();
-    fn GetPrivateData();
-    fn FreePrivateData();
-    fn GetUniquenessValue();
-    fn ChangeUniquenessValue();
-    fn SetPriority();
-    fn GetPriority();
-    fn SetLOD();
-    fn GetLOD();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectDrawSurface7Vtbl(
@@ -17121,10 +16783,6 @@ unsafe impl ::windows::core::Interface for IDirectDrawSurfaceKernel {
     type Vtable = IDirectDrawSurfaceKernelVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x60755da0_6a40_11d0_9b06_00a0c903a3b8);
 }
-pub trait IDirectDrawSurfaceKernelImpl {
-    fn GetKernelHandle();
-    fn ReleaseKernelHandle();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectDrawSurfaceKernelVtbl(
@@ -17237,22 +16895,6 @@ unsafe impl ::windows::core::Interface for IDirectDrawVideoPort {
     type Vtable = IDirectDrawVideoPortVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb36d93e0_2b43_11cf_a2de_00aa00b93356);
 }
-pub trait IDirectDrawVideoPortImpl {
-    fn Flip();
-    fn GetBandwidthInfo();
-    fn GetColorControls();
-    fn GetInputFormats();
-    fn GetOutputFormats();
-    fn GetFieldPolarity();
-    fn GetVideoLine();
-    fn GetVideoSignalStatus();
-    fn SetColorControls();
-    fn SetTargetSurface();
-    fn StartVideo();
-    fn StopVideo();
-    fn UpdateVideo();
-    fn WaitForSync();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectDrawVideoPortVtbl(
@@ -17330,10 +16972,6 @@ impl ::core::fmt::Debug for IDirectDrawVideoPortNotify {
 unsafe impl ::windows::core::Interface for IDirectDrawVideoPortNotify {
     type Vtable = IDirectDrawVideoPortNotifyVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa655fb94_0589_4e57_b333_567a89468c88);
-}
-pub trait IDirectDrawVideoPortNotifyImpl {
-    fn AcquireNotification();
-    fn ReleaseNotification();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -18509,3 +18147,5 @@ pub struct _DD_GETVPORTAUTOFLIPSURFACEDATA(pub u8);
 pub struct _DD_SETMODEDATA(pub u8);
 #[doc = "*Required features: 'Win32_Graphics_DirectDraw'*"]
 pub const _FACDD: u32 = 2166u32;
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

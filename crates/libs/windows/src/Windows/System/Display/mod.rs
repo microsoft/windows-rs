@@ -94,11 +94,6 @@ unsafe impl ::windows::core::Interface for IDisplayRequest {
     type Vtable = IDisplayRequestVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe5732044_f49f_4b60_8dd4_5e7e3a632ac0);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IDisplayRequestImpl {
-    fn RequestActive();
-    fn RequestRelease();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDisplayRequestVtbl(
@@ -111,3 +106,5 @@ pub struct IDisplayRequestVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

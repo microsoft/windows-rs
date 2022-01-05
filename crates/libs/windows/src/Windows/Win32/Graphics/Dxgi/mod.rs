@@ -2503,11 +2503,6 @@ unsafe impl ::windows::core::Interface for IDXGIAdapter {
     type Vtable = IDXGIAdapterVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2411e7e1_12ac_4ccf_bd14_9798e8534dc0);
 }
-pub trait IDXGIAdapterImpl: IDXGIObjectImpl {
-    fn EnumOutputs();
-    fn GetDesc();
-    fn CheckInterfaceSupport();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDXGIAdapterVtbl(
@@ -2646,9 +2641,6 @@ impl ::core::fmt::Debug for IDXGIAdapter1 {
 unsafe impl ::windows::core::Interface for IDXGIAdapter1 {
     type Vtable = IDXGIAdapter1Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x29038f61_3839_4626_91fd_086879011a05);
-}
-pub trait IDXGIAdapter1Impl: IDXGIAdapterImpl + IDXGIObjectImpl {
-    fn GetDesc1();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2816,9 +2808,6 @@ impl ::core::fmt::Debug for IDXGIAdapter2 {
 unsafe impl ::windows::core::Interface for IDXGIAdapter2 {
     type Vtable = IDXGIAdapter2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0aa1ae0a_fa0e_4b84_8644_e05ff8e5acb5);
-}
-pub trait IDXGIAdapter2Impl: IDXGIAdapter1Impl + IDXGIAdapterImpl + IDXGIObjectImpl {
-    fn GetDesc2();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3037,14 +3026,6 @@ impl ::core::fmt::Debug for IDXGIAdapter3 {
 unsafe impl ::windows::core::Interface for IDXGIAdapter3 {
     type Vtable = IDXGIAdapter3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x645967a4_1392_4310_a798_8053ce3e93fd);
-}
-pub trait IDXGIAdapter3Impl: IDXGIAdapter2Impl + IDXGIAdapter1Impl + IDXGIAdapterImpl + IDXGIObjectImpl {
-    fn RegisterHardwareContentProtectionTeardownStatusEvent();
-    fn UnregisterHardwareContentProtectionTeardownStatus();
-    fn QueryVideoMemoryInfo();
-    fn SetVideoMemoryReservation();
-    fn RegisterVideoMemoryBudgetChangeNotificationEvent();
-    fn UnregisterVideoMemoryBudgetChangeNotification();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3298,9 +3279,6 @@ unsafe impl ::windows::core::Interface for IDXGIAdapter4 {
     type Vtable = IDXGIAdapter4Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3c8d99d1_4fbf_4181_a82c_af66bf7bd24e);
 }
-pub trait IDXGIAdapter4Impl: IDXGIAdapter3Impl + IDXGIAdapter2Impl + IDXGIAdapter1Impl + IDXGIAdapterImpl + IDXGIObjectImpl {
-    fn GetDesc3();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDXGIAdapter4Vtbl(
@@ -3378,9 +3356,6 @@ impl ::core::fmt::Debug for IDXGIDebug {
 unsafe impl ::windows::core::Interface for IDXGIDebug {
     type Vtable = IDXGIDebugVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x119e7452_de9e_40fe_8806_88f90c12b441);
-}
-pub trait IDXGIDebugImpl {
-    fn ReportLiveObjects();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3466,11 +3441,6 @@ impl ::core::fmt::Debug for IDXGIDebug1 {
 unsafe impl ::windows::core::Interface for IDXGIDebug1 {
     type Vtable = IDXGIDebug1Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc5a05f0c_16f2_4adf_9f4d_a8c4d58ac550);
-}
-pub trait IDXGIDebug1Impl: IDXGIDebugImpl {
-    fn EnableLeakTrackingForThread();
-    fn DisableLeakTrackingForThread();
-    fn IsLeakTrackingEnabledForThread();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3570,17 +3540,6 @@ impl ::core::fmt::Debug for IDXGIDecodeSwapChain {
 unsafe impl ::windows::core::Interface for IDXGIDecodeSwapChain {
     type Vtable = IDXGIDecodeSwapChainVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2633066b_4514_4c7a_8fd8_12ea98059d18);
-}
-pub trait IDXGIDecodeSwapChainImpl {
-    fn PresentBuffer();
-    fn SetSourceRect();
-    fn SetTargetRect();
-    fn SetDestSize();
-    fn GetSourceRect();
-    fn GetTargetRect();
-    fn GetDestSize();
-    fn SetColorSpace();
-    fn GetColorSpace();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3706,13 +3665,6 @@ impl ::core::fmt::Debug for IDXGIDevice {
 unsafe impl ::windows::core::Interface for IDXGIDevice {
     type Vtable = IDXGIDeviceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x54ec77fa_1377_44e6_8c32_88fd5f44c84c);
-}
-pub trait IDXGIDeviceImpl: IDXGIObjectImpl {
-    fn GetAdapter();
-    fn CreateSurface();
-    fn QueryResourceResidency();
-    fn SetGPUThreadPriority();
-    fn GetGPUThreadPriority();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3864,10 +3816,6 @@ impl ::core::fmt::Debug for IDXGIDevice1 {
 unsafe impl ::windows::core::Interface for IDXGIDevice1 {
     type Vtable = IDXGIDevice1Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x77db970f_6276_48ba_ba28_070143b4392c);
-}
-pub trait IDXGIDevice1Impl: IDXGIDeviceImpl + IDXGIObjectImpl {
-    fn SetMaximumFrameLatency();
-    fn GetMaximumFrameLatency();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4056,11 +4004,6 @@ impl ::core::fmt::Debug for IDXGIDevice2 {
 unsafe impl ::windows::core::Interface for IDXGIDevice2 {
     type Vtable = IDXGIDevice2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x05008617_fbfd_4051_a790_144884b4f6a9);
-}
-pub trait IDXGIDevice2Impl: IDXGIDevice1Impl + IDXGIDeviceImpl + IDXGIObjectImpl {
-    fn OfferResources();
-    fn ReclaimResources();
-    fn EnqueueSetEvent();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4278,9 +4221,6 @@ impl ::core::fmt::Debug for IDXGIDevice3 {
 unsafe impl ::windows::core::Interface for IDXGIDevice3 {
     type Vtable = IDXGIDevice3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6007896c_3244_4afd_bf18_a6d3beda5023);
-}
-pub trait IDXGIDevice3Impl: IDXGIDevice2Impl + IDXGIDevice1Impl + IDXGIDeviceImpl + IDXGIObjectImpl {
-    fn Trim();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4529,10 +4469,6 @@ unsafe impl ::windows::core::Interface for IDXGIDevice4 {
     type Vtable = IDXGIDevice4Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x95b4f95f_d8da_4ca4_9ee6_3b76d5968a10);
 }
-pub trait IDXGIDevice4Impl: IDXGIDevice3Impl + IDXGIDevice2Impl + IDXGIDevice1Impl + IDXGIDeviceImpl + IDXGIObjectImpl {
-    fn OfferResources1();
-    fn ReclaimResources1();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDXGIDevice4Vtbl(
@@ -4647,9 +4583,6 @@ unsafe impl ::windows::core::Interface for IDXGIDeviceSubObject {
     type Vtable = IDXGIDeviceSubObjectVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3d3e0379_f9de_4d58_bb6c_18d62992f1a6);
 }
-pub trait IDXGIDeviceSubObjectImpl: IDXGIObjectImpl {
-    fn GetDevice();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDXGIDeviceSubObjectVtbl(
@@ -4716,10 +4649,6 @@ impl ::core::fmt::Debug for IDXGIDisplayControl {
 unsafe impl ::windows::core::Interface for IDXGIDisplayControl {
     type Vtable = IDXGIDisplayControlVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xea9dbf1a_c88e_4486_854a_98aa0138f30c);
-}
-pub trait IDXGIDisplayControlImpl {
-    fn IsStereoEnabled();
-    fn SetStereoEnabled();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4841,13 +4770,6 @@ impl ::core::fmt::Debug for IDXGIFactory {
 unsafe impl ::windows::core::Interface for IDXGIFactory {
     type Vtable = IDXGIFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7b7166ec_21c7_44ae_b21a_c9ae321ae369);
-}
-pub trait IDXGIFactoryImpl: IDXGIObjectImpl {
-    fn EnumAdapters();
-    fn MakeWindowAssociation();
-    fn GetWindowAssociation();
-    fn CreateSwapChain();
-    fn CreateSoftwareAdapter();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5008,10 +4930,6 @@ impl ::core::fmt::Debug for IDXGIFactory1 {
 unsafe impl ::windows::core::Interface for IDXGIFactory1 {
     type Vtable = IDXGIFactory1Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x770aae78_f26f_4dba_a829_253c83d1b387);
-}
-pub trait IDXGIFactory1Impl: IDXGIFactoryImpl + IDXGIObjectImpl {
-    fn EnumAdapters1();
-    fn IsCurrent();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5256,19 +5174,6 @@ impl ::core::fmt::Debug for IDXGIFactory2 {
 unsafe impl ::windows::core::Interface for IDXGIFactory2 {
     type Vtable = IDXGIFactory2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x50c83a1c_e072_4c48_87b0_3630fa36a6d0);
-}
-pub trait IDXGIFactory2Impl: IDXGIFactory1Impl + IDXGIFactoryImpl + IDXGIObjectImpl {
-    fn IsWindowedStereoEnabled();
-    fn CreateSwapChainForHwnd();
-    fn CreateSwapChainForCoreWindow();
-    fn GetSharedResourceAdapterLuid();
-    fn RegisterStereoStatusWindow();
-    fn RegisterStereoStatusEvent();
-    fn UnregisterStereoStatus();
-    fn RegisterOcclusionStatusWindow();
-    fn RegisterOcclusionStatusEvent();
-    fn UnregisterOcclusionStatus();
-    fn CreateSwapChainForComposition();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5557,9 +5462,6 @@ impl ::core::fmt::Debug for IDXGIFactory3 {
 unsafe impl ::windows::core::Interface for IDXGIFactory3 {
     type Vtable = IDXGIFactory3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x25483823_cd46_4c7d_86ca_47aa95b837bd);
-}
-pub trait IDXGIFactory3Impl: IDXGIFactory2Impl + IDXGIFactory1Impl + IDXGIFactoryImpl + IDXGIObjectImpl {
-    fn GetCreationFlags();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5880,10 +5782,6 @@ impl ::core::fmt::Debug for IDXGIFactory4 {
 unsafe impl ::windows::core::Interface for IDXGIFactory4 {
     type Vtable = IDXGIFactory4Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1bc6ea02_ef36_464f_bf0c_21ca39e5168a);
-}
-pub trait IDXGIFactory4Impl: IDXGIFactory3Impl + IDXGIFactory2Impl + IDXGIFactory1Impl + IDXGIFactoryImpl + IDXGIObjectImpl {
-    fn EnumAdapterByLuid();
-    fn EnumWarpAdapter();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6231,9 +6129,6 @@ impl ::core::fmt::Debug for IDXGIFactory5 {
 unsafe impl ::windows::core::Interface for IDXGIFactory5 {
     type Vtable = IDXGIFactory5Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7632e1f5_ee65_4dca_87fd_84cd75f8838d);
-}
-pub trait IDXGIFactory5Impl: IDXGIFactory4Impl + IDXGIFactory3Impl + IDXGIFactory2Impl + IDXGIFactory1Impl + IDXGIFactoryImpl + IDXGIObjectImpl {
-    fn CheckFeatureSupport();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6607,9 +6502,6 @@ impl ::core::fmt::Debug for IDXGIFactory6 {
 unsafe impl ::windows::core::Interface for IDXGIFactory6 {
     type Vtable = IDXGIFactory6Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc1b6694f_ff09_44a9_b03c_77900a0a1d17);
-}
-pub trait IDXGIFactory6Impl: IDXGIFactory5Impl + IDXGIFactory4Impl + IDXGIFactory3Impl + IDXGIFactory2Impl + IDXGIFactory1Impl + IDXGIFactoryImpl + IDXGIObjectImpl {
-    fn EnumAdapterByGpuPreference();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7015,10 +6907,6 @@ unsafe impl ::windows::core::Interface for IDXGIFactory7 {
     type Vtable = IDXGIFactory7Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa4966eed_76db_44da_84c1_ee9a7afb20a8);
 }
-pub trait IDXGIFactory7Impl: IDXGIFactory6Impl + IDXGIFactory5Impl + IDXGIFactory4Impl + IDXGIFactory3Impl + IDXGIFactory2Impl + IDXGIFactory1Impl + IDXGIFactoryImpl + IDXGIObjectImpl {
-    fn RegisterAdaptersChangedEvent();
-    fn UnregisterAdaptersChangedEvent();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDXGIFactory7Vtbl(
@@ -7127,10 +7015,6 @@ impl ::core::fmt::Debug for IDXGIFactoryMedia {
 unsafe impl ::windows::core::Interface for IDXGIFactoryMedia {
     type Vtable = IDXGIFactoryMediaVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x41e7d1f2_a591_4f7b_a2e5_fa9c843e1c12);
-}
-pub trait IDXGIFactoryMediaImpl {
-    fn CreateSwapChainForCompositionSurfaceHandle();
-    fn CreateDecodeSwapChainForCompositionSurfaceHandle();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7346,45 +7230,6 @@ unsafe impl ::windows::core::Interface for IDXGIInfoQueue {
     type Vtable = IDXGIInfoQueueVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd67441c7_672a_476f_9e82_cd55b44949ce);
 }
-pub trait IDXGIInfoQueueImpl {
-    fn SetMessageCountLimit();
-    fn ClearStoredMessages();
-    fn GetMessage();
-    fn GetNumStoredMessagesAllowedByRetrievalFilters();
-    fn GetNumStoredMessages();
-    fn GetNumMessagesDiscardedByMessageCountLimit();
-    fn GetMessageCountLimit();
-    fn GetNumMessagesAllowedByStorageFilter();
-    fn GetNumMessagesDeniedByStorageFilter();
-    fn AddStorageFilterEntries();
-    fn GetStorageFilter();
-    fn ClearStorageFilter();
-    fn PushEmptyStorageFilter();
-    fn PushDenyAllStorageFilter();
-    fn PushCopyOfStorageFilter();
-    fn PushStorageFilter();
-    fn PopStorageFilter();
-    fn GetStorageFilterStackSize();
-    fn AddRetrievalFilterEntries();
-    fn GetRetrievalFilter();
-    fn ClearRetrievalFilter();
-    fn PushEmptyRetrievalFilter();
-    fn PushDenyAllRetrievalFilter();
-    fn PushCopyOfRetrievalFilter();
-    fn PushRetrievalFilter();
-    fn PopRetrievalFilter();
-    fn GetRetrievalFilterStackSize();
-    fn AddMessage();
-    fn AddApplicationMessage();
-    fn SetBreakOnCategory();
-    fn SetBreakOnSeverity();
-    fn SetBreakOnID();
-    fn GetBreakOnCategory();
-    fn GetBreakOnSeverity();
-    fn GetBreakOnID();
-    fn SetMuteDebugOutput();
-    fn GetMuteDebugOutput();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDXGIInfoQueueVtbl(
@@ -7554,10 +7399,6 @@ unsafe impl ::windows::core::Interface for IDXGIKeyedMutex {
     type Vtable = IDXGIKeyedMutexVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9d8e1289_d7b3_465f_8126_250e349af85d);
 }
-pub trait IDXGIKeyedMutexImpl: IDXGIDeviceSubObjectImpl + IDXGIObjectImpl {
-    fn AcquireSync();
-    fn ReleaseSync();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDXGIKeyedMutexVtbl(
@@ -7633,12 +7474,6 @@ impl ::core::fmt::Debug for IDXGIObject {
 unsafe impl ::windows::core::Interface for IDXGIObject {
     type Vtable = IDXGIObjectVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaec22fb8_76f3_4639_9be0_28eb43a67a2e);
-}
-pub trait IDXGIObjectImpl {
-    fn SetPrivateData();
-    fn SetPrivateDataInterface();
-    fn GetPrivateData();
-    fn GetParent();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7791,20 +7626,6 @@ impl ::core::fmt::Debug for IDXGIOutput {
 unsafe impl ::windows::core::Interface for IDXGIOutput {
     type Vtable = IDXGIOutputVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xae02eedb_c735_4690_8d52_5a8dc20213aa);
-}
-pub trait IDXGIOutputImpl: IDXGIObjectImpl {
-    fn GetDesc();
-    fn GetDisplayModeList();
-    fn FindClosestMatchingMode();
-    fn WaitForVBlank();
-    fn TakeOwnership();
-    fn ReleaseOwnership();
-    fn GetGammaControlCapabilities();
-    fn SetGammaControl();
-    fn GetGammaControl();
-    fn SetDisplaySurface();
-    fn GetDisplaySurfaceData();
-    fn GetFrameStatistics();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8015,12 +7836,6 @@ impl ::core::fmt::Debug for IDXGIOutput1 {
 unsafe impl ::windows::core::Interface for IDXGIOutput1 {
     type Vtable = IDXGIOutput1Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00cddea8_939b_4b83_a340_a685226666cc);
-}
-pub trait IDXGIOutput1Impl: IDXGIOutputImpl + IDXGIObjectImpl {
-    fn GetDisplayModeList1();
-    fn FindClosestMatchingMode1();
-    fn GetDisplaySurfaceData1();
-    fn DuplicateOutput();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8262,9 +8077,6 @@ impl ::core::fmt::Debug for IDXGIOutput2 {
 unsafe impl ::windows::core::Interface for IDXGIOutput2 {
     type Vtable = IDXGIOutput2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x595e39d1_2724_4663_99b1_da969de28364);
-}
-pub trait IDXGIOutput2Impl: IDXGIOutput1Impl + IDXGIOutputImpl + IDXGIObjectImpl {
-    fn SupportsOverlays();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8534,9 +8346,6 @@ impl ::core::fmt::Debug for IDXGIOutput3 {
 unsafe impl ::windows::core::Interface for IDXGIOutput3 {
     type Vtable = IDXGIOutput3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8a6bb301_7e7e_41f4_a8e0_5b32f7f99b18);
-}
-pub trait IDXGIOutput3Impl: IDXGIOutput2Impl + IDXGIOutput1Impl + IDXGIOutputImpl + IDXGIObjectImpl {
-    fn CheckOverlaySupport();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8834,9 +8643,6 @@ impl ::core::fmt::Debug for IDXGIOutput4 {
 unsafe impl ::windows::core::Interface for IDXGIOutput4 {
     type Vtable = IDXGIOutput4Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdc7dca35_2196_414d_9f53_617884032a60);
-}
-pub trait IDXGIOutput4Impl: IDXGIOutput3Impl + IDXGIOutput2Impl + IDXGIOutput1Impl + IDXGIOutputImpl + IDXGIObjectImpl {
-    fn CheckOverlayColorSpaceSupport();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9162,9 +8968,6 @@ impl ::core::fmt::Debug for IDXGIOutput5 {
 unsafe impl ::windows::core::Interface for IDXGIOutput5 {
     type Vtable = IDXGIOutput5Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x80a07424_ab52_42eb_833c_0c42fd282d98);
-}
-pub trait IDXGIOutput5Impl: IDXGIOutput4Impl + IDXGIOutput3Impl + IDXGIOutput2Impl + IDXGIOutput1Impl + IDXGIOutputImpl + IDXGIObjectImpl {
-    fn DuplicateOutput1();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9524,10 +9327,6 @@ unsafe impl ::windows::core::Interface for IDXGIOutput6 {
     type Vtable = IDXGIOutput6Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x068346e8_aaec_4b84_add7_137f513f77a1);
 }
-pub trait IDXGIOutput6Impl: IDXGIOutput5Impl + IDXGIOutput4Impl + IDXGIOutput3Impl + IDXGIOutput2Impl + IDXGIOutput1Impl + IDXGIOutputImpl + IDXGIObjectImpl {
-    fn GetDesc1();
-    fn CheckHardwareCompositionSupport();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDXGIOutput6Vtbl(
@@ -9695,16 +9494,6 @@ unsafe impl ::windows::core::Interface for IDXGIOutputDuplication {
     type Vtable = IDXGIOutputDuplicationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x191cfac3_a341_470d_b26e_a864f428319c);
 }
-pub trait IDXGIOutputDuplicationImpl: IDXGIObjectImpl {
-    fn GetDesc();
-    fn AcquireNextFrame();
-    fn GetFrameDirtyRects();
-    fn GetFrameMoveRects();
-    fn GetFramePointerShape();
-    fn MapDesktopSurface();
-    fn UnMapDesktopSurface();
-    fn ReleaseFrame();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDXGIOutputDuplicationVtbl(
@@ -9855,12 +9644,6 @@ impl ::core::fmt::Debug for IDXGIResource {
 unsafe impl ::windows::core::Interface for IDXGIResource {
     type Vtable = IDXGIResourceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x035f3ab4_482e_4e50_b41f_8a7f8bd8960b);
-}
-pub trait IDXGIResourceImpl: IDXGIDeviceSubObjectImpl + IDXGIObjectImpl {
-    fn GetSharedHandle();
-    fn GetUsage();
-    fn SetEvictionPriority();
-    fn GetEvictionPriority();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -10037,10 +9820,6 @@ unsafe impl ::windows::core::Interface for IDXGIResource1 {
     type Vtable = IDXGIResource1Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x30961379_4609_4a41_998e_54fe567ee0c1);
 }
-pub trait IDXGIResource1Impl: IDXGIResourceImpl + IDXGIDeviceSubObjectImpl + IDXGIObjectImpl {
-    fn CreateSubresourceSurface();
-    fn CreateSharedHandle();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDXGIResource1Vtbl(
@@ -10181,11 +9960,6 @@ impl ::core::fmt::Debug for IDXGISurface {
 unsafe impl ::windows::core::Interface for IDXGISurface {
     type Vtable = IDXGISurfaceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcafcb56c_6ac3_4889_bf47_9e23bbd260ec);
-}
-pub trait IDXGISurfaceImpl: IDXGIDeviceSubObjectImpl + IDXGIObjectImpl {
-    fn GetDesc();
-    fn Map();
-    fn Unmap();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -10354,10 +10128,6 @@ impl ::core::fmt::Debug for IDXGISurface1 {
 unsafe impl ::windows::core::Interface for IDXGISurface1 {
     type Vtable = IDXGISurface1Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4ae63092_6327_4c1b_80ae_bfe12ea32b86);
-}
-pub trait IDXGISurface1Impl: IDXGISurfaceImpl + IDXGIDeviceSubObjectImpl + IDXGIObjectImpl {
-    fn GetDC();
-    fn ReleaseDC();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -10555,9 +10325,6 @@ unsafe impl ::windows::core::Interface for IDXGISurface2 {
     type Vtable = IDXGISurface2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaba496dd_b617_4cb8_a866_bc44d7eb1fa2);
 }
-pub trait IDXGISurface2Impl: IDXGISurface1Impl + IDXGISurfaceImpl + IDXGIDeviceSubObjectImpl + IDXGIObjectImpl {
-    fn GetResource();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDXGISurface2Vtbl(
@@ -10735,18 +10502,6 @@ impl ::core::fmt::Debug for IDXGISwapChain {
 unsafe impl ::windows::core::Interface for IDXGISwapChain {
     type Vtable = IDXGISwapChainVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x310d36a0_d2e7_4c0a_aa04_6a9d23b8886a);
-}
-pub trait IDXGISwapChainImpl: IDXGIDeviceSubObjectImpl + IDXGIObjectImpl {
-    fn Present();
-    fn GetBuffer();
-    fn SetFullscreenState();
-    fn GetFullscreenState();
-    fn GetDesc();
-    fn ResizeBuffers();
-    fn ResizeTarget();
-    fn GetContainingOutput();
-    fn GetFrameStatistics();
-    fn GetLastPresentCount();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -11009,19 +10764,6 @@ impl ::core::fmt::Debug for IDXGISwapChain1 {
 unsafe impl ::windows::core::Interface for IDXGISwapChain1 {
     type Vtable = IDXGISwapChain1Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x790a45f7_0d42_4876_983a_0a55cfe6f4aa);
-}
-pub trait IDXGISwapChain1Impl: IDXGISwapChainImpl + IDXGIDeviceSubObjectImpl + IDXGIObjectImpl {
-    fn GetDesc1();
-    fn GetFullscreenDesc();
-    fn GetHwnd();
-    fn GetCoreWindow();
-    fn Present1();
-    fn IsTemporaryMonoSupported();
-    fn GetRestrictToOutput();
-    fn SetBackgroundColor();
-    fn GetBackgroundColor();
-    fn SetRotation();
-    fn GetRotation();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -11353,15 +11095,6 @@ impl ::core::fmt::Debug for IDXGISwapChain2 {
 unsafe impl ::windows::core::Interface for IDXGISwapChain2 {
     type Vtable = IDXGISwapChain2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa8be2ac4_199f_4946_b331_79599fb98de7);
-}
-pub trait IDXGISwapChain2Impl: IDXGISwapChain1Impl + IDXGISwapChainImpl + IDXGIDeviceSubObjectImpl + IDXGIObjectImpl {
-    fn SetSourceSize();
-    fn GetSourceSize();
-    fn SetMaximumFrameLatency();
-    fn GetMaximumFrameLatency();
-    fn GetFrameLatencyWaitableObject();
-    fn SetMatrixTransform();
-    fn GetMatrixTransform();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -11741,12 +11474,6 @@ impl ::core::fmt::Debug for IDXGISwapChain3 {
 unsafe impl ::windows::core::Interface for IDXGISwapChain3 {
     type Vtable = IDXGISwapChain3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x94d99bdb_f1f8_4ab0_b236_7da0170edab1);
-}
-pub trait IDXGISwapChain3Impl: IDXGISwapChain2Impl + IDXGISwapChain1Impl + IDXGISwapChainImpl + IDXGIDeviceSubObjectImpl + IDXGIObjectImpl {
-    fn GetCurrentBackBufferIndex();
-    fn CheckColorSpaceSupport();
-    fn SetColorSpace1();
-    fn ResizeBuffers1();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -12158,9 +11885,6 @@ unsafe impl ::windows::core::Interface for IDXGISwapChain4 {
     type Vtable = IDXGISwapChain4Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3d585d5a_bd4a_489e_b1f4_3dbcb6452ffb);
 }
-pub trait IDXGISwapChain4Impl: IDXGISwapChain3Impl + IDXGISwapChain2Impl + IDXGISwapChain1Impl + IDXGISwapChainImpl + IDXGIDeviceSubObjectImpl + IDXGIObjectImpl {
-    fn SetHDRMetaData();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDXGISwapChain4Vtbl(
@@ -12280,11 +12004,6 @@ unsafe impl ::windows::core::Interface for IDXGISwapChainMedia {
     type Vtable = IDXGISwapChainMediaVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdd95b90b_f05f_4f6a_bd65_25bfb264bd84);
 }
-pub trait IDXGISwapChainMediaImpl {
-    fn GetFrameStatisticsMedia();
-    fn SetPresentDuration();
-    fn CheckPresentDurationSupport();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDXGISwapChainMediaVtbl(
@@ -12348,10 +12067,8 @@ unsafe impl ::windows::core::Interface for IDXGraphicsAnalysis {
     type Vtable = IDXGraphicsAnalysisVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9f251514_9d4d_4902_9d60_18988ab7d4b5);
 }
-pub trait IDXGraphicsAnalysisImpl {
-    fn BeginCapture();
-    fn EndCapture();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDXGraphicsAnalysisVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void), pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void));
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

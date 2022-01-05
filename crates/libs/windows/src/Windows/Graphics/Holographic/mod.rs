@@ -2813,16 +2813,6 @@ unsafe impl ::windows::core::Interface for IHolographicCamera {
     type Vtable = IHolographicCameraVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe4e98445_9bed_4980_9ba0_e87680d1cb74);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IHolographicCameraImpl {
-    fn RenderTargetSize();
-    fn ViewportScaleFactor();
-    fn SetViewportScaleFactor();
-    fn IsStereo();
-    fn Id();
-    fn SetNearPlaneDistance();
-    fn SetFarPlaneDistance();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHolographicCameraVtbl(
@@ -2848,12 +2838,6 @@ unsafe impl ::windows::core::Interface for IHolographicCamera2 {
     type Vtable = IHolographicCamera2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb55b9f1a_ba8c_4f84_ad79_2e7e1e2450f3);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IHolographicCamera2Impl: IHolographicCameraImpl {
-    fn LeftViewportParameters();
-    fn RightViewportParameters();
-    fn Display();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHolographicCamera2Vtbl(
@@ -2873,13 +2857,6 @@ pub struct IHolographicCamera3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IHolographicCamera3 {
     type Vtable = IHolographicCamera3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x45aa4fb3_7b59_524e_4a3f_4a6ad6650477);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IHolographicCamera3Impl: IHolographicCameraImpl + IHolographicCamera2Impl {
-    fn IsPrimaryLayerEnabled();
-    fn SetIsPrimaryLayerEnabled();
-    fn MaxQuadLayerCount();
-    fn QuadLayers();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2903,10 +2880,6 @@ unsafe impl ::windows::core::Interface for IHolographicCamera4 {
     type Vtable = IHolographicCamera4Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9a2531d6_4723_4f39_a9a5_9d05181d9b44);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IHolographicCamera4Impl {
-    fn CanOverrideViewport();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHolographicCamera4Vtbl(
@@ -2924,12 +2897,6 @@ pub struct IHolographicCamera5(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IHolographicCamera5 {
     type Vtable = IHolographicCamera5Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x229706f2_628d_4ef5_9c08_a63fdd7787c6);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IHolographicCamera5Impl {
-    fn IsHardwareContentProtectionSupported();
-    fn IsHardwareContentProtectionEnabled();
-    fn SetIsHardwareContentProtectionEnabled();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2951,10 +2918,6 @@ unsafe impl ::windows::core::Interface for IHolographicCamera6 {
     type Vtable = IHolographicCamera6Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0209194f_632d_5154_ab52_0b5d15b12505);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IHolographicCamera6Impl {
-    fn ViewConfiguration();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHolographicCamera6Vtbl(
@@ -2972,17 +2935,6 @@ pub struct IHolographicCameraPose(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IHolographicCameraPose {
     type Vtable = IHolographicCameraPoseVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0d7d7e30_12de_45bd_912b_c7f6561599d1);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IHolographicCameraPoseImpl {
-    fn HolographicCamera();
-    fn Viewport();
-    fn TryGetViewTransform();
-    fn ProjectionTransform();
-    fn TryGetCullingFrustum();
-    fn TryGetVisibleFrustum();
-    fn NearPlaneDistance();
-    fn FarPlaneDistance();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3014,12 +2966,6 @@ unsafe impl ::windows::core::Interface for IHolographicCameraPose2 {
     type Vtable = IHolographicCameraPose2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x232be073_5d2d_4560_814e_2697c4fce16b);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IHolographicCameraPose2Impl {
-    fn OverrideViewTransform();
-    fn OverrideProjectionTransform();
-    fn OverrideViewport();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHolographicCameraPose2Vtbl(
@@ -3042,14 +2988,6 @@ pub struct IHolographicCameraRenderingParameters(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IHolographicCameraRenderingParameters {
     type Vtable = IHolographicCameraRenderingParametersVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8eac2ed1_5bf4_4e16_8236_ae0800c11d0d);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IHolographicCameraRenderingParametersImpl {
-    fn SetFocusPoint();
-    fn SetFocusPointWithNormal();
-    fn SetFocusPointWithNormalLinearVelocity();
-    fn Direct3D11Device();
-    fn Direct3D11BackBuffer();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3078,12 +3016,6 @@ unsafe impl ::windows::core::Interface for IHolographicCameraRenderingParameters
     type Vtable = IHolographicCameraRenderingParameters2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x261270e3_b696_4634_94d6_be0681643599);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IHolographicCameraRenderingParameters2Impl: IHolographicCameraRenderingParametersImpl {
-    fn ReprojectionMode();
-    fn SetReprojectionMode();
-    fn CommitDirect3D11DepthBuffer();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHolographicCameraRenderingParameters2Vtbl(
@@ -3105,11 +3037,6 @@ unsafe impl ::windows::core::Interface for IHolographicCameraRenderingParameters
     type Vtable = IHolographicCameraRenderingParameters3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb1aa513f_136d_4b06_b9d4_e4b914cd0683);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IHolographicCameraRenderingParameters3Impl: IHolographicCameraRenderingParametersImpl + IHolographicCameraRenderingParameters2Impl {
-    fn IsContentProtectionEnabled();
-    fn SetIsContentProtectionEnabled();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHolographicCameraRenderingParameters3Vtbl(
@@ -3129,11 +3056,6 @@ unsafe impl ::windows::core::Interface for IHolographicCameraRenderingParameters
     type Vtable = IHolographicCameraRenderingParameters4Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0878fa4c_e163_57dc_82b7_c406ab3e0537);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IHolographicCameraRenderingParameters4Impl {
-    fn DepthReprojectionMethod();
-    fn SetDepthReprojectionMethod();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHolographicCameraRenderingParameters4Vtbl(
@@ -3152,11 +3074,6 @@ pub struct IHolographicCameraViewportParameters(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IHolographicCameraViewportParameters {
     type Vtable = IHolographicCameraViewportParametersVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x80cdf3f7_842a_41e1_93ed_5692ab1fbb10);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IHolographicCameraViewportParametersImpl {
-    fn HiddenAreaMesh();
-    fn VisibleAreaMesh();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3178,15 +3095,6 @@ pub struct IHolographicDisplay(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IHolographicDisplay {
     type Vtable = IHolographicDisplayVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9acea414_1d9f_4090_a388_90c06f6eae9c);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IHolographicDisplayImpl {
-    fn DisplayName();
-    fn MaxViewportSize();
-    fn IsStereo();
-    fn IsOpaque();
-    fn AdapterId();
-    fn SpatialLocator();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3213,10 +3121,6 @@ unsafe impl ::windows::core::Interface for IHolographicDisplay2 {
     type Vtable = IHolographicDisplay2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x75ac3f82_e755_436c_8d96_4d32d131473e);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IHolographicDisplay2Impl {
-    fn RefreshRate();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHolographicDisplay2Vtbl(
@@ -3234,10 +3138,6 @@ pub struct IHolographicDisplay3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IHolographicDisplay3 {
     type Vtable = IHolographicDisplay3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfc4c6ac6_6480_5008_b29e_157d77c843f7);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IHolographicDisplay3Impl {
-    fn TryGetViewConfiguration();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3257,10 +3157,6 @@ unsafe impl ::windows::core::Interface for IHolographicDisplayStatics {
     type Vtable = IHolographicDisplayStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcb374983_e7b0_4841_8355_3ae5b536e9a4);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IHolographicDisplayStaticsImpl {
-    fn GetDefault();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHolographicDisplayStaticsVtbl(
@@ -3278,18 +3174,6 @@ pub struct IHolographicFrame(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IHolographicFrame {
     type Vtable = IHolographicFrameVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc6988eb6_a8b9_3054_a6eb_d624b6536375);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IHolographicFrameImpl {
-    fn AddedCameras();
-    fn RemovedCameras();
-    fn GetRenderingParameters();
-    fn Duration();
-    fn CurrentPrediction();
-    fn UpdateCurrentPrediction();
-    fn PresentUsingCurrentPrediction();
-    fn PresentUsingCurrentPredictionWithBehavior();
-    fn WaitForFrameToFinish();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3320,10 +3204,6 @@ unsafe impl ::windows::core::Interface for IHolographicFrame2 {
     type Vtable = IHolographicFrame2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x283f37bf_3bf2_5e91_6633_870574e6f217);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IHolographicFrame2Impl: IHolographicFrameImpl {
-    fn GetQuadLayerUpdateParameters();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHolographicFrame2Vtbl(
@@ -3342,10 +3222,6 @@ unsafe impl ::windows::core::Interface for IHolographicFrame3 {
     type Vtable = IHolographicFrame3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe5e964c9_8a27_55d3_9f98_94530d369052);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IHolographicFrame3Impl {
-    fn Id();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHolographicFrame3Vtbl(
@@ -3363,11 +3239,6 @@ pub struct IHolographicFramePrediction(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IHolographicFramePrediction {
     type Vtable = IHolographicFramePredictionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x520f4de1_5c0a_4e79_a81e_6abe02bb2739);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IHolographicFramePredictionImpl {
-    fn CameraPoses();
-    fn Timestamp();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3392,10 +3263,6 @@ unsafe impl ::windows::core::Interface for IHolographicFramePresentationMonitor 
     type Vtable = IHolographicFramePresentationMonitorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xca87256c_6fae_428e_bb83_25dfee51136b);
 }
-#[cfg(all(feature = "Foundation", feature = "deprecated", feature = "implement_exclusive"))]
-pub trait IHolographicFramePresentationMonitorImpl: IClosableImpl {
-    fn ReadReports();
-}
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
@@ -3417,14 +3284,6 @@ pub struct IHolographicFramePresentationReport(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IHolographicFramePresentationReport {
     type Vtable = IHolographicFramePresentationReportVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x80baf614_f2f4_4c8a_8de3_065c78f6d5de);
-}
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
-pub trait IHolographicFramePresentationReportImpl {
-    fn CompositorGpuDuration();
-    fn AppGpuDuration();
-    fn AppGpuOverrun();
-    fn MissedPresentationOpportunityCount();
-    fn PresentationCount();
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
@@ -3454,14 +3313,6 @@ unsafe impl ::windows::core::Interface for IHolographicFrameRenderingReport {
     type Vtable = IHolographicFrameRenderingReportVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x05f32de4_e384_51b3_b934_f0d3a0f78606);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IHolographicFrameRenderingReportImpl {
-    fn FrameId();
-    fn MissedLatchCount();
-    fn SystemRelativeFrameReadyTime();
-    fn SystemRelativeActualGpuFinishTime();
-    fn SystemRelativeTargetLatchTime();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHolographicFrameRenderingReportVtbl(
@@ -3487,10 +3338,6 @@ unsafe impl ::windows::core::Interface for IHolographicFrameScanoutMonitor {
     type Vtable = IHolographicFrameScanoutMonitorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7e83efa9_843c_5401_8095_9bc1b8b08638);
 }
-#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IHolographicFrameScanoutMonitorImpl: IClosableImpl {
-    fn ReadReports();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHolographicFrameScanoutMonitorVtbl(
@@ -3509,14 +3356,6 @@ pub struct IHolographicFrameScanoutReport(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IHolographicFrameScanoutReport {
     type Vtable = IHolographicFrameScanoutReportVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0ebbe606_03a0_5ca0_b46e_bba068d7233f);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IHolographicFrameScanoutReportImpl {
-    fn RenderingReport();
-    fn MissedScanoutCount();
-    fn SystemRelativeLatchTime();
-    fn SystemRelativeScanoutStartTime();
-    fn SystemRelativePhotonTime();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3543,11 +3382,6 @@ unsafe impl ::windows::core::Interface for IHolographicQuadLayer {
     type Vtable = IHolographicQuadLayerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x903460c9_c9d9_5d5c_41ac_a2d5ab0fd331);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IHolographicQuadLayerImpl {
-    fn PixelFormat();
-    fn Size();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHolographicQuadLayerVtbl(
@@ -3569,11 +3403,6 @@ unsafe impl ::windows::core::Interface for IHolographicQuadLayerFactory {
     type Vtable = IHolographicQuadLayerFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa67538f3_5a14_5a10_489a_455065b37b76);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IHolographicQuadLayerFactoryImpl {
-    fn Create();
-    fn CreateWithPixelFormat();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHolographicQuadLayerFactoryVtbl(
@@ -3594,15 +3423,6 @@ pub struct IHolographicQuadLayerUpdateParameters(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IHolographicQuadLayerUpdateParameters {
     type Vtable = IHolographicQuadLayerUpdateParametersVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2b0ea3b0_798d_5bca_55c2_2c0c762ebb08);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IHolographicQuadLayerUpdateParametersImpl {
-    fn AcquireBufferToUpdateContent();
-    fn UpdateViewport();
-    fn UpdateContentProtectionEnabled();
-    fn UpdateExtents();
-    fn UpdateLocationWithStationaryMode();
-    fn UpdateLocationWithDisplayRelativeMode();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3632,11 +3452,6 @@ unsafe impl ::windows::core::Interface for IHolographicQuadLayerUpdateParameters
     type Vtable = IHolographicQuadLayerUpdateParameters2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4f33d32d_82c1_46c1_8980_3cb70d98182b);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IHolographicQuadLayerUpdateParameters2Impl {
-    fn CanAcquireWithHardwareProtection();
-    fn AcquireBufferToUpdateContentWithHardwareProtection();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHolographicQuadLayerUpdateParameters2Vtbl(
@@ -3656,16 +3471,6 @@ pub struct IHolographicSpace(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IHolographicSpace {
     type Vtable = IHolographicSpaceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4380dba6_5e78_434f_807c_3433d1efe8b7);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IHolographicSpaceImpl {
-    fn PrimaryAdapterId();
-    fn SetDirect3D11Device();
-    fn CameraAdded();
-    fn RemoveCameraAdded();
-    fn CameraRemoved();
-    fn RemoveCameraRemoved();
-    fn CreateNextFrame();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3696,15 +3501,6 @@ unsafe impl ::windows::core::Interface for IHolographicSpace2 {
     type Vtable = IHolographicSpace2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4f81a9a8_b7ff_4883_9827_7d677287ea70);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IHolographicSpace2Impl {
-    fn UserPresence();
-    fn UserPresenceChanged();
-    fn RemoveUserPresenceChanged();
-    fn WaitForNextFrameReady();
-    fn WaitForNextFrameReadyWithHeadStart();
-    fn CreateFramePresentationMonitor();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHolographicSpace2Vtbl(
@@ -3732,10 +3528,6 @@ unsafe impl ::windows::core::Interface for IHolographicSpace3 {
     type Vtable = IHolographicSpace3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdf1733d1_f224_587e_8d71_1e8fc8f07b1f);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IHolographicSpace3Impl {
-    fn CreateFrameScanoutMonitor();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHolographicSpace3Vtbl(
@@ -3753,11 +3545,6 @@ pub struct IHolographicSpaceCameraAddedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IHolographicSpaceCameraAddedEventArgs {
     type Vtable = IHolographicSpaceCameraAddedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x58f1da35_bbb3_3c8f_993d_6c80e7feb99f);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IHolographicSpaceCameraAddedEventArgsImpl {
-    fn Camera();
-    fn GetDeferral();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3779,10 +3566,6 @@ unsafe impl ::windows::core::Interface for IHolographicSpaceCameraRemovedEventAr
     type Vtable = IHolographicSpaceCameraRemovedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x805444a8_f2ae_322e_8da9_836a0a95a4c1);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IHolographicSpaceCameraRemovedEventArgsImpl {
-    fn Camera();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHolographicSpaceCameraRemovedEventArgsVtbl(
@@ -3800,10 +3583,6 @@ pub struct IHolographicSpaceStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IHolographicSpaceStatics {
     type Vtable = IHolographicSpaceStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x364e6064_c8f2_3ba1_8391_66b8489e67fd);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IHolographicSpaceStaticsImpl {
-    fn CreateForCoreWindow();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3823,13 +3602,6 @@ pub struct IHolographicSpaceStatics2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IHolographicSpaceStatics2 {
     type Vtable = IHolographicSpaceStatics2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0e777088_75fc_48af_8758_0652f6f07c59);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IHolographicSpaceStatics2Impl {
-    fn IsSupported();
-    fn IsAvailable();
-    fn IsAvailableChanged();
-    fn RemoveIsAvailableChanged();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3854,10 +3626,6 @@ unsafe impl ::windows::core::Interface for IHolographicSpaceStatics3 {
     type Vtable = IHolographicSpaceStatics3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3b00de3d_b1a3_4dfe_8e79_fec5909e6df8);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IHolographicSpaceStatics3Impl {
-    fn IsConfigured();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHolographicSpaceStatics3Vtbl(
@@ -3875,21 +3643,6 @@ pub struct IHolographicViewConfiguration(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IHolographicViewConfiguration {
     type Vtable = IHolographicViewConfigurationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5c1de6e6_67e9_5004_b02c_67a3a122b576);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IHolographicViewConfigurationImpl {
-    fn NativeRenderTargetSize();
-    fn RenderTargetSize();
-    fn RequestRenderTargetSize();
-    fn SupportedPixelFormats();
-    fn PixelFormat();
-    fn SetPixelFormat();
-    fn IsStereo();
-    fn RefreshRate();
-    fn Kind();
-    fn Display();
-    fn IsEnabled();
-    fn SetIsEnabled();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3926,10 +3679,6 @@ unsafe impl ::windows::core::Interface for IHolographicViewConfiguration2 {
     type Vtable = IHolographicViewConfiguration2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe241756e_e0d0_5019_9af5_1b165bc2f54e);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IHolographicViewConfiguration2Impl {
-    fn SupportedDepthReprojectionMethods();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHolographicViewConfiguration2Vtbl(
@@ -3942,3 +3691,5 @@ pub struct IHolographicViewConfiguration2Vtbl(
     #[cfg(feature = "Foundation_Collections")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

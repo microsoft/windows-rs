@@ -200,15 +200,6 @@ unsafe impl ::windows::core::Interface for IDualSimTile {
     type Vtable = IDualSimTileVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x143ab213_d05f_4041_a18c_3e3fcb75b41e);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IDualSimTileImpl {
-    fn SetDisplayName();
-    fn DisplayName();
-    fn IsPinnedToStart();
-    fn CreateAsync();
-    fn UpdateAsync();
-    fn DeleteAsync();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDualSimTileVtbl(
@@ -234,17 +225,6 @@ pub struct IDualSimTileStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDualSimTileStatics {
     type Vtable = IDualSimTileStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x50567c9e_c58f_4dc9_b6e8_fa6777eeeb37);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IDualSimTileStaticsImpl {
-    fn GetTileForSim2();
-    fn UpdateDisplayNameForSim1Async();
-    fn CreateTileUpdaterForSim1();
-    fn CreateTileUpdaterForSim2();
-    fn CreateBadgeUpdaterForSim1();
-    fn CreateBadgeUpdaterForSim2();
-    fn CreateToastNotifierForSim1();
-    fn CreateToastNotifierForSim2();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -348,9 +328,6 @@ unsafe impl ::windows::core::Interface for IToastNotificationManagerStatics3 {
     type Vtable = IToastNotificationManagerStatics3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2717f54b_50df_4455_8e6e_41e0fc8e13ce);
 }
-pub trait IToastNotificationManagerStatics3Impl {
-    fn CreateToastNotifierForSecondaryTile();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IToastNotificationManagerStatics3Vtbl(
@@ -363,3 +340,5 @@ pub struct IToastNotificationManagerStatics3Vtbl(
     #[cfg(feature = "UI_Notifications")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, tileid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Notifications"))] usize,
 );
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

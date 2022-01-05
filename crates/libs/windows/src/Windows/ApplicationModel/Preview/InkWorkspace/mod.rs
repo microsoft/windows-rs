@@ -6,10 +6,6 @@ unsafe impl ::windows::core::Interface for IInkWorkspaceHostedAppManager {
     type Vtable = IInkWorkspaceHostedAppManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfe0a7990_5e59_4bb7_8a63_7d218cd96300);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IInkWorkspaceHostedAppManagerImpl {
-    fn SetThumbnailAsync();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInkWorkspaceHostedAppManagerVtbl(
@@ -28,10 +24,6 @@ pub struct IInkWorkspaceHostedAppManagerStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IInkWorkspaceHostedAppManagerStatics {
     type Vtable = IInkWorkspaceHostedAppManagerStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcbfd8cc5_a162_4bc4_84ee_e8716d5233c5);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IInkWorkspaceHostedAppManagerStaticsImpl {
-    fn GetForCurrentApp();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -138,3 +130,5 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &InkW
 }
 unsafe impl ::core::marker::Send for InkWorkspaceHostedAppManager {}
 unsafe impl ::core::marker::Sync for InkWorkspaceHostedAppManager {}
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

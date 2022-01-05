@@ -776,3 +776,5 @@ pub type PFNWRITE = ::core::option::Option<unsafe extern "system" fn(hf: isize, 
 pub const _A_EXEC: u32 = 64u32;
 #[doc = "*Required features: 'Win32_Storage_Cabinets'*"]
 pub const _A_NAME_IS_UTF: u32 = 128u32;
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

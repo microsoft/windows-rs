@@ -260,13 +260,6 @@ unsafe impl ::windows::core::Interface for ICompositionDebugHeatMaps {
     type Vtable = ICompositionDebugHeatMapsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe49c90ac_2ff3_5805_718c_b725ee07650f);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ICompositionDebugHeatMapsImpl {
-    fn Hide();
-    fn ShowMemoryUsage();
-    fn ShowOverdraw();
-    fn ShowRedraw();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositionDebugHeatMapsVtbl(
@@ -288,10 +281,6 @@ unsafe impl ::windows::core::Interface for ICompositionDebugSettings {
     type Vtable = ICompositionDebugSettingsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2831987e_1d82_4d38_b7b7_efd11c7bc3d1);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ICompositionDebugSettingsImpl {
-    fn HeatMaps();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositionDebugSettingsVtbl(
@@ -310,10 +299,6 @@ unsafe impl ::windows::core::Interface for ICompositionDebugSettingsStatics {
     type Vtable = ICompositionDebugSettingsStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x64ec1f1e_6af8_4af8_b814_c870fd5a9505);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ICompositionDebugSettingsStaticsImpl {
-    fn TryGetSettings();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositionDebugSettingsStaticsVtbl(
@@ -325,3 +310,5 @@ pub struct ICompositionDebugSettingsStaticsVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, compositor: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

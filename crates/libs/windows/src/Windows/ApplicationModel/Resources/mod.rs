@@ -10,10 +10,6 @@ unsafe impl ::windows::core::Interface for IResourceLoader {
     type Vtable = IResourceLoaderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x08524908_16ef_45ad_a602_293637d7e61a);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IResourceLoaderImpl {
-    fn GetString();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IResourceLoaderVtbl(
@@ -31,10 +27,6 @@ pub struct IResourceLoader2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IResourceLoader2 {
     type Vtable = IResourceLoader2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x10eb6ec6_8138_48c1_bc65_e1f14207367c);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IResourceLoader2Impl {
-    fn GetStringForUri();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -55,10 +47,6 @@ unsafe impl ::windows::core::Interface for IResourceLoaderFactory {
     type Vtable = IResourceLoaderFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc33a3603_69dc_4285_a077_d5c0e47ccbe8);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IResourceLoaderFactoryImpl {
-    fn CreateResourceLoaderByName();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IResourceLoaderFactoryVtbl(
@@ -76,10 +64,6 @@ pub struct IResourceLoaderStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IResourceLoaderStatics {
     type Vtable = IResourceLoaderStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbf777ce1_19c8_49c2_953c_47e9227b334e);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IResourceLoaderStaticsImpl {
-    fn GetStringForReference();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -99,13 +83,6 @@ pub struct IResourceLoaderStatics2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IResourceLoaderStatics2 {
     type Vtable = IResourceLoaderStatics2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0cc04141_6466_4989_9494_0b82dfc53f1f);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IResourceLoaderStatics2Impl {
-    fn GetForCurrentView();
-    fn GetForCurrentViewWithName();
-    fn GetForViewIndependentUse();
-    fn GetForViewIndependentUseWithName();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -128,10 +105,6 @@ unsafe impl ::windows::core::Interface for IResourceLoaderStatics3 {
     type Vtable = IResourceLoaderStatics3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x64609dfb_64ac_491b_8100_0e558d61c1d0);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IResourceLoaderStatics3Impl {
-    fn GetForUIContext();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IResourceLoaderStatics3Vtbl(
@@ -150,10 +123,6 @@ pub struct IResourceLoaderStatics4(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IResourceLoaderStatics4 {
     type Vtable = IResourceLoaderStatics4Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9fb36c32_6c8c_4316_962e_909539b5c259);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IResourceLoaderStatics4Impl {
-    fn GetDefaultPriPath();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -346,3 +315,5 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Reso
 }
 unsafe impl ::core::marker::Send for ResourceLoader {}
 unsafe impl ::core::marker::Sync for ResourceLoader {}
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

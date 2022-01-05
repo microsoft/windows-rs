@@ -2343,24 +2343,6 @@ unsafe impl ::windows::core::Interface for ICertificate {
     type Vtable = ICertificateVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x333f740c_04d8_43b3_b278_8c5fcc9be5a0);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ICertificateImpl {
-    fn BuildChainAsync();
-    fn BuildChainWithParametersAsync();
-    fn SerialNumber();
-    fn GetHashValue();
-    fn GetHashValueWithAlgorithm();
-    fn GetCertificateBlob();
-    fn Subject();
-    fn Issuer();
-    fn HasPrivateKey();
-    fn IsStronglyProtected();
-    fn ValidFrom();
-    fn ValidTo();
-    fn EnhancedKeyUsages();
-    fn SetFriendlyName();
-    fn FriendlyName();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICertificateVtbl(
@@ -2399,15 +2381,6 @@ unsafe impl ::windows::core::Interface for ICertificate2 {
     type Vtable = ICertificate2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x17b8374c_8a25_4d96_a492_8fc29ac4fda6);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ICertificate2Impl {
-    fn IsSecurityDeviceBound();
-    fn KeyUsages();
-    fn KeyAlgorithmName();
-    fn SignatureAlgorithmName();
-    fn SignatureHashAlgorithmName();
-    fn SubjectAlternativeName();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICertificate2Vtbl(
@@ -2431,12 +2404,6 @@ unsafe impl ::windows::core::Interface for ICertificate3 {
     type Vtable = ICertificate3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbe51a966_ae5f_4652_ace7_c6d7e7724cf3);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ICertificate3Impl {
-    fn IsPerUser();
-    fn StoreName();
-    fn KeyStorageProviderName();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICertificate3Vtbl(
@@ -2456,12 +2423,6 @@ pub struct ICertificateChain(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICertificateChain {
     type Vtable = ICertificateChainVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x20bf5385_3691_4501_a62c_fd97278b31ee);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ICertificateChainImpl {
-    fn Validate();
-    fn ValidateWithParameters();
-    fn GetCertificates();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2483,12 +2444,6 @@ pub struct ICertificateEnrollmentManagerStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICertificateEnrollmentManagerStatics {
     type Vtable = ICertificateEnrollmentManagerStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8846ef3f_a986_48fb_9fd7_9aec06935bf1);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ICertificateEnrollmentManagerStaticsImpl {
-    fn CreateRequestAsync();
-    fn InstallCertificateAsync();
-    fn ImportPfxDataAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2513,11 +2468,6 @@ unsafe impl ::windows::core::Interface for ICertificateEnrollmentManagerStatics2
     type Vtable = ICertificateEnrollmentManagerStatics2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdc5b1c33_6429_4014_999c_5d9735802d1d);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ICertificateEnrollmentManagerStatics2Impl {
-    fn UserCertificateEnrollmentManager();
-    fn ImportPfxDataToKspAsync();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICertificateEnrollmentManagerStatics2Vtbl(
@@ -2538,10 +2488,6 @@ unsafe impl ::windows::core::Interface for ICertificateEnrollmentManagerStatics3
     type Vtable = ICertificateEnrollmentManagerStatics3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfdec82be_617c_425a_b72d_398b26ac7264);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ICertificateEnrollmentManagerStatics3Impl {
-    fn ImportPfxDataToKspWithParametersAsync();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICertificateEnrollmentManagerStatics3Vtbl(
@@ -2560,16 +2506,6 @@ pub struct ICertificateExtension(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICertificateExtension {
     type Vtable = ICertificateExtensionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x84cf0656_a9e6_454d_8e45_2ea7c4bcd53b);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ICertificateExtensionImpl {
-    fn ObjectId();
-    fn SetObjectId();
-    fn IsCritical();
-    fn SetIsCritical();
-    fn EncodeValue();
-    fn Value();
-    fn SetValue();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2595,10 +2531,6 @@ unsafe impl ::windows::core::Interface for ICertificateFactory {
     type Vtable = ICertificateFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x17b4221c_4baf_44a2_9608_04fb62b16942);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ICertificateFactoryImpl {
-    fn CreateCertificate();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICertificateFactoryVtbl(
@@ -2617,25 +2549,6 @@ pub struct ICertificateKeyUsages(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICertificateKeyUsages {
     type Vtable = ICertificateKeyUsagesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6ac6206f_e1cf_486a_b485_a69c83e46fd1);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ICertificateKeyUsagesImpl {
-    fn EncipherOnly();
-    fn SetEncipherOnly();
-    fn CrlSign();
-    fn SetCrlSign();
-    fn KeyCertificateSign();
-    fn SetKeyCertificateSign();
-    fn KeyAgreement();
-    fn SetKeyAgreement();
-    fn DataEncipherment();
-    fn SetDataEncipherment();
-    fn KeyEncipherment();
-    fn SetKeyEncipherment();
-    fn NonRepudiation();
-    fn SetNonRepudiation();
-    fn DigitalSignature();
-    fn SetDigitalSignature();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2670,18 +2583,6 @@ unsafe impl ::windows::core::Interface for ICertificateQuery {
     type Vtable = ICertificateQueryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5b082a31_a728_4916_b5ee_ffcb8acf2417);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ICertificateQueryImpl {
-    fn EnhancedKeyUsages();
-    fn IssuerName();
-    fn SetIssuerName();
-    fn FriendlyName();
-    fn SetFriendlyName();
-    fn Thumbprint();
-    fn SetThumbprint();
-    fn HardwareOnly();
-    fn SetHardwareOnly();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICertificateQueryVtbl(
@@ -2709,15 +2610,6 @@ unsafe impl ::windows::core::Interface for ICertificateQuery2 {
     type Vtable = ICertificateQuery2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x935a0af7_0bd9_4f75_b8c2_e27a7f74eecd);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ICertificateQuery2Impl {
-    fn IncludeDuplicates();
-    fn SetIncludeDuplicates();
-    fn IncludeExpiredCertificates();
-    fn SetIncludeExpiredCertificates();
-    fn StoreName();
-    fn SetStoreName();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICertificateQuery2Vtbl(
@@ -2740,27 +2632,6 @@ pub struct ICertificateRequestProperties(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICertificateRequestProperties {
     type Vtable = ICertificateRequestPropertiesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x487e84f6_94e2_4dce_8833_1a700a37a29a);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ICertificateRequestPropertiesImpl {
-    fn Subject();
-    fn SetSubject();
-    fn KeyAlgorithmName();
-    fn SetKeyAlgorithmName();
-    fn KeySize();
-    fn SetKeySize();
-    fn FriendlyName();
-    fn SetFriendlyName();
-    fn HashAlgorithmName();
-    fn SetHashAlgorithmName();
-    fn Exportable();
-    fn SetExportable();
-    fn KeyUsages();
-    fn SetKeyUsages();
-    fn KeyProtectionLevel();
-    fn SetKeyProtectionLevel();
-    fn KeyStorageProviderName();
-    fn SetKeyStorageProviderName();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2797,15 +2668,6 @@ unsafe impl ::windows::core::Interface for ICertificateRequestProperties2 {
     type Vtable = ICertificateRequestProperties2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3da0c954_d73f_4ff3_a0a6_0677c0ada05b);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ICertificateRequestProperties2Impl {
-    fn SmartcardReaderName();
-    fn SetSmartcardReaderName();
-    fn SigningCertificate();
-    fn SetSigningCertificate();
-    fn AttestationCredentialCertificate();
-    fn SetAttestationCredentialCertificate();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICertificateRequestProperties2Vtbl(
@@ -2828,19 +2690,6 @@ pub struct ICertificateRequestProperties3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICertificateRequestProperties3 {
     type Vtable = ICertificateRequestProperties3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe687f616_734d_46b1_9d4c_6edfdbfc845b);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ICertificateRequestProperties3Impl {
-    fn CurveName();
-    fn SetCurveName();
-    fn CurveParameters();
-    fn SetCurveParameters();
-    fn ContainerNamePrefix();
-    fn SetContainerNamePrefix();
-    fn ContainerName();
-    fn SetContainerName();
-    fn UseExistingKey();
-    fn SetUseExistingKey();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2869,12 +2718,6 @@ unsafe impl ::windows::core::Interface for ICertificateRequestProperties4 {
     type Vtable = ICertificateRequestProperties4Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4e429ad2_1c61_4fea_b8fe_135fb19cdce4);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ICertificateRequestProperties4Impl {
-    fn SuppressedDefaults();
-    fn SubjectAlternativeName();
-    fn Extensions();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICertificateRequestProperties4Vtbl(
@@ -2897,11 +2740,6 @@ unsafe impl ::windows::core::Interface for ICertificateStore {
     type Vtable = ICertificateStoreVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb0bff720_344e_4331_af14_a7f7a7ebc93a);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ICertificateStoreImpl {
-    fn Add();
-    fn Delete();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICertificateStoreVtbl(
@@ -2921,10 +2759,6 @@ unsafe impl ::windows::core::Interface for ICertificateStore2 {
     type Vtable = ICertificateStore2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc7e68e4a_417d_4d1a_babd_15687e549974);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ICertificateStore2Impl {
-    fn Name();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICertificateStore2Vtbl(
@@ -2942,14 +2776,6 @@ pub struct ICertificateStoresStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICertificateStoresStatics {
     type Vtable = ICertificateStoresStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfbecc739_c6fe_4de7_99cf_74c3e596e032);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ICertificateStoresStaticsImpl {
-    fn FindAllAsync();
-    fn FindAllWithQueryAsync();
-    fn TrustedRootCertificationAuthorities();
-    fn IntermediateCertificationAuthorities();
-    fn GetStoreByName();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2975,10 +2801,6 @@ unsafe impl ::windows::core::Interface for ICertificateStoresStatics2 {
     type Vtable = ICertificateStoresStatics2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfa900b79_a0d4_4b8c_bc55_c0a37eb141ed);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ICertificateStoresStatics2Impl {
-    fn GetUserStoreByName();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICertificateStoresStatics2Vtbl(
@@ -2996,21 +2818,6 @@ pub struct IChainBuildingParameters(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IChainBuildingParameters {
     type Vtable = IChainBuildingParametersVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x422ba922_7c8d_47b7_b59b_b12703733ac3);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IChainBuildingParametersImpl {
-    fn EnhancedKeyUsages();
-    fn ValidationTimestamp();
-    fn SetValidationTimestamp();
-    fn RevocationCheckEnabled();
-    fn SetRevocationCheckEnabled();
-    fn NetworkRetrievalEnabled();
-    fn SetNetworkRetrievalEnabled();
-    fn AuthorityInformationAccessEnabled();
-    fn SetAuthorityInformationAccessEnabled();
-    fn CurrentTimeValidationEnabled();
-    fn SetCurrentTimeValidationEnabled();
-    fn ExclusiveTrustRoots();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3045,13 +2852,6 @@ unsafe impl ::windows::core::Interface for IChainValidationParameters {
     type Vtable = IChainValidationParametersVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc4743b4a_7eb0_4b56_a040_b9c8e655ddf3);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IChainValidationParametersImpl {
-    fn CertificateChainPolicy();
-    fn SetCertificateChainPolicy();
-    fn ServerDnsName();
-    fn SetServerDnsName();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IChainValidationParametersVtbl(
@@ -3074,13 +2874,6 @@ pub struct ICmsAttachedSignature(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICmsAttachedSignature {
     type Vtable = ICmsAttachedSignatureVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x61899d9d_3757_4ecb_bddc_0ca357d7a936);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ICmsAttachedSignatureImpl {
-    fn Certificates();
-    fn Content();
-    fn Signers();
-    fn VerifySignature();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3105,10 +2898,6 @@ unsafe impl ::windows::core::Interface for ICmsAttachedSignatureFactory {
     type Vtable = ICmsAttachedSignatureFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd0c8fc15_f757_4c64_a362_52cc1c77cffb);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ICmsAttachedSignatureFactoryImpl {
-    fn CreateCmsAttachedSignature();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICmsAttachedSignatureFactoryVtbl(
@@ -3128,10 +2917,6 @@ unsafe impl ::windows::core::Interface for ICmsAttachedSignatureStatics {
     type Vtable = ICmsAttachedSignatureStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x87989c8e_b0ad_498d_a7f5_78b59bce4b36);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ICmsAttachedSignatureStaticsImpl {
-    fn GenerateSignatureAsync();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICmsAttachedSignatureStaticsVtbl(
@@ -3150,12 +2935,6 @@ pub struct ICmsDetachedSignature(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICmsDetachedSignature {
     type Vtable = ICmsDetachedSignatureVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0f1ef154_f65e_4536_8339_5944081db2ca);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ICmsDetachedSignatureImpl {
-    fn Certificates();
-    fn Signers();
-    fn VerifySignatureAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3180,10 +2959,6 @@ unsafe impl ::windows::core::Interface for ICmsDetachedSignatureFactory {
     type Vtable = ICmsDetachedSignatureFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc4ab3503_ae7f_4387_ad19_00f150e48ebb);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ICmsDetachedSignatureFactoryImpl {
-    fn CreateCmsDetachedSignature();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICmsDetachedSignatureFactoryVtbl(
@@ -3203,10 +2978,6 @@ unsafe impl ::windows::core::Interface for ICmsDetachedSignatureStatics {
     type Vtable = ICmsDetachedSignatureStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3d114cfd_bf9b_4682_9be6_91f57c053808);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ICmsDetachedSignatureStaticsImpl {
-    fn GenerateSignatureAsync();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICmsDetachedSignatureStaticsVtbl(
@@ -3225,14 +2996,6 @@ pub struct ICmsSignerInfo(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICmsSignerInfo {
     type Vtable = ICmsSignerInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x50d020db_1d2f_4c1a_b5c5_d0188ff91f47);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ICmsSignerInfoImpl {
-    fn Certificate();
-    fn SetCertificate();
-    fn HashAlgorithmName();
-    fn SetHashAlgorithmName();
-    fn TimestampInfo();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3256,12 +3019,6 @@ unsafe impl ::windows::core::Interface for ICmsTimestampInfo {
     type Vtable = ICmsTimestampInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2f5f00f2_2c18_4f88_8435_c534086076f5);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ICmsTimestampInfoImpl {
-    fn SigningCertificate();
-    fn Certificates();
-    fn Timestamp();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICmsTimestampInfoVtbl(
@@ -3283,17 +3040,6 @@ pub struct IKeyAlgorithmNamesStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IKeyAlgorithmNamesStatics {
     type Vtable = IKeyAlgorithmNamesStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x479065d7_7ac7_4581_8c3b_d07027140448);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IKeyAlgorithmNamesStaticsImpl {
-    fn Rsa();
-    fn Dsa();
-    fn Ecdh256();
-    fn Ecdh384();
-    fn Ecdh521();
-    fn Ecdsa256();
-    fn Ecdsa384();
-    fn Ecdsa521();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3320,11 +3066,6 @@ unsafe impl ::windows::core::Interface for IKeyAlgorithmNamesStatics2 {
     type Vtable = IKeyAlgorithmNamesStatics2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc99b5686_e1fd_4a4a_893d_a26f33dd8bb4);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IKeyAlgorithmNamesStatics2Impl {
-    fn Ecdsa();
-    fn Ecdh();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IKeyAlgorithmNamesStatics2Vtbl(
@@ -3343,11 +3084,6 @@ pub struct IKeyAttestationHelperStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IKeyAttestationHelperStatics {
     type Vtable = IKeyAttestationHelperStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1648e246_f644_4326_88be_3af102d30e0c);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IKeyAttestationHelperStaticsImpl {
-    fn DecryptTpmAttestationCredentialAsync();
-    fn GetTpmAttestationCredentialId();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3369,10 +3105,6 @@ unsafe impl ::windows::core::Interface for IKeyAttestationHelperStatics2 {
     type Vtable = IKeyAttestationHelperStatics2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9c590b2c_a6c6_4a5e_9e64_e85d5279df97);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IKeyAttestationHelperStatics2Impl {
-    fn DecryptTpmAttestationCredentialWithContainerNameAsync();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IKeyAttestationHelperStatics2Vtbl(
@@ -3391,12 +3123,6 @@ pub struct IKeyStorageProviderNamesStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IKeyStorageProviderNamesStatics {
     type Vtable = IKeyStorageProviderNamesStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaf186ae0_5529_4602_bd94_0aab91957b5c);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IKeyStorageProviderNamesStaticsImpl {
-    fn SoftwareKeyStorageProvider();
-    fn SmartcardKeyStorageProvider();
-    fn PlatformKeyStorageProvider();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3418,10 +3144,6 @@ unsafe impl ::windows::core::Interface for IKeyStorageProviderNamesStatics2 {
     type Vtable = IKeyStorageProviderNamesStatics2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x262d743d_9c2e_41cc_8812_c4d971dd7c60);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IKeyStorageProviderNamesStatics2Impl {
-    fn PassportKeyStorageProvider();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IKeyStorageProviderNamesStatics2Vtbl(
@@ -3439,23 +3161,6 @@ pub struct IPfxImportParameters(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPfxImportParameters {
     type Vtable = IPfxImportParametersVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x680d3511_9a08_47c8_864a_2edd4d8eb46c);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IPfxImportParametersImpl {
-    fn Exportable();
-    fn SetExportable();
-    fn KeyProtectionLevel();
-    fn SetKeyProtectionLevel();
-    fn InstallOptions();
-    fn SetInstallOptions();
-    fn FriendlyName();
-    fn SetFriendlyName();
-    fn KeyStorageProviderName();
-    fn SetKeyStorageProviderName();
-    fn ContainerNamePrefix();
-    fn SetContainerNamePrefix();
-    fn ReaderName();
-    fn SetReaderName();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3488,12 +3193,6 @@ unsafe impl ::windows::core::Interface for IStandardCertificateStoreNamesStatics
     type Vtable = IStandardCertificateStoreNamesStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0c154adb_a496_41f8_8fe5_9e96f36efbf8);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IStandardCertificateStoreNamesStaticsImpl {
-    fn Personal();
-    fn TrustedRootCertificationAuthorities();
-    fn IntermediateCertificationAuthorities();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IStandardCertificateStoreNamesStaticsVtbl(
@@ -3513,15 +3212,6 @@ pub struct ISubjectAlternativeNameInfo(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISubjectAlternativeNameInfo {
     type Vtable = ISubjectAlternativeNameInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x582859f1_569d_4c20_be7b_4e1c9a0bc52b);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ISubjectAlternativeNameInfoImpl {
-    fn EmailName();
-    fn IPAddress();
-    fn Url();
-    fn DnsName();
-    fn DistinguishedName();
-    fn PrincipalName();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3551,16 +3241,6 @@ pub struct ISubjectAlternativeNameInfo2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISubjectAlternativeNameInfo2 {
     type Vtable = ISubjectAlternativeNameInfo2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x437a78c6_1c51_41ea_b34a_3d654398a370);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ISubjectAlternativeNameInfo2Impl {
-    fn EmailNames();
-    fn IPAddresses();
-    fn Urls();
-    fn DnsNames();
-    fn DistinguishedNames();
-    fn PrincipalNames();
-    fn Extension();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3592,13 +3272,6 @@ unsafe impl ::windows::core::Interface for IUserCertificateEnrollmentManager {
     type Vtable = IUserCertificateEnrollmentManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x96313718_22e1_4819_b20b_ab46a6eca06e);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IUserCertificateEnrollmentManagerImpl {
-    fn CreateRequestAsync();
-    fn InstallCertificateAsync();
-    fn ImportPfxDataAsync();
-    fn ImportPfxDataToKspAsync();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUserCertificateEnrollmentManagerVtbl(
@@ -3624,10 +3297,6 @@ unsafe impl ::windows::core::Interface for IUserCertificateEnrollmentManager2 {
     type Vtable = IUserCertificateEnrollmentManager2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0dad9cb1_65de_492a_b86d_fc5c482c3747);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IUserCertificateEnrollmentManager2Impl {
-    fn ImportPfxDataToKspWithParametersAsync();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUserCertificateEnrollmentManager2Vtbl(
@@ -3646,12 +3315,6 @@ pub struct IUserCertificateStore(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IUserCertificateStore {
     type Vtable = IUserCertificateStoreVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc9fb1d83_789f_4b4e_9180_045a757aac6d);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IUserCertificateStoreImpl {
-    fn RequestAddAsync();
-    fn RequestDeleteAsync();
-    fn Name();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4623,3 +4286,5 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &User
 }
 unsafe impl ::core::marker::Send for UserCertificateStore {}
 unsafe impl ::core::marker::Sync for UserCertificateStore {}
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

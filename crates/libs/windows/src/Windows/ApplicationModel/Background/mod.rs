@@ -4697,13 +4697,6 @@ unsafe impl ::windows::core::Interface for IActivitySensorTrigger {
     type Vtable = IActivitySensorTriggerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd0dd4342_e37b_4823_a5fe_6b31dfefdeb0);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IActivitySensorTriggerImpl: IBackgroundTriggerImpl {
-    fn SubscribedActivities();
-    fn ReportInterval();
-    fn SupportedActivities();
-    fn MinimumReportInterval();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IActivitySensorTriggerVtbl(
@@ -4727,10 +4720,6 @@ unsafe impl ::windows::core::Interface for IActivitySensorTriggerFactory {
     type Vtable = IActivitySensorTriggerFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa72691c3_3837_44f7_831b_0132cc872bc3);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IActivitySensorTriggerFactoryImpl {
-    fn Create();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IActivitySensorTriggerFactoryVtbl(
@@ -4748,11 +4737,6 @@ pub struct IAlarmApplicationManagerStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAlarmApplicationManagerStatics {
     type Vtable = IAlarmApplicationManagerStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xca03fa3b_cce6_4de2_b09b_9628bd33bbbe);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IAlarmApplicationManagerStaticsImpl {
-    fn RequestAccessAsync();
-    fn GetAccessStatus();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4774,11 +4758,6 @@ unsafe impl ::windows::core::Interface for IAppBroadcastTrigger {
     type Vtable = IAppBroadcastTriggerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x74d4f496_8d37_44ec_9481_2a0b9854eb48);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IAppBroadcastTriggerImpl: IBackgroundTriggerImpl {
-    fn SetProviderInfo();
-    fn ProviderInfo();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppBroadcastTriggerVtbl(
@@ -4798,10 +4777,6 @@ unsafe impl ::windows::core::Interface for IAppBroadcastTriggerFactory {
     type Vtable = IAppBroadcastTriggerFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x280b9f44_22f4_4618_a02e_e7e411eb7238);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IAppBroadcastTriggerFactoryImpl {
-    fn CreateAppBroadcastTrigger();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppBroadcastTriggerFactoryVtbl(
@@ -4819,21 +4794,6 @@ pub struct IAppBroadcastTriggerProviderInfo(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppBroadcastTriggerProviderInfo {
     type Vtable = IAppBroadcastTriggerProviderInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf219352d_9de8_4420_9ce2_5eff8f17376b);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IAppBroadcastTriggerProviderInfoImpl {
-    fn SetDisplayNameResource();
-    fn DisplayNameResource();
-    fn SetLogoResource();
-    fn LogoResource();
-    fn SetVideoKeyFrameInterval();
-    fn VideoKeyFrameInterval();
-    fn SetMaxVideoBitrate();
-    fn MaxVideoBitrate();
-    fn SetMaxVideoWidth();
-    fn MaxVideoWidth();
-    fn SetMaxVideoHeight();
-    fn MaxVideoHeight();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4866,11 +4826,6 @@ unsafe impl ::windows::core::Interface for IApplicationTrigger {
     type Vtable = IApplicationTriggerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0b468630_9574_492c_9e93_1a3ae6335fe9);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IApplicationTriggerImpl: IBackgroundTriggerImpl {
-    fn RequestAsync();
-    fn RequestAsyncWithArguments();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IApplicationTriggerVtbl(
@@ -4892,10 +4847,6 @@ unsafe impl ::windows::core::Interface for IApplicationTriggerDetails {
     type Vtable = IApplicationTriggerDetailsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x97dc6ab2_2219_4a9e_9c5e_41d047f76e82);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IApplicationTriggerDetailsImpl {
-    fn Arguments();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IApplicationTriggerDetailsVtbl(
@@ -4915,8 +4866,6 @@ unsafe impl ::windows::core::Interface for IAppointmentStoreNotificationTrigger 
     type Vtable = IAppointmentStoreNotificationTriggerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x64d4040c_c201_42ad_aa2a_e21ba3425b6d);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IAppointmentStoreNotificationTriggerImpl: IBackgroundTriggerImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppointmentStoreNotificationTriggerVtbl(
@@ -4994,7 +4943,6 @@ unsafe impl ::windows::core::Interface for IBackgroundCondition {
     type Vtable = IBackgroundConditionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xae48a1ee_8951_400a_8302_9c9c9a2a3a3b);
 }
-pub trait IBackgroundConditionImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBackgroundConditionVtbl(
@@ -5011,15 +4959,6 @@ pub struct IBackgroundExecutionManagerStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IBackgroundExecutionManagerStatics {
     type Vtable = IBackgroundExecutionManagerStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe826ea58_66a9_4d41_83d4_b4c18c87b846);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IBackgroundExecutionManagerStaticsImpl {
-    fn RequestAccessAsync();
-    fn RequestAccessForApplicationAsync();
-    fn RemoveAccess();
-    fn RemoveAccessForApplication();
-    fn GetAccessStatus();
-    fn GetAccessStatusForApplication();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5046,10 +4985,6 @@ unsafe impl ::windows::core::Interface for IBackgroundExecutionManagerStatics2 {
     type Vtable = IBackgroundExecutionManagerStatics2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x469b24ef_9bbb_4e18_999a_fd6512931be9);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IBackgroundExecutionManagerStatics2Impl {
-    fn RequestAccessKindAsync();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBackgroundExecutionManagerStatics2Vtbl(
@@ -5068,12 +5003,6 @@ pub struct IBackgroundExecutionManagerStatics3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IBackgroundExecutionManagerStatics3 {
     type Vtable = IBackgroundExecutionManagerStatics3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x98a5d3f6_5a25_5b6c_9192_d77a43dfedc4);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IBackgroundExecutionManagerStatics3Impl {
-    fn RequestAccessKindForModernStandbyAsync();
-    fn GetAccessStatusForModernStandby();
-    fn GetAccessStatusForModernStandbyForApplication();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5162,9 +5091,6 @@ unsafe impl ::windows::core::Interface for IBackgroundTask {
     type Vtable = IBackgroundTaskVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7d13d534_fd12_43ce_8c22_ea1ff13c06df);
 }
-pub trait IBackgroundTaskImpl {
-    fn Run();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBackgroundTaskVtbl(
@@ -5182,16 +5108,6 @@ pub struct IBackgroundTaskBuilder(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IBackgroundTaskBuilder {
     type Vtable = IBackgroundTaskBuilderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0351550e_3e64_4572_a93a_84075a37c917);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IBackgroundTaskBuilderImpl {
-    fn SetTaskEntryPoint();
-    fn TaskEntryPoint();
-    fn SetTrigger();
-    fn AddCondition();
-    fn SetName();
-    fn Name();
-    fn Register();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5217,11 +5133,6 @@ unsafe impl ::windows::core::Interface for IBackgroundTaskBuilder2 {
     type Vtable = IBackgroundTaskBuilder2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6ae7cfb1_104f_406d_8db6_844a570f42bb);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IBackgroundTaskBuilder2Impl: IBackgroundTaskBuilderImpl {
-    fn SetCancelOnConditionLoss();
-    fn CancelOnConditionLoss();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBackgroundTaskBuilder2Vtbl(
@@ -5240,11 +5151,6 @@ pub struct IBackgroundTaskBuilder3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IBackgroundTaskBuilder3 {
     type Vtable = IBackgroundTaskBuilder3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x28c74f4a_8ba9_4c09_a24f_19683e2c924c);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IBackgroundTaskBuilder3Impl: IBackgroundTaskBuilderImpl {
-    fn SetIsNetworkRequested();
-    fn IsNetworkRequested();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5265,11 +5171,6 @@ unsafe impl ::windows::core::Interface for IBackgroundTaskBuilder4 {
     type Vtable = IBackgroundTaskBuilder4Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4755e522_cba2_4e35_bd16_a6da7f1c19aa);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IBackgroundTaskBuilder4Impl: IBackgroundTaskBuilderImpl {
-    fn TaskGroup();
-    fn SetTaskGroup();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBackgroundTaskBuilder4Vtbl(
@@ -5289,10 +5190,6 @@ unsafe impl ::windows::core::Interface for IBackgroundTaskBuilder5 {
     type Vtable = IBackgroundTaskBuilder5Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x077103f6_99f5_4af4_bcad_4731d0330d43);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IBackgroundTaskBuilder5Impl {
-    fn SetTaskEntryPointClsid();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBackgroundTaskBuilder5Vtbl(
@@ -5310,11 +5207,6 @@ pub struct IBackgroundTaskCompletedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IBackgroundTaskCompletedEventArgs {
     type Vtable = IBackgroundTaskCompletedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x565d25cf_f209_48f4_9967_2b184f7bfbf0);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IBackgroundTaskCompletedEventArgsImpl {
-    fn InstanceId();
-    fn CheckResult();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5334,10 +5226,6 @@ pub struct IBackgroundTaskDeferral(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IBackgroundTaskDeferral {
     type Vtable = IBackgroundTaskDeferralVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x93cc156d_af27_4dd3_846e_24ee40cadd25);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IBackgroundTaskDeferralImpl {
-    fn Complete();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5485,17 +5373,6 @@ unsafe impl ::windows::core::RuntimeType for IBackgroundTaskInstance {
 unsafe impl ::windows::core::Interface for IBackgroundTaskInstance {
     type Vtable = IBackgroundTaskInstanceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x865bda7a_21d8_4573_8f32_928a1b0641f6);
-}
-pub trait IBackgroundTaskInstanceImpl {
-    fn InstanceId();
-    fn Task();
-    fn Progress();
-    fn SetProgress();
-    fn TriggerDetails();
-    fn Canceled();
-    fn RemoveCanceled();
-    fn SuspendedCount();
-    fn GetDeferral();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5684,9 +5561,6 @@ unsafe impl ::windows::core::Interface for IBackgroundTaskInstance2 {
     type Vtable = IBackgroundTaskInstance2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4f7d0176_0c76_4fb4_896d_5de1864122f6);
 }
-pub trait IBackgroundTaskInstance2Impl: IBackgroundTaskInstanceImpl {
-    fn GetThrottleCount();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBackgroundTaskInstance2Vtbl(
@@ -5865,9 +5739,6 @@ unsafe impl ::windows::core::Interface for IBackgroundTaskInstance4 {
     type Vtable = IBackgroundTaskInstance4Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7f29f23c_aa04_4b08_97b0_06d874cdabf5);
 }
-pub trait IBackgroundTaskInstance4Impl: IBackgroundTaskInstanceImpl {
-    fn User();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBackgroundTaskInstance4Vtbl(
@@ -5886,11 +5757,6 @@ pub struct IBackgroundTaskProgressEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IBackgroundTaskProgressEventArgs {
     type Vtable = IBackgroundTaskProgressEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfb1468ac_8332_4d0a_9532_03eae684da31);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IBackgroundTaskProgressEventArgsImpl {
-    fn InstanceId();
-    fn Progress();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6022,15 +5888,6 @@ unsafe impl ::windows::core::RuntimeType for IBackgroundTaskRegistration {
 unsafe impl ::windows::core::Interface for IBackgroundTaskRegistration {
     type Vtable = IBackgroundTaskRegistrationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x10654cc2_a26e_43bf_8c12_1fb40dbfbfa0);
-}
-pub trait IBackgroundTaskRegistrationImpl {
-    fn TaskId();
-    fn Name();
-    fn Progress();
-    fn RemoveProgress();
-    fn Completed();
-    fn RemoveCompleted();
-    fn Unregister();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6202,9 +6059,6 @@ unsafe impl ::windows::core::Interface for IBackgroundTaskRegistration2 {
     type Vtable = IBackgroundTaskRegistration2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6138c703_bb86_4112_afc3_7f939b166e3b);
 }
-pub trait IBackgroundTaskRegistration2Impl: IBackgroundTaskRegistrationImpl {
-    fn Trigger();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBackgroundTaskRegistration2Vtbl(
@@ -6365,9 +6219,6 @@ unsafe impl ::windows::core::Interface for IBackgroundTaskRegistration3 {
     type Vtable = IBackgroundTaskRegistration3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfe338195_9423_4d8b_830d_b1dd2c7badd5);
 }
-pub trait IBackgroundTaskRegistration3Impl: IBackgroundTaskRegistrationImpl {
-    fn TaskGroup();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBackgroundTaskRegistration3Vtbl(
@@ -6385,14 +6236,6 @@ pub struct IBackgroundTaskRegistrationGroup(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IBackgroundTaskRegistrationGroup {
     type Vtable = IBackgroundTaskRegistrationGroupVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2ab1919a_871b_4167_8a76_055cd67b5b23);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IBackgroundTaskRegistrationGroupImpl {
-    fn Id();
-    fn Name();
-    fn BackgroundActivated();
-    fn RemoveBackgroundActivated();
-    fn AllTasks();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6419,11 +6262,6 @@ unsafe impl ::windows::core::Interface for IBackgroundTaskRegistrationGroupFacto
     type Vtable = IBackgroundTaskRegistrationGroupFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x83d92b69_44cf_4631_9740_03c7d8741bc5);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IBackgroundTaskRegistrationGroupFactoryImpl {
-    fn Create();
-    fn CreateWithName();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBackgroundTaskRegistrationGroupFactoryVtbl(
@@ -6443,10 +6281,6 @@ unsafe impl ::windows::core::Interface for IBackgroundTaskRegistrationStatics {
     type Vtable = IBackgroundTaskRegistrationStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4c542f69_b000_42ba_a093_6a563c65e3f8);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IBackgroundTaskRegistrationStaticsImpl {
-    fn AllTasks();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBackgroundTaskRegistrationStaticsVtbl(
@@ -6465,11 +6299,6 @@ pub struct IBackgroundTaskRegistrationStatics2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IBackgroundTaskRegistrationStatics2 {
     type Vtable = IBackgroundTaskRegistrationStatics2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x174b671e_b20d_4fa9_ad9a_e93ad6c71e01);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IBackgroundTaskRegistrationStatics2Impl {
-    fn AllTaskGroups();
-    fn GetTaskGroup();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6551,7 +6380,6 @@ unsafe impl ::windows::core::Interface for IBackgroundTrigger {
     type Vtable = IBackgroundTriggerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x84b3a058_6027_4b87_9790_bdf3f757dbd7);
 }
-pub trait IBackgroundTriggerImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBackgroundTriggerVtbl(
@@ -6568,10 +6396,6 @@ pub struct IBackgroundWorkCostStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IBackgroundWorkCostStatics {
     type Vtable = IBackgroundWorkCostStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc740a662_c310_4b82_b3e3_3bcfb9e4c77d);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IBackgroundWorkCostStaticsImpl {
-    fn CurrentBackgroundWorkCost();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6591,10 +6415,6 @@ unsafe impl ::windows::core::Interface for IBluetoothLEAdvertisementPublisherTri
     type Vtable = IBluetoothLEAdvertisementPublisherTriggerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xab3e2612_25d3_48ae_8724_d81877ae6129);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IBluetoothLEAdvertisementPublisherTriggerImpl: IBackgroundTriggerImpl {
-    fn Advertisement();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBluetoothLEAdvertisementPublisherTriggerVtbl(
@@ -6613,17 +6433,6 @@ pub struct IBluetoothLEAdvertisementPublisherTrigger2(::windows::core::IUnknown)
 unsafe impl ::windows::core::Interface for IBluetoothLEAdvertisementPublisherTrigger2 {
     type Vtable = IBluetoothLEAdvertisementPublisherTrigger2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaa28d064_38f4_597d_b597_4e55588c6503);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IBluetoothLEAdvertisementPublisherTrigger2Impl {
-    fn PreferredTransmitPowerLevelInDBm();
-    fn SetPreferredTransmitPowerLevelInDBm();
-    fn UseExtendedFormat();
-    fn SetUseExtendedFormat();
-    fn IsAnonymous();
-    fn SetIsAnonymous();
-    fn IncludeTransmitPowerLevel();
-    fn SetIncludeTransmitPowerLevel();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6651,17 +6460,6 @@ pub struct IBluetoothLEAdvertisementWatcherTrigger(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IBluetoothLEAdvertisementWatcherTrigger {
     type Vtable = IBluetoothLEAdvertisementWatcherTriggerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1aab1819_bce1_48eb_a827_59fb7cee52a6);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IBluetoothLEAdvertisementWatcherTriggerImpl: IBackgroundTriggerImpl {
-    fn MinSamplingInterval();
-    fn MaxSamplingInterval();
-    fn MinOutOfRangeTimeout();
-    fn MaxOutOfRangeTimeout();
-    fn SignalStrengthFilter();
-    fn SetSignalStrengthFilter();
-    fn AdvertisementFilter();
-    fn SetAdvertisementFilter();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6696,11 +6494,6 @@ unsafe impl ::windows::core::Interface for IBluetoothLEAdvertisementWatcherTrigg
     type Vtable = IBluetoothLEAdvertisementWatcherTrigger2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x39b56799_eb39_5ab6_9932_aa9e4549604d);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IBluetoothLEAdvertisementWatcherTrigger2Impl {
-    fn AllowExtendedAdvertisements();
-    fn SetAllowExtendedAdvertisements();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBluetoothLEAdvertisementWatcherTrigger2Vtbl(
@@ -6720,8 +6513,6 @@ unsafe impl ::windows::core::Interface for ICachedFileUpdaterTrigger {
     type Vtable = ICachedFileUpdaterTriggerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe21caeeb_32f2_4d31_b553_b9e01bde37e0);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ICachedFileUpdaterTriggerImpl: IBackgroundTriggerImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICachedFileUpdaterTriggerVtbl(
@@ -6738,12 +6529,6 @@ pub struct ICachedFileUpdaterTriggerDetails(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICachedFileUpdaterTriggerDetails {
     type Vtable = ICachedFileUpdaterTriggerDetailsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x71838c13_1314_47b4_9597_dc7e248c17cc);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ICachedFileUpdaterTriggerDetailsImpl {
-    fn UpdateTarget();
-    fn UpdateRequest();
-    fn CanRequestUserInput();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6767,8 +6552,6 @@ unsafe impl ::windows::core::Interface for IChatMessageNotificationTrigger {
     type Vtable = IChatMessageNotificationTriggerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x513b43bf_1d40_5c5d_78f5_c923fee3739e);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IChatMessageNotificationTriggerImpl: IBackgroundTriggerImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IChatMessageNotificationTriggerVtbl(
@@ -6786,8 +6569,6 @@ unsafe impl ::windows::core::Interface for IChatMessageReceivedNotificationTrigg
     type Vtable = IChatMessageReceivedNotificationTriggerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3ea3760e_baf5_4077_88e9_060cf6f0c6d5);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IChatMessageReceivedNotificationTriggerImpl: IBackgroundTriggerImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IChatMessageReceivedNotificationTriggerVtbl(
@@ -6805,8 +6586,6 @@ unsafe impl ::windows::core::Interface for ICommunicationBlockingAppSetAsActiveT
     type Vtable = ICommunicationBlockingAppSetAsActiveTriggerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfb91f28a_16a5_486d_974c_7835a8477be2);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ICommunicationBlockingAppSetAsActiveTriggerImpl: IBackgroundTriggerImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICommunicationBlockingAppSetAsActiveTriggerVtbl(
@@ -6824,8 +6603,6 @@ unsafe impl ::windows::core::Interface for IContactStoreNotificationTrigger {
     type Vtable = IContactStoreNotificationTriggerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc833419b_4705_4571_9a16_06b997bf9c96);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IContactStoreNotificationTriggerImpl: IBackgroundTriggerImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IContactStoreNotificationTriggerVtbl(
@@ -6842,10 +6619,6 @@ pub struct IContentPrefetchTrigger(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IContentPrefetchTrigger {
     type Vtable = IContentPrefetchTriggerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x710627ee_04fa_440b_80c0_173202199e5d);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IContentPrefetchTriggerImpl: IBackgroundTriggerImpl {
-    fn WaitInterval();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6866,10 +6639,6 @@ unsafe impl ::windows::core::Interface for IContentPrefetchTriggerFactory {
     type Vtable = IContentPrefetchTriggerFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc2643eda_8a03_409e_b8c4_88814c28ccb6);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IContentPrefetchTriggerFactoryImpl {
-    fn Create();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IContentPrefetchTriggerFactoryVtbl(
@@ -6888,11 +6657,6 @@ pub struct ICustomSystemEventTrigger(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICustomSystemEventTrigger {
     type Vtable = ICustomSystemEventTriggerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf3596798_cf6b_4ef4_a0ca_29cf4a278c87);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ICustomSystemEventTriggerImpl {
-    fn TriggerId();
-    fn Recurrence();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6913,10 +6677,6 @@ unsafe impl ::windows::core::Interface for ICustomSystemEventTriggerFactory {
     type Vtable = ICustomSystemEventTriggerFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6bcb16c5_f2dc_41b2_9efd_b96bdcd13ced);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ICustomSystemEventTriggerFactoryImpl {
-    fn Create();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICustomSystemEventTriggerFactoryVtbl(
@@ -6934,13 +6694,6 @@ pub struct IDeviceConnectionChangeTrigger(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDeviceConnectionChangeTrigger {
     type Vtable = IDeviceConnectionChangeTriggerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x90875e64_3cdd_4efb_ab1c_5b3b6a60ce34);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IDeviceConnectionChangeTriggerImpl: IBackgroundTriggerImpl {
-    fn DeviceId();
-    fn CanMaintainConnection();
-    fn MaintainConnection();
-    fn SetMaintainConnection();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6963,10 +6716,6 @@ unsafe impl ::windows::core::Interface for IDeviceConnectionChangeTriggerStatics
     type Vtable = IDeviceConnectionChangeTriggerStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc3ea246a_4efd_4498_aa60_a4e4e3b17ab9);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IDeviceConnectionChangeTriggerStaticsImpl {
-    fn FromIdAsync();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDeviceConnectionChangeTriggerStaticsVtbl(
@@ -6987,11 +6736,6 @@ pub struct IDeviceManufacturerNotificationTrigger(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDeviceManufacturerNotificationTrigger {
     type Vtable = IDeviceManufacturerNotificationTriggerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x81278ab5_41ab_16da_86c2_7f7bf0912f5b);
-}
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
-pub trait IDeviceManufacturerNotificationTriggerImpl: IBackgroundTriggerImpl {
-    fn TriggerQualifier();
-    fn OneShot();
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
@@ -7017,10 +6761,6 @@ unsafe impl ::windows::core::Interface for IDeviceManufacturerNotificationTrigge
     type Vtable = IDeviceManufacturerNotificationTriggerFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7955de75_25bb_4153_a1a2_3029fcabb652);
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
-pub trait IDeviceManufacturerNotificationTriggerFactoryImpl {
-    fn Create();
-}
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
@@ -7040,11 +6780,6 @@ pub struct IDeviceServicingTrigger(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDeviceServicingTrigger {
     type Vtable = IDeviceServicingTriggerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1ab217ad_6e34_49d3_9e6f_17f1b6dfa881);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IDeviceServicingTriggerImpl: IBackgroundTriggerImpl {
-    fn RequestAsyncSimple();
-    fn RequestAsyncWithArguments();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7067,11 +6802,6 @@ unsafe impl ::windows::core::Interface for IDeviceUseTrigger {
     type Vtable = IDeviceUseTriggerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0da68011_334f_4d57_b6ec_6dca64b412e4);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IDeviceUseTriggerImpl: IBackgroundTriggerImpl {
-    fn RequestAsyncSimple();
-    fn RequestAsyncWithArguments();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDeviceUseTriggerVtbl(
@@ -7093,8 +6823,6 @@ unsafe impl ::windows::core::Interface for IDeviceWatcherTrigger {
     type Vtable = IDeviceWatcherTriggerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa4617fdd_8573_4260_befc_5bec89cb693d);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IDeviceWatcherTriggerImpl: IBackgroundTriggerImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDeviceWatcherTriggerVtbl(
@@ -7112,8 +6840,6 @@ unsafe impl ::windows::core::Interface for IEmailStoreNotificationTrigger {
     type Vtable = IEmailStoreNotificationTriggerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x986d06da_47eb_4268_a4f2_f3f77188388a);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IEmailStoreNotificationTriggerImpl: IBackgroundTriggerImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEmailStoreNotificationTriggerVtbl(
@@ -7130,10 +6856,6 @@ pub struct IGattCharacteristicNotificationTrigger(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGattCharacteristicNotificationTrigger {
     type Vtable = IGattCharacteristicNotificationTriggerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe25f8fc8_0696_474f_a732_f292b0cebc5d);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IGattCharacteristicNotificationTriggerImpl: IBackgroundTriggerImpl {
-    fn Characteristic();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7154,10 +6876,6 @@ unsafe impl ::windows::core::Interface for IGattCharacteristicNotificationTrigge
     type Vtable = IGattCharacteristicNotificationTrigger2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9322a2c4_ae0e_42f2_b28c_f51372e69245);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IGattCharacteristicNotificationTrigger2Impl {
-    fn EventTriggeringMode();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGattCharacteristicNotificationTrigger2Vtbl(
@@ -7176,10 +6894,6 @@ pub struct IGattCharacteristicNotificationTriggerFactory(::windows::core::IUnkno
 unsafe impl ::windows::core::Interface for IGattCharacteristicNotificationTriggerFactory {
     type Vtable = IGattCharacteristicNotificationTriggerFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x57ba1995_b143_4575_9f6b_fd59d93ace1a);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IGattCharacteristicNotificationTriggerFactoryImpl {
-    fn Create();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7200,10 +6914,6 @@ unsafe impl ::windows::core::Interface for IGattCharacteristicNotificationTrigge
     type Vtable = IGattCharacteristicNotificationTriggerFactory2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5998e91f_8a53_4e9f_a32c_23cd33664cee);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IGattCharacteristicNotificationTriggerFactory2Impl {
-    fn CreateWithEventTriggeringMode();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGattCharacteristicNotificationTriggerFactory2Vtbl(
@@ -7222,13 +6932,6 @@ pub struct IGattServiceProviderTrigger(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGattServiceProviderTrigger {
     type Vtable = IGattServiceProviderTriggerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xddc6a3e9_1557_4bd8_8542_468aa0c696f6);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IGattServiceProviderTriggerImpl {
-    fn TriggerId();
-    fn Service();
-    fn SetAdvertisingParameters();
-    fn AdvertisingParameters();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7254,11 +6957,6 @@ unsafe impl ::windows::core::Interface for IGattServiceProviderTriggerResult {
     type Vtable = IGattServiceProviderTriggerResultVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3c4691b1_b198_4e84_bad4_cf4ad299ed3a);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IGattServiceProviderTriggerResultImpl {
-    fn Trigger();
-    fn Error();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGattServiceProviderTriggerResultVtbl(
@@ -7279,10 +6977,6 @@ unsafe impl ::windows::core::Interface for IGattServiceProviderTriggerStatics {
     type Vtable = IGattServiceProviderTriggerStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb413a36a_e294_4591_a5a6_64891a828153);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IGattServiceProviderTriggerStaticsImpl {
-    fn CreateAsync();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGattServiceProviderTriggerStaticsVtbl(
@@ -7301,11 +6995,6 @@ pub struct IGeovisitTrigger(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGeovisitTrigger {
     type Vtable = IGeovisitTriggerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4818edaa_04e1_4127_9a4c_19351b8a80a4);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IGeovisitTriggerImpl: IBackgroundTriggerImpl {
-    fn MonitoringScope();
-    fn SetMonitoringScope();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7328,10 +7017,6 @@ unsafe impl ::windows::core::Interface for ILocationTrigger {
     type Vtable = ILocationTriggerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x47666a1c_6877_481e_8026_ff7e14a811a0);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ILocationTriggerImpl: IBackgroundTriggerImpl {
-    fn TriggerType();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILocationTriggerVtbl(
@@ -7350,10 +7035,6 @@ unsafe impl ::windows::core::Interface for ILocationTriggerFactory {
     type Vtable = ILocationTriggerFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1106bb07_ff69_4e09_aa8b_1384ea475e98);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ILocationTriggerFactoryImpl {
-    fn Create();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILocationTriggerFactoryVtbl(
@@ -7371,11 +7052,6 @@ pub struct IMaintenanceTrigger(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMaintenanceTrigger {
     type Vtable = IMaintenanceTriggerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x68184c83_fc22_4ce5_841a_7239a9810047);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IMaintenanceTriggerImpl: IBackgroundTriggerImpl {
-    fn FreshnessTime();
-    fn OneShot();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7396,10 +7072,6 @@ unsafe impl ::windows::core::Interface for IMaintenanceTriggerFactory {
     type Vtable = IMaintenanceTriggerFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4b3ddb2e_97dd_4629_88b0_b06cf9482ae5);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IMaintenanceTriggerFactoryImpl {
-    fn Create();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMaintenanceTriggerFactoryVtbl(
@@ -7417,11 +7089,6 @@ pub struct IMediaProcessingTrigger(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMediaProcessingTrigger {
     type Vtable = IMediaProcessingTriggerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9a95be65_8a52_4b30_9011_cf38040ea8b0);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IMediaProcessingTriggerImpl: IBackgroundTriggerImpl {
-    fn RequestAsync();
-    fn RequestAsyncWithArguments();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7444,8 +7111,6 @@ unsafe impl ::windows::core::Interface for INetworkOperatorHotspotAuthentication
     type Vtable = INetworkOperatorHotspotAuthenticationTriggerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe756c791_3001_4de5_83c7_de61d88831d0);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait INetworkOperatorHotspotAuthenticationTriggerImpl: IBackgroundTriggerImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct INetworkOperatorHotspotAuthenticationTriggerVtbl(
@@ -7462,10 +7127,6 @@ pub struct INetworkOperatorNotificationTrigger(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for INetworkOperatorNotificationTrigger {
     type Vtable = INetworkOperatorNotificationTriggerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x90089cc6_63cd_480c_95d1_6e6aef801e4a);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait INetworkOperatorNotificationTriggerImpl: IBackgroundTriggerImpl {
-    fn NetworkAccountId();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7485,10 +7146,6 @@ unsafe impl ::windows::core::Interface for INetworkOperatorNotificationTriggerFa
     type Vtable = INetworkOperatorNotificationTriggerFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0a223e00_27d7_4353_adb9_9265aaea579d);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait INetworkOperatorNotificationTriggerFactoryImpl {
-    fn Create();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct INetworkOperatorNotificationTriggerFactoryVtbl(
@@ -7506,11 +7163,6 @@ pub struct IPhoneTrigger(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPhoneTrigger {
     type Vtable = IPhoneTriggerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8dcfe99b_d4c5_49f1_b7d3_82e87a0e9dde);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IPhoneTriggerImpl: IBackgroundTriggerImpl {
-    fn OneShot();
-    fn TriggerType();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7532,10 +7184,6 @@ unsafe impl ::windows::core::Interface for IPhoneTriggerFactory {
     type Vtable = IPhoneTriggerFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa0d93cda_5fc1_48fb_a546_32262040157b);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IPhoneTriggerFactoryImpl {
-    fn Create();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPhoneTriggerFactoryVtbl(
@@ -7555,10 +7203,6 @@ unsafe impl ::windows::core::Interface for IPushNotificationTriggerFactory {
     type Vtable = IPushNotificationTriggerFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6dd8ed1b_458e_4fc2_bc2e_d5664f77ed19);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IPushNotificationTriggerFactoryImpl {
-    fn Create();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPushNotificationTriggerFactoryVtbl(
@@ -7577,8 +7221,6 @@ unsafe impl ::windows::core::Interface for IRcsEndUserMessageAvailableTrigger {
     type Vtable = IRcsEndUserMessageAvailableTriggerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x986d0d6a_b2f6_467f_a978_a44091c11a66);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IRcsEndUserMessageAvailableTriggerImpl: IBackgroundTriggerImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRcsEndUserMessageAvailableTriggerVtbl(
@@ -7595,17 +7237,6 @@ pub struct IRfcommConnectionTrigger(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IRfcommConnectionTrigger {
     type Vtable = IRfcommConnectionTriggerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe8c4cae2_0b53_4464_9394_fd875654de64);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IRfcommConnectionTriggerImpl: IBackgroundTriggerImpl {
-    fn InboundConnection();
-    fn OutboundConnection();
-    fn AllowMultipleConnections();
-    fn SetAllowMultipleConnections();
-    fn ProtectionLevel();
-    fn SetProtectionLevel();
-    fn RemoteHostName();
-    fn SetRemoteHostName();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7640,8 +7271,6 @@ unsafe impl ::windows::core::Interface for ISecondaryAuthenticationFactorAuthent
     type Vtable = ISecondaryAuthenticationFactorAuthenticationTriggerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf237f327_5181_4f24_96a7_700a4e5fac62);
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
-pub trait ISecondaryAuthenticationFactorAuthenticationTriggerImpl: IBackgroundTriggerImpl {}
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
@@ -7660,8 +7289,6 @@ unsafe impl ::windows::core::Interface for ISensorDataThresholdTrigger {
     type Vtable = ISensorDataThresholdTriggerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5bc0f372_d48b_4b7f_abec_15f9bacc12e2);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ISensorDataThresholdTriggerImpl: IBackgroundTriggerImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISensorDataThresholdTriggerVtbl(
@@ -7678,10 +7305,6 @@ pub struct ISensorDataThresholdTriggerFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISensorDataThresholdTriggerFactory {
     type Vtable = ISensorDataThresholdTriggerFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x921fe675_7df0_4da3_97b3_e544ee857fe6);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ISensorDataThresholdTriggerFactoryImpl {
-    fn Create();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7702,10 +7325,6 @@ unsafe impl ::windows::core::Interface for ISmartCardTrigger {
     type Vtable = ISmartCardTriggerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf53bc5ac_84ca_4972_8ce9_e58f97b37a50);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ISmartCardTriggerImpl: IBackgroundTriggerImpl {
-    fn TriggerType();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISmartCardTriggerVtbl(
@@ -7724,10 +7343,6 @@ pub struct ISmartCardTriggerFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISmartCardTriggerFactory {
     type Vtable = ISmartCardTriggerFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x63bf54c3_89c1_4e00_a9d3_97c629269dad);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ISmartCardTriggerFactoryImpl {
-    fn Create();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7748,10 +7363,6 @@ unsafe impl ::windows::core::Interface for ISmsMessageReceivedTriggerFactory {
     type Vtable = ISmsMessageReceivedTriggerFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xea3ad8c8_6ba4_4ab2_8d21_bc6b09c77564);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ISmsMessageReceivedTriggerFactoryImpl {
-    fn Create();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISmsMessageReceivedTriggerFactoryVtbl(
@@ -7771,10 +7382,6 @@ unsafe impl ::windows::core::Interface for ISocketActivityTrigger {
     type Vtable = ISocketActivityTriggerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa9bbf810_9dde_4f8a_83e3_b0e0e7a50d70);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ISocketActivityTriggerImpl {
-    fn IsWakeFromLowPowerSupported();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISocketActivityTriggerVtbl(
@@ -7792,10 +7399,6 @@ pub struct IStorageLibraryChangeTrackerTriggerFactory(::windows::core::IUnknown)
 unsafe impl ::windows::core::Interface for IStorageLibraryChangeTrackerTriggerFactory {
     type Vtable = IStorageLibraryChangeTrackerTriggerFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1eb0ffd0_5a85_499e_a888_824607124f50);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IStorageLibraryChangeTrackerTriggerFactoryImpl {
-    fn Create();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7816,8 +7419,6 @@ unsafe impl ::windows::core::Interface for IStorageLibraryContentChangedTrigger 
     type Vtable = IStorageLibraryContentChangedTriggerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1637e0a7_829c_45bc_929b_a1e7ea78d89b);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IStorageLibraryContentChangedTriggerImpl: IBackgroundTriggerImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IStorageLibraryContentChangedTriggerVtbl(
@@ -7834,11 +7435,6 @@ pub struct IStorageLibraryContentChangedTriggerStatics(::windows::core::IUnknown
 unsafe impl ::windows::core::Interface for IStorageLibraryContentChangedTriggerStatics {
     type Vtable = IStorageLibraryContentChangedTriggerStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7f9f1b39_5f90_4e12_914e_a7d8e0bbfb18);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IStorageLibraryContentChangedTriggerStaticsImpl {
-    fn Create();
-    fn CreateFromLibraries();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7861,10 +7457,6 @@ unsafe impl ::windows::core::Interface for ISystemCondition {
     type Vtable = ISystemConditionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc15fb476_89c5_420b_abd3_fb3030472128);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ISystemConditionImpl: IBackgroundConditionImpl {
-    fn ConditionType();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISystemConditionVtbl(
@@ -7883,10 +7475,6 @@ unsafe impl ::windows::core::Interface for ISystemConditionFactory {
     type Vtable = ISystemConditionFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd269d1f1_05a7_49ae_87d7_16b2b8b9a553);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ISystemConditionFactoryImpl {
-    fn Create();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISystemConditionFactoryVtbl(
@@ -7904,11 +7492,6 @@ pub struct ISystemTrigger(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISystemTrigger {
     type Vtable = ISystemTriggerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1d80c776_3748_4463_8d7e_276dc139ac1c);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ISystemTriggerImpl: IBackgroundTriggerImpl {
-    fn OneShot();
-    fn TriggerType();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7929,10 +7512,6 @@ unsafe impl ::windows::core::Interface for ISystemTriggerFactory {
     type Vtable = ISystemTriggerFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe80423d4_8791_4579_8126_87ec8aaa407a);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ISystemTriggerFactoryImpl {
-    fn Create();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISystemTriggerFactoryVtbl(
@@ -7950,11 +7529,6 @@ pub struct ITimeTrigger(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ITimeTrigger {
     type Vtable = ITimeTriggerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x656e5556_0b2a_4377_ba70_3b45a935547f);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ITimeTriggerImpl: IBackgroundTriggerImpl {
-    fn FreshnessTime();
-    fn OneShot();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7975,10 +7549,6 @@ unsafe impl ::windows::core::Interface for ITimeTriggerFactory {
     type Vtable = ITimeTriggerFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x38c682fe_9b54_45e6_b2f3_269b87a6f734);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ITimeTriggerFactoryImpl {
-    fn Create();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITimeTriggerFactoryVtbl(
@@ -7996,10 +7566,6 @@ pub struct IToastNotificationActionTriggerFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IToastNotificationActionTriggerFactory {
     type Vtable = IToastNotificationActionTriggerFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb09dfc27_6480_4349_8125_97b3efaa0a3a);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IToastNotificationActionTriggerFactoryImpl {
-    fn Create();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8019,10 +7585,6 @@ unsafe impl ::windows::core::Interface for IToastNotificationHistoryChangedTrigg
     type Vtable = IToastNotificationHistoryChangedTriggerFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x81c6faad_8797_4785_81b4_b0cccb73d1d9);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IToastNotificationHistoryChangedTriggerFactoryImpl {
-    fn Create();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IToastNotificationHistoryChangedTriggerFactoryVtbl(
@@ -8040,10 +7602,6 @@ pub struct IUserNotificationChangedTriggerFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IUserNotificationChangedTriggerFactory {
     type Vtable = IUserNotificationChangedTriggerFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcad4436c_69ab_4e18_a48a_5ed2ac435957);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IUserNotificationChangedTriggerFactoryImpl {
-    fn Create();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -11573,3 +11131,5 @@ impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for &UserNotificatio
 }
 unsafe impl ::core::marker::Send for UserNotificationChangedTrigger {}
 unsafe impl ::core::marker::Sync for UserNotificationChangedTrigger {}
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

@@ -367,11 +367,6 @@ unsafe impl ::windows::core::Interface for IWICBitmap {
     type Vtable = IWICBitmapVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000121_a8f2_4877_ba0a_fd2b6645fb94);
 }
-pub trait IWICBitmapImpl: IWICBitmapSourceImpl {
-    fn Lock();
-    fn SetPalette();
-    fn SetResolution();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWICBitmapVtbl(
@@ -476,9 +471,6 @@ impl ::core::fmt::Debug for IWICBitmapClipper {
 unsafe impl ::windows::core::Interface for IWICBitmapClipper {
     type Vtable = IWICBitmapClipperVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe4fbcf03_223d_4e81_9333_d635556dd1b5);
-}
-pub trait IWICBitmapClipperImpl: IWICBitmapSourceImpl {
-    fn Initialize();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -662,20 +654,6 @@ unsafe impl ::windows::core::Interface for IWICBitmapCodecInfo {
     type Vtable = IWICBitmapCodecInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe87a44c4_b76e_4c47_8b09_298eb12a2714);
 }
-pub trait IWICBitmapCodecInfoImpl: IWICComponentInfoImpl {
-    fn GetContainerFormat();
-    fn GetPixelFormats();
-    fn GetColorManagementVersion();
-    fn GetDeviceManufacturer();
-    fn GetDeviceModels();
-    fn GetMimeTypes();
-    fn GetFileExtensions();
-    fn DoesSupportAnimation();
-    fn DoesSupportChromakey();
-    fn DoesSupportLossless();
-    fn DoesSupportMultiframe();
-    fn MatchesMimeType();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWICBitmapCodecInfoVtbl(
@@ -765,9 +743,6 @@ impl ::core::fmt::Debug for IWICBitmapCodecProgressNotification {
 unsafe impl ::windows::core::Interface for IWICBitmapCodecProgressNotification {
     type Vtable = IWICBitmapCodecProgressNotificationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x64c1024e_c3cf_4462_8078_88c2b11c46d9);
-}
-pub trait IWICBitmapCodecProgressNotificationImpl {
-    fn RegisterProgressNotification();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -875,19 +850,6 @@ impl ::core::fmt::Debug for IWICBitmapDecoder {
 unsafe impl ::windows::core::Interface for IWICBitmapDecoder {
     type Vtable = IWICBitmapDecoderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9edde9e7_8dee_47ea_99df_e6faf2ed44bf);
-}
-pub trait IWICBitmapDecoderImpl {
-    fn QueryCapability();
-    fn Initialize();
-    fn GetContainerFormat();
-    fn GetDecoderInfo();
-    fn CopyPalette();
-    fn GetMetadataQueryReader();
-    fn GetPreview();
-    fn GetColorContexts();
-    fn GetThumbnail();
-    fn GetFrameCount();
-    fn GetFrame();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1114,11 +1076,6 @@ unsafe impl ::windows::core::Interface for IWICBitmapDecoderInfo {
     type Vtable = IWICBitmapDecoderInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd8cd007f_d08f_4191_9bfc_236ea7f0e4b5);
 }
-pub trait IWICBitmapDecoderInfoImpl: IWICBitmapCodecInfoImpl + IWICComponentInfoImpl {
-    fn GetPatterns();
-    fn MatchesPattern();
-    fn CreateInstance();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWICBitmapDecoderInfoVtbl(
@@ -1254,18 +1211,6 @@ impl ::core::fmt::Debug for IWICBitmapEncoder {
 unsafe impl ::windows::core::Interface for IWICBitmapEncoder {
     type Vtable = IWICBitmapEncoderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000103_a8f2_4877_ba0a_fd2b6645fb94);
-}
-pub trait IWICBitmapEncoderImpl {
-    fn Initialize();
-    fn GetContainerFormat();
-    fn GetEncoderInfo();
-    fn SetColorContexts();
-    fn SetPalette();
-    fn SetThumbnail();
-    fn SetPreview();
-    fn CreateNewFrame();
-    fn Commit();
-    fn GetMetadataQueryWriter();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1480,9 +1425,6 @@ unsafe impl ::windows::core::Interface for IWICBitmapEncoderInfo {
     type Vtable = IWICBitmapEncoderInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x94c9b4ee_a09f_4f92_8a1e_4a9bce7e76fb);
 }
-pub trait IWICBitmapEncoderInfoImpl: IWICBitmapCodecInfoImpl + IWICComponentInfoImpl {
-    fn CreateInstance();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWICBitmapEncoderInfoVtbl(
@@ -1615,9 +1557,6 @@ unsafe impl ::windows::core::Interface for IWICBitmapFlipRotator {
     type Vtable = IWICBitmapFlipRotatorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5009834f_2d6a_41ce_9e1b_17c5aff7a782);
 }
-pub trait IWICBitmapFlipRotatorImpl: IWICBitmapSourceImpl {
-    fn Initialize();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWICBitmapFlipRotatorVtbl(
@@ -1731,11 +1670,6 @@ unsafe impl ::windows::core::Interface for IWICBitmapFrameDecode {
     type Vtable = IWICBitmapFrameDecodeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3b16811b_6a43_4ec9_a813_3d930c13b940);
 }
-pub trait IWICBitmapFrameDecodeImpl: IWICBitmapSourceImpl {
-    fn GetMetadataQueryReader();
-    fn GetColorContexts();
-    fn GetThumbnail();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWICBitmapFrameDecodeVtbl(
@@ -1842,19 +1776,6 @@ unsafe impl ::windows::core::Interface for IWICBitmapFrameEncode {
     type Vtable = IWICBitmapFrameEncodeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000105_a8f2_4877_ba0a_fd2b6645fb94);
 }
-pub trait IWICBitmapFrameEncodeImpl {
-    fn Initialize();
-    fn SetSize();
-    fn SetResolution();
-    fn SetPixelFormat();
-    fn SetColorContexts();
-    fn SetPalette();
-    fn SetThumbnail();
-    fn WritePixels();
-    fn WriteSource();
-    fn Commit();
-    fn GetMetadataQueryWriter();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWICBitmapFrameEncodeVtbl(
@@ -1936,12 +1857,6 @@ impl ::core::fmt::Debug for IWICBitmapLock {
 unsafe impl ::windows::core::Interface for IWICBitmapLock {
     type Vtable = IWICBitmapLockVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000123_a8f2_4877_ba0a_fd2b6645fb94);
-}
-pub trait IWICBitmapLockImpl {
-    fn GetSize();
-    fn GetStride();
-    fn GetDataPointer();
-    fn GetPixelFormat();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2044,9 +1959,6 @@ unsafe impl ::windows::core::Interface for IWICBitmapScaler {
     type Vtable = IWICBitmapScalerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000302_a8f2_4877_ba0a_fd2b6645fb94);
 }
-pub trait IWICBitmapScalerImpl: IWICBitmapSourceImpl {
-    fn Initialize();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWICBitmapScalerVtbl(
@@ -2126,13 +2038,6 @@ unsafe impl ::windows::core::Interface for IWICBitmapSource {
     type Vtable = IWICBitmapSourceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000120_a8f2_4877_ba0a_fd2b6645fb94);
 }
-pub trait IWICBitmapSourceImpl {
-    fn GetSize();
-    fn GetPixelFormat();
-    fn GetResolution();
-    fn CopyPalette();
-    fn CopyPixels();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWICBitmapSourceVtbl(
@@ -2207,12 +2112,6 @@ impl ::core::fmt::Debug for IWICBitmapSourceTransform {
 unsafe impl ::windows::core::Interface for IWICBitmapSourceTransform {
     type Vtable = IWICBitmapSourceTransformVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3b16811b_6a43_4ec9_b713_3d5a0c13b940);
-}
-pub trait IWICBitmapSourceTransformImpl {
-    fn CopyPixels();
-    fn GetClosestSize();
-    fn GetClosestPixelFormat();
-    fn DoesSupportTransform();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2297,14 +2196,6 @@ impl ::core::fmt::Debug for IWICColorContext {
 unsafe impl ::windows::core::Interface for IWICColorContext {
     type Vtable = IWICColorContextVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3c613a02_34b2_44ea_9a7c_45aea9c6fd6d);
-}
-pub trait IWICColorContextImpl {
-    fn InitializeFromFilename();
-    fn InitializeFromMemory();
-    fn InitializeFromExifColorSpace();
-    fn GetType();
-    fn GetProfileBytes();
-    fn GetExifColorSpace();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2409,9 +2300,6 @@ impl ::core::fmt::Debug for IWICColorTransform {
 unsafe impl ::windows::core::Interface for IWICColorTransform {
     type Vtable = IWICColorTransformVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb66f034f_d0e2_40ab_b436_6de39e321a94);
-}
-pub trait IWICColorTransformImpl: IWICBitmapSourceImpl {
-    fn Initialize();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2659,15 +2547,6 @@ unsafe impl ::windows::core::Interface for IWICComponentFactory {
     type Vtable = IWICComponentFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x412d0c3a_9650_44fa_af5b_dd2a06c8e8fb);
 }
-pub trait IWICComponentFactoryImpl: IWICImagingFactoryImpl {
-    fn CreateMetadataReader();
-    fn CreateMetadataReaderFromContainer();
-    fn CreateMetadataWriter();
-    fn CreateMetadataWriterFromReader();
-    fn CreateQueryReaderFromBlockReader();
-    fn CreateQueryWriterFromBlockWriter();
-    fn CreateEncoderPropertyBag();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWICComponentFactoryVtbl(
@@ -2800,16 +2679,6 @@ unsafe impl ::windows::core::Interface for IWICComponentInfo {
     type Vtable = IWICComponentInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x23bc3f0a_698b_4357_886b_f24d50671334);
 }
-pub trait IWICComponentInfoImpl {
-    fn GetComponentType();
-    fn GetCLSID();
-    fn GetSigningStatus();
-    fn GetAuthor();
-    fn GetVendorGUID();
-    fn GetVersion();
-    fn GetSpecVersion();
-    fn GetFriendlyName();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWICComponentInfoVtbl(
@@ -2885,10 +2754,6 @@ unsafe impl ::windows::core::Interface for IWICDdsDecoder {
     type Vtable = IWICDdsDecoderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x409cd537_8532_40cb_9774_e2feb2df4e9c);
 }
-pub trait IWICDdsDecoderImpl {
-    fn GetParameters();
-    fn GetFrame();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWICDdsDecoderVtbl(
@@ -2958,11 +2823,6 @@ impl ::core::fmt::Debug for IWICDdsEncoder {
 unsafe impl ::windows::core::Interface for IWICDdsEncoder {
     type Vtable = IWICDdsEncoderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5cacdb4c_407e_41b3_b936_d0f010cd6732);
-}
-pub trait IWICDdsEncoderImpl {
-    fn SetParameters();
-    fn GetParameters();
-    fn CreateNewFrame();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3034,11 +2894,6 @@ impl ::core::fmt::Debug for IWICDdsFrameDecode {
 unsafe impl ::windows::core::Interface for IWICDdsFrameDecode {
     type Vtable = IWICDdsFrameDecodeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3d4c0c61_18a4_41e4_bd80_481a4fc9f464);
-}
-pub trait IWICDdsFrameDecodeImpl {
-    fn GetSizeInBlocks();
-    fn GetFormatInfo();
-    fn CopyBlocks();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3312,40 +3167,6 @@ unsafe impl ::windows::core::Interface for IWICDevelopRaw {
     type Vtable = IWICDevelopRawVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfbec5e44_f7be_4b65_b7f8_c0c81fef026d);
 }
-pub trait IWICDevelopRawImpl: IWICBitmapFrameDecodeImpl + IWICBitmapSourceImpl {
-    fn QueryRawCapabilitiesInfo();
-    fn LoadParameterSet();
-    fn GetCurrentParameterSet();
-    fn SetExposureCompensation();
-    fn GetExposureCompensation();
-    fn SetWhitePointRGB();
-    fn GetWhitePointRGB();
-    fn SetNamedWhitePoint();
-    fn GetNamedWhitePoint();
-    fn SetWhitePointKelvin();
-    fn GetWhitePointKelvin();
-    fn GetKelvinRangeInfo();
-    fn SetContrast();
-    fn GetContrast();
-    fn SetGamma();
-    fn GetGamma();
-    fn SetSharpness();
-    fn GetSharpness();
-    fn SetSaturation();
-    fn GetSaturation();
-    fn SetTint();
-    fn GetTint();
-    fn SetNoiseReduction();
-    fn GetNoiseReduction();
-    fn SetDestinationColorContext();
-    fn SetToneCurve();
-    fn GetToneCurve();
-    fn SetRotation();
-    fn GetRotation();
-    fn SetRenderMode();
-    fn GetRenderMode();
-    fn SetNotificationCallback();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWICDevelopRawVtbl(
@@ -3443,9 +3264,6 @@ unsafe impl ::windows::core::Interface for IWICDevelopRawNotificationCallback {
     type Vtable = IWICDevelopRawNotificationCallbackVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x95c75a6e_3e8c_4ec2_85a8_aebcc551e59b);
 }
-pub trait IWICDevelopRawNotificationCallbackImpl {
-    fn Notify();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWICDevelopRawNotificationCallbackVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, notificationmask: u32) -> ::windows::core::HRESULT);
@@ -3512,12 +3330,6 @@ unsafe impl ::windows::core::Interface for IWICEnumMetadataItem {
     type Vtable = IWICEnumMetadataItemVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdc2bb46d_3f07_481e_8625_220c4aedbb33);
 }
-pub trait IWICEnumMetadataItemImpl {
-    fn Next();
-    fn Skip();
-    fn Reset();
-    fn Clone();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWICEnumMetadataItemVtbl(
@@ -3583,10 +3395,6 @@ impl ::core::fmt::Debug for IWICFastMetadataEncoder {
 unsafe impl ::windows::core::Interface for IWICFastMetadataEncoder {
     type Vtable = IWICFastMetadataEncoderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb84e2c09_78c9_4ac4_8bd3_524ae1663a2f);
-}
-pub trait IWICFastMetadataEncoderImpl {
-    fn Commit();
-    fn GetMetadataQueryWriter();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3692,10 +3500,6 @@ impl ::core::fmt::Debug for IWICFormatConverter {
 unsafe impl ::windows::core::Interface for IWICFormatConverter {
     type Vtable = IWICFormatConverterVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000301_a8f2_4877_ba0a_fd2b6645fb94);
-}
-pub trait IWICFormatConverterImpl: IWICBitmapSourceImpl {
-    fn Initialize();
-    fn CanConvert();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3825,10 +3629,6 @@ impl ::core::fmt::Debug for IWICFormatConverterInfo {
 unsafe impl ::windows::core::Interface for IWICFormatConverterInfo {
     type Vtable = IWICFormatConverterInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9f34fb65_13f4_4f15_bc57_3726b5e53d9f);
-}
-pub trait IWICFormatConverterInfoImpl: IWICComponentInfoImpl {
-    fn GetPixelFormats();
-    fn CreateInstance();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4026,33 +3826,6 @@ unsafe impl ::windows::core::Interface for IWICImagingFactory {
     type Vtable = IWICImagingFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xec5ec8a9_c395_4314_9c77_54d7a935ff70);
 }
-pub trait IWICImagingFactoryImpl {
-    fn CreateDecoderFromFilename();
-    fn CreateDecoderFromStream();
-    fn CreateDecoderFromFileHandle();
-    fn CreateComponentInfo();
-    fn CreateDecoder();
-    fn CreateEncoder();
-    fn CreatePalette();
-    fn CreateFormatConverter();
-    fn CreateBitmapScaler();
-    fn CreateBitmapClipper();
-    fn CreateBitmapFlipRotator();
-    fn CreateStream();
-    fn CreateColorContext();
-    fn CreateColorTransformer();
-    fn CreateBitmap();
-    fn CreateBitmapFromSource();
-    fn CreateBitmapFromSourceRect();
-    fn CreateBitmapFromMemory();
-    fn CreateBitmapFromHBITMAP();
-    fn CreateBitmapFromHICON();
-    fn CreateComponentEnumerator();
-    fn CreateFastMetadataEncoderFromDecoder();
-    fn CreateFastMetadataEncoderFromFrameDecode();
-    fn CreateQueryWriter();
-    fn CreateQueryWriterFromReader();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWICImagingFactoryVtbl(
@@ -4185,18 +3958,6 @@ unsafe impl ::windows::core::Interface for IWICJpegFrameDecode {
     type Vtable = IWICJpegFrameDecodeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8939f66e_c46a_4c21_a9d1_98b327ce1679);
 }
-pub trait IWICJpegFrameDecodeImpl {
-    fn DoesSupportIndexing();
-    fn SetIndexing();
-    fn ClearIndexing();
-    fn GetAcHuffmanTable();
-    fn GetDcHuffmanTable();
-    fn GetQuantizationTable();
-    fn GetFrameHeader();
-    fn GetScanHeader();
-    fn CopyScan();
-    fn CopyMinimalStream();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWICJpegFrameDecodeVtbl(
@@ -4285,12 +4046,6 @@ unsafe impl ::windows::core::Interface for IWICJpegFrameEncode {
     type Vtable = IWICJpegFrameEncodeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2f0c601f_d2c6_468c_abfa_49495d983ed1);
 }
-pub trait IWICJpegFrameEncodeImpl {
-    fn GetAcHuffmanTable();
-    fn GetDcHuffmanTable();
-    fn GetQuantizationTable();
-    fn WriteScan();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWICJpegFrameEncodeVtbl(
@@ -4370,12 +4125,6 @@ impl ::core::fmt::Debug for IWICMetadataBlockReader {
 unsafe impl ::windows::core::Interface for IWICMetadataBlockReader {
     type Vtable = IWICMetadataBlockReaderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfeaa2a8d_b3f3_43e4_b25c_d1de990a1ae1);
-}
-pub trait IWICMetadataBlockReaderImpl {
-    fn GetContainerFormat();
-    fn GetCount();
-    fn GetReaderByIndex();
-    fn GetEnumerator();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4495,13 +4244,6 @@ impl ::core::fmt::Debug for IWICMetadataBlockWriter {
 unsafe impl ::windows::core::Interface for IWICMetadataBlockWriter {
     type Vtable = IWICMetadataBlockWriterVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x08fb9676_b444_41e8_8dbe_6a53a542bff1);
-}
-pub trait IWICMetadataBlockWriterImpl: IWICMetadataBlockReaderImpl {
-    fn InitializeFromBlockReader();
-    fn GetWriterByIndex();
-    fn AddWriter();
-    fn SetWriterByIndex();
-    fn RemoveWriterByIndex();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4662,15 +4404,6 @@ unsafe impl ::windows::core::Interface for IWICMetadataHandlerInfo {
     type Vtable = IWICMetadataHandlerInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaba958bf_c672_44d1_8d61_ce6df2e682c2);
 }
-pub trait IWICMetadataHandlerInfoImpl: IWICComponentInfoImpl {
-    fn GetMetadataFormat();
-    fn GetContainerFormats();
-    fn GetDeviceManufacturer();
-    fn GetDeviceModels();
-    fn DoesRequireFullStream();
-    fn DoesSupportPadding();
-    fn DoesRequireFixedSize();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWICMetadataHandlerInfoVtbl(
@@ -4767,12 +4500,6 @@ impl ::core::fmt::Debug for IWICMetadataQueryReader {
 unsafe impl ::windows::core::Interface for IWICMetadataQueryReader {
     type Vtable = IWICMetadataQueryReaderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x30989668_e1c9_4597_b395_458eedb808df);
-}
-pub trait IWICMetadataQueryReaderImpl {
-    fn GetContainerFormat();
-    fn GetLocation();
-    fn GetMetadataByName();
-    fn GetEnumerator();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4884,10 +4611,6 @@ unsafe impl ::windows::core::Interface for IWICMetadataQueryWriter {
     type Vtable = IWICMetadataQueryWriterVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa721791a_0def_4d06_bd91_2118bf1db10b);
 }
-pub trait IWICMetadataQueryWriterImpl: IWICMetadataQueryReaderImpl {
-    fn SetMetadataByName();
-    fn RemoveMetadataByName();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWICMetadataQueryWriterVtbl(
@@ -4980,14 +4703,6 @@ impl ::core::fmt::Debug for IWICMetadataReader {
 unsafe impl ::windows::core::Interface for IWICMetadataReader {
     type Vtable = IWICMetadataReaderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9204fe99_d8fc_4fd5_a001_9536b067a899);
-}
-pub trait IWICMetadataReaderImpl {
-    fn GetMetadataFormat();
-    fn GetMetadataHandlerInfo();
-    fn GetCount();
-    fn GetValueByIndex();
-    fn GetValue();
-    fn GetEnumerator();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5181,11 +4896,6 @@ unsafe impl ::windows::core::Interface for IWICMetadataReaderInfo {
     type Vtable = IWICMetadataReaderInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeebf1f5b_07c1_4447_a3ab_22acaf78a804);
 }
-pub trait IWICMetadataReaderInfoImpl: IWICMetadataHandlerInfoImpl + IWICComponentInfoImpl {
-    fn GetPatterns();
-    fn MatchesPattern();
-    fn CreateInstance();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWICMetadataReaderInfoVtbl(
@@ -5334,12 +5044,6 @@ impl ::core::fmt::Debug for IWICMetadataWriter {
 unsafe impl ::windows::core::Interface for IWICMetadataWriter {
     type Vtable = IWICMetadataWriterVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf7836e16_3be0_470b_86bb_160d0aecd7de);
-}
-pub trait IWICMetadataWriterImpl: IWICMetadataReaderImpl {
-    fn SetValue();
-    fn SetValueByIndex();
-    fn RemoveValue();
-    fn RemoveValueByIndex();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5534,10 +5238,6 @@ unsafe impl ::windows::core::Interface for IWICMetadataWriterInfo {
     type Vtable = IWICMetadataWriterInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb22e3fba_3925_4323_b5c1_9ebfc430f236);
 }
-pub trait IWICMetadataWriterInfoImpl: IWICMetadataHandlerInfoImpl + IWICComponentInfoImpl {
-    fn GetHeader();
-    fn CreateInstance();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWICMetadataWriterInfoVtbl(
@@ -5665,18 +5365,6 @@ impl ::core::fmt::Debug for IWICPalette {
 unsafe impl ::windows::core::Interface for IWICPalette {
     type Vtable = IWICPaletteVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000040_a8f2_4877_ba0a_fd2b6645fb94);
-}
-pub trait IWICPaletteImpl {
-    fn InitializePredefined();
-    fn InitializeCustom();
-    fn InitializeFromBitmap();
-    fn InitializeFromPalette();
-    fn GetType();
-    fn GetColorCount();
-    fn GetColors();
-    fn IsBlackWhite();
-    fn IsGrayscale();
-    fn HasAlpha();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5830,11 +5518,6 @@ unsafe impl ::windows::core::Interface for IWICPersistStream {
     type Vtable = IWICPersistStreamVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00675040_6908_45f8_86a3_49c7dfd6d9ad);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IWICPersistStreamImpl: IPersistStreamImpl + IPersistImpl {
-    fn LoadEx();
-    fn SaveEx();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWICPersistStreamVtbl(
@@ -5984,13 +5667,6 @@ impl ::core::fmt::Debug for IWICPixelFormatInfo {
 unsafe impl ::windows::core::Interface for IWICPixelFormatInfo {
     type Vtable = IWICPixelFormatInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe8eda601_3d48_431a_ab44_69059be88bbe);
-}
-pub trait IWICPixelFormatInfoImpl: IWICComponentInfoImpl {
-    fn GetFormatGUID();
-    fn GetColorContext();
-    fn GetBitsPerPixel();
-    fn GetChannelCount();
-    fn GetChannelMask();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6176,10 +5852,6 @@ unsafe impl ::windows::core::Interface for IWICPixelFormatInfo2 {
     type Vtable = IWICPixelFormatInfo2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa9db33a2_af5f_43c7_b679_74f5984b5aa4);
 }
-pub trait IWICPixelFormatInfo2Impl: IWICPixelFormatInfoImpl + IWICComponentInfoImpl {
-    fn SupportsTransparency();
-    fn GetNumericRepresentation();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWICPixelFormatInfo2Vtbl(
@@ -6260,10 +5932,6 @@ unsafe impl ::windows::core::Interface for IWICPlanarBitmapFrameEncode {
     type Vtable = IWICPlanarBitmapFrameEncodeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf928b7b8_2221_40c1_b72e_7e82f1974d1a);
 }
-pub trait IWICPlanarBitmapFrameEncodeImpl {
-    fn WritePixels();
-    fn WriteSource();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWICPlanarBitmapFrameEncodeVtbl(
@@ -6326,10 +5994,6 @@ impl ::core::fmt::Debug for IWICPlanarBitmapSourceTransform {
 unsafe impl ::windows::core::Interface for IWICPlanarBitmapSourceTransform {
     type Vtable = IWICPlanarBitmapSourceTransformVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3aff9cce_be95_4303_b927_e7d16ff4a613);
-}
-pub trait IWICPlanarBitmapSourceTransformImpl {
-    fn DoesSupportTransform();
-    fn CopyPixels();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6437,10 +6101,6 @@ unsafe impl ::windows::core::Interface for IWICPlanarFormatConverter {
     type Vtable = IWICPlanarFormatConverterVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbebee9cb_83b0_4dcc_8132_b0aaa55eac96);
 }
-pub trait IWICPlanarFormatConverterImpl: IWICBitmapSourceImpl {
-    fn Initialize();
-    fn CanConvert();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWICPlanarFormatConverterVtbl(
@@ -6505,9 +6165,6 @@ unsafe impl ::windows::core::Interface for IWICProgressCallback {
     type Vtable = IWICProgressCallbackVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4776f9cd_9517_45fa_bf24_e89c5ec5c60c);
 }
-pub trait IWICProgressCallbackImpl {
-    fn Notify();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWICProgressCallbackVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uframenum: u32, operation: WICProgressOperation, dblprogress: f64) -> ::windows::core::HRESULT);
@@ -6569,11 +6226,6 @@ impl ::core::fmt::Debug for IWICProgressiveLevelControl {
 unsafe impl ::windows::core::Interface for IWICProgressiveLevelControl {
     type Vtable = IWICProgressiveLevelControlVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdaac296f_7aa5_4dbf_8d15_225c5976f891);
-}
-pub trait IWICProgressiveLevelControlImpl {
-    fn GetLevelCount();
-    fn GetCurrentLevel();
-    fn SetCurrentLevel();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6755,13 +6407,6 @@ unsafe impl ::windows::core::Interface for IWICStream {
     type Vtable = IWICStreamVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x135ff860_22b7_4ddf_b0f6_218f4f299a43);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IWICStreamImpl: IStreamImpl + ISequentialStreamImpl {
-    fn InitializeFromIStream();
-    fn InitializeFromFilename();
-    fn InitializeFromMemory();
-    fn InitializeFromIStreamRegion();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWICStreamVtbl(
@@ -6862,12 +6507,6 @@ impl ::core::fmt::Debug for IWICStreamProvider {
 unsafe impl ::windows::core::Interface for IWICStreamProvider {
     type Vtable = IWICStreamProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x449494bc_b468_4927_96d7_ba90d31ab505);
-}
-pub trait IWICStreamProviderImpl {
-    fn GetStream();
-    fn GetPersistOptions();
-    fn GetPreferredVendorGUID();
-    fn RefreshStream();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8326,3 +7965,5 @@ pub const WINCODEC_SDK_VERSION: u32 = 567u32;
 pub const WINCODEC_SDK_VERSION1: u32 = 566u32;
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WINCODEC_SDK_VERSION2: u32 = 567u32;
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

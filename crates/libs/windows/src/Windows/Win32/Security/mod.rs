@@ -5532,3 +5532,5 @@ pub const WinAuthenticationKeyPropertyAttestationSid: WELL_KNOWN_SID_TYPE = 117i
 pub const WinAuthenticationFreshKeyAuthSid: WELL_KNOWN_SID_TYPE = 118i32;
 #[doc = "*Required features: 'Win32_Security'*"]
 pub const WinBuiltinDeviceOwnersSid: WELL_KNOWN_SID_TYPE = 119i32;
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

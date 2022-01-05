@@ -132,10 +132,6 @@ unsafe impl ::windows::core::Interface for DDiscFormat2DataEvents {
     type Vtable = DDiscFormat2DataEventsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2735413c_7f64_5b0f_8f00_5d77afbe261e);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait DDiscFormat2DataEventsImpl: IDispatchImpl {
-    fn Update();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct DDiscFormat2DataEventsVtbl(
@@ -248,10 +244,6 @@ impl ::core::fmt::Debug for DDiscFormat2EraseEvents {
 unsafe impl ::windows::core::Interface for DDiscFormat2EraseEvents {
     type Vtable = DDiscFormat2EraseEventsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2735413a_7f64_5b0f_8f00_5d77afbe261e);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait DDiscFormat2EraseEventsImpl: IDispatchImpl {
-    fn Update();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -366,10 +358,6 @@ unsafe impl ::windows::core::Interface for DDiscFormat2RawCDEvents {
     type Vtable = DDiscFormat2RawCDEventsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x27354142_7f64_5b0f_8f00_5d77afbe261e);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait DDiscFormat2RawCDEventsImpl: IDispatchImpl {
-    fn Update();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct DDiscFormat2RawCDEventsVtbl(
@@ -482,10 +470,6 @@ impl ::core::fmt::Debug for DDiscFormat2TrackAtOnceEvents {
 unsafe impl ::windows::core::Interface for DDiscFormat2TrackAtOnceEvents {
     type Vtable = DDiscFormat2TrackAtOnceEventsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2735413f_7f64_5b0f_8f00_5d77afbe261e);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait DDiscFormat2TrackAtOnceEventsImpl: IDispatchImpl {
-    fn Update();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -605,11 +589,6 @@ unsafe impl ::windows::core::Interface for DDiscMaster2Events {
     type Vtable = DDiscMaster2EventsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x27354131_7f64_5b0f_8f00_5d77afbe261e);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait DDiscMaster2EventsImpl: IDispatchImpl {
-    fn NotifyDeviceAdded();
-    fn NotifyDeviceRemoved();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct DDiscMaster2EventsVtbl(
@@ -725,10 +704,6 @@ unsafe impl ::windows::core::Interface for DFileSystemImageEvents {
     type Vtable = DFileSystemImageEventsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2c941fdf_975b_59be_a960_9a2a262853a5);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait DFileSystemImageEventsImpl: IDispatchImpl {
-    fn Update();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct DFileSystemImageEventsVtbl(
@@ -841,10 +816,6 @@ impl ::core::fmt::Debug for DFileSystemImageImportEvents {
 unsafe impl ::windows::core::Interface for DFileSystemImageImportEvents {
     type Vtable = DFileSystemImageImportEventsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd25c30f9_4087_4366_9e24_e55be286424b);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait DFileSystemImageImportEventsImpl: IDispatchImpl {
-    fn UpdateImport();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1311,10 +1282,6 @@ unsafe impl ::windows::core::Interface for DWriteEngine2Events {
     type Vtable = DWriteEngine2EventsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x27354137_7f64_5b0f_8f00_5d77afbe261e);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait DWriteEngine2EventsImpl: IDispatchImpl {
-    fn Update();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct DWriteEngine2EventsVtbl(
@@ -1489,11 +1456,6 @@ unsafe impl ::windows::core::Interface for IBlockRange {
     type Vtable = IBlockRangeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb507ca25_2204_11dd_966a_001aa01bbc58);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IBlockRangeImpl: IDispatchImpl {
-    fn StartLba();
-    fn EndLba();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBlockRangeVtbl(
@@ -1607,10 +1569,6 @@ impl ::core::fmt::Debug for IBlockRangeList {
 unsafe impl ::windows::core::Interface for IBlockRangeList {
     type Vtable = IBlockRangeListVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb507ca26_2204_11dd_966a_001aa01bbc58);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IBlockRangeListImpl: IDispatchImpl {
-    fn BlockRanges();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1765,18 +1723,6 @@ unsafe impl ::windows::core::Interface for IBootOptions {
     type Vtable = IBootOptionsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2c941fd4_975b_59be_a960_9a2a262853a5);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IBootOptionsImpl: IDispatchImpl {
-    fn BootImage();
-    fn Manufacturer();
-    fn SetManufacturer();
-    fn PlatformId();
-    fn SetPlatformId();
-    fn Emulation();
-    fn SetEmulation();
-    fn ImageSize();
-    fn AssignBootImage();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBootOptionsVtbl(
@@ -1858,10 +1804,6 @@ impl ::core::fmt::Debug for IBurnVerification {
 unsafe impl ::windows::core::Interface for IBurnVerification {
     type Vtable = IBurnVerificationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd2ffd834_958b_426d_8470_2a13879c6a91);
-}
-pub trait IBurnVerificationImpl {
-    fn SetBurnVerificationLevel();
-    fn BurnVerificationLevel();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1988,14 +1930,6 @@ impl ::core::fmt::Debug for IDiscFormat2 {
 unsafe impl ::windows::core::Interface for IDiscFormat2 {
     type Vtable = IDiscFormat2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x27354152_8f64_5b0f_8f00_5d77afbe261e);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IDiscFormat2Impl: IDispatchImpl {
-    fn IsRecorderSupported();
-    fn IsCurrentMediaSupported();
-    fn MediaPhysicallyBlank();
-    fn MediaHeuristicallyBlank();
-    fn SupportedMediaTypes();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2311,41 +2245,6 @@ unsafe impl ::windows::core::Interface for IDiscFormat2Data {
     type Vtable = IDiscFormat2DataVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x27354153_9f64_5b0f_8f00_5d77afbe261e);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IDiscFormat2DataImpl: IDiscFormat2Impl + IDispatchImpl {
-    fn SetRecorder();
-    fn Recorder();
-    fn SetBufferUnderrunFreeDisabled();
-    fn BufferUnderrunFreeDisabled();
-    fn SetPostgapAlreadyInImage();
-    fn PostgapAlreadyInImage();
-    fn CurrentMediaStatus();
-    fn WriteProtectStatus();
-    fn TotalSectorsOnMedia();
-    fn FreeSectorsOnMedia();
-    fn NextWritableAddress();
-    fn StartAddressOfPreviousSession();
-    fn LastWrittenAddressOfPreviousSession();
-    fn SetForceMediaToBeClosed();
-    fn ForceMediaToBeClosed();
-    fn SetDisableConsumerDvdCompatibilityMode();
-    fn DisableConsumerDvdCompatibilityMode();
-    fn CurrentPhysicalMediaType();
-    fn SetClientName();
-    fn ClientName();
-    fn RequestedWriteSpeed();
-    fn RequestedRotationTypeIsPureCAV();
-    fn CurrentWriteSpeed();
-    fn CurrentRotationTypeIsPureCAV();
-    fn SupportedWriteSpeeds();
-    fn SupportedWriteSpeedDescriptors();
-    fn SetForceOverwrite();
-    fn ForceOverwrite();
-    fn MultisessionInterfaces();
-    fn Write();
-    fn CancelWrite();
-    fn SetWriteSpeed();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDiscFormat2DataVtbl(
@@ -2571,13 +2470,6 @@ unsafe impl ::windows::core::Interface for IDiscFormat2DataEventArgs {
     type Vtable = IDiscFormat2DataEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2735413d_7f64_5b0f_8f00_5d77afbe261e);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IDiscFormat2DataEventArgsImpl: IWriteEngine2EventArgsImpl + IDispatchImpl {
-    fn ElapsedTime();
-    fn RemainingTime();
-    fn TotalTime();
-    fn CurrentAction();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDiscFormat2DataEventArgsVtbl(
@@ -2778,17 +2670,6 @@ impl ::core::fmt::Debug for IDiscFormat2Erase {
 unsafe impl ::windows::core::Interface for IDiscFormat2Erase {
     type Vtable = IDiscFormat2EraseVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x27354156_8f64_5b0f_8f00_5d77afbe261e);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IDiscFormat2EraseImpl: IDiscFormat2Impl + IDispatchImpl {
-    fn SetRecorder();
-    fn Recorder();
-    fn SetFullErase();
-    fn FullErase();
-    fn CurrentPhysicalMediaType();
-    fn SetClientName();
-    fn ClientName();
-    fn EraseMedia();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3075,33 +2956,6 @@ unsafe impl ::windows::core::Interface for IDiscFormat2RawCD {
     type Vtable = IDiscFormat2RawCDVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x27354155_8f64_5b0f_8f00_5d77afbe261e);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IDiscFormat2RawCDImpl: IDiscFormat2Impl + IDispatchImpl {
-    fn PrepareMedia();
-    fn WriteMedia();
-    fn WriteMedia2();
-    fn CancelWrite();
-    fn ReleaseMedia();
-    fn SetWriteSpeed();
-    fn SetRecorder();
-    fn Recorder();
-    fn SetBufferUnderrunFreeDisabled();
-    fn BufferUnderrunFreeDisabled();
-    fn StartOfNextSession();
-    fn LastPossibleStartOfLeadout();
-    fn CurrentPhysicalMediaType();
-    fn SupportedSectorTypes();
-    fn SetRequestedSectorType();
-    fn RequestedSectorType();
-    fn SetClientName();
-    fn ClientName();
-    fn RequestedWriteSpeed();
-    fn RequestedRotationTypeIsPureCAV();
-    fn CurrentWriteSpeed();
-    fn CurrentRotationTypeIsPureCAV();
-    fn SupportedWriteSpeeds();
-    fn SupportedWriteSpeedDescriptors();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDiscFormat2RawCDVtbl(
@@ -3314,12 +3168,6 @@ impl ::core::fmt::Debug for IDiscFormat2RawCDEventArgs {
 unsafe impl ::windows::core::Interface for IDiscFormat2RawCDEventArgs {
     type Vtable = IDiscFormat2RawCDEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x27354143_7f64_5b0f_8f00_5d77afbe261e);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IDiscFormat2RawCDEventArgsImpl: IWriteEngine2EventArgsImpl + IDispatchImpl {
-    fn CurrentAction();
-    fn ElapsedTime();
-    fn RemainingTime();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3605,34 +3453,6 @@ unsafe impl ::windows::core::Interface for IDiscFormat2TrackAtOnce {
     type Vtable = IDiscFormat2TrackAtOnceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x27354154_8f64_5b0f_8f00_5d77afbe261e);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IDiscFormat2TrackAtOnceImpl: IDiscFormat2Impl + IDispatchImpl {
-    fn PrepareMedia();
-    fn AddAudioTrack();
-    fn CancelAddTrack();
-    fn ReleaseMedia();
-    fn SetWriteSpeed();
-    fn SetRecorder();
-    fn Recorder();
-    fn SetBufferUnderrunFreeDisabled();
-    fn BufferUnderrunFreeDisabled();
-    fn NumberOfExistingTracks();
-    fn TotalSectorsOnMedia();
-    fn FreeSectorsOnMedia();
-    fn UsedSectorsOnMedia();
-    fn SetDoNotFinalizeMedia();
-    fn DoNotFinalizeMedia();
-    fn ExpectedTableOfContents();
-    fn CurrentPhysicalMediaType();
-    fn SetClientName();
-    fn ClientName();
-    fn RequestedWriteSpeed();
-    fn RequestedRotationTypeIsPureCAV();
-    fn CurrentWriteSpeed();
-    fn CurrentRotationTypeIsPureCAV();
-    fn SupportedWriteSpeeds();
-    fn SupportedWriteSpeedDescriptors();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDiscFormat2TrackAtOnceVtbl(
@@ -3851,13 +3671,6 @@ unsafe impl ::windows::core::Interface for IDiscFormat2TrackAtOnceEventArgs {
     type Vtable = IDiscFormat2TrackAtOnceEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x27354140_7f64_5b0f_8f00_5d77afbe261e);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IDiscFormat2TrackAtOnceEventArgsImpl: IWriteEngine2EventArgsImpl + IDispatchImpl {
-    fn CurrentTrackNumber();
-    fn CurrentAction();
-    fn ElapsedTime();
-    fn RemainingTime();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDiscFormat2TrackAtOnceEventArgsVtbl(
@@ -3981,20 +3794,6 @@ impl ::core::fmt::Debug for IDiscMaster {
 unsafe impl ::windows::core::Interface for IDiscMaster {
     type Vtable = IDiscMasterVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x520cca62_51a5_11d3_9144_00104ba11c5e);
-}
-pub trait IDiscMasterImpl {
-    fn Open();
-    fn EnumDiscMasterFormats();
-    fn GetActiveDiscMasterFormat();
-    fn SetActiveDiscMasterFormat();
-    fn EnumDiscRecorders();
-    fn GetActiveDiscRecorder();
-    fn SetActiveDiscRecorder();
-    fn ClearFormatContent();
-    fn ProgressAdvise();
-    fn ProgressUnadvise();
-    fn RecordDisc();
-    fn Close();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4128,13 +3927,6 @@ unsafe impl ::windows::core::Interface for IDiscMaster2 {
     type Vtable = IDiscMaster2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x27354130_7f64_5b0f_8f00_5d77afbe261e);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IDiscMaster2Impl: IDispatchImpl {
-    fn _NewEnum();
-    fn Item();
-    fn Count();
-    fn IsSupportedEnvironment();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDiscMaster2Vtbl(
@@ -4237,17 +4029,6 @@ impl ::core::fmt::Debug for IDiscMasterProgressEvents {
 unsafe impl ::windows::core::Interface for IDiscMasterProgressEvents {
     type Vtable = IDiscMasterProgressEventsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xec9e51c1_4e5d_11d3_9144_00104ba11c5e);
-}
-pub trait IDiscMasterProgressEventsImpl {
-    fn QueryCancel();
-    fn NotifyPnPActivity();
-    fn NotifyAddProgress();
-    fn NotifyBlockProgress();
-    fn NotifyTrackProgress();
-    fn NotifyPreparingBurn();
-    fn NotifyClosingDisc();
-    fn NotifyBurnComplete();
-    fn NotifyEraseComplete();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4379,23 +4160,6 @@ impl ::core::fmt::Debug for IDiscRecorder {
 unsafe impl ::windows::core::Interface for IDiscRecorder {
     type Vtable = IDiscRecorderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x85ac9776_ca88_4cf2_894e_09598c078a41);
-}
-pub trait IDiscRecorderImpl {
-    fn Init();
-    fn GetRecorderGUID();
-    fn GetRecorderType();
-    fn GetDisplayNames();
-    fn GetBasePnPID();
-    fn GetPath();
-    fn GetRecorderProperties();
-    fn SetRecorderProperties();
-    fn GetRecorderState();
-    fn OpenExclusive();
-    fn QueryMediaType();
-    fn QueryMediaInfo();
-    fn Eject();
-    fn Erase();
-    fn Close();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4627,30 +4391,6 @@ unsafe impl ::windows::core::Interface for IDiscRecorder2 {
     type Vtable = IDiscRecorder2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x27354133_7f64_5b0f_8f00_5d77afbe261e);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IDiscRecorder2Impl: IDispatchImpl {
-    fn EjectMedia();
-    fn CloseTray();
-    fn AcquireExclusiveAccess();
-    fn ReleaseExclusiveAccess();
-    fn DisableMcn();
-    fn EnableMcn();
-    fn InitializeDiscRecorder();
-    fn ActiveDiscRecorder();
-    fn VendorId();
-    fn ProductId();
-    fn ProductRevision();
-    fn VolumeName();
-    fn VolumePathNames();
-    fn DeviceCanLoadMedia();
-    fn LegacyDeviceNumber();
-    fn SupportedFeaturePages();
-    fn CurrentFeaturePages();
-    fn SupportedProfiles();
-    fn CurrentProfiles();
-    fn SupportedModePages();
-    fn ExclusiveAccessOwner();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDiscRecorder2Vtbl(
@@ -4824,26 +4564,6 @@ unsafe impl ::windows::core::Interface for IDiscRecorder2Ex {
     type Vtable = IDiscRecorder2ExVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x27354132_7f64_5b0f_8f00_5d77afbe261e);
 }
-pub trait IDiscRecorder2ExImpl {
-    fn SendCommandNoData();
-    fn SendCommandSendDataToDevice();
-    fn SendCommandGetDataFromDevice();
-    fn ReadDvdStructure();
-    fn SendDvdStructure();
-    fn GetAdapterDescriptor();
-    fn GetDeviceDescriptor();
-    fn GetDiscInformation();
-    fn GetTrackInformation();
-    fn GetFeaturePage();
-    fn GetModePage();
-    fn SetModePage();
-    fn GetSupportedFeaturePages();
-    fn GetSupportedProfiles();
-    fn GetSupportedModePages();
-    fn GetByteAlignmentMask();
-    fn GetMaximumNonPageAlignedTransferSize();
-    fn GetMaximumPageAlignedTransferSize();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDiscRecorder2ExVtbl(
@@ -4934,12 +4654,6 @@ unsafe impl ::windows::core::Interface for IEnumDiscMasterFormats {
     type Vtable = IEnumDiscMasterFormatsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xddf445e1_54ba_11d3_9144_00104ba11c5e);
 }
-pub trait IEnumDiscMasterFormatsImpl {
-    fn Next();
-    fn Skip();
-    fn Reset();
-    fn Clone();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumDiscMasterFormatsVtbl(
@@ -5012,12 +4726,6 @@ impl ::core::fmt::Debug for IEnumDiscRecorders {
 unsafe impl ::windows::core::Interface for IEnumDiscRecorders {
     type Vtable = IEnumDiscRecordersVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9b1921e1_54ac_11d3_9144_00104ba11c5e);
-}
-pub trait IEnumDiscRecordersImpl {
-    fn Next();
-    fn Skip();
-    fn Reset();
-    fn Clone();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5092,12 +4800,6 @@ unsafe impl ::windows::core::Interface for IEnumFsiItems {
     type Vtable = IEnumFsiItemsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2c941fda_975b_59be_a960_9a2a262853a5);
 }
-pub trait IEnumFsiItemsImpl {
-    fn Next();
-    fn Skip();
-    fn Reset();
-    fn Clone();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumFsiItemsVtbl(
@@ -5170,12 +4872,6 @@ impl ::core::fmt::Debug for IEnumProgressItems {
 unsafe impl ::windows::core::Interface for IEnumProgressItems {
     type Vtable = IEnumProgressItemsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2c941fd6_975b_59be_a960_9a2a262853a5);
-}
-pub trait IEnumProgressItemsImpl {
-    fn Next();
-    fn Skip();
-    fn Reset();
-    fn Clone();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5526,59 +5222,6 @@ impl ::core::fmt::Debug for IFileSystemImage {
 unsafe impl ::windows::core::Interface for IFileSystemImage {
     type Vtable = IFileSystemImageVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2c941fe1_975b_59be_a960_9a2a262853a5);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IFileSystemImageImpl: IDispatchImpl {
-    fn Root();
-    fn SessionStartBlock();
-    fn SetSessionStartBlock();
-    fn FreeMediaBlocks();
-    fn SetFreeMediaBlocks();
-    fn SetMaxMediaBlocksFromDevice();
-    fn UsedBlocks();
-    fn VolumeName();
-    fn SetVolumeName();
-    fn ImportedVolumeName();
-    fn BootImageOptions();
-    fn SetBootImageOptions();
-    fn FileCount();
-    fn DirectoryCount();
-    fn WorkingDirectory();
-    fn SetWorkingDirectory();
-    fn ChangePoint();
-    fn StrictFileSystemCompliance();
-    fn SetStrictFileSystemCompliance();
-    fn UseRestrictedCharacterSet();
-    fn SetUseRestrictedCharacterSet();
-    fn FileSystemsToCreate();
-    fn SetFileSystemsToCreate();
-    fn FileSystemsSupported();
-    fn SetUDFRevision();
-    fn UDFRevision();
-    fn UDFRevisionsSupported();
-    fn ChooseImageDefaults();
-    fn ChooseImageDefaultsForMediaType();
-    fn SetISO9660InterchangeLevel();
-    fn ISO9660InterchangeLevel();
-    fn ISO9660InterchangeLevelsSupported();
-    fn CreateResultImage();
-    fn Exists();
-    fn CalculateDiscIdentifier();
-    fn IdentifyFileSystemsOnDisc();
-    fn GetDefaultFileSystemForImport();
-    fn ImportFileSystem();
-    fn ImportSpecificFileSystem();
-    fn RollbackToChangePoint();
-    fn LockInChangePoint();
-    fn CreateDirectoryItem();
-    fn CreateFileItem();
-    fn VolumeNameUDF();
-    fn VolumeNameJoliet();
-    fn VolumeNameISO9660();
-    fn StageFiles();
-    fn SetStageFiles();
-    fn MultisessionInterfaces();
-    fn SetMultisessionInterfaces();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6030,11 +5673,6 @@ impl ::core::fmt::Debug for IFileSystemImage2 {
 unsafe impl ::windows::core::Interface for IFileSystemImage2 {
     type Vtable = IFileSystemImage2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd7644b2c_1537_4767_b62f_f1387b02ddfd);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IFileSystemImage2Impl: IFileSystemImageImpl + IDispatchImpl {
-    fn BootImageOptionsArray();
-    fn SetBootImageOptionsArray();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6525,12 +6163,6 @@ unsafe impl ::windows::core::Interface for IFileSystemImage3 {
     type Vtable = IFileSystemImage3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7cff842c_7e97_4807_8304_910dd8f7c051);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IFileSystemImage3Impl: IFileSystemImage2Impl + IFileSystemImageImpl + IDispatchImpl {
-    fn CreateRedundantUdfMetadataFiles();
-    fn SetCreateRedundantUdfMetadataFiles();
-    fn ProbeSpecificFileSystem();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFileSystemImage3Vtbl(
@@ -6737,14 +6369,6 @@ unsafe impl ::windows::core::Interface for IFileSystemImageResult {
     type Vtable = IFileSystemImageResultVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2c941fd8_975b_59be_a960_9a2a262853a5);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IFileSystemImageResultImpl: IDispatchImpl {
-    fn ImageStream();
-    fn ProgressItems();
-    fn TotalBlocks();
-    fn BlockSize();
-    fn DiscId();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFileSystemImageResultVtbl(
@@ -6909,10 +6533,6 @@ impl ::core::fmt::Debug for IFileSystemImageResult2 {
 unsafe impl ::windows::core::Interface for IFileSystemImageResult2 {
     type Vtable = IFileSystemImageResult2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb507ca29_2204_11dd_966a_001aa01bbc58);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IFileSystemImageResult2Impl: IFileSystemImageResultImpl + IDispatchImpl {
-    fn ModifiedBlocks();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7158,19 +6778,6 @@ impl ::core::fmt::Debug for IFsiDirectoryItem {
 unsafe impl ::windows::core::Interface for IFsiDirectoryItem {
     type Vtable = IFsiDirectoryItemVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2c941fdc_975b_59be_a960_9a2a262853a5);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IFsiDirectoryItemImpl: IFsiItemImpl + IDispatchImpl {
-    fn _NewEnum();
-    fn Item();
-    fn Count();
-    fn EnumFsiItems();
-    fn AddDirectory();
-    fn AddFile();
-    fn AddTree();
-    fn Add();
-    fn Remove();
-    fn RemoveTree();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7467,10 +7074,6 @@ unsafe impl ::windows::core::Interface for IFsiDirectoryItem2 {
     type Vtable = IFsiDirectoryItem2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf7fb4b9b_6d96_4d7b_9115_201b144811ef);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IFsiDirectoryItem2Impl: IFsiDirectoryItemImpl + IFsiItemImpl + IDispatchImpl {
-    fn AddTreeWithNamedStreams();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFsiDirectoryItem2Vtbl(
@@ -7717,14 +7320,6 @@ impl ::core::fmt::Debug for IFsiFileItem {
 unsafe impl ::windows::core::Interface for IFsiFileItem {
     type Vtable = IFsiFileItemVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2c941fdb_975b_59be_a960_9a2a262853a5);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IFsiFileItemImpl: IFsiItemImpl + IDispatchImpl {
-    fn DataSize();
-    fn DataSize32BitLow();
-    fn DataSize32BitHigh();
-    fn Data();
-    fn SetData();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8010,15 +7605,6 @@ unsafe impl ::windows::core::Interface for IFsiFileItem2 {
     type Vtable = IFsiFileItem2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x199d0c19_11e1_40eb_8ec2_c8c822a07792);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IFsiFileItem2Impl: IFsiFileItemImpl + IFsiItemImpl + IDispatchImpl {
-    fn FsiNamedStreams();
-    fn IsNamedStream();
-    fn AddStream();
-    fn RemoveStream();
-    fn IsRealTime();
-    fn SetIsRealTime();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFsiFileItem2Vtbl(
@@ -8216,21 +7802,6 @@ unsafe impl ::windows::core::Interface for IFsiItem {
     type Vtable = IFsiItemVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2c941fd9_975b_59be_a960_9a2a262853a5);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IFsiItemImpl: IDispatchImpl {
-    fn Name();
-    fn FullPath();
-    fn CreationTime();
-    fn SetCreationTime();
-    fn LastAccessedTime();
-    fn SetLastAccessedTime();
-    fn LastModifiedTime();
-    fn SetLastModifiedTime();
-    fn IsHidden();
-    fn SetIsHidden();
-    fn FileSystemName();
-    fn FileSystemPath();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFsiItemVtbl(
@@ -8374,13 +7945,6 @@ unsafe impl ::windows::core::Interface for IFsiNamedStreams {
     type Vtable = IFsiNamedStreamsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xed79ba56_5294_4250_8d46_f9aecee23459);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IFsiNamedStreamsImpl: IDispatchImpl {
-    fn _NewEnum();
-    fn Item();
-    fn Count();
-    fn EnumNamedStreams();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFsiNamedStreamsVtbl(
@@ -8518,14 +8082,6 @@ unsafe impl ::windows::core::Interface for IIsoImageManager {
     type Vtable = IIsoImageManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6ca38be5_fbbb_4800_95a1_a438865eb0d4);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IIsoImageManagerImpl: IDispatchImpl {
-    fn Path();
-    fn Stream();
-    fn SetPath();
-    fn SetStream();
-    fn Validate();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IIsoImageManagerVtbl(
@@ -8625,14 +8181,6 @@ impl ::core::fmt::Debug for IJolietDiscMaster {
 unsafe impl ::windows::core::Interface for IJolietDiscMaster {
     type Vtable = IJolietDiscMasterVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe3bc42ce_4e5c_11d3_9144_00104ba11c5e);
-}
-pub trait IJolietDiscMasterImpl {
-    fn GetTotalDataBlocks();
-    fn GetUsedDataBlocks();
-    fn GetDataBlockSize();
-    fn AddData();
-    fn GetJolietProperties();
-    fn SetJolietProperties();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9494,13 +9042,6 @@ unsafe impl ::windows::core::Interface for IMultisession {
     type Vtable = IMultisessionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x27354150_7f64_5b0f_8f00_5d77afbe261e);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IMultisessionImpl: IDispatchImpl {
-    fn IsSupportedOnCurrentMediaState();
-    fn SetInUse();
-    fn InUse();
-    fn ImportRecorder();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMultisessionVtbl(
@@ -9664,12 +9205,6 @@ impl ::core::fmt::Debug for IMultisessionRandomWrite {
 unsafe impl ::windows::core::Interface for IMultisessionRandomWrite {
     type Vtable = IMultisessionRandomWriteVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb507ca23_2204_11dd_966a_001aa01bbc58);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IMultisessionRandomWriteImpl: IMultisessionImpl + IDispatchImpl {
-    fn WriteUnitSize();
-    fn LastWrittenAddress();
-    fn TotalSectorsOnMedia();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9847,14 +9382,6 @@ impl ::core::fmt::Debug for IMultisessionSequential {
 unsafe impl ::windows::core::Interface for IMultisessionSequential {
     type Vtable = IMultisessionSequentialVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x27354151_7f64_5b0f_8f00_5d77afbe261e);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IMultisessionSequentialImpl: IMultisessionImpl + IDispatchImpl {
-    fn IsFirstDataSession();
-    fn StartAddressOfPreviousSession();
-    fn LastWrittenAddressOfPreviousSession();
-    fn NextWritableAddress();
-    fn FreeSectorsOnMedia();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -10060,10 +9587,6 @@ unsafe impl ::windows::core::Interface for IMultisessionSequential2 {
     type Vtable = IMultisessionSequential2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb507ca22_2204_11dd_966a_001aa01bbc58);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IMultisessionSequential2Impl: IMultisessionSequentialImpl + IMultisessionImpl + IDispatchImpl {
-    fn WriteUnitSize();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMultisessionSequential2Vtbl(
@@ -10200,13 +9723,6 @@ impl ::core::fmt::Debug for IProgressItem {
 unsafe impl ::windows::core::Interface for IProgressItem {
     type Vtable = IProgressItemVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2c941fd5_975b_59be_a960_9a2a262853a5);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IProgressItemImpl: IDispatchImpl {
-    fn Description();
-    fn FirstBlock();
-    fn LastBlock();
-    fn BlockCount();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -10350,15 +9866,6 @@ impl ::core::fmt::Debug for IProgressItems {
 unsafe impl ::windows::core::Interface for IProgressItems {
     type Vtable = IProgressItemsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2c941fd7_975b_59be_a960_9a2a262853a5);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IProgressItemsImpl: IDispatchImpl {
-    fn _NewEnum();
-    fn Item();
-    fn Count();
-    fn ProgressItemFromBlock();
-    fn ProgressItemFromDescription();
-    fn EnumProgressItems();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -10569,28 +10076,6 @@ unsafe impl ::windows::core::Interface for IRawCDImageCreator {
     type Vtable = IRawCDImageCreatorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x25983550_9d65_49ce_b335_40630d901227);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IRawCDImageCreatorImpl: IDispatchImpl {
-    fn CreateResultImage();
-    fn AddTrack();
-    fn AddSpecialPregap();
-    fn AddSubcodeRWGenerator();
-    fn SetResultingImageType();
-    fn ResultingImageType();
-    fn StartOfLeadout();
-    fn SetStartOfLeadoutLimit();
-    fn StartOfLeadoutLimit();
-    fn SetDisableGaplessAudio();
-    fn DisableGaplessAudio();
-    fn SetMediaCatalogNumber();
-    fn MediaCatalogNumber();
-    fn SetStartingTrackNumber();
-    fn StartingTrackNumber();
-    fn TrackInfo();
-    fn NumberOfExistingTracks();
-    fn LastUsedUserSectorInImage();
-    fn ExpectedTableOfContents();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRawCDImageCreatorVtbl(
@@ -10786,22 +10271,6 @@ unsafe impl ::windows::core::Interface for IRawCDImageTrackInfo {
     type Vtable = IRawCDImageTrackInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x25983551_9d65_49ce_b335_40630d901227);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IRawCDImageTrackInfoImpl: IDispatchImpl {
-    fn StartingLba();
-    fn SectorCount();
-    fn TrackNumber();
-    fn SectorType();
-    fn ISRC();
-    fn SetISRC();
-    fn DigitalAudioCopySetting();
-    fn SetDigitalAudioCopySetting();
-    fn AudioHasPreemphasis();
-    fn SetAudioHasPreemphasis();
-    fn TrackIndexes();
-    fn AddTrackIndex();
-    fn ClearTrackIndex();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRawCDImageTrackInfoVtbl(
@@ -10914,16 +10383,6 @@ impl ::core::fmt::Debug for IRedbookDiscMaster {
 unsafe impl ::windows::core::Interface for IRedbookDiscMaster {
     type Vtable = IRedbookDiscMasterVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe3bc42cd_4e5c_11d3_9144_00104ba11c5e);
-}
-pub trait IRedbookDiscMasterImpl {
-    fn GetTotalAudioTracks();
-    fn GetTotalAudioBlocks();
-    fn GetUsedAudioBlocks();
-    fn GetAvailableAudioTrackBlocks();
-    fn GetAudioBlockSize();
-    fn CreateAudioTrack();
-    fn AddAudioTrackBlocks();
-    fn CloseAudioTrack();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -11110,13 +10569,6 @@ impl ::core::fmt::Debug for IStreamConcatenate {
 unsafe impl ::windows::core::Interface for IStreamConcatenate {
     type Vtable = IStreamConcatenateVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x27354146_7f64_5b0f_8f00_5d77afbe261e);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IStreamConcatenateImpl: IStreamImpl + ISequentialStreamImpl {
-    fn Initialize();
-    fn Initialize2();
-    fn Append();
-    fn Append2();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -11310,10 +10762,6 @@ impl ::core::fmt::Debug for IStreamInterleave {
 unsafe impl ::windows::core::Interface for IStreamInterleave {
     type Vtable = IStreamInterleaveVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x27354147_7f64_5b0f_8f00_5d77afbe261e);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IStreamInterleaveImpl: IStreamImpl + ISequentialStreamImpl {
-    fn Initialize();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -11514,13 +10962,6 @@ unsafe impl ::windows::core::Interface for IStreamPseudoRandomBased {
     type Vtable = IStreamPseudoRandomBasedVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x27354145_7f64_5b0f_8f00_5d77afbe261e);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IStreamPseudoRandomBasedImpl: IStreamImpl + ISequentialStreamImpl {
-    fn SetSeed();
-    fn Seed();
-    fn SetExtendedSeed();
-    fn ExtendedSeed();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IStreamPseudoRandomBasedVtbl(
@@ -11704,22 +11145,6 @@ unsafe impl ::windows::core::Interface for IWriteEngine2 {
     type Vtable = IWriteEngine2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x27354135_7f64_5b0f_8f00_5d77afbe261e);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IWriteEngine2Impl: IDispatchImpl {
-    fn WriteSection();
-    fn CancelWrite();
-    fn SetRecorder();
-    fn Recorder();
-    fn SetUseStreamingWrite12();
-    fn UseStreamingWrite12();
-    fn SetStartingSectorsPerSecond();
-    fn StartingSectorsPerSecond();
-    fn SetEndingSectorsPerSecond();
-    fn EndingSectorsPerSecond();
-    fn SetBytesPerSector();
-    fn BytesPerSector();
-    fn WriteInProgress();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWriteEngine2Vtbl(
@@ -11875,16 +11300,6 @@ unsafe impl ::windows::core::Interface for IWriteEngine2EventArgs {
     type Vtable = IWriteEngine2EventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x27354136_7f64_5b0f_8f00_5d77afbe261e);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IWriteEngine2EventArgsImpl: IDispatchImpl {
-    fn StartLba();
-    fn SectorCount();
-    fn LastReadLba();
-    fn LastWrittenLba();
-    fn TotalSystemBuffer();
-    fn UsedSystemBuffer();
-    fn FreeSystemBuffer();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWriteEngine2EventArgsVtbl(
@@ -12012,12 +11427,6 @@ impl ::core::fmt::Debug for IWriteSpeedDescriptor {
 unsafe impl ::windows::core::Interface for IWriteSpeedDescriptor {
     type Vtable = IWriteSpeedDescriptorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x27354144_7f64_5b0f_8f00_5d77afbe261e);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IWriteSpeedDescriptorImpl: IDispatchImpl {
-    fn MediaType();
-    fn RotationTypeIsPureCAV();
-    fn WriteSpeed();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -12314,3 +11723,5 @@ pub const tagIMMPID_MP_STRUCT: ::windows::core::GUID = ::windows::core::GUID::fr
 pub const tagIMMPID_NMP_STRUCT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7433a9aa_20e2_11d2_94d6_00c04fa379f1);
 pub const tagIMMPID_RPV_STRUCT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x79e82049_d320_11d1_9ff4_00c04fa37348);
 pub const tagIMMPID_RP_STRUCT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x79e82048_d320_11d1_9ff4_00c04fa37348);
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

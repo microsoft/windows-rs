@@ -894,3 +894,5 @@ pub const c_DwmMaxAdapters: u32 = 16u32;
 pub const c_DwmMaxMonitors: u32 = 16u32;
 #[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
 pub const c_DwmMaxQueuedBuffers: u32 = 8u32;
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

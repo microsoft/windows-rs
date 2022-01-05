@@ -18489,3 +18489,5 @@ impl ::core::default::Default for tcp_opt_ws {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

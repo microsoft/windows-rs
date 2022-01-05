@@ -167,15 +167,6 @@ unsafe impl ::windows::core::Interface for IAddAppointmentOperation {
     type Vtable = IAddAppointmentOperationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xec4a9af3_620d_4c69_add7_9794e918081f);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IAddAppointmentOperationImpl {
-    fn AppointmentInformation();
-    fn SourcePackageFamilyName();
-    fn ReportCompleted();
-    fn ReportCanceled();
-    fn ReportError();
-    fn DismissUI();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAddAppointmentOperationVtbl(
@@ -199,13 +190,6 @@ unsafe impl ::windows::core::Interface for IAppointmentsProviderLaunchActionVerb
     type Vtable = IAppointmentsProviderLaunchActionVerbsStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x36dbba28_9e2e_49c6_8ef7_3ab7a5dcc8b8);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IAppointmentsProviderLaunchActionVerbsStaticsImpl {
-    fn AddAppointment();
-    fn ReplaceAppointment();
-    fn RemoveAppointment();
-    fn ShowTimeFrame();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppointmentsProviderLaunchActionVerbsStaticsVtbl(
@@ -227,10 +211,6 @@ unsafe impl ::windows::core::Interface for IAppointmentsProviderLaunchActionVerb
     type Vtable = IAppointmentsProviderLaunchActionVerbsStatics2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xef9049a4_af21_473c_88dc_76cd89f60ca5);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IAppointmentsProviderLaunchActionVerbsStatics2Impl {
-    fn ShowAppointmentDetails();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppointmentsProviderLaunchActionVerbsStatics2Vtbl(
@@ -248,16 +228,6 @@ pub struct IRemoveAppointmentOperation(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IRemoveAppointmentOperation {
     type Vtable = IRemoveAppointmentOperationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x08b66aba_fe33_46cd_a50c_a8ffb3260537);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IRemoveAppointmentOperationImpl {
-    fn AppointmentId();
-    fn InstanceStartDate();
-    fn SourcePackageFamilyName();
-    fn ReportCompleted();
-    fn ReportCanceled();
-    fn ReportError();
-    fn DismissUI();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -283,17 +253,6 @@ pub struct IReplaceAppointmentOperation(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IReplaceAppointmentOperation {
     type Vtable = IReplaceAppointmentOperationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf4903d9b_9e61_4de2_a732_2687c07d1de8);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IReplaceAppointmentOperationImpl {
-    fn AppointmentId();
-    fn AppointmentInformation();
-    fn InstanceStartDate();
-    fn SourcePackageFamilyName();
-    fn ReportCompleted();
-    fn ReportCanceled();
-    fn ReportError();
-    fn DismissUI();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -558,3 +517,5 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Repl
 }
 unsafe impl ::core::marker::Send for ReplaceAppointmentOperation {}
 unsafe impl ::core::marker::Sync for ReplaceAppointmentOperation {}
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

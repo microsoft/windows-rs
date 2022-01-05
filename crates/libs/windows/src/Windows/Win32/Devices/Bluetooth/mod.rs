@@ -3727,3 +3727,5 @@ pub const WAPClientServiceClassID_UUID16: u32 = 4372u32;
 pub const WAPServiceClassID_UUID16: u32 = 4371u32;
 #[doc = "*Required features: 'Win32_Devices_Bluetooth'*"]
 pub const WSP_PROTOCOL_UUID16: u32 = 14u32;
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

@@ -496,57 +496,6 @@ unsafe impl ::windows::core::Interface for IInertiaProcessor {
     type Vtable = IInertiaProcessorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x18b00c6d_c5ee_41b1_90a9_9d4a929095ad);
 }
-pub trait IInertiaProcessorImpl {
-    fn InitialOriginX();
-    fn SetInitialOriginX();
-    fn InitialOriginY();
-    fn SetInitialOriginY();
-    fn InitialVelocityX();
-    fn SetInitialVelocityX();
-    fn InitialVelocityY();
-    fn SetInitialVelocityY();
-    fn InitialAngularVelocity();
-    fn SetInitialAngularVelocity();
-    fn InitialExpansionVelocity();
-    fn SetInitialExpansionVelocity();
-    fn InitialRadius();
-    fn SetInitialRadius();
-    fn BoundaryLeft();
-    fn SetBoundaryLeft();
-    fn BoundaryTop();
-    fn SetBoundaryTop();
-    fn BoundaryRight();
-    fn SetBoundaryRight();
-    fn BoundaryBottom();
-    fn SetBoundaryBottom();
-    fn ElasticMarginLeft();
-    fn SetElasticMarginLeft();
-    fn ElasticMarginTop();
-    fn SetElasticMarginTop();
-    fn ElasticMarginRight();
-    fn SetElasticMarginRight();
-    fn ElasticMarginBottom();
-    fn SetElasticMarginBottom();
-    fn DesiredDisplacement();
-    fn SetDesiredDisplacement();
-    fn DesiredRotation();
-    fn SetDesiredRotation();
-    fn DesiredExpansion();
-    fn SetDesiredExpansion();
-    fn DesiredDeceleration();
-    fn SetDesiredDeceleration();
-    fn DesiredAngularDeceleration();
-    fn SetDesiredAngularDeceleration();
-    fn DesiredExpansionDeceleration();
-    fn SetDesiredExpansionDeceleration();
-    fn InitialTimestamp();
-    fn SetInitialTimestamp();
-    fn Reset();
-    fn Process();
-    fn ProcessTime();
-    fn Complete();
-    fn CompleteTime();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInertiaProcessorVtbl(
@@ -742,29 +691,6 @@ impl ::core::fmt::Debug for IManipulationProcessor {
 unsafe impl ::windows::core::Interface for IManipulationProcessor {
     type Vtable = IManipulationProcessorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa22ac519_8300_48a0_bef4_f1be8737dba4);
-}
-pub trait IManipulationProcessorImpl {
-    fn SupportedManipulations();
-    fn SetSupportedManipulations();
-    fn PivotPointX();
-    fn SetPivotPointX();
-    fn PivotPointY();
-    fn SetPivotPointY();
-    fn PivotRadius();
-    fn SetPivotRadius();
-    fn CompleteManipulation();
-    fn ProcessDown();
-    fn ProcessMove();
-    fn ProcessUp();
-    fn ProcessDownWithTime();
-    fn ProcessMoveWithTime();
-    fn ProcessUpWithTime();
-    fn GetVelocityX();
-    fn GetVelocityY();
-    fn GetExpansionVelocity();
-    fn GetAngularVelocity();
-    fn MinimumScaleRotateRadius();
-    fn SetMinimumScaleRotateRadius();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1021,11 +947,6 @@ unsafe impl ::windows::core::Interface for _IManipulationEvents {
     type Vtable = _IManipulationEventsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4f62c8da_9c53_4b22_93df_927a862bbb03);
 }
-pub trait _IManipulationEventsImpl {
-    fn ManipulationStarted();
-    fn ManipulationDelta();
-    fn ManipulationCompleted();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct _IManipulationEventsVtbl(
@@ -1036,3 +957,5 @@ pub struct _IManipulationEventsVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, x: f32, y: f32, translationdeltax: f32, translationdeltay: f32, scaledelta: f32, expansiondelta: f32, rotationdelta: f32, cumulativetranslationx: f32, cumulativetranslationy: f32, cumulativescale: f32, cumulativeexpansion: f32, cumulativerotation: f32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, x: f32, y: f32, cumulativetranslationx: f32, cumulativetranslationy: f32, cumulativescale: f32, cumulativeexpansion: f32, cumulativerotation: f32) -> ::windows::core::HRESULT,
 );
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

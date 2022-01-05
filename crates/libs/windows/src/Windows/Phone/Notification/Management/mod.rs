@@ -1738,53 +1738,6 @@ unsafe impl ::windows::core::Interface for IAccessoryManager {
     type Vtable = IAccessoryManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0d04a12c_883d_4aa7_bca7_fa4bb8bffee6);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IAccessoryManagerImpl {
-    fn RegisterAccessoryApp();
-    fn GetNextTriggerDetails();
-    fn ProcessTriggerDetails();
-    fn PhoneLineDetails();
-    fn GetPhoneLineDetails();
-    fn AcceptPhoneCall();
-    fn AcceptPhoneCallOnEndpoint();
-    fn AcceptPhoneCallWithVideo();
-    fn AcceptPhoneCallWithVideoOnAudioEndpoint();
-    fn RejectPhoneCall();
-    fn RejectPhoneCallWithText();
-    fn MakePhoneCall();
-    fn MakePhoneCallOnAudioEndpoint();
-    fn MakePhoneCallWithVideo();
-    fn MakePhoneCallWithVideoOnAudioEndpoint();
-    fn SwapPhoneCalls();
-    fn HoldPhoneCall();
-    fn EndPhoneCall();
-    fn SetPhoneMute();
-    fn PhoneMute();
-    fn SetPhoneCallAudioEndpoint();
-    fn PhoneCallAudioEndpoint();
-    fn SnoozeAlarm();
-    fn SnoozeAlarmForSpecifiedTime();
-    fn DismissAlarm();
-    fn SnoozeReminder();
-    fn SnoozeReminderForSpecifiedTime();
-    fn DismissReminder();
-    fn GetMediaMetadata();
-    fn MediaPlaybackCapabilities();
-    fn MediaPlaybackStatus();
-    fn PerformMediaPlaybackCommand();
-    fn DoNotDisturbEnabled();
-    fn DrivingModeEnabled();
-    fn BatterySaverState();
-    fn GetApps();
-    fn EnableNotificationsForApplication();
-    fn DisableNotificationsForApplication();
-    fn IsNotificationEnabledForApplication();
-    fn GetEnabledAccessoryNotificationTypes();
-    fn EnableAccessoryNotificationTypes();
-    fn DisableAllAccessoryNotificationTypes();
-    fn GetUserConsent();
-    fn GetAppIcon();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAccessoryManagerVtbl(
@@ -1851,24 +1804,6 @@ unsafe impl ::windows::core::Interface for IAccessoryManager2 {
     type Vtable = IAccessoryManager2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbacad44d_d393_46c6_b80c_15fdf44d5386);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IAccessoryManager2Impl {
-    fn RingDevice();
-    fn SpeedDialList();
-    fn ClearToast();
-    fn IsPhonePinLocked();
-    fn IncreaseVolume();
-    fn DecreaseVolume();
-    fn SetMute();
-    fn SetRingerVibrate();
-    fn VolumeInfo();
-    fn GetAllEmailAccounts();
-    fn GetFolders();
-    fn EnableEmailNotificationEmailAccount();
-    fn DisableEmailNotificationEmailAccount();
-    fn EnableEmailNotificationFolderFilter();
-    fn UpdateEmailReadStatus();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAccessoryManager2Vtbl(
@@ -1904,13 +1839,6 @@ pub struct IAccessoryManager3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAccessoryManager3 {
     type Vtable = IAccessoryManager3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x81f75137_edc7_47e0_b2f7_7e577c833f7d);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IAccessoryManager3Impl {
-    fn SnoozeAlarmByInstanceId();
-    fn DismissAlarmByInstanceId();
-    fn SnoozeReminderByInstanceId();
-    fn DismissReminderByInstanceId();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2040,14 +1968,6 @@ unsafe impl ::windows::core::Interface for IAccessoryNotificationTriggerDetails 
     type Vtable = IAccessoryNotificationTriggerDetailsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6968a7d4_e3ca_49cb_8c87_2c11cdff9646);
 }
-pub trait IAccessoryNotificationTriggerDetailsImpl {
-    fn TimeCreated();
-    fn AppDisplayName();
-    fn AppId();
-    fn AccessoryNotificationType();
-    fn StartedProcessing();
-    fn SetStartedProcessing();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAccessoryNotificationTriggerDetailsVtbl(
@@ -2072,13 +1992,6 @@ unsafe impl ::windows::core::Interface for IAlarmNotificationTriggerDetails {
     type Vtable = IAlarmNotificationTriggerDetailsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x38f5fa30_c738_4da2_908c_775d83c36abb);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IAlarmNotificationTriggerDetailsImpl: IAccessoryNotificationTriggerDetailsImpl {
-    fn AlarmId();
-    fn Title();
-    fn Timestamp();
-    fn ReminderState();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAlarmNotificationTriggerDetailsVtbl(
@@ -2101,10 +2014,6 @@ unsafe impl ::windows::core::Interface for IAlarmNotificationTriggerDetails2 {
     type Vtable = IAlarmNotificationTriggerDetails2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcf16e06a_7155_40fe_a9c2_7bd2127ef853);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IAlarmNotificationTriggerDetails2Impl {
-    fn InstanceId();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAlarmNotificationTriggerDetails2Vtbl(
@@ -2122,11 +2031,6 @@ pub struct IAppNotificationInfo(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppNotificationInfo {
     type Vtable = IAppNotificationInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2157bea5_e286_45d3_9bea_f790fc216e0e);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IAppNotificationInfoImpl {
-    fn Id();
-    fn Name();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2147,11 +2051,6 @@ unsafe impl ::windows::core::Interface for IBinaryId {
     type Vtable = IBinaryIdVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4f0da531_5595_44b4_9181_ce4efa3fc168);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IBinaryIdImpl {
-    fn Id();
-    fn Length();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBinaryIdVtbl(
@@ -2171,11 +2070,6 @@ unsafe impl ::windows::core::Interface for ICalendarChangedNotificationTriggerDe
     type Vtable = ICalendarChangedNotificationTriggerDetailsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4b8a3bfc_279d_42ab_9c68_3e87977bf216);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ICalendarChangedNotificationTriggerDetailsImpl: IAccessoryNotificationTriggerDetailsImpl {
-    fn EventType();
-    fn ItemId();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICalendarChangedNotificationTriggerDetailsVtbl(
@@ -2194,19 +2088,6 @@ pub struct ICortanaTileNotificationTriggerDetails(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICortanaTileNotificationTriggerDetails {
     type Vtable = ICortanaTileNotificationTriggerDetailsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdc0f01d5_1489_46bb_b73b_7f90067ecf27);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ICortanaTileNotificationTriggerDetailsImpl: IAccessoryNotificationTriggerDetailsImpl {
-    fn TileId();
-    fn Content();
-    fn LargeContent1();
-    fn LargeContent2();
-    fn EmphasizedText();
-    fn NonWrappedSmallContent1();
-    fn NonWrappedSmallContent2();
-    fn NonWrappedSmallContent3();
-    fn NonWrappedSmallContent4();
-    fn Source();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2235,11 +2116,6 @@ unsafe impl ::windows::core::Interface for IEmailAccountInfo {
     type Vtable = IEmailAccountInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdfbc02ab_bda0_4568_927e_b2ede35818a1);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IEmailAccountInfoImpl {
-    fn DisplayName();
-    fn IsNotificationEnabled();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEmailAccountInfoVtbl(
@@ -2259,11 +2135,6 @@ unsafe impl ::windows::core::Interface for IEmailFolderInfo {
     type Vtable = IEmailFolderInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc207150e_e237_46d6_90e6_4f529eeac1e2);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IEmailFolderInfoImpl {
-    fn DisplayName();
-    fn IsNotificationEnabled();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEmailFolderInfoVtbl(
@@ -2282,15 +2153,6 @@ pub struct IEmailNotificationTriggerDetails(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IEmailNotificationTriggerDetails {
     type Vtable = IEmailNotificationTriggerDetailsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf3b82612_46cf_4e70_8e0d_7b2e04ab492b);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IEmailNotificationTriggerDetailsImpl: IAccessoryNotificationTriggerDetailsImpl {
-    fn AccountName();
-    fn ParentFolderName();
-    fn SenderName();
-    fn SenderAddress();
-    fn EmailMessage();
-    fn Timestamp();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2317,10 +2179,6 @@ unsafe impl ::windows::core::Interface for IEmailNotificationTriggerDetails2 {
     type Vtable = IEmailNotificationTriggerDetails2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x168067e3_c56f_4ec7_bed1_f734e08de5b2);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IEmailNotificationTriggerDetails2Impl: IAccessoryNotificationTriggerDetailsImpl {
-    fn MessageEntryId();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEmailNotificationTriggerDetails2Vtbl(
@@ -2338,13 +2196,6 @@ pub struct IEmailReadNotificationTriggerDetails(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IEmailReadNotificationTriggerDetails {
     type Vtable = IEmailReadNotificationTriggerDetailsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf5b7a087_06f3_4e3e_8c42_325e67010413);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IEmailReadNotificationTriggerDetailsImpl: IAccessoryNotificationTriggerDetailsImpl {
-    fn AccountName();
-    fn ParentFolderName();
-    fn MessageEntryId();
-    fn IsRead();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2367,11 +2218,6 @@ unsafe impl ::windows::core::Interface for IMediaControlsTriggerDetails {
     type Vtable = IMediaControlsTriggerDetailsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfab4648b_ae45_4548_91ca_4ab0548e33b5);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IMediaControlsTriggerDetailsImpl: IAccessoryNotificationTriggerDetailsImpl {
-    fn PlaybackStatus();
-    fn MediaMetadata();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaControlsTriggerDetailsVtbl(
@@ -2390,16 +2236,6 @@ pub struct IMediaMetadata(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMediaMetadata {
     type Vtable = IMediaMetadataVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9b50ddf7_bb6c_4330_b3cd_0704a54cdb80);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IMediaMetadataImpl {
-    fn Title();
-    fn Subtitle();
-    fn Artist();
-    fn Album();
-    fn Track();
-    fn Duration();
-    fn Thumbnail();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2426,21 +2262,6 @@ pub struct IPhoneCallDetails(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPhoneCallDetails {
     type Vtable = IPhoneCallDetailsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0c1b6f53_f071_483e_bf33_ebd44b724447);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IPhoneCallDetailsImpl {
-    fn PhoneLine();
-    fn CallId();
-    fn CallTransport();
-    fn CallMediaType();
-    fn CallDirection();
-    fn State();
-    fn ConferenceCallId();
-    fn StartTime();
-    fn EndTime();
-    fn PhoneNumber();
-    fn ContactName();
-    fn PresetTextResponses();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2474,15 +2295,6 @@ unsafe impl ::windows::core::Interface for IPhoneLineDetails {
     type Vtable = IPhoneLineDetailsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x47eb32dc_33ed_49b9_995c_a296bac82b77);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IPhoneLineDetailsImpl {
-    fn LineId();
-    fn DisplayName();
-    fn LineNumber();
-    fn DefaultOutgoingLine();
-    fn VoicemailCount();
-    fn RegistrationState();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPhoneLineDetailsVtbl(
@@ -2506,10 +2318,6 @@ unsafe impl ::windows::core::Interface for IPhoneLineDetails2 {
     type Vtable = IPhoneLineDetails2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb30cd77d_0147_498c_8241_bf0cabc60a25);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IPhoneLineDetails2Impl {
-    fn MissedCallCount();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPhoneLineDetails2Vtbl(
@@ -2527,12 +2335,6 @@ pub struct IPhoneNotificationTriggerDetails(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPhoneNotificationTriggerDetails {
     type Vtable = IPhoneNotificationTriggerDetailsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xccc2fdf7_09c3_4118_91bc_ca6323a8d383);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IPhoneNotificationTriggerDetailsImpl: IAccessoryNotificationTriggerDetailsImpl {
-    fn PhoneNotificationType();
-    fn CallDetails();
-    fn PhoneLineChangedId();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2553,16 +2355,6 @@ pub struct IReminderNotificationTriggerDetails(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IReminderNotificationTriggerDetails {
     type Vtable = IReminderNotificationTriggerDetailsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5bddaa5d_9f61_4bf0_9feb_10502bc0b0c2);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IReminderNotificationTriggerDetailsImpl: IAccessoryNotificationTriggerDetailsImpl {
-    fn ReminderId();
-    fn Title();
-    fn Description();
-    fn Details();
-    fn Timestamp();
-    fn Appointment();
-    fn ReminderState();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2590,10 +2382,6 @@ unsafe impl ::windows::core::Interface for IReminderNotificationTriggerDetails2 
     type Vtable = IReminderNotificationTriggerDetails2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe715f9c0_504d_4c0f_a6b3_bcb9722c6cdd);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IReminderNotificationTriggerDetails2Impl {
-    fn InstanceId();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IReminderNotificationTriggerDetails2Vtbl(
@@ -2611,12 +2399,6 @@ pub struct ISpeedDialEntry(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISpeedDialEntry {
     type Vtable = ISpeedDialEntryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9240b6db_872c_46dc_b62a_be4541b166f8);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ISpeedDialEntryImpl {
-    fn PhoneNumber();
-    fn NumberType();
-    fn ContactName();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2638,11 +2420,6 @@ unsafe impl ::windows::core::Interface for ITextResponse {
     type Vtable = ITextResponseVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe9cb74c3_2457_4cdb_8110_72f5e8e883e8);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ITextResponseImpl {
-    fn Id();
-    fn Content();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITextResponseVtbl(
@@ -2661,14 +2438,6 @@ pub struct IToastNotificationTriggerDetails(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IToastNotificationTriggerDetails {
     type Vtable = IToastNotificationTriggerDetailsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc9314895_4e6d_4e9d_afec_9e921b875ae8);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IToastNotificationTriggerDetailsImpl: IAccessoryNotificationTriggerDetailsImpl {
-    fn Text1();
-    fn Text2();
-    fn Text3();
-    fn Text4();
-    fn SuppressPopup();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2692,10 +2461,6 @@ unsafe impl ::windows::core::Interface for IToastNotificationTriggerDetails2 {
     type Vtable = IToastNotificationTriggerDetails2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3e0479dd_cac4_4f60_afa3_b925d9d83c93);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IToastNotificationTriggerDetails2Impl {
-    fn InstanceId();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IToastNotificationTriggerDetails2Vtbl(
@@ -2713,14 +2478,6 @@ pub struct IVolumeInfo(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IVolumeInfo {
     type Vtable = IVolumeInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x944dd118_7704_4481_b92e_d3ed3ece6322);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IVolumeInfoImpl {
-    fn SystemVolume();
-    fn CallVolume();
-    fn MediaVolume();
-    fn IsMuted();
-    fn IsVibrateEnabled();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4621,3 +4378,5 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Volu
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

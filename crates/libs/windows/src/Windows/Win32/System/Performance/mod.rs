@@ -162,8 +162,6 @@ unsafe impl ::windows::core::Interface for DICounterItem {
     type Vtable = DICounterItemVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc08c4ff2_0e2e_11cf_942c_008029004347);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait DICounterItemImpl: IDispatchImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct DICounterItemVtbl(
@@ -275,8 +273,6 @@ unsafe impl ::windows::core::Interface for DILogFileItem {
     type Vtable = DILogFileItemVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8d093ffc_f777_4917_82d1_833fbc54c58f);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait DILogFileItemImpl: IDispatchImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct DILogFileItemVtbl(
@@ -383,8 +379,6 @@ unsafe impl ::windows::core::Interface for DISystemMonitor {
     type Vtable = DISystemMonitorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x13d73d81_c32e_11cf_9398_00aa00a3ddea);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait DISystemMonitorImpl: IDispatchImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct DISystemMonitorVtbl(
@@ -491,8 +485,6 @@ unsafe impl ::windows::core::Interface for DISystemMonitorEvents {
     type Vtable = DISystemMonitorEventsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x84979930_4ab3_11cf_943a_008029004347);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait DISystemMonitorEventsImpl: IDispatchImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct DISystemMonitorEventsVtbl(
@@ -599,8 +591,6 @@ unsafe impl ::windows::core::Interface for DISystemMonitorInternal {
     type Vtable = DISystemMonitorInternalVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x194eb242_c32c_11cf_9398_00aa00a3ddea);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait DISystemMonitorInternalImpl: IDispatchImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct DISystemMonitorInternalVtbl(
@@ -1022,25 +1012,6 @@ unsafe impl ::windows::core::Interface for IAlertDataCollector {
     type Vtable = IAlertDataCollectorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x03837516_098b_11d8_9414_505054503030);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IAlertDataCollectorImpl: IDataCollectorImpl + IDispatchImpl {
-    fn AlertThresholds();
-    fn SetAlertThresholds();
-    fn EventLog();
-    fn SetEventLog();
-    fn SampleInterval();
-    fn SetSampleInterval();
-    fn Task();
-    fn SetTask();
-    fn TaskRunAsSelf();
-    fn SetTaskRunAsSelf();
-    fn TaskArguments();
-    fn SetTaskArguments();
-    fn TaskUserTextArguments();
-    fn SetTaskUserTextArguments();
-    fn TriggerDataCollectorSet();
-    fn SetTriggerDataCollectorSet();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAlertDataCollectorVtbl(
@@ -1429,23 +1400,6 @@ impl ::core::fmt::Debug for IApiTracingDataCollector {
 unsafe impl ::windows::core::Interface for IApiTracingDataCollector {
     type Vtable = IApiTracingDataCollectorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0383751a_098b_11d8_9414_505054503030);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IApiTracingDataCollectorImpl: IDataCollectorImpl + IDispatchImpl {
-    fn LogApiNamesOnly();
-    fn SetLogApiNamesOnly();
-    fn LogApisRecursively();
-    fn SetLogApisRecursively();
-    fn ExePath();
-    fn SetExePath();
-    fn LogFilePath();
-    fn SetLogFilePath();
-    fn IncludeModules();
-    fn SetIncludeModules();
-    fn IncludeApis();
-    fn SetIncludeApis();
-    fn ExcludeApis();
-    fn SetExcludeApis();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1850,27 +1804,6 @@ unsafe impl ::windows::core::Interface for IConfigurationDataCollector {
     type Vtable = IConfigurationDataCollectorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x03837514_098b_11d8_9414_505054503030);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IConfigurationDataCollectorImpl: IDataCollectorImpl + IDispatchImpl {
-    fn FileMaxCount();
-    fn SetFileMaxCount();
-    fn FileMaxRecursiveDepth();
-    fn SetFileMaxRecursiveDepth();
-    fn FileMaxTotalSize();
-    fn SetFileMaxTotalSize();
-    fn Files();
-    fn SetFiles();
-    fn ManagementQueries();
-    fn SetManagementQueries();
-    fn QueryNetworkAdapters();
-    fn SetQueryNetworkAdapters();
-    fn RegistryKeys();
-    fn SetRegistryKeys();
-    fn RegistryMaxRecursiveDepth();
-    fn SetRegistryMaxRecursiveDepth();
-    fn SystemStateFile();
-    fn SetSystemStateFile();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IConfigurationDataCollectorVtbl(
@@ -2049,20 +1982,6 @@ unsafe impl ::windows::core::Interface for ICounterItem {
     type Vtable = ICounterItemVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x771a9520_ee28_11ce_941e_008029004347);
 }
-pub trait ICounterItemImpl {
-    fn Value();
-    fn SetColor();
-    fn Color();
-    fn SetWidth();
-    fn Width();
-    fn SetLineStyle();
-    fn LineStyle();
-    fn SetScaleFactor();
-    fn ScaleFactor();
-    fn Path();
-    fn GetValue();
-    fn GetStatistics();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICounterItemVtbl(
@@ -2227,13 +2146,6 @@ unsafe impl ::windows::core::Interface for ICounterItem2 {
     type Vtable = ICounterItem2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeefcd4e1_ea1c_4435_b7f4_e341ba03b4f9);
 }
-pub trait ICounterItem2Impl: ICounterItemImpl {
-    fn SetSelected();
-    fn Selected();
-    fn SetVisible();
-    fn Visible();
-    fn GetDataAt();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICounterItem2Vtbl(
@@ -2377,14 +2289,6 @@ impl ::core::fmt::Debug for ICounters {
 unsafe impl ::windows::core::Interface for ICounters {
     type Vtable = ICountersVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x79167962_28fc_11cf_942f_008029004347);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait ICountersImpl: IDispatchImpl {
-    fn Count();
-    fn _NewEnum();
-    fn Item();
-    fn Add();
-    fn Remove();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2627,34 +2531,6 @@ unsafe impl ::windows::core::Interface for IDataCollector {
     type Vtable = IDataCollectorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x038374ff_098b_11d8_9414_505054503030);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IDataCollectorImpl: IDispatchImpl {
-    fn DataCollectorSet();
-    fn SetDataCollectorSet();
-    fn DataCollectorType();
-    fn FileName();
-    fn SetFileName();
-    fn FileNameFormat();
-    fn SetFileNameFormat();
-    fn FileNameFormatPattern();
-    fn SetFileNameFormatPattern();
-    fn LatestOutputLocation();
-    fn SetLatestOutputLocation();
-    fn LogAppend();
-    fn SetLogAppend();
-    fn LogCircular();
-    fn SetLogCircular();
-    fn LogOverwrite();
-    fn SetLogOverwrite();
-    fn Name();
-    fn SetName();
-    fn OutputLocation();
-    fn Index();
-    fn SetIndex();
-    fn Xml();
-    fn SetXml();
-    fn CreateOutputLocation();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDataCollectorVtbl(
@@ -2840,18 +2716,6 @@ impl ::core::fmt::Debug for IDataCollectorCollection {
 unsafe impl ::windows::core::Interface for IDataCollectorCollection {
     type Vtable = IDataCollectorCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x03837502_098b_11d8_9414_505054503030);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IDataCollectorCollectionImpl: IDispatchImpl {
-    fn Count();
-    fn Item();
-    fn _NewEnum();
-    fn Add();
-    fn Remove();
-    fn Clear();
-    fn AddRange();
-    fn CreateDataCollectorFromXml();
-    fn CreateDataCollector();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3280,69 +3144,6 @@ unsafe impl ::windows::core::Interface for IDataCollectorSet {
     type Vtable = IDataCollectorSetVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x03837520_098b_11d8_9414_505054503030);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IDataCollectorSetImpl: IDispatchImpl {
-    fn DataCollectors();
-    fn Duration();
-    fn SetDuration();
-    fn Description();
-    fn SetDescription();
-    fn DescriptionUnresolved();
-    fn DisplayName();
-    fn SetDisplayName();
-    fn DisplayNameUnresolved();
-    fn Keywords();
-    fn SetKeywords();
-    fn LatestOutputLocation();
-    fn SetLatestOutputLocation();
-    fn Name();
-    fn OutputLocation();
-    fn RootPath();
-    fn SetRootPath();
-    fn Segment();
-    fn SetSegment();
-    fn SegmentMaxDuration();
-    fn SetSegmentMaxDuration();
-    fn SegmentMaxSize();
-    fn SetSegmentMaxSize();
-    fn SerialNumber();
-    fn SetSerialNumber();
-    fn Server();
-    fn Status();
-    fn Subdirectory();
-    fn SetSubdirectory();
-    fn SubdirectoryFormat();
-    fn SetSubdirectoryFormat();
-    fn SubdirectoryFormatPattern();
-    fn SetSubdirectoryFormatPattern();
-    fn Task();
-    fn SetTask();
-    fn TaskRunAsSelf();
-    fn SetTaskRunAsSelf();
-    fn TaskArguments();
-    fn SetTaskArguments();
-    fn TaskUserTextArguments();
-    fn SetTaskUserTextArguments();
-    fn Schedules();
-    fn SchedulesEnabled();
-    fn SetSchedulesEnabled();
-    fn UserAccount();
-    fn Xml();
-    fn Security();
-    fn SetSecurity();
-    fn StopOnCompletion();
-    fn SetStopOnCompletion();
-    fn DataManager();
-    fn SetCredentials();
-    fn Query();
-    fn Commit();
-    fn Delete();
-    fn Start();
-    fn Stop();
-    fn SetXml();
-    fn SetValue();
-    fn GetValue();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDataCollectorSetVtbl(
@@ -3581,17 +3382,6 @@ impl ::core::fmt::Debug for IDataCollectorSetCollection {
 unsafe impl ::windows::core::Interface for IDataCollectorSetCollection {
     type Vtable = IDataCollectorSetCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x03837524_098b_11d8_9414_505054503030);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IDataCollectorSetCollectionImpl: IDispatchImpl {
-    fn Count();
-    fn Item();
-    fn _NewEnum();
-    fn Add();
-    fn Remove();
-    fn Clear();
-    fn AddRange();
-    fn GetDataCollectorSets();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3835,34 +3625,6 @@ unsafe impl ::windows::core::Interface for IDataManager {
     type Vtable = IDataManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x03837541_098b_11d8_9414_505054503030);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IDataManagerImpl: IDispatchImpl {
-    fn Enabled();
-    fn SetEnabled();
-    fn CheckBeforeRunning();
-    fn SetCheckBeforeRunning();
-    fn MinFreeDisk();
-    fn SetMinFreeDisk();
-    fn MaxSize();
-    fn SetMaxSize();
-    fn MaxFolderCount();
-    fn SetMaxFolderCount();
-    fn ResourcePolicy();
-    fn SetResourcePolicy();
-    fn FolderActions();
-    fn ReportSchema();
-    fn SetReportSchema();
-    fn ReportFileName();
-    fn SetReportFileName();
-    fn RuleTargetFileName();
-    fn SetRuleTargetFileName();
-    fn EventsFileName();
-    fn SetEventsFileName();
-    fn Rules();
-    fn SetRules();
-    fn Run();
-    fn Extract();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDataManagerVtbl(
@@ -4044,17 +3806,6 @@ unsafe impl ::windows::core::Interface for IFolderAction {
     type Vtable = IFolderActionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x03837543_098b_11d8_9414_505054503030);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IFolderActionImpl: IDispatchImpl {
-    fn Age();
-    fn SetAge();
-    fn Size();
-    fn SetSize();
-    fn Actions();
-    fn SetActions();
-    fn SendCabTo();
-    fn SetSendCabTo();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFolderActionVtbl(
@@ -4209,17 +3960,6 @@ unsafe impl ::windows::core::Interface for IFolderActionCollection {
     type Vtable = IFolderActionCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x03837544_098b_11d8_9414_505054503030);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IFolderActionCollectionImpl: IDispatchImpl {
-    fn Count();
-    fn Item();
-    fn _NewEnum();
-    fn Add();
-    fn Remove();
-    fn Clear();
-    fn AddRange();
-    fn CreateFolderAction();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFolderActionCollectionVtbl(
@@ -4295,9 +4035,6 @@ impl ::core::fmt::Debug for ILogFileItem {
 unsafe impl ::windows::core::Interface for ILogFileItem {
     type Vtable = ILogFileItemVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd6b518dd_05c7_418a_89e6_4f9ce8c6841e);
-}
-pub trait ILogFileItemImpl {
-    fn Path();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4425,14 +4162,6 @@ impl ::core::fmt::Debug for ILogFiles {
 unsafe impl ::windows::core::Interface for ILogFiles {
     type Vtable = ILogFilesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6a2a97e6_6851_41ea_87ad_2a8225335865);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait ILogFilesImpl: IDispatchImpl {
-    fn Count();
-    fn _NewEnum();
-    fn Item();
-    fn Add();
-    fn Remove();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4744,19 +4473,6 @@ unsafe impl ::windows::core::Interface for IPerformanceCounterDataCollector {
     type Vtable = IPerformanceCounterDataCollectorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x03837506_098b_11d8_9414_505054503030);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IPerformanceCounterDataCollectorImpl: IDataCollectorImpl + IDispatchImpl {
-    fn DataSourceName();
-    fn SetDataSourceName();
-    fn PerformanceCounters();
-    fn SetPerformanceCounters();
-    fn LogFileFormat();
-    fn SetLogFileFormat();
-    fn SampleInterval();
-    fn SetSampleInterval();
-    fn SegmentMaxRecords();
-    fn SetSegmentMaxRecords();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPerformanceCounterDataCollectorVtbl(
@@ -4956,17 +4672,6 @@ unsafe impl ::windows::core::Interface for ISchedule {
     type Vtable = IScheduleVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0383753a_098b_11d8_9414_505054503030);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IScheduleImpl: IDispatchImpl {
-    fn StartDate();
-    fn SetStartDate();
-    fn EndDate();
-    fn SetEndDate();
-    fn StartTime();
-    fn SetStartTime();
-    fn Days();
-    fn SetDays();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IScheduleVtbl(
@@ -5124,17 +4829,6 @@ impl ::core::fmt::Debug for IScheduleCollection {
 unsafe impl ::windows::core::Interface for IScheduleCollection {
     type Vtable = IScheduleCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0383753d_098b_11d8_9414_505054503030);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IScheduleCollectionImpl: IDispatchImpl {
-    fn Count();
-    fn Item();
-    fn _NewEnum();
-    fn Add();
-    fn Remove();
-    fn Clear();
-    fn AddRange();
-    fn CreateSchedule();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5558,84 +5252,6 @@ impl ::core::fmt::Debug for ISystemMonitor {
 unsafe impl ::windows::core::Interface for ISystemMonitor {
     type Vtable = ISystemMonitorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x194eb241_c32c_11cf_9398_00aa00a3ddea);
-}
-pub trait ISystemMonitorImpl {
-    fn Appearance();
-    fn SetAppearance();
-    fn BackColor();
-    fn SetBackColor();
-    fn BorderStyle();
-    fn SetBorderStyle();
-    fn ForeColor();
-    fn SetForeColor();
-    fn Font();
-    fn putref_Font();
-    fn Counters();
-    fn SetShowVerticalGrid();
-    fn ShowVerticalGrid();
-    fn SetShowHorizontalGrid();
-    fn ShowHorizontalGrid();
-    fn SetShowLegend();
-    fn ShowLegend();
-    fn SetShowScaleLabels();
-    fn ShowScaleLabels();
-    fn SetShowValueBar();
-    fn ShowValueBar();
-    fn SetMaximumScale();
-    fn MaximumScale();
-    fn SetMinimumScale();
-    fn MinimumScale();
-    fn SetUpdateInterval();
-    fn UpdateInterval();
-    fn SetDisplayType();
-    fn DisplayType();
-    fn SetManualUpdate();
-    fn ManualUpdate();
-    fn SetGraphTitle();
-    fn GraphTitle();
-    fn SetYAxisLabel();
-    fn YAxisLabel();
-    fn CollectSample();
-    fn UpdateGraph();
-    fn BrowseCounters();
-    fn DisplayProperties();
-    fn Counter();
-    fn AddCounter();
-    fn DeleteCounter();
-    fn BackColorCtl();
-    fn SetBackColorCtl();
-    fn SetLogFileName();
-    fn LogFileName();
-    fn SetLogViewStart();
-    fn LogViewStart();
-    fn SetLogViewStop();
-    fn LogViewStop();
-    fn GridColor();
-    fn SetGridColor();
-    fn TimeBarColor();
-    fn SetTimeBarColor();
-    fn Highlight();
-    fn SetHighlight();
-    fn ShowToolbar();
-    fn SetShowToolbar();
-    fn Paste();
-    fn Copy();
-    fn Reset();
-    fn SetReadOnly();
-    fn ReadOnly();
-    fn SetReportValueType();
-    fn ReportValueType();
-    fn SetMonitorDuplicateInstances();
-    fn MonitorDuplicateInstances();
-    fn SetDisplayFilter();
-    fn DisplayFilter();
-    fn LogFiles();
-    fn SetDataSourceType();
-    fn DataSourceType();
-    fn SetSqlDsnName();
-    fn SqlDsnName();
-    fn SetSqlLogSetName();
-    fn SqlLogSetName();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6241,28 +5857,6 @@ unsafe impl ::windows::core::Interface for ISystemMonitor2 {
     type Vtable = ISystemMonitor2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x08e3206a_5fd2_4fde_a8a5_8cb3b63d2677);
 }
-pub trait ISystemMonitor2Impl: ISystemMonitorImpl {
-    fn SetEnableDigitGrouping();
-    fn EnableDigitGrouping();
-    fn SetEnableToolTips();
-    fn EnableToolTips();
-    fn SetShowTimeAxisLabels();
-    fn ShowTimeAxisLabels();
-    fn SetChartScroll();
-    fn ChartScroll();
-    fn SetDataPointCount();
-    fn DataPointCount();
-    fn ScaleToFit();
-    fn SaveAs();
-    fn Relog();
-    fn ClearData();
-    fn LogSourceStartTime();
-    fn LogSourceStopTime();
-    fn SetLogViewRange();
-    fn GetLogViewRange();
-    fn BatchingLock();
-    fn LoadSettings();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISystemMonitor2Vtbl(
@@ -6446,13 +6040,6 @@ impl ::core::fmt::Debug for ISystemMonitorEvents {
 unsafe impl ::windows::core::Interface for ISystemMonitorEvents {
     type Vtable = ISystemMonitorEventsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xee660ea0_4abd_11cf_943a_008029004347);
-}
-pub trait ISystemMonitorEventsImpl {
-    fn OnCounterSelected();
-    fn OnCounterAdded();
-    fn OnCounterDeleted();
-    fn OnSampleCollected();
-    fn OnDblClick();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6887,49 +6474,6 @@ unsafe impl ::windows::core::Interface for ITraceDataCollector {
     type Vtable = ITraceDataCollectorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0383750b_098b_11d8_9414_505054503030);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait ITraceDataCollectorImpl: IDataCollectorImpl + IDispatchImpl {
-    fn BufferSize();
-    fn SetBufferSize();
-    fn BuffersLost();
-    fn SetBuffersLost();
-    fn BuffersWritten();
-    fn SetBuffersWritten();
-    fn ClockType();
-    fn SetClockType();
-    fn EventsLost();
-    fn SetEventsLost();
-    fn ExtendedModes();
-    fn SetExtendedModes();
-    fn FlushTimer();
-    fn SetFlushTimer();
-    fn FreeBuffers();
-    fn SetFreeBuffers();
-    fn Guid();
-    fn SetGuid();
-    fn IsKernelTrace();
-    fn MaximumBuffers();
-    fn SetMaximumBuffers();
-    fn MinimumBuffers();
-    fn SetMinimumBuffers();
-    fn NumberOfBuffers();
-    fn SetNumberOfBuffers();
-    fn PreallocateFile();
-    fn SetPreallocateFile();
-    fn ProcessMode();
-    fn SetProcessMode();
-    fn RealTimeBuffersLost();
-    fn SetRealTimeBuffersLost();
-    fn SessionId();
-    fn SetSessionId();
-    fn SessionName();
-    fn SetSessionName();
-    fn SessionThreadId();
-    fn SetSessionThreadId();
-    fn StreamMode();
-    fn SetStreamMode();
-    fn TraceDataProviders();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITraceDataCollectorVtbl(
@@ -7210,28 +6754,6 @@ unsafe impl ::windows::core::Interface for ITraceDataProvider {
     type Vtable = ITraceDataProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x03837512_098b_11d8_9414_505054503030);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait ITraceDataProviderImpl: IDispatchImpl {
-    fn DisplayName();
-    fn SetDisplayName();
-    fn Guid();
-    fn SetGuid();
-    fn Level();
-    fn KeywordsAny();
-    fn KeywordsAll();
-    fn Properties();
-    fn FilterEnabled();
-    fn SetFilterEnabled();
-    fn FilterType();
-    fn SetFilterType();
-    fn FilterData();
-    fn SetFilterData();
-    fn Query();
-    fn Resolve();
-    fn SetSecurity();
-    fn GetSecurity();
-    fn GetRegisteredProcesses();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITraceDataProviderVtbl(
@@ -7412,19 +6934,6 @@ impl ::core::fmt::Debug for ITraceDataProviderCollection {
 unsafe impl ::windows::core::Interface for ITraceDataProviderCollection {
     type Vtable = ITraceDataProviderCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x03837510_098b_11d8_9414_505054503030);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait ITraceDataProviderCollectionImpl: IDispatchImpl {
-    fn Count();
-    fn Item();
-    fn _NewEnum();
-    fn Add();
-    fn Remove();
-    fn Clear();
-    fn AddRange();
-    fn CreateTraceDataProvider();
-    fn GetTraceDataProviders();
-    fn GetTraceDataProvidersByProcess();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7616,23 +7125,6 @@ unsafe impl ::windows::core::Interface for IValueMap {
     type Vtable = IValueMapVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x03837534_098b_11d8_9414_505054503030);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IValueMapImpl: IDispatchImpl {
-    fn Count();
-    fn Item();
-    fn _NewEnum();
-    fn Description();
-    fn SetDescription();
-    fn Value();
-    fn SetValue();
-    fn ValueMapType();
-    fn SetValueMapType();
-    fn Add();
-    fn Remove();
-    fn Clear();
-    fn AddRange();
-    fn CreateValueMapItem();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IValueMapVtbl(
@@ -7810,19 +7302,6 @@ impl ::core::fmt::Debug for IValueMapItem {
 unsafe impl ::windows::core::Interface for IValueMapItem {
     type Vtable = IValueMapItemVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x03837533_098b_11d8_9414_505054503030);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IValueMapItemImpl: IDispatchImpl {
-    fn Description();
-    fn SetDescription();
-    fn Enabled();
-    fn SetEnabled();
-    fn Key();
-    fn SetKey();
-    fn Value();
-    fn SetValue();
-    fn ValueMapType();
-    fn SetValueMapType();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -12865,25 +12344,6 @@ unsafe impl ::windows::core::Interface for _ICounterItemUnion {
     type Vtable = _ICounterItemUnionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xde1a6b74_9182_4c41_8e2c_24c2cd30ee83);
 }
-pub trait _ICounterItemUnionImpl {
-    fn Value();
-    fn SetColor();
-    fn Color();
-    fn SetWidth();
-    fn Width();
-    fn SetLineStyle();
-    fn LineStyle();
-    fn SetScaleFactor();
-    fn ScaleFactor();
-    fn Path();
-    fn GetValue();
-    fn GetStatistics();
-    fn SetSelected();
-    fn Selected();
-    fn SetVisible();
-    fn Visible();
-    fn GetDataAt();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct _ICounterItemUnionVtbl(
@@ -13398,104 +12858,6 @@ unsafe impl ::windows::core::Interface for _ISystemMonitorUnion {
     type Vtable = _ISystemMonitorUnionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc8a77338_265f_4de5_aa25_c7da1ce5a8f4);
 }
-pub trait _ISystemMonitorUnionImpl {
-    fn Appearance();
-    fn SetAppearance();
-    fn BackColor();
-    fn SetBackColor();
-    fn BorderStyle();
-    fn SetBorderStyle();
-    fn ForeColor();
-    fn SetForeColor();
-    fn Font();
-    fn putref_Font();
-    fn Counters();
-    fn SetShowVerticalGrid();
-    fn ShowVerticalGrid();
-    fn SetShowHorizontalGrid();
-    fn ShowHorizontalGrid();
-    fn SetShowLegend();
-    fn ShowLegend();
-    fn SetShowScaleLabels();
-    fn ShowScaleLabels();
-    fn SetShowValueBar();
-    fn ShowValueBar();
-    fn SetMaximumScale();
-    fn MaximumScale();
-    fn SetMinimumScale();
-    fn MinimumScale();
-    fn SetUpdateInterval();
-    fn UpdateInterval();
-    fn SetDisplayType();
-    fn DisplayType();
-    fn SetManualUpdate();
-    fn ManualUpdate();
-    fn SetGraphTitle();
-    fn GraphTitle();
-    fn SetYAxisLabel();
-    fn YAxisLabel();
-    fn CollectSample();
-    fn UpdateGraph();
-    fn BrowseCounters();
-    fn DisplayProperties();
-    fn Counter();
-    fn AddCounter();
-    fn DeleteCounter();
-    fn BackColorCtl();
-    fn SetBackColorCtl();
-    fn SetLogFileName();
-    fn LogFileName();
-    fn SetLogViewStart();
-    fn LogViewStart();
-    fn SetLogViewStop();
-    fn LogViewStop();
-    fn GridColor();
-    fn SetGridColor();
-    fn TimeBarColor();
-    fn SetTimeBarColor();
-    fn Highlight();
-    fn SetHighlight();
-    fn ShowToolbar();
-    fn SetShowToolbar();
-    fn Paste();
-    fn Copy();
-    fn Reset();
-    fn SetReadOnly();
-    fn ReadOnly();
-    fn SetReportValueType();
-    fn ReportValueType();
-    fn SetMonitorDuplicateInstances();
-    fn MonitorDuplicateInstances();
-    fn SetDisplayFilter();
-    fn DisplayFilter();
-    fn LogFiles();
-    fn SetDataSourceType();
-    fn DataSourceType();
-    fn SetSqlDsnName();
-    fn SqlDsnName();
-    fn SetSqlLogSetName();
-    fn SqlLogSetName();
-    fn SetEnableDigitGrouping();
-    fn EnableDigitGrouping();
-    fn SetEnableToolTips();
-    fn EnableToolTips();
-    fn SetShowTimeAxisLabels();
-    fn ShowTimeAxisLabels();
-    fn SetChartScroll();
-    fn ChartScroll();
-    fn SetDataPointCount();
-    fn DataPointCount();
-    fn ScaleToFit();
-    fn SaveAs();
-    fn Relog();
-    fn ClearData();
-    fn LogSourceStartTime();
-    fn LogSourceStopTime();
-    fn SetLogViewRange();
-    fn GetLogViewRange();
-    fn BatchingLock();
-    fn LoadSettings();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct _ISystemMonitorUnionVtbl(
@@ -13615,3 +12977,5 @@ pub struct _ISystemMonitorUnionVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrsettingfilename: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

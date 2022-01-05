@@ -665,12 +665,6 @@ unsafe impl ::windows::core::Interface for IEyesPose {
     type Vtable = IEyesPoseVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x682a9b23_8a1e_5b86_a060_906ffacb62a4);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IEyesPoseImpl {
-    fn IsCalibrationValid();
-    fn Gaze();
-    fn UpdateTimestamp();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEyesPoseVtbl(
@@ -692,11 +686,6 @@ unsafe impl ::windows::core::Interface for IEyesPoseStatics {
     type Vtable = IEyesPoseStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1cff7413_b21f_54c0_80c1_e60d994ca58c);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IEyesPoseStaticsImpl {
-    fn IsSupported();
-    fn RequestAccessAsync();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEyesPoseStaticsVtbl(
@@ -716,17 +705,6 @@ pub struct IHandMeshObserver(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IHandMeshObserver {
     type Vtable = IHandMeshObserverVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x85ae30cb_6fc3_55c4_a7b4_29e33896ca69);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IHandMeshObserverImpl {
-    fn Source();
-    fn TriangleIndexCount();
-    fn VertexCount();
-    fn GetTriangleIndices();
-    fn GetVertexStateForPose();
-    fn NeutralPose();
-    fn NeutralPoseVersion();
-    fn ModelId();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -754,12 +732,6 @@ unsafe impl ::windows::core::Interface for IHandMeshVertexState {
     type Vtable = IHandMeshVertexStateVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x046c5fef_1d8b_55de_ab2c_1cd424886d8f);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IHandMeshVertexStateImpl {
-    fn CoordinateSystem();
-    fn GetVertices();
-    fn UpdateTimestamp();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHandMeshVertexStateVtbl(
@@ -781,13 +753,6 @@ pub struct IHandPose(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IHandPose {
     type Vtable = IHandPoseVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4d98e79a_bb08_5d09_91de_df0dd3fae46c);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IHandPoseImpl {
-    fn TryGetJoint();
-    fn TryGetJoints();
-    fn GetRelativeJoint();
-    fn GetRelativeJoints();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -813,12 +778,6 @@ pub struct IHeadPose(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IHeadPose {
     type Vtable = IHeadPoseVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7f5ac5a5_49db_379f_9429_32a2faf34fa6);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IHeadPoseImpl {
-    fn Position();
-    fn ForwardDirection();
-    fn UpDirection();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -918,3 +877,5 @@ unsafe impl ::windows::core::RuntimeType for JointPoseAccuracy {
 impl ::windows::core::DefaultType for JointPoseAccuracy {
     type DefaultType = Self;
 }
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

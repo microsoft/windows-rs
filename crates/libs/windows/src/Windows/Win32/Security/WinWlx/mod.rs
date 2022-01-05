@@ -1058,3 +1058,5 @@ pub const WLX_VERSION_1_3: u32 = 65539u32;
 pub const WLX_VERSION_1_4: u32 = 65540u32;
 #[doc = "*Required features: 'Win32_Security_WinWlx'*"]
 pub const WLX_WM_SAS: u32 = 1625u32;
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

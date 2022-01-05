@@ -107,3 +107,5 @@ pub unsafe fn ComDBResizeDatabase<'a, Param0: ::windows::core::IntoParam<'a, HCO
     unimplemented!("Unsupported target OS");
 }
 pub type HCOMDB = isize;
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

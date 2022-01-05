@@ -25,10 +25,6 @@ unsafe impl ::windows::core::Interface for IClassicAppManagerStatics {
     type Vtable = IClassicAppManagerStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe2fad668_882c_4f33_b035_0df7b90d67e6);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IClassicAppManagerStaticsImpl {
-    fn FindInstalledApp();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IClassicAppManagerStaticsVtbl(
@@ -46,11 +42,6 @@ pub struct IInstalledClassicAppInfo(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IInstalledClassicAppInfo {
     type Vtable = IInstalledClassicAppInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0a7d3da3_65d0_4086_80d6_0610d760207d);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IInstalledClassicAppInfoImpl {
-    fn DisplayName();
-    fn DisplayVersion();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -153,3 +144,5 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Inst
 }
 unsafe impl ::core::marker::Send for InstalledClassicAppInfo {}
 unsafe impl ::core::marker::Sync for InstalledClassicAppInfo {}
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

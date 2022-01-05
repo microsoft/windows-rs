@@ -6,15 +6,6 @@ unsafe impl ::windows::core::Interface for IPrintSupportExtensionSession {
     type Vtable = IPrintSupportExtensionSessionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeea45f1a_f4c6_54b3_a0b8_a559839aa4c3);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IPrintSupportExtensionSessionImpl {
-    fn Printer();
-    fn PrintTicketValidationRequested();
-    fn RemovePrintTicketValidationRequested();
-    fn PrintDeviceCapabilitiesChanged();
-    fn RemovePrintDeviceCapabilitiesChanged();
-    fn Start();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintSupportExtensionSessionVtbl(
@@ -43,10 +34,6 @@ unsafe impl ::windows::core::Interface for IPrintSupportExtensionTriggerDetails 
     type Vtable = IPrintSupportExtensionTriggerDetailsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xae083711_9b09_55d1_a0ae_2a14c5f83d6a);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IPrintSupportExtensionTriggerDetailsImpl {
-    fn Session();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintSupportExtensionTriggerDetailsVtbl(
@@ -64,12 +51,6 @@ pub struct IPrintSupportPrintDeviceCapabilitiesChangedEventArgs(::windows::core:
 unsafe impl ::windows::core::Interface for IPrintSupportPrintDeviceCapabilitiesChangedEventArgs {
     type Vtable = IPrintSupportPrintDeviceCapabilitiesChangedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x15969bf0_9028_5722_8a37_7d7c34b41dd6);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IPrintSupportPrintDeviceCapabilitiesChangedEventArgsImpl {
-    fn GetCurrentPrintDeviceCapabilities();
-    fn UpdatePrintDeviceCapabilities();
-    fn GetDeferral();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -94,12 +75,6 @@ unsafe impl ::windows::core::Interface for IPrintSupportPrintTicketValidationReq
     type Vtable = IPrintSupportPrintTicketValidationRequestedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x338e4e69_db55_55c7_8338_ef64680a8f90);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IPrintSupportPrintTicketValidationRequestedEventArgsImpl {
-    fn PrintTicket();
-    fn SetPrintTicketValidationStatus();
-    fn GetDeferral();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintSupportPrintTicketValidationRequestedEventArgsVtbl(
@@ -122,11 +97,6 @@ unsafe impl ::windows::core::Interface for IPrintSupportSessionInfo {
     type Vtable = IPrintSupportSessionInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x852149af_777d_53e9_9ee9_45d3f4b5be9c);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IPrintSupportSessionInfoImpl {
-    fn SourceAppInfo();
-    fn Printer();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintSupportSessionInfoVtbl(
@@ -148,11 +118,6 @@ unsafe impl ::windows::core::Interface for IPrintSupportSettingsActivatedEventAr
     type Vtable = IPrintSupportSettingsActivatedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1e1b565e_a013_55ea_9b8c_eea39d9fb6c1);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IPrintSupportSettingsActivatedEventArgsImpl {
-    fn Session();
-    fn GetDeferral();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintSupportSettingsActivatedEventArgsVtbl(
@@ -172,14 +137,6 @@ pub struct IPrintSupportSettingsUISession(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPrintSupportSettingsUISession {
     type Vtable = IPrintSupportSettingsUISessionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc6da2251_83c3_55e4_a0f8_5de8b062adbf);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IPrintSupportSettingsUISessionImpl {
-    fn SessionPrintTicket();
-    fn DocumentTitle();
-    fn LaunchKind();
-    fn UpdatePrintTicket();
-    fn SessionInfo();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1037,3 +994,5 @@ unsafe impl ::windows::core::RuntimeType for WorkflowPrintTicketValidationStatus
 impl ::windows::core::DefaultType for WorkflowPrintTicketValidationStatus {
     type DefaultType = Self;
 }
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

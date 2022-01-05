@@ -8280,12 +8280,6 @@ unsafe impl ::windows::core::Interface for IAdvancedCapturedPhoto {
     type Vtable = IAdvancedCapturedPhotoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf072728b_b292_4491_9d41_99807a550bbf);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IAdvancedCapturedPhotoImpl {
-    fn Frame();
-    fn Mode();
-    fn Context();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAdvancedCapturedPhotoVtbl(
@@ -8307,10 +8301,6 @@ unsafe impl ::windows::core::Interface for IAdvancedCapturedPhoto2 {
     type Vtable = IAdvancedCapturedPhoto2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x18cf6cd8_cffe_42d8_8104_017bb318f4a1);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IAdvancedCapturedPhoto2Impl {
-    fn FrameBoundsRelativeToReferencePhoto();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAdvancedCapturedPhoto2Vtbl(
@@ -8329,16 +8319,6 @@ pub struct IAdvancedPhotoCapture(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAdvancedPhotoCapture {
     type Vtable = IAdvancedPhotoCaptureVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x83ffaafa_6667_44dc_973c_a6bce596aa0f);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IAdvancedPhotoCaptureImpl {
-    fn CaptureAsync();
-    fn CaptureWithContextAsync();
-    fn OptionalReferencePhotoCaptured();
-    fn RemoveOptionalReferencePhotoCaptured();
-    fn AllPhotosCaptured();
-    fn RemoveAllPhotosCaptured();
-    fn FinishAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8370,23 +8350,6 @@ pub struct IAppBroadcastBackgroundService(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppBroadcastBackgroundService {
     type Vtable = IAppBroadcastBackgroundServiceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbad1e72a_fa94_46f9_95fc_d71511cda70b);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IAppBroadcastBackgroundServiceImpl {
-    fn SetPlugInState();
-    fn PlugInState();
-    fn SetSignInInfo();
-    fn SignInInfo();
-    fn SetStreamInfo();
-    fn StreamInfo();
-    fn AppId();
-    fn BroadcastTitle();
-    fn SetViewerCount();
-    fn ViewerCount();
-    fn TerminateBroadcast();
-    fn HeartbeatRequested();
-    fn RemoveHeartbeatRequested();
-    fn TitleId();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8420,20 +8383,6 @@ pub struct IAppBroadcastBackgroundService2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppBroadcastBackgroundService2 {
     type Vtable = IAppBroadcastBackgroundService2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfc8ccbbf_5549_4b87_959f_23ca401fd473);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IAppBroadcastBackgroundService2Impl {
-    fn SetBroadcastTitle();
-    fn BroadcastLanguage();
-    fn SetBroadcastLanguage();
-    fn BroadcastChannel();
-    fn SetBroadcastChannel();
-    fn BroadcastTitleChanged();
-    fn RemoveBroadcastTitleChanged();
-    fn BroadcastLanguageChanged();
-    fn RemoveBroadcastLanguageChanged();
-    fn BroadcastChannelChanged();
-    fn RemoveBroadcastChannelChanged();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8469,19 +8418,6 @@ unsafe impl ::windows::core::Interface for IAppBroadcastBackgroundServiceSignInI
     type Vtable = IAppBroadcastBackgroundServiceSignInInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5e735275_88c8_4eca_89ba_4825985db880);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IAppBroadcastBackgroundServiceSignInInfoImpl {
-    fn SignInState();
-    fn SetOAuthRequestUri();
-    fn OAuthRequestUri();
-    fn SetOAuthCallbackUri();
-    fn OAuthCallbackUri();
-    fn AuthenticationResult();
-    fn SetUserName();
-    fn UserName();
-    fn SignInStateChanged();
-    fn RemoveSignInStateChanged();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppBroadcastBackgroundServiceSignInInfoVtbl(
@@ -8516,11 +8452,6 @@ unsafe impl ::windows::core::Interface for IAppBroadcastBackgroundServiceSignInI
     type Vtable = IAppBroadcastBackgroundServiceSignInInfo2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9104285c_62cf_4a3c_a7ee_aeb507404645);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IAppBroadcastBackgroundServiceSignInInfo2Impl {
-    fn UserNameChanged();
-    fn RemoveUserNameChanged();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppBroadcastBackgroundServiceSignInInfo2Vtbl(
@@ -8541,23 +8472,6 @@ pub struct IAppBroadcastBackgroundServiceStreamInfo(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppBroadcastBackgroundServiceStreamInfo {
     type Vtable = IAppBroadcastBackgroundServiceStreamInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x31dc02bc_990a_4904_aa96_fe364381f136);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IAppBroadcastBackgroundServiceStreamInfoImpl {
-    fn StreamState();
-    fn SetDesiredVideoEncodingBitrate();
-    fn DesiredVideoEncodingBitrate();
-    fn SetBandwidthTestBitrate();
-    fn BandwidthTestBitrate();
-    fn SetAudioCodec();
-    fn AudioCodec();
-    fn BroadcastStreamReader();
-    fn StreamStateChanged();
-    fn RemoveStreamStateChanged();
-    fn VideoEncodingResolutionChanged();
-    fn RemoveVideoEncodingResolutionChanged();
-    fn VideoEncodingBitrateChanged();
-    fn RemoveVideoEncodingBitrateChanged();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8596,10 +8510,6 @@ unsafe impl ::windows::core::Interface for IAppBroadcastBackgroundServiceStreamI
     type Vtable = IAppBroadcastBackgroundServiceStreamInfo2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbd1e9f6d_94dc_4fce_9541_a9f129596334);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IAppBroadcastBackgroundServiceStreamInfo2Impl {
-    fn ReportProblemWithStream();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppBroadcastBackgroundServiceStreamInfo2Vtbl(
@@ -8617,11 +8527,6 @@ pub struct IAppBroadcastCameraCaptureStateChangedEventArgs(::windows::core::IUnk
 unsafe impl ::windows::core::Interface for IAppBroadcastCameraCaptureStateChangedEventArgs {
     type Vtable = IAppBroadcastCameraCaptureStateChangedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1e334cd0_b882_4b88_8692_05999aceb70f);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IAppBroadcastCameraCaptureStateChangedEventArgsImpl {
-    fn State();
-    fn ErrorCode();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8641,33 +8546,6 @@ pub struct IAppBroadcastGlobalSettings(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppBroadcastGlobalSettings {
     type Vtable = IAppBroadcastGlobalSettingsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb2cb27a5_70fc_4e17_80bd_6ba0fd3ff3a0);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IAppBroadcastGlobalSettingsImpl {
-    fn IsBroadcastEnabled();
-    fn IsDisabledByPolicy();
-    fn IsGpuConstrained();
-    fn HasHardwareEncoder();
-    fn SetIsAudioCaptureEnabled();
-    fn IsAudioCaptureEnabled();
-    fn SetIsMicrophoneCaptureEnabledByDefault();
-    fn IsMicrophoneCaptureEnabledByDefault();
-    fn SetIsEchoCancellationEnabled();
-    fn IsEchoCancellationEnabled();
-    fn SetSystemAudioGain();
-    fn SystemAudioGain();
-    fn SetMicrophoneGain();
-    fn MicrophoneGain();
-    fn SetIsCameraCaptureEnabledByDefault();
-    fn IsCameraCaptureEnabledByDefault();
-    fn SetSelectedCameraId();
-    fn SelectedCameraId();
-    fn SetCameraOverlayLocation();
-    fn CameraOverlayLocation();
-    fn SetCameraOverlaySize();
-    fn CameraOverlaySize();
-    fn SetIsCursorImageCaptureEnabled();
-    fn IsCursorImageCaptureEnabled();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8710,11 +8588,6 @@ unsafe impl ::windows::core::Interface for IAppBroadcastHeartbeatRequestedEventA
     type Vtable = IAppBroadcastHeartbeatRequestedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcea54283_ee51_4dbf_9472_79a9ed4e2165);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IAppBroadcastHeartbeatRequestedEventArgsImpl {
-    fn SetHandled();
-    fn Handled();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppBroadcastHeartbeatRequestedEventArgsVtbl(
@@ -8733,13 +8606,6 @@ pub struct IAppBroadcastManagerStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppBroadcastManagerStatics {
     type Vtable = IAppBroadcastManagerStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x364e018b_1e4e_411f_ab3e_92959844c156);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IAppBroadcastManagerStaticsImpl {
-    fn GetGlobalSettings();
-    fn ApplyGlobalSettings();
-    fn GetProviderSettings();
-    fn ApplyProviderSettings();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8762,11 +8628,6 @@ unsafe impl ::windows::core::Interface for IAppBroadcastMicrophoneCaptureStateCh
     type Vtable = IAppBroadcastMicrophoneCaptureStateChangedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa86ad5e9_9440_4908_9d09_65b7e315d795);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IAppBroadcastMicrophoneCaptureStateChangedEventArgsImpl {
-    fn State();
-    fn ErrorCode();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppBroadcastMicrophoneCaptureStateChangedEventArgsVtbl(
@@ -8785,13 +8646,6 @@ pub struct IAppBroadcastPlugIn(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppBroadcastPlugIn {
     type Vtable = IAppBroadcastPlugInVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x520c1e66_6513_4574_ac54_23b79729615b);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IAppBroadcastPlugInImpl {
-    fn AppId();
-    fn ProviderSettings();
-    fn Logo();
-    fn DisplayName();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8815,13 +8669,6 @@ unsafe impl ::windows::core::Interface for IAppBroadcastPlugInManager {
     type Vtable = IAppBroadcastPlugInManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe550d979_27a1_49a7_bbf4_d7a9e9d07668);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IAppBroadcastPlugInManagerImpl {
-    fn IsBroadcastProviderAvailable();
-    fn PlugInList();
-    fn DefaultPlugIn();
-    fn SetDefaultPlugIn();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppBroadcastPlugInManagerVtbl(
@@ -8844,11 +8691,6 @@ unsafe impl ::windows::core::Interface for IAppBroadcastPlugInManagerStatics {
     type Vtable = IAppBroadcastPlugInManagerStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf2645c20_5c76_4cdc_9364_82fe9eb6534d);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IAppBroadcastPlugInManagerStaticsImpl {
-    fn GetDefault();
-    fn GetForUser();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppBroadcastPlugInManagerStaticsVtbl(
@@ -8869,10 +8711,6 @@ unsafe impl ::windows::core::Interface for IAppBroadcastPlugInStateChangedEventA
     type Vtable = IAppBroadcastPlugInStateChangedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4881d0f2_abc5_4fc6_84b0_89370bb47212);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IAppBroadcastPlugInStateChangedEventArgsImpl {
-    fn PlugInState();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppBroadcastPlugInStateChangedEventArgsVtbl(
@@ -8890,15 +8728,6 @@ pub struct IAppBroadcastPreview(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppBroadcastPreview {
     type Vtable = IAppBroadcastPreviewVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x14b60f5a_6e4a_4b80_a14f_67ee77d153e7);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IAppBroadcastPreviewImpl {
-    fn StopPreview();
-    fn PreviewState();
-    fn ErrorCode();
-    fn PreviewStateChanged();
-    fn RemovePreviewStateChanged();
-    fn PreviewStreamReader();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8926,11 +8755,6 @@ unsafe impl ::windows::core::Interface for IAppBroadcastPreviewStateChangedEvent
     type Vtable = IAppBroadcastPreviewStateChangedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5a57f2de_8dea_4e86_90ad_03fc26b9653c);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IAppBroadcastPreviewStateChangedEventArgsImpl {
-    fn PreviewState();
-    fn ErrorCode();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppBroadcastPreviewStateChangedEventArgsVtbl(
@@ -8949,17 +8773,6 @@ pub struct IAppBroadcastPreviewStreamReader(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppBroadcastPreviewStreamReader {
     type Vtable = IAppBroadcastPreviewStreamReaderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x92228d50_db3f_40a8_8cd4_f4e371ddab37);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IAppBroadcastPreviewStreamReaderImpl {
-    fn VideoWidth();
-    fn VideoHeight();
-    fn VideoStride();
-    fn VideoBitmapPixelFormat();
-    fn VideoBitmapAlphaMode();
-    fn TryGetNextVideoFrame();
-    fn VideoFrameArrived();
-    fn RemoveVideoFrameArrived();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8990,11 +8803,6 @@ unsafe impl ::windows::core::Interface for IAppBroadcastPreviewStreamVideoFrame 
     type Vtable = IAppBroadcastPreviewStreamVideoFrameVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x010fbea1_94fe_4499_b8c0_8d244279fb12);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IAppBroadcastPreviewStreamVideoFrameImpl {
-    fn VideoHeader();
-    fn VideoBuffer();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppBroadcastPreviewStreamVideoFrameVtbl(
@@ -9014,13 +8822,6 @@ pub struct IAppBroadcastPreviewStreamVideoHeader(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppBroadcastPreviewStreamVideoHeader {
     type Vtable = IAppBroadcastPreviewStreamVideoHeaderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8bef6113_da84_4499_a7ab_87118cb4a157);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IAppBroadcastPreviewStreamVideoHeaderImpl {
-    fn AbsoluteTimestamp();
-    fn RelativeTimestamp();
-    fn Duration();
-    fn FrameId();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9045,23 +8846,6 @@ pub struct IAppBroadcastProviderSettings(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppBroadcastProviderSettings {
     type Vtable = IAppBroadcastProviderSettingsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc30bdf62_9948_458f_ad50_aa06ec03da08);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IAppBroadcastProviderSettingsImpl {
-    fn SetDefaultBroadcastTitle();
-    fn DefaultBroadcastTitle();
-    fn SetAudioEncodingBitrate();
-    fn AudioEncodingBitrate();
-    fn SetCustomVideoEncodingBitrate();
-    fn CustomVideoEncodingBitrate();
-    fn SetCustomVideoEncodingHeight();
-    fn CustomVideoEncodingHeight();
-    fn SetCustomVideoEncodingWidth();
-    fn CustomVideoEncodingWidth();
-    fn SetVideoEncodingBitrateMode();
-    fn VideoEncodingBitrateMode();
-    fn SetVideoEncodingResolutionMode();
-    fn VideoEncodingResolutionMode();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9093,24 +8877,6 @@ pub struct IAppBroadcastServices(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppBroadcastServices {
     type Vtable = IAppBroadcastServicesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8660b4d6_969b_4e3c_ac3a_8b042ee4ee63);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IAppBroadcastServicesImpl {
-    fn CaptureTargetType();
-    fn SetCaptureTargetType();
-    fn BroadcastTitle();
-    fn SetBroadcastTitle();
-    fn BroadcastLanguage();
-    fn SetBroadcastLanguage();
-    fn UserName();
-    fn CanCapture();
-    fn EnterBroadcastModeAsync();
-    fn ExitBroadcastMode();
-    fn StartBroadcast();
-    fn PauseBroadcast();
-    fn ResumeBroadcast();
-    fn StartPreview();
-    fn State();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9146,11 +8912,6 @@ unsafe impl ::windows::core::Interface for IAppBroadcastSignInStateChangedEventA
     type Vtable = IAppBroadcastSignInStateChangedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x02b692a4_5919_4a9e_8d5e_c9bb0dd3377a);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IAppBroadcastSignInStateChangedEventArgsImpl {
-    fn SignInState();
-    fn Result();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppBroadcastSignInStateChangedEventArgsVtbl(
@@ -9169,44 +8930,6 @@ pub struct IAppBroadcastState(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppBroadcastState {
     type Vtable = IAppBroadcastStateVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xee08056d_8099_4ddd_922e_c56dac58abfb);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IAppBroadcastStateImpl {
-    fn IsCaptureTargetRunning();
-    fn ViewerCount();
-    fn ShouldCaptureMicrophone();
-    fn SetShouldCaptureMicrophone();
-    fn RestartMicrophoneCapture();
-    fn ShouldCaptureCamera();
-    fn SetShouldCaptureCamera();
-    fn RestartCameraCapture();
-    fn EncodedVideoSize();
-    fn MicrophoneCaptureState();
-    fn MicrophoneCaptureError();
-    fn CameraCaptureState();
-    fn CameraCaptureError();
-    fn StreamState();
-    fn PlugInState();
-    fn OAuthRequestUri();
-    fn OAuthCallbackUri();
-    fn AuthenticationResult();
-    fn SetAuthenticationResult();
-    fn SetSignInState();
-    fn SignInState();
-    fn TerminationReason();
-    fn TerminationReasonPlugInSpecific();
-    fn ViewerCountChanged();
-    fn RemoveViewerCountChanged();
-    fn MicrophoneCaptureStateChanged();
-    fn RemoveMicrophoneCaptureStateChanged();
-    fn CameraCaptureStateChanged();
-    fn RemoveCameraCaptureStateChanged();
-    fn PlugInStateChanged();
-    fn RemovePlugInStateChanged();
-    fn StreamStateChanged();
-    fn RemoveStreamStateChanged();
-    fn CaptureTargetClosed();
-    fn RemoveCaptureTargetClosed();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9277,11 +9000,6 @@ unsafe impl ::windows::core::Interface for IAppBroadcastStreamAudioFrame {
     type Vtable = IAppBroadcastStreamAudioFrameVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xefab4ac8_21ba_453f_8bb7_5e938a2e9a74);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IAppBroadcastStreamAudioFrameImpl {
-    fn AudioHeader();
-    fn AudioBuffer();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppBroadcastStreamAudioFrameVtbl(
@@ -9301,14 +9019,6 @@ pub struct IAppBroadcastStreamAudioHeader(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppBroadcastStreamAudioHeader {
     type Vtable = IAppBroadcastStreamAudioHeaderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbf21a570_6b78_4216_9f07_5aff5256f1b7);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IAppBroadcastStreamAudioHeaderImpl {
-    fn AbsoluteTimestamp();
-    fn RelativeTimestamp();
-    fn Duration();
-    fn HasDiscontinuity();
-    fn FrameId();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9334,22 +9044,6 @@ pub struct IAppBroadcastStreamReader(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppBroadcastStreamReader {
     type Vtable = IAppBroadcastStreamReaderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb338bcf9_3364_4460_b5f1_3cc2796a8aa2);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IAppBroadcastStreamReaderImpl {
-    fn AudioChannels();
-    fn AudioSampleRate();
-    fn AudioAacSequence();
-    fn AudioBitrate();
-    fn TryGetNextAudioFrame();
-    fn VideoWidth();
-    fn VideoHeight();
-    fn VideoBitrate();
-    fn TryGetNextVideoFrame();
-    fn AudioFrameArrived();
-    fn RemoveAudioFrameArrived();
-    fn VideoFrameArrived();
-    fn RemoveVideoFrameArrived();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9386,10 +9080,6 @@ unsafe impl ::windows::core::Interface for IAppBroadcastStreamStateChangedEventA
     type Vtable = IAppBroadcastStreamStateChangedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5108a733_d008_4a89_93be_58aed961374e);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IAppBroadcastStreamStateChangedEventArgsImpl {
-    fn StreamState();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppBroadcastStreamStateChangedEventArgsVtbl(
@@ -9407,11 +9097,6 @@ pub struct IAppBroadcastStreamVideoFrame(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppBroadcastStreamVideoFrame {
     type Vtable = IAppBroadcastStreamVideoFrameVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0f97cf2b_c9e4_4e88_8194_d814cbd585d8);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IAppBroadcastStreamVideoFrameImpl {
-    fn VideoHeader();
-    fn VideoBuffer();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9432,15 +9117,6 @@ pub struct IAppBroadcastStreamVideoHeader(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppBroadcastStreamVideoHeader {
     type Vtable = IAppBroadcastStreamVideoHeaderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0b9ebece_7e32_432d_8ca2_36bf10b9f462);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IAppBroadcastStreamVideoHeaderImpl {
-    fn AbsoluteTimestamp();
-    fn RelativeTimestamp();
-    fn Duration();
-    fn IsKeyFrame();
-    fn HasDiscontinuity();
-    fn FrameId();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9468,10 +9144,6 @@ unsafe impl ::windows::core::Interface for IAppBroadcastTriggerDetails {
     type Vtable = IAppBroadcastTriggerDetailsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdeebab35_ec5e_4d8f_b1c0_5da6e8c75638);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IAppBroadcastTriggerDetailsImpl {
-    fn BackgroundService();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppBroadcastTriggerDetailsVtbl(
@@ -9490,10 +9162,6 @@ unsafe impl ::windows::core::Interface for IAppBroadcastViewerCountChangedEventA
     type Vtable = IAppBroadcastViewerCountChangedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe6e11825_5401_4ade_8bd2_c14ecee6807d);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IAppBroadcastViewerCountChangedEventArgsImpl {
-    fn ViewerCount();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppBroadcastViewerCountChangedEventArgsVtbl(
@@ -9511,13 +9179,6 @@ pub struct IAppCapture(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppCapture {
     type Vtable = IAppCaptureVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9749d453_a29a_45ed_8f29_22d09942cff7);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IAppCaptureImpl {
-    fn IsCapturingAudio();
-    fn IsCapturingVideo();
-    fn CapturingChanged();
-    fn RemoveCapturingChanged();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9541,29 +9202,6 @@ pub struct IAppCaptureAlternateShortcutKeys(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppCaptureAlternateShortcutKeys {
     type Vtable = IAppCaptureAlternateShortcutKeysVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x19e8e0ef_236c_40f9_b38f_9b7dd65d1ccc);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IAppCaptureAlternateShortcutKeysImpl {
-    fn SetToggleGameBarKey();
-    fn ToggleGameBarKey();
-    fn SetToggleGameBarKeyModifiers();
-    fn ToggleGameBarKeyModifiers();
-    fn SetSaveHistoricalVideoKey();
-    fn SaveHistoricalVideoKey();
-    fn SetSaveHistoricalVideoKeyModifiers();
-    fn SaveHistoricalVideoKeyModifiers();
-    fn SetToggleRecordingKey();
-    fn ToggleRecordingKey();
-    fn SetToggleRecordingKeyModifiers();
-    fn ToggleRecordingKeyModifiers();
-    fn SetTakeScreenshotKey();
-    fn TakeScreenshotKey();
-    fn SetTakeScreenshotKeyModifiers();
-    fn TakeScreenshotKeyModifiers();
-    fn SetToggleRecordingIndicatorKey();
-    fn ToggleRecordingIndicatorKey();
-    fn SetToggleRecordingIndicatorKeyModifiers();
-    fn ToggleRecordingIndicatorKeyModifiers();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9622,13 +9260,6 @@ unsafe impl ::windows::core::Interface for IAppCaptureAlternateShortcutKeys2 {
     type Vtable = IAppCaptureAlternateShortcutKeys2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc3669090_dd17_47f0_95e5_ce42286cf338);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IAppCaptureAlternateShortcutKeys2Impl {
-    fn SetToggleMicrophoneCaptureKey();
-    fn ToggleMicrophoneCaptureKey();
-    fn SetToggleMicrophoneCaptureKeyModifiers();
-    fn ToggleMicrophoneCaptureKeyModifiers();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppCaptureAlternateShortcutKeys2Vtbl(
@@ -9653,17 +9284,6 @@ pub struct IAppCaptureAlternateShortcutKeys3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppCaptureAlternateShortcutKeys3 {
     type Vtable = IAppCaptureAlternateShortcutKeys3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7b81448c_418e_469c_a49a_45b597c826b6);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IAppCaptureAlternateShortcutKeys3Impl {
-    fn SetToggleCameraCaptureKey();
-    fn ToggleCameraCaptureKey();
-    fn SetToggleCameraCaptureKeyModifiers();
-    fn ToggleCameraCaptureKeyModifiers();
-    fn SetToggleBroadcastKey();
-    fn ToggleBroadcastKey();
-    fn SetToggleBroadcastKeyModifiers();
-    fn ToggleBroadcastKeyModifiers();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9698,10 +9318,6 @@ unsafe impl ::windows::core::Interface for IAppCaptureDurationGeneratedEventArgs
     type Vtable = IAppCaptureDurationGeneratedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc1f5563b_ffa1_44c9_975f_27fbeb553b35);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IAppCaptureDurationGeneratedEventArgsImpl {
-    fn Duration();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppCaptureDurationGeneratedEventArgsVtbl(
@@ -9720,10 +9336,6 @@ pub struct IAppCaptureFileGeneratedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppCaptureFileGeneratedEventArgs {
     type Vtable = IAppCaptureFileGeneratedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4189fbf4_465e_45bf_907f_165b3fb23758);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IAppCaptureFileGeneratedEventArgsImpl {
-    fn File();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9744,11 +9356,6 @@ unsafe impl ::windows::core::Interface for IAppCaptureManagerStatics {
     type Vtable = IAppCaptureManagerStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7d9e3ea7_6282_4735_8d4e_aa45f90f6723);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IAppCaptureManagerStaticsImpl {
-    fn GetCurrentSettings();
-    fn ApplySettings();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppCaptureManagerStaticsVtbl(
@@ -9767,20 +9374,6 @@ pub struct IAppCaptureMetadataWriter(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppCaptureMetadataWriter {
     type Vtable = IAppCaptureMetadataWriterVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe0ce4877_9aaf_46b4_ad31_6a60b441c780);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IAppCaptureMetadataWriterImpl {
-    fn AddStringEvent();
-    fn AddInt32Event();
-    fn AddDoubleEvent();
-    fn StartStringState();
-    fn StartInt32State();
-    fn StartDoubleState();
-    fn StopState();
-    fn StopAllStates();
-    fn RemainingStorageBytesAvailable();
-    fn MetadataPurged();
-    fn RemoveMetadataPurged();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9812,11 +9405,6 @@ unsafe impl ::windows::core::Interface for IAppCaptureMicrophoneCaptureStateChan
     type Vtable = IAppCaptureMicrophoneCaptureStateChangedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x324d249e_45bc_4c35_bc35_e469fc7a69e0);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IAppCaptureMicrophoneCaptureStateChangedEventArgsImpl {
-    fn State();
-    fn ErrorCode();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppCaptureMicrophoneCaptureStateChangedEventArgsVtbl(
@@ -9835,21 +9423,6 @@ pub struct IAppCaptureRecordOperation(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppCaptureRecordOperation {
     type Vtable = IAppCaptureRecordOperationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc66020a9_1538_495c_9bbb_2ba870ec5861);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IAppCaptureRecordOperationImpl {
-    fn StopRecording();
-    fn State();
-    fn ErrorCode();
-    fn Duration();
-    fn File();
-    fn IsFileTruncated();
-    fn StateChanged();
-    fn RemoveStateChanged();
-    fn DurationGenerated();
-    fn RemoveDurationGenerated();
-    fn FileGenerated();
-    fn RemoveFileGenerated();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9890,11 +9463,6 @@ unsafe impl ::windows::core::Interface for IAppCaptureRecordingStateChangedEvent
     type Vtable = IAppCaptureRecordingStateChangedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x24fc8712_e305_490d_b415_6b1c9049736b);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IAppCaptureRecordingStateChangedEventArgsImpl {
-    fn State();
-    fn ErrorCode();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppCaptureRecordingStateChangedEventArgsVtbl(
@@ -9913,13 +9481,6 @@ pub struct IAppCaptureServices(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppCaptureServices {
     type Vtable = IAppCaptureServicesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x44fec0b5_34f5_4f18_ae8c_b9123abbfc0d);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IAppCaptureServicesImpl {
-    fn Record();
-    fn RecordTimeSpan();
-    fn CanCapture();
-    fn State();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9942,45 +9503,6 @@ pub struct IAppCaptureSettings(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppCaptureSettings {
     type Vtable = IAppCaptureSettingsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x14683a86_8807_48d3_883a_970ee4532a39);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IAppCaptureSettingsImpl {
-    fn SetAppCaptureDestinationFolder();
-    fn AppCaptureDestinationFolder();
-    fn SetAudioEncodingBitrate();
-    fn AudioEncodingBitrate();
-    fn SetIsAudioCaptureEnabled();
-    fn IsAudioCaptureEnabled();
-    fn SetCustomVideoEncodingBitrate();
-    fn CustomVideoEncodingBitrate();
-    fn SetCustomVideoEncodingHeight();
-    fn CustomVideoEncodingHeight();
-    fn SetCustomVideoEncodingWidth();
-    fn CustomVideoEncodingWidth();
-    fn SetHistoricalBufferLength();
-    fn HistoricalBufferLength();
-    fn SetHistoricalBufferLengthUnit();
-    fn HistoricalBufferLengthUnit();
-    fn SetIsHistoricalCaptureEnabled();
-    fn IsHistoricalCaptureEnabled();
-    fn SetIsHistoricalCaptureOnBatteryAllowed();
-    fn IsHistoricalCaptureOnBatteryAllowed();
-    fn SetIsHistoricalCaptureOnWirelessDisplayAllowed();
-    fn IsHistoricalCaptureOnWirelessDisplayAllowed();
-    fn SetMaximumRecordLength();
-    fn MaximumRecordLength();
-    fn SetScreenshotDestinationFolder();
-    fn ScreenshotDestinationFolder();
-    fn SetVideoEncodingBitrateMode();
-    fn VideoEncodingBitrateMode();
-    fn SetVideoEncodingResolutionMode();
-    fn VideoEncodingResolutionMode();
-    fn SetIsAppCaptureEnabled();
-    fn IsAppCaptureEnabled();
-    fn IsCpuConstrained();
-    fn IsDisabledByPolicy();
-    fn IsMemoryConstrained();
-    fn HasHardwareEncoder();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -10041,11 +9563,6 @@ unsafe impl ::windows::core::Interface for IAppCaptureSettings2 {
     type Vtable = IAppCaptureSettings2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfcb8cee7_e26b_476f_9b1a_ec342d2a8fde);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IAppCaptureSettings2Impl {
-    fn IsGpuConstrained();
-    fn AlternateShortcutKeys();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppCaptureSettings2Vtbl(
@@ -10065,11 +9582,6 @@ unsafe impl ::windows::core::Interface for IAppCaptureSettings3 {
     type Vtable = IAppCaptureSettings3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa93502fe_88c2_42d6_aaaa_40feffd75aec);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IAppCaptureSettings3Impl {
-    fn SetIsMicrophoneCaptureEnabled();
-    fn IsMicrophoneCaptureEnabled();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppCaptureSettings3Vtbl(
@@ -10088,17 +9600,6 @@ pub struct IAppCaptureSettings4(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppCaptureSettings4 {
     type Vtable = IAppCaptureSettings4Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x07c2774c_1a81_482f_a244_049d95f25b0b);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IAppCaptureSettings4Impl {
-    fn SetIsMicrophoneCaptureEnabledByDefault();
-    fn IsMicrophoneCaptureEnabledByDefault();
-    fn SetSystemAudioGain();
-    fn SystemAudioGain();
-    fn SetMicrophoneGain();
-    fn MicrophoneGain();
-    fn SetVideoEncodingFrameRateMode();
-    fn VideoEncodingFrameRateMode();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -10125,13 +9626,6 @@ unsafe impl ::windows::core::Interface for IAppCaptureSettings5 {
     type Vtable = IAppCaptureSettings5Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x18894522_b0e8_4ba0_8f13_3eaa5fa4013b);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IAppCaptureSettings5Impl {
-    fn SetIsEchoCancellationEnabled();
-    fn IsEchoCancellationEnabled();
-    fn SetIsCursorImageCaptureEnabled();
-    fn IsCursorImageCaptureEnabled();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppCaptureSettings5Vtbl(
@@ -10152,20 +9646,6 @@ pub struct IAppCaptureState(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppCaptureState {
     type Vtable = IAppCaptureStateVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x73134372_d4eb_44ce_9538_465f506ac4ea);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IAppCaptureStateImpl {
-    fn IsTargetRunning();
-    fn IsHistoricalCaptureEnabled();
-    fn ShouldCaptureMicrophone();
-    fn SetShouldCaptureMicrophone();
-    fn RestartMicrophoneCapture();
-    fn MicrophoneCaptureState();
-    fn MicrophoneCaptureError();
-    fn MicrophoneCaptureStateChanged();
-    fn RemoveMicrophoneCaptureStateChanged();
-    fn CaptureTargetClosed();
-    fn RemoveCaptureTargetClosed();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -10199,10 +9679,6 @@ unsafe impl ::windows::core::Interface for IAppCaptureStatics {
     type Vtable = IAppCaptureStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf922dd6c_0a7e_4e74_8b20_9c1f902d08a1);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IAppCaptureStaticsImpl {
-    fn GetForCurrentView();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppCaptureStaticsVtbl(
@@ -10220,10 +9696,6 @@ pub struct IAppCaptureStatics2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppCaptureStatics2 {
     type Vtable = IAppCaptureStatics2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb2d881d4_836c_4da4_afd7_facc041e1cf3);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IAppCaptureStatics2Impl {
-    fn SetAllowedAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -10243,12 +9715,6 @@ pub struct ICameraCaptureUI(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICameraCaptureUI {
     type Vtable = ICameraCaptureUIVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x48587540_6f93_4bb4_b8f3_e89e48948c91);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ICameraCaptureUIImpl {
-    fn PhotoSettings();
-    fn VideoSettings();
-    fn CaptureFileAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -10270,19 +9736,6 @@ pub struct ICameraCaptureUIPhotoCaptureSettings(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICameraCaptureUIPhotoCaptureSettings {
     type Vtable = ICameraCaptureUIPhotoCaptureSettingsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb9f5be97_3472_46a8_8a9e_04ce42ccc97d);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ICameraCaptureUIPhotoCaptureSettingsImpl {
-    fn Format();
-    fn SetFormat();
-    fn MaxResolution();
-    fn SetMaxResolution();
-    fn CroppedSizeInPixels();
-    fn SetCroppedSizeInPixels();
-    fn CroppedAspectRatio();
-    fn SetCroppedAspectRatio();
-    fn AllowCropping();
-    fn SetAllowCropping();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -10315,17 +9768,6 @@ unsafe impl ::windows::core::Interface for ICameraCaptureUIVideoCaptureSettings 
     type Vtable = ICameraCaptureUIVideoCaptureSettingsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x64e92d1f_a28d_425a_b84f_e568335ff24e);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ICameraCaptureUIVideoCaptureSettingsImpl {
-    fn Format();
-    fn SetFormat();
-    fn MaxResolution();
-    fn SetMaxResolution();
-    fn MaxDurationInSeconds();
-    fn SetMaxDurationInSeconds();
-    fn AllowTrimming();
-    fn SetAllowTrimming();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICameraCaptureUIVideoCaptureSettingsVtbl(
@@ -10351,10 +9793,6 @@ unsafe impl ::windows::core::Interface for ICameraOptionsUIStatics {
     type Vtable = ICameraOptionsUIStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3b0d5e34_3906_4b7d_946c_7bde844499ae);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ICameraOptionsUIStaticsImpl {
-    fn Show();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICameraOptionsUIStaticsVtbl(
@@ -10372,11 +9810,6 @@ pub struct ICapturedFrame(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICapturedFrame {
     type Vtable = ICapturedFrameVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1dd2de1f_571b_44d8_8e80_a08a1578766e);
-}
-#[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
-pub trait ICapturedFrameImpl: IClosableImpl + IContentTypeProviderImpl + IInputStreamImpl + IOutputStreamImpl + IRandomAccessStreamImpl + IRandomAccessStreamWithContentTypeImpl {
-    fn Width();
-    fn Height();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -10397,11 +9830,6 @@ unsafe impl ::windows::core::Interface for ICapturedFrame2 {
     type Vtable = ICapturedFrame2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x543fa6d1_bd78_4866_adda_24314bc65dea);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ICapturedFrame2Impl {
-    fn ControlValues();
-    fn BitmapProperties();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICapturedFrame2Vtbl(
@@ -10421,18 +9849,6 @@ pub struct ICapturedFrameControlValues(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICapturedFrameControlValues {
     type Vtable = ICapturedFrameControlValuesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x90c65b7f_4e0d_4ca4_882d_7a144fed0a90);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ICapturedFrameControlValuesImpl {
-    fn Exposure();
-    fn ExposureCompensation();
-    fn IsoSpeed();
-    fn Focus();
-    fn SceneMode();
-    fn Flashed();
-    fn FlashPowerPercent();
-    fn WhiteBalance();
-    fn ZoomFactor();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -10469,14 +9885,6 @@ unsafe impl ::windows::core::Interface for ICapturedFrameControlValues2 {
     type Vtable = ICapturedFrameControlValues2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x500b2b88_06d2_4aa7_a7db_d37af73321d8);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ICapturedFrameControlValues2Impl {
-    fn FocusState();
-    fn IsoDigitalGain();
-    fn IsoAnalogGain();
-    fn SensorFrameRate();
-    fn WhiteBalanceGain();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICapturedFrameControlValues2Vtbl(
@@ -10504,10 +9912,6 @@ unsafe impl ::windows::core::Interface for ICapturedFrameWithSoftwareBitmap {
     type Vtable = ICapturedFrameWithSoftwareBitmapVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb58e8b6e_8503_49b5_9e86_897d26a3ff3d);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ICapturedFrameWithSoftwareBitmapImpl {
-    fn SoftwareBitmap();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICapturedFrameWithSoftwareBitmapVtbl(
@@ -10527,11 +9931,6 @@ unsafe impl ::windows::core::Interface for ICapturedPhoto {
     type Vtable = ICapturedPhotoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb0ce7e5a_cfcc_4d6c_8ad1_0869208aca16);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ICapturedPhotoImpl {
-    fn Frame();
-    fn Thumbnail();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICapturedPhotoVtbl(
@@ -10550,18 +9949,6 @@ pub struct IGameBarServices(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGameBarServices {
     type Vtable = IGameBarServicesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2dbead57_50a6_499e_8c6c_d330a7311796);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IGameBarServicesImpl {
-    fn TargetCapturePolicy();
-    fn EnableCapture();
-    fn DisableCapture();
-    fn TargetInfo();
-    fn SessionId();
-    fn AppBroadcastServices();
-    fn AppCaptureServices();
-    fn CommandReceived();
-    fn RemoveCommandReceived();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -10591,11 +9978,6 @@ unsafe impl ::windows::core::Interface for IGameBarServicesCommandEventArgs {
     type Vtable = IGameBarServicesCommandEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa74226b2_f176_4fcf_8fbb_cf698b2eb8e0);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IGameBarServicesCommandEventArgsImpl {
-    fn Command();
-    fn Origin();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGameBarServicesCommandEventArgsVtbl(
@@ -10614,11 +9996,6 @@ pub struct IGameBarServicesManager(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGameBarServicesManager {
     type Vtable = IGameBarServicesManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3a4b9cfa_7f8b_4c60_9dbb_0bcd262dffc6);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IGameBarServicesManagerImpl {
-    fn GameBarServicesCreated();
-    fn RemoveGameBarServicesCreated();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -10641,10 +10018,6 @@ unsafe impl ::windows::core::Interface for IGameBarServicesManagerGameBarService
     type Vtable = IGameBarServicesManagerGameBarServicesCreatedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xededbd9c_143e_49a3_a5ea_0b1995c8d46e);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IGameBarServicesManagerGameBarServicesCreatedEventArgsImpl {
-    fn GameBarServices();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGameBarServicesManagerGameBarServicesCreatedEventArgsVtbl(
@@ -10663,10 +10036,6 @@ unsafe impl ::windows::core::Interface for IGameBarServicesManagerStatics {
     type Vtable = IGameBarServicesManagerStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x34c1b616_ff25_4792_98f2_d3753f15ac13);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IGameBarServicesManagerStaticsImpl {
-    fn GetDefault();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGameBarServicesManagerStaticsVtbl(
@@ -10684,13 +10053,6 @@ pub struct IGameBarServicesTargetInfo(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGameBarServicesTargetInfo {
     type Vtable = IGameBarServicesTargetInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb4202f92_1611_4e05_b6ef_dfd737ae33b0);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IGameBarServicesTargetInfoImpl {
-    fn DisplayName();
-    fn AppId();
-    fn TitleId();
-    fn DisplayMode();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -10712,12 +10074,6 @@ pub struct ILowLagMediaRecording(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ILowLagMediaRecording {
     type Vtable = ILowLagMediaRecordingVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x41c8baf7_ff3f_49f0_a477_f195e3ce5108);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ILowLagMediaRecordingImpl {
-    fn StartAsync();
-    fn StopAsync();
-    fn FinishAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -10742,11 +10098,6 @@ unsafe impl ::windows::core::Interface for ILowLagMediaRecording2 {
     type Vtable = ILowLagMediaRecording2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6369c758_5644_41e2_97af_8ef56a25e225);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ILowLagMediaRecording2Impl {
-    fn PauseAsync();
-    fn ResumeAsync();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILowLagMediaRecording2Vtbl(
@@ -10767,11 +10118,6 @@ pub struct ILowLagMediaRecording3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ILowLagMediaRecording3 {
     type Vtable = ILowLagMediaRecording3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5c33ab12_48f7_47da_b41e_90880a5fe0ec);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ILowLagMediaRecording3Impl {
-    fn PauseWithResultAsync();
-    fn StopWithResultAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -10794,11 +10140,6 @@ unsafe impl ::windows::core::Interface for ILowLagPhotoCapture {
     type Vtable = ILowLagPhotoCaptureVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa37251b7_6b44_473d_8f24_f703d6c0ec44);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ILowLagPhotoCaptureImpl {
-    fn CaptureAsync();
-    fn FinishAsync();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILowLagPhotoCaptureVtbl(
@@ -10819,14 +10160,6 @@ pub struct ILowLagPhotoSequenceCapture(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ILowLagPhotoSequenceCapture {
     type Vtable = ILowLagPhotoSequenceCaptureVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7cc346bb_b9a9_4c91_8ffa_287e9c668669);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ILowLagPhotoSequenceCaptureImpl {
-    fn StartAsync();
-    fn StopAsync();
-    fn FinishAsync();
-    fn PhotoCaptured();
-    fn RemovePhotoCaptured();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -10854,35 +10187,6 @@ pub struct IMediaCapture(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMediaCapture {
     type Vtable = IMediaCaptureVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc61afbb4_fb10_4a34_ac18_ca80d9c8e7ee);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IMediaCaptureImpl {
-    fn InitializeAsync();
-    fn InitializeWithSettingsAsync();
-    fn StartRecordToStorageFileAsync();
-    fn StartRecordToStreamAsync();
-    fn StartRecordToCustomSinkAsync();
-    fn StartRecordToCustomSinkIdAsync();
-    fn StopRecordAsync();
-    fn CapturePhotoToStorageFileAsync();
-    fn CapturePhotoToStreamAsync();
-    fn AddEffectAsync();
-    fn ClearEffectsAsync();
-    fn SetEncoderProperty();
-    fn GetEncoderProperty();
-    fn Failed();
-    fn RemoveFailed();
-    fn RecordLimitationExceeded();
-    fn RemoveRecordLimitationExceeded();
-    fn MediaCaptureSettings();
-    fn AudioDeviceController();
-    fn VideoDeviceController();
-    fn SetPreviewMirroring();
-    fn GetPreviewMirroring();
-    fn SetPreviewRotation();
-    fn GetPreviewRotation();
-    fn SetRecordRotation();
-    fn GetRecordRotation();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -10944,16 +10248,6 @@ unsafe impl ::windows::core::Interface for IMediaCapture2 {
     type Vtable = IMediaCapture2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9cc68260_7da1_4043_b652_21b8878daff9);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IMediaCapture2Impl {
-    fn PrepareLowLagRecordToStorageFileAsync();
-    fn PrepareLowLagRecordToStreamAsync();
-    fn PrepareLowLagRecordToCustomSinkAsync();
-    fn PrepareLowLagRecordToCustomSinkIdAsync();
-    fn PrepareLowLagPhotoCaptureAsync();
-    fn PrepareLowLagPhotoSequenceCaptureAsync();
-    fn SetEncodingPropertiesAsync();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaCapture2Vtbl(
@@ -10985,14 +10279,6 @@ unsafe impl ::windows::core::Interface for IMediaCapture3 {
     type Vtable = IMediaCapture3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd4136f30_1564_466e_bc0a_af94e02ab016);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IMediaCapture3Impl {
-    fn PrepareVariablePhotoSequenceCaptureAsync();
-    fn FocusChanged();
-    fn RemoveFocusChanged();
-    fn PhotoConfirmationCaptured();
-    fn RemovePhotoConfirmationCaptured();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaCapture3Vtbl(
@@ -11019,22 +10305,6 @@ pub struct IMediaCapture4(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMediaCapture4 {
     type Vtable = IMediaCapture4Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbacd6fd6_fb08_4947_aea2_ce14eff0ce13);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IMediaCapture4Impl {
-    fn AddAudioEffectAsync();
-    fn AddVideoEffectAsync();
-    fn PauseRecordAsync();
-    fn ResumeRecordAsync();
-    fn CameraStreamStateChanged();
-    fn RemoveCameraStreamStateChanged();
-    fn CameraStreamState();
-    fn GetPreviewFrameAsync();
-    fn GetPreviewFrameCopyAsync();
-    fn ThermalStatusChanged();
-    fn RemoveThermalStatusChanged();
-    fn ThermalStatus();
-    fn PrepareAdvancedPhotoCaptureAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -11078,16 +10348,6 @@ unsafe impl ::windows::core::Interface for IMediaCapture5 {
     type Vtable = IMediaCapture5Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xda787c22_3a9b_4720_a71e_97900a316e5a);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IMediaCapture5Impl {
-    fn RemoveEffectAsync();
-    fn PauseRecordWithResultAsync();
-    fn StopRecordWithResultAsync();
-    fn FrameSources();
-    fn CreateFrameReaderAsync();
-    fn CreateFrameReaderWithSubtypeAsync();
-    fn CreateFrameReaderWithSubtypeAndSizeAsync();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaCapture5Vtbl(
@@ -11119,12 +10379,6 @@ unsafe impl ::windows::core::Interface for IMediaCapture6 {
     type Vtable = IMediaCapture6Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x228948bd_4b20_4bb1_9fd6_a583212a1012);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IMediaCapture6Impl {
-    fn CaptureDeviceExclusiveControlStatusChanged();
-    fn RemoveCaptureDeviceExclusiveControlStatusChanged();
-    fn CreateMultiSourceFrameReaderAsync();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaCapture6Vtbl(
@@ -11148,10 +10402,6 @@ unsafe impl ::windows::core::Interface for IMediaCapture7 {
     type Vtable = IMediaCapture7Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9169f102_8888_541a_95bc_24e4d462542a);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IMediaCapture7Impl {
-    fn CreateRelativePanelWatcher();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaCapture7Vtbl(
@@ -11170,11 +10420,6 @@ pub struct IMediaCaptureDeviceExclusiveControlStatusChangedEventArgs(::windows::
 unsafe impl ::windows::core::Interface for IMediaCaptureDeviceExclusiveControlStatusChangedEventArgs {
     type Vtable = IMediaCaptureDeviceExclusiveControlStatusChangedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9d2f920d_a588_43c6_89d6_5ad322af006a);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IMediaCaptureDeviceExclusiveControlStatusChangedEventArgsImpl {
-    fn DeviceId();
-    fn Status();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -11195,11 +10440,6 @@ unsafe impl ::windows::core::Interface for IMediaCaptureFailedEventArgs {
     type Vtable = IMediaCaptureFailedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x80fde3f4_54c4_42c0_8d19_cea1a87ca18b);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IMediaCaptureFailedEventArgsImpl {
-    fn Message();
-    fn Code();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaCaptureFailedEventArgsVtbl(
@@ -11219,10 +10459,6 @@ unsafe impl ::windows::core::Interface for IMediaCaptureFocusChangedEventArgs {
     type Vtable = IMediaCaptureFocusChangedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x81e1bc7f_2277_493e_abee_d3f44ff98c04);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IMediaCaptureFocusChangedEventArgsImpl {
-    fn FocusState();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaCaptureFocusChangedEventArgsVtbl(
@@ -11241,17 +10477,6 @@ pub struct IMediaCaptureInitializationSettings(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMediaCaptureInitializationSettings {
     type Vtable = IMediaCaptureInitializationSettingsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9782ba70_ea65_4900_9356_8ca887726884);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IMediaCaptureInitializationSettingsImpl {
-    fn SetAudioDeviceId();
-    fn AudioDeviceId();
-    fn SetVideoDeviceId();
-    fn VideoDeviceId();
-    fn SetStreamingCaptureMode();
-    fn StreamingCaptureMode();
-    fn SetPhotoCaptureSource();
-    fn PhotoCaptureSource();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -11278,13 +10503,6 @@ unsafe impl ::windows::core::Interface for IMediaCaptureInitializationSettings2 
     type Vtable = IMediaCaptureInitializationSettings2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x404e0626_c9dc_43e9_aee4_e6bf1b57b44c);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IMediaCaptureInitializationSettings2Impl {
-    fn SetMediaCategory();
-    fn MediaCategory();
-    fn SetAudioProcessing();
-    fn AudioProcessing();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaCaptureInitializationSettings2Vtbl(
@@ -11305,13 +10523,6 @@ pub struct IMediaCaptureInitializationSettings3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMediaCaptureInitializationSettings3 {
     type Vtable = IMediaCaptureInitializationSettings3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4160519d_be48_4730_8104_0cf6e9e97948);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IMediaCaptureInitializationSettings3Impl {
-    fn SetAudioSource();
-    fn AudioSource();
-    fn SetVideoSource();
-    fn VideoSource();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -11338,17 +10549,6 @@ unsafe impl ::windows::core::Interface for IMediaCaptureInitializationSettings4 
     type Vtable = IMediaCaptureInitializationSettings4Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf502a537_4cb7_4d28_95ed_4f9f012e0518);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IMediaCaptureInitializationSettings4Impl {
-    fn VideoProfile();
-    fn SetVideoProfile();
-    fn PreviewMediaDescription();
-    fn SetPreviewMediaDescription();
-    fn RecordMediaDescription();
-    fn SetRecordMediaDescription();
-    fn PhotoMediaDescription();
-    fn SetPhotoMediaDescription();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaCaptureInitializationSettings4Vtbl(
@@ -11373,15 +10573,6 @@ pub struct IMediaCaptureInitializationSettings5(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMediaCaptureInitializationSettings5 {
     type Vtable = IMediaCaptureInitializationSettings5Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd5a2e3b8_2626_4e94_b7b3_5308a0f64b1a);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IMediaCaptureInitializationSettings5Impl {
-    fn SourceGroup();
-    fn SetSourceGroup();
-    fn SharingMode();
-    fn SetSharingMode();
-    fn MemoryPreference();
-    fn SetMemoryPreference();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -11408,11 +10599,6 @@ unsafe impl ::windows::core::Interface for IMediaCaptureInitializationSettings6 
     type Vtable = IMediaCaptureInitializationSettings6Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb2e26b47_3db1_4d33_ab63_0ffa09056585);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IMediaCaptureInitializationSettings6Impl {
-    fn AlwaysPlaySystemShutterSound();
-    fn SetAlwaysPlaySystemShutterSound();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaCaptureInitializationSettings6Vtbl(
@@ -11431,13 +10617,6 @@ pub struct IMediaCaptureInitializationSettings7(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMediaCaptureInitializationSettings7 {
     type Vtable = IMediaCaptureInitializationSettings7Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x41546967_f58a_5d82_9ef4_ed572fb5e34e);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IMediaCaptureInitializationSettings7Impl {
-    fn DeviceUriPasswordCredential();
-    fn SetDeviceUriPasswordCredential();
-    fn DeviceUri();
-    fn SetDeviceUri();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -11464,11 +10643,6 @@ unsafe impl ::windows::core::Interface for IMediaCapturePauseResult {
     type Vtable = IMediaCapturePauseResultVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaec47ca3_4477_4b04_a06f_2c1c5182fe9d);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IMediaCapturePauseResultImpl {
-    fn LastFrame();
-    fn RecordDuration();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaCapturePauseResultVtbl(
@@ -11488,14 +10662,6 @@ pub struct IMediaCaptureRelativePanelWatcher(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMediaCaptureRelativePanelWatcher {
     type Vtable = IMediaCaptureRelativePanelWatcherVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7d896566_04be_5b89_b30e_bd34a9f12db0);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IMediaCaptureRelativePanelWatcherImpl {
-    fn RelativePanel();
-    fn Changed();
-    fn RemoveChanged();
-    fn Start();
-    fn Stop();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -11522,14 +10688,6 @@ unsafe impl ::windows::core::Interface for IMediaCaptureSettings {
     type Vtable = IMediaCaptureSettingsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1d83aafe_6d45_4477_8dc4_ac5bc01c4091);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IMediaCaptureSettingsImpl {
-    fn AudioDeviceId();
-    fn VideoDeviceId();
-    fn StreamingCaptureMode();
-    fn PhotoCaptureSource();
-    fn VideoDeviceCharacteristic();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaCaptureSettingsVtbl(
@@ -11551,17 +10709,6 @@ pub struct IMediaCaptureSettings2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMediaCaptureSettings2 {
     type Vtable = IMediaCaptureSettings2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6f9e7cfb_fa9f_4b13_9cbe_5ab94f1f3493);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IMediaCaptureSettings2Impl {
-    fn ConcurrentRecordAndPhotoSupported();
-    fn ConcurrentRecordAndPhotoSequenceSupported();
-    fn CameraSoundRequiredForRegion();
-    fn Horizontal35mmEquivalentFocalLength();
-    fn PitchOffsetDegrees();
-    fn Vertical35mmEquivalentFocalLength();
-    fn MediaCategory();
-    fn AudioProcessing();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -11591,10 +10738,6 @@ unsafe impl ::windows::core::Interface for IMediaCaptureSettings3 {
     type Vtable = IMediaCaptureSettings3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x303c67c2_8058_4b1b_b877_8c2ef3528440);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IMediaCaptureSettings3Impl {
-    fn Direct3D11Device();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaCaptureSettings3Vtbl(
@@ -11613,13 +10756,6 @@ pub struct IMediaCaptureStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMediaCaptureStatics {
     type Vtable = IMediaCaptureStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xacef81ff_99ed_4645_965e_1925cfc63834);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IMediaCaptureStaticsImpl {
-    fn IsVideoProfileSupported();
-    fn FindAllVideoProfiles();
-    fn FindConcurrentProfiles();
-    fn FindKnownVideoProfiles();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -11645,11 +10781,6 @@ unsafe impl ::windows::core::Interface for IMediaCaptureStopResult {
     type Vtable = IMediaCaptureStopResultVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf9db6a2a_a092_4ad1_97d4_f201f9d082db);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IMediaCaptureStopResultImpl {
-    fn LastFrame();
-    fn RecordDuration();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaCaptureStopResultVtbl(
@@ -11669,13 +10800,6 @@ pub struct IMediaCaptureVideoPreview(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMediaCaptureVideoPreview {
     type Vtable = IMediaCaptureVideoPreviewVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x27727073_549e_447f_a20a_4f03c479d8c0);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IMediaCaptureVideoPreviewImpl {
-    fn StartPreviewAsync();
-    fn StartPreviewToCustomSinkAsync();
-    fn StartPreviewToCustomSinkIdAsync();
-    fn StopPreviewAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -11701,15 +10825,6 @@ pub struct IMediaCaptureVideoProfile(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMediaCaptureVideoProfile {
     type Vtable = IMediaCaptureVideoProfileVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x21a073bf_a3ee_4ecf_9ef6_50b0bc4e1305);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IMediaCaptureVideoProfileImpl {
-    fn Id();
-    fn VideoDeviceId();
-    fn SupportedPreviewMediaDescription();
-    fn SupportedRecordMediaDescription();
-    fn SupportedPhotoMediaDescription();
-    fn GetConcurrency();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -11738,11 +10853,6 @@ unsafe impl ::windows::core::Interface for IMediaCaptureVideoProfile2 {
     type Vtable = IMediaCaptureVideoProfile2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x97ddc95f_94ce_468f_9316_fc5bc2638f6b);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IMediaCaptureVideoProfile2Impl {
-    fn FrameSourceInfos();
-    fn Properties();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaCaptureVideoProfile2Vtbl(
@@ -11763,14 +10873,6 @@ pub struct IMediaCaptureVideoProfileMediaDescription(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMediaCaptureVideoProfileMediaDescription {
     type Vtable = IMediaCaptureVideoProfileMediaDescriptionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8012afef_b691_49ff_83f2_c1e76eaaea1b);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IMediaCaptureVideoProfileMediaDescriptionImpl {
-    fn Width();
-    fn Height();
-    fn FrameRate();
-    fn IsVariablePhotoSequenceSupported();
-    fn IsHdrVideoSupported();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -11796,11 +10898,6 @@ unsafe impl ::windows::core::Interface for IMediaCaptureVideoProfileMediaDescrip
     type Vtable = IMediaCaptureVideoProfileMediaDescription2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc6a6ef13_322d_413a_b85a_68a88e02f4e9);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IMediaCaptureVideoProfileMediaDescription2Impl {
-    fn Subtype();
-    fn Properties();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaCaptureVideoProfileMediaDescription2Vtbl(
@@ -11821,11 +10918,6 @@ unsafe impl ::windows::core::Interface for IOptionalReferencePhotoCapturedEventA
     type Vtable = IOptionalReferencePhotoCapturedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x470f88b3_1e6d_4051_9c8b_f1d85af047b7);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IOptionalReferencePhotoCapturedEventArgsImpl {
-    fn Frame();
-    fn Context();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IOptionalReferencePhotoCapturedEventArgsVtbl(
@@ -11844,12 +10936,6 @@ pub struct IPhotoCapturedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPhotoCapturedEventArgs {
     type Vtable = IPhotoCapturedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x373bfbc1_984e_4ff0_bf85_1c00aabc5a45);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IPhotoCapturedEventArgsImpl {
-    fn Frame();
-    fn Thumbnail();
-    fn CaptureTimeOffset();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -11872,11 +10958,6 @@ unsafe impl ::windows::core::Interface for IPhotoConfirmationCapturedEventArgs {
     type Vtable = IPhotoConfirmationCapturedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xab473672_c28a_4827_8f8d_3636d3beb51e);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IPhotoConfirmationCapturedEventArgsImpl {
-    fn Frame();
-    fn CaptureTimeOffset();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPhotoConfirmationCapturedEventArgsVtbl(
@@ -11896,15 +10977,6 @@ pub struct IScreenCapture(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IScreenCapture {
     type Vtable = IScreenCaptureVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x89179ef7_cd12_4e0e_a6d4_5b3de98b2e9b);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IScreenCaptureImpl {
-    fn AudioSource();
-    fn VideoSource();
-    fn IsAudioSuspended();
-    fn IsVideoSuspended();
-    fn SourceSuspensionChanged();
-    fn RemoveSourceSuspensionChanged();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -11933,10 +11005,6 @@ unsafe impl ::windows::core::Interface for IScreenCaptureStatics {
     type Vtable = IScreenCaptureStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc898c3b0_c8a5_11e2_8b8b_0800200c9a66);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IScreenCaptureStaticsImpl {
-    fn GetForCurrentView();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IScreenCaptureStaticsVtbl(
@@ -11954,11 +11022,6 @@ pub struct ISourceSuspensionChangedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISourceSuspensionChangedEventArgs {
     type Vtable = ISourceSuspensionChangedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2ece7b5e_d49b_4394_bc32_f97d6cedec1c);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ISourceSuspensionChangedEventArgsImpl {
-    fn IsAudioSuspended();
-    fn IsVideoSuspended();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -11978,11 +11041,6 @@ pub struct IVideoStreamConfiguration(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IVideoStreamConfiguration {
     type Vtable = IVideoStreamConfigurationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd8770a6f_4390_4b5e_ad3e_0f8af0963490);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IVideoStreamConfigurationImpl {
-    fn InputProperties();
-    fn OutputProperties();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -15656,3 +14714,5 @@ impl ::core::default::Default for WhiteBalanceGain {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

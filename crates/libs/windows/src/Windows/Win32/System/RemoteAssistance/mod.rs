@@ -98,8 +98,6 @@ unsafe impl ::windows::core::Interface for DRendezvousSessionEvents {
     type Vtable = DRendezvousSessionEventsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3fa19cf8_64c4_4f53_ae60_635b3806eca6);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait DRendezvousSessionEventsImpl: IDispatchImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct DRendezvousSessionEventsVtbl(
@@ -163,9 +161,6 @@ impl ::core::fmt::Debug for IRendezvousApplication {
 unsafe impl ::windows::core::Interface for IRendezvousApplication {
     type Vtable = IRendezvousApplicationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4f4d070b_a275_49fb_b10d_8ec26387b50d);
-}
-pub trait IRendezvousApplicationImpl {
-    fn SetRendezvousSession();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -241,13 +236,6 @@ unsafe impl ::windows::core::Interface for IRendezvousSession {
     type Vtable = IRendezvousSessionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9ba4b1dd_8b0c_48b7_9e7c_2f25857c8df5);
 }
-pub trait IRendezvousSessionImpl {
-    fn State();
-    fn RemoteUser();
-    fn Flags();
-    fn SendContextData();
-    fn Terminate();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRendezvousSessionVtbl(
@@ -296,3 +284,5 @@ pub const RSS_DECLINED: RENDEZVOUS_SESSION_STATE = 6i32;
 #[doc = "*Required features: 'Win32_System_RemoteAssistance'*"]
 pub const RSS_TERMINATED: RENDEZVOUS_SESSION_STATE = 7i32;
 pub const RendezvousApplication: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0b7e019a_b5de_47fa_8966_9082f82fb192);
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

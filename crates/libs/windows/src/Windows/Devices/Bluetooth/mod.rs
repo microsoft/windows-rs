@@ -2821,17 +2821,6 @@ unsafe impl ::windows::core::Interface for IBluetoothAdapter {
     type Vtable = IBluetoothAdapterVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7974f04c_5f7a_4a34_9225_a855f84b1a8b);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IBluetoothAdapterImpl {
-    fn DeviceId();
-    fn BluetoothAddress();
-    fn IsClassicSupported();
-    fn IsLowEnergySupported();
-    fn IsPeripheralRoleSupported();
-    fn IsCentralRoleSupported();
-    fn IsAdvertisementOffloadSupported();
-    fn GetRadioAsync();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBluetoothAdapterVtbl(
@@ -2858,11 +2847,6 @@ unsafe impl ::windows::core::Interface for IBluetoothAdapter2 {
     type Vtable = IBluetoothAdapter2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xac94cecc_24d5_41b3_916d_1097c50b102b);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IBluetoothAdapter2Impl {
-    fn AreClassicSecureConnectionsSupported();
-    fn AreLowEnergySecureConnectionsSupported();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBluetoothAdapter2Vtbl(
@@ -2882,11 +2866,6 @@ unsafe impl ::windows::core::Interface for IBluetoothAdapter3 {
     type Vtable = IBluetoothAdapter3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8f8624e0_cba9_5211_9f89_3aac62b4c6b8);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IBluetoothAdapter3Impl {
-    fn IsExtendedAdvertisingSupported();
-    fn MaxAdvertisementDataLength();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBluetoothAdapter3Vtbl(
@@ -2905,12 +2884,6 @@ pub struct IBluetoothAdapterStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IBluetoothAdapterStatics {
     type Vtable = IBluetoothAdapterStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8b02fb6a_ac4c_4741_8661_8eab7d17ea9f);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IBluetoothAdapterStaticsImpl {
-    fn GetDeviceSelector();
-    fn FromIdAsync();
-    fn GetDefaultAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2934,13 +2907,6 @@ unsafe impl ::windows::core::Interface for IBluetoothClassOfDevice {
     type Vtable = IBluetoothClassOfDeviceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd640227e_d7d7_4661_9454_65039ca17a2b);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IBluetoothClassOfDeviceImpl {
-    fn RawValue();
-    fn MajorClass();
-    fn MinorClass();
-    fn ServiceCapabilities();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBluetoothClassOfDeviceVtbl(
@@ -2962,11 +2928,6 @@ unsafe impl ::windows::core::Interface for IBluetoothClassOfDeviceStatics {
     type Vtable = IBluetoothClassOfDeviceStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe46135bd_0fa2_416c_91b4_c1e48ca061c1);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IBluetoothClassOfDeviceStaticsImpl {
-    fn FromRawValue();
-    fn FromParts();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBluetoothClassOfDeviceStaticsVtbl(
@@ -2985,23 +2946,6 @@ pub struct IBluetoothDevice(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IBluetoothDevice {
     type Vtable = IBluetoothDeviceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2335b156_90d2_4a04_aef5_0e20b9e6b707);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IBluetoothDeviceImpl {
-    fn DeviceId();
-    fn HostName();
-    fn Name();
-    fn ClassOfDevice();
-    fn SdpRecords();
-    fn RfcommServices();
-    fn ConnectionStatus();
-    fn BluetoothAddress();
-    fn NameChanged();
-    fn RemoveNameChanged();
-    fn SdpRecordsChanged();
-    fn RemoveSdpRecordsChanged();
-    fn ConnectionStatusChanged();
-    fn RemoveConnectionStatusChanged();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3043,10 +2987,6 @@ unsafe impl ::windows::core::Interface for IBluetoothDevice2 {
     type Vtable = IBluetoothDevice2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0133f954_b156_4dd0_b1f5_c11bc31a5163);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IBluetoothDevice2Impl {
-    fn DeviceInformation();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBluetoothDevice2Vtbl(
@@ -3065,15 +3005,6 @@ pub struct IBluetoothDevice3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IBluetoothDevice3 {
     type Vtable = IBluetoothDevice3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x57fff78b_651a_4454_b90f_eb21ef0b0d71);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IBluetoothDevice3Impl {
-    fn DeviceAccessInformation();
-    fn RequestAccessAsync();
-    fn GetRfcommServicesAsync();
-    fn GetRfcommServicesWithCacheModeAsync();
-    fn GetRfcommServicesForIdAsync();
-    fn GetRfcommServicesForIdWithCacheModeAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3104,10 +3035,6 @@ unsafe impl ::windows::core::Interface for IBluetoothDevice4 {
     type Vtable = IBluetoothDevice4Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x817c34ad_0e9c_42b2_a8dc_3e8094940d12);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IBluetoothDevice4Impl {
-    fn BluetoothDeviceId();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBluetoothDevice4Vtbl(
@@ -3126,10 +3053,6 @@ unsafe impl ::windows::core::Interface for IBluetoothDevice5 {
     type Vtable = IBluetoothDevice5Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb5e0b385_5e85_4559_a10d_1c7281379f96);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IBluetoothDevice5Impl {
-    fn WasSecureConnectionUsedForPairing();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBluetoothDevice5Vtbl(
@@ -3147,12 +3070,6 @@ pub struct IBluetoothDeviceId(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IBluetoothDeviceId {
     type Vtable = IBluetoothDeviceIdVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc17949af_57c1_4642_bcce_e6c06b20ae76);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IBluetoothDeviceIdImpl {
-    fn Id();
-    fn IsClassicDevice();
-    fn IsLowEnergyDevice();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3174,10 +3091,6 @@ unsafe impl ::windows::core::Interface for IBluetoothDeviceIdStatics {
     type Vtable = IBluetoothDeviceIdStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa7884e67_3efb_4f31_bbc2_810e09977404);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IBluetoothDeviceIdStaticsImpl {
-    fn FromId();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBluetoothDeviceIdStaticsVtbl(
@@ -3195,13 +3108,6 @@ pub struct IBluetoothDeviceStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IBluetoothDeviceStatics {
     type Vtable = IBluetoothDeviceStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0991df51_57db_4725_bbd7_84f64327ec2c);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IBluetoothDeviceStaticsImpl {
-    fn FromIdAsync();
-    fn FromHostNameAsync();
-    fn FromBluetoothAddressAsync();
-    fn GetDeviceSelector();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3227,14 +3133,6 @@ unsafe impl ::windows::core::Interface for IBluetoothDeviceStatics2 {
     type Vtable = IBluetoothDeviceStatics2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc29e8e2f_4e14_4477_aa1b_b8b47e5b7ece);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IBluetoothDeviceStatics2Impl {
-    fn GetDeviceSelectorFromPairingState();
-    fn GetDeviceSelectorFromConnectionStatus();
-    fn GetDeviceSelectorFromDeviceName();
-    fn GetDeviceSelectorFromBluetoothAddress();
-    fn GetDeviceSelectorFromClassOfDevice();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBluetoothDeviceStatics2Vtbl(
@@ -3257,12 +3155,6 @@ unsafe impl ::windows::core::Interface for IBluetoothLEAppearance {
     type Vtable = IBluetoothLEAppearanceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5d2079f2_66a8_4258_985e_02b4d9509f18);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IBluetoothLEAppearanceImpl {
-    fn RawValue();
-    fn Category();
-    fn SubCategory();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBluetoothLEAppearanceVtbl(
@@ -3282,31 +3174,6 @@ pub struct IBluetoothLEAppearanceCategoriesStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IBluetoothLEAppearanceCategoriesStatics {
     type Vtable = IBluetoothLEAppearanceCategoriesStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6d4d54fe_046a_4185_aab6_824cf0610861);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IBluetoothLEAppearanceCategoriesStaticsImpl {
-    fn Uncategorized();
-    fn Phone();
-    fn Computer();
-    fn Watch();
-    fn Clock();
-    fn Display();
-    fn RemoteControl();
-    fn EyeGlasses();
-    fn Tag();
-    fn Keyring();
-    fn MediaPlayer();
-    fn BarcodeScanner();
-    fn Thermometer();
-    fn HeartRate();
-    fn BloodPressure();
-    fn HumanInterfaceDevice();
-    fn GlucoseMeter();
-    fn RunningWalking();
-    fn Cycling();
-    fn PulseOximeter();
-    fn WeightScale();
-    fn OutdoorSportActivity();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3347,11 +3214,6 @@ unsafe impl ::windows::core::Interface for IBluetoothLEAppearanceStatics {
     type Vtable = IBluetoothLEAppearanceStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa193c0c7_4504_4f4a_9ba5_cd1054e5e065);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IBluetoothLEAppearanceStaticsImpl {
-    fn FromRawValue();
-    fn FromParts();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBluetoothLEAppearanceStaticsVtbl(
@@ -3370,37 +3232,6 @@ pub struct IBluetoothLEAppearanceSubcategoriesStatics(::windows::core::IUnknown)
 unsafe impl ::windows::core::Interface for IBluetoothLEAppearanceSubcategoriesStatics {
     type Vtable = IBluetoothLEAppearanceSubcategoriesStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe57ba606_2144_415a_8312_71ccf291f8d1);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IBluetoothLEAppearanceSubcategoriesStaticsImpl {
-    fn Generic();
-    fn SportsWatch();
-    fn ThermometerEar();
-    fn HeartRateBelt();
-    fn BloodPressureArm();
-    fn BloodPressureWrist();
-    fn Keyboard();
-    fn Mouse();
-    fn Joystick();
-    fn Gamepad();
-    fn DigitizerTablet();
-    fn CardReader();
-    fn DigitalPen();
-    fn BarcodeScanner();
-    fn RunningWalkingInShoe();
-    fn RunningWalkingOnShoe();
-    fn RunningWalkingOnHip();
-    fn CyclingComputer();
-    fn CyclingSpeedSensor();
-    fn CyclingCadenceSensor();
-    fn CyclingPowerSensor();
-    fn CyclingSpeedCadenceSensor();
-    fn OximeterFingertip();
-    fn OximeterWristWorn();
-    fn LocationDisplay();
-    fn LocationNavigationDisplay();
-    fn LocationPod();
-    fn LocationNavigationPod();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3447,12 +3278,6 @@ unsafe impl ::windows::core::Interface for IBluetoothLEConnectionParameters {
     type Vtable = IBluetoothLEConnectionParametersVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x33cb0771_8da9_508f_a366_1ca388c929ab);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IBluetoothLEConnectionParametersImpl {
-    fn LinkTimeout();
-    fn ConnectionLatency();
-    fn ConnectionInterval();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBluetoothLEConnectionParametersVtbl(
@@ -3473,11 +3298,6 @@ unsafe impl ::windows::core::Interface for IBluetoothLEConnectionPhy {
     type Vtable = IBluetoothLEConnectionPhyVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x781e5e48_621e_5a7e_8be6_1b9561ff63c9);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IBluetoothLEConnectionPhyImpl {
-    fn TransmitInfo();
-    fn ReceiveInfo();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBluetoothLEConnectionPhyVtbl(
@@ -3496,12 +3316,6 @@ pub struct IBluetoothLEConnectionPhyInfo(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IBluetoothLEConnectionPhyInfo {
     type Vtable = IBluetoothLEConnectionPhyInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9a100bdd_602e_5c27_a1ae_b230015a6394);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IBluetoothLEConnectionPhyInfoImpl {
-    fn IsUncoded1MPhy();
-    fn IsUncoded2MPhy();
-    fn IsCodedPhy();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3522,21 +3336,6 @@ pub struct IBluetoothLEDevice(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IBluetoothLEDevice {
     type Vtable = IBluetoothLEDeviceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb5ee2f7b_4ad8_4642_ac48_80a0b500e887);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IBluetoothLEDeviceImpl {
-    fn DeviceId();
-    fn Name();
-    fn GattServices();
-    fn ConnectionStatus();
-    fn BluetoothAddress();
-    fn GetGattService();
-    fn NameChanged();
-    fn RemoveNameChanged();
-    fn GattServicesChanged();
-    fn RemoveGattServicesChanged();
-    fn ConnectionStatusChanged();
-    fn RemoveConnectionStatusChanged();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3575,12 +3374,6 @@ unsafe impl ::windows::core::Interface for IBluetoothLEDevice2 {
     type Vtable = IBluetoothLEDevice2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x26f062b3_7aee_4d31_baba_b1b9775f5916);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IBluetoothLEDevice2Impl {
-    fn DeviceInformation();
-    fn Appearance();
-    fn BluetoothAddressType();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBluetoothLEDevice2Vtbl(
@@ -3601,15 +3394,6 @@ pub struct IBluetoothLEDevice3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IBluetoothLEDevice3 {
     type Vtable = IBluetoothLEDevice3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaee9e493_44ac_40dc_af33_b2c13c01ca46);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IBluetoothLEDevice3Impl {
-    fn DeviceAccessInformation();
-    fn RequestAccessAsync();
-    fn GetGattServicesAsync();
-    fn GetGattServicesWithCacheModeAsync();
-    fn GetGattServicesForUuidAsync();
-    fn GetGattServicesForUuidWithCacheModeAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3640,10 +3424,6 @@ unsafe impl ::windows::core::Interface for IBluetoothLEDevice4 {
     type Vtable = IBluetoothLEDevice4Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2b605031_2248_4b2f_acf0_7cee36fc5870);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IBluetoothLEDevice4Impl {
-    fn BluetoothDeviceId();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBluetoothLEDevice4Vtbl(
@@ -3662,10 +3442,6 @@ unsafe impl ::windows::core::Interface for IBluetoothLEDevice5 {
     type Vtable = IBluetoothLEDevice5Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9d6a1260_5287_458e_95ba_17c8b7bb326e);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IBluetoothLEDevice5Impl {
-    fn WasSecureConnectionUsedForPairing();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBluetoothLEDevice5Vtbl(
@@ -3683,16 +3459,6 @@ pub struct IBluetoothLEDevice6(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IBluetoothLEDevice6 {
     type Vtable = IBluetoothLEDevice6Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xca7190ef_0cae_573c_a1ca_e1fc5bfc39e2);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IBluetoothLEDevice6Impl {
-    fn GetConnectionParameters();
-    fn GetConnectionPhy();
-    fn RequestPreferredConnectionParameters();
-    fn ConnectionParametersChanged();
-    fn RemoveConnectionParametersChanged();
-    fn ConnectionPhyChanged();
-    fn RemoveConnectionPhyChanged();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3722,12 +3488,6 @@ unsafe impl ::windows::core::Interface for IBluetoothLEDeviceStatics {
     type Vtable = IBluetoothLEDeviceStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc8cf1a19_f0b6_4bf0_8689_41303de2d9f4);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IBluetoothLEDeviceStaticsImpl {
-    fn FromIdAsync();
-    fn FromBluetoothAddressAsync();
-    fn GetDeviceSelector();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBluetoothLEDeviceStaticsVtbl(
@@ -3749,16 +3509,6 @@ pub struct IBluetoothLEDeviceStatics2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IBluetoothLEDeviceStatics2 {
     type Vtable = IBluetoothLEDeviceStatics2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5f12c06b_3bac_43e8_ad16_563271bd41c2);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IBluetoothLEDeviceStatics2Impl {
-    fn GetDeviceSelectorFromPairingState();
-    fn GetDeviceSelectorFromConnectionStatus();
-    fn GetDeviceSelectorFromDeviceName();
-    fn GetDeviceSelectorFromBluetoothAddress();
-    fn GetDeviceSelectorFromBluetoothAddressWithBluetoothAddressType();
-    fn GetDeviceSelectorFromAppearance();
-    fn FromBluetoothAddressWithBluetoothAddressTypeAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3785,13 +3535,6 @@ unsafe impl ::windows::core::Interface for IBluetoothLEPreferredConnectionParame
     type Vtable = IBluetoothLEPreferredConnectionParametersVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf2f44344_7372_5f7b_9b34_29c944f5a715);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IBluetoothLEPreferredConnectionParametersImpl {
-    fn LinkTimeout();
-    fn ConnectionLatency();
-    fn MinConnectionInterval();
-    fn MaxConnectionInterval();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBluetoothLEPreferredConnectionParametersVtbl(
@@ -3813,10 +3556,6 @@ unsafe impl ::windows::core::Interface for IBluetoothLEPreferredConnectionParame
     type Vtable = IBluetoothLEPreferredConnectionParametersRequestVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8a375276_a528_5266_b661_cce6a5ff9739);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IBluetoothLEPreferredConnectionParametersRequestImpl {
-    fn Status();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBluetoothLEPreferredConnectionParametersRequestVtbl(
@@ -3834,12 +3573,6 @@ pub struct IBluetoothLEPreferredConnectionParametersStatics(::windows::core::IUn
 unsafe impl ::windows::core::Interface for IBluetoothLEPreferredConnectionParametersStatics {
     type Vtable = IBluetoothLEPreferredConnectionParametersStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0e3e8edc_2751_55aa_a838_8faeee818d72);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IBluetoothLEPreferredConnectionParametersStaticsImpl {
-    fn Balanced();
-    fn ThroughputOptimized();
-    fn PowerOptimized();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3860,17 +3593,6 @@ pub struct IBluetoothSignalStrengthFilter(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IBluetoothSignalStrengthFilter {
     type Vtable = IBluetoothSignalStrengthFilterVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdf7b7391_6bb5_4cfe_90b1_5d7324edcf7f);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IBluetoothSignalStrengthFilterImpl {
-    fn InRangeThresholdInDBm();
-    fn SetInRangeThresholdInDBm();
-    fn OutOfRangeThresholdInDBm();
-    fn SetOutOfRangeThresholdInDBm();
-    fn OutOfRangeTimeout();
-    fn SetOutOfRangeTimeout();
-    fn SamplingInterval();
-    fn SetSamplingInterval();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3905,11 +3627,6 @@ unsafe impl ::windows::core::Interface for IBluetoothUuidHelperStatics {
     type Vtable = IBluetoothUuidHelperStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x17df0cd8_cf74_4b21_afe6_f57a11bcdea0);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IBluetoothUuidHelperStaticsImpl {
-    fn FromShortId();
-    fn TryGetShortId();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBluetoothUuidHelperStaticsVtbl(
@@ -3923,3 +3640,5 @@ pub struct IBluetoothUuidHelperStaticsVtbl(
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uuid: ::windows::core::GUID, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
 );
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

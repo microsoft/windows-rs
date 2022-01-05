@@ -1,0 +1,89 @@
+pub trait IXmlReaderImpl: Sized {
+    fn SetInput();
+    fn GetProperty();
+    fn SetProperty();
+    fn Read();
+    fn GetNodeType();
+    fn MoveToFirstAttribute();
+    fn MoveToNextAttribute();
+    fn MoveToAttributeByName();
+    fn MoveToElement();
+    fn GetQualifiedName();
+    fn GetNamespaceUri();
+    fn GetLocalName();
+    fn GetPrefix();
+    fn GetValue();
+    fn ReadValueChunk();
+    fn GetBaseUri();
+    fn IsDefault();
+    fn IsEmptyElement();
+    fn GetLineNumber();
+    fn GetLinePosition();
+    fn GetAttributeCount();
+    fn GetDepth();
+    fn IsEOF();
+}
+pub trait IXmlResolverImpl: Sized {
+    fn ResolveUri();
+}
+pub trait IXmlWriterImpl: Sized {
+    fn SetOutput();
+    fn GetProperty();
+    fn SetProperty();
+    fn WriteAttributes();
+    fn WriteAttributeString();
+    fn WriteCData();
+    fn WriteCharEntity();
+    fn WriteChars();
+    fn WriteComment();
+    fn WriteDocType();
+    fn WriteElementString();
+    fn WriteEndDocument();
+    fn WriteEndElement();
+    fn WriteEntityRef();
+    fn WriteFullEndElement();
+    fn WriteName();
+    fn WriteNmToken();
+    fn WriteNode();
+    fn WriteNodeShallow();
+    fn WriteProcessingInstruction();
+    fn WriteQualifiedName();
+    fn WriteRaw();
+    fn WriteRawChars();
+    fn WriteStartDocument();
+    fn WriteStartElement();
+    fn WriteString();
+    fn WriteSurrogateCharEntity();
+    fn WriteWhitespace();
+    fn Flush();
+}
+pub trait IXmlWriterLiteImpl: Sized {
+    fn SetOutput();
+    fn GetProperty();
+    fn SetProperty();
+    fn WriteAttributes();
+    fn WriteAttributeString();
+    fn WriteCData();
+    fn WriteCharEntity();
+    fn WriteChars();
+    fn WriteComment();
+    fn WriteDocType();
+    fn WriteElementString();
+    fn WriteEndDocument();
+    fn WriteEndElement();
+    fn WriteEntityRef();
+    fn WriteFullEndElement();
+    fn WriteName();
+    fn WriteNmToken();
+    fn WriteNode();
+    fn WriteNodeShallow();
+    fn WriteProcessingInstruction();
+    fn WriteRaw();
+    fn WriteRawChars();
+    fn WriteStartDocument();
+    fn WriteStartElement();
+    fn WriteString();
+    fn WriteSurrogateCharEntity();
+    fn WriteWhitespace();
+    fn Flush();
+}

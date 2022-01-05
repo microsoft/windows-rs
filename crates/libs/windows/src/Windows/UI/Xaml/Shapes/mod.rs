@@ -218,8 +218,6 @@ unsafe impl ::windows::core::Interface for IEllipse {
     type Vtable = IEllipseVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x70e05ac4_d38d_4bab_831f_4a22ef52ac86);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IEllipseImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEllipseVtbl(
@@ -236,17 +234,6 @@ pub struct ILine(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ILine {
     type Vtable = ILineVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x46a5433d_4ffb_48df_8732_4e15c834816b);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ILineImpl {
-    fn X1();
-    fn SetX1();
-    fn Y1();
-    fn SetY1();
-    fn X2();
-    fn SetX2();
-    fn Y2();
-    fn SetY2();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -273,13 +260,6 @@ unsafe impl ::windows::core::Interface for ILineStatics {
     type Vtable = ILineStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x267c123d_6ea4_4c50_8b1d_50207aff1e8a);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ILineStaticsImpl {
-    fn X1Property();
-    fn Y1Property();
-    fn X2Property();
-    fn Y2Property();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILineStaticsVtbl(
@@ -300,11 +280,6 @@ pub struct IPath(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPath {
     type Vtable = IPathVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x78883609_3d57_4f3c_b8a5_6cabcac9711f);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IPathImpl {
-    fn Data();
-    fn SetData();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -327,10 +302,6 @@ unsafe impl ::windows::core::Interface for IPathFactory {
     type Vtable = IPathFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2340a4e3_5a86_4fc6_9a50_cbb93b828766);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IPathFactoryImpl {
-    fn CreateInstance();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPathFactoryVtbl(
@@ -349,10 +320,6 @@ unsafe impl ::windows::core::Interface for IPathStatics {
     type Vtable = IPathStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf627e59d_87dc_4142_81f1_97fc7ff8641c);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IPathStaticsImpl {
-    fn DataProperty();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPathStaticsVtbl(
@@ -370,13 +337,6 @@ pub struct IPolygon(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPolygon {
     type Vtable = IPolygonVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe3755c19_2e4d_4bcc_8d34_86871957fa01);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IPolygonImpl {
-    fn FillRule();
-    fn SetFillRule();
-    fn Points();
-    fn SetPoints();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -403,11 +363,6 @@ unsafe impl ::windows::core::Interface for IPolygonStatics {
     type Vtable = IPolygonStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x362a8aab_d463_4366_9e1a_beba72810fb7);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IPolygonStaticsImpl {
-    fn FillRuleProperty();
-    fn PointsProperty();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPolygonStaticsVtbl(
@@ -426,13 +381,6 @@ pub struct IPolyline(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPolyline {
     type Vtable = IPolylineVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x91dc62f8_42b3_47f3_8476_c55124a7c4c6);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IPolylineImpl {
-    fn FillRule();
-    fn SetFillRule();
-    fn Points();
-    fn SetPoints();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -459,11 +407,6 @@ unsafe impl ::windows::core::Interface for IPolylineStatics {
     type Vtable = IPolylineStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc7aa2cd1_a26c_43b0_aaa5_822fa64a11b9);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IPolylineStaticsImpl {
-    fn FillRuleProperty();
-    fn PointsProperty();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPolylineStaticsVtbl(
@@ -482,13 +425,6 @@ pub struct IRectangle(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IRectangle {
     type Vtable = IRectangleVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x855bc230_8a11_4e18_a136_4bc21c7827b0);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IRectangleImpl {
-    fn RadiusX();
-    fn SetRadiusX();
-    fn RadiusY();
-    fn SetRadiusY();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -511,11 +447,6 @@ unsafe impl ::windows::core::Interface for IRectangleStatics {
     type Vtable = IRectangleStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9f25aa53_bb3a_4c3c_89db_6fbc0d1fa0cc);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IRectangleStaticsImpl {
-    fn RadiusXProperty();
-    fn RadiusYProperty();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRectangleStaticsVtbl(
@@ -534,32 +465,6 @@ pub struct IShape(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IShape {
     type Vtable = IShapeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x786f2b75_9aa0_454d_ae06_a2466e37c832);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IShapeImpl {
-    fn Fill();
-    fn SetFill();
-    fn Stroke();
-    fn SetStroke();
-    fn StrokeMiterLimit();
-    fn SetStrokeMiterLimit();
-    fn StrokeThickness();
-    fn SetStrokeThickness();
-    fn StrokeStartLineCap();
-    fn SetStrokeStartLineCap();
-    fn StrokeEndLineCap();
-    fn SetStrokeEndLineCap();
-    fn StrokeLineJoin();
-    fn SetStrokeLineJoin();
-    fn StrokeDashOffset();
-    fn SetStrokeDashOffset();
-    fn StrokeDashCap();
-    fn SetStrokeDashCap();
-    fn StrokeDashArray();
-    fn SetStrokeDashArray();
-    fn Stretch();
-    fn SetStretch();
-    fn GeometryTransform();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -618,10 +523,6 @@ unsafe impl ::windows::core::Interface for IShape2 {
     type Vtable = IShape2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x97248dba_49f2_49a4_a5dd_164df824db14);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IShape2Impl {
-    fn GetAlphaMask();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IShape2Vtbl(
@@ -641,10 +542,6 @@ unsafe impl ::windows::core::Interface for IShapeFactory {
     type Vtable = IShapeFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4b717613_f6aa_48d5_9588_e1d188eacbc9);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IShapeFactoryImpl {
-    fn CreateInstance();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IShapeFactoryVtbl(
@@ -662,20 +559,6 @@ pub struct IShapeStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IShapeStatics {
     type Vtable = IShapeStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1d7b4c55_9df3_48dc_9194_9d306faa6089);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IShapeStaticsImpl {
-    fn FillProperty();
-    fn StrokeProperty();
-    fn StrokeMiterLimitProperty();
-    fn StrokeThicknessProperty();
-    fn StrokeStartLineCapProperty();
-    fn StrokeEndLineCapProperty();
-    fn StrokeLineJoinProperty();
-    fn StrokeDashOffsetProperty();
-    fn StrokeDashCapProperty();
-    fn StrokeDashArrayProperty();
-    fn StretchProperty();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2462,3 +2345,5 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &Shape {
 }
 unsafe impl ::core::marker::Send for Shape {}
 unsafe impl ::core::marker::Sync for Shape {}
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

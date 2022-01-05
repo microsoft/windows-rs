@@ -1888,12 +1888,6 @@ unsafe impl ::windows::core::Interface for IBackgroundDownloader {
     type Vtable = IBackgroundDownloaderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc1c79333_6649_4b1d_a826_a4b3dd234d0b);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IBackgroundDownloaderImpl: IBackgroundTransferBaseImpl {
-    fn CreateDownload();
-    fn CreateDownloadFromFile();
-    fn CreateDownloadAsync();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBackgroundDownloaderVtbl(
@@ -1916,19 +1910,6 @@ pub struct IBackgroundDownloader2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IBackgroundDownloader2 {
     type Vtable = IBackgroundDownloader2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa94a5847_348d_4a35_890e_8a1ef3798479);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IBackgroundDownloader2Impl {
-    fn TransferGroup();
-    fn SetTransferGroup();
-    fn SuccessToastNotification();
-    fn SetSuccessToastNotification();
-    fn FailureToastNotification();
-    fn SetFailureToastNotification();
-    fn SuccessTileNotification();
-    fn SetSuccessTileNotification();
-    fn FailureTileNotification();
-    fn SetFailureTileNotification();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1965,10 +1946,6 @@ unsafe impl ::windows::core::Interface for IBackgroundDownloader3 {
     type Vtable = IBackgroundDownloader3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd11a8c48_86e8_48e2_b615_6976aabf861d);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IBackgroundDownloader3Impl {
-    fn CompletionGroup();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBackgroundDownloader3Vtbl(
@@ -1987,10 +1964,6 @@ unsafe impl ::windows::core::Interface for IBackgroundDownloaderFactory {
     type Vtable = IBackgroundDownloaderFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x26836c24_d89e_46f4_a29a_4f4d4f144155);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IBackgroundDownloaderFactoryImpl {
-    fn CreateWithCompletionGroup();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBackgroundDownloaderFactoryVtbl(
@@ -2008,11 +1981,6 @@ pub struct IBackgroundDownloaderStaticMethods(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IBackgroundDownloaderStaticMethods {
     type Vtable = IBackgroundDownloaderStaticMethodsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x52a65a35_c64e_426c_9919_540d0d21a650);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IBackgroundDownloaderStaticMethodsImpl {
-    fn GetCurrentDownloadsAsync();
-    fn GetCurrentDownloadsForGroupAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2035,10 +2003,6 @@ unsafe impl ::windows::core::Interface for IBackgroundDownloaderStaticMethods2 {
     type Vtable = IBackgroundDownloaderStaticMethods2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2faa1327_1ad4_4ca5_b2cd_08dbf0746afe);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IBackgroundDownloaderStaticMethods2Impl {
-    fn GetCurrentDownloadsForTransferGroupAsync();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBackgroundDownloaderStaticMethods2Vtbl(
@@ -2059,10 +2023,6 @@ pub struct IBackgroundDownloaderUserConsent(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IBackgroundDownloaderUserConsent {
     type Vtable = IBackgroundDownloaderUserConsentVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5d14e906_9266_4808_bd71_5925f2a3130a);
-}
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
-pub trait IBackgroundDownloaderUserConsentImpl {
-    fn RequestUnconstrainedDownloadsAsync();
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
@@ -2221,19 +2181,6 @@ unsafe impl ::windows::core::Interface for IBackgroundTransferBase {
     type Vtable = IBackgroundTransferBaseVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2a9da250_c769_458c_afe8_feb8d4d3b2ef);
 }
-pub trait IBackgroundTransferBaseImpl {
-    fn SetRequestHeader();
-    fn ServerCredential();
-    fn SetServerCredential();
-    fn ProxyCredential();
-    fn SetProxyCredential();
-    fn Method();
-    fn SetMethod();
-    fn Group();
-    fn SetGroup();
-    fn CostPolicy();
-    fn SetCostPolicy();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBackgroundTransferBaseVtbl(
@@ -2268,12 +2215,6 @@ unsafe impl ::windows::core::Interface for IBackgroundTransferCompletionGroup {
     type Vtable = IBackgroundTransferCompletionGroupVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2d930225_986b_574d_7950_0add47f5d706);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IBackgroundTransferCompletionGroupImpl {
-    fn Trigger();
-    fn IsEnabled();
-    fn Enable();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBackgroundTransferCompletionGroupVtbl(
@@ -2295,11 +2236,6 @@ unsafe impl ::windows::core::Interface for IBackgroundTransferCompletionGroupTri
     type Vtable = IBackgroundTransferCompletionGroupTriggerDetailsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7b6be286_6e47_5136_7fcb_fa4389f46f5b);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IBackgroundTransferCompletionGroupTriggerDetailsImpl {
-    fn Downloads();
-    fn Uploads();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBackgroundTransferCompletionGroupTriggerDetailsVtbl(
@@ -2320,12 +2256,6 @@ pub struct IBackgroundTransferContentPart(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IBackgroundTransferContentPart {
     type Vtable = IBackgroundTransferContentPartVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe8e15657_d7d1_4ed8_838e_674ac217ace6);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IBackgroundTransferContentPartImpl {
-    fn SetHeader();
-    fn SetText();
-    fn SetFile();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2425,10 +2355,6 @@ unsafe impl ::windows::core::Interface for IBackgroundTransferContentPartFactory
     type Vtable = IBackgroundTransferContentPartFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x90ef98a9_7a01_4a0b_9f80_a0b0bb370f8d);
 }
-pub trait IBackgroundTransferContentPartFactoryImpl {
-    fn CreateWithName();
-    fn CreateWithNameAndFileName();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBackgroundTransferContentPartFactoryVtbl(
@@ -2447,10 +2373,6 @@ pub struct IBackgroundTransferErrorStaticMethods(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IBackgroundTransferErrorStaticMethods {
     type Vtable = IBackgroundTransferErrorStaticMethodsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaad33b04_1192_4bf4_8b68_39c5add244e2);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IBackgroundTransferErrorStaticMethodsImpl {
-    fn GetStatus();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2471,12 +2393,6 @@ unsafe impl ::windows::core::Interface for IBackgroundTransferGroup {
     type Vtable = IBackgroundTransferGroupVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd8c3e3e4_6459_4540_85eb_aaa1c8903677);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IBackgroundTransferGroupImpl {
-    fn Name();
-    fn TransferBehavior();
-    fn SetTransferBehavior();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBackgroundTransferGroupVtbl(
@@ -2496,10 +2412,6 @@ pub struct IBackgroundTransferGroupStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IBackgroundTransferGroupStatics {
     type Vtable = IBackgroundTransferGroupStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x02ec50b2_7d18_495b_aa22_32a97d45d3e2);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IBackgroundTransferGroupStaticsImpl {
-    fn CreateGroup();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2644,16 +2556,6 @@ unsafe impl ::windows::core::Interface for IBackgroundTransferOperation {
     type Vtable = IBackgroundTransferOperationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xded06846_90ca_44fb_8fb1_124154c0d539);
 }
-pub trait IBackgroundTransferOperationImpl {
-    fn Guid();
-    fn RequestedUri();
-    fn Method();
-    fn Group();
-    fn CostPolicy();
-    fn SetCostPolicy();
-    fn GetResultStreamAt();
-    fn GetResponseInformation();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBackgroundTransferOperationVtbl(
@@ -2756,10 +2658,6 @@ unsafe impl ::windows::core::Interface for IBackgroundTransferOperationPriority 
     type Vtable = IBackgroundTransferOperationPriorityVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x04854327_5254_4b3a_915e_0aa49275c0f9);
 }
-pub trait IBackgroundTransferOperationPriorityImpl {
-    fn Priority();
-    fn SetPriority();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBackgroundTransferOperationPriorityVtbl(
@@ -2778,12 +2676,6 @@ pub struct IBackgroundTransferRangesDownloadedEventArgs(::windows::core::IUnknow
 unsafe impl ::windows::core::Interface for IBackgroundTransferRangesDownloadedEventArgs {
     type Vtable = IBackgroundTransferRangesDownloadedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3ebc7453_bf48_4a88_9248_b0c165184f5c);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IBackgroundTransferRangesDownloadedEventArgsImpl {
-    fn WasDownloadRestarted();
-    fn AddedRanges();
-    fn GetDeferral();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2806,14 +2698,6 @@ pub struct IBackgroundUploader(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IBackgroundUploader {
     type Vtable = IBackgroundUploaderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc595c9ae_cead_465b_8801_c55ac90a01ce);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IBackgroundUploaderImpl: IBackgroundTransferBaseImpl {
-    fn CreateUpload();
-    fn CreateUploadFromStreamAsync();
-    fn CreateUploadWithFormDataAndAutoBoundaryAsync();
-    fn CreateUploadWithSubTypeAsync();
-    fn CreateUploadWithSubTypeAndBoundaryAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2841,19 +2725,6 @@ pub struct IBackgroundUploader2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IBackgroundUploader2 {
     type Vtable = IBackgroundUploader2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8e0612ce_0c34_4463_807f_198a1b8bd4ad);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IBackgroundUploader2Impl {
-    fn TransferGroup();
-    fn SetTransferGroup();
-    fn SuccessToastNotification();
-    fn SetSuccessToastNotification();
-    fn FailureToastNotification();
-    fn SetFailureToastNotification();
-    fn SuccessTileNotification();
-    fn SetSuccessTileNotification();
-    fn FailureTileNotification();
-    fn SetFailureTileNotification();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2890,10 +2761,6 @@ unsafe impl ::windows::core::Interface for IBackgroundUploader3 {
     type Vtable = IBackgroundUploader3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb95e9439_5bf0_4b3a_8c47_2c6199a854b9);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IBackgroundUploader3Impl {
-    fn CompletionGroup();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBackgroundUploader3Vtbl(
@@ -2912,10 +2779,6 @@ unsafe impl ::windows::core::Interface for IBackgroundUploaderFactory {
     type Vtable = IBackgroundUploaderFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x736203c7_10e7_48a0_ac3c_1ac71095ec57);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IBackgroundUploaderFactoryImpl {
-    fn CreateWithCompletionGroup();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBackgroundUploaderFactoryVtbl(
@@ -2933,11 +2796,6 @@ pub struct IBackgroundUploaderStaticMethods(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IBackgroundUploaderStaticMethods {
     type Vtable = IBackgroundUploaderStaticMethodsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf2875cfb_9b05_4741_9121_740a83e247df);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IBackgroundUploaderStaticMethodsImpl {
-    fn GetCurrentUploadsAsync();
-    fn GetCurrentUploadsForGroupAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2960,10 +2818,6 @@ unsafe impl ::windows::core::Interface for IBackgroundUploaderStaticMethods2 {
     type Vtable = IBackgroundUploaderStaticMethods2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe919ac62_ea08_42f0_a2ac_07e467549080);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IBackgroundUploaderStaticMethods2Impl {
-    fn GetCurrentUploadsForTransferGroupAsync();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBackgroundUploaderStaticMethods2Vtbl(
@@ -2985,10 +2839,6 @@ unsafe impl ::windows::core::Interface for IBackgroundUploaderUserConsent {
     type Vtable = IBackgroundUploaderUserConsentVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3bb384cb_0760_461d_907f_5138f84d44c1);
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
-pub trait IBackgroundUploaderUserConsentImpl {
-    fn RequestUnconstrainedUploadsAsync();
-}
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
@@ -3008,12 +2858,6 @@ pub struct IContentPrefetcher(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IContentPrefetcher {
     type Vtable = IContentPrefetcherVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa8d6f754_7dc1_4cd9_8810_2a6aa9417e11);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IContentPrefetcherImpl {
-    fn ContentUris();
-    fn SetIndirectContentUri();
-    fn IndirectContentUri();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3038,10 +2882,6 @@ unsafe impl ::windows::core::Interface for IContentPrefetcherTime {
     type Vtable = IContentPrefetcherTimeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe361fd08_132a_4fde_a7cc_fcb0e66523af);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IContentPrefetcherTimeImpl {
-    fn LastSuccessfulPrefetchTime();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IContentPrefetcherTimeVtbl(
@@ -3060,15 +2900,6 @@ pub struct IDownloadOperation(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDownloadOperation {
     type Vtable = IDownloadOperationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbd87ebb0_5714_4e09_ba68_bef73903b0d7);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IDownloadOperationImpl: IBackgroundTransferOperationImpl {
-    fn ResultFile();
-    fn Progress();
-    fn StartAsync();
-    fn AttachAsync();
-    fn Pause();
-    fn Resume();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3096,10 +2927,6 @@ unsafe impl ::windows::core::Interface for IDownloadOperation2 {
     type Vtable = IDownloadOperation2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa3cced40_8f9c_4353_9cd4_290dee387c38);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IDownloadOperation2Impl {
-    fn TransferGroup();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDownloadOperation2Vtbl(
@@ -3117,18 +2944,6 @@ pub struct IDownloadOperation3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDownloadOperation3 {
     type Vtable = IDownloadOperation3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5027351c_7d5e_4adc_b8d3_df5c6031b9cc);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IDownloadOperation3Impl {
-    fn IsRandomAccessRequired();
-    fn SetIsRandomAccessRequired();
-    fn GetResultRandomAccessStreamReference();
-    fn GetDownloadedRanges();
-    fn RangesDownloaded();
-    fn RemoveRangesDownloaded();
-    fn SetRequestedUri();
-    fn RecoverableWebErrorStatuses();
-    fn CurrentWebErrorStatus();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3163,10 +2978,6 @@ unsafe impl ::windows::core::Interface for IDownloadOperation4 {
     type Vtable = IDownloadOperation4Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0cdaaef4_8cef_404a_966d_f058400bed80);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IDownloadOperation4Impl {
-    fn MakeCurrentInTransferGroup();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDownloadOperation4Vtbl(
@@ -3184,11 +2995,6 @@ pub struct IDownloadOperation5(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDownloadOperation5 {
     type Vtable = IDownloadOperation5Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa699a86f_5590_463a_b8d6_1e491a2760a5);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IDownloadOperation5Impl {
-    fn SetRequestHeader();
-    fn RemoveRequestHeader();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3208,13 +3014,6 @@ pub struct IResponseInformation(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IResponseInformation {
     type Vtable = IResponseInformationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf8bb9a12_f713_4792_8b68_d9d297f91d2e);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IResponseInformationImpl {
-    fn IsResumable();
-    fn ActualUri();
-    fn StatusCode();
-    fn Headers();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3241,10 +3040,6 @@ unsafe impl ::windows::core::Interface for IUnconstrainedTransferRequestResult {
     type Vtable = IUnconstrainedTransferRequestResultVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4c24b81f_d944_4112_a98e_6a69522b7ebb);
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
-pub trait IUnconstrainedTransferRequestResultImpl {
-    fn IsUnconstrained();
-}
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
@@ -3264,13 +3059,6 @@ pub struct IUploadOperation(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IUploadOperation {
     type Vtable = IUploadOperationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3e5624e0_7389_434c_8b35_427fd36bbdae);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IUploadOperationImpl: IBackgroundTransferOperationImpl {
-    fn SourceFile();
-    fn Progress();
-    fn StartAsync();
-    fn AttachAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3296,10 +3084,6 @@ unsafe impl ::windows::core::Interface for IUploadOperation2 {
     type Vtable = IUploadOperation2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x556189f2_2774_4df6_9fa5_209f2bfb12f7);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IUploadOperation2Impl {
-    fn TransferGroup();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUploadOperation2Vtbl(
@@ -3318,10 +3102,6 @@ unsafe impl ::windows::core::Interface for IUploadOperation3 {
     type Vtable = IUploadOperation3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x42c92ca3_de39_4546_bc62_3774b4294de3);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IUploadOperation3Impl {
-    fn MakeCurrentInTransferGroup();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUploadOperation3Vtbl(
@@ -3339,11 +3119,6 @@ pub struct IUploadOperation4(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IUploadOperation4 {
     type Vtable = IUploadOperation4Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x50edef31_fac5_41ee_b030_dc77caee9faa);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IUploadOperation4Impl {
-    fn SetRequestHeader();
-    fn RemoveRequestHeader();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3817,3 +3592,5 @@ impl<'a> ::windows::core::IntoParam<'a, IBackgroundTransferOperationPriority> fo
 }
 unsafe impl ::core::marker::Send for UploadOperation {}
 unsafe impl ::core::marker::Sync for UploadOperation {}
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

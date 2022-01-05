@@ -1237,8 +1237,6 @@ unsafe impl ::windows::core::Interface for IColorHelper {
     type Vtable = IColorHelperVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x193cfbe7_65c7_4540_ad08_6283ba76879a);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IColorHelperImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IColorHelperVtbl(
@@ -1255,10 +1253,6 @@ pub struct IColorHelperStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IColorHelperStatics {
     type Vtable = IColorHelperStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8504dbea_fb6a_4144_a6c2_33499c9284f5);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IColorHelperStaticsImpl {
-    fn FromArgb();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1278,10 +1272,6 @@ unsafe impl ::windows::core::Interface for IColorHelperStatics2 {
     type Vtable = IColorHelperStatics2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x24d9af02_6eb0_4b94_855c_fcf0818d9a16);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IColorHelperStatics2Impl {
-    fn ToDisplayName();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IColorHelperStatics2Vtbl(
@@ -1300,8 +1290,6 @@ unsafe impl ::windows::core::Interface for IColors {
     type Vtable = IColorsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9b8c9326_4ca6_4ce5_8994_9eff65cabdcc);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IColorsImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IColorsVtbl(
@@ -1318,150 +1306,6 @@ pub struct IColorsStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IColorsStatics {
     type Vtable = IColorsStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcff52e04_cca6_4614_a17e_754910c84a99);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IColorsStaticsImpl {
-    fn AliceBlue();
-    fn AntiqueWhite();
-    fn Aqua();
-    fn Aquamarine();
-    fn Azure();
-    fn Beige();
-    fn Bisque();
-    fn Black();
-    fn BlanchedAlmond();
-    fn Blue();
-    fn BlueViolet();
-    fn Brown();
-    fn BurlyWood();
-    fn CadetBlue();
-    fn Chartreuse();
-    fn Chocolate();
-    fn Coral();
-    fn CornflowerBlue();
-    fn Cornsilk();
-    fn Crimson();
-    fn Cyan();
-    fn DarkBlue();
-    fn DarkCyan();
-    fn DarkGoldenrod();
-    fn DarkGray();
-    fn DarkGreen();
-    fn DarkKhaki();
-    fn DarkMagenta();
-    fn DarkOliveGreen();
-    fn DarkOrange();
-    fn DarkOrchid();
-    fn DarkRed();
-    fn DarkSalmon();
-    fn DarkSeaGreen();
-    fn DarkSlateBlue();
-    fn DarkSlateGray();
-    fn DarkTurquoise();
-    fn DarkViolet();
-    fn DeepPink();
-    fn DeepSkyBlue();
-    fn DimGray();
-    fn DodgerBlue();
-    fn Firebrick();
-    fn FloralWhite();
-    fn ForestGreen();
-    fn Fuchsia();
-    fn Gainsboro();
-    fn GhostWhite();
-    fn Gold();
-    fn Goldenrod();
-    fn Gray();
-    fn Green();
-    fn GreenYellow();
-    fn Honeydew();
-    fn HotPink();
-    fn IndianRed();
-    fn Indigo();
-    fn Ivory();
-    fn Khaki();
-    fn Lavender();
-    fn LavenderBlush();
-    fn LawnGreen();
-    fn LemonChiffon();
-    fn LightBlue();
-    fn LightCoral();
-    fn LightCyan();
-    fn LightGoldenrodYellow();
-    fn LightGreen();
-    fn LightGray();
-    fn LightPink();
-    fn LightSalmon();
-    fn LightSeaGreen();
-    fn LightSkyBlue();
-    fn LightSlateGray();
-    fn LightSteelBlue();
-    fn LightYellow();
-    fn Lime();
-    fn LimeGreen();
-    fn Linen();
-    fn Magenta();
-    fn Maroon();
-    fn MediumAquamarine();
-    fn MediumBlue();
-    fn MediumOrchid();
-    fn MediumPurple();
-    fn MediumSeaGreen();
-    fn MediumSlateBlue();
-    fn MediumSpringGreen();
-    fn MediumTurquoise();
-    fn MediumVioletRed();
-    fn MidnightBlue();
-    fn MintCream();
-    fn MistyRose();
-    fn Moccasin();
-    fn NavajoWhite();
-    fn Navy();
-    fn OldLace();
-    fn Olive();
-    fn OliveDrab();
-    fn Orange();
-    fn OrangeRed();
-    fn Orchid();
-    fn PaleGoldenrod();
-    fn PaleGreen();
-    fn PaleTurquoise();
-    fn PaleVioletRed();
-    fn PapayaWhip();
-    fn PeachPuff();
-    fn Peru();
-    fn Pink();
-    fn Plum();
-    fn PowderBlue();
-    fn Purple();
-    fn Red();
-    fn RosyBrown();
-    fn RoyalBlue();
-    fn SaddleBrown();
-    fn Salmon();
-    fn SandyBrown();
-    fn SeaGreen();
-    fn SeaShell();
-    fn Sienna();
-    fn Silver();
-    fn SkyBlue();
-    fn SlateBlue();
-    fn SlateGray();
-    fn Snow();
-    fn SpringGreen();
-    fn SteelBlue();
-    fn Tan();
-    fn Teal();
-    fn Thistle();
-    fn Tomato();
-    fn Transparent();
-    fn Turquoise();
-    fn Violet();
-    fn Wheat();
-    fn White();
-    fn WhiteSmoke();
-    fn Yellow();
-    fn YellowGreen();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1621,10 +1465,6 @@ unsafe impl ::windows::core::Interface for IUIContentRoot {
     type Vtable = IUIContentRootVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1dfcbac6_b36b_5cb9_9bc5_2b7a0eddc378);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IUIContentRootImpl {
-    fn UIContext();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIContentRootVtbl(
@@ -1643,8 +1483,6 @@ unsafe impl ::windows::core::Interface for IUIContext {
     type Vtable = IUIContextVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbb5cfacd_5bd8_59d0_a59e_1c17a4d6d243);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IUIContextImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIContextVtbl(
@@ -1844,3 +1682,5 @@ impl ::core::default::Default for WindowId {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

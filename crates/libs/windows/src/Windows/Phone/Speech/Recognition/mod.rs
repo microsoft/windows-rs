@@ -35,3 +35,5 @@ unsafe impl ::windows::core::RuntimeType for SpeechRecognitionUIStatus {
 impl ::windows::core::DefaultType for SpeechRecognitionUIStatus {
     type DefaultType = Self;
 }
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

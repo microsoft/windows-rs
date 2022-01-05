@@ -6784,12 +6784,6 @@ unsafe impl ::windows::core::Interface for ICloneViewHelper {
     type Vtable = ICloneViewHelperVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf6a3d4c4_5632_4d83_b0a1_fb88712b1eb7);
 }
-pub trait ICloneViewHelperImpl {
-    fn GetConnectedIDs();
-    fn GetActiveTopology();
-    fn SetActiveTopology();
-    fn Commit();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICloneViewHelperVtbl(
@@ -7636,14 +7630,6 @@ impl ::core::fmt::Debug for IViewHelper {
 unsafe impl ::windows::core::Interface for IViewHelper {
     type Vtable = IViewHelperVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe85ccef5_aaaa_47f0_b5e3_61f7aecdc4c1);
-}
-pub trait IViewHelperImpl {
-    fn GetConnectedIDs();
-    fn GetActiveTopology();
-    fn SetActiveTopology();
-    fn Commit();
-    fn SetConfiguration();
-    fn GetProceedOnNewConfiguration();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -12314,3 +12300,5 @@ pub const XO_TABLE: u32 = 2u32;
 pub const XO_TO_MONO: u32 = 4u32;
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
 pub const XO_TRIVIAL: u32 = 1u32;
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

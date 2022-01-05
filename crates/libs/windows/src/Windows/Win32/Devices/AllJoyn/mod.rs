@@ -9793,3 +9793,5 @@ pub unsafe fn alljoyn_unity_set_deferred_callback_mainthread_only(mainthread_onl
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

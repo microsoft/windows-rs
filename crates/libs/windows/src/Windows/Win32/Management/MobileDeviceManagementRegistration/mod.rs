@@ -490,3 +490,5 @@ pub unsafe fn UnregisterDeviceWithManagement<'a, Param0: ::windows::core::IntoPa
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

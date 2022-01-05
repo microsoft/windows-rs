@@ -70,9 +70,6 @@ unsafe impl ::windows::core::Interface for ICompositionCapabilitiesInteropFactor
     type Vtable = ICompositionCapabilitiesInteropFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2c9db356_e70d_4642_8298_bc4aa5b4865c);
 }
-pub trait ICompositionCapabilitiesInteropFactoryImpl {
-    fn GetForWindow();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositionCapabilitiesInteropFactoryVtbl(
@@ -156,14 +153,6 @@ impl ::core::fmt::Debug for ICompositionDrawingSurfaceInterop {
 unsafe impl ::windows::core::Interface for ICompositionDrawingSurfaceInterop {
     type Vtable = ICompositionDrawingSurfaceInteropVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfd04e6e3_fe0c_4c3c_ab19_a07601a576ee);
-}
-pub trait ICompositionDrawingSurfaceInteropImpl {
-    fn BeginDraw();
-    fn EndDraw();
-    fn Resize();
-    fn Scroll();
-    fn ResumeDraw();
-    fn SuspendDraw();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -278,9 +267,6 @@ unsafe impl ::windows::core::Interface for ICompositionDrawingSurfaceInterop2 {
     type Vtable = ICompositionDrawingSurfaceInterop2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x41e64aae_98c0_4239_8e95_a330dd6aa18b);
 }
-pub trait ICompositionDrawingSurfaceInterop2Impl: ICompositionDrawingSurfaceInteropImpl {
-    fn CopySurface();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositionDrawingSurfaceInterop2Vtbl(
@@ -353,10 +339,6 @@ unsafe impl ::windows::core::Interface for ICompositionGraphicsDeviceInterop {
     type Vtable = ICompositionGraphicsDeviceInteropVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa116ff71_f8bf_4c8a_9c98_70779a32a9c8);
 }
-pub trait ICompositionGraphicsDeviceInteropImpl {
-    fn GetRenderingDevice();
-    fn SetRenderingDevice();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositionGraphicsDeviceInteropVtbl(
@@ -420,10 +402,6 @@ impl ::core::fmt::Debug for ICompositorDesktopInterop {
 unsafe impl ::windows::core::Interface for ICompositorDesktopInterop {
     type Vtable = ICompositorDesktopInteropVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x29e691fa_4567_4dca_b319_d0f207eb6807);
-}
-pub trait ICompositorDesktopInteropImpl {
-    fn CreateDesktopWindowTarget();
-    fn EnsureOnThread();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -498,11 +476,6 @@ unsafe impl ::windows::core::Interface for ICompositorInterop {
     type Vtable = ICompositorInteropVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x25297d5c_3ad4_4c9c_b5cf_e36a38512330);
 }
-pub trait ICompositorInteropImpl {
-    fn CreateCompositionSurfaceForHandle();
-    fn CreateCompositionSurfaceForSwapChain();
-    fn CreateGraphicsDevice();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositorInteropVtbl(
@@ -567,9 +540,6 @@ unsafe impl ::windows::core::Interface for IDesktopWindowTargetInterop {
     type Vtable = IDesktopWindowTargetInteropVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x35dbf59e_e3f9_45b0_81e7_fe75f4145dc9);
 }
-pub trait IDesktopWindowTargetInteropImpl {
-    fn Hwnd();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDesktopWindowTargetInteropVtbl(
@@ -628,9 +598,6 @@ unsafe impl ::windows::core::Interface for ISwapChainInterop {
     type Vtable = ISwapChainInteropVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x26f496a0_7f38_45fb_88f7_faaabe67dd59);
 }
-pub trait ISwapChainInteropImpl {
-    fn SetSwapChain();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISwapChainInteropVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, swapchain: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT);
@@ -684,9 +651,6 @@ unsafe impl ::windows::core::Interface for IVisualInteractionSourceInterop {
     type Vtable = IVisualInteractionSourceInteropVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x11f62cd1_2f9d_42d3_b05f_d6790d9e9f8e);
 }
-pub trait IVisualInteractionSourceInteropImpl {
-    fn TryRedirectForManipulation();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVisualInteractionSourceInteropVtbl(
@@ -696,3 +660,5 @@ pub struct IVisualInteractionSourceInteropVtbl(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Input_Pointer", feature = "Win32_UI_WindowsAndMessaging"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pointerinfo: *const super::super::super::UI::Input::Pointer::POINTER_INFO) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_UI_Input_Pointer", feature = "Win32_UI_WindowsAndMessaging")))] usize,
 );
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

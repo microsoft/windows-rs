@@ -682,11 +682,6 @@ unsafe impl ::windows::core::Interface for ICustomGameControllerFactory {
     type Vtable = ICustomGameControllerFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x69a0ae5e_758e_4cbe_ace6_62155fe9126f);
 }
-pub trait ICustomGameControllerFactoryImpl {
-    fn CreateGameController();
-    fn OnGameControllerAdded();
-    fn OnGameControllerRemoved();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICustomGameControllerFactoryVtbl(
@@ -707,12 +702,6 @@ unsafe impl ::windows::core::Interface for IGameControllerFactoryManagerStatics 
     type Vtable = IGameControllerFactoryManagerStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x36cb66e3_d0a1_4986_a24c_40b137deba9e);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IGameControllerFactoryManagerStaticsImpl {
-    fn RegisterCustomFactoryForGipInterface();
-    fn RegisterCustomFactoryForHardwareId();
-    fn RegisterCustomFactoryForXusbType();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGameControllerFactoryManagerStaticsVtbl(
@@ -732,10 +721,6 @@ pub struct IGameControllerFactoryManagerStatics2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGameControllerFactoryManagerStatics2 {
     type Vtable = IGameControllerFactoryManagerStatics2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeace5644_19df_4115_b32a_2793e2aea3bb);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IGameControllerFactoryManagerStatics2Impl: IGameControllerFactoryManagerStaticsImpl {
-    fn TryGetFactoryControllerFromGameController();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -825,10 +810,6 @@ unsafe impl ::windows::core::RuntimeType for IGameControllerInputSink {
 unsafe impl ::windows::core::Interface for IGameControllerInputSink {
     type Vtable = IGameControllerInputSinkVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1ff6f922_c640_4c78_a820_9a715c558bcb);
-}
-pub trait IGameControllerInputSinkImpl {
-    fn OnInputResumed();
-    fn OnInputSuspended();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -950,13 +931,6 @@ unsafe impl ::windows::core::Interface for IGameControllerProvider {
     type Vtable = IGameControllerProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe6d73982_2996_4559_b16c_3e57d46e58d6);
 }
-pub trait IGameControllerProviderImpl {
-    fn FirmwareVersionInfo();
-    fn HardwareProductId();
-    fn HardwareVendorId();
-    fn HardwareVersionInfo();
-    fn IsConnected();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGameControllerProviderVtbl(
@@ -978,12 +952,6 @@ pub struct IGipFirmwareUpdateResult(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGipFirmwareUpdateResult {
     type Vtable = IGipFirmwareUpdateResultVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6b794d32_8553_4292_8e03_e16651a2f8bc);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IGipFirmwareUpdateResultImpl {
-    fn ExtendedErrorCode();
-    fn FinalComponentId();
-    fn Status();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1108,10 +1076,6 @@ unsafe impl ::windows::core::Interface for IGipGameControllerInputSink {
     type Vtable = IGipGameControllerInputSinkVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa2108abf_09f1_43bc_a140_80f899ec36fb);
 }
-pub trait IGipGameControllerInputSinkImpl: IGameControllerInputSinkImpl {
-    fn OnKeyReceived();
-    fn OnMessageReceived();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGipGameControllerInputSinkVtbl(
@@ -1130,12 +1094,6 @@ pub struct IGipGameControllerProvider(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGipGameControllerProvider {
     type Vtable = IGipGameControllerProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdbcf1e19_1af5_45a8_bf02_a0ee50c823fc);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IGipGameControllerProviderImpl: IGameControllerProviderImpl {
-    fn SendMessage();
-    fn SendReceiveMessage();
-    fn UpdateFirmwareAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1256,9 +1214,6 @@ unsafe impl ::windows::core::Interface for IHidGameControllerInputSink {
     type Vtable = IHidGameControllerInputSinkVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf754c322_182d_40e4_a126_fcee4ffa1e31);
 }
-pub trait IHidGameControllerInputSinkImpl: IGameControllerInputSinkImpl {
-    fn OnInputReportReceived();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHidGameControllerInputSinkVtbl(
@@ -1276,14 +1231,6 @@ pub struct IHidGameControllerProvider(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IHidGameControllerProvider {
     type Vtable = IHidGameControllerProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x95ce3af4_abf0_4b68_a081_3b7de73ff0e7);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IHidGameControllerProviderImpl: IGameControllerProviderImpl {
-    fn UsageId();
-    fn UsagePage();
-    fn GetFeatureReport();
-    fn SendFeatureReport();
-    fn SendOutputReport();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1405,9 +1352,6 @@ unsafe impl ::windows::core::Interface for IXusbGameControllerInputSink {
     type Vtable = IXusbGameControllerInputSinkVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb2ac1d95_6ecb_42b3_8aab_025401ca4712);
 }
-pub trait IXusbGameControllerInputSinkImpl: IGameControllerInputSinkImpl {
-    fn OnInputReceived();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXusbGameControllerInputSinkVtbl(
@@ -1425,10 +1369,6 @@ pub struct IXusbGameControllerProvider(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IXusbGameControllerProvider {
     type Vtable = IXusbGameControllerProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6e2971eb_0efb_48b4_808b_837643b2f216);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IXusbGameControllerProviderImpl: IGameControllerProviderImpl {
-    fn SetVibration();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1656,3 +1596,5 @@ impl<'a> ::windows::core::IntoParam<'a, IGameControllerProvider> for &XusbGameCo
 }
 unsafe impl ::core::marker::Send for XusbGameControllerProvider {}
 unsafe impl ::core::marker::Sync for XusbGameControllerProvider {}
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

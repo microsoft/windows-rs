@@ -6,14 +6,6 @@ unsafe impl ::windows::core::Interface for IJsonArray {
     type Vtable = IJsonArrayVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x08c1ddb6_0cbd_4a9a_b5d3_2f852dc37e81);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IJsonArrayImpl: IJsonValueImpl {
-    fn GetObjectAt();
-    fn GetArrayAt();
-    fn GetStringAt();
-    fn GetNumberAt();
-    fn GetBooleanAt();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IJsonArrayVtbl(
@@ -36,11 +28,6 @@ unsafe impl ::windows::core::Interface for IJsonArrayStatics {
     type Vtable = IJsonArrayStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdb1434a9_e164_499f_93e2_8a8f49bb90ba);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IJsonArrayStaticsImpl {
-    fn Parse();
-    fn TryParse();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IJsonArrayStaticsVtbl(
@@ -60,10 +47,6 @@ unsafe impl ::windows::core::Interface for IJsonErrorStatics2 {
     type Vtable = IJsonErrorStatics2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x404030da_87d0_436c_83ab_fc7b12c0cc26);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IJsonErrorStatics2Impl {
-    fn GetJsonStatus();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IJsonErrorStatics2Vtbl(
@@ -81,16 +64,6 @@ pub struct IJsonObject(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IJsonObject {
     type Vtable = IJsonObjectVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x064e24dd_29c2_4f83_9ac1_9ee11578beb3);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IJsonObjectImpl: IJsonValueImpl {
-    fn GetNamedValue();
-    fn SetNamedValue();
-    fn GetNamedObject();
-    fn GetNamedArray();
-    fn GetNamedString();
-    fn GetNamedNumber();
-    fn GetNamedBoolean();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -116,11 +89,6 @@ unsafe impl ::windows::core::Interface for IJsonObjectStatics {
     type Vtable = IJsonObjectStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2289f159_54de_45d8_abcc_22603fa066a0);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IJsonObjectStaticsImpl {
-    fn Parse();
-    fn TryParse();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IJsonObjectStaticsVtbl(
@@ -139,15 +107,6 @@ pub struct IJsonObjectWithDefaultValues(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IJsonObjectWithDefaultValues {
     type Vtable = IJsonObjectWithDefaultValuesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd960d2a2_b7f0_4f00_8e44_d82cf415ea13);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IJsonObjectWithDefaultValuesImpl: IJsonObjectImpl + IJsonValueImpl {
-    fn GetNamedValueOrDefault();
-    fn GetNamedObjectOrDefault();
-    fn GetNamedStringOrDefault();
-    fn GetNamedArrayOrDefault();
-    fn GetNamedNumberOrDefault();
-    fn GetNamedBooleanOrDefault();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -289,15 +248,6 @@ unsafe impl ::windows::core::Interface for IJsonValue {
     type Vtable = IJsonValueVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa3219ecb_f0b3_4dcd_beee_19d48cd3ed1e);
 }
-pub trait IJsonValueImpl {
-    fn ValueType();
-    fn Stringify();
-    fn GetString();
-    fn GetNumber();
-    fn GetBoolean();
-    fn GetArray();
-    fn GetObject();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IJsonValueVtbl(
@@ -322,14 +272,6 @@ unsafe impl ::windows::core::Interface for IJsonValueStatics {
     type Vtable = IJsonValueStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5f6b544a_2f53_48e1_91a3_f78b50a6345c);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IJsonValueStaticsImpl {
-    fn Parse();
-    fn TryParse();
-    fn CreateBooleanValue();
-    fn CreateNumberValue();
-    fn CreateStringValue();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IJsonValueStaticsVtbl(
@@ -351,10 +293,6 @@ pub struct IJsonValueStatics2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IJsonValueStatics2 {
     type Vtable = IJsonValueStatics2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1d9ecbe4_3fe8_4335_8392_93d8e36865f0);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IJsonValueStatics2Impl {
-    fn CreateNullValue();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1560,3 +1498,5 @@ unsafe impl ::windows::core::RuntimeType for JsonValueType {
 impl ::windows::core::DefaultType for JsonValueType {
     type DefaultType = Self;
 }
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

@@ -989,11 +989,6 @@ unsafe impl ::windows::core::Interface for ICurrencyFormatter {
     type Vtable = ICurrencyFormatterVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x11730ca5_4b00_41b2_b332_73b12a497d54);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ICurrencyFormatterImpl: INumberFormatterImpl + INumberFormatter2Impl + INumberFormatterOptionsImpl + INumberParserImpl {
-    fn Currency();
-    fn SetCurrency();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICurrencyFormatterVtbl(
@@ -1013,12 +1008,6 @@ pub struct ICurrencyFormatter2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICurrencyFormatter2 {
     type Vtable = ICurrencyFormatter2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x072c2f1d_e7ba_4197_920e_247c92f7dea6);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ICurrencyFormatter2Impl {
-    fn Mode();
-    fn SetMode();
-    fn ApplyRoundingForCurrency();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1040,11 +1029,6 @@ unsafe impl ::windows::core::Interface for ICurrencyFormatterFactory {
     type Vtable = ICurrencyFormatterFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x86c7537e_b938_4aa2_84b0_2c33dc5b1450);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ICurrencyFormatterFactoryImpl {
-    fn CreateCurrencyFormatterCode();
-    fn CreateCurrencyFormatterCodeContext();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICurrencyFormatterFactoryVtbl(
@@ -1065,10 +1049,6 @@ unsafe impl ::windows::core::Interface for IDecimalFormatterFactory {
     type Vtable = IDecimalFormatterFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0d018c9a_e393_46b8_b830_7a69c8f89fbb);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IDecimalFormatterFactoryImpl {
-    fn CreateDecimalFormatter();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDecimalFormatterFactoryVtbl(
@@ -1087,13 +1067,6 @@ pub struct IIncrementNumberRounder(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IIncrementNumberRounder {
     type Vtable = IIncrementNumberRounderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x70a64ff8_66ab_4155_9da1_739e46764543);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IIncrementNumberRounderImpl {
-    fn RoundingAlgorithm();
-    fn SetRoundingAlgorithm();
-    fn Increment();
-    fn SetIncrement();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1201,11 +1174,6 @@ unsafe impl ::windows::core::Interface for INumberFormatter {
     type Vtable = INumberFormatterVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa5007c49_7676_4db7_8631_1b6ff265caa9);
 }
-pub trait INumberFormatterImpl {
-    fn FormatInt();
-    fn FormatUInt();
-    fn FormatDouble();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct INumberFormatterVtbl(
@@ -1310,11 +1278,6 @@ unsafe impl ::windows::core::RuntimeType for INumberFormatter2 {
 unsafe impl ::windows::core::Interface for INumberFormatter2 {
     type Vtable = INumberFormatter2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd4a8c1f0_80d0_4b0d_a89e_882c1e8f8310);
-}
-pub trait INumberFormatter2Impl {
-    fn FormatInt();
-    fn FormatUInt();
-    fn FormatDouble();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1495,22 +1458,6 @@ unsafe impl ::windows::core::Interface for INumberFormatterOptions {
     type Vtable = INumberFormatterOptionsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x80332d21_aee1_4a39_baa2_07ed8c96daf6);
 }
-pub trait INumberFormatterOptionsImpl {
-    fn Languages();
-    fn GeographicRegion();
-    fn IntegerDigits();
-    fn SetIntegerDigits();
-    fn FractionDigits();
-    fn SetFractionDigits();
-    fn IsGrouped();
-    fn SetIsGrouped();
-    fn IsDecimalPointAlwaysDisplayed();
-    fn SetIsDecimalPointAlwaysDisplayed();
-    fn NumeralSystem();
-    fn SetNumeralSystem();
-    fn ResolvedLanguage();
-    fn ResolvedGeographicRegion();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct INumberFormatterOptionsVtbl(
@@ -1630,11 +1577,6 @@ unsafe impl ::windows::core::RuntimeType for INumberParser {
 unsafe impl ::windows::core::Interface for INumberParser {
     type Vtable = INumberParserVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe6659412_4a13_4a53_83a1_392fbe4cff9f);
-}
-pub trait INumberParserImpl {
-    fn ParseInt();
-    fn ParseUInt();
-    fn ParseDouble();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1768,14 +1710,6 @@ unsafe impl ::windows::core::Interface for INumberRounder {
     type Vtable = INumberRounderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5473c375_38ed_4631_b80c_ef34fc48b7f5);
 }
-pub trait INumberRounderImpl {
-    fn RoundInt32();
-    fn RoundUInt32();
-    fn RoundInt64();
-    fn RoundUInt64();
-    fn RoundSingle();
-    fn RoundDouble();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct INumberRounderVtbl(
@@ -1873,10 +1807,6 @@ unsafe impl ::windows::core::Interface for INumberRounderOption {
     type Vtable = INumberRounderOptionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3b088433_646f_4efe_8d48_66eb2e49e736);
 }
-pub trait INumberRounderOptionImpl {
-    fn NumberRounder();
-    fn SetNumberRounder();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct INumberRounderOptionVtbl(
@@ -1895,14 +1825,6 @@ pub struct INumeralSystemTranslator(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for INumeralSystemTranslator {
     type Vtable = INumeralSystemTranslatorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x28f5bc2c_8c23_4234_ad2e_fa5a3a426e9b);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait INumeralSystemTranslatorImpl {
-    fn Languages();
-    fn ResolvedLanguage();
-    fn NumeralSystem();
-    fn SetNumeralSystem();
-    fn TranslateNumerals();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1927,10 +1849,6 @@ unsafe impl ::windows::core::Interface for INumeralSystemTranslatorFactory {
     type Vtable = INumeralSystemTranslatorFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9630c8da_36ef_4d88_a85c_6f0d98d620a6);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait INumeralSystemTranslatorFactoryImpl {
-    fn Create();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct INumeralSystemTranslatorFactoryVtbl(
@@ -1950,10 +1868,6 @@ unsafe impl ::windows::core::Interface for IPercentFormatterFactory {
     type Vtable = IPercentFormatterFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb7828aef_fed4_4018_a6e2_e09961e03765);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IPercentFormatterFactoryImpl {
-    fn CreatePercentFormatter();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPercentFormatterFactoryVtbl(
@@ -1972,10 +1886,6 @@ pub struct IPermilleFormatterFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPermilleFormatterFactory {
     type Vtable = IPermilleFormatterFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2b37b4ac_e638_4ed5_a998_62f6b06a49ae);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IPermilleFormatterFactoryImpl {
-    fn CreatePermilleFormatter();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2070,10 +1980,6 @@ unsafe impl ::windows::core::Interface for ISignedZeroOption {
     type Vtable = ISignedZeroOptionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfd1cdd31_0a3c_49c4_a642_96a1564f4f30);
 }
-pub trait ISignedZeroOptionImpl {
-    fn IsZeroSigned();
-    fn SetIsZeroSigned();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISignedZeroOptionVtbl(
@@ -2092,13 +1998,6 @@ pub struct ISignificantDigitsNumberRounder(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISignificantDigitsNumberRounder {
     type Vtable = ISignificantDigitsNumberRounderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf5941bca_6646_4913_8c76_1b191ff94dfd);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ISignificantDigitsNumberRounderImpl {
-    fn RoundingAlgorithm();
-    fn SetRoundingAlgorithm();
-    fn SignificantDigits();
-    fn SetSignificantDigits();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2194,10 +2093,6 @@ unsafe impl ::windows::core::RuntimeType for ISignificantDigitsOption {
 unsafe impl ::windows::core::Interface for ISignificantDigitsOption {
     type Vtable = ISignificantDigitsOptionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1d4dfcdd_2d43_4ee8_bbf1_c1b26a711a58);
-}
-pub trait ISignificantDigitsOptionImpl {
-    fn SignificantDigits();
-    fn SetSignificantDigits();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3654,3 +3549,5 @@ impl<'a> ::windows::core::IntoParam<'a, INumberRounder> for &SignificantDigitsNu
 }
 unsafe impl ::core::marker::Send for SignificantDigitsNumberRounder {}
 unsafe impl ::core::marker::Sync for SignificantDigitsNumberRounder {}
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

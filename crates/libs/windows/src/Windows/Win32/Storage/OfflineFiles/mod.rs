@@ -61,12 +61,6 @@ unsafe impl ::windows::core::Interface for IEnumOfflineFilesItems {
     type Vtable = IEnumOfflineFilesItemsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xda70e815_c361_4407_bc0b_0d7046e5f2cd);
 }
-pub trait IEnumOfflineFilesItemsImpl {
-    fn Next();
-    fn Skip();
-    fn Reset();
-    fn Clone();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumOfflineFilesItemsVtbl(
@@ -139,12 +133,6 @@ impl ::core::fmt::Debug for IEnumOfflineFilesSettings {
 unsafe impl ::windows::core::Interface for IEnumOfflineFilesSettings {
     type Vtable = IEnumOfflineFilesSettingsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x729680c4_1a38_47bc_9e5c_02c51562ac30);
-}
-pub trait IEnumOfflineFilesSettingsImpl {
-    fn Next();
-    fn Skip();
-    fn Reset();
-    fn Clone();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -287,25 +275,6 @@ impl ::core::fmt::Debug for IOfflineFilesCache {
 unsafe impl ::windows::core::Interface for IOfflineFilesCache {
     type Vtable = IOfflineFilesCacheVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x855d6203_7914_48b9_8d40_4c56f5acffc5);
-}
-pub trait IOfflineFilesCacheImpl {
-    fn Synchronize();
-    fn DeleteItems();
-    fn DeleteItemsForUser();
-    fn Pin();
-    fn Unpin();
-    fn GetEncryptionStatus();
-    fn Encrypt();
-    fn FindItem();
-    fn FindItemEx();
-    fn RenameItem();
-    fn GetLocation();
-    fn GetDiskSpaceInformation();
-    fn SetDiskSpaceLimits();
-    fn ProcessAdminPinPolicy();
-    fn GetSettingObject();
-    fn EnumSettingObjects();
-    fn IsPathCacheable();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -500,9 +469,6 @@ unsafe impl ::windows::core::Interface for IOfflineFilesCache2 {
     type Vtable = IOfflineFilesCache2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8c075039_1551_4ed9_8781_56705c04d3c0);
 }
-pub trait IOfflineFilesCache2Impl: IOfflineFilesCacheImpl {
-    fn RenameItemEx();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IOfflineFilesCache2Vtbl(
@@ -623,14 +589,6 @@ unsafe impl ::windows::core::Interface for IOfflineFilesChangeInfo {
     type Vtable = IOfflineFilesChangeInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa96e6fa4_e0d1_4c29_960b_ee508fe68c72);
 }
-pub trait IOfflineFilesChangeInfoImpl {
-    fn IsDirty();
-    fn IsDeletedOffline();
-    fn IsCreatedOffline();
-    fn IsLocallyModifiedData();
-    fn IsLocallyModifiedAttributes();
-    fn IsLocallyModifiedTime();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IOfflineFilesChangeInfoVtbl(
@@ -714,12 +672,6 @@ impl ::core::fmt::Debug for IOfflineFilesConnectionInfo {
 unsafe impl ::windows::core::Interface for IOfflineFilesConnectionInfo {
     type Vtable = IOfflineFilesConnectionInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xefb23a09_a867_4be8_83a6_86969a7d0856);
-}
-pub trait IOfflineFilesConnectionInfoImpl {
-    fn GetConnectState();
-    fn SetConnectState();
-    fn TransitionOnline();
-    fn TransitionOffline();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -826,7 +778,6 @@ unsafe impl ::windows::core::Interface for IOfflineFilesDirectoryItem {
     type Vtable = IOfflineFilesDirectoryItemVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2273597a_a08c_4a00_a37a_c1ae4e9a1cfd);
 }
-pub trait IOfflineFilesDirectoryItemImpl: IOfflineFilesItemImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IOfflineFilesDirectoryItemVtbl(
@@ -896,10 +847,6 @@ unsafe impl ::windows::core::Interface for IOfflineFilesDirtyInfo {
     type Vtable = IOfflineFilesDirtyInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0f50ce33_bac9_4eaa_a11d_da0e527d047d);
 }
-pub trait IOfflineFilesDirtyInfoImpl {
-    fn LocalDirtyByteCount();
-    fn RemoteDirtyByteCount();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IOfflineFilesDirtyInfoVtbl(
@@ -965,10 +912,6 @@ impl ::core::fmt::Debug for IOfflineFilesErrorInfo {
 unsafe impl ::windows::core::Interface for IOfflineFilesErrorInfo {
     type Vtable = IOfflineFilesErrorInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7112fa5f_7571_435a_8eb7_195c7c1429bc);
-}
-pub trait IOfflineFilesErrorInfoImpl {
-    fn GetRawData();
-    fn GetDescription();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1142,33 +1085,6 @@ impl ::core::fmt::Debug for IOfflineFilesEvents {
 unsafe impl ::windows::core::Interface for IOfflineFilesEvents {
     type Vtable = IOfflineFilesEventsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe25585c1_0caa_4eb1_873b_1cae5b77c314);
-}
-pub trait IOfflineFilesEventsImpl {
-    fn CacheMoved();
-    fn CacheIsFull();
-    fn CacheIsCorrupted();
-    fn Enabled();
-    fn EncryptionChanged();
-    fn SyncBegin();
-    fn SyncFileResult();
-    fn SyncConflictRecAdded();
-    fn SyncConflictRecUpdated();
-    fn SyncConflictRecRemoved();
-    fn SyncEnd();
-    fn NetTransportArrived();
-    fn NoNetTransports();
-    fn ItemDisconnected();
-    fn ItemReconnected();
-    fn ItemAvailableOffline();
-    fn ItemNotAvailableOffline();
-    fn ItemPinned();
-    fn ItemNotPinned();
-    fn ItemModified();
-    fn ItemAddedToCache();
-    fn ItemDeletedFromCache();
-    fn ItemRenamed();
-    fn DataLost();
-    fn Ping();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1436,17 +1352,6 @@ impl ::core::fmt::Debug for IOfflineFilesEvents2 {
 unsafe impl ::windows::core::Interface for IOfflineFilesEvents2 {
     type Vtable = IOfflineFilesEvents2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1ead8f56_ff76_4faa_a795_6f6ef792498b);
-}
-pub trait IOfflineFilesEvents2Impl: IOfflineFilesEventsImpl {
-    fn ItemReconnectBegin();
-    fn ItemReconnectEnd();
-    fn CacheEvictBegin();
-    fn CacheEvictEnd();
-    fn BackgroundSyncBegin();
-    fn BackgroundSyncEnd();
-    fn PolicyChangeDetected();
-    fn PreferenceChangeDetected();
-    fn SettingsChangesApplied();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1758,11 +1663,6 @@ impl ::core::fmt::Debug for IOfflineFilesEvents3 {
 unsafe impl ::windows::core::Interface for IOfflineFilesEvents3 {
     type Vtable = IOfflineFilesEvents3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9ba04a45_ee69_42f0_9ab1_7db5c8805808);
-}
-pub trait IOfflineFilesEvents3Impl: IOfflineFilesEvents2Impl + IOfflineFilesEventsImpl {
-    fn TransparentCacheItemNotify();
-    fn PrefetchFileBegin();
-    fn PrefetchFileEnd();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2109,10 +2009,6 @@ unsafe impl ::windows::core::Interface for IOfflineFilesEvents4 {
     type Vtable = IOfflineFilesEvents4Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdbd69b1e_c7d2_473e_b35f_9d8c24c0c484);
 }
-pub trait IOfflineFilesEvents4Impl: IOfflineFilesEvents3Impl + IOfflineFilesEvents2Impl + IOfflineFilesEventsImpl {
-    fn PrefetchCloseHandleBegin();
-    fn PrefetchCloseHandleEnd();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IOfflineFilesEvents4Vtbl(
@@ -2237,11 +2133,6 @@ unsafe impl ::windows::core::Interface for IOfflineFilesEventsFilter {
     type Vtable = IOfflineFilesEventsFilterVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x33fc4e1b_0716_40fa_ba65_6e62a84a846f);
 }
-pub trait IOfflineFilesEventsFilterImpl {
-    fn GetPathFilter();
-    fn GetIncludedEvents();
-    fn GetExcludedEvents();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IOfflineFilesEventsFilterVtbl(
@@ -2356,10 +2247,6 @@ unsafe impl ::windows::core::Interface for IOfflineFilesFileItem {
     type Vtable = IOfflineFilesFileItemVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8dfadead_26c2_4eff_8a72_6b50723d9a00);
 }
-pub trait IOfflineFilesFileItemImpl: IOfflineFilesItemImpl {
-    fn IsSparse();
-    fn IsEncrypted();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IOfflineFilesFileItemVtbl(
@@ -2438,11 +2325,6 @@ unsafe impl ::windows::core::Interface for IOfflineFilesFileSysInfo {
     type Vtable = IOfflineFilesFileSysInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbc1a163f_7bfd_4d88_9c66_96ea9a6a3d6b);
 }
-pub trait IOfflineFilesFileSysInfoImpl {
-    fn GetAttributes();
-    fn GetTimes();
-    fn GetFileSize();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IOfflineFilesFileSysInfoVtbl(
@@ -2504,9 +2386,6 @@ impl ::core::fmt::Debug for IOfflineFilesGhostInfo {
 unsafe impl ::windows::core::Interface for IOfflineFilesGhostInfo {
     type Vtable = IOfflineFilesGhostInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2b09d48c_8ab5_464f_a755_a59d92f99429);
-}
-pub trait IOfflineFilesGhostInfoImpl {
-    fn IsGhosted();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2588,13 +2467,6 @@ unsafe impl ::windows::core::Interface for IOfflineFilesItem {
     type Vtable = IOfflineFilesItemVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4a753da6_e044_4f12_a718_5d14d079a906);
 }
-pub trait IOfflineFilesItemImpl {
-    fn GetItemType();
-    fn GetPath();
-    fn GetParentItem();
-    fn Refresh();
-    fn IsMarkedForDeletion();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IOfflineFilesItemVtbl(
@@ -2664,10 +2536,6 @@ unsafe impl ::windows::core::Interface for IOfflineFilesItemContainer {
     type Vtable = IOfflineFilesItemContainerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3836f049_9413_45dd_bf46_b5aaa82dc310);
 }
-pub trait IOfflineFilesItemContainerImpl {
-    fn EnumItems();
-    fn EnumItemsEx();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IOfflineFilesItemContainerVtbl(
@@ -2735,11 +2603,6 @@ impl ::core::fmt::Debug for IOfflineFilesItemFilter {
 unsafe impl ::windows::core::Interface for IOfflineFilesItemFilter {
     type Vtable = IOfflineFilesItemFilterVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf4b5a26c_dc05_4f20_ada4_551f1077be5c);
-}
-pub trait IOfflineFilesItemFilterImpl {
-    fn GetFilterFlags();
-    fn GetTimeFilter();
-    fn GetPatternFilter();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2823,13 +2686,6 @@ impl ::core::fmt::Debug for IOfflineFilesPinInfo {
 unsafe impl ::windows::core::Interface for IOfflineFilesPinInfo {
     type Vtable = IOfflineFilesPinInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5b2b0655_b3fd_497d_adeb_bd156bc8355b);
-}
-pub trait IOfflineFilesPinInfoImpl {
-    fn IsPinned();
-    fn IsPinnedForUser();
-    fn IsPinnedForUserByPolicy();
-    fn IsPinnedForComputer();
-    fn IsPinnedForFolderRedirection();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2945,9 +2801,6 @@ unsafe impl ::windows::core::Interface for IOfflineFilesPinInfo2 {
     type Vtable = IOfflineFilesPinInfo2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x623c58a2_42ed_4ad7_b69a_0f1b30a72d0d);
 }
-pub trait IOfflineFilesPinInfo2Impl: IOfflineFilesPinInfoImpl {
-    fn IsPartlyPinned();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IOfflineFilesPinInfo2Vtbl(
@@ -3027,11 +2880,6 @@ impl ::core::fmt::Debug for IOfflineFilesProgress {
 unsafe impl ::windows::core::Interface for IOfflineFilesProgress {
     type Vtable = IOfflineFilesProgressVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfad63237_c55b_4911_9850_bcf96d4c979e);
-}
-pub trait IOfflineFilesProgressImpl {
-    fn Begin();
-    fn QueryAbort();
-    fn End();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3136,7 +2984,6 @@ unsafe impl ::windows::core::Interface for IOfflineFilesServerItem {
     type Vtable = IOfflineFilesServerItemVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9b1c9576_a92b_4151_8e9e_7c7b3ec2e016);
 }
-pub trait IOfflineFilesServerItemImpl: IOfflineFilesItemImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IOfflineFilesServerItemVtbl(
@@ -3241,17 +3088,6 @@ unsafe impl ::windows::core::Interface for IOfflineFilesSetting {
     type Vtable = IOfflineFilesSettingVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd871d3f7_f613_48a1_827e_7a34e560fff6);
 }
-pub trait IOfflineFilesSettingImpl {
-    fn GetName();
-    fn GetValueType();
-    fn GetPreference();
-    fn GetPreferenceScope();
-    fn SetPreference();
-    fn DeletePreference();
-    fn GetPolicy();
-    fn GetPolicyScope();
-    fn GetValue();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IOfflineFilesSettingVtbl(
@@ -3333,11 +3169,6 @@ impl ::core::fmt::Debug for IOfflineFilesShareInfo {
 unsafe impl ::windows::core::Interface for IOfflineFilesShareInfo {
     type Vtable = IOfflineFilesShareInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7bcc43e7_31ce_4ca4_8ccd_1cff2dc494da);
-}
-pub trait IOfflineFilesShareInfoImpl {
-    fn GetShareItem();
-    fn GetShareCachingMode();
-    fn IsShareDfsJunction();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3441,7 +3272,6 @@ unsafe impl ::windows::core::Interface for IOfflineFilesShareItem {
     type Vtable = IOfflineFilesShareItemVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbab7e48d_4804_41b5_a44d_0f199b06b145);
 }
-pub trait IOfflineFilesShareItemImpl: IOfflineFilesItemImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IOfflineFilesShareItemVtbl(
@@ -3549,10 +3379,6 @@ unsafe impl ::windows::core::Interface for IOfflineFilesSimpleProgress {
     type Vtable = IOfflineFilesSimpleProgressVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc34f7f9b_c43d_4f9d_a776_c0eb6de5d401);
 }
-pub trait IOfflineFilesSimpleProgressImpl: IOfflineFilesProgressImpl {
-    fn ItemBegin();
-    fn ItemResult();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IOfflineFilesSimpleProgressVtbl(
@@ -3619,9 +3445,6 @@ unsafe impl ::windows::core::Interface for IOfflineFilesSuspend {
     type Vtable = IOfflineFilesSuspendVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x62c4560f_bc0b_48ca_ad9d_34cb528d99a9);
 }
-pub trait IOfflineFilesSuspendImpl {
-    fn SuspendRoot();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IOfflineFilesSuspendVtbl(
@@ -3681,9 +3504,6 @@ unsafe impl ::windows::core::Interface for IOfflineFilesSuspendInfo {
     type Vtable = IOfflineFilesSuspendInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa457c25b_4e9c_4b04_85af_8932ccd97889);
 }
-pub trait IOfflineFilesSuspendInfoImpl {
-    fn IsSuspended();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IOfflineFilesSuspendInfoVtbl(
@@ -3742,9 +3562,6 @@ impl ::core::fmt::Debug for IOfflineFilesSyncConflictHandler {
 unsafe impl ::windows::core::Interface for IOfflineFilesSyncConflictHandler {
     type Vtable = IOfflineFilesSyncConflictHandlerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb6dd5092_c65c_46b6_97b8_fadd08e7e1be);
-}
-pub trait IOfflineFilesSyncConflictHandlerImpl {
-    fn ResolveConflict();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3867,15 +3684,6 @@ unsafe impl ::windows::core::Interface for IOfflineFilesSyncErrorInfo {
     type Vtable = IOfflineFilesSyncErrorInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x59f95e46_eb54_49d1_be76_de95458d01b0);
 }
-pub trait IOfflineFilesSyncErrorInfoImpl: IOfflineFilesErrorInfoImpl {
-    fn GetSyncOperation();
-    fn GetItemChangeFlags();
-    fn InfoEnumerated();
-    fn InfoAvailable();
-    fn GetLocalInfo();
-    fn GetRemoteInfo();
-    fn GetOriginalInfo();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IOfflineFilesSyncErrorInfoVtbl(
@@ -3955,11 +3763,6 @@ impl ::core::fmt::Debug for IOfflineFilesSyncErrorItemInfo {
 unsafe impl ::windows::core::Interface for IOfflineFilesSyncErrorItemInfo {
     type Vtable = IOfflineFilesSyncErrorItemInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xecdbaf0d_6a18_4d55_8017_108f7660ba44);
-}
-pub trait IOfflineFilesSyncErrorItemInfoImpl {
-    fn GetFileAttributes();
-    fn GetFileTimes();
-    fn GetFileSize();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4065,10 +3868,6 @@ unsafe impl ::windows::core::Interface for IOfflineFilesSyncProgress {
     type Vtable = IOfflineFilesSyncProgressVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6931f49a_6fc7_4c1b_b265_56793fc451b7);
 }
-pub trait IOfflineFilesSyncProgressImpl: IOfflineFilesProgressImpl {
-    fn SyncItemBegin();
-    fn SyncItemResult();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IOfflineFilesSyncProgressVtbl(
@@ -4135,9 +3934,6 @@ impl ::core::fmt::Debug for IOfflineFilesTransparentCacheInfo {
 unsafe impl ::windows::core::Interface for IOfflineFilesTransparentCacheInfo {
     type Vtable = IOfflineFilesTransparentCacheInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbcaf4a01_5b68_4b56_a6a1_8d2786ede8e3);
-}
-pub trait IOfflineFilesTransparentCacheInfoImpl {
-    fn IsTransparentlyCached();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4747,3 +4543,5 @@ pub unsafe fn OfflineFilesStart() -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

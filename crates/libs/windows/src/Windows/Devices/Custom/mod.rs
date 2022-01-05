@@ -202,13 +202,6 @@ unsafe impl ::windows::core::Interface for ICustomDevice {
     type Vtable = ICustomDeviceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdd30251f_c48b_43bd_bcb1_dec88f15143e);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ICustomDeviceImpl {
-    fn InputStream();
-    fn OutputStream();
-    fn SendIOControlAsync();
-    fn TrySendIOControlAsync();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICustomDeviceVtbl(
@@ -233,11 +226,6 @@ pub struct ICustomDeviceStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICustomDeviceStatics {
     type Vtable = ICustomDeviceStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc8220312_ef4c_46b1_a58e_eeb308dc8917);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ICustomDeviceStaticsImpl {
-    fn GetDeviceSelector();
-    fn FromIdAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -360,13 +348,6 @@ unsafe impl ::windows::core::Interface for IIOControlCode {
     type Vtable = IIOControlCodeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0e9559e7_60c8_4375_a761_7f8808066c60);
 }
-pub trait IIOControlCodeImpl {
-    fn AccessMode();
-    fn BufferingMethod();
-    fn Function();
-    fn DeviceType();
-    fn ControlCode();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IIOControlCodeVtbl(
@@ -389,10 +370,6 @@ unsafe impl ::windows::core::Interface for IIOControlCodeFactory {
     type Vtable = IIOControlCodeFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x856a7cf0_4c11_44ae_afc6_b8d4a212788f);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IIOControlCodeFactoryImpl {
-    fn CreateIOControlCode();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IIOControlCodeFactoryVtbl(
@@ -410,10 +387,6 @@ pub struct IKnownDeviceTypesStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IKnownDeviceTypesStatics {
     type Vtable = IKnownDeviceTypesStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xee5479c2_5448_45da_ad1b_24948c239094);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IKnownDeviceTypesStaticsImpl {
-    fn Unknown();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -662,3 +635,5 @@ impl KnownDeviceTypes {
 impl ::windows::core::RuntimeName for KnownDeviceTypes {
     const NAME: &'static str = "Windows.Devices.Custom.KnownDeviceTypes";
 }
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

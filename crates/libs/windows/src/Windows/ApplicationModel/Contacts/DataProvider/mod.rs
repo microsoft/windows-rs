@@ -1030,14 +1030,6 @@ unsafe impl ::windows::core::Interface for IContactDataProviderConnection {
     type Vtable = IContactDataProviderConnectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1a398a52_8c9d_4d6f_a4e0_111e9a125a30);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IContactDataProviderConnectionImpl {
-    fn SyncRequested();
-    fn RemoveSyncRequested();
-    fn ServerSearchReadBatchRequested();
-    fn RemoveServerSearchReadBatchRequested();
-    fn Start();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IContactDataProviderConnectionVtbl(
@@ -1064,13 +1056,6 @@ unsafe impl ::windows::core::Interface for IContactDataProviderConnection2 {
     type Vtable = IContactDataProviderConnection2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa1d327b0_196c_4bfd_8f0f_c68d67f249d3);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IContactDataProviderConnection2Impl {
-    fn CreateOrUpdateContactRequested();
-    fn RemoveCreateOrUpdateContactRequested();
-    fn DeleteContactRequested();
-    fn RemoveDeleteContactRequested();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IContactDataProviderConnection2Vtbl(
@@ -1096,10 +1081,6 @@ unsafe impl ::windows::core::Interface for IContactDataProviderTriggerDetails {
     type Vtable = IContactDataProviderTriggerDetailsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x527104be_3c62_43c8_9ae7_db531685cd99);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IContactDataProviderTriggerDetailsImpl {
-    fn Connection();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IContactDataProviderTriggerDetailsVtbl(
@@ -1117,13 +1098,6 @@ pub struct IContactListCreateOrUpdateContactRequest(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IContactListCreateOrUpdateContactRequest {
     type Vtable = IContactListCreateOrUpdateContactRequestVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb4af411f_c849_47d0_b119_91cf605b2f2a);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IContactListCreateOrUpdateContactRequestImpl {
-    fn ContactListId();
-    fn Contact();
-    fn ReportCompletedAsync();
-    fn ReportFailedAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1148,11 +1122,6 @@ unsafe impl ::windows::core::Interface for IContactListCreateOrUpdateContactRequ
     type Vtable = IContactListCreateOrUpdateContactRequestEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x851c1690_1a51_4b0c_aeef_1240ac5bed75);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IContactListCreateOrUpdateContactRequestEventArgsImpl {
-    fn Request();
-    fn GetDeferral();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IContactListCreateOrUpdateContactRequestEventArgsVtbl(
@@ -1172,13 +1141,6 @@ pub struct IContactListDeleteContactRequest(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IContactListDeleteContactRequest {
     type Vtable = IContactListDeleteContactRequestVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5e114687_ce03_4de5_8557_9ccf552d472a);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IContactListDeleteContactRequestImpl {
-    fn ContactListId();
-    fn ContactId();
-    fn ReportCompletedAsync();
-    fn ReportFailedAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1203,11 +1165,6 @@ unsafe impl ::windows::core::Interface for IContactListDeleteContactRequestEvent
     type Vtable = IContactListDeleteContactRequestEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb22054a1_e8fa_4db5_9389_2d12ee7d15ee);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IContactListDeleteContactRequestEventArgsImpl {
-    fn Request();
-    fn GetDeferral();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IContactListDeleteContactRequestEventArgsVtbl(
@@ -1227,16 +1184,6 @@ pub struct IContactListServerSearchReadBatchRequest(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IContactListServerSearchReadBatchRequest {
     type Vtable = IContactListServerSearchReadBatchRequestVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xba776a97_4030_4925_9fb4_143b295e653b);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IContactListServerSearchReadBatchRequestImpl {
-    fn SessionId();
-    fn ContactListId();
-    fn Options();
-    fn SuggestedBatchSize();
-    fn SaveContactAsync();
-    fn ReportCompletedAsync();
-    fn ReportFailedAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1265,11 +1212,6 @@ unsafe impl ::windows::core::Interface for IContactListServerSearchReadBatchRequ
     type Vtable = IContactListServerSearchReadBatchRequestEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1a27e87b_69d7_4e4e_8042_861cba61471e);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IContactListServerSearchReadBatchRequestEventArgsImpl {
-    fn Request();
-    fn GetDeferral();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IContactListServerSearchReadBatchRequestEventArgsVtbl(
@@ -1289,12 +1231,6 @@ pub struct IContactListSyncManagerSyncRequest(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IContactListSyncManagerSyncRequest {
     type Vtable = IContactListSyncManagerSyncRequestVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3c0e57a4_c4e7_4970_9a8f_9a66a2bb6c1a);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IContactListSyncManagerSyncRequestImpl {
-    fn ContactListId();
-    fn ReportCompletedAsync();
-    fn ReportFailedAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1318,11 +1254,6 @@ unsafe impl ::windows::core::Interface for IContactListSyncManagerSyncRequestEve
     type Vtable = IContactListSyncManagerSyncRequestEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x158e4dac_446d_4f10_afc2_02683ec533a6);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IContactListSyncManagerSyncRequestEventArgsImpl {
-    fn Request();
-    fn GetDeferral();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IContactListSyncManagerSyncRequestEventArgsVtbl(
@@ -1336,3 +1267,5 @@ pub struct IContactListSyncManagerSyncRequestEventArgsVtbl(
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
 );
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

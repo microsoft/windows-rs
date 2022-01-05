@@ -217,14 +217,6 @@ unsafe impl ::windows::core::Interface for IEnterpriseKeyCredentialRegistrationI
     type Vtable = IEnterpriseKeyCredentialRegistrationInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x38321acc_672b_4823_b603_6b3c753daf97);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IEnterpriseKeyCredentialRegistrationInfoImpl {
-    fn TenantId();
-    fn TenantName();
-    fn Subject();
-    fn KeyId();
-    fn KeyName();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnterpriseKeyCredentialRegistrationInfoVtbl(
@@ -247,10 +239,6 @@ unsafe impl ::windows::core::Interface for IEnterpriseKeyCredentialRegistrationM
     type Vtable = IEnterpriseKeyCredentialRegistrationManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x83f3be3f_a25f_4cba_bb8e_bdc32d03c297);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IEnterpriseKeyCredentialRegistrationManagerImpl {
-    fn GetRegistrationsAsync();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnterpriseKeyCredentialRegistrationManagerVtbl(
@@ -270,10 +258,6 @@ unsafe impl ::windows::core::Interface for IEnterpriseKeyCredentialRegistrationM
     type Vtable = IEnterpriseKeyCredentialRegistrationManagerStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x77b85e9e_acf4_4bc0_bac2_40bb46efbb3f);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IEnterpriseKeyCredentialRegistrationManagerStaticsImpl {
-    fn Current();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnterpriseKeyCredentialRegistrationManagerStaticsVtbl(
@@ -285,3 +269,5 @@ pub struct IEnterpriseKeyCredentialRegistrationManagerStaticsVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

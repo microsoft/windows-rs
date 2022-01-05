@@ -1605,17 +1605,6 @@ unsafe impl ::windows::core::Interface for IAppointmentCalendarCancelMeetingRequ
     type Vtable = IAppointmentCalendarCancelMeetingRequestVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x49460f8d_6434_40d7_ad46_6297419314d1);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IAppointmentCalendarCancelMeetingRequestImpl {
-    fn AppointmentCalendarLocalId();
-    fn AppointmentLocalId();
-    fn AppointmentOriginalStartTime();
-    fn Subject();
-    fn Comment();
-    fn NotifyInvitees();
-    fn ReportCompletedAsync();
-    fn ReportFailedAsync();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppointmentCalendarCancelMeetingRequestVtbl(
@@ -1644,11 +1633,6 @@ unsafe impl ::windows::core::Interface for IAppointmentCalendarCancelMeetingRequ
     type Vtable = IAppointmentCalendarCancelMeetingRequestEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1a79be16_7f30_4e35_beef_9d2c7b6dcae1);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IAppointmentCalendarCancelMeetingRequestEventArgsImpl {
-    fn Request();
-    fn GetDeferral();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppointmentCalendarCancelMeetingRequestEventArgsVtbl(
@@ -1668,15 +1652,6 @@ pub struct IAppointmentCalendarCreateOrUpdateAppointmentRequest(::windows::core:
 unsafe impl ::windows::core::Interface for IAppointmentCalendarCreateOrUpdateAppointmentRequest {
     type Vtable = IAppointmentCalendarCreateOrUpdateAppointmentRequestVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2e62f2b2_ca96_48ac_9124_406b19fefa70);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IAppointmentCalendarCreateOrUpdateAppointmentRequestImpl {
-    fn AppointmentCalendarLocalId();
-    fn Appointment();
-    fn NotifyInvitees();
-    fn ChangedProperties();
-    fn ReportCompletedAsync();
-    fn ReportFailedAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1704,11 +1679,6 @@ unsafe impl ::windows::core::Interface for IAppointmentCalendarCreateOrUpdateApp
     type Vtable = IAppointmentCalendarCreateOrUpdateAppointmentRequestEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcf8ded28_002e_4bf7_8e9d_5e20d49aa3ba);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IAppointmentCalendarCreateOrUpdateAppointmentRequestEventArgsImpl {
-    fn Request();
-    fn GetDeferral();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppointmentCalendarCreateOrUpdateAppointmentRequestEventArgsVtbl(
@@ -1728,18 +1698,6 @@ pub struct IAppointmentCalendarForwardMeetingRequest(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppointmentCalendarForwardMeetingRequest {
     type Vtable = IAppointmentCalendarForwardMeetingRequestVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x82e5ee56_26b6_4253_8a8f_6cf5f2ff7884);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IAppointmentCalendarForwardMeetingRequestImpl {
-    fn AppointmentCalendarLocalId();
-    fn AppointmentLocalId();
-    fn AppointmentOriginalStartTime();
-    fn Invitees();
-    fn Subject();
-    fn ForwardHeader();
-    fn Comment();
-    fn ReportCompletedAsync();
-    fn ReportFailedAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1771,11 +1729,6 @@ unsafe impl ::windows::core::Interface for IAppointmentCalendarForwardMeetingReq
     type Vtable = IAppointmentCalendarForwardMeetingRequestEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3109151a_23a2_42fd_9c82_c9a60d59f8a8);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IAppointmentCalendarForwardMeetingRequestEventArgsImpl {
-    fn Request();
-    fn GetDeferral();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppointmentCalendarForwardMeetingRequestEventArgsVtbl(
@@ -1795,18 +1748,6 @@ pub struct IAppointmentCalendarProposeNewTimeForMeetingRequest(::windows::core::
 unsafe impl ::windows::core::Interface for IAppointmentCalendarProposeNewTimeForMeetingRequest {
     type Vtable = IAppointmentCalendarProposeNewTimeForMeetingRequestVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xce1c63f5_edf6_43c3_82b7_be6b368c6900);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IAppointmentCalendarProposeNewTimeForMeetingRequestImpl {
-    fn AppointmentCalendarLocalId();
-    fn AppointmentLocalId();
-    fn AppointmentOriginalStartTime();
-    fn NewStartTime();
-    fn NewDuration();
-    fn Subject();
-    fn Comment();
-    fn ReportCompletedAsync();
-    fn ReportFailedAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1839,11 +1780,6 @@ unsafe impl ::windows::core::Interface for IAppointmentCalendarProposeNewTimeFor
     type Vtable = IAppointmentCalendarProposeNewTimeForMeetingRequestEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd2d777d8_fed1_4280_a3ba_2e1f47609aa2);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IAppointmentCalendarProposeNewTimeForMeetingRequestEventArgsImpl {
-    fn Request();
-    fn GetDeferral();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppointmentCalendarProposeNewTimeForMeetingRequestEventArgsVtbl(
@@ -1863,12 +1799,6 @@ pub struct IAppointmentCalendarSyncManagerSyncRequest(::windows::core::IUnknown)
 unsafe impl ::windows::core::Interface for IAppointmentCalendarSyncManagerSyncRequest {
     type Vtable = IAppointmentCalendarSyncManagerSyncRequestVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x12ab382b_7163_4a56_9a4e_7223a84adf46);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IAppointmentCalendarSyncManagerSyncRequestImpl {
-    fn AppointmentCalendarLocalId();
-    fn ReportCompletedAsync();
-    fn ReportFailedAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1892,11 +1822,6 @@ unsafe impl ::windows::core::Interface for IAppointmentCalendarSyncManagerSyncRe
     type Vtable = IAppointmentCalendarSyncManagerSyncRequestEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xca17c6f7_0284_4edd_87ba_4d8f69dcf5c0);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IAppointmentCalendarSyncManagerSyncRequestEventArgsImpl {
-    fn Request();
-    fn GetDeferral();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppointmentCalendarSyncManagerSyncRequestEventArgsVtbl(
@@ -1916,18 +1841,6 @@ pub struct IAppointmentCalendarUpdateMeetingResponseRequest(::windows::core::IUn
 unsafe impl ::windows::core::Interface for IAppointmentCalendarUpdateMeetingResponseRequest {
     type Vtable = IAppointmentCalendarUpdateMeetingResponseRequestVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa36d608c_c29d_4b94_b086_7e9ff7bd84a0);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IAppointmentCalendarUpdateMeetingResponseRequestImpl {
-    fn AppointmentCalendarLocalId();
-    fn AppointmentLocalId();
-    fn AppointmentOriginalStartTime();
-    fn Response();
-    fn Subject();
-    fn Comment();
-    fn SendUpdate();
-    fn ReportCompletedAsync();
-    fn ReportFailedAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1958,11 +1871,6 @@ unsafe impl ::windows::core::Interface for IAppointmentCalendarUpdateMeetingResp
     type Vtable = IAppointmentCalendarUpdateMeetingResponseRequestEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x88759883_97bf_479d_aed5_0be8ce567d1e);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IAppointmentCalendarUpdateMeetingResponseRequestEventArgsImpl {
-    fn Request();
-    fn GetDeferral();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppointmentCalendarUpdateMeetingResponseRequestEventArgsVtbl(
@@ -1982,22 +1890,6 @@ pub struct IAppointmentDataProviderConnection(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppointmentDataProviderConnection {
     type Vtable = IAppointmentDataProviderConnectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf3dd9d83_3254_465f_abdb_928046552cf4);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IAppointmentDataProviderConnectionImpl {
-    fn SyncRequested();
-    fn RemoveSyncRequested();
-    fn CreateOrUpdateAppointmentRequested();
-    fn RemoveCreateOrUpdateAppointmentRequested();
-    fn CancelMeetingRequested();
-    fn RemoveCancelMeetingRequested();
-    fn ForwardMeetingRequested();
-    fn RemoveForwardMeetingRequested();
-    fn ProposeNewTimeForMeetingRequested();
-    fn RemoveProposeNewTimeForMeetingRequested();
-    fn UpdateMeetingResponseRequested();
-    fn RemoveUpdateMeetingResponseRequested();
-    fn Start();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2041,10 +1933,6 @@ unsafe impl ::windows::core::Interface for IAppointmentDataProviderTriggerDetail
     type Vtable = IAppointmentDataProviderTriggerDetailsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb3283c01_7e12_4e5e_b1ef_74fb68ac6f2a);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IAppointmentDataProviderTriggerDetailsImpl {
-    fn Connection();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppointmentDataProviderTriggerDetailsVtbl(
@@ -2056,3 +1944,5 @@ pub struct IAppointmentDataProviderTriggerDetailsVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

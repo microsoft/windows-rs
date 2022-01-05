@@ -8,15 +8,6 @@ unsafe impl ::windows::core::Interface for ISecondaryAuthenticationFactorAuthent
     type Vtable = ISecondaryAuthenticationFactorAuthenticationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x020a16e5_6a25_40a3_8c00_50a023f619d1);
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
-pub trait ISecondaryAuthenticationFactorAuthenticationImpl {
-    fn ServiceAuthenticationHmac();
-    fn SessionNonce();
-    fn DeviceNonce();
-    fn DeviceConfigurationData();
-    fn FinishAuthenticationAsync();
-    fn AbortAuthenticationAsync();
-}
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
@@ -49,11 +40,6 @@ unsafe impl ::windows::core::Interface for ISecondaryAuthenticationFactorAuthent
     type Vtable = ISecondaryAuthenticationFactorAuthenticationResultVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9cbb5987_ef6d_4bc2_bf49_4617515a0f9a);
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
-pub trait ISecondaryAuthenticationFactorAuthenticationResultImpl {
-    fn Status();
-    fn Authentication();
-}
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
@@ -78,10 +64,6 @@ unsafe impl ::windows::core::Interface for ISecondaryAuthenticationFactorAuthent
     type Vtable = ISecondaryAuthenticationFactorAuthenticationStageChangedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd4a5ee56_7291_4073_bc1f_ccb8f5afdf96);
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
-pub trait ISecondaryAuthenticationFactorAuthenticationStageChangedEventArgsImpl {
-    fn StageInfo();
-}
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
@@ -103,12 +85,6 @@ pub struct ISecondaryAuthenticationFactorAuthenticationStageInfo(::windows::core
 unsafe impl ::windows::core::Interface for ISecondaryAuthenticationFactorAuthenticationStageInfo {
     type Vtable = ISecondaryAuthenticationFactorAuthenticationStageInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x56fec28b_e8aa_4c0f_8e4c_a559e73add88);
-}
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
-pub trait ISecondaryAuthenticationFactorAuthenticationStageInfoImpl {
-    fn Stage();
-    fn Scenario();
-    fn DeviceId();
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
@@ -135,14 +111,6 @@ pub struct ISecondaryAuthenticationFactorAuthenticationStatics(::windows::core::
 unsafe impl ::windows::core::Interface for ISecondaryAuthenticationFactorAuthenticationStatics {
     type Vtable = ISecondaryAuthenticationFactorAuthenticationStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3f582656_28f8_4e0f_ae8c_5898b9ae2469);
-}
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
-pub trait ISecondaryAuthenticationFactorAuthenticationStaticsImpl {
-    fn ShowNotificationMessageAsync();
-    fn StartAuthenticationAsync();
-    fn AuthenticationStageChanged();
-    fn RemoveAuthenticationStageChanged();
-    fn GetAuthenticationStageInfoAsync();
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
@@ -174,13 +142,6 @@ unsafe impl ::windows::core::Interface for ISecondaryAuthenticationFactorDeviceP
     type Vtable = ISecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x90499a19_7ef2_4523_951c_a417a24acf93);
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
-pub trait ISecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStaticsImpl {
-    fn RegisterDevicePresenceMonitoringAsync();
-    fn RegisterDevicePresenceMonitoringWithNewDeviceAsync();
-    fn UnregisterDevicePresenceMonitoringAsync();
-    fn IsDevicePresenceMonitoringSupported();
-}
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
@@ -208,13 +169,6 @@ pub struct ISecondaryAuthenticationFactorInfo(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISecondaryAuthenticationFactorInfo {
     type Vtable = ISecondaryAuthenticationFactorInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1e2ba861_8533_4fce_839b_ecb72410ac14);
-}
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
-pub trait ISecondaryAuthenticationFactorInfoImpl {
-    fn DeviceId();
-    fn DeviceFriendlyName();
-    fn DeviceModelNumber();
-    fn DeviceConfigurationData();
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
@@ -244,12 +198,6 @@ unsafe impl ::windows::core::Interface for ISecondaryAuthenticationFactorInfo2 {
     type Vtable = ISecondaryAuthenticationFactorInfo2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x14d981a3_fc26_4ff7_abc3_48e82a512a0a);
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
-pub trait ISecondaryAuthenticationFactorInfo2Impl: ISecondaryAuthenticationFactorInfoImpl {
-    fn PresenceMonitoringMode();
-    fn UpdateDevicePresenceAsync();
-    fn IsAuthenticationSupported();
-}
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
@@ -276,11 +224,6 @@ unsafe impl ::windows::core::Interface for ISecondaryAuthenticationFactorRegistr
     type Vtable = ISecondaryAuthenticationFactorRegistrationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9f4cbbb4_8cba_48b0_840d_dbb22a54c678);
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
-pub trait ISecondaryAuthenticationFactorRegistrationImpl {
-    fn FinishRegisteringDeviceAsync();
-    fn AbortRegisteringDeviceAsync();
-}
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
@@ -305,11 +248,6 @@ unsafe impl ::windows::core::Interface for ISecondaryAuthenticationFactorRegistr
     type Vtable = ISecondaryAuthenticationFactorRegistrationResultVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa4fe35f0_ade3_4981_af6b_ec195921682a);
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
-pub trait ISecondaryAuthenticationFactorRegistrationResultImpl {
-    fn Status();
-    fn Registration();
-}
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
@@ -333,13 +271,6 @@ pub struct ISecondaryAuthenticationFactorRegistrationStatics(::windows::core::IU
 unsafe impl ::windows::core::Interface for ISecondaryAuthenticationFactorRegistrationStatics {
     type Vtable = ISecondaryAuthenticationFactorRegistrationStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1adf0f65_e3b7_4155_997f_b756ef65beba);
-}
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
-pub trait ISecondaryAuthenticationFactorRegistrationStaticsImpl {
-    fn RequestStartRegisteringDeviceAsync();
-    fn FindAllRegisteredDeviceInfoAsync();
-    fn UnregisterDeviceAsync();
-    fn UpdateDeviceConfigurationDataAsync();
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
@@ -1880,3 +1811,5 @@ unsafe impl ::windows::core::RuntimeType for SecondaryAuthenticationFactorRegist
 impl ::windows::core::DefaultType for SecondaryAuthenticationFactorRegistrationStatus {
     type DefaultType = Self;
 }
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

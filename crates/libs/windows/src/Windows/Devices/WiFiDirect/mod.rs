@@ -8,16 +8,6 @@ unsafe impl ::windows::core::Interface for IWiFiDirectAdvertisement {
     type Vtable = IWiFiDirectAdvertisementVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xab511a2d_2a06_49a1_a584_61435c7905a6);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IWiFiDirectAdvertisementImpl {
-    fn InformationElements();
-    fn SetInformationElements();
-    fn ListenStateDiscoverability();
-    fn SetListenStateDiscoverability();
-    fn IsAutonomousGroupOwnerEnabled();
-    fn SetIsAutonomousGroupOwnerEnabled();
-    fn LegacySettings();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWiFiDirectAdvertisementVtbl(
@@ -44,10 +34,6 @@ unsafe impl ::windows::core::Interface for IWiFiDirectAdvertisement2 {
     type Vtable = IWiFiDirectAdvertisement2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb759aa46_d816_491b_917a_b40d7dc403a2);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IWiFiDirectAdvertisement2Impl {
-    fn SupportedConfigurationMethods();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWiFiDirectAdvertisement2Vtbl(
@@ -66,15 +52,6 @@ pub struct IWiFiDirectAdvertisementPublisher(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IWiFiDirectAdvertisementPublisher {
     type Vtable = IWiFiDirectAdvertisementPublisherVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb35a2d1a_9b1f_45d9_925a_694d66df68ef);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IWiFiDirectAdvertisementPublisherImpl {
-    fn Advertisement();
-    fn Status();
-    fn StatusChanged();
-    fn RemoveStatusChanged();
-    fn Start();
-    fn Stop();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -101,11 +78,6 @@ unsafe impl ::windows::core::Interface for IWiFiDirectAdvertisementPublisherStat
     type Vtable = IWiFiDirectAdvertisementPublisherStatusChangedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaafde53c_5481_46e6_90dd_32116518f192);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IWiFiDirectAdvertisementPublisherStatusChangedEventArgsImpl {
-    fn Status();
-    fn Error();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWiFiDirectAdvertisementPublisherStatusChangedEventArgsVtbl(
@@ -124,11 +96,6 @@ pub struct IWiFiDirectConnectionListener(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IWiFiDirectConnectionListener {
     type Vtable = IWiFiDirectConnectionListenerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x699c1b0d_8d13_4ee9_b9ec_9c72f8251f7d);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IWiFiDirectConnectionListenerImpl {
-    fn ConnectionRequested();
-    fn RemoveConnectionRequested();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -151,11 +118,6 @@ unsafe impl ::windows::core::Interface for IWiFiDirectConnectionParameters {
     type Vtable = IWiFiDirectConnectionParametersVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb2e55405_5702_4b16_a02c_bbcd21ef6098);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IWiFiDirectConnectionParametersImpl {
-    fn GroupOwnerIntent();
-    fn SetGroupOwnerIntent();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWiFiDirectConnectionParametersVtbl(
@@ -174,12 +136,6 @@ pub struct IWiFiDirectConnectionParameters2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IWiFiDirectConnectionParameters2 {
     type Vtable = IWiFiDirectConnectionParameters2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xab3b0fbe_aa82_44b4_88c8_e3056b89801d);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IWiFiDirectConnectionParameters2Impl {
-    fn PreferenceOrderedConfigurationMethods();
-    fn PreferredPairingProcedure();
-    fn SetPreferredPairingProcedure();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -202,10 +158,6 @@ unsafe impl ::windows::core::Interface for IWiFiDirectConnectionParametersStatic
     type Vtable = IWiFiDirectConnectionParametersStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x598af493_7642_456f_b9d8_e8a9eb1f401a);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IWiFiDirectConnectionParametersStaticsImpl {
-    fn GetDevicePairingKinds();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWiFiDirectConnectionParametersStaticsVtbl(
@@ -224,10 +176,6 @@ pub struct IWiFiDirectConnectionRequest(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IWiFiDirectConnectionRequest {
     type Vtable = IWiFiDirectConnectionRequestVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8eb99605_914f_49c3_a614_d18dc5b19b43);
-}
-#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IWiFiDirectConnectionRequestImpl: IClosableImpl {
-    fn DeviceInformation();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -248,10 +196,6 @@ unsafe impl ::windows::core::Interface for IWiFiDirectConnectionRequestedEventAr
     type Vtable = IWiFiDirectConnectionRequestedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf99d20be_d38d_484f_8215_e7b65abf244c);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IWiFiDirectConnectionRequestedEventArgsImpl {
-    fn GetConnectionRequest();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWiFiDirectConnectionRequestedEventArgsVtbl(
@@ -269,14 +213,6 @@ pub struct IWiFiDirectDevice(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IWiFiDirectDevice {
     type Vtable = IWiFiDirectDeviceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x72deaaa8_72eb_4dae_8a28_8513355d2777);
-}
-#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IWiFiDirectDeviceImpl: IClosableImpl {
-    fn ConnectionStatus();
-    fn DeviceId();
-    fn ConnectionStatusChanged();
-    fn RemoveConnectionStatusChanged();
-    fn GetConnectionEndpointPairs();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -303,11 +239,6 @@ unsafe impl ::windows::core::Interface for IWiFiDirectDeviceStatics {
     type Vtable = IWiFiDirectDeviceStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe86cb57c_3aac_4851_a792_482aaf931b04);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IWiFiDirectDeviceStaticsImpl {
-    fn GetDeviceSelector();
-    fn FromIdAsync();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWiFiDirectDeviceStaticsVtbl(
@@ -328,11 +259,6 @@ unsafe impl ::windows::core::Interface for IWiFiDirectDeviceStatics2 {
     type Vtable = IWiFiDirectDeviceStatics2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1a953e49_b103_437e_9226_ab67971342f9);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IWiFiDirectDeviceStatics2Impl {
-    fn GetDeviceSelector();
-    fn FromIdAsync();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWiFiDirectDeviceStatics2Vtbl(
@@ -352,15 +278,6 @@ pub struct IWiFiDirectInformationElement(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IWiFiDirectInformationElement {
     type Vtable = IWiFiDirectInformationElementVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaffb72d6_76bb_497e_ac8b_dc72838bc309);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IWiFiDirectInformationElementImpl {
-    fn Oui();
-    fn SetOui();
-    fn OuiType();
-    fn SetOuiType();
-    fn Value();
-    fn SetValue();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -389,11 +306,6 @@ unsafe impl ::windows::core::Interface for IWiFiDirectInformationElementStatics 
     type Vtable = IWiFiDirectInformationElementStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdbd02f16_11a5_4e60_8caa_34772148378a);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IWiFiDirectInformationElementStaticsImpl {
-    fn CreateFromBuffer();
-    fn CreateFromDeviceInformation();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWiFiDirectInformationElementStaticsVtbl(
@@ -414,15 +326,6 @@ pub struct IWiFiDirectLegacySettings(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IWiFiDirectLegacySettings {
     type Vtable = IWiFiDirectLegacySettingsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa64fdbba_f2fd_4567_a91b_f5c2f5321057);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IWiFiDirectLegacySettingsImpl {
-    fn IsEnabled();
-    fn SetIsEnabled();
-    fn Ssid();
-    fn SetSsid();
-    fn Passphrase();
-    fn SetPassphrase();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1906,3 +1809,5 @@ unsafe impl ::windows::core::RuntimeType for WiFiDirectPairingProcedure {
 impl ::windows::core::DefaultType for WiFiDirectPairingProcedure {
     type DefaultType = Self;
 }
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

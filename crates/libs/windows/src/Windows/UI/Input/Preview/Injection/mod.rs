@@ -6,23 +6,6 @@ unsafe impl ::windows::core::Interface for IInjectedInputGamepadInfo {
     type Vtable = IInjectedInputGamepadInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x20ae9a3f_df11_4572_a9ab_d75b8a5e48ad);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IInjectedInputGamepadInfoImpl {
-    fn Buttons();
-    fn SetButtons();
-    fn LeftThumbstickX();
-    fn SetLeftThumbstickX();
-    fn LeftThumbstickY();
-    fn SetLeftThumbstickY();
-    fn LeftTrigger();
-    fn SetLeftTrigger();
-    fn RightThumbstickX();
-    fn SetRightThumbstickX();
-    fn RightThumbstickY();
-    fn SetRightThumbstickY();
-    fn RightTrigger();
-    fn SetRightTrigger();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInjectedInputGamepadInfoVtbl(
@@ -56,10 +39,6 @@ unsafe impl ::windows::core::Interface for IInjectedInputGamepadInfoFactory {
     type Vtable = IInjectedInputGamepadInfoFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x59596876_6c39_4ec4_8b2a_29ef7de18aca);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IInjectedInputGamepadInfoFactoryImpl {
-    fn CreateInstanceFromGamepadReading();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInjectedInputGamepadInfoFactoryVtbl(
@@ -78,15 +57,6 @@ pub struct IInjectedInputKeyboardInfo(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IInjectedInputKeyboardInfo {
     type Vtable = IInjectedInputKeyboardInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4b46d140_2b6a_5ffa_7eae_bd077b052acd);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IInjectedInputKeyboardInfoImpl {
-    fn KeyOptions();
-    fn SetKeyOptions();
-    fn ScanCode();
-    fn SetScanCode();
-    fn VirtualKey();
-    fn SetVirtualKey();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -110,19 +80,6 @@ pub struct IInjectedInputMouseInfo(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IInjectedInputMouseInfo {
     type Vtable = IInjectedInputMouseInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x96f56e6b_e47a_5cf4_418d_8a5fb9670c7d);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IInjectedInputMouseInfoImpl {
-    fn MouseOptions();
-    fn SetMouseOptions();
-    fn MouseData();
-    fn SetMouseData();
-    fn DeltaY();
-    fn SetDeltaY();
-    fn DeltaX();
-    fn SetDeltaX();
-    fn TimeOffsetInMilliseconds();
-    fn SetTimeOffsetInMilliseconds();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -150,23 +107,6 @@ pub struct IInjectedInputPenInfo(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IInjectedInputPenInfo {
     type Vtable = IInjectedInputPenInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6b40ad03_ca1e_5527_7e02_2828540bb1d4);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IInjectedInputPenInfoImpl {
-    fn PointerInfo();
-    fn SetPointerInfo();
-    fn PenButtons();
-    fn SetPenButtons();
-    fn PenParameters();
-    fn SetPenParameters();
-    fn Pressure();
-    fn SetPressure();
-    fn Rotation();
-    fn SetRotation();
-    fn TiltX();
-    fn SetTiltX();
-    fn TiltY();
-    fn SetTiltY();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -199,19 +139,6 @@ unsafe impl ::windows::core::Interface for IInjectedInputTouchInfo {
     type Vtable = IInjectedInputTouchInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x224fd1df_43e8_5ef5_510a_69ca8c9b4c28);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IInjectedInputTouchInfoImpl {
-    fn Contact();
-    fn SetContact();
-    fn Orientation();
-    fn SetOrientation();
-    fn PointerInfo();
-    fn SetPointerInfo();
-    fn Pressure();
-    fn SetPressure();
-    fn TouchParameters();
-    fn SetTouchParameters();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInjectedInputTouchInfoVtbl(
@@ -238,18 +165,6 @@ pub struct IInputInjector(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IInputInjector {
     type Vtable = IInputInjectorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8ec26f84_0b02_4bd2_ad7a_3d4658be3e18);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IInputInjectorImpl {
-    fn InjectKeyboardInput();
-    fn InjectMouseInput();
-    fn InitializeTouchInjection();
-    fn InjectTouchInput();
-    fn UninitializeTouchInjection();
-    fn InitializePenInjection();
-    fn InjectPenInput();
-    fn UninitializePenInjection();
-    fn InjectShortcut();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -280,12 +195,6 @@ unsafe impl ::windows::core::Interface for IInputInjector2 {
     type Vtable = IInputInjector2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8e7a905d_1453_43a7_9bcb_06d6d7b305f7);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IInputInjector2Impl: IInputInjectorImpl {
-    fn InitializeGamepadInjection();
-    fn InjectGamepadInput();
-    fn UninitializeGamepadInjection();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInputInjector2Vtbl(
@@ -306,10 +215,6 @@ unsafe impl ::windows::core::Interface for IInputInjectorStatics {
     type Vtable = IInputInjectorStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdeae6943_7402_4141_a5c6_0c01aa57b16a);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IInputInjectorStaticsImpl {
-    fn TryCreate();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInputInjectorStaticsVtbl(
@@ -327,10 +232,6 @@ pub struct IInputInjectorStatics2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IInputInjectorStatics2 {
     type Vtable = IInputInjectorStatics2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa4db38fb_dd8c_414f_95ea_f87ef4c0ae6c);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IInputInjectorStatics2Impl: IInputInjectorStaticsImpl {
-    fn TryCreateForAppBroadcastOnly();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1883,3 +1784,5 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Inpu
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

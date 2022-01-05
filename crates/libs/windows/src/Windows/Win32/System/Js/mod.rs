@@ -1360,3 +1360,5 @@ pub unsafe fn JsVariantToValue(variant: *const super::Com::VARIANT, value: *mut 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

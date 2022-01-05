@@ -6,11 +6,6 @@ unsafe impl ::windows::core::Interface for ILicenseManagerStatics {
     type Vtable = ILicenseManagerStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb5ac3ae0_da47_4f20_9a23_09182c9476ff);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ILicenseManagerStaticsImpl {
-    fn AddLicenseAsync();
-    fn GetSatisfactionInfosAsync();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILicenseManagerStaticsVtbl(
@@ -32,10 +27,6 @@ unsafe impl ::windows::core::Interface for ILicenseManagerStatics2 {
     type Vtable = ILicenseManagerStatics2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xab2ec47b_1f79_4480_b87e_2c499e601ba3);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ILicenseManagerStatics2Impl {
-    fn RefreshLicensesAsync();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILicenseManagerStatics2Vtbl(
@@ -54,16 +45,6 @@ pub struct ILicenseSatisfactionInfo(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ILicenseSatisfactionInfo {
     type Vtable = ILicenseSatisfactionInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3ccbb08f_db31_48d5_8384_fa17c81474e2);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ILicenseSatisfactionInfoImpl {
-    fn SatisfiedByDevice();
-    fn SatisfiedByOpenLicense();
-    fn SatisfiedByTrial();
-    fn SatisfiedByPass();
-    fn SatisfiedByInstallMedia();
-    fn SatisfiedBySignedInUser();
-    fn IsSatisfied();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -88,11 +69,6 @@ pub struct ILicenseSatisfactionResult(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ILicenseSatisfactionResult {
     type Vtable = ILicenseSatisfactionResultVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3c674f73_3c87_4ee1_8201_f428359bd3af);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ILicenseSatisfactionResultImpl {
-    fn LicenseSatisfactionInfos();
-    fn ExtendedError();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -400,3 +376,5 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Lice
 }
 unsafe impl ::core::marker::Send for LicenseSatisfactionResult {}
 unsafe impl ::core::marker::Sync for LicenseSatisfactionResult {}
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

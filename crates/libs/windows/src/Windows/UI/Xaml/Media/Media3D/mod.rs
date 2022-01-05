@@ -371,33 +371,6 @@ unsafe impl ::windows::core::Interface for ICompositeTransform3D {
     type Vtable = ICompositeTransform3DVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8977cb01_af8d_4af5_b084_c08eb9704abe);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ICompositeTransform3DImpl {
-    fn CenterX();
-    fn SetCenterX();
-    fn CenterY();
-    fn SetCenterY();
-    fn CenterZ();
-    fn SetCenterZ();
-    fn RotationX();
-    fn SetRotationX();
-    fn RotationY();
-    fn SetRotationY();
-    fn RotationZ();
-    fn SetRotationZ();
-    fn ScaleX();
-    fn SetScaleX();
-    fn ScaleY();
-    fn SetScaleY();
-    fn ScaleZ();
-    fn SetScaleZ();
-    fn TranslateX();
-    fn SetTranslateX();
-    fn TranslateY();
-    fn SetTranslateY();
-    fn TranslateZ();
-    fn SetTranslateZ();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositeTransform3DVtbl(
@@ -439,21 +412,6 @@ unsafe impl ::windows::core::Interface for ICompositeTransform3DStatics {
     type Vtable = ICompositeTransform3DStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xddbf4d67_2a25_48f3_9808_c51ec3d55bec);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ICompositeTransform3DStaticsImpl {
-    fn CenterXProperty();
-    fn CenterYProperty();
-    fn CenterZProperty();
-    fn RotationXProperty();
-    fn RotationYProperty();
-    fn RotationZProperty();
-    fn ScaleXProperty();
-    fn ScaleYProperty();
-    fn ScaleZProperty();
-    fn TranslateXProperty();
-    fn TranslateYProperty();
-    fn TranslateZProperty();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositeTransform3DStaticsVtbl(
@@ -483,8 +441,6 @@ unsafe impl ::windows::core::Interface for IMatrix3DHelper {
     type Vtable = IMatrix3DHelperVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe48c10ef_9927_4c9b_8213_07775512ba04);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IMatrix3DHelperImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMatrix3DHelperVtbl(
@@ -501,15 +457,6 @@ pub struct IMatrix3DHelperStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMatrix3DHelperStatics {
     type Vtable = IMatrix3DHelperStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9264545e_e158_4e74_8899_689160bd2f8c);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IMatrix3DHelperStaticsImpl {
-    fn Identity();
-    fn Multiply();
-    fn FromElements();
-    fn GetHasInverse();
-    fn GetIsIdentity();
-    fn Invert();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -534,15 +481,6 @@ unsafe impl ::windows::core::Interface for IPerspectiveTransform3D {
     type Vtable = IPerspectiveTransform3DVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9a7b532a_30f9_40a1_96c9_c59d87f95ac3);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IPerspectiveTransform3DImpl {
-    fn Depth();
-    fn SetDepth();
-    fn OffsetX();
-    fn SetOffsetX();
-    fn OffsetY();
-    fn SetOffsetY();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPerspectiveTransform3DVtbl(
@@ -566,12 +504,6 @@ unsafe impl ::windows::core::Interface for IPerspectiveTransform3DStatics {
     type Vtable = IPerspectiveTransform3DStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8e6f6400_620c_48c7_844d_3f0984da5b17);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IPerspectiveTransform3DStaticsImpl {
-    fn DepthProperty();
-    fn OffsetXProperty();
-    fn OffsetYProperty();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPerspectiveTransform3DStaticsVtbl(
@@ -592,8 +524,6 @@ unsafe impl ::windows::core::Interface for ITransform3D {
     type Vtable = ITransform3DVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xae3ed43a_a9fc_4c31_86cd_56d9ca251a69);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ITransform3DImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITransform3DVtbl(
@@ -610,10 +540,6 @@ pub struct ITransform3DFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ITransform3DFactory {
     type Vtable = ITransform3DFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x052c1f7a_8d73_48cd_bbb8_d00434caae5d);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ITransform3DFactoryImpl {
-    fn CreateInstance();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1074,3 +1000,5 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Tra
 }
 unsafe impl ::core::marker::Send for Transform3D {}
 unsafe impl ::core::marker::Sync for Transform3D {}
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

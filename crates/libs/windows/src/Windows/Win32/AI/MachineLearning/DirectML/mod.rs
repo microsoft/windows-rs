@@ -6682,13 +6682,6 @@ unsafe impl ::windows::core::Interface for IDMLBindingTable {
     type Vtable = IDMLBindingTableVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x29c687dc_de74_4e3b_ab00_1168f2fc3cfc);
 }
-pub trait IDMLBindingTableImpl: IDMLDeviceChildImpl + IDMLObjectImpl {
-    fn BindInputs();
-    fn BindOutputs();
-    fn BindTemporaryResource();
-    fn BindPersistentResource();
-    fn Reset();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDMLBindingTableVtbl(
@@ -6819,9 +6812,6 @@ impl ::core::fmt::Debug for IDMLCommandRecorder {
 unsafe impl ::windows::core::Interface for IDMLCommandRecorder {
     type Vtable = IDMLCommandRecorderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe6857a76_2e3e_4fdd_bff4_5d2ba10fb453);
-}
-pub trait IDMLCommandRecorderImpl: IDMLDeviceChildImpl + IDMLObjectImpl {
-    fn RecordDispatch();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6991,7 +6981,6 @@ unsafe impl ::windows::core::Interface for IDMLCompiledOperator {
     type Vtable = IDMLCompiledOperatorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6b15e56a_bf5c_4902_92d8_da3a650afea4);
 }
-pub trait IDMLCompiledOperatorImpl: IDMLDispatchableImpl + IDMLPageableImpl + IDMLDeviceChildImpl + IDMLObjectImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDMLCompiledOperatorVtbl(
@@ -7055,9 +7044,6 @@ impl ::core::fmt::Debug for IDMLDebugDevice {
 unsafe impl ::windows::core::Interface for IDMLDebugDevice {
     type Vtable = IDMLDebugDeviceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7d6f3ac9_394a_4ac3_92a7_390cc57a8217);
-}
-pub trait IDMLDebugDeviceImpl {
-    fn SetMuteDebugOutput();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7194,18 +7180,6 @@ impl ::core::fmt::Debug for IDMLDevice {
 unsafe impl ::windows::core::Interface for IDMLDevice {
     type Vtable = IDMLDeviceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6dbd6437_96fd_423f_a98c_ae5e7c2a573f);
-}
-pub trait IDMLDeviceImpl: IDMLObjectImpl {
-    fn CheckFeatureSupport();
-    fn CreateOperator();
-    fn CompileOperator();
-    fn CreateOperatorInitializer();
-    fn CreateCommandRecorder();
-    fn CreateBindingTable();
-    fn Evict();
-    fn MakeResident();
-    fn GetDeviceRemovedReason();
-    fn GetParentDevice();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7381,9 +7355,6 @@ unsafe impl ::windows::core::Interface for IDMLDevice1 {
     type Vtable = IDMLDevice1Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa0884f9a_d2be_4355_aa5d_5901281ad1d2);
 }
-pub trait IDMLDevice1Impl: IDMLDeviceImpl + IDMLObjectImpl {
-    fn CompileGraph();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDMLDevice1Vtbl(
@@ -7494,9 +7465,6 @@ impl ::core::fmt::Debug for IDMLDeviceChild {
 unsafe impl ::windows::core::Interface for IDMLDeviceChild {
     type Vtable = IDMLDeviceChildVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x27e83142_8165_49e3_974e_2fd66e4cb69d);
-}
-pub trait IDMLDeviceChildImpl: IDMLObjectImpl {
-    fn GetDevice();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7644,9 +7612,6 @@ unsafe impl ::windows::core::Interface for IDMLDispatchable {
     type Vtable = IDMLDispatchableVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdcb821a8_1039_441e_9f1c_b1759c2f3cec);
 }
-pub trait IDMLDispatchableImpl: IDMLPageableImpl + IDMLDeviceChildImpl + IDMLObjectImpl {
-    fn GetBindingProperties();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDMLDispatchableVtbl(
@@ -7722,12 +7687,6 @@ impl ::core::fmt::Debug for IDMLObject {
 unsafe impl ::windows::core::Interface for IDMLObject {
     type Vtable = IDMLObjectVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc8263aac_9e0c_4a2d_9b8e_007521a3317c);
-}
-pub trait IDMLObjectImpl {
-    fn GetPrivateData();
-    fn SetPrivateData();
-    fn SetPrivateDataInterface();
-    fn SetName();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7848,7 +7807,6 @@ unsafe impl ::windows::core::Interface for IDMLOperator {
     type Vtable = IDMLOperatorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x26caae7a_3081_4633_9581_226fbe57695d);
 }
-pub trait IDMLOperatorImpl: IDMLDeviceChildImpl + IDMLObjectImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDMLOperatorVtbl(
@@ -8019,9 +7977,6 @@ unsafe impl ::windows::core::Interface for IDMLOperatorInitializer {
     type Vtable = IDMLOperatorInitializerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x427c1113_435c_469c_8676_4d5dd072f813);
 }
-pub trait IDMLOperatorInitializerImpl: IDMLDispatchableImpl + IDMLPageableImpl + IDMLDeviceChildImpl + IDMLObjectImpl {
-    fn Reset();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDMLOperatorInitializerVtbl(
@@ -8144,7 +8099,6 @@ unsafe impl ::windows::core::Interface for IDMLPageable {
     type Vtable = IDMLPageableVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb1ab0825_4542_4a4b_8617_6dde6e8f6201);
 }
-pub trait IDMLPageableImpl: IDMLDeviceChildImpl + IDMLObjectImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDMLPageableVtbl(
@@ -8158,3 +8112,5 @@ pub struct IDMLPageableVtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

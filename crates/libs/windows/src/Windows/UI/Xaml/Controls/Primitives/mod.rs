@@ -5674,10 +5674,6 @@ unsafe impl ::windows::core::Interface for IAppBarButtonTemplateSettings {
     type Vtable = IAppBarButtonTemplateSettingsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcbc9b39d_0c95_4951_bff2_13963691c366);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IAppBarButtonTemplateSettingsImpl {
-    fn KeyboardAcceleratorTextMinWidth();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppBarButtonTemplateSettingsVtbl(
@@ -5695,16 +5691,6 @@ pub struct IAppBarTemplateSettings(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppBarTemplateSettings {
     type Vtable = IAppBarTemplateSettingsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbcc2a863_eb35_423c_8389_d7827be3bf67);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IAppBarTemplateSettingsImpl {
-    fn ClipRect();
-    fn CompactVerticalDelta();
-    fn CompactRootMargin();
-    fn MinimalVerticalDelta();
-    fn MinimalRootMargin();
-    fn HiddenVerticalDelta();
-    fn HiddenRootMargin();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5731,12 +5717,6 @@ unsafe impl ::windows::core::Interface for IAppBarTemplateSettings2 {
     type Vtable = IAppBarTemplateSettings2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcbe66259_0399_5bcc_b925_4d5f5c9a4568);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IAppBarTemplateSettings2Impl {
-    fn NegativeCompactVerticalDelta();
-    fn NegativeMinimalVerticalDelta();
-    fn NegativeHiddenVerticalDelta();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppBarTemplateSettings2Vtbl(
@@ -5757,10 +5737,6 @@ unsafe impl ::windows::core::Interface for IAppBarToggleButtonTemplateSettings {
     type Vtable = IAppBarToggleButtonTemplateSettingsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaaf99c48_d8f4_40d9_9fa3_3a64f0fec5d8);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IAppBarToggleButtonTemplateSettingsImpl {
-    fn KeyboardAcceleratorTextMinWidth();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppBarToggleButtonTemplateSettingsVtbl(
@@ -5778,19 +5754,6 @@ pub struct IButtonBase(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IButtonBase {
     type Vtable = IButtonBaseVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfa002c1a_494e_46cf_91d4_e14a8d798674);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IButtonBaseImpl {
-    fn ClickMode();
-    fn SetClickMode();
-    fn IsPointerOver();
-    fn IsPressed();
-    fn Command();
-    fn SetCommand();
-    fn CommandParameter();
-    fn SetCommandParameter();
-    fn Click();
-    fn RemoveClick();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5823,10 +5786,6 @@ unsafe impl ::windows::core::Interface for IButtonBaseFactory {
     type Vtable = IButtonBaseFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x389b7c71_5220_42b2_9992_2690c1a6702f);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IButtonBaseFactoryImpl {
-    fn CreateInstance();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IButtonBaseFactoryVtbl(
@@ -5844,14 +5803,6 @@ pub struct IButtonBaseStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IButtonBaseStatics {
     type Vtable = IButtonBaseStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x67ef17e1_fe37_474f_9e97_3b5e0b30f2df);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IButtonBaseStaticsImpl {
-    fn ClickModeProperty();
-    fn IsPointerOverProperty();
-    fn IsPressedProperty();
-    fn CommandProperty();
-    fn CommandParameterProperty();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5875,8 +5826,6 @@ unsafe impl ::windows::core::Interface for ICalendarPanel {
     type Vtable = ICalendarPanelVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfcd55a2d_02d3_4ee6_9a90_9df3ead00994);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ICalendarPanelImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICalendarPanelVtbl(
@@ -5893,24 +5842,6 @@ pub struct ICalendarViewTemplateSettings(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICalendarViewTemplateSettings {
     type Vtable = ICalendarViewTemplateSettingsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x56c71483_64e1_477c_8a0b_cb2f3334b9b0);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ICalendarViewTemplateSettingsImpl {
-    fn MinViewWidth();
-    fn HeaderText();
-    fn WeekDay1();
-    fn WeekDay2();
-    fn WeekDay3();
-    fn WeekDay4();
-    fn WeekDay5();
-    fn WeekDay6();
-    fn WeekDay7();
-    fn HasMoreContentAfter();
-    fn HasMoreContentBefore();
-    fn HasMoreViews();
-    fn ClipRect();
-    fn CenterX();
-    fn CenterY();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5944,36 +5875,6 @@ pub struct ICarouselPanel(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICarouselPanel {
     type Vtable = ICarouselPanelVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdeab78b2_373b_4151_8785_e544d0d9362b);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ICarouselPanelImpl {
-    fn CanVerticallyScroll();
-    fn SetCanVerticallyScroll();
-    fn CanHorizontallyScroll();
-    fn SetCanHorizontallyScroll();
-    fn ExtentWidth();
-    fn ExtentHeight();
-    fn ViewportWidth();
-    fn ViewportHeight();
-    fn HorizontalOffset();
-    fn VerticalOffset();
-    fn ScrollOwner();
-    fn SetScrollOwner();
-    fn LineUp();
-    fn LineDown();
-    fn LineLeft();
-    fn LineRight();
-    fn PageUp();
-    fn PageDown();
-    fn PageLeft();
-    fn PageRight();
-    fn MouseWheelUp();
-    fn MouseWheelDown();
-    fn MouseWheelLeft();
-    fn MouseWheelRight();
-    fn SetHorizontalOffset();
-    fn SetVerticalOffset();
-    fn MakeVisible();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6020,10 +5921,6 @@ unsafe impl ::windows::core::Interface for ICarouselPanelFactory {
     type Vtable = ICarouselPanelFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc1109404_9ae1_440e_a0dd_bbb6e2293cbe);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ICarouselPanelFactoryImpl {
-    fn CreateInstance();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICarouselPanelFactoryVtbl(
@@ -6041,11 +5938,6 @@ pub struct IColorPickerSlider(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IColorPickerSlider {
     type Vtable = IColorPickerSliderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x94394d83_e0df_4c5f_bbcd_8155f4020440);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IColorPickerSliderImpl {
-    fn ColorChannel();
-    fn SetColorChannel();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6066,10 +5958,6 @@ unsafe impl ::windows::core::Interface for IColorPickerSliderFactory {
     type Vtable = IColorPickerSliderFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x06d879a2_8c07_4b1e_a940_9fbce8f49639);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IColorPickerSliderFactoryImpl {
-    fn CreateInstance();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IColorPickerSliderFactoryVtbl(
@@ -6088,10 +5976,6 @@ unsafe impl ::windows::core::Interface for IColorPickerSliderStatics {
     type Vtable = IColorPickerSliderStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x22eafc6a_9fe3_4eee_8734_a1398ec4413a);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IColorPickerSliderStaticsImpl {
-    fn ColorChannelProperty();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IColorPickerSliderStaticsVtbl(
@@ -6109,31 +5993,6 @@ pub struct IColorSpectrum(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IColorSpectrum {
     type Vtable = IColorSpectrumVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xce46f271_f509_4f98_8288_e4942fb385df);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IColorSpectrumImpl {
-    fn Color();
-    fn SetColor();
-    fn HsvColor();
-    fn SetHsvColor();
-    fn MinHue();
-    fn SetMinHue();
-    fn MaxHue();
-    fn SetMaxHue();
-    fn MinSaturation();
-    fn SetMinSaturation();
-    fn MaxSaturation();
-    fn SetMaxSaturation();
-    fn MinValue();
-    fn SetMinValue();
-    fn MaxValue();
-    fn SetMaxValue();
-    fn Shape();
-    fn SetShape();
-    fn Components();
-    fn SetComponents();
-    fn ColorChanged();
-    fn RemoveColorChanged();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6178,10 +6037,6 @@ unsafe impl ::windows::core::Interface for IColorSpectrumFactory {
     type Vtable = IColorSpectrumFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x90c7e61e_904d_42ab_b44f_e68dbf0cdee9);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IColorSpectrumFactoryImpl {
-    fn CreateInstance();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IColorSpectrumFactoryVtbl(
@@ -6199,19 +6054,6 @@ pub struct IColorSpectrumStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IColorSpectrumStatics {
     type Vtable = IColorSpectrumStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x906bee7c_2cee_4e90_968b_f0a5bd691b4a);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IColorSpectrumStaticsImpl {
-    fn ColorProperty();
-    fn HsvColorProperty();
-    fn MinHueProperty();
-    fn MaxHueProperty();
-    fn MinSaturationProperty();
-    fn MaxSaturationProperty();
-    fn MinValueProperty();
-    fn MaxValueProperty();
-    fn ShapeProperty();
-    fn ComponentsProperty();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6240,13 +6082,6 @@ unsafe impl ::windows::core::Interface for IComboBoxTemplateSettings {
     type Vtable = IComboBoxTemplateSettingsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x83285c4e_17f6_4aa3_b61b_e87c718604ea);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IComboBoxTemplateSettingsImpl {
-    fn DropDownOpenedHeight();
-    fn DropDownClosedHeight();
-    fn DropDownOffset();
-    fn SelectedItemDirection();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IComboBoxTemplateSettingsVtbl(
@@ -6268,10 +6103,6 @@ unsafe impl ::windows::core::Interface for IComboBoxTemplateSettings2 {
     type Vtable = IComboBoxTemplateSettings2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00e90cd7_68be_449d_b5a7_76e26f703e9b);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IComboBoxTemplateSettings2Impl {
-    fn DropDownContentMinWidth();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IComboBoxTemplateSettings2Vtbl(
@@ -6289,10 +6120,6 @@ pub struct ICommandBarFlyoutCommandBar(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICommandBarFlyoutCommandBar {
     type Vtable = ICommandBarFlyoutCommandBarVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x14146e7c_38c4_55c4_b706_ce18f6061e7e);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ICommandBarFlyoutCommandBarImpl {
-    fn FlyoutTemplateSettings();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6312,10 +6139,6 @@ unsafe impl ::windows::core::Interface for ICommandBarFlyoutCommandBarFactory {
     type Vtable = ICommandBarFlyoutCommandBarFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf8236f9f_5559_5697_8e6f_20d70ca17dd0);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ICommandBarFlyoutCommandBarFactoryImpl {
-    fn CreateInstance();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICommandBarFlyoutCommandBarFactoryVtbl(
@@ -6333,29 +6156,6 @@ pub struct ICommandBarFlyoutCommandBarTemplateSettings(::windows::core::IUnknown
 unsafe impl ::windows::core::Interface for ICommandBarFlyoutCommandBarTemplateSettings {
     type Vtable = ICommandBarFlyoutCommandBarTemplateSettingsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x47642c44_26ff_5d14_9cfc_77dc64f3a447);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ICommandBarFlyoutCommandBarTemplateSettingsImpl {
-    fn OpenAnimationStartPosition();
-    fn OpenAnimationEndPosition();
-    fn CloseAnimationEndPosition();
-    fn CurrentWidth();
-    fn ExpandedWidth();
-    fn WidthExpansionDelta();
-    fn WidthExpansionAnimationStartPosition();
-    fn WidthExpansionAnimationEndPosition();
-    fn WidthExpansionMoreButtonAnimationStartPosition();
-    fn WidthExpansionMoreButtonAnimationEndPosition();
-    fn ExpandUpOverflowVerticalPosition();
-    fn ExpandDownOverflowVerticalPosition();
-    fn ExpandUpAnimationStartPosition();
-    fn ExpandUpAnimationEndPosition();
-    fn ExpandUpAnimationHoldPosition();
-    fn ExpandDownAnimationStartPosition();
-    fn ExpandDownAnimationEndPosition();
-    fn ExpandDownAnimationHoldPosition();
-    fn ContentClipRect();
-    fn OverflowContentClipRect();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6396,16 +6196,6 @@ unsafe impl ::windows::core::Interface for ICommandBarTemplateSettings {
     type Vtable = ICommandBarTemplateSettingsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x61c8f92c_05aa_414a_a2ae_482c5a46c08e);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ICommandBarTemplateSettingsImpl {
-    fn ContentHeight();
-    fn OverflowContentClipRect();
-    fn OverflowContentMinWidth();
-    fn OverflowContentMaxHeight();
-    fn OverflowContentHorizontalOffset();
-    fn OverflowContentHeight();
-    fn NegativeOverflowContentHeight();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICommandBarTemplateSettingsVtbl(
@@ -6431,10 +6221,6 @@ unsafe impl ::windows::core::Interface for ICommandBarTemplateSettings2 {
     type Vtable = ICommandBarTemplateSettings2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfbb24f93_c2e2_4177_a2b6_3cd705073cf6);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ICommandBarTemplateSettings2Impl {
-    fn OverflowContentMaxWidth();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICommandBarTemplateSettings2Vtbl(
@@ -6453,10 +6239,6 @@ unsafe impl ::windows::core::Interface for ICommandBarTemplateSettings3 {
     type Vtable = ICommandBarTemplateSettings3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3bd71eba_3403_4bfe_842d_2ce8c511d245);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ICommandBarTemplateSettings3Impl {
-    fn EffectiveOverflowButtonVisibility();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICommandBarTemplateSettings3Vtbl(
@@ -6474,12 +6256,6 @@ pub struct ICommandBarTemplateSettings4(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICommandBarTemplateSettings4 {
     type Vtable = ICommandBarTemplateSettings4Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf2562dd3_aa58_59c5_853b_828a19d1214e);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ICommandBarTemplateSettings4Impl {
-    fn OverflowContentCompactYTranslation();
-    fn OverflowContentMinimalYTranslation();
-    fn OverflowContentHiddenYTranslation();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6501,12 +6277,6 @@ unsafe impl ::windows::core::Interface for IDragCompletedEventArgs {
     type Vtable = IDragCompletedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb04f29a1_bd16_48f6_a511_9c2763641331);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IDragCompletedEventArgsImpl {
-    fn HorizontalChange();
-    fn VerticalChange();
-    fn Canceled();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDragCompletedEventArgsVtbl(
@@ -6527,10 +6297,6 @@ unsafe impl ::windows::core::Interface for IDragCompletedEventArgsFactory {
     type Vtable = IDragCompletedEventArgsFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x36a7d99d_148c_495f_a0fc_afc871d62f33);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IDragCompletedEventArgsFactoryImpl {
-    fn CreateInstanceWithHorizontalChangeVerticalChangeAndCanceled();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDragCompletedEventArgsFactoryVtbl(
@@ -6548,11 +6314,6 @@ pub struct IDragDeltaEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDragDeltaEventArgs {
     type Vtable = IDragDeltaEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2c2dd73c_2806_49fc_aae9_6d792b572b6a);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IDragDeltaEventArgsImpl {
-    fn HorizontalChange();
-    fn VerticalChange();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6573,10 +6334,6 @@ unsafe impl ::windows::core::Interface for IDragDeltaEventArgsFactory {
     type Vtable = IDragDeltaEventArgsFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x46e7a1ef_ae15_44a6_8a04_95b0bf9ab876);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IDragDeltaEventArgsFactoryImpl {
-    fn CreateInstanceWithHorizontalChangeAndVerticalChange();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDragDeltaEventArgsFactoryVtbl(
@@ -6594,11 +6351,6 @@ pub struct IDragStartedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDragStartedEventArgs {
     type Vtable = IDragStartedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9f915dd0_a124_4366_bd85_2408214aeed4);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IDragStartedEventArgsImpl {
-    fn HorizontalOffset();
-    fn VerticalOffset();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6619,10 +6371,6 @@ unsafe impl ::windows::core::Interface for IDragStartedEventArgsFactory {
     type Vtable = IDragStartedEventArgsFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5eefe579_c706_4781_a308_c9e7f4c6a1d7);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IDragStartedEventArgsFactoryImpl {
-    fn CreateInstanceWithHorizontalOffsetAndVerticalOffset();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDragStartedEventArgsFactoryVtbl(
@@ -6640,19 +6388,6 @@ pub struct IFlyoutBase(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IFlyoutBase {
     type Vtable = IFlyoutBaseVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x723eea0b_d12e_430d_a9f0_9bb32bbf9913);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IFlyoutBaseImpl {
-    fn Placement();
-    fn SetPlacement();
-    fn Opened();
-    fn RemoveOpened();
-    fn Closed();
-    fn RemoveClosed();
-    fn Opening();
-    fn RemoveOpening();
-    fn ShowAt();
-    fn Hide();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6687,20 +6422,6 @@ unsafe impl ::windows::core::Interface for IFlyoutBase2 {
     type Vtable = IFlyoutBase2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf82b435e_65b3_41c6_a9e2_77b67bc4c00c);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IFlyoutBase2Impl {
-    fn Target();
-    fn AllowFocusOnInteraction();
-    fn SetAllowFocusOnInteraction();
-    fn LightDismissOverlayMode();
-    fn SetLightDismissOverlayMode();
-    fn AllowFocusWhenDisabled();
-    fn SetAllowFocusWhenDisabled();
-    fn ElementSoundMode();
-    fn SetElementSoundMode();
-    fn Closing();
-    fn RemoveClosing();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFlyoutBase2Vtbl(
@@ -6731,11 +6452,6 @@ unsafe impl ::windows::core::Interface for IFlyoutBase3 {
     type Vtable = IFlyoutBase3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa89c9712_48e0_4240_95b9_0dfd0826a8d3);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IFlyoutBase3Impl {
-    fn OverlayInputPassThroughElement();
-    fn SetOverlayInputPassThroughElement();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFlyoutBase3Vtbl(
@@ -6755,10 +6471,6 @@ unsafe impl ::windows::core::Interface for IFlyoutBase4 {
     type Vtable = IFlyoutBase4Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe3897d69_a37f_4828_9b70_0ef67c03b5f8);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IFlyoutBase4Impl {
-    fn TryInvokeKeyboardAccelerator();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFlyoutBase4Vtbl(
@@ -6777,16 +6489,6 @@ pub struct IFlyoutBase5(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IFlyoutBase5 {
     type Vtable = IFlyoutBase5Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xad3ec0c7_12bb_5a73_b78e_105192ca73d6);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IFlyoutBase5Impl {
-    fn ShowMode();
-    fn SetShowMode();
-    fn InputDevicePrefersPrimaryCommands();
-    fn AreOpenCloseAnimationsEnabled();
-    fn SetAreOpenCloseAnimationsEnabled();
-    fn IsOpen();
-    fn ShowAt();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6812,14 +6514,6 @@ unsafe impl ::windows::core::Interface for IFlyoutBase6 {
     type Vtable = IFlyoutBase6Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5399de8c_06cc_5b52_b65a_ff9322d1c940);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IFlyoutBase6Impl {
-    fn ShouldConstrainToRootBounds();
-    fn SetShouldConstrainToRootBounds();
-    fn IsConstrainedToRootBounds();
-    fn XamlRoot();
-    fn SetXamlRoot();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFlyoutBase6Vtbl(
@@ -6842,11 +6536,6 @@ unsafe impl ::windows::core::Interface for IFlyoutBaseClosingEventArgs {
     type Vtable = IFlyoutBaseClosingEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd075852d_b09a_4fd1_b005_db2ba01206fb);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IFlyoutBaseClosingEventArgsImpl {
-    fn Cancel();
-    fn SetCancel();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFlyoutBaseClosingEventArgsVtbl(
@@ -6866,10 +6555,6 @@ unsafe impl ::windows::core::Interface for IFlyoutBaseFactory {
     type Vtable = IFlyoutBaseFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1c3363d7_fca7_407e_920e_70e15e9f0bf1);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IFlyoutBaseFactoryImpl {
-    fn CreateInstance();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFlyoutBaseFactoryVtbl(
@@ -6887,10 +6572,6 @@ pub struct IFlyoutBaseOverrides(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IFlyoutBaseOverrides {
     type Vtable = IFlyoutBaseOverridesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x101dec86_6f4d_45a4_9d0e_3ece6f16977e);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IFlyoutBaseOverridesImpl {
-    fn CreatePresenter();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6910,10 +6591,6 @@ unsafe impl ::windows::core::Interface for IFlyoutBaseOverrides4 {
     type Vtable = IFlyoutBaseOverrides4Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa6bfd04d_5ff3_4418_add8_4042a88d2da5);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IFlyoutBaseOverrides4Impl {
-    fn OnProcessKeyboardAccelerators();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFlyoutBaseOverrides4Vtbl(
@@ -6932,14 +6609,6 @@ pub struct IFlyoutBaseStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IFlyoutBaseStatics {
     type Vtable = IFlyoutBaseStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe2d795e3_85c0_4de2_bac1_5294ca011a78);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IFlyoutBaseStaticsImpl {
-    fn PlacementProperty();
-    fn AttachedFlyoutProperty();
-    fn GetAttachedFlyout();
-    fn SetAttachedFlyout();
-    fn ShowAttachedFlyout();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6963,13 +6632,6 @@ unsafe impl ::windows::core::Interface for IFlyoutBaseStatics2 {
     type Vtable = IFlyoutBaseStatics2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa8e913fe_2d60_4307_aad9_56b450121b58);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IFlyoutBaseStatics2Impl {
-    fn AllowFocusOnInteractionProperty();
-    fn LightDismissOverlayModeProperty();
-    fn AllowFocusWhenDisabledProperty();
-    fn ElementSoundModeProperty();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFlyoutBaseStatics2Vtbl(
@@ -6991,10 +6653,6 @@ unsafe impl ::windows::core::Interface for IFlyoutBaseStatics3 {
     type Vtable = IFlyoutBaseStatics3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7ba92e4f_dd16_4be4_99db_bd9d4406c0f8);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IFlyoutBaseStatics3Impl {
-    fn OverlayInputPassThroughElementProperty();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFlyoutBaseStatics3Vtbl(
@@ -7012,14 +6670,6 @@ pub struct IFlyoutBaseStatics5(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IFlyoutBaseStatics5 {
     type Vtable = IFlyoutBaseStatics5Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x69edb25c_992a_542b_bcff_2f7f855523bd);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IFlyoutBaseStatics5Impl {
-    fn TargetProperty();
-    fn ShowModeProperty();
-    fn InputDevicePrefersPrimaryCommandsProperty();
-    fn AreOpenCloseAnimationsEnabledProperty();
-    fn IsOpenProperty();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7043,10 +6693,6 @@ unsafe impl ::windows::core::Interface for IFlyoutBaseStatics6 {
     type Vtable = IFlyoutBaseStatics6Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x96d49254_c91b_5246_8b39_afc2a2c50cf8);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IFlyoutBaseStatics6Impl {
-    fn ShouldConstrainToRootBoundsProperty();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFlyoutBaseStatics6Vtbl(
@@ -7064,17 +6710,6 @@ pub struct IFlyoutShowOptions(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IFlyoutShowOptions {
     type Vtable = IFlyoutShowOptionsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x57d693ad_0c74_54dd_b110_1ee43fabadd9);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IFlyoutShowOptionsImpl {
-    fn Position();
-    fn SetPosition();
-    fn ExclusionRect();
-    fn SetExclusionRect();
-    fn ShowMode();
-    fn SetShowMode();
-    fn Placement();
-    fn SetPlacement();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7105,10 +6740,6 @@ unsafe impl ::windows::core::Interface for IFlyoutShowOptionsFactory {
     type Vtable = IFlyoutShowOptionsFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xce596f61_2eb4_5b4e_af69_f9af42320eee);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IFlyoutShowOptionsFactoryImpl {
-    fn CreateInstance();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFlyoutShowOptionsFactoryVtbl(
@@ -7127,8 +6758,6 @@ unsafe impl ::windows::core::Interface for IGeneratorPositionHelper {
     type Vtable = IGeneratorPositionHelperVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcd40318d_7745_40d9_ab9d_abbda4a7ffea);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IGeneratorPositionHelperImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGeneratorPositionHelperVtbl(
@@ -7145,10 +6774,6 @@ pub struct IGeneratorPositionHelperStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGeneratorPositionHelperStatics {
     type Vtable = IGeneratorPositionHelperStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xad4095cd_60ec_4588_8d60_39d29097a4df);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IGeneratorPositionHelperStaticsImpl {
-    fn FromIndexAndOffset();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7167,53 +6792,6 @@ pub struct IGridViewItemPresenter(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGridViewItemPresenter {
     type Vtable = IGridViewItemPresenterVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x214f9010_56e2_4821_8a1c_2305709af94b);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IGridViewItemPresenterImpl {
-    fn SelectionCheckMarkVisualEnabled();
-    fn SetSelectionCheckMarkVisualEnabled();
-    fn CheckHintBrush();
-    fn SetCheckHintBrush();
-    fn CheckSelectingBrush();
-    fn SetCheckSelectingBrush();
-    fn CheckBrush();
-    fn SetCheckBrush();
-    fn DragBackground();
-    fn SetDragBackground();
-    fn DragForeground();
-    fn SetDragForeground();
-    fn FocusBorderBrush();
-    fn SetFocusBorderBrush();
-    fn PlaceholderBackground();
-    fn SetPlaceholderBackground();
-    fn PointerOverBackground();
-    fn SetPointerOverBackground();
-    fn SelectedBackground();
-    fn SetSelectedBackground();
-    fn SelectedForeground();
-    fn SetSelectedForeground();
-    fn SelectedPointerOverBackground();
-    fn SetSelectedPointerOverBackground();
-    fn SelectedPointerOverBorderBrush();
-    fn SetSelectedPointerOverBorderBrush();
-    fn SelectedBorderThickness();
-    fn SetSelectedBorderThickness();
-    fn DisabledOpacity();
-    fn SetDisabledOpacity();
-    fn DragOpacity();
-    fn SetDragOpacity();
-    fn ReorderHintOffset();
-    fn SetReorderHintOffset();
-    fn GridViewItemPresenterHorizontalContentAlignment();
-    fn SetGridViewItemPresenterHorizontalContentAlignment();
-    fn GridViewItemPresenterVerticalContentAlignment();
-    fn SetGridViewItemPresenterVerticalContentAlignment();
-    fn GridViewItemPresenterPadding();
-    fn SetGridViewItemPresenterPadding();
-    fn PointerOverBackgroundMargin();
-    fn SetPointerOverBackgroundMargin();
-    fn ContentMargin();
-    fn SetContentMargin();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7306,10 +6884,6 @@ unsafe impl ::windows::core::Interface for IGridViewItemPresenterFactory {
     type Vtable = IGridViewItemPresenterFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x53c12178_63bb_4a65_a3f1_ab114cfc6ffe);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IGridViewItemPresenterFactoryImpl {
-    fn CreateInstance();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGridViewItemPresenterFactoryVtbl(
@@ -7327,31 +6901,6 @@ pub struct IGridViewItemPresenterStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGridViewItemPresenterStatics {
     type Vtable = IGridViewItemPresenterStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe958f8c4_277e_4a72_a01e_9e1688980178);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IGridViewItemPresenterStaticsImpl {
-    fn SelectionCheckMarkVisualEnabledProperty();
-    fn CheckHintBrushProperty();
-    fn CheckSelectingBrushProperty();
-    fn CheckBrushProperty();
-    fn DragBackgroundProperty();
-    fn DragForegroundProperty();
-    fn FocusBorderBrushProperty();
-    fn PlaceholderBackgroundProperty();
-    fn PointerOverBackgroundProperty();
-    fn SelectedBackgroundProperty();
-    fn SelectedForegroundProperty();
-    fn SelectedPointerOverBackgroundProperty();
-    fn SelectedPointerOverBorderBrushProperty();
-    fn SelectedBorderThicknessProperty();
-    fn DisabledOpacityProperty();
-    fn DragOpacityProperty();
-    fn ReorderHintOffsetProperty();
-    fn GridViewItemPresenterHorizontalContentAlignmentProperty();
-    fn GridViewItemPresenterVerticalContentAlignmentProperty();
-    fn GridViewItemPresenterPaddingProperty();
-    fn PointerOverBackgroundMarginProperty();
-    fn ContentMarginProperty();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7395,10 +6944,6 @@ unsafe impl ::windows::core::Interface for IGridViewItemTemplateSettings {
     type Vtable = IGridViewItemTemplateSettingsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9e30baaf_165d_4267_a45e_1a43a75706ac);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IGridViewItemTemplateSettingsImpl {
-    fn DragItemsCount();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGridViewItemTemplateSettingsVtbl(
@@ -7416,14 +6961,6 @@ pub struct IItemsChangedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IItemsChangedEventArgs {
     type Vtable = IItemsChangedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe8b45568_7d10_421e_be29_81839a91de20);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IItemsChangedEventArgsImpl {
-    fn Action();
-    fn Position();
-    fn OldPosition();
-    fn ItemCount();
-    fn ItemUICount();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7446,13 +6983,6 @@ pub struct IJumpListItemBackgroundConverter(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IJumpListItemBackgroundConverter {
     type Vtable = IJumpListItemBackgroundConverterVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x81177858_d224_410c_b16c_c5b6bb6188b2);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IJumpListItemBackgroundConverterImpl {
-    fn Enabled();
-    fn SetEnabled();
-    fn Disabled();
-    fn SetDisabled();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7479,11 +7009,6 @@ unsafe impl ::windows::core::Interface for IJumpListItemBackgroundConverterStati
     type Vtable = IJumpListItemBackgroundConverterStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x20e7c3dd_6f27_4808_b0be_83e0e9b5cc45);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IJumpListItemBackgroundConverterStaticsImpl {
-    fn EnabledProperty();
-    fn DisabledProperty();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IJumpListItemBackgroundConverterStaticsVtbl(
@@ -7502,13 +7027,6 @@ pub struct IJumpListItemForegroundConverter(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IJumpListItemForegroundConverter {
     type Vtable = IJumpListItemForegroundConverterVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1590ed38_c504_4796_a63a_5bfc9eefaae8);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IJumpListItemForegroundConverterImpl {
-    fn Enabled();
-    fn SetEnabled();
-    fn Disabled();
-    fn SetDisabled();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7535,11 +7053,6 @@ unsafe impl ::windows::core::Interface for IJumpListItemForegroundConverterStati
     type Vtable = IJumpListItemForegroundConverterStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x474e7352_210c_4673_ac6a_413f0e2c7750);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IJumpListItemForegroundConverterStaticsImpl {
-    fn EnabledProperty();
-    fn DisabledProperty();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IJumpListItemForegroundConverterStaticsVtbl(
@@ -7559,8 +7072,6 @@ unsafe impl ::windows::core::Interface for ILayoutInformation {
     type Vtable = ILayoutInformationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb5384c9b_c8cf_41b3_bf16_18c8420e72c9);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ILayoutInformationImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILayoutInformationVtbl(
@@ -7577,11 +7088,6 @@ pub struct ILayoutInformationStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ILayoutInformationStatics {
     type Vtable = ILayoutInformationStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcf06cf99_58e9_4682_8326_50caab65ed7c);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ILayoutInformationStaticsImpl {
-    fn GetLayoutExceptionElement();
-    fn GetLayoutSlot();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7603,10 +7109,6 @@ unsafe impl ::windows::core::Interface for ILayoutInformationStatics2 {
     type Vtable = ILayoutInformationStatics2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x760315b5_6d4e_4939_ac61_639863cea36b);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ILayoutInformationStatics2Impl {
-    fn GetAvailableSize();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILayoutInformationStatics2Vtbl(
@@ -7625,53 +7127,6 @@ pub struct IListViewItemPresenter(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IListViewItemPresenter {
     type Vtable = IListViewItemPresenterVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfc8946bd_a3a2_4969_8174_25b5d3c28033);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IListViewItemPresenterImpl {
-    fn SelectionCheckMarkVisualEnabled();
-    fn SetSelectionCheckMarkVisualEnabled();
-    fn CheckHintBrush();
-    fn SetCheckHintBrush();
-    fn CheckSelectingBrush();
-    fn SetCheckSelectingBrush();
-    fn CheckBrush();
-    fn SetCheckBrush();
-    fn DragBackground();
-    fn SetDragBackground();
-    fn DragForeground();
-    fn SetDragForeground();
-    fn FocusBorderBrush();
-    fn SetFocusBorderBrush();
-    fn PlaceholderBackground();
-    fn SetPlaceholderBackground();
-    fn PointerOverBackground();
-    fn SetPointerOverBackground();
-    fn SelectedBackground();
-    fn SetSelectedBackground();
-    fn SelectedForeground();
-    fn SetSelectedForeground();
-    fn SelectedPointerOverBackground();
-    fn SetSelectedPointerOverBackground();
-    fn SelectedPointerOverBorderBrush();
-    fn SetSelectedPointerOverBorderBrush();
-    fn SelectedBorderThickness();
-    fn SetSelectedBorderThickness();
-    fn DisabledOpacity();
-    fn SetDisabledOpacity();
-    fn DragOpacity();
-    fn SetDragOpacity();
-    fn ReorderHintOffset();
-    fn SetReorderHintOffset();
-    fn ListViewItemPresenterHorizontalContentAlignment();
-    fn SetListViewItemPresenterHorizontalContentAlignment();
-    fn ListViewItemPresenterVerticalContentAlignment();
-    fn SetListViewItemPresenterVerticalContentAlignment();
-    fn ListViewItemPresenterPadding();
-    fn SetListViewItemPresenterPadding();
-    fn PointerOverBackgroundMargin();
-    fn SetPointerOverBackgroundMargin();
-    fn ContentMargin();
-    fn SetContentMargin();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7764,21 +7219,6 @@ unsafe impl ::windows::core::Interface for IListViewItemPresenter2 {
     type Vtable = IListViewItemPresenter2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf5dc5496_e122_4c57_a625_ac4b08fb2d4c);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IListViewItemPresenter2Impl {
-    fn SelectedPressedBackground();
-    fn SetSelectedPressedBackground();
-    fn PressedBackground();
-    fn SetPressedBackground();
-    fn CheckBoxBrush();
-    fn SetCheckBoxBrush();
-    fn FocusSecondaryBorderBrush();
-    fn SetFocusSecondaryBorderBrush();
-    fn CheckMode();
-    fn SetCheckMode();
-    fn PointerOverForeground();
-    fn SetPointerOverForeground();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IListViewItemPresenter2Vtbl(
@@ -7818,17 +7258,6 @@ unsafe impl ::windows::core::Interface for IListViewItemPresenter3 {
     type Vtable = IListViewItemPresenter3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x36620013_0390_4e30_ad97_8744404f7010);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IListViewItemPresenter3Impl {
-    fn RevealBackground();
-    fn SetRevealBackground();
-    fn RevealBorderBrush();
-    fn SetRevealBorderBrush();
-    fn RevealBorderThickness();
-    fn SetRevealBorderThickness();
-    fn RevealBackgroundShowsAboveContent();
-    fn SetRevealBackgroundShowsAboveContent();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IListViewItemPresenter3Vtbl(
@@ -7857,63 +7286,6 @@ pub struct IListViewItemPresenter4(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IListViewItemPresenter4 {
     type Vtable = IListViewItemPresenter4Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xda600ac1_adea_5940_a18f_57582f96d99a);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IListViewItemPresenter4Impl {
-    fn SelectedDisabledBackground();
-    fn SetSelectedDisabledBackground();
-    fn CheckPressedBrush();
-    fn SetCheckPressedBrush();
-    fn CheckDisabledBrush();
-    fn SetCheckDisabledBrush();
-    fn CheckBoxPointerOverBrush();
-    fn SetCheckBoxPointerOverBrush();
-    fn CheckBoxPressedBrush();
-    fn SetCheckBoxPressedBrush();
-    fn CheckBoxDisabledBrush();
-    fn SetCheckBoxDisabledBrush();
-    fn CheckBoxSelectedBrush();
-    fn SetCheckBoxSelectedBrush();
-    fn CheckBoxSelectedPointerOverBrush();
-    fn SetCheckBoxSelectedPointerOverBrush();
-    fn CheckBoxSelectedPressedBrush();
-    fn SetCheckBoxSelectedPressedBrush();
-    fn CheckBoxSelectedDisabledBrush();
-    fn SetCheckBoxSelectedDisabledBrush();
-    fn CheckBoxBorderBrush();
-    fn SetCheckBoxBorderBrush();
-    fn CheckBoxPointerOverBorderBrush();
-    fn SetCheckBoxPointerOverBorderBrush();
-    fn CheckBoxPressedBorderBrush();
-    fn SetCheckBoxPressedBorderBrush();
-    fn CheckBoxDisabledBorderBrush();
-    fn SetCheckBoxDisabledBorderBrush();
-    fn CheckBoxCornerRadius();
-    fn SetCheckBoxCornerRadius();
-    fn SelectionIndicatorCornerRadius();
-    fn SetSelectionIndicatorCornerRadius();
-    fn SelectionIndicatorVisualEnabled();
-    fn SetSelectionIndicatorVisualEnabled();
-    fn SelectionIndicatorMode();
-    fn SetSelectionIndicatorMode();
-    fn SelectionIndicatorBrush();
-    fn SetSelectionIndicatorBrush();
-    fn SelectionIndicatorPointerOverBrush();
-    fn SetSelectionIndicatorPointerOverBrush();
-    fn SelectionIndicatorPressedBrush();
-    fn SetSelectionIndicatorPressedBrush();
-    fn SelectionIndicatorDisabledBrush();
-    fn SetSelectionIndicatorDisabledBrush();
-    fn SelectedBorderBrush();
-    fn SetSelectedBorderBrush();
-    fn SelectedPressedBorderBrush();
-    fn SetSelectedPressedBorderBrush();
-    fn SelectedDisabledBorderBrush();
-    fn SetSelectedDisabledBorderBrush();
-    fn SelectedInnerBorderBrush();
-    fn SetSelectedInnerBorderBrush();
-    fn PointerOverBorderBrush();
-    fn SetPointerOverBorderBrush();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8032,10 +7404,6 @@ unsafe impl ::windows::core::Interface for IListViewItemPresenterFactory {
     type Vtable = IListViewItemPresenterFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe0777cfd_f7e4_4a67_9ac0_a994fcacd020);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IListViewItemPresenterFactoryImpl {
-    fn CreateInstance();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IListViewItemPresenterFactoryVtbl(
@@ -8053,31 +7421,6 @@ pub struct IListViewItemPresenterStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IListViewItemPresenterStatics {
     type Vtable = IListViewItemPresenterStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6504a55a_15dd_42fb_aa5d_2d8ce2e9c294);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IListViewItemPresenterStaticsImpl {
-    fn SelectionCheckMarkVisualEnabledProperty();
-    fn CheckHintBrushProperty();
-    fn CheckSelectingBrushProperty();
-    fn CheckBrushProperty();
-    fn DragBackgroundProperty();
-    fn DragForegroundProperty();
-    fn FocusBorderBrushProperty();
-    fn PlaceholderBackgroundProperty();
-    fn PointerOverBackgroundProperty();
-    fn SelectedBackgroundProperty();
-    fn SelectedForegroundProperty();
-    fn SelectedPointerOverBackgroundProperty();
-    fn SelectedPointerOverBorderBrushProperty();
-    fn SelectedBorderThicknessProperty();
-    fn DisabledOpacityProperty();
-    fn DragOpacityProperty();
-    fn ReorderHintOffsetProperty();
-    fn ListViewItemPresenterHorizontalContentAlignmentProperty();
-    fn ListViewItemPresenterVerticalContentAlignmentProperty();
-    fn ListViewItemPresenterPaddingProperty();
-    fn PointerOverBackgroundMarginProperty();
-    fn ContentMarginProperty();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8121,15 +7464,6 @@ unsafe impl ::windows::core::Interface for IListViewItemPresenterStatics2 {
     type Vtable = IListViewItemPresenterStatics2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4cb3b945_d24d_42a3_9e83_a86d0618bf1b);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IListViewItemPresenterStatics2Impl {
-    fn SelectedPressedBackgroundProperty();
-    fn PressedBackgroundProperty();
-    fn CheckBoxBrushProperty();
-    fn FocusSecondaryBorderBrushProperty();
-    fn CheckModeProperty();
-    fn PointerOverForegroundProperty();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IListViewItemPresenterStatics2Vtbl(
@@ -8153,13 +7487,6 @@ unsafe impl ::windows::core::Interface for IListViewItemPresenterStatics3 {
     type Vtable = IListViewItemPresenterStatics3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc3d3d11e_fa26_4ce7_a4ed_ff948f01b7c0);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IListViewItemPresenterStatics3Impl {
-    fn RevealBackgroundProperty();
-    fn RevealBorderBrushProperty();
-    fn RevealBorderThicknessProperty();
-    fn RevealBackgroundShowsAboveContentProperty();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IListViewItemPresenterStatics3Vtbl(
@@ -8180,36 +7507,6 @@ pub struct IListViewItemPresenterStatics4(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IListViewItemPresenterStatics4 {
     type Vtable = IListViewItemPresenterStatics4Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3917159e_74a1_5e7e_a743_e45be9fb919b);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IListViewItemPresenterStatics4Impl {
-    fn SelectedDisabledBackgroundProperty();
-    fn CheckPressedBrushProperty();
-    fn CheckDisabledBrushProperty();
-    fn CheckBoxPointerOverBrushProperty();
-    fn CheckBoxPressedBrushProperty();
-    fn CheckBoxDisabledBrushProperty();
-    fn CheckBoxSelectedBrushProperty();
-    fn CheckBoxSelectedPointerOverBrushProperty();
-    fn CheckBoxSelectedPressedBrushProperty();
-    fn CheckBoxSelectedDisabledBrushProperty();
-    fn CheckBoxBorderBrushProperty();
-    fn CheckBoxPointerOverBorderBrushProperty();
-    fn CheckBoxPressedBorderBrushProperty();
-    fn CheckBoxDisabledBorderBrushProperty();
-    fn CheckBoxCornerRadiusProperty();
-    fn SelectionIndicatorCornerRadiusProperty();
-    fn SelectionIndicatorVisualEnabledProperty();
-    fn SelectionIndicatorModeProperty();
-    fn SelectionIndicatorBrushProperty();
-    fn SelectionIndicatorPointerOverBrushProperty();
-    fn SelectionIndicatorPressedBrushProperty();
-    fn SelectionIndicatorDisabledBrushProperty();
-    fn SelectedBorderBrushProperty();
-    fn SelectedPressedBorderBrushProperty();
-    fn SelectedDisabledBorderBrushProperty();
-    fn SelectedInnerBorderBrushProperty();
-    fn PointerOverBorderBrushProperty();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8255,10 +7552,6 @@ unsafe impl ::windows::core::Interface for IListViewItemTemplateSettings {
     type Vtable = IListViewItemTemplateSettingsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x67af84bf_8279_4686_9326_cd189f27575d);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IListViewItemTemplateSettingsImpl {
-    fn DragItemsCount();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IListViewItemTemplateSettingsVtbl(
@@ -8276,25 +7569,6 @@ pub struct ILoopingSelector(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ILoopingSelector {
     type Vtable = ILoopingSelectorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4c9a3e04_4827_49d9_8806_093957b0fd21);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ILoopingSelectorImpl {
-    fn ShouldLoop();
-    fn SetShouldLoop();
-    fn Items();
-    fn SetItems();
-    fn SelectedIndex();
-    fn SetSelectedIndex();
-    fn SelectedItem();
-    fn SetSelectedItem();
-    fn ItemWidth();
-    fn SetItemWidth();
-    fn ItemHeight();
-    fn SetItemHeight();
-    fn ItemTemplate();
-    fn SetItemTemplate();
-    fn SelectionChanged();
-    fn RemoveSelectionChanged();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8333,8 +7607,6 @@ unsafe impl ::windows::core::Interface for ILoopingSelectorItem {
     type Vtable = ILoopingSelectorItemVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc69714b9_27c6_4433_9d7c_0dbfb2f4344f);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ILoopingSelectorItemImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILoopingSelectorItemVtbl(
@@ -8352,8 +7624,6 @@ unsafe impl ::windows::core::Interface for ILoopingSelectorPanel {
     type Vtable = ILoopingSelectorPanelVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x40a9ba70_1011_4778_87f7_6bfd20d6377d);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ILoopingSelectorPanelImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILoopingSelectorPanelVtbl(
@@ -8370,16 +7640,6 @@ pub struct ILoopingSelectorStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ILoopingSelectorStatics {
     type Vtable = ILoopingSelectorStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x03e8bafa_8c7d_4fc5_b92a_f049fb933cc5);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ILoopingSelectorStaticsImpl {
-    fn ShouldLoopProperty();
-    fn ItemsProperty();
-    fn SelectedIndexProperty();
-    fn SelectedItemProperty();
-    fn ItemWidthProperty();
-    fn ItemHeightProperty();
-    fn ItemTemplateProperty();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8405,10 +7665,6 @@ unsafe impl ::windows::core::Interface for IMenuFlyoutItemTemplateSettings {
     type Vtable = IMenuFlyoutItemTemplateSettingsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x56ad1809_3a16_4147_81cb_d0b35c834e0f);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IMenuFlyoutItemTemplateSettingsImpl {
-    fn KeyboardAcceleratorTextMinWidth();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMenuFlyoutItemTemplateSettingsVtbl(
@@ -8427,10 +7683,6 @@ unsafe impl ::windows::core::Interface for IMenuFlyoutPresenterTemplateSettings 
     type Vtable = IMenuFlyoutPresenterTemplateSettingsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd68fd00d_629d_4349_ac51_b877c80983b8);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IMenuFlyoutPresenterTemplateSettingsImpl {
-    fn FlyoutContentMinWidth();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMenuFlyoutPresenterTemplateSettingsVtbl(
@@ -8448,11 +7700,6 @@ pub struct INavigationViewItemPresenter(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for INavigationViewItemPresenter {
     type Vtable = INavigationViewItemPresenterVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9956d3fc_4693_59cb_b6bf_37249058be96);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait INavigationViewItemPresenterImpl {
-    fn Icon();
-    fn SetIcon();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8473,10 +7720,6 @@ unsafe impl ::windows::core::Interface for INavigationViewItemPresenterFactory {
     type Vtable = INavigationViewItemPresenterFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbb062c50_4a36_52e7_9459_e89d02f3fc42);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait INavigationViewItemPresenterFactoryImpl {
-    fn CreateInstance();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct INavigationViewItemPresenterFactoryVtbl(
@@ -8495,10 +7738,6 @@ unsafe impl ::windows::core::Interface for INavigationViewItemPresenterStatics {
     type Vtable = INavigationViewItemPresenterStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x52814604_cfc1_5ad5_a3aa_fa355be6bd76);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait INavigationViewItemPresenterStaticsImpl {
-    fn IconProperty();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct INavigationViewItemPresenterStaticsVtbl(
@@ -8516,36 +7755,6 @@ pub struct IOrientedVirtualizingPanel(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IOrientedVirtualizingPanel {
     type Vtable = IOrientedVirtualizingPanelVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf077b577_39bd_46ee_bdd7_0826beed71b8);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IOrientedVirtualizingPanelImpl {
-    fn CanVerticallyScroll();
-    fn SetCanVerticallyScroll();
-    fn CanHorizontallyScroll();
-    fn SetCanHorizontallyScroll();
-    fn ExtentWidth();
-    fn ExtentHeight();
-    fn ViewportWidth();
-    fn ViewportHeight();
-    fn HorizontalOffset();
-    fn VerticalOffset();
-    fn ScrollOwner();
-    fn SetScrollOwner();
-    fn LineUp();
-    fn LineDown();
-    fn LineLeft();
-    fn LineRight();
-    fn PageUp();
-    fn PageDown();
-    fn PageLeft();
-    fn PageRight();
-    fn MouseWheelUp();
-    fn MouseWheelDown();
-    fn MouseWheelLeft();
-    fn MouseWheelRight();
-    fn SetHorizontalOffset();
-    fn SetVerticalOffset();
-    fn MakeVisible();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8592,8 +7801,6 @@ unsafe impl ::windows::core::Interface for IOrientedVirtualizingPanelFactory {
     type Vtable = IOrientedVirtualizingPanelFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7b8eaeaf_f92f_439d_9ebf_e9919f56c94d);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IOrientedVirtualizingPanelFactoryImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IOrientedVirtualizingPanelFactoryVtbl(
@@ -8611,8 +7818,6 @@ unsafe impl ::windows::core::Interface for IPickerFlyoutBase {
     type Vtable = IPickerFlyoutBaseVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe33574ea_1076_44d1_9383_dc24ac5cff2a);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IPickerFlyoutBaseImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPickerFlyoutBaseVtbl(
@@ -8629,10 +7834,6 @@ pub struct IPickerFlyoutBaseFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPickerFlyoutBaseFactory {
     type Vtable = IPickerFlyoutBaseFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7ec27a53_9502_4beb_b342_00566c8f16b0);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IPickerFlyoutBaseFactoryImpl {
-    fn CreateInstance();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8652,11 +7853,6 @@ unsafe impl ::windows::core::Interface for IPickerFlyoutBaseOverrides {
     type Vtable = IPickerFlyoutBaseOverridesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5bfc4f4a_4822_47b4_a958_77c20ba120d3);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IPickerFlyoutBaseOverridesImpl {
-    fn OnConfirmed();
-    fn ShouldShowConfirmationButtons();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPickerFlyoutBaseOverridesVtbl(
@@ -8675,12 +7871,6 @@ pub struct IPickerFlyoutBaseStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPickerFlyoutBaseStatics {
     type Vtable = IPickerFlyoutBaseStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5a4d0ac5_89ae_40e5_a7f1_bb702355adf3);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IPickerFlyoutBaseStaticsImpl {
-    fn TitleProperty();
-    fn GetTitle();
-    fn SetTitle();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8702,8 +7892,6 @@ unsafe impl ::windows::core::Interface for IPivotHeaderItem {
     type Vtable = IPivotHeaderItemVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x594572c2_82aa_410b_9e55_fd8e2c98862d);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IPivotHeaderItemImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPivotHeaderItemVtbl(
@@ -8720,10 +7908,6 @@ pub struct IPivotHeaderItemFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPivotHeaderItemFactory {
     type Vtable = IPivotHeaderItemFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x14308b37_185b_4117_bc77_dda2eb261b99);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IPivotHeaderItemFactoryImpl {
-    fn CreateInstance();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8743,8 +7927,6 @@ unsafe impl ::windows::core::Interface for IPivotHeaderPanel {
     type Vtable = IPivotHeaderPanelVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x21484ebc_9241_4203_bd37_6c08fb096612);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IPivotHeaderPanelImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPivotHeaderPanelVtbl(
@@ -8762,8 +7944,6 @@ unsafe impl ::windows::core::Interface for IPivotPanel {
     type Vtable = IPivotPanelVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xad4ebe80_22a9_4ca3_9212_2773b6359ff3);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IPivotPanelImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPivotPanelVtbl(
@@ -8780,25 +7960,6 @@ pub struct IPopup(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPopup {
     type Vtable = IPopupVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x62418240_e6d3_4705_a1dc_39156456ee29);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IPopupImpl {
-    fn Child();
-    fn SetChild();
-    fn IsOpen();
-    fn SetIsOpen();
-    fn HorizontalOffset();
-    fn SetHorizontalOffset();
-    fn VerticalOffset();
-    fn SetVerticalOffset();
-    fn ChildTransitions();
-    fn SetChildTransitions();
-    fn IsLightDismissEnabled();
-    fn SetIsLightDismissEnabled();
-    fn Opened();
-    fn RemoveOpened();
-    fn Closed();
-    fn RemoveClosed();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8839,11 +8000,6 @@ unsafe impl ::windows::core::Interface for IPopup2 {
     type Vtable = IPopup2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x376a8c4c_aac0_4b20_966a_0b9364feb4b5);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IPopup2Impl {
-    fn LightDismissOverlayMode();
-    fn SetLightDismissOverlayMode();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPopup2Vtbl(
@@ -8862,12 +8018,6 @@ pub struct IPopup3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPopup3 {
     type Vtable = IPopup3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf9c46915_a65c_5f68_9f54_310a1b51095f);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IPopup3Impl {
-    fn ShouldConstrainToRootBounds();
-    fn SetShouldConstrainToRootBounds();
-    fn IsConstrainedToRootBounds();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8888,16 +8038,6 @@ pub struct IPopup4(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPopup4 {
     type Vtable = IPopup4Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1870b836_df2f_5fc6_a5f2_748ed6ce7321);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IPopup4Impl {
-    fn PlacementTarget();
-    fn SetPlacementTarget();
-    fn DesiredPlacement();
-    fn SetDesiredPlacement();
-    fn ActualPlacement();
-    fn ActualPlacementChanged();
-    fn RemoveActualPlacementChanged();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8925,15 +8065,6 @@ unsafe impl ::windows::core::Interface for IPopupStatics {
     type Vtable = IPopupStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5ae3bf1a_6e34_40d6_8a7f_ca822aaf59e3);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IPopupStaticsImpl {
-    fn ChildProperty();
-    fn IsOpenProperty();
-    fn HorizontalOffsetProperty();
-    fn VerticalOffsetProperty();
-    fn ChildTransitionsProperty();
-    fn IsLightDismissEnabledProperty();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPopupStaticsVtbl(
@@ -8957,10 +8088,6 @@ unsafe impl ::windows::core::Interface for IPopupStatics2 {
     type Vtable = IPopupStatics2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2b9ae9ec_55ef_43b6_b459_12e40ffa4302);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IPopupStatics2Impl {
-    fn LightDismissOverlayModeProperty();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPopupStatics2Vtbl(
@@ -8978,10 +8105,6 @@ pub struct IPopupStatics3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPopupStatics3 {
     type Vtable = IPopupStatics3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00789589_c580_558f_945a_7d02ee004d3e);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IPopupStatics3Impl {
-    fn ShouldConstrainToRootBoundsProperty();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9001,11 +8124,6 @@ unsafe impl ::windows::core::Interface for IPopupStatics4 {
     type Vtable = IPopupStatics4Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd1a42c06_8bfa_5164_8554_48bfe6bd4cc6);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IPopupStatics4Impl {
-    fn PlacementTargetProperty();
-    fn DesiredPlacementProperty();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPopupStatics4Vtbl(
@@ -9024,16 +8142,6 @@ pub struct IProgressBarTemplateSettings(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IProgressBarTemplateSettings {
     type Vtable = IProgressBarTemplateSettingsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3fe2ea2a_e3f2_4c2b_9488_918d77d2bbe4);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IProgressBarTemplateSettingsImpl {
-    fn EllipseDiameter();
-    fn EllipseOffset();
-    fn EllipseAnimationWellPosition();
-    fn EllipseAnimationEndPosition();
-    fn ContainerAnimationStartPosition();
-    fn ContainerAnimationEndPosition();
-    fn IndicatorLengthDelta();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9059,12 +8167,6 @@ unsafe impl ::windows::core::Interface for IProgressRingTemplateSettings {
     type Vtable = IProgressRingTemplateSettingsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb9b675ec_c723_42e6_83e9_9826272bdc0e);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IProgressRingTemplateSettingsImpl {
-    fn EllipseDiameter();
-    fn EllipseOffset();
-    fn MaxSideLength();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IProgressRingTemplateSettingsVtbl(
@@ -9084,21 +8186,6 @@ pub struct IRangeBase(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IRangeBase {
     type Vtable = IRangeBaseVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfa002c1a_494e_46cf_91d4_e14a8d798675);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IRangeBaseImpl {
-    fn Minimum();
-    fn SetMinimum();
-    fn Maximum();
-    fn SetMaximum();
-    fn SmallChange();
-    fn SetSmallChange();
-    fn LargeChange();
-    fn SetLargeChange();
-    fn Value();
-    fn SetValue();
-    fn ValueChanged();
-    fn RemoveValueChanged();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9131,10 +8218,6 @@ unsafe impl ::windows::core::Interface for IRangeBaseFactory {
     type Vtable = IRangeBaseFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x389b7c71_5220_42b2_9992_2690c1a67030);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IRangeBaseFactoryImpl {
-    fn CreateInstance();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRangeBaseFactoryVtbl(
@@ -9152,12 +8235,6 @@ pub struct IRangeBaseOverrides(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IRangeBaseOverrides {
     type Vtable = IRangeBaseOverridesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4291af39_7f0b_4bc2_99c4_06e7062682d8);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IRangeBaseOverridesImpl {
-    fn OnMinimumChanged();
-    fn OnMaximumChanged();
-    fn OnValueChanged();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9178,14 +8255,6 @@ pub struct IRangeBaseStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IRangeBaseStatics {
     type Vtable = IRangeBaseStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x67ef17e1_fe37_474f_9e97_3b5e0b30f2e0);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IRangeBaseStaticsImpl {
-    fn MinimumProperty();
-    fn MaximumProperty();
-    fn SmallChangeProperty();
-    fn LargeChangeProperty();
-    fn ValueProperty();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9209,11 +8278,6 @@ unsafe impl ::windows::core::Interface for IRangeBaseValueChangedEventArgs {
     type Vtable = IRangeBaseValueChangedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa1921777_d5c1_4f9c_a7b0_0401b7e6dc5c);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IRangeBaseValueChangedEventArgsImpl {
-    fn OldValue();
-    fn NewValue();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRangeBaseValueChangedEventArgsVtbl(
@@ -9232,13 +8296,6 @@ pub struct IRepeatButton(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IRepeatButton {
     type Vtable = IRepeatButtonVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x02200df9_021a_484a_a93b_0f31020314e5);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IRepeatButtonImpl {
-    fn Delay();
-    fn SetDelay();
-    fn Interval();
-    fn SetInterval();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9261,11 +8318,6 @@ unsafe impl ::windows::core::Interface for IRepeatButtonStatics {
     type Vtable = IRepeatButtonStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3914ac4e_f462_4f73_8197_e8846639c682);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IRepeatButtonStaticsImpl {
-    fn DelayProperty();
-    fn IntervalProperty();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRepeatButtonStaticsVtbl(
@@ -9284,17 +8336,6 @@ pub struct IScrollBar(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IScrollBar {
     type Vtable = IScrollBarVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf57ae6ca_d1a6_4b90_a4e9_54df1ba8d2ec);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IScrollBarImpl {
-    fn Orientation();
-    fn SetOrientation();
-    fn ViewportSize();
-    fn SetViewportSize();
-    fn IndicatorMode();
-    fn SetIndicatorMode();
-    fn Scroll();
-    fn RemoveScroll();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9323,12 +8364,6 @@ unsafe impl ::windows::core::Interface for IScrollBarStatics {
     type Vtable = IScrollBarStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x45eaf38d_b814_48cf_97f2_539eb16dfd4d);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IScrollBarStaticsImpl {
-    fn OrientationProperty();
-    fn ViewportSizeProperty();
-    fn IndicatorModeProperty();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IScrollBarStaticsVtbl(
@@ -9348,11 +8383,6 @@ pub struct IScrollEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IScrollEventArgs {
     type Vtable = IScrollEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc57e5168_3afe_448d_b752_2f364c75d743);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IScrollEventArgsImpl {
-    fn NewValue();
-    fn ScrollEventType();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9497,16 +8527,6 @@ unsafe impl ::windows::core::Interface for IScrollSnapPointsInfo {
     type Vtable = IScrollSnapPointsInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1b5d1336_e61b_4d51_be41_fd8ddc55c58c);
 }
-pub trait IScrollSnapPointsInfoImpl {
-    fn AreHorizontalSnapPointsRegular();
-    fn AreVerticalSnapPointsRegular();
-    fn HorizontalSnapPointsChanged();
-    fn RemoveHorizontalSnapPointsChanged();
-    fn VerticalSnapPointsChanged();
-    fn RemoveVerticalSnapPointsChanged();
-    fn GetIrregularSnapPoints();
-    fn GetRegularSnapPoints();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IScrollSnapPointsInfoVtbl(
@@ -9536,21 +8556,6 @@ pub struct ISelector(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISelector {
     type Vtable = ISelectorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe30eb3a5_b36b_42dc_8527_cd25136c083c);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ISelectorImpl {
-    fn SelectedIndex();
-    fn SetSelectedIndex();
-    fn SelectedItem();
-    fn SetSelectedItem();
-    fn SelectedValue();
-    fn SetSelectedValue();
-    fn SelectedValuePath();
-    fn SetSelectedValuePath();
-    fn IsSynchronizedWithCurrentItem();
-    fn SetIsSynchronizedWithCurrentItem();
-    fn SelectionChanged();
-    fn RemoveSelectionChanged();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9585,8 +8590,6 @@ unsafe impl ::windows::core::Interface for ISelectorFactory {
     type Vtable = ISelectorFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc9be2995_d136_4600_b187_8ad56079b48a);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ISelectorFactoryImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISelectorFactoryVtbl(
@@ -9603,11 +8606,6 @@ pub struct ISelectorItem(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISelectorItem {
     type Vtable = ISelectorItemVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x541c8d6c_0283_4581_b945_2a64c28a0646);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ISelectorItemImpl {
-    fn IsSelected();
-    fn SetIsSelected();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9628,10 +8626,6 @@ unsafe impl ::windows::core::Interface for ISelectorItemFactory {
     type Vtable = ISelectorItemFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb9363945_c86a_4b1e_9440_1879378d5313);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ISelectorItemFactoryImpl {
-    fn CreateInstance();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISelectorItemFactoryVtbl(
@@ -9650,10 +8644,6 @@ unsafe impl ::windows::core::Interface for ISelectorItemStatics {
     type Vtable = ISelectorItemStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2a353ab8_cbe9_4303_92e7_c8906e218392);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ISelectorItemStaticsImpl {
-    fn IsSelectedProperty();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISelectorItemStaticsVtbl(
@@ -9671,15 +8661,6 @@ pub struct ISelectorStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISelectorStatics {
     type Vtable = ISelectorStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x13300b06_bd10_4e09_bff7_71efb8bbb42b);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ISelectorStaticsImpl {
-    fn SelectedIndexProperty();
-    fn SelectedItemProperty();
-    fn SelectedValueProperty();
-    fn SelectedValuePathProperty();
-    fn IsSynchronizedWithCurrentItemProperty();
-    fn GetIsSelectionActive();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9703,15 +8684,6 @@ pub struct ISettingsFlyoutTemplateSettings(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISettingsFlyoutTemplateSettings {
     type Vtable = ISettingsFlyoutTemplateSettingsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbcf14c10_cea7_43f1_9d68_57605ded69d4);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ISettingsFlyoutTemplateSettingsImpl {
-    fn HeaderBackground();
-    fn HeaderForeground();
-    fn BorderBrush();
-    fn BorderThickness();
-    fn IconSource();
-    fn ContentTransitions();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9741,15 +8713,6 @@ unsafe impl ::windows::core::Interface for ISplitViewTemplateSettings {
     type Vtable = ISplitViewTemplateSettingsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc16ab5a7_4996_4443_b199_6b6b89124eab);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ISplitViewTemplateSettingsImpl {
-    fn OpenPaneLength();
-    fn NegativeOpenPaneLength();
-    fn OpenPaneLengthMinusCompactLength();
-    fn NegativeOpenPaneLengthMinusCompactLength();
-    fn OpenPaneGridLength();
-    fn CompactPaneGridLength();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISplitViewTemplateSettingsVtbl(
@@ -9772,17 +8735,6 @@ pub struct IThumb(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IThumb {
     type Vtable = IThumbVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe8b2b281_0d6a_45cf_b333_2402b037f099);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IThumbImpl {
-    fn IsDragging();
-    fn DragStarted();
-    fn RemoveDragStarted();
-    fn DragDelta();
-    fn RemoveDragDelta();
-    fn DragCompleted();
-    fn RemoveDragCompleted();
-    fn CancelDrag();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9815,10 +8767,6 @@ unsafe impl ::windows::core::Interface for IThumbStatics {
     type Vtable = IThumbStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x955024eb_36f3_4672_a186_baaf626ac4ad);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IThumbStaticsImpl {
-    fn IsDraggingProperty();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IThumbStaticsVtbl(
@@ -9836,11 +8784,6 @@ pub struct ITickBar(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ITickBar {
     type Vtable = ITickBarVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x994683fa_f1f6_487d_a5ac_c15921bfa995);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ITickBarImpl {
-    fn Fill();
-    fn SetFill();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9863,10 +8806,6 @@ unsafe impl ::windows::core::Interface for ITickBarStatics {
     type Vtable = ITickBarStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2c6d7e40_799d_4a54_be09_1fefc61d018e);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ITickBarStaticsImpl {
-    fn FillProperty();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITickBarStaticsVtbl(
@@ -9884,19 +8823,6 @@ pub struct IToggleButton(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IToggleButton {
     type Vtable = IToggleButtonVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x589877fb_0fc7_4036_9d8b_127dfa75c16d);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IToggleButtonImpl {
-    fn IsChecked();
-    fn SetIsChecked();
-    fn IsThreeState();
-    fn SetIsThreeState();
-    fn Checked();
-    fn RemoveChecked();
-    fn Unchecked();
-    fn RemoveUnchecked();
-    fn Indeterminate();
-    fn RemoveIndeterminate();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9933,10 +8859,6 @@ unsafe impl ::windows::core::Interface for IToggleButtonFactory {
     type Vtable = IToggleButtonFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd56aa2fc_fc7f_449c_9855_7a1055d668a8);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IToggleButtonFactoryImpl {
-    fn CreateInstance();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IToggleButtonFactoryVtbl(
@@ -9954,10 +8876,6 @@ pub struct IToggleButtonOverrides(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IToggleButtonOverrides {
     type Vtable = IToggleButtonOverridesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd20e4c28_f18b_491a_9a45_f1a04a9369a4);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IToggleButtonOverridesImpl {
-    fn OnToggle();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9977,11 +8895,6 @@ unsafe impl ::windows::core::Interface for IToggleButtonStatics {
     type Vtable = IToggleButtonStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaf1eab12_0128_4f67_9c5a_82320c445d19);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IToggleButtonStaticsImpl {
-    fn IsCheckedProperty();
-    fn IsThreeStateProperty();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IToggleButtonStaticsVtbl(
@@ -10000,17 +8913,6 @@ pub struct IToggleSwitchTemplateSettings(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IToggleSwitchTemplateSettings {
     type Vtable = IToggleSwitchTemplateSettingsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x02b7bdcd_628a_4363_86e0_51d6e2e89e58);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IToggleSwitchTemplateSettingsImpl {
-    fn KnobCurrentToOnOffset();
-    fn KnobCurrentToOffOffset();
-    fn KnobOnToOffOffset();
-    fn KnobOffToOnOffset();
-    fn CurtainCurrentToOnOffset();
-    fn CurtainCurrentToOffOffset();
-    fn CurtainOnToOffOffset();
-    fn CurtainOffToOnOffset();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -10036,11 +8938,6 @@ pub struct IToolTipTemplateSettings(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IToolTipTemplateSettings {
     type Vtable = IToolTipTemplateSettingsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd4388247_0ec4_4506_affd_afac2225b48c);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IToolTipTemplateSettingsImpl {
-    fn FromHorizontalOffset();
-    fn FromVerticalOffset();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -19518,3 +18415,5 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Too
 }
 unsafe impl ::core::marker::Send for ToolTipTemplateSettings {}
 unsafe impl ::core::marker::Sync for ToolTipTemplateSettings {}
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

@@ -8,24 +8,6 @@ unsafe impl ::windows::core::Interface for IUserActivity {
     type Vtable = IUserActivityVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfc103e9e_2cab_4d36_aea2_b4bb556cef0f);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IUserActivityImpl {
-    fn State();
-    fn ActivityId();
-    fn VisualElements();
-    fn ContentUri();
-    fn SetContentUri();
-    fn ContentType();
-    fn SetContentType();
-    fn FallbackUri();
-    fn SetFallbackUri();
-    fn ActivationUri();
-    fn SetActivationUri();
-    fn ContentInfo();
-    fn SetContentInfo();
-    fn SaveAsync();
-    fn CreateSession();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUserActivityVtbl(
@@ -65,10 +47,6 @@ unsafe impl ::windows::core::Interface for IUserActivity2 {
     type Vtable = IUserActivity2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9dc40c62_08c4_47ac_aa9c_2bb2221c55fd);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IUserActivity2Impl {
-    fn ToJson();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUserActivity2Vtbl(
@@ -86,11 +64,6 @@ pub struct IUserActivity3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IUserActivity3 {
     type Vtable = IUserActivity3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe7697744_e1a2_5147_8e06_55f1eeef271c);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IUserActivity3Impl {
-    fn IsRoamable();
-    fn SetIsRoamable();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -110,15 +83,6 @@ pub struct IUserActivityAttribution(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IUserActivityAttribution {
     type Vtable = IUserActivityAttributionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x34a5c8b5_86dd_4aec_a491_6a4faea5d22e);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IUserActivityAttributionImpl {
-    fn IconUri();
-    fn SetIconUri();
-    fn AlternateText();
-    fn SetAlternateText();
-    fn AddImageQuery();
-    fn SetAddImageQuery();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -145,10 +109,6 @@ unsafe impl ::windows::core::Interface for IUserActivityAttributionFactory {
     type Vtable = IUserActivityAttributionFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe62bd252_c566_4f42_9974_916c4d76377e);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IUserActivityAttributionFactoryImpl {
-    fn CreateWithUri();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUserActivityAttributionFactoryVtbl(
@@ -167,12 +127,6 @@ pub struct IUserActivityChannel(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IUserActivityChannel {
     type Vtable = IUserActivityChannelVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbac0f8b8_a0e4_483b_b948_9cbabd06070c);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IUserActivityChannelImpl {
-    fn GetOrCreateUserActivityAsync();
-    fn DeleteActivityAsync();
-    fn DeleteAllActivitiesAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -197,11 +151,6 @@ unsafe impl ::windows::core::Interface for IUserActivityChannel2 {
     type Vtable = IUserActivityChannel2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1698e35b_eb7e_4ea0_bf17_a459e8be706c);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IUserActivityChannel2Impl {
-    fn GetRecentUserActivitiesAsync();
-    fn GetSessionHistoryItemsForUserActivityAsync();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUserActivityChannel2Vtbl(
@@ -223,10 +172,6 @@ unsafe impl ::windows::core::Interface for IUserActivityChannelStatics {
     type Vtable = IUserActivityChannelStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc8c005ab_198d_4d80_abb2_c9775ec4a729);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IUserActivityChannelStaticsImpl {
-    fn GetDefault();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUserActivityChannelStaticsVtbl(
@@ -244,11 +189,6 @@ pub struct IUserActivityChannelStatics2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IUserActivityChannelStatics2 {
     type Vtable = IUserActivityChannelStatics2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8e87de30_aa4f_4624_9ad0_d40f3ba0317c);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IUserActivityChannelStatics2Impl {
-    fn DisableAutoSessionCreation();
-    fn TryGetForWebAccount();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -269,10 +209,6 @@ pub struct IUserActivityChannelStatics3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IUserActivityChannelStatics3 {
     type Vtable = IUserActivityChannelStatics3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x53bc4ddb_bbdf_5984_802a_5305874e205c);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IUserActivityChannelStatics3Impl {
-    fn GetForUser();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -362,9 +298,6 @@ unsafe impl ::windows::core::Interface for IUserActivityContentInfo {
     type Vtable = IUserActivityContentInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb399e5ad_137f_409d_822d_e1af27ce08dc);
 }
-pub trait IUserActivityContentInfoImpl {
-    fn ToJson();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUserActivityContentInfoVtbl(
@@ -382,10 +315,6 @@ pub struct IUserActivityContentInfoStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IUserActivityContentInfoStatics {
     type Vtable = IUserActivityContentInfoStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9988c34b_0386_4bc9_968a_8200b004144f);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IUserActivityContentInfoStaticsImpl {
-    fn FromJson();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -405,10 +334,6 @@ unsafe impl ::windows::core::Interface for IUserActivityFactory {
     type Vtable = IUserActivityFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7c385758_361d_4a67_8a3b_34ca2978f9a3);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IUserActivityFactoryImpl {
-    fn CreateWithActivityId();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUserActivityFactoryVtbl(
@@ -427,10 +352,6 @@ unsafe impl ::windows::core::Interface for IUserActivityRequest {
     type Vtable = IUserActivityRequestVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa0ef6355_cf35_4ff0_8833_50cb4b72e06d);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IUserActivityRequestImpl {
-    fn SetUserActivity();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUserActivityRequestVtbl(
@@ -448,11 +369,6 @@ pub struct IUserActivityRequestManager(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IUserActivityRequestManager {
     type Vtable = IUserActivityRequestManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0c30be4e_903d_48d6_82d4_4043ed57791b);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IUserActivityRequestManagerImpl {
-    fn UserActivityRequested();
-    fn RemoveUserActivityRequested();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -475,10 +391,6 @@ unsafe impl ::windows::core::Interface for IUserActivityRequestManagerStatics {
     type Vtable = IUserActivityRequestManagerStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc0392df1_224a_432c_81e5_0c76b4c4cefa);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IUserActivityRequestManagerStaticsImpl {
-    fn GetForCurrentView();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUserActivityRequestManagerStaticsVtbl(
@@ -496,11 +408,6 @@ pub struct IUserActivityRequestedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IUserActivityRequestedEventArgs {
     type Vtable = IUserActivityRequestedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa4cc7a4c_8229_4cfd_a3bc_c61d318575a4);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IUserActivityRequestedEventArgsImpl {
-    fn Request();
-    fn GetDeferral();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -522,10 +429,6 @@ unsafe impl ::windows::core::Interface for IUserActivitySession {
     type Vtable = IUserActivitySessionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xae434d78_24fa_44a3_ad48_6eda61aa1924);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IUserActivitySessionImpl {
-    fn ActivityId();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUserActivitySessionVtbl(
@@ -543,12 +446,6 @@ pub struct IUserActivitySessionHistoryItem(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IUserActivitySessionHistoryItem {
     type Vtable = IUserActivitySessionHistoryItemVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe8d59bd3_3e5d_49fd_98d7_6da97521e255);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IUserActivitySessionHistoryItemImpl {
-    fn UserActivity();
-    fn StartTime();
-    fn EndTime();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -572,12 +469,6 @@ unsafe impl ::windows::core::Interface for IUserActivityStatics {
     type Vtable = IUserActivityStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8c8fd333_0e09_47f6_9ac7_95cf5c39367b);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IUserActivityStaticsImpl {
-    fn TryParseFromJson();
-    fn TryParseFromJsonArray();
-    fn ToJsonArray();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUserActivityStaticsVtbl(
@@ -599,19 +490,6 @@ pub struct IUserActivityVisualElements(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IUserActivityVisualElements {
     type Vtable = IUserActivityVisualElementsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x94757513_262f_49ef_bbbf_9b75d2e85250);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IUserActivityVisualElementsImpl {
-    fn DisplayText();
-    fn SetDisplayText();
-    fn Description();
-    fn SetDescription();
-    fn BackgroundColor();
-    fn SetBackgroundColor();
-    fn Attribution();
-    fn SetAttribution();
-    fn SetContent();
-    fn Content();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -643,11 +521,6 @@ pub struct IUserActivityVisualElements2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IUserActivityVisualElements2 {
     type Vtable = IUserActivityVisualElements2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcaae7fc7_3eef_4359_825c_9d51b9220de3);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IUserActivityVisualElements2Impl {
-    fn AttributionDisplayText();
-    fn SetAttributionDisplayText();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1982,3 +1855,5 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &User
 }
 unsafe impl ::core::marker::Send for UserActivityVisualElements {}
 unsafe impl ::core::marker::Sync for UserActivityVisualElements {}
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

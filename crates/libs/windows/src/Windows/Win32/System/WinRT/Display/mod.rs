@@ -55,10 +55,6 @@ unsafe impl ::windows::core::Interface for IDisplayDeviceInterop {
     type Vtable = IDisplayDeviceInteropVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x64338358_366a_471b_bd56_dd8ef48e439b);
 }
-pub trait IDisplayDeviceInteropImpl {
-    fn CreateSharedHandle();
-    fn OpenSharedHandle();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDisplayDeviceInteropVtbl(
@@ -126,10 +122,6 @@ unsafe impl ::windows::core::Interface for IDisplayPathInterop {
     type Vtable = IDisplayPathInteropVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa6ba4205_e59e_4e71_b25b_4e436d21ee3d);
 }
-pub trait IDisplayPathInteropImpl {
-    fn CreateSourcePresentationHandle();
-    fn GetSourceId();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDisplayPathInteropVtbl(
@@ -140,3 +132,5 @@ pub struct IDisplayPathInteropVtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psourceid: *mut u32) -> ::windows::core::HRESULT,
 );
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

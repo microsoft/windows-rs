@@ -70,9 +70,6 @@ unsafe impl ::windows::core::Interface for ICoreFrameworkInputViewInterop {
     type Vtable = ICoreFrameworkInputViewInteropVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0e3da342_b11c_484b_9c1c_be0d61c2f6c5);
 }
-pub trait ICoreFrameworkInputViewInteropImpl {
-    fn GetForWindow();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreFrameworkInputViewInteropVtbl(
@@ -85,3 +82,5 @@ pub struct ICoreFrameworkInputViewInteropVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, appwindow: super::super::super::Foundation::HWND, riid: *const ::windows::core::GUID, coreframeworkinputview: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

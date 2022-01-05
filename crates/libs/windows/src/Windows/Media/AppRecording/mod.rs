@@ -713,14 +713,6 @@ unsafe impl ::windows::core::Interface for IAppRecordingManager {
     type Vtable = IAppRecordingManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe7e26076_a044_48e2_a512_3094d574c7cc);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IAppRecordingManagerImpl {
-    fn GetStatus();
-    fn StartRecordingToFileAsync();
-    fn RecordTimeSpanToFileAsync();
-    fn SupportedScreenshotMediaEncodingSubtypes();
-    fn SaveScreenshotToFilesAsync();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppRecordingManagerVtbl(
@@ -747,10 +739,6 @@ unsafe impl ::windows::core::Interface for IAppRecordingManagerStatics {
     type Vtable = IAppRecordingManagerStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x50e709f7_38ce_4bd3_9db2_e72bbe9de11d);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IAppRecordingManagerStaticsImpl {
-    fn GetDefault();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppRecordingManagerStaticsVtbl(
@@ -768,13 +756,6 @@ pub struct IAppRecordingResult(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppRecordingResult {
     type Vtable = IAppRecordingResultVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3a900864_c66d_46f9_b2d9_5bc2dad070d7);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IAppRecordingResultImpl {
-    fn Succeeded();
-    fn ExtendedError();
-    fn Duration();
-    fn IsFileTruncated();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -798,12 +779,6 @@ unsafe impl ::windows::core::Interface for IAppRecordingSaveScreenshotResult {
     type Vtable = IAppRecordingSaveScreenshotResultVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9c5b8d0a_0abb_4457_aaee_24f9c12ec778);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IAppRecordingSaveScreenshotResultImpl {
-    fn Succeeded();
-    fn ExtendedError();
-    fn SavedScreenshotInfos();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppRecordingSaveScreenshotResultVtbl(
@@ -825,11 +800,6 @@ unsafe impl ::windows::core::Interface for IAppRecordingSavedScreenshotInfo {
     type Vtable = IAppRecordingSavedScreenshotInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9b642d0a_189a_4d00_bf25_e1bb1249d594);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IAppRecordingSavedScreenshotInfoImpl {
-    fn File();
-    fn MediaEncodingSubtype();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppRecordingSavedScreenshotInfoVtbl(
@@ -849,13 +819,6 @@ pub struct IAppRecordingStatus(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppRecordingStatus {
     type Vtable = IAppRecordingStatusVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1d0cc82c_bc18_4b8a_a6ef_127efab3b5d9);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IAppRecordingStatusImpl {
-    fn CanRecord();
-    fn CanRecordTimeSpan();
-    fn HistoricalBufferDuration();
-    fn Details();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -879,18 +842,6 @@ unsafe impl ::windows::core::Interface for IAppRecordingStatusDetails {
     type Vtable = IAppRecordingStatusDetailsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb538a9b0_14ed_4412_ac45_6d672c9c9949);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IAppRecordingStatusDetailsImpl {
-    fn IsAnyAppBroadcasting();
-    fn IsCaptureResourceUnavailable();
-    fn IsGameStreamInProgress();
-    fn IsTimeSpanRecordingDisabled();
-    fn IsGpuConstrained();
-    fn IsAppInactive();
-    fn IsBlockedForApp();
-    fn IsDisabledByUser();
-    fn IsDisabledBySystem();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppRecordingStatusDetailsVtbl(
@@ -910,3 +861,5 @@ pub struct IAppRecordingStatusDetailsVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
 );
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

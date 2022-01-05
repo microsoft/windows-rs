@@ -6,14 +6,6 @@ unsafe impl ::windows::core::Interface for ISceneBoundingBox {
     type Vtable = ISceneBoundingBoxVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5d8ffc70_c618_4083_8251_9962593114aa);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ISceneBoundingBoxImpl {
-    fn Center();
-    fn Extents();
-    fn Max();
-    fn Min();
-    fn Size();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISceneBoundingBoxVtbl(
@@ -41,10 +33,6 @@ unsafe impl ::windows::core::Interface for ISceneComponent {
     type Vtable = ISceneComponentVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xae20fc96_226c_44bd_95cb_dd5ed9ebe9a5);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ISceneComponentImpl {
-    fn ComponentType();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISceneComponentVtbl(
@@ -63,8 +51,6 @@ unsafe impl ::windows::core::Interface for ISceneComponentCollection {
     type Vtable = ISceneComponentCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc483791c_5f46_45e4_b666_a3d2259f9b2e);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ISceneComponentCollectionImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISceneComponentCollectionVtbl(
@@ -82,8 +68,6 @@ unsafe impl ::windows::core::Interface for ISceneComponentFactory {
     type Vtable = ISceneComponentFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5fbc5574_ddd8_5889_ab5b_d8fa716e7c9e);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ISceneComponentFactoryImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISceneComponentFactoryVtbl(
@@ -101,8 +85,6 @@ unsafe impl ::windows::core::Interface for ISceneMaterial {
     type Vtable = ISceneMaterialVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8ca74b7c_30df_4e07_9490_37875af1a123);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ISceneMaterialImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISceneMaterialVtbl(
@@ -120,8 +102,6 @@ unsafe impl ::windows::core::Interface for ISceneMaterialFactory {
     type Vtable = ISceneMaterialFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x67536c19_a707_5254_a495_7fdc799893b9);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ISceneMaterialFactoryImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISceneMaterialFactoryVtbl(
@@ -139,8 +119,6 @@ unsafe impl ::windows::core::Interface for ISceneMaterialInput {
     type Vtable = ISceneMaterialInputVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x422a1642_1ef1_485c_97e9_ae6f95ad812f);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ISceneMaterialInputImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISceneMaterialInputVtbl(
@@ -158,8 +136,6 @@ unsafe impl ::windows::core::Interface for ISceneMaterialInputFactory {
     type Vtable = ISceneMaterialInputFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa88feb74_7d0a_5e4c_a748_1015af9ca74f);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ISceneMaterialInputFactoryImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISceneMaterialInputFactoryVtbl(
@@ -176,13 +152,6 @@ pub struct ISceneMesh(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISceneMesh {
     type Vtable = ISceneMeshVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xee9a1530_1155_4c0c_92bd_40020cf78347);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ISceneMeshImpl {
-    fn Bounds();
-    fn PrimitiveTopology();
-    fn SetPrimitiveTopology();
-    fn FillMeshAttribute();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -208,8 +177,6 @@ unsafe impl ::windows::core::Interface for ISceneMeshMaterialAttributeMap {
     type Vtable = ISceneMeshMaterialAttributeMapVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xce843171_3d43_4855_aa69_31ff988d049d);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ISceneMeshMaterialAttributeMapImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISceneMeshMaterialAttributeMapVtbl(
@@ -226,14 +193,6 @@ pub struct ISceneMeshRendererComponent(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISceneMeshRendererComponent {
     type Vtable = ISceneMeshRendererComponentVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9929f7e3_6364_477e_98fe_74ed9fd4c2de);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ISceneMeshRendererComponentImpl {
-    fn Material();
-    fn SetMaterial();
-    fn Mesh();
-    fn SetMesh();
-    fn UVMappings();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -257,10 +216,6 @@ unsafe impl ::windows::core::Interface for ISceneMeshRendererComponentStatics {
     type Vtable = ISceneMeshRendererComponentStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4954f37a_4459_4521_bd6e_2b38b8d711ea);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ISceneMeshRendererComponentStaticsImpl {
-    fn Create();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISceneMeshRendererComponentStaticsVtbl(
@@ -279,10 +234,6 @@ unsafe impl ::windows::core::Interface for ISceneMeshStatics {
     type Vtable = ISceneMeshStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8412316c_7b57_473f_966b_81dc277b1751);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ISceneMeshStaticsImpl {
-    fn Create();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISceneMeshStaticsVtbl(
@@ -300,19 +251,6 @@ pub struct ISceneMetallicRoughnessMaterial(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISceneMetallicRoughnessMaterial {
     type Vtable = ISceneMetallicRoughnessMaterialVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc1d91446_799c_429e_a4e4_5da645f18e61);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ISceneMetallicRoughnessMaterialImpl {
-    fn BaseColorInput();
-    fn SetBaseColorInput();
-    fn BaseColorFactor();
-    fn SetBaseColorFactor();
-    fn MetallicFactor();
-    fn SetMetallicFactor();
-    fn MetallicRoughnessInput();
-    fn SetMetallicRoughnessInput();
-    fn RoughnessFactor();
-    fn SetRoughnessFactor();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -343,10 +281,6 @@ unsafe impl ::windows::core::Interface for ISceneMetallicRoughnessMaterialStatic
     type Vtable = ISceneMetallicRoughnessMaterialStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3bddca50_6d9d_4531_8dc4_b27e3e49b7ab);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ISceneMetallicRoughnessMaterialStaticsImpl {
-    fn Create();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISceneMetallicRoughnessMaterialStaticsVtbl(
@@ -364,21 +298,6 @@ pub struct ISceneModelTransform(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISceneModelTransform {
     type Vtable = ISceneModelTransformVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc05576c2_32b1_4269_980d_b98537100ae4);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ISceneModelTransformImpl {
-    fn Orientation();
-    fn SetOrientation();
-    fn RotationAngle();
-    fn SetRotationAngle();
-    fn RotationAngleInDegrees();
-    fn SetRotationAngleInDegrees();
-    fn RotationAxis();
-    fn SetRotationAxis();
-    fn Scale();
-    fn SetScale();
-    fn Translation();
-    fn SetTranslation();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -417,14 +336,6 @@ unsafe impl ::windows::core::Interface for ISceneNode {
     type Vtable = ISceneNodeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xacf2c247_f307_4581_9c41_af2e29c3b016);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ISceneNodeImpl {
-    fn Children();
-    fn Components();
-    fn Parent();
-    fn Transform();
-    fn FindFirstComponentOfType();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISceneNodeVtbl(
@@ -449,8 +360,6 @@ unsafe impl ::windows::core::Interface for ISceneNodeCollection {
     type Vtable = ISceneNodeCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x29ada101_2dd9_4332_be63_60d2cf4269f2);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ISceneNodeCollectionImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISceneNodeCollectionVtbl(
@@ -467,10 +376,6 @@ pub struct ISceneNodeStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISceneNodeStatics {
     type Vtable = ISceneNodeStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x579a0faa_be9d_4210_908c_93d15feed0b7);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ISceneNodeStaticsImpl {
-    fn Create();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -490,8 +395,6 @@ unsafe impl ::windows::core::Interface for ISceneObject {
     type Vtable = ISceneObjectVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1e94249b_0f1b_49eb_a819_877d8450005b);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ISceneObjectImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISceneObjectVtbl(
@@ -509,8 +412,6 @@ unsafe impl ::windows::core::Interface for ISceneObjectFactory {
     type Vtable = ISceneObjectFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x14fe799a_33e4_52ef_956c_44229d21f2c1);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ISceneObjectFactoryImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISceneObjectFactoryVtbl(
@@ -527,27 +428,6 @@ pub struct IScenePbrMaterial(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IScenePbrMaterial {
     type Vtable = IScenePbrMaterialVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaab6ebbe_d680_46df_8294_b6800a9f95e7);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IScenePbrMaterialImpl {
-    fn AlphaCutoff();
-    fn SetAlphaCutoff();
-    fn AlphaMode();
-    fn SetAlphaMode();
-    fn EmissiveInput();
-    fn SetEmissiveInput();
-    fn EmissiveFactor();
-    fn SetEmissiveFactor();
-    fn IsDoubleSided();
-    fn SetIsDoubleSided();
-    fn NormalInput();
-    fn SetNormalInput();
-    fn NormalScale();
-    fn SetNormalScale();
-    fn OcclusionInput();
-    fn SetOcclusionInput();
-    fn OcclusionStrength();
-    fn SetOcclusionStrength();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -586,8 +466,6 @@ unsafe impl ::windows::core::Interface for IScenePbrMaterialFactory {
     type Vtable = IScenePbrMaterialFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2e3f3dfe_0b85_5727_b5be_b7d3cbac37fa);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IScenePbrMaterialFactoryImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IScenePbrMaterialFactoryVtbl(
@@ -605,8 +483,6 @@ unsafe impl ::windows::core::Interface for ISceneRendererComponent {
     type Vtable = ISceneRendererComponentVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf1acb857_cf4f_4025_9b25_a2d1944cf507);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ISceneRendererComponentImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISceneRendererComponentVtbl(
@@ -624,8 +500,6 @@ unsafe impl ::windows::core::Interface for ISceneRendererComponentFactory {
     type Vtable = ISceneRendererComponentFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1db6ed6c_aa2c_5967_9035_56352dc69658);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ISceneRendererComponentFactoryImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISceneRendererComponentFactoryVtbl(
@@ -642,17 +516,6 @@ pub struct ISceneSurfaceMaterialInput(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISceneSurfaceMaterialInput {
     type Vtable = ISceneSurfaceMaterialInputVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9937da5c_a9ca_4cfc_b3aa_088356518742);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ISceneSurfaceMaterialInputImpl {
-    fn BitmapInterpolationMode();
-    fn SetBitmapInterpolationMode();
-    fn Surface();
-    fn SetSurface();
-    fn WrappingUMode();
-    fn SetWrappingUMode();
-    fn WrappingVMode();
-    fn SetWrappingVMode();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -679,10 +542,6 @@ unsafe impl ::windows::core::Interface for ISceneSurfaceMaterialInputStatics {
     type Vtable = ISceneSurfaceMaterialInputStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5a2394d3_6429_4589_bbcf_b84f4f3cfbfe);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ISceneSurfaceMaterialInputStaticsImpl {
-    fn Create();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISceneSurfaceMaterialInputStaticsVtbl(
@@ -700,11 +559,6 @@ pub struct ISceneVisual(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISceneVisual {
     type Vtable = ISceneVisualVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8e672c1e_d734_47b1_be14_3d694ffa4301);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ISceneVisualImpl {
-    fn Root();
-    fn SetRoot();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -724,10 +578,6 @@ pub struct ISceneVisualStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISceneVisualStatics {
     type Vtable = ISceneVisualStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb8347e9a_50aa_4527_8d34_de4cb8ea88b4);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ISceneVisualStaticsImpl {
-    fn Create();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6973,3 +6823,5 @@ unsafe impl ::windows::core::RuntimeType for SceneWrappingMode {
 impl ::windows::core::DefaultType for SceneWrappingMode {
     type DefaultType = Self;
 }
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

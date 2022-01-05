@@ -8,10 +8,6 @@ unsafe impl ::windows::core::Interface for ICredentialFactory {
     type Vtable = ICredentialFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x54ef13a1_bf26_47b5_97dd_de779b7cad58);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ICredentialFactoryImpl {
-    fn CreatePasswordCredential();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICredentialFactoryVtbl(
@@ -29,14 +25,6 @@ pub struct IKeyCredential(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IKeyCredential {
     type Vtable = IKeyCredentialVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9585ef8d_457b_4847_b11a_fa960bbdb138);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IKeyCredentialImpl {
-    fn Name();
-    fn RetrievePublicKeyWithDefaultBlobType();
-    fn RetrievePublicKeyWithBlobType();
-    fn RequestSignAsync();
-    fn GetAttestationAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -64,12 +52,6 @@ unsafe impl ::windows::core::Interface for IKeyCredentialAttestationResult {
     type Vtable = IKeyCredentialAttestationResultVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x78aab3a1_a3c1_4103_b6cc_472c44171cbb);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IKeyCredentialAttestationResultImpl {
-    fn CertificateChainBuffer();
-    fn AttestationBuffer();
-    fn Status();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IKeyCredentialAttestationResultVtbl(
@@ -91,14 +73,6 @@ pub struct IKeyCredentialManagerStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IKeyCredentialManagerStatics {
     type Vtable = IKeyCredentialManagerStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6aac468b_0ef1_4ce0_8290_4106da6a63b5);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IKeyCredentialManagerStaticsImpl {
-    fn IsSupportedAsync();
-    fn RenewAttestationAsync();
-    fn RequestCreateAsync();
-    fn OpenAsync();
-    fn DeleteAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -127,11 +101,6 @@ unsafe impl ::windows::core::Interface for IKeyCredentialOperationResult {
     type Vtable = IKeyCredentialOperationResultVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf53786c1_5261_4cdd_976d_cc909ac71620);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IKeyCredentialOperationResultImpl {
-    fn Result();
-    fn Status();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IKeyCredentialOperationResultVtbl(
@@ -152,11 +121,6 @@ unsafe impl ::windows::core::Interface for IKeyCredentialRetrievalResult {
     type Vtable = IKeyCredentialRetrievalResultVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x58cd7703_8d87_4249_9b58_f6598cc9644e);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IKeyCredentialRetrievalResultImpl {
-    fn Credential();
-    fn Status();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IKeyCredentialRetrievalResultVtbl(
@@ -175,17 +139,6 @@ pub struct IPasswordCredential(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPasswordCredential {
     type Vtable = IPasswordCredentialVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6ab18989_c720_41a7_a6c1_feadb36329a0);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IPasswordCredentialImpl {
-    fn Resource();
-    fn SetResource();
-    fn UserName();
-    fn SetUserName();
-    fn Password();
-    fn SetPassword();
-    fn RetrievePassword();
-    fn Properties();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -212,15 +165,6 @@ pub struct IPasswordVault(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPasswordVault {
     type Vtable = IPasswordVaultVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x61fd2c0b_c8d4_48c1_a54f_bc5a64205af2);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IPasswordVaultImpl {
-    fn Add();
-    fn Remove();
-    fn Retrieve();
-    fn FindAllByResource();
-    fn FindAllByUserName();
-    fn RetrieveAll();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -333,11 +277,6 @@ unsafe impl ::windows::core::Interface for IWebAccount {
     type Vtable = IWebAccountVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x69473eb2_8031_49be_80bb_96cb46d99aba);
 }
-pub trait IWebAccountImpl {
-    fn WebAccountProvider();
-    fn UserName();
-    fn State();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWebAccountVtbl(
@@ -357,14 +296,6 @@ pub struct IWebAccount2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IWebAccount2 {
     type Vtable = IWebAccount2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7b56d6f8_990b_4eb5_94a7_5621f3a8b824);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IWebAccount2Impl: IWebAccountImpl {
-    fn Id();
-    fn Properties();
-    fn GetPictureAsync();
-    fn SignOutAsync();
-    fn SignOutWithClientIdAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -392,10 +323,6 @@ unsafe impl ::windows::core::Interface for IWebAccountFactory {
     type Vtable = IWebAccountFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xac9afb39_1de9_4e92_b78f_0581a87f6e5c);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IWebAccountFactoryImpl {
-    fn CreateWebAccount();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWebAccountFactoryVtbl(
@@ -413,12 +340,6 @@ pub struct IWebAccountProvider(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IWebAccountProvider {
     type Vtable = IWebAccountProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x29dcc8c3_7ab9_4a7c_a336_b942f9dbf7c7);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IWebAccountProviderImpl {
-    fn Id();
-    fn DisplayName();
-    fn IconUri();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -441,11 +362,6 @@ unsafe impl ::windows::core::Interface for IWebAccountProvider2 {
     type Vtable = IWebAccountProvider2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4a01eb05_4e42_41d4_b518_e008a5163614);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IWebAccountProvider2Impl: IWebAccountProviderImpl {
-    fn DisplayPurpose();
-    fn Authority();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWebAccountProvider2Vtbl(
@@ -464,10 +380,6 @@ pub struct IWebAccountProvider3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IWebAccountProvider3 {
     type Vtable = IWebAccountProvider3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xda1c518b_970d_4d49_825c_f2706f8ca7fe);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IWebAccountProvider3Impl: IWebAccountProviderImpl + IWebAccountProvider2Impl {
-    fn User();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -488,10 +400,6 @@ unsafe impl ::windows::core::Interface for IWebAccountProvider4 {
     type Vtable = IWebAccountProvider4Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x718fd8db_e796_4210_b74e_84d29894b080);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IWebAccountProvider4Impl {
-    fn IsSystemProvider();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWebAccountProvider4Vtbl(
@@ -509,10 +417,6 @@ pub struct IWebAccountProviderFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IWebAccountProviderFactory {
     type Vtable = IWebAccountProviderFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1d767df1_e1e1_4b9a_a774_5c7c7e3bf371);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IWebAccountProviderFactoryImpl {
-    fn CreateWebAccountProvider();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2037,3 +1941,5 @@ unsafe impl ::windows::core::RuntimeType for WebAccountState {
 impl ::windows::core::DefaultType for WebAccountState {
     type DefaultType = Self;
 }
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

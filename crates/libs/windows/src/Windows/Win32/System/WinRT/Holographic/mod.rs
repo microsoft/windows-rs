@@ -91,13 +91,6 @@ unsafe impl ::windows::core::Interface for IHolographicCameraInterop {
     type Vtable = IHolographicCameraInteropVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7cc1f9c5_6d02_41fa_9500_e1809eb48eec);
 }
-pub trait IHolographicCameraInteropImpl {
-    fn CreateDirect3D12BackBufferResource();
-    fn CreateDirect3D12HardwareProtectedBackBufferResource();
-    fn AcquireDirect3D12BufferResource();
-    fn AcquireDirect3D12BufferResourceWithTimeout();
-    fn UnacquireDirect3D12BufferResource();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHolographicCameraInteropVtbl(
@@ -192,10 +185,6 @@ impl ::core::fmt::Debug for IHolographicCameraRenderingParametersInterop {
 unsafe impl ::windows::core::Interface for IHolographicCameraRenderingParametersInterop {
     type Vtable = IHolographicCameraRenderingParametersInteropVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf75b68d6_d1fd_4707_aafd_fa6f4c0e3bf4);
-}
-pub trait IHolographicCameraRenderingParametersInteropImpl {
-    fn CommitDirect3D12Resource();
-    fn CommitDirect3D12ResourceWithDepthData();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -303,13 +292,6 @@ unsafe impl ::windows::core::Interface for IHolographicQuadLayerInterop {
     type Vtable = IHolographicQuadLayerInteropVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcfa688f0_639e_4a47_83d7_6b7f5ebf7fed);
 }
-pub trait IHolographicQuadLayerInteropImpl {
-    fn CreateDirect3D12ContentBufferResource();
-    fn CreateDirect3D12HardwareProtectedContentBufferResource();
-    fn AcquireDirect3D12BufferResource();
-    fn AcquireDirect3D12BufferResourceWithTimeout();
-    fn UnacquireDirect3D12BufferResource();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHolographicQuadLayerInteropVtbl(
@@ -400,9 +382,6 @@ unsafe impl ::windows::core::Interface for IHolographicQuadLayerUpdateParameters
     type Vtable = IHolographicQuadLayerUpdateParametersInteropVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe5f549cd_c909_444f_8809_7cc18a9c8920);
 }
-pub trait IHolographicQuadLayerUpdateParametersInteropImpl {
-    fn CommitDirect3D12Resource();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHolographicQuadLayerUpdateParametersInteropVtbl(
@@ -415,3 +394,5 @@ pub struct IHolographicQuadLayerUpdateParametersInteropVtbl(
     #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcolorresourcetocommit: ::windows::core::RawPtr, pcolorresourcefence: ::windows::core::RawPtr, colorresourcefencesignalvalue: u64) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
 );
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

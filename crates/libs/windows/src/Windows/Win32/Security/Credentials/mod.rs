@@ -3881,3 +3881,5 @@ impl ::core::default::Default for USERNAME_TARGET_CREDENTIAL_INFO {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

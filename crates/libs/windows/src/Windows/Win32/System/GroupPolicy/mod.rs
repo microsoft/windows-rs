@@ -866,17 +866,6 @@ unsafe impl ::windows::core::Interface for IGPEInformation {
     type Vtable = IGPEInformationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8fc0b735_a0e1_11d1_a7d3_0000f87571e3);
 }
-pub trait IGPEInformationImpl {
-    fn GetName();
-    fn GetDisplayName();
-    fn GetRegistryKey();
-    fn GetDSPath();
-    fn GetFileSysPath();
-    fn GetOptions();
-    fn GetType();
-    fn GetHint();
-    fn PolicyChanged();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGPEInformationVtbl(
@@ -1056,21 +1045,6 @@ impl ::core::fmt::Debug for IGPM {
 unsafe impl ::windows::core::Interface for IGPM {
     type Vtable = IGPMVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf5fae809_3bd6_4da9_a65e_17665b41d763);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IGPMImpl: IDispatchImpl {
-    fn GetDomain();
-    fn GetBackupDir();
-    fn GetSitesContainer();
-    fn GetRSOP();
-    fn CreatePermission();
-    fn CreateSearchCriteria();
-    fn CreateTrustee();
-    fn GetClientSideExtensions();
-    fn GetConstants();
-    fn GetMigrationTable();
-    fn CreateMigrationTable();
-    fn InitializeReporting();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1296,11 +1270,6 @@ unsafe impl ::windows::core::Interface for IGPM2 {
     type Vtable = IGPM2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00238f8a_3d86_41ac_8f5e_06a6638a634a);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IGPM2Impl: IGPMImpl + IDispatchImpl {
-    fn GetBackupDirEx();
-    fn InitializeReportingEx();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGPM2Vtbl(
@@ -1435,10 +1404,6 @@ unsafe impl ::windows::core::Interface for IGPMAsyncCancel {
     type Vtable = IGPMAsyncCancelVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xddc67754_be67_4541_8166_f48166868c9c);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IGPMAsyncCancelImpl: IDispatchImpl {
-    fn Cancel();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGPMAsyncCancelVtbl(
@@ -1550,10 +1515,6 @@ impl ::core::fmt::Debug for IGPMAsyncProgress {
 unsafe impl ::windows::core::Interface for IGPMAsyncProgress {
     type Vtable = IGPMAsyncProgressVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6aac29f8_5948_4324_bf70_423818942dbc);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IGPMAsyncProgressImpl: IDispatchImpl {
-    fn Status();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1719,19 +1680,6 @@ unsafe impl ::windows::core::Interface for IGPMBackup {
     type Vtable = IGPMBackupVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd8a16a35_3b0d_416b_8d02_4df6f95a7119);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IGPMBackupImpl: IDispatchImpl {
-    fn ID();
-    fn GPOID();
-    fn GPODomain();
-    fn GPODisplayName();
-    fn Timestamp();
-    fn Comment();
-    fn BackupDir();
-    fn Delete();
-    fn GenerateReport();
-    fn GenerateReportToFile();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGPMBackupVtbl(
@@ -1873,12 +1821,6 @@ unsafe impl ::windows::core::Interface for IGPMBackupCollection {
     type Vtable = IGPMBackupCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc786fc0f_26d8_4bab_a745_39ca7e800cac);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IGPMBackupCollectionImpl: IDispatchImpl {
-    fn Count();
-    fn Item();
-    fn _NewEnum();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGPMBackupCollectionVtbl(
@@ -2006,12 +1948,6 @@ impl ::core::fmt::Debug for IGPMBackupDir {
 unsafe impl ::windows::core::Interface for IGPMBackupDir {
     type Vtable = IGPMBackupDirVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb1568bed_0a93_4acc_810f_afe7081019b9);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IGPMBackupDirImpl: IDispatchImpl {
-    fn BackupDirectory();
-    fn GetBackup();
-    fn SearchBackups();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2147,13 +2083,6 @@ unsafe impl ::windows::core::Interface for IGPMBackupDirEx {
     type Vtable = IGPMBackupDirExVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf8dc55ed_3ba0_4864_aad4_d365189ee1d5);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IGPMBackupDirExImpl: IDispatchImpl {
-    fn BackupDir();
-    fn BackupType();
-    fn GetBackup();
-    fn SearchBackups();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGPMBackupDirExVtbl(
@@ -2283,12 +2212,6 @@ impl ::core::fmt::Debug for IGPMCSECollection {
 unsafe impl ::windows::core::Interface for IGPMCSECollection {
     type Vtable = IGPMCSECollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2e52a97d_0a4a_4a6f_85db_201622455da0);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IGPMCSECollectionImpl: IDispatchImpl {
-    fn Count();
-    fn Item();
-    fn _NewEnum();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2422,13 +2345,6 @@ impl ::core::fmt::Debug for IGPMClientSideExtension {
 unsafe impl ::windows::core::Interface for IGPMClientSideExtension {
     type Vtable = IGPMClientSideExtensionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x69da7488_b8db_415e_9266_901be4d49928);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IGPMClientSideExtensionImpl: IDispatchImpl {
-    fn ID();
-    fn DisplayName();
-    fn IsUserEnabled();
-    fn IsComputerEnabled();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2841,69 +2757,6 @@ impl ::core::fmt::Debug for IGPMConstants {
 unsafe impl ::windows::core::Interface for IGPMConstants {
     type Vtable = IGPMConstantsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x50ef73e6_d35c_4c8d_be63_7ea5d2aac5c4);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IGPMConstantsImpl: IDispatchImpl {
-    fn PermGPOApply();
-    fn PermGPORead();
-    fn PermGPOEdit();
-    fn PermGPOEditSecurityAndDelete();
-    fn PermGPOCustom();
-    fn PermWMIFilterEdit();
-    fn PermWMIFilterFullControl();
-    fn PermWMIFilterCustom();
-    fn PermSOMLink();
-    fn PermSOMLogging();
-    fn PermSOMPlanning();
-    fn PermSOMGPOCreate();
-    fn PermSOMWMICreate();
-    fn PermSOMWMIFullControl();
-    fn SearchPropertyGPOPermissions();
-    fn SearchPropertyGPOEffectivePermissions();
-    fn SearchPropertyGPODisplayName();
-    fn SearchPropertyGPOWMIFilter();
-    fn SearchPropertyGPOID();
-    fn SearchPropertyGPOComputerExtensions();
-    fn SearchPropertyGPOUserExtensions();
-    fn SearchPropertySOMLinks();
-    fn SearchPropertyGPODomain();
-    fn SearchPropertyBackupMostRecent();
-    fn SearchOpEquals();
-    fn SearchOpContains();
-    fn SearchOpNotContains();
-    fn SearchOpNotEquals();
-    fn UsePDC();
-    fn UseAnyDC();
-    fn DoNotUseW2KDC();
-    fn SOMSite();
-    fn SOMDomain();
-    fn SOMOU();
-    fn SecurityFlags();
-    fn DoNotValidateDC();
-    fn ReportHTML();
-    fn ReportXML();
-    fn RSOPModeUnknown();
-    fn RSOPModePlanning();
-    fn RSOPModeLogging();
-    fn EntryTypeUser();
-    fn EntryTypeComputer();
-    fn EntryTypeLocalGroup();
-    fn EntryTypeGlobalGroup();
-    fn EntryTypeUniversalGroup();
-    fn EntryTypeUNCPath();
-    fn EntryTypeUnknown();
-    fn DestinationOptionSameAsSource();
-    fn DestinationOptionNone();
-    fn DestinationOptionByRelativeName();
-    fn DestinationOptionSet();
-    fn MigrationTableOnly();
-    fn ProcessSecurity();
-    fn RsopLoggingNoComputer();
-    fn RsopLoggingNoUser();
-    fn RsopPlanningAssumeSlowLink();
-    fn RsopPlanningLoopbackOption();
-    fn RsopPlanningAssumeUserWQLFilterTrue();
-    fn RsopPlanningAssumeCompWQLFilterTrue();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3466,24 +3319,6 @@ unsafe impl ::windows::core::Interface for IGPMConstants2 {
     type Vtable = IGPMConstants2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x05ae21b0_ac09_4032_a26f_9e7da786dc19);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IGPMConstants2Impl: IGPMConstantsImpl + IDispatchImpl {
-    fn BackupTypeGPO();
-    fn BackupTypeStarterGPO();
-    fn StarterGPOTypeSystem();
-    fn StarterGPOTypeCustom();
-    fn SearchPropertyStarterGPOPermissions();
-    fn SearchPropertyStarterGPOEffectivePermissions();
-    fn SearchPropertyStarterGPODisplayName();
-    fn SearchPropertyStarterGPOID();
-    fn SearchPropertyStarterGPODomain();
-    fn PermStarterGPORead();
-    fn PermStarterGPOEdit();
-    fn PermStarterGPOFullControl();
-    fn PermStarterGPOCustom();
-    fn ReportLegacy();
-    fn ReportComments();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGPMConstants2Vtbl(
@@ -3720,19 +3555,6 @@ unsafe impl ::windows::core::Interface for IGPMDomain {
     type Vtable = IGPMDomainVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6b21cc14_5a00_4f44_a738_feec8a94c7e3);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IGPMDomainImpl: IDispatchImpl {
-    fn DomainController();
-    fn Domain();
-    fn CreateGPO();
-    fn GetGPO();
-    fn SearchGPOs();
-    fn RestoreGPO();
-    fn GetSOM();
-    fn SearchSOMs();
-    fn GetWMIFilter();
-    fn SearchWMIFilters();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGPMDomainVtbl(
@@ -3960,15 +3782,6 @@ impl ::core::fmt::Debug for IGPMDomain2 {
 unsafe impl ::windows::core::Interface for IGPMDomain2 {
     type Vtable = IGPMDomain2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7ca6bb8b_f1eb_490a_938d_3c4e51c768e6);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IGPMDomain2Impl: IGPMDomainImpl + IDispatchImpl {
-    fn CreateStarterGPO();
-    fn CreateGPOFromStarterGPO();
-    fn GetStarterGPO();
-    fn SearchStarterGPOs();
-    fn LoadStarterGPO();
-    fn RestoreStarterGPO();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4246,13 +4059,6 @@ impl ::core::fmt::Debug for IGPMDomain3 {
 unsafe impl ::windows::core::Interface for IGPMDomain3 {
     type Vtable = IGPMDomain3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0077fdfe_88c7_4acf_a11d_d10a7c310a03);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IGPMDomain3Impl: IGPMDomain2Impl + IGPMDomainImpl + IDispatchImpl {
-    fn GenerateReport();
-    fn InfrastructureDC();
-    fn SetInfrastructureDC();
-    fn SetInfrastructureFlags();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4536,38 +4342,6 @@ impl ::core::fmt::Debug for IGPMGPO {
 unsafe impl ::windows::core::Interface for IGPMGPO {
     type Vtable = IGPMGPOVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x58cc4352_1ca3_48e5_9864_1da4d6e0d60f);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IGPMGPOImpl: IDispatchImpl {
-    fn DisplayName();
-    fn SetDisplayName();
-    fn Path();
-    fn ID();
-    fn DomainName();
-    fn CreationTime();
-    fn ModificationTime();
-    fn UserDSVersionNumber();
-    fn ComputerDSVersionNumber();
-    fn UserSysvolVersionNumber();
-    fn ComputerSysvolVersionNumber();
-    fn GetWMIFilter();
-    fn SetWMIFilter();
-    fn SetUserEnabled();
-    fn SetComputerEnabled();
-    fn IsUserEnabled();
-    fn IsComputerEnabled();
-    fn GetSecurityInfo();
-    fn SetSecurityInfo();
-    fn Delete();
-    fn Backup();
-    fn Import();
-    fn GenerateReport();
-    fn GenerateReportToFile();
-    fn CopyTo();
-    fn SetSecurityDescriptor();
-    fn GetSecurityDescriptor();
-    fn IsACLConsistent();
-    fn MakeACLConsistent();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4891,11 +4665,6 @@ impl ::core::fmt::Debug for IGPMGPO2 {
 unsafe impl ::windows::core::Interface for IGPMGPO2 {
     type Vtable = IGPMGPO2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8a66a210_b78b_4d99_88e2_c306a817c925);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IGPMGPO2Impl: IGPMGPOImpl + IDispatchImpl {
-    fn Description();
-    fn SetDescription();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5259,12 +5028,6 @@ unsafe impl ::windows::core::Interface for IGPMGPO3 {
     type Vtable = IGPMGPO3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7cf123a1_f94a_4112_bfae_6aa1db9cb248);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IGPMGPO3Impl: IGPMGPO2Impl + IGPMGPOImpl + IDispatchImpl {
-    fn InfrastructureDC();
-    fn SetInfrastructureDC();
-    fn SetInfrastructureFlags();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGPMGPO3Vtbl(
@@ -5438,12 +5201,6 @@ unsafe impl ::windows::core::Interface for IGPMGPOCollection {
     type Vtable = IGPMGPOCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf0f0d5cf_70ca_4c39_9e29_b642f8726c01);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IGPMGPOCollectionImpl: IDispatchImpl {
-    fn Count();
-    fn Item();
-    fn _NewEnum();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGPMGPOCollectionVtbl(
@@ -5599,18 +5356,6 @@ unsafe impl ::windows::core::Interface for IGPMGPOLink {
     type Vtable = IGPMGPOLinkVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x434b99bd_5de7_478a_809c_c251721df70c);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IGPMGPOLinkImpl: IDispatchImpl {
-    fn GPOID();
-    fn GPODomain();
-    fn Enabled();
-    fn SetEnabled();
-    fn Enforced();
-    fn SetEnforced();
-    fn SOMLinkOrder();
-    fn SOM();
-    fn Delete();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGPMGPOLinkVtbl(
@@ -5745,12 +5490,6 @@ unsafe impl ::windows::core::Interface for IGPMGPOLinksCollection {
     type Vtable = IGPMGPOLinksCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x189d7b68_16bd_4d0d_a2ec_2e6aa2288c7f);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IGPMGPOLinksCollectionImpl: IDispatchImpl {
-    fn Count();
-    fn Item();
-    fn _NewEnum();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGPMGPOLinksCollectionVtbl(
@@ -5884,13 +5623,6 @@ unsafe impl ::windows::core::Interface for IGPMMapEntry {
     type Vtable = IGPMMapEntryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8e79ad06_2381_4444_be4c_ff693e6e6f2b);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IGPMMapEntryImpl: IDispatchImpl {
-    fn Source();
-    fn Destination();
-    fn DestinationOption();
-    fn EntryType();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGPMMapEntryVtbl(
@@ -6019,12 +5751,6 @@ impl ::core::fmt::Debug for IGPMMapEntryCollection {
 unsafe impl ::windows::core::Interface for IGPMMapEntryCollection {
     type Vtable = IGPMMapEntryCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbb0bf49b_e53f_443f_b807_8be22bfb6d42);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IGPMMapEntryCollectionImpl: IDispatchImpl {
-    fn Count();
-    fn Item();
-    fn _NewEnum();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6180,17 +5906,6 @@ unsafe impl ::windows::core::Interface for IGPMMigrationTable {
     type Vtable = IGPMMigrationTableVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x48f823b1_efaf_470b_b6ed_40d14ee1a4ec);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IGPMMigrationTableImpl: IDispatchImpl {
-    fn Save();
-    fn Add();
-    fn AddEntry();
-    fn GetEntry();
-    fn DeleteEntry();
-    fn UpdateDestination();
-    fn Validate();
-    fn GetEntries();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGPMMigrationTableVtbl(
@@ -6335,14 +6050,6 @@ impl ::core::fmt::Debug for IGPMPermission {
 unsafe impl ::windows::core::Interface for IGPMPermission {
     type Vtable = IGPMPermissionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x35ebca40_e1a1_4a02_8905_d79416fb464a);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IGPMPermissionImpl: IDispatchImpl {
-    fn Inherited();
-    fn Inheritable();
-    fn Denied();
-    fn Permission();
-    fn Trustee();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6641,44 +6348,6 @@ unsafe impl ::windows::core::Interface for IGPMRSOP {
     type Vtable = IGPMRSOPVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x49ed785a_3237_4ff2_b1f0_fdf5a8d5a1ee);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IGPMRSOPImpl: IDispatchImpl {
-    fn Mode();
-    fn Namespace();
-    fn SetLoggingComputer();
-    fn LoggingComputer();
-    fn SetLoggingUser();
-    fn LoggingUser();
-    fn SetLoggingFlags();
-    fn LoggingFlags();
-    fn SetPlanningFlags();
-    fn PlanningFlags();
-    fn SetPlanningDomainController();
-    fn PlanningDomainController();
-    fn SetPlanningSiteName();
-    fn PlanningSiteName();
-    fn SetPlanningUser();
-    fn PlanningUser();
-    fn SetPlanningUserSOM();
-    fn PlanningUserSOM();
-    fn SetPlanningUserWMIFilters();
-    fn PlanningUserWMIFilters();
-    fn SetPlanningUserSecurityGroups();
-    fn PlanningUserSecurityGroups();
-    fn SetPlanningComputer();
-    fn PlanningComputer();
-    fn SetPlanningComputerSOM();
-    fn PlanningComputerSOM();
-    fn SetPlanningComputerWMIFilters();
-    fn PlanningComputerWMIFilters();
-    fn SetPlanningComputerSecurityGroups();
-    fn PlanningComputerSecurityGroups();
-    fn LoggingEnumerateUsers();
-    fn CreateQueryResults();
-    fn ReleaseQueryResults();
-    fn GenerateReport();
-    fn GenerateReportToFile();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGPMRSOPVtbl(
@@ -6863,12 +6532,6 @@ unsafe impl ::windows::core::Interface for IGPMResult {
     type Vtable = IGPMResultVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x86dff7e9_f76f_42ab_9570_cebc6be8a52d);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IGPMResultImpl: IDispatchImpl {
-    fn Status();
-    fn Result();
-    fn OverallStatus();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGPMResultVtbl(
@@ -7029,19 +6692,6 @@ unsafe impl ::windows::core::Interface for IGPMSOM {
     type Vtable = IGPMSOMVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc0a7f09e_05a1_4f0c_8158_9e5c33684f6b);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IGPMSOMImpl: IDispatchImpl {
-    fn GPOInheritanceBlocked();
-    fn SetGPOInheritanceBlocked();
-    fn Name();
-    fn Path();
-    fn CreateGPOLink();
-    fn Type();
-    fn GetGPOLinks();
-    fn GetInheritedGPOLinks();
-    fn GetSecurityInfo();
-    fn SetSecurityInfo();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGPMSOMVtbl(
@@ -7177,12 +6827,6 @@ unsafe impl ::windows::core::Interface for IGPMSOMCollection {
     type Vtable = IGPMSOMCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xadc1688e_00e4_4495_abba_bed200df0cab);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IGPMSOMCollectionImpl: IDispatchImpl {
-    fn Count();
-    fn Item();
-    fn _NewEnum();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGPMSOMCollectionVtbl(
@@ -7298,10 +6942,6 @@ impl ::core::fmt::Debug for IGPMSearchCriteria {
 unsafe impl ::windows::core::Interface for IGPMSearchCriteria {
     type Vtable = IGPMSearchCriteriaVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd6f11c42_829b_48d4_83f5_3615b67dfc22);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IGPMSearchCriteriaImpl: IDispatchImpl {
-    fn Add();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7440,15 +7080,6 @@ impl ::core::fmt::Debug for IGPMSecurityInfo {
 unsafe impl ::windows::core::Interface for IGPMSecurityInfo {
     type Vtable = IGPMSecurityInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb6c31ed4_1c93_4d3e_ae84_eb6d61161b60);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IGPMSecurityInfoImpl: IDispatchImpl {
-    fn Count();
-    fn Item();
-    fn _NewEnum();
-    fn Add();
-    fn Remove();
-    fn RemoveTrustee();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7593,14 +7224,6 @@ impl ::core::fmt::Debug for IGPMSitesContainer {
 unsafe impl ::windows::core::Interface for IGPMSitesContainer {
     type Vtable = IGPMSitesContainerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4725a899_2782_4d27_a6bb_d499246ffd72);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IGPMSitesContainerImpl: IDispatchImpl {
-    fn DomainController();
-    fn Domain();
-    fn Forest();
-    fn GetSite();
-    fn SearchSites();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7829,30 +7452,6 @@ unsafe impl ::windows::core::Interface for IGPMStarterGPO {
     type Vtable = IGPMStarterGPOVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdfc3f61b_8880_4490_9337_d29c7ba8c2f0);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IGPMStarterGPOImpl: IDispatchImpl {
-    fn DisplayName();
-    fn SetDisplayName();
-    fn Description();
-    fn SetDescription();
-    fn Author();
-    fn Product();
-    fn CreationTime();
-    fn ID();
-    fn ModifiedTime();
-    fn Type();
-    fn ComputerVersion();
-    fn UserVersion();
-    fn StarterGPOVersion();
-    fn Delete();
-    fn Save();
-    fn Backup();
-    fn CopyTo();
-    fn GenerateReport();
-    fn GenerateReportToFile();
-    fn GetSecurityInfo();
-    fn SetSecurityInfo();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGPMStarterGPOVtbl(
@@ -8054,20 +7653,6 @@ unsafe impl ::windows::core::Interface for IGPMStarterGPOBackup {
     type Vtable = IGPMStarterGPOBackupVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x51d98eda_a87e_43dd_b80a_0b66ef1938d6);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IGPMStarterGPOBackupImpl: IDispatchImpl {
-    fn BackupDir();
-    fn Comment();
-    fn DisplayName();
-    fn Domain();
-    fn StarterGPOID();
-    fn ID();
-    fn Timestamp();
-    fn Type();
-    fn Delete();
-    fn GenerateReport();
-    fn GenerateReportToFile();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGPMStarterGPOBackupVtbl(
@@ -8210,12 +7795,6 @@ unsafe impl ::windows::core::Interface for IGPMStarterGPOBackupCollection {
     type Vtable = IGPMStarterGPOBackupCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc998031d_add0_4bb5_8dea_298505d8423b);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IGPMStarterGPOBackupCollectionImpl: IDispatchImpl {
-    fn Count();
-    fn Item();
-    fn _NewEnum();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGPMStarterGPOBackupCollectionVtbl(
@@ -8343,12 +7922,6 @@ impl ::core::fmt::Debug for IGPMStarterGPOCollection {
 unsafe impl ::windows::core::Interface for IGPMStarterGPOCollection {
     type Vtable = IGPMStarterGPOCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2e522729_2219_44ad_933a_64dfd650c423);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IGPMStarterGPOCollectionImpl: IDispatchImpl {
-    fn Count();
-    fn Item();
-    fn _NewEnum();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8493,15 +8066,6 @@ unsafe impl ::windows::core::Interface for IGPMStatusMessage {
     type Vtable = IGPMStatusMessageVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8496c22f_f3de_4a1f_8f58_603caaa93d7b);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IGPMStatusMessageImpl: IDispatchImpl {
-    fn ObjectPath();
-    fn ErrorCode();
-    fn ExtensionName();
-    fn SettingsName();
-    fn OperationCode();
-    fn Message();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGPMStatusMessageVtbl(
@@ -8634,12 +8198,6 @@ impl ::core::fmt::Debug for IGPMStatusMsgCollection {
 unsafe impl ::windows::core::Interface for IGPMStatusMsgCollection {
     type Vtable = IGPMStatusMsgCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9b6e1af0_1a92_40f3_a59d_f36ac1f728b7);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IGPMStatusMsgCollectionImpl: IDispatchImpl {
-    fn Count();
-    fn Item();
-    fn _NewEnum();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8780,14 +8338,6 @@ impl ::core::fmt::Debug for IGPMTrustee {
 unsafe impl ::windows::core::Interface for IGPMTrustee {
     type Vtable = IGPMTrusteeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3b466da8_c1a4_4b2a_999a_befcdd56cefb);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IGPMTrusteeImpl: IDispatchImpl {
-    fn TrusteeSid();
-    fn TrusteeName();
-    fn TrusteeDomain();
-    fn TrusteeDSPath();
-    fn TrusteeType();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8947,17 +8497,6 @@ unsafe impl ::windows::core::Interface for IGPMWMIFilter {
     type Vtable = IGPMWMIFilterVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xef2ff9b4_3c27_459a_b979_038305cec75d);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IGPMWMIFilterImpl: IDispatchImpl {
-    fn Path();
-    fn SetName();
-    fn Name();
-    fn SetDescription();
-    fn Description();
-    fn GetQueryList();
-    fn GetSecurityInfo();
-    fn SetSecurityInfo();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGPMWMIFilterVtbl(
@@ -9094,12 +8633,6 @@ impl ::core::fmt::Debug for IGPMWMIFilterCollection {
 unsafe impl ::windows::core::Interface for IGPMWMIFilterCollection {
     type Vtable = IGPMWMIFilterCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5782d582_1a36_4661_8a94_c3c32551945b);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IGPMWMIFilterCollectionImpl: IDispatchImpl {
-    fn Count();
-    fn Item();
-    fn _NewEnum();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9250,26 +8783,6 @@ impl ::core::fmt::Debug for IGroupPolicyObject {
 unsafe impl ::windows::core::Interface for IGroupPolicyObject {
     type Vtable = IGroupPolicyObjectVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xea502723_a23d_11d1_a7d3_0000f87571e3);
-}
-pub trait IGroupPolicyObjectImpl {
-    fn New();
-    fn OpenDSGPO();
-    fn OpenLocalMachineGPO();
-    fn OpenRemoteMachineGPO();
-    fn Save();
-    fn Delete();
-    fn GetName();
-    fn GetDisplayName();
-    fn SetDisplayName();
-    fn GetPath();
-    fn GetDSPath();
-    fn GetFileSysPath();
-    fn GetRegistryKey();
-    fn GetOptions();
-    fn SetOptions();
-    fn GetType();
-    fn GetMachineName();
-    fn GetPropertySheetPages();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9524,11 +9037,6 @@ impl ::core::fmt::Debug for IRSOPInformation {
 unsafe impl ::windows::core::Interface for IRSOPInformation {
     type Vtable = IRSOPInformationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9a5a81b5_d9c7_49ef_9d11_ddf50968c48d);
-}
-pub trait IRSOPInformationImpl {
-    fn GetNamespace();
-    fn GetFlags();
-    fn GetEventLogEntryText();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -10049,3 +9557,5 @@ pub unsafe fn UnregisterGPNotification<'a, Param0: ::windows::core::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

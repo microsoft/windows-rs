@@ -225,16 +225,6 @@ unsafe impl ::windows::core::Interface for IAutomaticUpdates {
     type Vtable = IAutomaticUpdatesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x673425bf_c082_4c7c_bdfd_569464b8e0ce);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IAutomaticUpdatesImpl: IDispatchImpl {
-    fn DetectNow();
-    fn Pause();
-    fn Resume();
-    fn ShowSettingsDialog();
-    fn Settings();
-    fn ServiceEnabled();
-    fn EnableService();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAutomaticUpdatesVtbl(
@@ -403,10 +393,6 @@ unsafe impl ::windows::core::Interface for IAutomaticUpdates2 {
     type Vtable = IAutomaticUpdates2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4a2f5c31_cfd9_410e_b7fb_29a653973a0f);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IAutomaticUpdates2Impl: IAutomaticUpdatesImpl + IDispatchImpl {
-    fn Results();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAutomaticUpdates2Vtbl(
@@ -532,11 +518,6 @@ impl ::core::fmt::Debug for IAutomaticUpdatesResults {
 unsafe impl ::windows::core::Interface for IAutomaticUpdatesResults {
     type Vtable = IAutomaticUpdatesResultsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe7a4d634_7942_4dd9_a111_82228ba33901);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IAutomaticUpdatesResultsImpl: IDispatchImpl {
-    fn LastSearchSuccessDate();
-    fn LastInstallationSuccessDate();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -692,19 +673,6 @@ impl ::core::fmt::Debug for IAutomaticUpdatesSettings {
 unsafe impl ::windows::core::Interface for IAutomaticUpdatesSettings {
     type Vtable = IAutomaticUpdatesSettingsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2ee48f22_af3c_405f_8970_f71be12ee9a2);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IAutomaticUpdatesSettingsImpl: IDispatchImpl {
-    fn NotificationLevel();
-    fn SetNotificationLevel();
-    fn ReadOnly();
-    fn Required();
-    fn ScheduledInstallationDay();
-    fn SetScheduledInstallationDay();
-    fn ScheduledInstallationTime();
-    fn SetScheduledInstallationTime();
-    fn Refresh();
-    fn Save();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -900,12 +868,6 @@ impl ::core::fmt::Debug for IAutomaticUpdatesSettings2 {
 unsafe impl ::windows::core::Interface for IAutomaticUpdatesSettings2 {
     type Vtable = IAutomaticUpdatesSettings2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6abc136a_c3ca_4384_8171_cb2b1e59b8dc);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IAutomaticUpdatesSettings2Impl: IAutomaticUpdatesSettingsImpl + IDispatchImpl {
-    fn IncludeRecommendedUpdates();
-    fn SetIncludeRecommendedUpdates();
-    fn CheckPermission();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1143,13 +1105,6 @@ unsafe impl ::windows::core::Interface for IAutomaticUpdatesSettings3 {
     type Vtable = IAutomaticUpdatesSettings3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb587f5c3_f57e_485f_bbf5_0d181c5cd0dc);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IAutomaticUpdatesSettings3Impl: IAutomaticUpdatesSettings2Impl + IAutomaticUpdatesSettingsImpl + IDispatchImpl {
-    fn NonAdministratorsElevated();
-    fn SetNonAdministratorsElevated();
-    fn FeaturedUpdatesEnabled();
-    fn SetFeaturedUpdatesEnabled();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAutomaticUpdatesSettings3Vtbl(
@@ -1322,18 +1277,6 @@ unsafe impl ::windows::core::Interface for ICategory {
     type Vtable = ICategoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x81ddc1b8_9d35_47a6_b471_5b80f519223b);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait ICategoryImpl: IDispatchImpl {
-    fn Name();
-    fn CategoryID();
-    fn Children();
-    fn Description();
-    fn Image();
-    fn Order();
-    fn Parent();
-    fn Type();
-    fn Updates();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICategoryVtbl(
@@ -1468,12 +1411,6 @@ unsafe impl ::windows::core::Interface for ICategoryCollection {
     type Vtable = ICategoryCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3a56bfb8_576c_43f7_9335_fe4838fd7e37);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait ICategoryCollectionImpl: IDispatchImpl {
-    fn Item();
-    fn _NewEnum();
-    fn Count();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICategoryCollectionVtbl(
@@ -1540,9 +1477,6 @@ impl ::core::fmt::Debug for IDownloadCompletedCallback {
 unsafe impl ::windows::core::Interface for IDownloadCompletedCallback {
     type Vtable = IDownloadCompletedCallbackVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x77254866_9f5b_4c8e_b9e2_c77a8530d64b);
-}
-pub trait IDownloadCompletedCallbackImpl {
-    fn Invoke();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1638,8 +1572,6 @@ unsafe impl ::windows::core::Interface for IDownloadCompletedCallbackArgs {
     type Vtable = IDownloadCompletedCallbackArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfa565b23_498c_47a0_979d_e7d5b1813360);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IDownloadCompletedCallbackArgsImpl: IDispatchImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDownloadCompletedCallbackArgsVtbl(
@@ -1774,15 +1706,6 @@ impl ::core::fmt::Debug for IDownloadJob {
 unsafe impl ::windows::core::Interface for IDownloadJob {
     type Vtable = IDownloadJobVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc574de85_7358_43f6_aae8_8697e62d8ba7);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IDownloadJobImpl: IDispatchImpl {
-    fn AsyncState();
-    fn IsCompleted();
-    fn Updates();
-    fn CleanUp();
-    fn GetProgress();
-    fn RequestAbort();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1946,18 +1869,6 @@ unsafe impl ::windows::core::Interface for IDownloadProgress {
     type Vtable = IDownloadProgressVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd31a5bac_f719_4178_9dbb_5e2cb47fd18a);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IDownloadProgressImpl: IDispatchImpl {
-    fn CurrentUpdateBytesDownloaded();
-    fn CurrentUpdateBytesToDownload();
-    fn CurrentUpdateIndex();
-    fn PercentComplete();
-    fn TotalBytesDownloaded();
-    fn TotalBytesToDownload();
-    fn GetUpdateResult();
-    fn CurrentUpdateDownloadPhase();
-    fn CurrentUpdatePercentComplete();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDownloadProgressVtbl(
@@ -2034,9 +1945,6 @@ impl ::core::fmt::Debug for IDownloadProgressChangedCallback {
 unsafe impl ::windows::core::Interface for IDownloadProgressChangedCallback {
     type Vtable = IDownloadProgressChangedCallbackVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8c3f1cdd_6173_4591_aebd_a56a53ca77c1);
-}
-pub trait IDownloadProgressChangedCallbackImpl {
-    fn Invoke();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2136,10 +2044,6 @@ impl ::core::fmt::Debug for IDownloadProgressChangedCallbackArgs {
 unsafe impl ::windows::core::Interface for IDownloadProgressChangedCallbackArgs {
     type Vtable = IDownloadProgressChangedCallbackArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x324ff2c6_4981_4b04_9412_57481745ab24);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IDownloadProgressChangedCallbackArgsImpl: IDispatchImpl {
-    fn Progress();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2262,12 +2166,6 @@ impl ::core::fmt::Debug for IDownloadResult {
 unsafe impl ::windows::core::Interface for IDownloadResult {
     type Vtable = IDownloadResultVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdaa4fdd0_4727_4dbe_a1e7_745dca317144);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IDownloadResultImpl: IDispatchImpl {
-    fn HResult();
-    fn ResultCode();
-    fn GetUpdateResult();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2400,13 +2298,6 @@ unsafe impl ::windows::core::Interface for IImageInformation {
     type Vtable = IImageInformationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7c907864_346c_4aeb_8f3f_57da289f969f);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IImageInformationImpl: IDispatchImpl {
-    fn AltText();
-    fn Height();
-    fn Source();
-    fn Width();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IImageInformationVtbl(
@@ -2523,10 +2414,6 @@ impl ::core::fmt::Debug for IInstallationAgent {
 unsafe impl ::windows::core::Interface for IInstallationAgent {
     type Vtable = IInstallationAgentVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x925cbc18_a2ea_4648_bf1c_ec8badcfe20a);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IInstallationAgentImpl: IDispatchImpl {
-    fn RecordInstallationResult();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2656,13 +2543,6 @@ unsafe impl ::windows::core::Interface for IInstallationBehavior {
     type Vtable = IInstallationBehaviorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd9a59339_e245_4dbd_9686_4d5763e39624);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IInstallationBehaviorImpl: IDispatchImpl {
-    fn CanRequestUserInput();
-    fn Impact();
-    fn RebootBehavior();
-    fn RequiresNetworkConnectivity();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInstallationBehaviorVtbl(
@@ -2730,9 +2610,6 @@ impl ::core::fmt::Debug for IInstallationCompletedCallback {
 unsafe impl ::windows::core::Interface for IInstallationCompletedCallback {
     type Vtable = IInstallationCompletedCallbackVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x45f4f6f3_d602_4f98_9a8a_3efa152ad2d3);
-}
-pub trait IInstallationCompletedCallbackImpl {
-    fn Invoke();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2828,8 +2705,6 @@ unsafe impl ::windows::core::Interface for IInstallationCompletedCallbackArgs {
     type Vtable = IInstallationCompletedCallbackArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x250e2106_8efb_4705_9653_ef13c581b6a1);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IInstallationCompletedCallbackArgsImpl: IDispatchImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInstallationCompletedCallbackArgsVtbl(
@@ -2965,15 +2840,6 @@ unsafe impl ::windows::core::Interface for IInstallationJob {
     type Vtable = IInstallationJobVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5c209f0b_bad5_432a_9556_4699bed2638a);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IInstallationJobImpl: IDispatchImpl {
-    fn AsyncState();
-    fn IsCompleted();
-    fn Updates();
-    fn CleanUp();
-    fn GetProgress();
-    fn RequestAbort();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInstallationJobVtbl(
@@ -3107,13 +2973,6 @@ unsafe impl ::windows::core::Interface for IInstallationProgress {
     type Vtable = IInstallationProgressVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x345c8244_43a3_4e32_a368_65f073b76f36);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IInstallationProgressImpl: IDispatchImpl {
-    fn CurrentUpdateIndex();
-    fn CurrentUpdatePercentComplete();
-    fn PercentComplete();
-    fn GetUpdateResult();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInstallationProgressVtbl(
@@ -3181,9 +3040,6 @@ impl ::core::fmt::Debug for IInstallationProgressChangedCallback {
 unsafe impl ::windows::core::Interface for IInstallationProgressChangedCallback {
     type Vtable = IInstallationProgressChangedCallbackVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe01402d5_f8da_43ba_a012_38894bd048f1);
-}
-pub trait IInstallationProgressChangedCallbackImpl {
-    fn Invoke();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3283,10 +3139,6 @@ impl ::core::fmt::Debug for IInstallationProgressChangedCallbackArgs {
 unsafe impl ::windows::core::Interface for IInstallationProgressChangedCallbackArgs {
     type Vtable = IInstallationProgressChangedCallbackArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe4f14e1e_689d_4218_a0b9_bc189c484a01);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IInstallationProgressChangedCallbackArgsImpl: IDispatchImpl {
-    fn Progress();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3414,13 +3266,6 @@ impl ::core::fmt::Debug for IInstallationResult {
 unsafe impl ::windows::core::Interface for IInstallationResult {
     type Vtable = IInstallationResultVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa43c56d6_7451_48d4_af96_b6cd2d0d9b7a);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IInstallationResultImpl: IDispatchImpl {
-    fn HResult();
-    fn RebootRequired();
-    fn ResultCode();
-    fn GetUpdateResult();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3574,10 +3419,6 @@ unsafe impl ::windows::core::Interface for IInvalidProductLicenseException {
     type Vtable = IInvalidProductLicenseExceptionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa37d00f5_7bb0_4953_b414_f9e98326f2e8);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IInvalidProductLicenseExceptionImpl: IUpdateExceptionImpl + IDispatchImpl {
-    fn Product();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInvalidProductLicenseExceptionVtbl(
@@ -3647,9 +3488,6 @@ impl ::core::fmt::Debug for ISearchCompletedCallback {
 unsafe impl ::windows::core::Interface for ISearchCompletedCallback {
     type Vtable = ISearchCompletedCallbackVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x88aee058_d4b0_4725_a2f1_814a67ae964c);
-}
-pub trait ISearchCompletedCallbackImpl {
-    fn Invoke();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3745,8 +3583,6 @@ unsafe impl ::windows::core::Interface for ISearchCompletedCallbackArgs {
     type Vtable = ISearchCompletedCallbackArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa700a634_2850_4c47_938a_9e4b6e5af9a6);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait ISearchCompletedCallbackArgsImpl: IDispatchImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISearchCompletedCallbackArgsVtbl(
@@ -3871,13 +3707,6 @@ impl ::core::fmt::Debug for ISearchJob {
 unsafe impl ::windows::core::Interface for ISearchJob {
     type Vtable = ISearchJobVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7366ea16_7a1a_4ea2_b042_973d3e9cd99b);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait ISearchJobImpl: IDispatchImpl {
-    fn AsyncState();
-    fn IsCompleted();
-    fn CleanUp();
-    fn RequestAbort();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4009,13 +3838,6 @@ impl ::core::fmt::Debug for ISearchResult {
 unsafe impl ::windows::core::Interface for ISearchResult {
     type Vtable = ISearchResultVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd40cff62_e08c_4498_941a_01e25f0fd33c);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait ISearchResultImpl: IDispatchImpl {
-    fn ResultCode();
-    fn RootCategories();
-    fn Updates();
-    fn Warnings();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4177,19 +3999,6 @@ unsafe impl ::windows::core::Interface for IStringCollection {
     type Vtable = IStringCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeff90582_2ddc_480f_a06d_60f3fbc362c3);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IStringCollectionImpl: IDispatchImpl {
-    fn Item();
-    fn SetItem();
-    fn _NewEnum();
-    fn Count();
-    fn ReadOnly();
-    fn Add();
-    fn Clear();
-    fn Copy();
-    fn Insert();
-    fn RemoveAt();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IStringCollectionVtbl(
@@ -4320,11 +4129,6 @@ impl ::core::fmt::Debug for ISystemInformation {
 unsafe impl ::windows::core::Interface for ISystemInformation {
     type Vtable = ISystemInformationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xade87bf7_7b56_4275_8fab_b9b0e591844b);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait ISystemInformationImpl: IDispatchImpl {
-    fn OemHardwareSupportLink();
-    fn RebootRequired();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4668,54 +4472,6 @@ impl ::core::fmt::Debug for IUpdate {
 unsafe impl ::windows::core::Interface for IUpdate {
     type Vtable = IUpdateVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6a92b07a_d821_4682_b423_5c805022cc4d);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IUpdateImpl: IDispatchImpl {
-    fn Title();
-    fn AutoSelectOnWebSites();
-    fn BundledUpdates();
-    fn CanRequireSource();
-    fn Categories();
-    fn Deadline();
-    fn DeltaCompressedContentAvailable();
-    fn DeltaCompressedContentPreferred();
-    fn Description();
-    fn EulaAccepted();
-    fn EulaText();
-    fn HandlerID();
-    fn Identity();
-    fn Image();
-    fn InstallationBehavior();
-    fn IsBeta();
-    fn IsDownloaded();
-    fn IsHidden();
-    fn SetIsHidden();
-    fn IsInstalled();
-    fn IsMandatory();
-    fn IsUninstallable();
-    fn Languages();
-    fn LastDeploymentChangeTime();
-    fn MaxDownloadSize();
-    fn MinDownloadSize();
-    fn MoreInfoUrls();
-    fn MsrcSeverity();
-    fn RecommendedCpuSpeed();
-    fn RecommendedHardDiskSpace();
-    fn RecommendedMemory();
-    fn ReleaseNotes();
-    fn SecurityBulletinIDs();
-    fn SupersededUpdateIDs();
-    fn SupportUrl();
-    fn Type();
-    fn UninstallationNotes();
-    fn UninstallationBehavior();
-    fn UninstallationSteps();
-    fn KBArticleIDs();
-    fn AcceptEula();
-    fn DeploymentAction();
-    fn CopyFromCache();
-    fn DownloadPriority();
-    fn DownloadContents();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5152,13 +4908,6 @@ impl ::core::fmt::Debug for IUpdate2 {
 unsafe impl ::windows::core::Interface for IUpdate2 {
     type Vtable = IUpdate2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x144fe9b0_d23d_4a8b_8634_fb4457533b7a);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IUpdate2Impl: IUpdateImpl + IDispatchImpl {
-    fn RebootRequired();
-    fn IsPresent();
-    fn CveIDs();
-    fn CopyToCache();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5624,10 +5373,6 @@ impl ::core::fmt::Debug for IUpdate3 {
 unsafe impl ::windows::core::Interface for IUpdate3 {
     type Vtable = IUpdate3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x112eda6b_95b3_476f_9d90_aee82c6b8181);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IUpdate3Impl: IUpdate2Impl + IUpdateImpl + IDispatchImpl {
-    fn BrowseOnly();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6119,10 +5864,6 @@ impl ::core::fmt::Debug for IUpdate4 {
 unsafe impl ::windows::core::Interface for IUpdate4 {
     type Vtable = IUpdate4Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x27e94b0d_5139_49a2_9a61_93522dc54652);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IUpdate4Impl: IUpdate3Impl + IUpdate2Impl + IUpdateImpl + IDispatchImpl {
-    fn PerUser();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6646,11 +6387,6 @@ unsafe impl ::windows::core::Interface for IUpdate5 {
     type Vtable = IUpdate5Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc1c2f21a_d2f4_4902_b5c6_8a081c19a890);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IUpdate5Impl: IUpdate4Impl + IUpdate3Impl + IUpdate2Impl + IUpdateImpl + IDispatchImpl {
-    fn AutoSelection();
-    fn AutoDownload();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUpdate5Vtbl(
@@ -6868,19 +6604,6 @@ unsafe impl ::windows::core::Interface for IUpdateCollection {
     type Vtable = IUpdateCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x07f7438c_7709_4ca5_b518_91279288134e);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IUpdateCollectionImpl: IDispatchImpl {
-    fn Item();
-    fn SetItem();
-    fn _NewEnum();
-    fn Count();
-    fn ReadOnly();
-    fn Add();
-    fn Clear();
-    fn Copy();
-    fn Insert();
-    fn RemoveAt();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUpdateCollectionVtbl(
@@ -7002,10 +6725,6 @@ impl ::core::fmt::Debug for IUpdateDownloadContent {
 unsafe impl ::windows::core::Interface for IUpdateDownloadContent {
     type Vtable = IUpdateDownloadContentVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x54a2cb2d_9a0c_48b6_8a50_9abb69ee2d02);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IUpdateDownloadContentImpl: IDispatchImpl {
-    fn DownloadUrl();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7146,10 +6865,6 @@ unsafe impl ::windows::core::Interface for IUpdateDownloadContent2 {
     type Vtable = IUpdateDownloadContent2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc97ad11b_f257_420b_9d9f_377f733f6f68);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IUpdateDownloadContent2Impl: IUpdateDownloadContentImpl + IDispatchImpl {
-    fn IsDeltaCompressedContent();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUpdateDownloadContent2Vtbl(
@@ -7274,12 +6989,6 @@ unsafe impl ::windows::core::Interface for IUpdateDownloadContentCollection {
     type Vtable = IUpdateDownloadContentCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbc5513c8_b3b8_4bf7_a4d4_361c0d8c88ba);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IUpdateDownloadContentCollectionImpl: IDispatchImpl {
-    fn Item();
-    fn _NewEnum();
-    fn Count();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUpdateDownloadContentCollectionVtbl(
@@ -7398,11 +7107,6 @@ impl ::core::fmt::Debug for IUpdateDownloadResult {
 unsafe impl ::windows::core::Interface for IUpdateDownloadResult {
     type Vtable = IUpdateDownloadResultVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbf99af76_b575_42ad_8aa4_33cbb5477af1);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IUpdateDownloadResultImpl: IDispatchImpl {
-    fn HResult();
-    fn ResultCode();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7566,20 +7270,6 @@ unsafe impl ::windows::core::Interface for IUpdateDownloader {
     type Vtable = IUpdateDownloaderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x68f1c6f9_7ecc_4666_a464_247fe12496c3);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IUpdateDownloaderImpl: IDispatchImpl {
-    fn ClientApplicationID();
-    fn SetClientApplicationID();
-    fn IsForced();
-    fn SetIsForced();
-    fn Priority();
-    fn SetPriority();
-    fn Updates();
-    fn SetUpdates();
-    fn BeginDownload();
-    fn Download();
-    fn EndDownload();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUpdateDownloaderVtbl(
@@ -7716,12 +7406,6 @@ unsafe impl ::windows::core::Interface for IUpdateException {
     type Vtable = IUpdateExceptionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa376dd5e_09d4_427f_af7c_fed5b6e1c1d6);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IUpdateExceptionImpl: IDispatchImpl {
-    fn Message();
-    fn HResult();
-    fn Context();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUpdateExceptionVtbl(
@@ -7846,12 +7530,6 @@ impl ::core::fmt::Debug for IUpdateExceptionCollection {
 unsafe impl ::windows::core::Interface for IUpdateExceptionCollection {
     type Vtable = IUpdateExceptionCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x503626a3_8e14_4729_9355_0fe664bd2321);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IUpdateExceptionCollectionImpl: IDispatchImpl {
-    fn Item();
-    fn _NewEnum();
-    fn Count();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8037,23 +7715,6 @@ impl ::core::fmt::Debug for IUpdateHistoryEntry {
 unsafe impl ::windows::core::Interface for IUpdateHistoryEntry {
     type Vtable = IUpdateHistoryEntryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbe56a644_af0e_4e0e_a311_c1d8e695cbff);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IUpdateHistoryEntryImpl: IDispatchImpl {
-    fn Operation();
-    fn ResultCode();
-    fn HResult();
-    fn Date();
-    fn UpdateIdentity();
-    fn Title();
-    fn Description();
-    fn UnmappedResultCode();
-    fn ClientApplicationID();
-    fn ServerSelection();
-    fn ServiceID();
-    fn UninstallationSteps();
-    fn UninstallationNotes();
-    fn SupportUrl();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8282,10 +7943,6 @@ unsafe impl ::windows::core::Interface for IUpdateHistoryEntry2 {
     type Vtable = IUpdateHistoryEntry2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc2bfb780_4539_4132_ab8c_0a8772013ab6);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IUpdateHistoryEntry2Impl: IUpdateHistoryEntryImpl + IDispatchImpl {
-    fn Categories();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUpdateHistoryEntry2Vtbl(
@@ -8428,12 +8085,6 @@ unsafe impl ::windows::core::Interface for IUpdateHistoryEntryCollection {
     type Vtable = IUpdateHistoryEntryCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa7f04f3c_a290_435b_aadf_a116c3357a5c);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IUpdateHistoryEntryCollectionImpl: IDispatchImpl {
-    fn Item();
-    fn _NewEnum();
-    fn Count();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUpdateHistoryEntryCollectionVtbl(
@@ -8553,11 +8204,6 @@ impl ::core::fmt::Debug for IUpdateIdentity {
 unsafe impl ::windows::core::Interface for IUpdateIdentity {
     type Vtable = IUpdateIdentityVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x46297823_9940_4c09_aed9_cd3ea6d05968);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IUpdateIdentityImpl: IDispatchImpl {
-    fn RevisionNumber();
-    fn UpdateID();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8682,12 +8328,6 @@ impl ::core::fmt::Debug for IUpdateInstallationResult {
 unsafe impl ::windows::core::Interface for IUpdateInstallationResult {
     type Vtable = IUpdateInstallationResultVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd940f0f8_3cbb_4fd0_993f_471e7f2328ad);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IUpdateInstallationResultImpl: IDispatchImpl {
-    fn HResult();
-    fn RebootRequired();
-    fn ResultCode();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8903,30 +8543,6 @@ impl ::core::fmt::Debug for IUpdateInstaller {
 unsafe impl ::windows::core::Interface for IUpdateInstaller {
     type Vtable = IUpdateInstallerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7b929c68_ccdc_4226_96b1_8724600b54c2);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IUpdateInstallerImpl: IDispatchImpl {
-    fn ClientApplicationID();
-    fn SetClientApplicationID();
-    fn IsForced();
-    fn SetIsForced();
-    fn ParentHwnd();
-    fn SetParentHwnd();
-    fn SetParentWindow();
-    fn ParentWindow();
-    fn Updates();
-    fn SetUpdates();
-    fn BeginInstall();
-    fn BeginUninstall();
-    fn EndInstall();
-    fn EndUninstall();
-    fn Install();
-    fn RunWizard();
-    fn IsBusy();
-    fn Uninstall();
-    fn AllowSourcePrompts();
-    fn SetAllowSourcePrompts();
-    fn RebootRequiredBeforeInstallation();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9196,11 +8812,6 @@ impl ::core::fmt::Debug for IUpdateInstaller2 {
 unsafe impl ::windows::core::Interface for IUpdateInstaller2 {
     type Vtable = IUpdateInstaller2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3442d4fe_224d_4cee_98cf_30e0c4d229e6);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IUpdateInstaller2Impl: IUpdateInstallerImpl + IDispatchImpl {
-    fn ForceQuiet();
-    fn SetForceQuiet();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9501,11 +9112,6 @@ impl ::core::fmt::Debug for IUpdateInstaller3 {
 unsafe impl ::windows::core::Interface for IUpdateInstaller3 {
     type Vtable = IUpdateInstaller3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x16d11c35_099a_48d0_8338_5fae64047f8e);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IUpdateInstaller3Impl: IUpdateInstaller2Impl + IUpdateInstallerImpl + IDispatchImpl {
-    fn AttemptCloseAppsIfNecessary();
-    fn SetAttemptCloseAppsIfNecessary();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9833,10 +9439,6 @@ unsafe impl ::windows::core::Interface for IUpdateInstaller4 {
     type Vtable = IUpdateInstaller4Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xef8208ea_2304_492d_9109_23813b0958e1);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IUpdateInstaller4Impl: IUpdateInstaller3Impl + IUpdateInstaller2Impl + IUpdateInstallerImpl + IDispatchImpl {
-    fn Commit();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUpdateInstaller4Vtbl(
@@ -9933,9 +9535,6 @@ impl ::core::fmt::Debug for IUpdateLockdown {
 unsafe impl ::windows::core::Interface for IUpdateLockdown {
     type Vtable = IUpdateLockdownVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa976c28d_75a1_42aa_94ae_8af8b872089a);
-}
-pub trait IUpdateLockdownImpl {
-    fn LockDown();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -10121,27 +9720,6 @@ impl ::core::fmt::Debug for IUpdateSearcher {
 unsafe impl ::windows::core::Interface for IUpdateSearcher {
     type Vtable = IUpdateSearcherVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8f45abf1_f9ae_4b95_a933_f0f66e5056ea);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IUpdateSearcherImpl: IDispatchImpl {
-    fn CanAutomaticallyUpgradeService();
-    fn SetCanAutomaticallyUpgradeService();
-    fn ClientApplicationID();
-    fn SetClientApplicationID();
-    fn IncludePotentiallySupersededUpdates();
-    fn SetIncludePotentiallySupersededUpdates();
-    fn ServerSelection();
-    fn SetServerSelection();
-    fn BeginSearch();
-    fn EndSearch();
-    fn EscapeString();
-    fn QueryHistory();
-    fn Search();
-    fn Online();
-    fn SetOnline();
-    fn GetTotalHistoryCount();
-    fn ServiceID();
-    fn SetServiceID();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -10393,11 +9971,6 @@ impl ::core::fmt::Debug for IUpdateSearcher2 {
 unsafe impl ::windows::core::Interface for IUpdateSearcher2 {
     type Vtable = IUpdateSearcher2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4cbdcb2d_1589_4beb_bd1c_3e582ff0add0);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IUpdateSearcher2Impl: IUpdateSearcherImpl + IDispatchImpl {
-    fn IgnoreDownloadPriority();
-    fn SetIgnoreDownloadPriority();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -10681,11 +10254,6 @@ unsafe impl ::windows::core::Interface for IUpdateSearcher3 {
     type Vtable = IUpdateSearcher3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x04c6895d_eaf2_4034_97f3_311de9be413a);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IUpdateSearcher3Impl: IUpdateSearcher2Impl + IUpdateSearcherImpl + IDispatchImpl {
-    fn SearchScope();
-    fn SetSearchScope();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUpdateSearcher3Vtbl(
@@ -10890,22 +10458,6 @@ impl ::core::fmt::Debug for IUpdateService {
 unsafe impl ::windows::core::Interface for IUpdateService {
     type Vtable = IUpdateServiceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x76b3b17e_aed6_4da5_85f0_83587f81abe3);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IUpdateServiceImpl: IDispatchImpl {
-    fn Name();
-    fn ContentValidationCert();
-    fn ExpirationDate();
-    fn IsManaged();
-    fn IsRegisteredWithAU();
-    fn IssueDate();
-    fn OffersWindowsUpdates();
-    fn RedirectUrls();
-    fn ServiceID();
-    fn IsScanPackageService();
-    fn CanRegisterWithAU();
-    fn ServiceUrl();
-    fn SetupPrefix();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -11126,10 +10678,6 @@ unsafe impl ::windows::core::Interface for IUpdateService2 {
     type Vtable = IUpdateService2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1518b460_6518_4172_940f_c75883b24ceb);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IUpdateService2Impl: IUpdateServiceImpl + IDispatchImpl {
-    fn IsDefaultAUService();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUpdateService2Vtbl(
@@ -11269,12 +10817,6 @@ impl ::core::fmt::Debug for IUpdateServiceCollection {
 unsafe impl ::windows::core::Interface for IUpdateServiceCollection {
     type Vtable = IUpdateServiceCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9b0353aa_0e52_44ff_b8b0_1f7fa0437f88);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IUpdateServiceCollectionImpl: IDispatchImpl {
-    fn Item();
-    fn _NewEnum();
-    fn Count();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -11421,16 +10963,6 @@ impl ::core::fmt::Debug for IUpdateServiceManager {
 unsafe impl ::windows::core::Interface for IUpdateServiceManager {
     type Vtable = IUpdateServiceManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x23857e3c_02ba_44a3_9423_b1c900805f37);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IUpdateServiceManagerImpl: IDispatchImpl {
-    fn Services();
-    fn AddService();
-    fn RegisterServiceWithAU();
-    fn RemoveService();
-    fn UnregisterServiceWithAU();
-    fn AddScanPackageService();
-    fn SetOption();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -11631,13 +11163,6 @@ unsafe impl ::windows::core::Interface for IUpdateServiceManager2 {
     type Vtable = IUpdateServiceManager2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0bb8531d_7e8d_424f_986c_a0b8f60a3e7b);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IUpdateServiceManager2Impl: IUpdateServiceManagerImpl + IDispatchImpl {
-    fn ClientApplicationID();
-    fn SetClientApplicationID();
-    fn QueryServiceRegistration();
-    fn AddService2();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUpdateServiceManager2Vtbl(
@@ -11785,13 +11310,6 @@ impl ::core::fmt::Debug for IUpdateServiceRegistration {
 unsafe impl ::windows::core::Interface for IUpdateServiceRegistration {
     type Vtable = IUpdateServiceRegistrationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdde02280_12b3_4e0b_937b_6747f6acb286);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IUpdateServiceRegistrationImpl: IDispatchImpl {
-    fn RegistrationState();
-    fn ServiceID();
-    fn IsPendingRegistrationWithAU();
-    fn Service();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -11943,17 +11461,6 @@ impl ::core::fmt::Debug for IUpdateSession {
 unsafe impl ::windows::core::Interface for IUpdateSession {
     type Vtable = IUpdateSessionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x816858a4_260d_4260_933a_2585f1abc76b);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IUpdateSessionImpl: IDispatchImpl {
-    fn ClientApplicationID();
-    fn SetClientApplicationID();
-    fn ReadOnly();
-    fn WebProxy();
-    fn SetWebProxy();
-    fn CreateUpdateSearcher();
-    fn CreateUpdateDownloader();
-    fn CreateUpdateInstaller();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -12139,11 +11646,6 @@ impl ::core::fmt::Debug for IUpdateSession2 {
 unsafe impl ::windows::core::Interface for IUpdateSession2 {
     type Vtable = IUpdateSession2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x91caf7b0_eb23_49ed_9937_c52d817f46f7);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IUpdateSession2Impl: IUpdateSessionImpl + IDispatchImpl {
-    fn UserLocale();
-    fn SetUserLocale();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -12363,11 +11865,6 @@ unsafe impl ::windows::core::Interface for IUpdateSession3 {
     type Vtable = IUpdateSession3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x918efd1e_b5d8_4c90_8540_aeb9bdc56f9d);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IUpdateSession3Impl: IUpdateSession2Impl + IUpdateSessionImpl + IDispatchImpl {
-    fn CreateUpdateServiceManager();
-    fn QueryHistory();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUpdateSession3Vtbl(
@@ -12557,23 +12054,6 @@ impl ::core::fmt::Debug for IWebProxy {
 unsafe impl ::windows::core::Interface for IWebProxy {
     type Vtable = IWebProxyVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x174c81fe_aecd_4dae_b8a0_2c6318dd86a8);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IWebProxyImpl: IDispatchImpl {
-    fn Address();
-    fn SetAddress();
-    fn BypassList();
-    fn SetBypassList();
-    fn BypassProxyOnLocal();
-    fn SetBypassProxyOnLocal();
-    fn ReadOnly();
-    fn UserName();
-    fn SetUserName();
-    fn SetPassword();
-    fn PromptForCredentials();
-    fn PromptForCredentialsFromHwnd();
-    fn AutoDetect();
-    fn SetAutoDetect();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -13000,17 +12480,6 @@ impl ::core::fmt::Debug for IWindowsDriverUpdate {
 unsafe impl ::windows::core::Interface for IWindowsDriverUpdate {
     type Vtable = IWindowsDriverUpdateVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb383cd1a_5ce9_4504_9f63_764b1236f191);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IWindowsDriverUpdateImpl: IUpdateImpl + IDispatchImpl {
-    fn DriverClass();
-    fn DriverHardwareID();
-    fn DriverManufacturer();
-    fn DriverModel();
-    fn DriverProvider();
-    fn DriverVerDate();
-    fn DeviceProblemNumber();
-    fn DeviceStatus();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -13525,13 +12994,6 @@ impl ::core::fmt::Debug for IWindowsDriverUpdate2 {
 unsafe impl ::windows::core::Interface for IWindowsDriverUpdate2 {
     type Vtable = IWindowsDriverUpdate2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x615c4269_7a48_43bd_96b7_bf6ca27d6c3e);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IWindowsDriverUpdate2Impl: IWindowsDriverUpdateImpl + IUpdateImpl + IDispatchImpl {
-    fn RebootRequired();
-    fn IsPresent();
-    fn CveIDs();
-    fn CopyToCache();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -14075,10 +13537,6 @@ impl ::core::fmt::Debug for IWindowsDriverUpdate3 {
 unsafe impl ::windows::core::Interface for IWindowsDriverUpdate3 {
     type Vtable = IWindowsDriverUpdate3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x49ebd502_4a96_41bd_9e3e_4c5057f4250c);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IWindowsDriverUpdate3Impl: IWindowsDriverUpdate2Impl + IWindowsDriverUpdateImpl + IUpdateImpl + IDispatchImpl {
-    fn BrowseOnly();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -14653,11 +14111,6 @@ impl ::core::fmt::Debug for IWindowsDriverUpdate4 {
 unsafe impl ::windows::core::Interface for IWindowsDriverUpdate4 {
     type Vtable = IWindowsDriverUpdate4Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x004c6a2b_0c19_4c69_9f5c_a269b2560db9);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IWindowsDriverUpdate4Impl: IWindowsDriverUpdate3Impl + IWindowsDriverUpdate2Impl + IWindowsDriverUpdateImpl + IUpdateImpl + IDispatchImpl {
-    fn WindowsDriverUpdateEntries();
-    fn PerUser();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -15265,11 +14718,6 @@ unsafe impl ::windows::core::Interface for IWindowsDriverUpdate5 {
     type Vtable = IWindowsDriverUpdate5Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x70cf5c82_8642_42bb_9dbc_0cfd263c6c4f);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IWindowsDriverUpdate5Impl: IWindowsDriverUpdate4Impl + IWindowsDriverUpdate3Impl + IWindowsDriverUpdate2Impl + IWindowsDriverUpdateImpl + IUpdateImpl + IDispatchImpl {
-    fn AutoSelection();
-    fn AutoDownload();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWindowsDriverUpdate5Vtbl(
@@ -15500,17 +14948,6 @@ unsafe impl ::windows::core::Interface for IWindowsDriverUpdateEntry {
     type Vtable = IWindowsDriverUpdateEntryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xed8bfe40_a60b_42ea_9652_817dfcfa23ec);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IWindowsDriverUpdateEntryImpl: IDispatchImpl {
-    fn DriverClass();
-    fn DriverHardwareID();
-    fn DriverManufacturer();
-    fn DriverModel();
-    fn DriverProvider();
-    fn DriverVerDate();
-    fn DeviceProblemNumber();
-    fn DeviceStatus();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWindowsDriverUpdateEntryVtbl(
@@ -15645,12 +15082,6 @@ unsafe impl ::windows::core::Interface for IWindowsDriverUpdateEntryCollection {
     type Vtable = IWindowsDriverUpdateEntryCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0d521700_a372_4bef_828b_3d00c10adebd);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IWindowsDriverUpdateEntryCollectionImpl: IDispatchImpl {
-    fn Item();
-    fn _NewEnum();
-    fn Count();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWindowsDriverUpdateEntryCollectionVtbl(
@@ -15765,10 +15196,6 @@ impl ::core::fmt::Debug for IWindowsUpdateAgentInfo {
 unsafe impl ::windows::core::Interface for IWindowsUpdateAgentInfo {
     type Vtable = IWindowsUpdateAgentInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x85713fa1_7796_4fa2_be3b_e2d6124dd373);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IWindowsUpdateAgentInfoImpl: IDispatchImpl {
-    fn GetInfo();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -16823,3 +16250,5 @@ pub const WU_S_UH_INSTALLSTILLPENDING: ::windows::core::HRESULT = ::windows::cor
 pub const WU_S_UPDATE_ERROR: ::windows::core::HRESULT = ::windows::core::HRESULT(2359299i32);
 pub const WebProxy: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x650503cf_9108_4ddc_a2ce_6c2341e1c582);
 pub const WindowsUpdateAgentInfo: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc2e88c2f_6f5b_4aaa_894b_55c847ad3a2d);
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

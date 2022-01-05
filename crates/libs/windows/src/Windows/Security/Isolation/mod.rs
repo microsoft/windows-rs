@@ -99,20 +99,6 @@ unsafe impl ::windows::core::Interface for IIsolatedWindowsEnvironment {
     type Vtable = IIsolatedWindowsEnvironmentVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x41d24597_c328_4467_b37f_4dfc6f60b6bc);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IIsolatedWindowsEnvironmentImpl {
-    fn Id();
-    fn StartProcessSilentlyAsync();
-    fn StartProcessSilentlyWithTelemetryAsync();
-    fn ShareFolderAsync();
-    fn ShareFolderWithTelemetryAsync();
-    fn LaunchFileWithUIAsync();
-    fn LaunchFileWithUIAndTelemetryAsync();
-    fn TerminateAsync();
-    fn TerminateWithTelemetryAsync();
-    fn RegisterMessageReceiver();
-    fn UnregisterMessageReceiver();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IIsolatedWindowsEnvironmentVtbl(
@@ -150,11 +136,6 @@ unsafe impl ::windows::core::Interface for IIsolatedWindowsEnvironment2 {
     type Vtable = IIsolatedWindowsEnvironment2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2d365f39_88bd_4ab4_93cf_7e2bcef337c0);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IIsolatedWindowsEnvironment2Impl {
-    fn PostMessageToReceiverAsync();
-    fn PostMessageToReceiverWithTelemetryAsync();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IIsolatedWindowsEnvironment2Vtbl(
@@ -175,12 +156,6 @@ pub struct IIsolatedWindowsEnvironment3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IIsolatedWindowsEnvironment3 {
     type Vtable = IIsolatedWindowsEnvironment3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcb7fc7d2_d06e_4c26_8ada_dacdaaad03f5);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IIsolatedWindowsEnvironment3Impl {
-    fn GetUserInfo();
-    fn ShareFileAsync();
-    fn ShareFileWithTelemetryAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -204,12 +179,6 @@ unsafe impl ::windows::core::Interface for IIsolatedWindowsEnvironmentCreateResu
     type Vtable = IIsolatedWindowsEnvironmentCreateResultVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xef9a5e58_dcd7_45c2_9c85_ab642a715e8e);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IIsolatedWindowsEnvironmentCreateResultImpl {
-    fn Status();
-    fn ExtendedError();
-    fn Environment();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IIsolatedWindowsEnvironmentCreateResultVtbl(
@@ -229,13 +198,6 @@ pub struct IIsolatedWindowsEnvironmentFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IIsolatedWindowsEnvironmentFactory {
     type Vtable = IIsolatedWindowsEnvironmentFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1aca93e7_e804_454d_8466_f9897c20b0f6);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IIsolatedWindowsEnvironmentFactoryImpl {
-    fn CreateAsync();
-    fn CreateWithTelemetryAsync();
-    fn GetById();
-    fn FindByOwnerId();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -261,12 +223,6 @@ unsafe impl ::windows::core::Interface for IIsolatedWindowsEnvironmentFile {
     type Vtable = IIsolatedWindowsEnvironmentFileVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4d5ae1ef_029f_4101_8c35_fe91bf9cd5f0);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IIsolatedWindowsEnvironmentFileImpl {
-    fn Id();
-    fn HostPath();
-    fn Close();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IIsolatedWindowsEnvironmentFileVtbl(
@@ -287,11 +243,6 @@ unsafe impl ::windows::core::Interface for IIsolatedWindowsEnvironmentFile2 {
     type Vtable = IIsolatedWindowsEnvironmentFile2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4eeb8dec_ad5d_4b0a_b754_f36c3d46d684);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IIsolatedWindowsEnvironmentFile2Impl {
-    fn GuestPath();
-    fn IsReadOnly();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IIsolatedWindowsEnvironmentFile2Vtbl(
@@ -310,11 +261,6 @@ pub struct IIsolatedWindowsEnvironmentHostStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IIsolatedWindowsEnvironmentHostStatics {
     type Vtable = IIsolatedWindowsEnvironmentHostStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2c0e22c7_05a0_517a_b81c_6ee8790c381f);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IIsolatedWindowsEnvironmentHostStaticsImpl {
-    fn IsReady();
-    fn HostErrors();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -336,12 +282,6 @@ unsafe impl ::windows::core::Interface for IIsolatedWindowsEnvironmentLaunchFile
     type Vtable = IIsolatedWindowsEnvironmentLaunchFileResultVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x685d4176_f6e0_4569_b1aa_215c0ff5b257);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IIsolatedWindowsEnvironmentLaunchFileResultImpl {
-    fn Status();
-    fn ExtendedError();
-    fn File();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IIsolatedWindowsEnvironmentLaunchFileResultVtbl(
@@ -361,26 +301,6 @@ pub struct IIsolatedWindowsEnvironmentOptions(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IIsolatedWindowsEnvironmentOptions {
     type Vtable = IIsolatedWindowsEnvironmentOptionsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb71d98f7_61f0_4008_b207_0bf9eb2d76f2);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IIsolatedWindowsEnvironmentOptionsImpl {
-    fn EnvironmentOwnerId();
-    fn SetEnvironmentOwnerId();
-    fn AllowedClipboardFormats();
-    fn SetAllowedClipboardFormats();
-    fn ClipboardCopyPasteDirections();
-    fn SetClipboardCopyPasteDirections();
-    fn AvailablePrinters();
-    fn SetAvailablePrinters();
-    fn SharedHostFolderPath();
-    fn SharedFolderNameInEnvironment();
-    fn ShareHostFolderForUntrustedItems();
-    fn PersistUserProfile();
-    fn SetPersistUserProfile();
-    fn AllowGraphicsHardwareAcceleration();
-    fn SetAllowGraphicsHardwareAcceleration();
-    fn AllowCameraAndMicrophoneAccess();
-    fn SetAllowCameraAndMicrophoneAccess();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -416,11 +336,6 @@ unsafe impl ::windows::core::Interface for IIsolatedWindowsEnvironmentOptions2 {
     type Vtable = IIsolatedWindowsEnvironmentOptions2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x10d7cc31_8b8f_4b9d_b22c_617103b55b08);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IIsolatedWindowsEnvironmentOptions2Impl {
-    fn WindowAnnotationOverride();
-    fn SetWindowAnnotationOverride();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IIsolatedWindowsEnvironmentOptions2Vtbl(
@@ -439,13 +354,6 @@ pub struct IIsolatedWindowsEnvironmentOwnerRegistrationData(::windows::core::IUn
 unsafe impl ::windows::core::Interface for IIsolatedWindowsEnvironmentOwnerRegistrationData {
     type Vtable = IIsolatedWindowsEnvironmentOwnerRegistrationDataVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf888ec22_e8cf_56c0_b1df_90af4ad80e84);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IIsolatedWindowsEnvironmentOwnerRegistrationDataImpl {
-    fn ShareableFolders();
-    fn ProcessesRunnableAsSystem();
-    fn ProcessesRunnableAsUser();
-    fn ActivationFileExtensions();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -472,11 +380,6 @@ unsafe impl ::windows::core::Interface for IIsolatedWindowsEnvironmentOwnerRegis
     type Vtable = IIsolatedWindowsEnvironmentOwnerRegistrationResultVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6dab9451_6169_55df_8f51_790e99d7277d);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IIsolatedWindowsEnvironmentOwnerRegistrationResultImpl {
-    fn Status();
-    fn ExtendedError();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IIsolatedWindowsEnvironmentOwnerRegistrationResultVtbl(
@@ -495,11 +398,6 @@ pub struct IIsolatedWindowsEnvironmentOwnerRegistrationStatics(::windows::core::
 unsafe impl ::windows::core::Interface for IIsolatedWindowsEnvironmentOwnerRegistrationStatics {
     type Vtable = IIsolatedWindowsEnvironmentOwnerRegistrationStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x10951754_204b_5ec9_9de3_df792d074a61);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IIsolatedWindowsEnvironmentOwnerRegistrationStaticsImpl {
-    fn Register();
-    fn Unregister();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -520,11 +418,6 @@ unsafe impl ::windows::core::Interface for IIsolatedWindowsEnvironmentPostMessag
     type Vtable = IIsolatedWindowsEnvironmentPostMessageResultVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0dfa28fa_2ef0_4d8f_b341_3171b2df93b1);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IIsolatedWindowsEnvironmentPostMessageResultImpl {
-    fn Status();
-    fn ExtendedError();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IIsolatedWindowsEnvironmentPostMessageResultVtbl(
@@ -543,14 +436,6 @@ pub struct IIsolatedWindowsEnvironmentProcess(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IIsolatedWindowsEnvironmentProcess {
     type Vtable = IIsolatedWindowsEnvironmentProcessVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa858c3ef_8172_4f10_af93_cbe60af88d09);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IIsolatedWindowsEnvironmentProcessImpl {
-    fn State();
-    fn ExitCode();
-    fn WaitForExit();
-    fn WaitForExitWithTimeout();
-    fn WaitForExitAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -575,11 +460,6 @@ unsafe impl ::windows::core::Interface for IIsolatedWindowsEnvironmentShareFileR
     type Vtable = IIsolatedWindowsEnvironmentShareFileRequestOptionsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc9190ed8_0fd0_4946_bb88_117a60737b61);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IIsolatedWindowsEnvironmentShareFileRequestOptionsImpl {
-    fn AllowWrite();
-    fn SetAllowWrite();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IIsolatedWindowsEnvironmentShareFileRequestOptionsVtbl(
@@ -598,12 +478,6 @@ pub struct IIsolatedWindowsEnvironmentShareFileResult(::windows::core::IUnknown)
 unsafe impl ::windows::core::Interface for IIsolatedWindowsEnvironmentShareFileResult {
     type Vtable = IIsolatedWindowsEnvironmentShareFileResultVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaec7caa7_9ac6_4bf5_8b91_5c1adf0d7d00);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IIsolatedWindowsEnvironmentShareFileResultImpl {
-    fn Status();
-    fn ExtendedError();
-    fn File();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -625,11 +499,6 @@ unsafe impl ::windows::core::Interface for IIsolatedWindowsEnvironmentShareFolde
     type Vtable = IIsolatedWindowsEnvironmentShareFolderRequestOptionsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc405eb7d_7053_4f6a_9b87_746846ed19b2);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IIsolatedWindowsEnvironmentShareFolderRequestOptionsImpl {
-    fn AllowWrite();
-    fn SetAllowWrite();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IIsolatedWindowsEnvironmentShareFolderRequestOptionsVtbl(
@@ -649,11 +518,6 @@ unsafe impl ::windows::core::Interface for IIsolatedWindowsEnvironmentShareFolde
     type Vtable = IIsolatedWindowsEnvironmentShareFolderResultVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x556ba72e_ca9d_4211_b143_1cedc86eb2fe);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IIsolatedWindowsEnvironmentShareFolderResultImpl {
-    fn Status();
-    fn ExtendedError();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IIsolatedWindowsEnvironmentShareFolderResultVtbl(
@@ -672,12 +536,6 @@ pub struct IIsolatedWindowsEnvironmentStartProcessResult(::windows::core::IUnkno
 unsafe impl ::windows::core::Interface for IIsolatedWindowsEnvironmentStartProcessResult {
     type Vtable = IIsolatedWindowsEnvironmentStartProcessResultVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8fa1dc2f_57da_4bb5_9c06_fa072d2032e2);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IIsolatedWindowsEnvironmentStartProcessResultImpl {
-    fn Status();
-    fn ExtendedError();
-    fn Process();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -699,11 +557,6 @@ unsafe impl ::windows::core::Interface for IIsolatedWindowsEnvironmentTelemetryP
     type Vtable = IIsolatedWindowsEnvironmentTelemetryParametersVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xebdb3cab_7a3a_4524_a0f4_f96e284d33cd);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IIsolatedWindowsEnvironmentTelemetryParametersImpl {
-    fn CorrelationId();
-    fn SetCorrelationId();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IIsolatedWindowsEnvironmentTelemetryParametersVtbl(
@@ -722,12 +575,6 @@ pub struct IIsolatedWindowsEnvironmentUserInfo(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IIsolatedWindowsEnvironmentUserInfo {
     type Vtable = IIsolatedWindowsEnvironmentUserInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8a9c75ae_69ba_4001_96fc_19a02703b340);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IIsolatedWindowsEnvironmentUserInfoImpl {
-    fn EnvironmentUserSid();
-    fn EnvironmentUserName();
-    fn TryWaitForSignInAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -750,11 +597,6 @@ unsafe impl ::windows::core::Interface for IIsolatedWindowsHostMessengerStatics 
     type Vtable = IIsolatedWindowsHostMessengerStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x06e444bb_53c0_4889_8fa3_53592e37cf21);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IIsolatedWindowsHostMessengerStaticsImpl {
-    fn PostMessageToReceiver();
-    fn GetFileId();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IIsolatedWindowsHostMessengerStaticsVtbl(
@@ -774,11 +616,6 @@ pub struct IIsolatedWindowsHostMessengerStatics2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IIsolatedWindowsHostMessengerStatics2 {
     type Vtable = IIsolatedWindowsHostMessengerStatics2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x55ef9ebc_0444_42ad_832d_1b89c089d1ca);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IIsolatedWindowsHostMessengerStatics2Impl {
-    fn RegisterHostMessageReceiver();
-    fn UnregisterHostMessageReceiver();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3401,3 +3238,5 @@ pub struct MessageReceivedCallbackVtbl(
     #[cfg(feature = "Foundation_Collections")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, receiverid: ::windows::core::GUID, message: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

@@ -134,18 +134,6 @@ unsafe impl ::windows::core::Interface for IChannelCredentials {
     type Vtable = IChannelCredentialsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x181b448c_c17c_4b17_ac6d_06699b93198f);
 }
-pub trait IChannelCredentialsImpl: IDispatchImpl {
-    fn SetWindowsCredential();
-    fn SetUserNameCredential();
-    fn SetClientCertificateFromStore();
-    fn SetClientCertificateFromStoreByName();
-    fn SetClientCertificateFromFile();
-    fn SetDefaultServiceCertificateFromStore();
-    fn SetDefaultServiceCertificateFromStoreByName();
-    fn SetDefaultServiceCertificateFromFile();
-    fn SetServiceCertificateAuthentication();
-    fn SetIssuedToken();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IChannelCredentialsVtbl(
@@ -179,3 +167,5 @@ pub struct IChannelCredentialsVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, localissueraddres: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, localissuerbindingtype: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, localissuerbinding: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

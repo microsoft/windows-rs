@@ -1276,20 +1276,6 @@ unsafe impl ::windows::core::Interface for IMXAttributes {
     type Vtable = IMXAttributesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf10d27cc_3ec0_415c_8ed8_77ab1c5e7262);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IMXAttributesImpl: IDispatchImpl {
-    fn addAttribute();
-    fn addAttributeFromIndex();
-    fn clear();
-    fn removeAttribute();
-    fn setAttribute();
-    fn setAttributes();
-    fn setLocalName();
-    fn setQName();
-    fn setType();
-    fn setURI();
-    fn setValue();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMXAttributesVtbl(
@@ -1414,18 +1400,6 @@ impl ::core::fmt::Debug for IMXNamespaceManager {
 unsafe impl ::windows::core::Interface for IMXNamespaceManager {
     type Vtable = IMXNamespaceManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc90352f6_643c_4fbc_bb23_e996eb2d51fd);
-}
-pub trait IMXNamespaceManagerImpl {
-    fn putAllowOverride();
-    fn getAllowOverride();
-    fn reset();
-    fn pushContext();
-    fn pushNodeContext();
-    fn popContext();
-    fn declarePrefix();
-    fn getDeclaredPrefix();
-    fn getPrefix();
-    fn getURI();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1555,12 +1529,6 @@ unsafe impl ::windows::core::Interface for IMXNamespacePrefixes {
     type Vtable = IMXNamespacePrefixesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc90352f4_643c_4fbc_bb23_e996eb2d51fd);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IMXNamespacePrefixesImpl: IDispatchImpl {
-    fn item();
-    fn length();
-    fn _newEnum();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMXNamespacePrefixesVtbl(
@@ -1683,12 +1651,6 @@ unsafe impl ::windows::core::Interface for IMXReaderControl {
     type Vtable = IMXReaderControlVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x808f4e35_8d5a_4fbe_8466_33a41279ed30);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IMXReaderControlImpl: IDispatchImpl {
-    fn abort();
-    fn resume();
-    fn suspend();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMXReaderControlVtbl(
@@ -1801,10 +1763,6 @@ impl ::core::fmt::Debug for IMXSchemaDeclHandler {
 unsafe impl ::windows::core::Interface for IMXSchemaDeclHandler {
     type Vtable = IMXSchemaDeclHandlerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfa4bb38c_faf9_4cca_9302_d1dd0fe520db);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IMXSchemaDeclHandlerImpl: IDispatchImpl {
-    fn schemaElementDecl();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1995,26 +1953,6 @@ unsafe impl ::windows::core::Interface for IMXWriter {
     type Vtable = IMXWriterVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4d7ff4ba_1565_4ea8_94e1_6e724a46f98d);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IMXWriterImpl: IDispatchImpl {
-    fn Setoutput();
-    fn output();
-    fn Setencoding();
-    fn encoding();
-    fn SetbyteOrderMark();
-    fn byteOrderMark();
-    fn Setindent();
-    fn indent();
-    fn Setstandalone();
-    fn standalone();
-    fn SetomitXMLDeclaration();
-    fn omitXMLDeclaration();
-    fn Setversion();
-    fn version();
-    fn SetdisableOutputEscaping();
-    fn disableOutputEscaping();
-    fn flush();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMXWriterVtbl(
@@ -2202,21 +2140,6 @@ unsafe impl ::windows::core::Interface for IMXXMLFilter {
     type Vtable = IMXXMLFilterVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc90352f7_643c_4fbc_bb23_e996eb2d51fd);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IMXXMLFilterImpl: IDispatchImpl {
-    fn getFeature();
-    fn putFeature();
-    fn getProperty();
-    fn putProperty();
-    fn entityResolver();
-    fn putref_entityResolver();
-    fn contentHandler();
-    fn putref_contentHandler();
-    fn dtdHandler();
-    fn putref_dtdHandler();
-    fn errorHandler();
-    fn putref_errorHandler();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMXXMLFilterVtbl(
@@ -2354,21 +2277,6 @@ unsafe impl ::windows::core::Interface for ISAXAttributes {
     type Vtable = ISAXAttributesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf078abe1_45d2_4832_91ea_4466ce2f25c9);
 }
-pub trait ISAXAttributesImpl {
-    fn getLength();
-    fn getURI();
-    fn getLocalName();
-    fn getQName();
-    fn getName();
-    fn getIndexFromName();
-    fn getIndexFromQName();
-    fn getType();
-    fn getTypeFromName();
-    fn getTypeFromQName();
-    fn getValue();
-    fn getValueFromName();
-    fn getValueFromQName();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISAXAttributesVtbl(
@@ -2492,19 +2400,6 @@ unsafe impl ::windows::core::Interface for ISAXContentHandler {
     type Vtable = ISAXContentHandlerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1545cdfa_9e4e_4497_a8a4_2bf7d0112c44);
 }
-pub trait ISAXContentHandlerImpl {
-    fn putDocumentLocator();
-    fn startDocument();
-    fn endDocument();
-    fn startPrefixMapping();
-    fn endPrefixMapping();
-    fn startElement();
-    fn endElement();
-    fn characters();
-    fn ignorableWhitespace();
-    fn processingInstruction();
-    fn skippedEntity();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISAXContentHandlerVtbl(
@@ -2586,10 +2481,6 @@ unsafe impl ::windows::core::Interface for ISAXDTDHandler {
     type Vtable = ISAXDTDHandlerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe15c1baf_afb3_4d60_8c36_19a8c45defed);
 }
-pub trait ISAXDTDHandlerImpl {
-    fn notationDecl();
-    fn unparsedEntityDecl();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISAXDTDHandlerVtbl(
@@ -2666,12 +2557,6 @@ unsafe impl ::windows::core::Interface for ISAXDeclHandler {
     type Vtable = ISAXDeclHandlerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x862629ac_771a_47b2_8337_4e6843c1be90);
 }
-pub trait ISAXDeclHandlerImpl {
-    fn elementDecl();
-    fn attributeDecl();
-    fn internalEntityDecl();
-    fn externalEntityDecl();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISAXDeclHandlerVtbl(
@@ -2737,9 +2622,6 @@ impl ::core::fmt::Debug for ISAXEntityResolver {
 unsafe impl ::windows::core::Interface for ISAXEntityResolver {
     type Vtable = ISAXEntityResolverVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x99bca7bd_e8c4_4d5f_a0cf_6d907901ff07);
-}
-pub trait ISAXEntityResolverImpl {
-    fn resolveEntity();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2809,11 +2691,6 @@ impl ::core::fmt::Debug for ISAXErrorHandler {
 unsafe impl ::windows::core::Interface for ISAXErrorHandler {
     type Vtable = ISAXErrorHandlerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa60511c4_ccf5_479e_98a3_dc8dc545b7d0);
-}
-pub trait ISAXErrorHandlerImpl {
-    fn error();
-    fn fatalError();
-    fn ignorableWarning();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2905,15 +2782,6 @@ unsafe impl ::windows::core::Interface for ISAXLexicalHandler {
     type Vtable = ISAXLexicalHandlerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7f85d5f5_47a8_4497_bda5_84ba04819ea6);
 }
-pub trait ISAXLexicalHandlerImpl {
-    fn startDTD();
-    fn endDTD();
-    fn startEntity();
-    fn endEntity();
-    fn startCDATA();
-    fn endCDATA();
-    fn comment();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISAXLexicalHandlerVtbl(
@@ -2996,12 +2864,6 @@ impl ::core::fmt::Debug for ISAXLocator {
 unsafe impl ::windows::core::Interface for ISAXLocator {
     type Vtable = ISAXLocatorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9b7e472a_0de4_4640_bff3_84d38a051c31);
-}
-pub trait ISAXLocatorImpl {
-    fn getColumnNumber();
-    fn getLineNumber();
-    fn getPublicId();
-    fn getSystemId();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3176,10 +3038,6 @@ unsafe impl ::windows::core::Interface for ISAXXMLFilter {
     type Vtable = ISAXXMLFilterVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x70409222_ca09_4475_acb8_40312fe8d145);
 }
-pub trait ISAXXMLFilterImpl: ISAXXMLReaderImpl {
-    fn getParent();
-    fn putParent();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISAXXMLFilterVtbl(
@@ -3347,26 +3205,6 @@ impl ::core::fmt::Debug for ISAXXMLReader {
 unsafe impl ::windows::core::Interface for ISAXXMLReader {
     type Vtable = ISAXXMLReaderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa4f96ed0_f829_476e_81c0_cdc7bd2a0802);
-}
-pub trait ISAXXMLReaderImpl {
-    fn getFeature();
-    fn putFeature();
-    fn getProperty();
-    fn putProperty();
-    fn getEntityResolver();
-    fn putEntityResolver();
-    fn getContentHandler();
-    fn putContentHandler();
-    fn getDTDHandler();
-    fn putDTDHandler();
-    fn getErrorHandler();
-    fn putErrorHandler();
-    fn getBaseURL();
-    fn putBaseURL();
-    fn getSecureBaseURL();
-    fn putSecureBaseURL();
-    fn parse();
-    fn parseURL();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3597,18 +3435,6 @@ unsafe impl ::windows::core::Interface for ISchema {
     type Vtable = ISchemaVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x50ea08b4_dd1b_4664_9a50_c2f40f4bd79a);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait ISchemaImpl: ISchemaItemImpl + IDispatchImpl {
-    fn targetNamespace();
-    fn version();
-    fn types();
-    fn elements();
-    fn attributes();
-    fn attributeGroups();
-    fn modelGroups();
-    fn notations();
-    fn schemaLocations();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISchemaVtbl(
@@ -3836,11 +3662,6 @@ unsafe impl ::windows::core::Interface for ISchemaAny {
     type Vtable = ISchemaAnyVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x50ea08bc_dd1b_4664_9a50_c2f40f4bd79a);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait ISchemaAnyImpl: ISchemaParticleImpl + ISchemaItemImpl + IDispatchImpl {
-    fn namespaces();
-    fn processContents();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISchemaAnyVtbl(
@@ -4053,15 +3874,6 @@ unsafe impl ::windows::core::Interface for ISchemaAttribute {
     type Vtable = ISchemaAttributeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x50ea08b6_dd1b_4664_9a50_c2f40f4bd79a);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait ISchemaAttributeImpl: ISchemaItemImpl + IDispatchImpl {
-    fn r#type();
-    fn scope();
-    fn defaultValue();
-    fn fixedValue();
-    fn r#use();
-    fn isReference();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISchemaAttributeVtbl(
@@ -4253,11 +4065,6 @@ impl ::core::fmt::Debug for ISchemaAttributeGroup {
 unsafe impl ::windows::core::Interface for ISchemaAttributeGroup {
     type Vtable = ISchemaAttributeGroupVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x50ea08ba_dd1b_4664_9a50_c2f40f4bd79a);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait ISchemaAttributeGroupImpl: ISchemaItemImpl + IDispatchImpl {
-    fn anyAttribute();
-    fn attributes();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4580,15 +4387,6 @@ unsafe impl ::windows::core::Interface for ISchemaComplexType {
     type Vtable = ISchemaComplexTypeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x50ea08b9_dd1b_4664_9a50_c2f40f4bd79a);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait ISchemaComplexTypeImpl: ISchemaTypeImpl + ISchemaItemImpl + IDispatchImpl {
-    fn isAbstract();
-    fn anyAttribute();
-    fn attributes();
-    fn contentType();
-    fn contentModel();
-    fn prohibitedSubstitutions();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISchemaComplexTypeVtbl(
@@ -4885,20 +4683,6 @@ unsafe impl ::windows::core::Interface for ISchemaElement {
     type Vtable = ISchemaElementVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x50ea08b7_dd1b_4664_9a50_c2f40f4bd79a);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait ISchemaElementImpl: ISchemaParticleImpl + ISchemaItemImpl + IDispatchImpl {
-    fn r#type();
-    fn scope();
-    fn defaultValue();
-    fn fixedValue();
-    fn isNillable();
-    fn identityConstraints();
-    fn substitutionGroup();
-    fn substitutionGroupExclusions();
-    fn disallowedSubstitutions();
-    fn isAbstract();
-    fn isReference();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISchemaElementVtbl(
@@ -5106,12 +4890,6 @@ unsafe impl ::windows::core::Interface for ISchemaIdentityConstraint {
     type Vtable = ISchemaIdentityConstraintVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x50ea08bd_dd1b_4664_9a50_c2f40f4bd79a);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait ISchemaIdentityConstraintImpl: ISchemaItemImpl + IDispatchImpl {
-    fn selector();
-    fn fields();
-    fn referencedKey();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISchemaIdentityConstraintVtbl(
@@ -5270,16 +5048,6 @@ unsafe impl ::windows::core::Interface for ISchemaItem {
     type Vtable = ISchemaItemVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x50ea08b3_dd1b_4664_9a50_c2f40f4bd79a);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait ISchemaItemImpl: IDispatchImpl {
-    fn name();
-    fn namespaceURI();
-    fn schema();
-    fn id();
-    fn itemType();
-    fn unhandledAttributes();
-    fn writeAnnotation();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISchemaItemVtbl(
@@ -5422,14 +5190,6 @@ impl ::core::fmt::Debug for ISchemaItemCollection {
 unsafe impl ::windows::core::Interface for ISchemaItemCollection {
     type Vtable = ISchemaItemCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x50ea08b2_dd1b_4664_9a50_c2f40f4bd79a);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait ISchemaItemCollectionImpl: IDispatchImpl {
-    fn item();
-    fn itemByName();
-    fn itemByQName();
-    fn length();
-    fn _newEnum();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5639,10 +5399,6 @@ unsafe impl ::windows::core::Interface for ISchemaModelGroup {
     type Vtable = ISchemaModelGroupVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x50ea08bb_dd1b_4664_9a50_c2f40f4bd79a);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait ISchemaModelGroupImpl: ISchemaParticleImpl + ISchemaItemImpl + IDispatchImpl {
-    fn particles();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISchemaModelGroupVtbl(
@@ -5834,11 +5590,6 @@ unsafe impl ::windows::core::Interface for ISchemaNotation {
     type Vtable = ISchemaNotationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x50ea08be_dd1b_4664_9a50_c2f40f4bd79a);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait ISchemaNotationImpl: ISchemaItemImpl + IDispatchImpl {
-    fn systemIdentifier();
-    fn publicIdentifier();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISchemaNotationVtbl(
@@ -6029,11 +5780,6 @@ unsafe impl ::windows::core::Interface for ISchemaParticle {
     type Vtable = ISchemaParticleVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x50ea08b5_dd1b_4664_9a50_c2f40f4bd79a);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait ISchemaParticleImpl: ISchemaItemImpl + IDispatchImpl {
-    fn minOccurs();
-    fn maxOccurs();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISchemaParticleVtbl(
@@ -6169,12 +5915,6 @@ impl ::core::fmt::Debug for ISchemaStringCollection {
 unsafe impl ::windows::core::Interface for ISchemaStringCollection {
     type Vtable = ISchemaStringCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x50ea08b1_dd1b_4664_9a50_c2f40f4bd79a);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait ISchemaStringCollectionImpl: IDispatchImpl {
-    fn item();
-    fn length();
-    fn _newEnum();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6439,26 +6179,6 @@ unsafe impl ::windows::core::Interface for ISchemaType {
     type Vtable = ISchemaTypeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x50ea08b8_dd1b_4664_9a50_c2f40f4bd79a);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait ISchemaTypeImpl: ISchemaItemImpl + IDispatchImpl {
-    fn baseTypes();
-    fn r#final();
-    fn variety();
-    fn derivedBy();
-    fn isValid();
-    fn minExclusive();
-    fn minInclusive();
-    fn maxExclusive();
-    fn maxInclusive();
-    fn totalDigits();
-    fn fractionDigits();
-    fn length();
-    fn minLength();
-    fn maxLength();
-    fn enumeration();
-    fn whitespace();
-    fn patterns();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISchemaTypeVtbl(
@@ -6718,13 +6438,6 @@ impl ::core::fmt::Debug for IServerXMLHTTPRequest {
 unsafe impl ::windows::core::Interface for IServerXMLHTTPRequest {
     type Vtable = IServerXMLHTTPRequestVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2e9196bf_13ba_4dd4_91ca_6c571f281495);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IServerXMLHTTPRequestImpl: IXMLHTTPRequestImpl + IDispatchImpl {
-    fn setTimeouts();
-    fn waitForResponse();
-    fn getOption();
-    fn setOption();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7011,11 +6724,6 @@ unsafe impl ::windows::core::Interface for IServerXMLHTTPRequest2 {
     type Vtable = IServerXMLHTTPRequest2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2e01311b_c322_4b0a_bd77_b90cfdc8dce7);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IServerXMLHTTPRequest2Impl: IServerXMLHTTPRequestImpl + IXMLHTTPRequestImpl + IDispatchImpl {
-    fn setProxy();
-    fn setProxyCredentials();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IServerXMLHTTPRequest2Vtbl(
@@ -7211,20 +6919,6 @@ unsafe impl ::windows::core::Interface for IVBMXNamespaceManager {
     type Vtable = IVBMXNamespaceManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc90352f5_643c_4fbc_bb23_e996eb2d51fd);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IVBMXNamespaceManagerImpl: IDispatchImpl {
-    fn SetallowOverride();
-    fn allowOverride();
-    fn reset();
-    fn pushContext();
-    fn pushNodeContext();
-    fn popContext();
-    fn declarePrefix();
-    fn getDeclaredPrefixes();
-    fn getPrefixes();
-    fn getURI();
-    fn getURIFromNode();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVBMXNamespaceManagerVtbl(
@@ -7417,21 +7111,6 @@ unsafe impl ::windows::core::Interface for IVBSAXAttributes {
     type Vtable = IVBSAXAttributesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x10dc0586_132b_4cac_8bb3_db00ac8b7ee0);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IVBSAXAttributesImpl: IDispatchImpl {
-    fn length();
-    fn getURI();
-    fn getLocalName();
-    fn getQName();
-    fn getIndexFromName();
-    fn getIndexFromQName();
-    fn getType();
-    fn getTypeFromName();
-    fn getTypeFromQName();
-    fn getValue();
-    fn getValueFromName();
-    fn getValueFromQName();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVBSAXAttributesVtbl(
@@ -7613,20 +7292,6 @@ unsafe impl ::windows::core::Interface for IVBSAXContentHandler {
     type Vtable = IVBSAXContentHandlerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2ed7290a_4dd5_4b46_bb26_4e4155e77faa);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IVBSAXContentHandlerImpl: IDispatchImpl {
-    fn putref_documentLocator();
-    fn startDocument();
-    fn endDocument();
-    fn startPrefixMapping();
-    fn endPrefixMapping();
-    fn startElement();
-    fn endElement();
-    fn characters();
-    fn ignorableWhitespace();
-    fn processingInstruction();
-    fn skippedEntity();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVBSAXContentHandlerVtbl(
@@ -7762,11 +7427,6 @@ unsafe impl ::windows::core::Interface for IVBSAXDTDHandler {
     type Vtable = IVBSAXDTDHandlerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x24fb3297_302d_4620_ba39_3a732d850558);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IVBSAXDTDHandlerImpl: IDispatchImpl {
-    fn notationDecl();
-    fn unparsedEntityDecl();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVBSAXDTDHandlerVtbl(
@@ -7897,13 +7557,6 @@ unsafe impl ::windows::core::Interface for IVBSAXDeclHandler {
     type Vtable = IVBSAXDeclHandlerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe8917260_7579_4be1_b5dd_7afbfa6f077b);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IVBSAXDeclHandlerImpl: IDispatchImpl {
-    fn elementDecl();
-    fn attributeDecl();
-    fn internalEntityDecl();
-    fn externalEntityDecl();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVBSAXDeclHandlerVtbl(
@@ -8022,10 +7675,6 @@ impl ::core::fmt::Debug for IVBSAXEntityResolver {
 unsafe impl ::windows::core::Interface for IVBSAXEntityResolver {
     type Vtable = IVBSAXEntityResolverVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0c05d096_f45b_4aca_ad1a_aa0bc25518dc);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IVBSAXEntityResolverImpl: IDispatchImpl {
-    fn resolveEntity();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8149,12 +7798,6 @@ impl ::core::fmt::Debug for IVBSAXErrorHandler {
 unsafe impl ::windows::core::Interface for IVBSAXErrorHandler {
     type Vtable = IVBSAXErrorHandlerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd963d3fe_173c_4862_9095_b92f66995f52);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IVBSAXErrorHandlerImpl: IDispatchImpl {
-    fn error();
-    fn fatalError();
-    fn ignorableWarning();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8300,16 +7943,6 @@ unsafe impl ::windows::core::Interface for IVBSAXLexicalHandler {
     type Vtable = IVBSAXLexicalHandlerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x032aac35_8c0e_4d9d_979f_e3b702935576);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IVBSAXLexicalHandlerImpl: IDispatchImpl {
-    fn startDTD();
-    fn endDTD();
-    fn startEntity();
-    fn endEntity();
-    fn startCDATA();
-    fn endCDATA();
-    fn comment();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVBSAXLexicalHandlerVtbl(
@@ -8449,13 +8082,6 @@ unsafe impl ::windows::core::Interface for IVBSAXLocator {
     type Vtable = IVBSAXLocatorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x796e7ac5_5aa2_4eff_acad_3faaf01a3288);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IVBSAXLocatorImpl: IDispatchImpl {
-    fn columnNumber();
-    fn lineNumber();
-    fn publicId();
-    fn systemId();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVBSAXLocatorVtbl(
@@ -8576,11 +8202,6 @@ impl ::core::fmt::Debug for IVBSAXXMLFilter {
 unsafe impl ::windows::core::Interface for IVBSAXXMLFilter {
     type Vtable = IVBSAXXMLFilterVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1299eb1b_5b88_433e_82de_82ca75ad4e04);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IVBSAXXMLFilterImpl: IDispatchImpl {
-    fn parent();
-    fn putref_parent();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8780,27 +8401,6 @@ unsafe impl ::windows::core::Interface for IVBSAXXMLReader {
     type Vtable = IVBSAXXMLReaderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8c033caa_6cd6_4f73_b728_4531af74945f);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IVBSAXXMLReaderImpl: IDispatchImpl {
-    fn getFeature();
-    fn putFeature();
-    fn getProperty();
-    fn putProperty();
-    fn entityResolver();
-    fn putref_entityResolver();
-    fn contentHandler();
-    fn putref_contentHandler();
-    fn dtdHandler();
-    fn putref_dtdHandler();
-    fn errorHandler();
-    fn putref_errorHandler();
-    fn baseURL();
-    fn SetbaseURL();
-    fn secureBaseURL();
-    fn SetsecureBaseURL();
-    fn parse();
-    fn parseURL();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVBSAXXMLReaderVtbl(
@@ -8946,11 +8546,6 @@ impl ::core::fmt::Debug for IXMLAttribute {
 unsafe impl ::windows::core::Interface for IXMLAttribute {
     type Vtable = IXMLAttributeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd4d4a0fc_3b73_11d1_b2b4_00c04fb92596);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IXMLAttributeImpl: IDispatchImpl {
-    fn name();
-    fn value();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9275,12 +8870,6 @@ impl ::core::fmt::Debug for IXMLDOMAttribute {
 unsafe impl ::windows::core::Interface for IXMLDOMAttribute {
     type Vtable = IXMLDOMAttributeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2933bf85_7b36_11d2_b20e_00c04f983e60);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IXMLDOMAttributeImpl: IXMLDOMNodeImpl + IDispatchImpl {
-    fn name();
-    fn value();
-    fn Setvalue();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9731,8 +9320,6 @@ unsafe impl ::windows::core::Interface for IXMLDOMCDATASection {
     type Vtable = IXMLDOMCDATASectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2933bf8a_7b36_11d2_b20e_00c04f983e60);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IXMLDOMCDATASectionImpl: IXMLDOMTextImpl + IXMLDOMCharacterDataImpl + IXMLDOMNodeImpl + IDispatchImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXMLDOMCDATASectionVtbl(
@@ -10145,17 +9732,6 @@ impl ::core::fmt::Debug for IXMLDOMCharacterData {
 unsafe impl ::windows::core::Interface for IXMLDOMCharacterData {
     type Vtable = IXMLDOMCharacterDataVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2933bf84_7b36_11d2_b20e_00c04f983e60);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IXMLDOMCharacterDataImpl: IXMLDOMNodeImpl + IDispatchImpl {
-    fn data();
-    fn Setdata();
-    fn length();
-    fn substringData();
-    fn appendData();
-    fn insertData();
-    fn deleteData();
-    fn replaceData();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -10589,8 +10165,6 @@ unsafe impl ::windows::core::Interface for IXMLDOMComment {
     type Vtable = IXMLDOMCommentVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2933bf88_7b36_11d2_b20e_00c04f983e60);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IXMLDOMCommentImpl: IXMLDOMCharacterDataImpl + IXMLDOMNodeImpl + IDispatchImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXMLDOMCommentVtbl(
@@ -11128,42 +10702,6 @@ impl ::core::fmt::Debug for IXMLDOMDocument {
 unsafe impl ::windows::core::Interface for IXMLDOMDocument {
     type Vtable = IXMLDOMDocumentVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2933bf81_7b36_11d2_b20e_00c04f983e60);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IXMLDOMDocumentImpl: IXMLDOMNodeImpl + IDispatchImpl {
-    fn doctype();
-    fn implementation();
-    fn documentElement();
-    fn putref_documentElement();
-    fn createElement();
-    fn createDocumentFragment();
-    fn createTextNode();
-    fn createComment();
-    fn createCDATASection();
-    fn createProcessingInstruction();
-    fn createAttribute();
-    fn createEntityReference();
-    fn getElementsByTagName();
-    fn createNode();
-    fn nodeFromID();
-    fn load();
-    fn readyState();
-    fn parseError();
-    fn url();
-    fn r#async();
-    fn Setasync();
-    fn abort();
-    fn loadXML();
-    fn save();
-    fn validateOnParse();
-    fn SetvalidateOnParse();
-    fn resolveExternals();
-    fn SetresolveExternals();
-    fn preserveWhiteSpace();
-    fn SetpreserveWhiteSpace();
-    fn Setonreadystatechange();
-    fn Setondataavailable();
-    fn Setontransformnode();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -11790,15 +11328,6 @@ impl ::core::fmt::Debug for IXMLDOMDocument2 {
 unsafe impl ::windows::core::Interface for IXMLDOMDocument2 {
     type Vtable = IXMLDOMDocument2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2933bf95_7b36_11d2_b20e_00c04f983e60);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IXMLDOMDocument2Impl: IXMLDOMDocumentImpl + IXMLDOMNodeImpl + IDispatchImpl {
-    fn namespaces();
-    fn schemas();
-    fn putref_schemas();
-    fn validate();
-    fn setProperty();
-    fn getProperty();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -12466,11 +11995,6 @@ unsafe impl ::windows::core::Interface for IXMLDOMDocument3 {
     type Vtable = IXMLDOMDocument3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2933bf96_7b36_11d2_b20e_00c04f983e60);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IXMLDOMDocument3Impl: IXMLDOMDocument2Impl + IXMLDOMDocumentImpl + IXMLDOMNodeImpl + IDispatchImpl {
-    fn validateNode();
-    fn importNode();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXMLDOMDocument3Vtbl(
@@ -12893,8 +12417,6 @@ unsafe impl ::windows::core::Interface for IXMLDOMDocumentFragment {
     type Vtable = IXMLDOMDocumentFragmentVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3efaa413_272f_11d2_836f_0000f87a7782);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IXMLDOMDocumentFragmentImpl: IXMLDOMNodeImpl + IDispatchImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXMLDOMDocumentFragmentVtbl(
@@ -13269,12 +12791,6 @@ impl ::core::fmt::Debug for IXMLDOMDocumentType {
 unsafe impl ::windows::core::Interface for IXMLDOMDocumentType {
     type Vtable = IXMLDOMDocumentTypeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2933bf8b_7b36_11d2_b20e_00c04f983e60);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IXMLDOMDocumentTypeImpl: IXMLDOMNodeImpl + IDispatchImpl {
-    fn name();
-    fn entities();
-    fn notations();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -13686,18 +13202,6 @@ unsafe impl ::windows::core::Interface for IXMLDOMElement {
     type Vtable = IXMLDOMElementVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2933bf86_7b36_11d2_b20e_00c04f983e60);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IXMLDOMElementImpl: IXMLDOMNodeImpl + IDispatchImpl {
-    fn tagName();
-    fn getAttribute();
-    fn setAttribute();
-    fn removeAttribute();
-    fn getAttributeNode();
-    fn setAttributeNode();
-    fn removeAttributeNode();
-    fn getElementsByTagName();
-    fn normalize();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXMLDOMElementVtbl(
@@ -14088,12 +13592,6 @@ unsafe impl ::windows::core::Interface for IXMLDOMEntity {
     type Vtable = IXMLDOMEntityVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2933bf8d_7b36_11d2_b20e_00c04f983e60);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IXMLDOMEntityImpl: IXMLDOMNodeImpl + IDispatchImpl {
-    fn publicId();
-    fn systemId();
-    fn notationName();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXMLDOMEntityVtbl(
@@ -14460,8 +13958,6 @@ unsafe impl ::windows::core::Interface for IXMLDOMEntityReference {
     type Vtable = IXMLDOMEntityReferenceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2933bf8e_7b36_11d2_b20e_00c04f983e60);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IXMLDOMEntityReferenceImpl: IXMLDOMNodeImpl + IDispatchImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXMLDOMEntityReferenceVtbl(
@@ -14628,10 +14124,6 @@ unsafe impl ::windows::core::Interface for IXMLDOMImplementation {
     type Vtable = IXMLDOMImplementationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2933bf8f_7b36_11d2_b20e_00c04f983e60);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IXMLDOMImplementationImpl: IDispatchImpl {
-    fn hasFeature();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXMLDOMImplementationVtbl(
@@ -14791,19 +14283,6 @@ impl ::core::fmt::Debug for IXMLDOMNamedNodeMap {
 unsafe impl ::windows::core::Interface for IXMLDOMNamedNodeMap {
     type Vtable = IXMLDOMNamedNodeMapVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2933bf83_7b36_11d2_b20e_00c04f983e60);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IXMLDOMNamedNodeMapImpl: IDispatchImpl {
-    fn getNamedItem();
-    fn setNamedItem();
-    fn removeNamedItem();
-    fn item();
-    fn length();
-    fn getQualifiedItem();
-    fn removeQualifiedItem();
-    fn nextNode();
-    fn reset();
-    fn _newEnum();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -15104,45 +14583,6 @@ unsafe impl ::windows::core::Interface for IXMLDOMNode {
     type Vtable = IXMLDOMNodeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2933bf80_7b36_11d2_b20e_00c04f983e60);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IXMLDOMNodeImpl: IDispatchImpl {
-    fn nodeName();
-    fn nodeValue();
-    fn SetnodeValue();
-    fn nodeType();
-    fn parentNode();
-    fn childNodes();
-    fn firstChild();
-    fn lastChild();
-    fn previousSibling();
-    fn nextSibling();
-    fn attributes();
-    fn insertBefore();
-    fn replaceChild();
-    fn removeChild();
-    fn appendChild();
-    fn hasChildNodes();
-    fn ownerDocument();
-    fn cloneNode();
-    fn nodeTypeString();
-    fn text();
-    fn Settext();
-    fn specified();
-    fn definition();
-    fn nodeTypedValue();
-    fn SetnodeTypedValue();
-    fn dataType();
-    fn SetdataType();
-    fn xml();
-    fn transformNode();
-    fn selectNodes();
-    fn selectSingleNode();
-    fn parsed();
-    fn namespaceURI();
-    fn prefix();
-    fn baseName();
-    fn transformNodeToObject();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXMLDOMNodeVtbl(
@@ -15326,14 +14766,6 @@ impl ::core::fmt::Debug for IXMLDOMNodeList {
 unsafe impl ::windows::core::Interface for IXMLDOMNodeList {
     type Vtable = IXMLDOMNodeListVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2933bf82_7b36_11d2_b20e_00c04f983e60);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IXMLDOMNodeListImpl: IDispatchImpl {
-    fn item();
-    fn length();
-    fn nextNode();
-    fn reset();
-    fn _newEnum();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -15655,11 +15087,6 @@ unsafe impl ::windows::core::Interface for IXMLDOMNotation {
     type Vtable = IXMLDOMNotationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2933bf8c_7b36_11d2_b20e_00c04f983e60);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IXMLDOMNotationImpl: IXMLDOMNodeImpl + IDispatchImpl {
-    fn publicId();
-    fn systemId();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXMLDOMNotationVtbl(
@@ -15856,16 +15283,6 @@ unsafe impl ::windows::core::Interface for IXMLDOMParseError {
     type Vtable = IXMLDOMParseErrorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3efaa426_272f_11d2_836f_0000f87a7782);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IXMLDOMParseErrorImpl: IDispatchImpl {
-    fn errorCode();
-    fn url();
-    fn reason();
-    fn srcText();
-    fn line();
-    fn linepos();
-    fn filepos();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXMLDOMParseErrorVtbl(
@@ -16055,13 +15472,6 @@ unsafe impl ::windows::core::Interface for IXMLDOMParseError2 {
     type Vtable = IXMLDOMParseError2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3efaa428_272f_11d2_836f_0000f87a7782);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IXMLDOMParseError2Impl: IXMLDOMParseErrorImpl + IDispatchImpl {
-    fn errorXPath();
-    fn allErrors();
-    fn errorParameters();
-    fn errorParametersCount();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXMLDOMParseError2Vtbl(
@@ -16207,14 +15617,6 @@ impl ::core::fmt::Debug for IXMLDOMParseErrorCollection {
 unsafe impl ::windows::core::Interface for IXMLDOMParseErrorCollection {
     type Vtable = IXMLDOMParseErrorCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3efaa429_272f_11d2_836f_0000f87a7782);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IXMLDOMParseErrorCollectionImpl: IDispatchImpl {
-    fn item();
-    fn length();
-    fn next();
-    fn reset();
-    fn _newEnum();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -16541,12 +15943,6 @@ unsafe impl ::windows::core::Interface for IXMLDOMProcessingInstruction {
     type Vtable = IXMLDOMProcessingInstructionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2933bf89_7b36_11d2_b20e_00c04f983e60);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IXMLDOMProcessingInstructionImpl: IXMLDOMNodeImpl + IDispatchImpl {
-    fn target();
-    fn data();
-    fn Setdata();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXMLDOMProcessingInstructionVtbl(
@@ -16750,16 +16146,6 @@ unsafe impl ::windows::core::Interface for IXMLDOMSchemaCollection {
     type Vtable = IXMLDOMSchemaCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x373984c8_b845_449b_91e7_45ac83036ade);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IXMLDOMSchemaCollectionImpl: IDispatchImpl {
-    fn add();
-    fn get();
-    fn remove();
-    fn length();
-    fn namespaceURI();
-    fn addCollection();
-    fn _newEnum();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXMLDOMSchemaCollectionVtbl(
@@ -16956,14 +16342,6 @@ impl ::core::fmt::Debug for IXMLDOMSchemaCollection2 {
 unsafe impl ::windows::core::Interface for IXMLDOMSchemaCollection2 {
     type Vtable = IXMLDOMSchemaCollection2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x50ea08b0_dd1b_4664_9a50_c2f40f4bd79a);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IXMLDOMSchemaCollection2Impl: IXMLDOMSchemaCollectionImpl + IDispatchImpl {
-    fn validate();
-    fn SetvalidateOnLoad();
-    fn validateOnLoad();
-    fn getSchema();
-    fn getDeclaration();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -17185,20 +16563,6 @@ impl ::core::fmt::Debug for IXMLDOMSelection {
 unsafe impl ::windows::core::Interface for IXMLDOMSelection {
     type Vtable = IXMLDOMSelectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaa634fc7_5888_44a7_a257_3a47150d3a0e);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IXMLDOMSelectionImpl: IXMLDOMNodeListImpl + IDispatchImpl {
-    fn expr();
-    fn Setexpr();
-    fn context();
-    fn putref_context();
-    fn peekNode();
-    fn matches();
-    fn removeNext();
-    fn removeAll();
-    fn clone();
-    fn getProperty();
-    fn setProperty();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -17588,10 +16952,6 @@ unsafe impl ::windows::core::Interface for IXMLDOMText {
     type Vtable = IXMLDOMTextVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2933bf87_7b36_11d2_b20e_00c04f983e60);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IXMLDOMTextImpl: IXMLDOMCharacterDataImpl + IXMLDOMNodeImpl + IDispatchImpl {
-    fn splitText();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXMLDOMTextVtbl(
@@ -17791,14 +17151,6 @@ unsafe impl ::windows::core::Interface for IXMLDSOControl {
     type Vtable = IXMLDSOControlVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x310afa62_0575_11d2_9ca9_0060b0ec3d39);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IXMLDSOControlImpl: IDispatchImpl {
-    fn XMLDocument();
-    fn SetXMLDocument();
-    fn JavaDSOCompatible();
-    fn SetJavaDSOCompatible();
-    fn readyState();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXMLDSOControlVtbl(
@@ -17991,23 +17343,6 @@ impl ::core::fmt::Debug for IXMLDocument {
 unsafe impl ::windows::core::Interface for IXMLDocument {
     type Vtable = IXMLDocumentVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf52e2b61_18a1_11d1_b105_00805f49916b);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IXMLDocumentImpl: IDispatchImpl {
-    fn root();
-    fn fileSize();
-    fn fileModifiedDate();
-    fn fileUpdatedDate();
-    fn URL();
-    fn SetURL();
-    fn mimeType();
-    fn readyState();
-    fn charset();
-    fn Setcharset();
-    fn version();
-    fn doctype();
-    fn dtdURL();
-    fn createElement();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -18230,25 +17565,6 @@ unsafe impl ::windows::core::Interface for IXMLDocument2 {
     type Vtable = IXMLDocument2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2b8de2fe_8d2d_11d1_b2fc_00c04fd915a9);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IXMLDocument2Impl: IDispatchImpl {
-    fn root();
-    fn fileSize();
-    fn fileModifiedDate();
-    fn fileUpdatedDate();
-    fn URL();
-    fn SetURL();
-    fn mimeType();
-    fn readyState();
-    fn charset();
-    fn Setcharset();
-    fn version();
-    fn doctype();
-    fn dtdURL();
-    fn createElement();
-    fn r#async();
-    fn Setasync();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXMLDocument2Vtbl(
@@ -18444,21 +17760,6 @@ unsafe impl ::windows::core::Interface for IXMLElement {
     type Vtable = IXMLElementVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3f7f31ac_e15f_11d0_9c25_00c04fc99c8e);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IXMLElementImpl: IDispatchImpl {
-    fn tagName();
-    fn SettagName();
-    fn parent();
-    fn setAttribute();
-    fn getAttribute();
-    fn removeAttribute();
-    fn children();
-    fn r#type();
-    fn text();
-    fn Settext();
-    fn addChild();
-    fn removeChild();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXMLElementVtbl(
@@ -18650,22 +17951,6 @@ unsafe impl ::windows::core::Interface for IXMLElement2 {
     type Vtable = IXMLElement2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2b8de2ff_8d2d_11d1_b2fc_00c04fd915a9);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IXMLElement2Impl: IDispatchImpl {
-    fn tagName();
-    fn SettagName();
-    fn parent();
-    fn setAttribute();
-    fn getAttribute();
-    fn removeAttribute();
-    fn children();
-    fn r#type();
-    fn text();
-    fn Settext();
-    fn addChild();
-    fn removeChild();
-    fn attributes();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXMLElement2Vtbl(
@@ -18812,13 +18097,6 @@ unsafe impl ::windows::core::Interface for IXMLElementCollection {
     type Vtable = IXMLElementCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x65725580_9b5d_11d0_9bfe_00c04fc99c8e);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IXMLElementCollectionImpl: IDispatchImpl {
-    fn Setlength();
-    fn length();
-    fn _newEnum();
-    fn item();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXMLElementCollectionVtbl(
@@ -18888,9 +18166,6 @@ impl ::core::fmt::Debug for IXMLError {
 unsafe impl ::windows::core::Interface for IXMLError {
     type Vtable = IXMLErrorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x948c5ad3_c58d_11d0_9c0b_00c04fc99c8e);
-}
-pub trait IXMLErrorImpl {
-    fn GetErrorInfo();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -19068,23 +18343,6 @@ unsafe impl ::windows::core::Interface for IXMLHTTPRequest {
     type Vtable = IXMLHTTPRequestVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xed8c108d_4349_11d2_91a4_00c04f7969e8);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IXMLHTTPRequestImpl: IDispatchImpl {
-    fn open();
-    fn setRequestHeader();
-    fn getResponseHeader();
-    fn getAllResponseHeaders();
-    fn send();
-    fn abort();
-    fn status();
-    fn statusText();
-    fn responseXML();
-    fn responseText();
-    fn responseBody();
-    fn responseStream();
-    fn readyState();
-    fn Setonreadystatechange();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXMLHTTPRequestVtbl(
@@ -19220,18 +18478,6 @@ unsafe impl ::windows::core::Interface for IXMLHTTPRequest2 {
     type Vtable = IXMLHTTPRequest2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe5d37dc0_552a_4d52_9cc0_a14d546fbd04);
 }
-pub trait IXMLHTTPRequest2Impl {
-    fn Open();
-    fn Send();
-    fn Abort();
-    fn SetCookie();
-    fn SetCustomResponseStream();
-    fn SetProperty();
-    fn SetRequestHeader();
-    fn GetAllResponseHeaders();
-    fn GetCookie();
-    fn GetResponseHeader();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXMLHTTPRequest2Vtbl(
@@ -19324,13 +18570,6 @@ impl ::core::fmt::Debug for IXMLHTTPRequest2Callback {
 unsafe impl ::windows::core::Interface for IXMLHTTPRequest2Callback {
     type Vtable = IXMLHTTPRequest2CallbackVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa44a9299_e321_40de_8866_341b41669162);
-}
-pub trait IXMLHTTPRequest2CallbackImpl {
-    fn OnRedirect();
-    fn OnHeadersAvailable();
-    fn OnDataAvailable();
-    fn OnResponseReceived();
-    fn OnError();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -19468,9 +18707,6 @@ unsafe impl ::windows::core::Interface for IXMLHTTPRequest3 {
     type Vtable = IXMLHTTPRequest3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa1c9feee_0617_4f23_9d58_8961ea43567c);
 }
-pub trait IXMLHTTPRequest3Impl: IXMLHTTPRequest2Impl {
-    fn SetClientCertificate();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXMLHTTPRequest3Vtbl(
@@ -19593,10 +18829,6 @@ impl ::core::fmt::Debug for IXMLHTTPRequest3Callback {
 unsafe impl ::windows::core::Interface for IXMLHTTPRequest3Callback {
     type Vtable = IXMLHTTPRequest3CallbackVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb9e57830_8c6c_4a6f_9c13_47772bb047bb);
-}
-pub trait IXMLHTTPRequest3CallbackImpl: IXMLHTTPRequest2CallbackImpl {
-    fn OnServerCertificateReceived();
-    fn OnClientCertificateRequested();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -19782,23 +19014,6 @@ impl ::core::fmt::Debug for IXMLHttpRequest {
 unsafe impl ::windows::core::Interface for IXMLHttpRequest {
     type Vtable = IXMLHttpRequestVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xed8c108d_4349_11d2_91a4_00c04f7969e8);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IXMLHttpRequestImpl: IDispatchImpl {
-    fn open();
-    fn setRequestHeader();
-    fn getResponseHeader();
-    fn getAllResponseHeaders();
-    fn send();
-    fn abort();
-    fn status();
-    fn statusText();
-    fn responseXML();
-    fn responseText();
-    fn responseBody();
-    fn responseStream();
-    fn readyState();
-    fn Setonreadystatechange();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -20004,23 +19219,6 @@ unsafe impl ::windows::core::Interface for IXSLProcessor {
     type Vtable = IXSLProcessorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2933bf92_7b36_11d2_b20e_00c04f983e60);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IXSLProcessorImpl: IDispatchImpl {
-    fn Setinput();
-    fn input();
-    fn ownerTemplate();
-    fn setStartMode();
-    fn startMode();
-    fn startModeURI();
-    fn Setoutput();
-    fn output();
-    fn transform();
-    fn reset();
-    fn readyState();
-    fn addParameter();
-    fn addObject();
-    fn stylesheet();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXSLProcessorVtbl(
@@ -20163,12 +19361,6 @@ impl ::core::fmt::Debug for IXSLTemplate {
 unsafe impl ::windows::core::Interface for IXSLTemplate {
     type Vtable = IXSLTemplateVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2933bf93_7b36_11d2_b20e_00c04f983e60);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IXSLTemplateImpl: IDispatchImpl {
-    fn putref_stylesheet();
-    fn stylesheet();
-    fn createProcessor();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -20518,18 +19710,6 @@ impl ::core::fmt::Debug for IXTLRuntime {
 unsafe impl ::windows::core::Interface for IXTLRuntime {
     type Vtable = IXTLRuntimeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3efaa425_272f_11d2_836f_0000f87a7782);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IXTLRuntimeImpl: IXMLDOMNodeImpl + IDispatchImpl {
-    fn uniqueID();
-    fn depth();
-    fn childNumber();
-    fn ancestorChildNumber();
-    fn absoluteChildNumber();
-    fn formatIndex();
-    fn formatNumber();
-    fn formatDate();
-    fn formatTime();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -21144,8 +20324,6 @@ unsafe impl ::windows::core::Interface for XMLDOMDocumentEvents {
     type Vtable = XMLDOMDocumentEventsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3efaa427_272f_11d2_836f_0000f87a7782);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait XMLDOMDocumentEventsImpl: IDispatchImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct XMLDOMDocumentEventsVtbl(
@@ -21309,3 +20487,5 @@ impl ::core::default::Default for __msxml6_ReferenceRemainingTypes__ {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

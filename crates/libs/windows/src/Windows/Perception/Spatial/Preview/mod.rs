@@ -6,12 +6,6 @@ unsafe impl ::windows::core::Interface for ISpatialGraphInteropFrameOfReferenceP
     type Vtable = ISpatialGraphInteropFrameOfReferencePreviewVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa8271b23_735f_5729_a98e_e64ed189abc5);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ISpatialGraphInteropFrameOfReferencePreviewImpl {
-    fn CoordinateSystem();
-    fn NodeId();
-    fn CoordinateSystemToNodeTransform();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpatialGraphInteropFrameOfReferencePreviewVtbl(
@@ -32,13 +26,6 @@ pub struct ISpatialGraphInteropPreviewStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISpatialGraphInteropPreviewStatics {
     type Vtable = ISpatialGraphInteropPreviewStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc042644c_20d8_4ed0_aef7_6805b8e53f55);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ISpatialGraphInteropPreviewStaticsImpl {
-    fn CreateCoordinateSystemForNode();
-    fn CreateCoordinateSystemForNodeWithPosition();
-    fn CreateCoordinateSystemForNodeWithPositionAndOrientation();
-    fn CreateLocatorForNode();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -62,12 +49,6 @@ pub struct ISpatialGraphInteropPreviewStatics2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISpatialGraphInteropPreviewStatics2 {
     type Vtable = ISpatialGraphInteropPreviewStatics2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2490b15f_6cbd_4b1e_b765_31e462a32df2);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ISpatialGraphInteropPreviewStatics2Impl {
-    fn TryCreateFrameOfReference();
-    fn TryCreateFrameOfReferenceWithPosition();
-    fn TryCreateFrameOfReferenceWithPositionAndOrientation();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -252,3 +233,5 @@ impl SpatialGraphInteropPreview {
 impl ::windows::core::RuntimeName for SpatialGraphInteropPreview {
     const NAME: &'static str = "Windows.Perception.Spatial.Preview.SpatialGraphInteropPreview";
 }
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

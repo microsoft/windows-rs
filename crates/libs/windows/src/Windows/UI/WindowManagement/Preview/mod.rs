@@ -6,8 +6,6 @@ unsafe impl ::windows::core::Interface for IWindowManagementPreview {
     type Vtable = IWindowManagementPreviewVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4ef55b0d_561d_513c_a67c_2c02b69cef41);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IWindowManagementPreviewImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWindowManagementPreviewVtbl(
@@ -24,10 +22,6 @@ pub struct IWindowManagementPreviewStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IWindowManagementPreviewStatics {
     type Vtable = IWindowManagementPreviewStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0f9725c6_c004_5a23_8fd2_8d092ce2704a);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IWindowManagementPreviewStaticsImpl {
-    fn SetPreferredMinSize();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -124,3 +118,5 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Wind
 }
 unsafe impl ::core::marker::Send for WindowManagementPreview {}
 unsafe impl ::core::marker::Sync for WindowManagementPreview {}
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

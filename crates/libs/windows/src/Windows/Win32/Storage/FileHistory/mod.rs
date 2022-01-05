@@ -394,22 +394,6 @@ unsafe impl ::windows::core::Interface for IFhConfigMgr {
     type Vtable = IFhConfigMgrVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6a5fea5b_bf8f_4ee5_b8c3_44d8a0d7331c);
 }
-pub trait IFhConfigMgrImpl {
-    fn LoadConfiguration();
-    fn CreateDefaultConfiguration();
-    fn SaveConfiguration();
-    fn AddRemoveExcludeRule();
-    fn GetIncludeExcludeRules();
-    fn GetLocalPolicy();
-    fn SetLocalPolicy();
-    fn GetBackupStatus();
-    fn SetBackupStatus();
-    fn GetDefaultTarget();
-    fn ValidateTarget();
-    fn ProvisionAndSetNewTarget();
-    fn ChangeDefaultTargetRecommendation();
-    fn QueryProtectionStatus();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFhConfigMgrVtbl(
@@ -508,13 +492,6 @@ unsafe impl ::windows::core::Interface for IFhReassociation {
     type Vtable = IFhReassociationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6544a28a_f68d_47ac_91ef_16b2b36aa3ee);
 }
-pub trait IFhReassociationImpl {
-    fn ValidateTarget();
-    fn ScanTargetForConfigurations();
-    fn GetConfigurationDetails();
-    fn SelectConfiguration();
-    fn PerformReassociation();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFhReassociationVtbl(
@@ -586,10 +563,6 @@ unsafe impl ::windows::core::Interface for IFhScopeIterator {
     type Vtable = IFhScopeIteratorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3197abce_532a_44c6_8615_f3666566a720);
 }
-pub trait IFhScopeIteratorImpl {
-    fn MoveToNextItem();
-    fn GetItem();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFhScopeIteratorVtbl(
@@ -656,10 +629,6 @@ unsafe impl ::windows::core::Interface for IFhTarget {
     type Vtable = IFhTargetVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd87965fd_2bad_4657_bd3b_9567eb300ced);
 }
-pub trait IFhTargetImpl {
-    fn GetStringProperty();
-    fn GetNumericalProperty();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFhTargetVtbl(
@@ -670,3 +639,5 @@ pub struct IFhTargetVtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertytype: FH_TARGET_PROPERTY_TYPE, propertyvalue: *mut u64) -> ::windows::core::HRESULT,
 );
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

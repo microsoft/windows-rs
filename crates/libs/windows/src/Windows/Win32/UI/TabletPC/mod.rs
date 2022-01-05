@@ -1943,23 +1943,6 @@ unsafe impl ::windows::core::Interface for IDynamicRenderer {
     type Vtable = IDynamicRendererVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa079468e_7165_46f9_b7af_98ad01a93009);
 }
-pub trait IDynamicRendererImpl {
-    fn Enabled();
-    fn SetEnabled();
-    fn HWND();
-    fn SetHWND();
-    fn ClipRectangle();
-    fn SetClipRectangle();
-    fn ClipRegion();
-    fn SetClipRegion();
-    fn DrawingAttributes();
-    fn putref_DrawingAttributes();
-    fn DataCacheEnabled();
-    fn SetDataCacheEnabled();
-    fn ReleaseCachedData();
-    fn Refresh();
-    fn Draw();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDynamicRendererVtbl(
@@ -2184,14 +2167,6 @@ unsafe impl ::windows::core::Interface for IGestureRecognizer {
     type Vtable = IGestureRecognizerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xae9ef86b_7054_45e3_ae22_3174dc8811b7);
 }
-pub trait IGestureRecognizerImpl {
-    fn Enabled();
-    fn SetEnabled();
-    fn MaxStrokeCount();
-    fn SetMaxStrokeCount();
-    fn EnableGestures();
-    fn Reset();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGestureRecognizerVtbl(
@@ -2261,10 +2236,6 @@ impl ::core::fmt::Debug for IHandwrittenTextInsertion {
 unsafe impl ::windows::core::Interface for IHandwrittenTextInsertion {
     type Vtable = IHandwrittenTextInsertionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x56fdea97_ecd6_43e7_aa3a_816be7785860);
-}
-pub trait IHandwrittenTextInsertionImpl {
-    fn InsertRecognitionResultsArray();
-    fn InsertInkRecognitionResult();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2368,8 +2339,6 @@ unsafe impl ::windows::core::Interface for IInk {
     type Vtable = IInkVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x03f8e511_43a1_11d3_8bb6_0080c7d6bad5);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IInkImpl: IDispatchImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInkVtbl(
@@ -2660,49 +2629,6 @@ unsafe impl ::windows::core::Interface for IInkCollector {
     type Vtable = IInkCollectorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf0f060b5_8b1f_4a7c_89ec_880692588a4f);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IInkCollectorImpl: IDispatchImpl {
-    fn hWnd();
-    fn SethWnd();
-    fn Enabled();
-    fn SetEnabled();
-    fn DefaultDrawingAttributes();
-    fn putref_DefaultDrawingAttributes();
-    fn Renderer();
-    fn putref_Renderer();
-    fn Ink();
-    fn putref_Ink();
-    fn AutoRedraw();
-    fn SetAutoRedraw();
-    fn CollectingInk();
-    fn CollectionMode();
-    fn SetCollectionMode();
-    fn DynamicRendering();
-    fn SetDynamicRendering();
-    fn DesiredPacketDescription();
-    fn SetDesiredPacketDescription();
-    fn MouseIcon();
-    fn SetMouseIcon();
-    fn putref_MouseIcon();
-    fn MousePointer();
-    fn SetMousePointer();
-    fn Cursors();
-    fn MarginX();
-    fn SetMarginX();
-    fn MarginY();
-    fn SetMarginY();
-    fn Tablet();
-    fn SupportHighContrastInk();
-    fn SetSupportHighContrastInk();
-    fn SetGestureStatus();
-    fn GetGestureStatus();
-    fn GetWindowInputRectangle();
-    fn SetWindowInputRectangle();
-    fn SetAllTabletsMode();
-    fn SetSingleTabletIntegratedMode();
-    fn GetEventInterest();
-    fn SetEventInterest();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInkCollectorVtbl(
@@ -2889,16 +2815,6 @@ unsafe impl ::windows::core::Interface for IInkCursor {
     type Vtable = IInkCursorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xad30c630_40c5_4350_8405_9c71012fc558);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IInkCursorImpl: IDispatchImpl {
-    fn Name();
-    fn Id();
-    fn Inverted();
-    fn DrawingAttributes();
-    fn putref_DrawingAttributes();
-    fn Tablet();
-    fn Buttons();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInkCursorVtbl(
@@ -3030,12 +2946,6 @@ unsafe impl ::windows::core::Interface for IInkCursorButton {
     type Vtable = IInkCursorButtonVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x85ef9417_1d59_49b2_a13c_702c85430894);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IInkCursorButtonImpl: IDispatchImpl {
-    fn Name();
-    fn Id();
-    fn State();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInkCursorButtonVtbl(
@@ -3163,12 +3073,6 @@ unsafe impl ::windows::core::Interface for IInkCursorButtons {
     type Vtable = IInkCursorButtonsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3671cc40_b624_4671_9fa0_db119d952d54);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IInkCursorButtonsImpl: IDispatchImpl {
-    fn Count();
-    fn _NewEnum();
-    fn Item();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInkCursorButtonsVtbl(
@@ -3293,12 +3197,6 @@ impl ::core::fmt::Debug for IInkCursors {
 unsafe impl ::windows::core::Interface for IInkCursors {
     type Vtable = IInkCursorsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa248c1ac_c698_4e06_9e5c_d57f77c7e647);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IInkCursorsImpl: IDispatchImpl {
-    fn Count();
-    fn _NewEnum();
-    fn Item();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3438,15 +3336,6 @@ impl ::core::fmt::Debug for IInkCustomStrokes {
 unsafe impl ::windows::core::Interface for IInkCustomStrokes {
     type Vtable = IInkCustomStrokesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7e23a88f_c30e_420f_9bdb_28902543f0c1);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IInkCustomStrokesImpl: IDispatchImpl {
-    fn Count();
-    fn _NewEnum();
-    fn Item();
-    fn Add();
-    fn Remove();
-    fn Clear();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3689,34 +3578,6 @@ unsafe impl ::windows::core::Interface for IInkDisp {
     type Vtable = IInkDispVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9d398fa0_c4e2_4fcd_9973_975caaf47ea6);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IInkDispImpl: IDispatchImpl {
-    fn Strokes();
-    fn ExtendedProperties();
-    fn Dirty();
-    fn SetDirty();
-    fn CustomStrokes();
-    fn GetBoundingBox();
-    fn DeleteStrokes();
-    fn DeleteStroke();
-    fn ExtractStrokes();
-    fn ExtractWithRectangle();
-    fn Clip();
-    fn Clone();
-    fn HitTestCircle();
-    fn HitTestWithRectangle();
-    fn HitTestWithLasso();
-    fn NearestPoint();
-    fn CreateStrokes();
-    fn AddStrokesAtRectangle();
-    fn Save();
-    fn Load();
-    fn CreateStroke();
-    fn ClipboardCopyWithRectangle();
-    fn ClipboardCopy();
-    fn CanPaste();
-    fn ClipboardPaste();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInkDispVtbl(
@@ -3889,16 +3750,6 @@ unsafe impl ::windows::core::Interface for IInkDivider {
     type Vtable = IInkDividerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5de00405_f9a4_4651_b0c5_c317defd58b9);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IInkDividerImpl: IDispatchImpl {
-    fn Strokes();
-    fn putref_Strokes();
-    fn RecognizerContext();
-    fn putref_RecognizerContext();
-    fn LineHeight();
-    fn SetLineHeight();
-    fn Divide();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInkDividerVtbl(
@@ -4021,11 +3872,6 @@ impl ::core::fmt::Debug for IInkDivisionResult {
 unsafe impl ::windows::core::Interface for IInkDivisionResult {
     type Vtable = IInkDivisionResultVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2dbec0a7_74c7_4b38_81eb_aa8ef0c24900);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IInkDivisionResultImpl: IDispatchImpl {
-    fn Strokes();
-    fn ResultByType();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4156,13 +4002,6 @@ unsafe impl ::windows::core::Interface for IInkDivisionUnit {
     type Vtable = IInkDivisionUnitVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x85aee342_48b0_4244_9dd5_1ed435410fab);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IInkDivisionUnitImpl: IDispatchImpl {
-    fn Strokes();
-    fn DivisionType();
-    fn RecognizedString();
-    fn RotationTransform();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInkDivisionUnitVtbl(
@@ -4288,12 +4127,6 @@ impl ::core::fmt::Debug for IInkDivisionUnits {
 unsafe impl ::windows::core::Interface for IInkDivisionUnits {
     type Vtable = IInkDivisionUnitsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1bb5ddc2_31cc_4135_ab82_2c66c9f00c41);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IInkDivisionUnitsImpl: IDispatchImpl {
-    fn Count();
-    fn _NewEnum();
-    fn Item();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4494,29 +4327,6 @@ impl ::core::fmt::Debug for IInkDrawingAttributes {
 unsafe impl ::windows::core::Interface for IInkDrawingAttributes {
     type Vtable = IInkDrawingAttributesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbf519b75_0a15_4623_adc9_c00d436a8092);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IInkDrawingAttributesImpl: IDispatchImpl {
-    fn Color();
-    fn SetColor();
-    fn Width();
-    fn SetWidth();
-    fn Height();
-    fn SetHeight();
-    fn FitToCurve();
-    fn SetFitToCurve();
-    fn IgnorePressure();
-    fn SetIgnorePressure();
-    fn AntiAliased();
-    fn SetAntiAliased();
-    fn Transparency();
-    fn SetTransparency();
-    fn RasterOperation();
-    fn SetRasterOperation();
-    fn PenTip();
-    fn SetPenTip();
-    fn ExtendedProperties();
-    fn Clone();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5023,86 +4833,6 @@ unsafe impl ::windows::core::Interface for IInkEdit {
     type Vtable = IInkEditVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf2127a19_fbfb_4aed_8464_3f36d78cfefb);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IInkEditImpl: IDispatchImpl {
-    fn Status();
-    fn UseMouseForInput();
-    fn SetUseMouseForInput();
-    fn InkMode();
-    fn SetInkMode();
-    fn InkInsertMode();
-    fn SetInkInsertMode();
-    fn DrawingAttributes();
-    fn putref_DrawingAttributes();
-    fn RecognitionTimeout();
-    fn SetRecognitionTimeout();
-    fn Recognizer();
-    fn putref_Recognizer();
-    fn Factoid();
-    fn SetFactoid();
-    fn SelInks();
-    fn SetSelInks();
-    fn SelInksDisplayMode();
-    fn SetSelInksDisplayMode();
-    fn Recognize();
-    fn GetGestureStatus();
-    fn SetGestureStatus();
-    fn SetBackColor();
-    fn BackColor();
-    fn Appearance();
-    fn SetAppearance();
-    fn BorderStyle();
-    fn SetBorderStyle();
-    fn Hwnd();
-    fn Font();
-    fn putref_Font();
-    fn Text();
-    fn SetText();
-    fn MouseIcon();
-    fn SetMouseIcon();
-    fn putref_MouseIcon();
-    fn MousePointer();
-    fn SetMousePointer();
-    fn Locked();
-    fn SetLocked();
-    fn Enabled();
-    fn SetEnabled();
-    fn MaxLength();
-    fn SetMaxLength();
-    fn MultiLine();
-    fn SetMultiLine();
-    fn ScrollBars();
-    fn SetScrollBars();
-    fn DisableNoScroll();
-    fn SetDisableNoScroll();
-    fn SelAlignment();
-    fn SetSelAlignment();
-    fn SelBold();
-    fn SetSelBold();
-    fn SelItalic();
-    fn SetSelItalic();
-    fn SelUnderline();
-    fn SetSelUnderline();
-    fn SelColor();
-    fn SetSelColor();
-    fn SelFontName();
-    fn SetSelFontName();
-    fn SelFontSize();
-    fn SetSelFontSize();
-    fn SelCharOffset();
-    fn SetSelCharOffset();
-    fn TextRTF();
-    fn SetTextRTF();
-    fn SelStart();
-    fn SetSelStart();
-    fn SelLength();
-    fn SetSelLength();
-    fn SelText();
-    fn SetSelText();
-    fn SelRTF();
-    fn SetSelRTF();
-    fn Refresh();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInkEditVtbl(
@@ -5356,16 +5086,6 @@ unsafe impl ::windows::core::Interface for IInkExtendedProperties {
     type Vtable = IInkExtendedPropertiesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x89f2a8be_95a9_4530_8b8f_88e971e3e25f);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IInkExtendedPropertiesImpl: IDispatchImpl {
-    fn Count();
-    fn _NewEnum();
-    fn Item();
-    fn Add();
-    fn Remove();
-    fn Clear();
-    fn DoesPropertyExist();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInkExtendedPropertiesVtbl(
@@ -5500,12 +5220,6 @@ unsafe impl ::windows::core::Interface for IInkExtendedProperty {
     type Vtable = IInkExtendedPropertyVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdb489209_b7c3_411d_90f6_1548cfff271e);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IInkExtendedPropertyImpl: IDispatchImpl {
-    fn Guid();
-    fn Data();
-    fn SetData();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInkExtendedPropertyVtbl(
@@ -5632,12 +5346,6 @@ unsafe impl ::windows::core::Interface for IInkGesture {
     type Vtable = IInkGestureVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3bdc0a97_04e5_4e26_b813_18f052d41def);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IInkGestureImpl: IDispatchImpl {
-    fn Confidence();
-    fn Id();
-    fn GetHotPoint();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInkGestureVtbl(
@@ -5726,14 +5434,6 @@ impl ::core::fmt::Debug for IInkLineInfo {
 unsafe impl ::windows::core::Interface for IInkLineInfo {
     type Vtable = IInkLineInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9c1c5ad6_f22f_4de4_b453_a2cc482e7c33);
-}
-pub trait IInkLineInfoImpl {
-    fn SetFormat();
-    fn GetFormat();
-    fn GetInkExtent();
-    fn GetCandidate();
-    fn SetCandidate();
-    fn Recognize();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6087,63 +5787,6 @@ impl ::core::fmt::Debug for IInkOverlay {
 unsafe impl ::windows::core::Interface for IInkOverlay {
     type Vtable = IInkOverlayVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb82a463b_c1c5_45a3_997c_deab5651b67a);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IInkOverlayImpl: IDispatchImpl {
-    fn hWnd();
-    fn SethWnd();
-    fn Enabled();
-    fn SetEnabled();
-    fn DefaultDrawingAttributes();
-    fn putref_DefaultDrawingAttributes();
-    fn Renderer();
-    fn putref_Renderer();
-    fn Ink();
-    fn putref_Ink();
-    fn AutoRedraw();
-    fn SetAutoRedraw();
-    fn CollectingInk();
-    fn CollectionMode();
-    fn SetCollectionMode();
-    fn DynamicRendering();
-    fn SetDynamicRendering();
-    fn DesiredPacketDescription();
-    fn SetDesiredPacketDescription();
-    fn MouseIcon();
-    fn SetMouseIcon();
-    fn putref_MouseIcon();
-    fn MousePointer();
-    fn SetMousePointer();
-    fn EditingMode();
-    fn SetEditingMode();
-    fn Selection();
-    fn SetSelection();
-    fn EraserMode();
-    fn SetEraserMode();
-    fn EraserWidth();
-    fn SetEraserWidth();
-    fn AttachMode();
-    fn SetAttachMode();
-    fn Cursors();
-    fn MarginX();
-    fn SetMarginX();
-    fn MarginY();
-    fn SetMarginY();
-    fn Tablet();
-    fn SupportHighContrastInk();
-    fn SetSupportHighContrastInk();
-    fn SupportHighContrastSelectionUI();
-    fn SetSupportHighContrastSelectionUI();
-    fn HitTestSelection();
-    fn Draw();
-    fn SetGestureStatus();
-    fn GetGestureStatus();
-    fn GetWindowInputRectangle();
-    fn SetWindowInputRectangle();
-    fn SetAllTabletsMode();
-    fn SetSingleTabletIntegratedMode();
-    fn GetEventInterest();
-    fn SetEventInterest();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6583,68 +6226,6 @@ unsafe impl ::windows::core::Interface for IInkPicture {
     type Vtable = IInkPictureVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe85662e0_379a_40d7_9b5c_757d233f9923);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IInkPictureImpl: IDispatchImpl {
-    fn hWnd();
-    fn DefaultDrawingAttributes();
-    fn putref_DefaultDrawingAttributes();
-    fn Renderer();
-    fn putref_Renderer();
-    fn Ink();
-    fn putref_Ink();
-    fn AutoRedraw();
-    fn SetAutoRedraw();
-    fn CollectingInk();
-    fn CollectionMode();
-    fn SetCollectionMode();
-    fn DynamicRendering();
-    fn SetDynamicRendering();
-    fn DesiredPacketDescription();
-    fn SetDesiredPacketDescription();
-    fn MouseIcon();
-    fn SetMouseIcon();
-    fn putref_MouseIcon();
-    fn MousePointer();
-    fn SetMousePointer();
-    fn EditingMode();
-    fn SetEditingMode();
-    fn Selection();
-    fn SetSelection();
-    fn EraserMode();
-    fn SetEraserMode();
-    fn EraserWidth();
-    fn SetEraserWidth();
-    fn putref_Picture();
-    fn SetPicture();
-    fn Picture();
-    fn SetSizeMode();
-    fn SizeMode();
-    fn SetBackColor();
-    fn BackColor();
-    fn Cursors();
-    fn MarginX();
-    fn SetMarginX();
-    fn MarginY();
-    fn SetMarginY();
-    fn Tablet();
-    fn SupportHighContrastInk();
-    fn SetSupportHighContrastInk();
-    fn SupportHighContrastSelectionUI();
-    fn SetSupportHighContrastSelectionUI();
-    fn HitTestSelection();
-    fn SetGestureStatus();
-    fn GetGestureStatus();
-    fn GetWindowInputRectangle();
-    fn SetWindowInputRectangle();
-    fn SetAllTabletsMode();
-    fn SetSingleTabletIntegratedMode();
-    fn GetEventInterest();
-    fn SetEventInterest();
-    fn InkEnabled();
-    fn SetInkEnabled();
-    fn Enabled();
-    fn SetEnabled();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInkPictureVtbl(
@@ -6898,24 +6479,6 @@ unsafe impl ::windows::core::Interface for IInkRecognitionAlternate {
     type Vtable = IInkRecognitionAlternateVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb7e660ad_77e4_429b_adda_873780d1fc4a);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IInkRecognitionAlternateImpl: IDispatchImpl {
-    fn String();
-    fn Confidence();
-    fn Baseline();
-    fn Midline();
-    fn Ascender();
-    fn Descender();
-    fn LineNumber();
-    fn Strokes();
-    fn LineAlternates();
-    fn ConfidenceAlternates();
-    fn GetStrokesFromStrokeRanges();
-    fn GetStrokesFromTextRange();
-    fn GetTextRangeFromStrokes();
-    fn AlternatesWithConstantPropertyValues();
-    fn GetPropertyValue();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInkRecognitionAlternateVtbl(
@@ -7064,13 +6627,6 @@ unsafe impl ::windows::core::Interface for IInkRecognitionAlternates {
     type Vtable = IInkRecognitionAlternatesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x286a167f_9f19_4c61_9d53_4f07be622b84);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IInkRecognitionAlternatesImpl: IDispatchImpl {
-    fn Count();
-    fn _NewEnum();
-    fn Strokes();
-    fn Item();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInkRecognitionAlternatesVtbl(
@@ -7214,16 +6770,6 @@ impl ::core::fmt::Debug for IInkRecognitionResult {
 unsafe impl ::windows::core::Interface for IInkRecognitionResult {
     type Vtable = IInkRecognitionResultVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3bc129a8_86cd_45ad_bde8_e0d32d61c16d);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IInkRecognitionResultImpl: IDispatchImpl {
-    fn TopString();
-    fn TopAlternate();
-    fn TopConfidence();
-    fn Strokes();
-    fn AlternatesFromSelection();
-    fn ModifyTopAlternate();
-    fn SetResultOnStrokes();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7379,16 +6925,6 @@ unsafe impl ::windows::core::Interface for IInkRecognizer {
     type Vtable = IInkRecognizerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x782bf7cf_034b_4396_8a32_3a1833cf6b56);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IInkRecognizerImpl: IDispatchImpl {
-    fn Name();
-    fn Vendor();
-    fn Capabilities();
-    fn Languages();
-    fn SupportedProperties();
-    fn PreferredPacketDescription();
-    fn CreateRecognizerContext();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInkRecognizerVtbl(
@@ -7518,11 +7054,6 @@ impl ::core::fmt::Debug for IInkRecognizer2 {
 unsafe impl ::windows::core::Interface for IInkRecognizer2 {
     type Vtable = IInkRecognizer2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6110118a_3a75_4ad6_b2aa_04b2b72bbe65);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IInkRecognizer2Impl: IDispatchImpl {
-    fn Id();
-    fn UnicodeRanges();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7750,33 +7281,6 @@ unsafe impl ::windows::core::Interface for IInkRecognizerContext {
     type Vtable = IInkRecognizerContextVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc68f52f9_32a3_4625_906c_44fc23b40958);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IInkRecognizerContextImpl: IDispatchImpl {
-    fn Strokes();
-    fn putref_Strokes();
-    fn CharacterAutoCompletionMode();
-    fn SetCharacterAutoCompletionMode();
-    fn Factoid();
-    fn SetFactoid();
-    fn Guide();
-    fn putref_Guide();
-    fn PrefixText();
-    fn SetPrefixText();
-    fn SuffixText();
-    fn SetSuffixText();
-    fn RecognitionFlags();
-    fn SetRecognitionFlags();
-    fn WordList();
-    fn putref_WordList();
-    fn Recognizer();
-    fn Recognize();
-    fn StopBackgroundRecognition();
-    fn EndInkInput();
-    fn BackgroundRecognize();
-    fn BackgroundRecognizeWithAlternates();
-    fn Clone();
-    fn IsStringSupported();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInkRecognizerContextVtbl(
@@ -7926,11 +7430,6 @@ impl ::core::fmt::Debug for IInkRecognizerContext2 {
 unsafe impl ::windows::core::Interface for IInkRecognizerContext2 {
     type Vtable = IInkRecognizerContext2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd6f0e32f_73d8_408e_8e9f_5fea592c363f);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IInkRecognizerContext2Impl: IDispatchImpl {
-    fn EnabledUnicodeRanges();
-    fn SetEnabledUnicodeRanges();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8098,21 +7597,6 @@ unsafe impl ::windows::core::Interface for IInkRecognizerGuide {
     type Vtable = IInkRecognizerGuideVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd934be07_7b84_4208_9136_83c20994e905);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IInkRecognizerGuideImpl: IDispatchImpl {
-    fn WritingBox();
-    fn SetWritingBox();
-    fn DrawnBox();
-    fn SetDrawnBox();
-    fn Rows();
-    fn SetRows();
-    fn Columns();
-    fn SetColumns();
-    fn Midline();
-    fn SetMidline();
-    fn GuideData();
-    fn SetGuideData();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInkRecognizerGuideVtbl(
@@ -8252,13 +7736,6 @@ impl ::core::fmt::Debug for IInkRecognizers {
 unsafe impl ::windows::core::Interface for IInkRecognizers {
     type Vtable = IInkRecognizersVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9ccc4f12_b0b7_4a8b_bf58_4aeca4e8cefd);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IInkRecognizersImpl: IDispatchImpl {
-    fn Count();
-    fn _NewEnum();
-    fn GetDefaultRecognizer();
-    fn Item();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8424,21 +7901,6 @@ impl ::core::fmt::Debug for IInkRectangle {
 unsafe impl ::windows::core::Interface for IInkRectangle {
     type Vtable = IInkRectangleVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9794ff82_6071_4717_8a8b_6ac7c64a686e);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IInkRectangleImpl: IDispatchImpl {
-    fn Top();
-    fn SetTop();
-    fn Left();
-    fn SetLeft();
-    fn Bottom();
-    fn SetBottom();
-    fn Right();
-    fn SetRight();
-    fn Data();
-    fn SetData();
-    fn GetRectangle();
-    fn SetRectangle();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8623,24 +8085,6 @@ impl ::core::fmt::Debug for IInkRenderer {
 unsafe impl ::windows::core::Interface for IInkRenderer {
     type Vtable = IInkRendererVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe6257a9c_b511_4f4c_a8b0_a7dbc9506b83);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IInkRendererImpl: IDispatchImpl {
-    fn GetViewTransform();
-    fn SetViewTransform();
-    fn GetObjectTransform();
-    fn SetObjectTransform();
-    fn Draw();
-    fn DrawStroke();
-    fn PixelToInkSpace();
-    fn InkSpaceToPixel();
-    fn PixelToInkSpaceFromPoints();
-    fn InkSpaceToPixelFromPoints();
-    fn Measure();
-    fn MeasureStroke();
-    fn Move();
-    fn Rotate();
-    fn ScaleTransform();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8934,42 +8378,6 @@ unsafe impl ::windows::core::Interface for IInkStrokeDisp {
     type Vtable = IInkStrokeDispVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x43242fea_91d1_4a72_963e_fbb91829cfa2);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IInkStrokeDispImpl: IDispatchImpl {
-    fn ID();
-    fn BezierPoints();
-    fn DrawingAttributes();
-    fn putref_DrawingAttributes();
-    fn Ink();
-    fn ExtendedProperties();
-    fn PolylineCusps();
-    fn BezierCusps();
-    fn SelfIntersections();
-    fn PacketCount();
-    fn PacketSize();
-    fn PacketDescription();
-    fn Deleted();
-    fn GetBoundingBox();
-    fn FindIntersections();
-    fn GetRectangleIntersections();
-    fn Clip();
-    fn HitTestCircle();
-    fn NearestPoint();
-    fn Split();
-    fn GetPacketDescriptionPropertyMetrics();
-    fn GetPoints();
-    fn SetPoints();
-    fn GetPacketData();
-    fn GetPacketValuesByProperty();
-    fn SetPacketValuesByProperty();
-    fn GetFlattenedBezierPoints();
-    fn Transform();
-    fn ScaleToRectangle();
-    fn Move();
-    fn Rotate();
-    fn Shear();
-    fn ScaleTransform();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInkStrokeDispVtbl(
@@ -9211,29 +8619,6 @@ unsafe impl ::windows::core::Interface for IInkStrokes {
     type Vtable = IInkStrokesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf1f4c9d8_590a_4963_b3ae_1935671bb6f3);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IInkStrokesImpl: IDispatchImpl {
-    fn Count();
-    fn _NewEnum();
-    fn Ink();
-    fn RecognitionResult();
-    fn ToString();
-    fn Item();
-    fn Add();
-    fn AddStrokes();
-    fn Remove();
-    fn RemoveStrokes();
-    fn ModifyDrawingAttributes();
-    fn GetBoundingBox();
-    fn Transform();
-    fn ScaleToRectangle();
-    fn Move();
-    fn Rotate();
-    fn Shear();
-    fn ScaleTransform();
-    fn Clip();
-    fn RemoveRecognitionResult();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInkStrokesVtbl(
@@ -9394,15 +8779,6 @@ unsafe impl ::windows::core::Interface for IInkTablet {
     type Vtable = IInkTabletVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2de25eaa_6ef8_42d5_aee9_185bc81b912d);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IInkTabletImpl: IDispatchImpl {
-    fn Name();
-    fn PlugAndPlayId();
-    fn MaximumInputRectangle();
-    fn HardwareCapabilities();
-    fn IsPacketPropertySupported();
-    fn GetPropertyMetrics();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInkTabletVtbl(
@@ -9524,10 +8900,6 @@ unsafe impl ::windows::core::Interface for IInkTablet2 {
     type Vtable = IInkTablet2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x90c91ad2_fa36_49d6_9516_ce8d570f6f85);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IInkTablet2Impl: IDispatchImpl {
-    fn DeviceKind();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInkTablet2Vtbl(
@@ -9644,11 +9016,6 @@ impl ::core::fmt::Debug for IInkTablet3 {
 unsafe impl ::windows::core::Interface for IInkTablet3 {
     type Vtable = IInkTablet3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7e313997_1327_41dd_8ca9_79f24be17250);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IInkTablet3Impl: IDispatchImpl {
-    fn IsMultiTouch();
-    fn MaximumCursors();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9783,14 +9150,6 @@ impl ::core::fmt::Debug for IInkTablets {
 unsafe impl ::windows::core::Interface for IInkTablets {
     type Vtable = IInkTabletsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x112086d9_7779_4535_a699_862b43ac1863);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IInkTabletsImpl: IDispatchImpl {
-    fn Count();
-    fn _NewEnum();
-    fn DefaultTablet();
-    fn Item();
-    fn IsPacketPropertySupported();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -10001,31 +9360,6 @@ unsafe impl ::windows::core::Interface for IInkTransform {
     type Vtable = IInkTransformVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x615f1d43_8703_4565_88e2_8201d2ecd7b7);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IInkTransformImpl: IDispatchImpl {
-    fn Reset();
-    fn Translate();
-    fn Rotate();
-    fn Reflect();
-    fn Shear();
-    fn ScaleTransform();
-    fn GetTransform();
-    fn SetTransform();
-    fn eM11();
-    fn SeteM11();
-    fn eM12();
-    fn SeteM12();
-    fn eM21();
-    fn SeteM21();
-    fn eM22();
-    fn SeteM22();
-    fn eDx();
-    fn SeteDx();
-    fn eDy();
-    fn SeteDy();
-    fn Data();
-    fn SetData();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInkTransformVtbl(
@@ -10170,12 +9504,6 @@ unsafe impl ::windows::core::Interface for IInkWordList {
     type Vtable = IInkWordListVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x76ba3491_cb2f_406b_9961_0e0c4cdaaef2);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IInkWordListImpl: IDispatchImpl {
-    fn AddWord();
-    fn RemoveWord();
-    fn Merge();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInkWordListVtbl(
@@ -10292,10 +9620,6 @@ unsafe impl ::windows::core::Interface for IInkWordList2 {
     type Vtable = IInkWordList2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x14542586_11bf_4f5f_b6e7_49d0744aab6e);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IInkWordList2Impl: IDispatchImpl {
-    fn AddWords();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInkWordList2Vtbl(
@@ -10375,12 +9699,6 @@ impl ::core::fmt::Debug for IInputPanelWindowHandle {
 unsafe impl ::windows::core::Interface for IInputPanelWindowHandle {
     type Vtable = IInputPanelWindowHandleVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4af81847_fdc4_4fc3_ad0b_422479c1b935);
-}
-pub trait IInputPanelWindowHandleImpl {
-    fn AttachedEditWindow32();
-    fn SetAttachedEditWindow32();
-    fn AttachedEditWindow64();
-    fn SetAttachedEditWindow64();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -10558,26 +9876,6 @@ impl ::core::fmt::Debug for IMathInputControl {
 unsafe impl ::windows::core::Interface for IMathInputControl {
     type Vtable = IMathInputControlVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeba615aa_fac6_4738_ba5f_ff09e9fe473e);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IMathInputControlImpl: IDispatchImpl {
-    fn Show();
-    fn Hide();
-    fn IsVisible();
-    fn GetPosition();
-    fn SetPosition();
-    fn Clear();
-    fn SetCustomPaint();
-    fn SetCaptionText();
-    fn LoadInk();
-    fn SetOwnerWindow();
-    fn EnableExtendedButtons();
-    fn GetPreviewHeight();
-    fn SetPreviewHeight();
-    fn EnableAutoGrow();
-    fn AddFunctionName();
-    fn RemoveFunctionName();
-    fn GetHoverIcon();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -10861,34 +10159,6 @@ unsafe impl ::windows::core::Interface for IPenInputPanel {
     type Vtable = IPenInputPanelVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfa7a4083_5747_4040_a182_0b0e9fd4fac7);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IPenInputPanelImpl: IDispatchImpl {
-    fn Busy();
-    fn Factoid();
-    fn SetFactoid();
-    fn AttachedEditWindow();
-    fn SetAttachedEditWindow();
-    fn CurrentPanel();
-    fn SetCurrentPanel();
-    fn DefaultPanel();
-    fn SetDefaultPanel();
-    fn Visible();
-    fn SetVisible();
-    fn Top();
-    fn Left();
-    fn Width();
-    fn Height();
-    fn VerticalOffset();
-    fn SetVerticalOffset();
-    fn HorizontalOffset();
-    fn SetHorizontalOffset();
-    fn AutoShow();
-    fn SetAutoShow();
-    fn MoveTo();
-    fn CommitPendingInput();
-    fn Refresh();
-    fn EnableTsf();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPenInputPanelVtbl(
@@ -11120,39 +10390,6 @@ unsafe impl ::windows::core::Interface for IRealTimeStylus {
     type Vtable = IRealTimeStylusVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa8bb5d22_3144_4a7b_93cd_f34a16be513a);
 }
-pub trait IRealTimeStylusImpl {
-    fn Enabled();
-    fn SetEnabled();
-    fn HWND();
-    fn SetHWND();
-    fn WindowInputRectangle();
-    fn SetWindowInputRectangle();
-    fn AddStylusSyncPlugin();
-    fn RemoveStylusSyncPlugin();
-    fn RemoveAllStylusSyncPlugins();
-    fn GetStylusSyncPlugin();
-    fn GetStylusSyncPluginCount();
-    fn AddStylusAsyncPlugin();
-    fn RemoveStylusAsyncPlugin();
-    fn RemoveAllStylusAsyncPlugins();
-    fn GetStylusAsyncPlugin();
-    fn GetStylusAsyncPluginCount();
-    fn ChildRealTimeStylusPlugin();
-    fn putref_ChildRealTimeStylusPlugin();
-    fn AddCustomStylusDataToQueue();
-    fn ClearStylusQueues();
-    fn SetAllTabletsMode();
-    fn SetSingleTabletMode();
-    fn GetTablet();
-    fn GetTabletContextIdFromTablet();
-    fn GetTabletFromTabletContextId();
-    fn GetAllTabletContextIds();
-    fn GetStyluses();
-    fn GetStylusForId();
-    fn SetDesiredPacketDescription();
-    fn GetDesiredPacketDescription();
-    fn GetPacketDescriptionData();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRealTimeStylusVtbl(
@@ -11254,10 +10491,6 @@ unsafe impl ::windows::core::Interface for IRealTimeStylus2 {
     type Vtable = IRealTimeStylus2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb5f2a6cd_3179_4a3e_b9c4_bb5865962be2);
 }
-pub trait IRealTimeStylus2Impl {
-    fn FlicksEnabled();
-    fn SetFlicksEnabled();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRealTimeStylus2Vtbl(
@@ -11325,10 +10558,6 @@ unsafe impl ::windows::core::Interface for IRealTimeStylus3 {
     type Vtable = IRealTimeStylus3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd70230a3_6986_4051_b57a_1cf69f4d9db5);
 }
-pub trait IRealTimeStylus3Impl {
-    fn MultiTouchEnabled();
-    fn SetMultiTouchEnabled();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRealTimeStylus3Vtbl(
@@ -11392,10 +10621,6 @@ impl ::core::fmt::Debug for IRealTimeStylusSynchronization {
 unsafe impl ::windows::core::Interface for IRealTimeStylusSynchronization {
     type Vtable = IRealTimeStylusSynchronizationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaa87eab8_ab4a_4cea_b5cb_46d84c6a2509);
-}
-pub trait IRealTimeStylusSynchronizationImpl {
-    fn AcquireLock();
-    fn ReleaseLock();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -11497,8 +10722,6 @@ unsafe impl ::windows::core::Interface for ISketchInk {
     type Vtable = ISketchInkVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb4563688_98eb_4646_b279_44da14d45748);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait ISketchInkImpl: IDispatchImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISketchInkVtbl(
@@ -11584,14 +10807,6 @@ impl ::core::fmt::Debug for IStrokeBuilder {
 unsafe impl ::windows::core::Interface for IStrokeBuilder {
     type Vtable = IStrokeBuilderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa5fd4e2d_c44b_4092_9177_260905eb672b);
-}
-pub trait IStrokeBuilderImpl {
-    fn CreateStroke();
-    fn BeginStroke();
-    fn AppendPackets();
-    fn EndStroke();
-    fn Ink();
-    fn putref_Ink();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -11747,7 +10962,6 @@ unsafe impl ::windows::core::Interface for IStylusAsyncPlugin {
     type Vtable = IStylusAsyncPluginVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa7cca85a_31bc_4cd2_aadc_3289a3af11c8);
 }
-pub trait IStylusAsyncPluginImpl: IStylusPluginImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IStylusAsyncPluginVtbl(
@@ -11897,25 +11111,6 @@ impl ::core::fmt::Debug for IStylusPlugin {
 unsafe impl ::windows::core::Interface for IStylusPlugin {
     type Vtable = IStylusPluginVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa81436d8_4757_4fd1_a185_133f97c6c545);
-}
-pub trait IStylusPluginImpl {
-    fn RealTimeStylusEnabled();
-    fn RealTimeStylusDisabled();
-    fn StylusInRange();
-    fn StylusOutOfRange();
-    fn StylusDown();
-    fn StylusUp();
-    fn StylusButtonDown();
-    fn StylusButtonUp();
-    fn InAirPackets();
-    fn Packets();
-    fn CustomStylusDataAdded();
-    fn SystemEvent();
-    fn TabletAdded();
-    fn TabletRemoved();
-    fn Error();
-    fn UpdateMapping();
-    fn DataInterest();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -12087,7 +11282,6 @@ unsafe impl ::windows::core::Interface for IStylusSyncPlugin {
     type Vtable = IStylusSyncPluginVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa157b174_482f_4d71_a3f6_3a41ddd11be9);
 }
-pub trait IStylusSyncPluginImpl: IStylusPluginImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IStylusSyncPluginVtbl(
@@ -12284,33 +11478,6 @@ unsafe impl ::windows::core::Interface for ITextInputPanel {
     type Vtable = ITextInputPanelVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6b6a65a5_6af3_46c2_b6ea_56cd1f80df71);
 }
-pub trait ITextInputPanelImpl {
-    fn AttachedEditWindow();
-    fn SetAttachedEditWindow();
-    fn CurrentInteractionMode();
-    fn DefaultInPlaceState();
-    fn SetDefaultInPlaceState();
-    fn CurrentInPlaceState();
-    fn DefaultInputArea();
-    fn SetDefaultInputArea();
-    fn CurrentInputArea();
-    fn CurrentCorrectionMode();
-    fn PreferredInPlaceDirection();
-    fn SetPreferredInPlaceDirection();
-    fn ExpandPostInsertionCorrection();
-    fn SetExpandPostInsertionCorrection();
-    fn InPlaceVisibleOnFocus();
-    fn SetInPlaceVisibleOnFocus();
-    fn InPlaceBoundingRectangle();
-    fn PopUpCorrectionHeight();
-    fn PopDownCorrectionHeight();
-    fn CommitPendingInput();
-    fn SetInPlaceVisibility();
-    fn SetInPlacePosition();
-    fn SetInPlaceHoverTargetPosition();
-    fn Advise();
-    fn Unadvise();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITextInputPanelVtbl(
@@ -12450,20 +11617,6 @@ unsafe impl ::windows::core::Interface for ITextInputPanelEventSink {
     type Vtable = ITextInputPanelEventSinkVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x27560408_8e64_4fe1_804e_421201584b31);
 }
-pub trait ITextInputPanelEventSinkImpl {
-    fn InPlaceStateChanging();
-    fn InPlaceStateChanged();
-    fn InPlaceSizeChanging();
-    fn InPlaceSizeChanged();
-    fn InputAreaChanging();
-    fn InputAreaChanged();
-    fn CorrectionModeChanging();
-    fn CorrectionModeChanged();
-    fn InPlaceVisibilityChanging();
-    fn InPlaceVisibilityChanged();
-    fn TextInserting();
-    fn TextInserted();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITextInputPanelEventSinkVtbl(
@@ -12539,9 +11692,6 @@ impl ::core::fmt::Debug for ITextInputPanelRunInfo {
 unsafe impl ::windows::core::Interface for ITextInputPanelRunInfo {
     type Vtable = ITextInputPanelRunInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9f424568_1920_48cc_9811_a993cbf5adba);
-}
-pub trait ITextInputPanelRunInfoImpl {
-    fn IsTipRunning();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -12622,13 +11772,6 @@ unsafe impl ::windows::core::Interface for ITipAutoCompleteClient {
     type Vtable = ITipAutoCompleteClientVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5e078e03_8265_4bbe_9487_d242edbef910);
 }
-pub trait ITipAutoCompleteClientImpl {
-    fn AdviseProvider();
-    fn UnadviseProvider();
-    fn UserSelection();
-    fn PreferredRects();
-    fn RequestShowUI();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITipAutoCompleteClientVtbl(
@@ -12699,10 +11842,6 @@ impl ::core::fmt::Debug for ITipAutoCompleteProvider {
 unsafe impl ::windows::core::Interface for ITipAutoCompleteProvider {
     type Vtable = ITipAutoCompleteProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7c6cf46d_8404_46b9_ad33_f5b6036d4007);
-}
-pub trait ITipAutoCompleteProviderImpl {
-    fn UpdatePendingText();
-    fn Show();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -14517,8 +13656,6 @@ unsafe impl ::windows::core::Interface for _IInkCollectorEvents {
     type Vtable = _IInkCollectorEventsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x11a583f2_712d_4fea_abcf_ab4af38ea06b);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait _IInkCollectorEventsImpl: IDispatchImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct _IInkCollectorEventsVtbl(
@@ -14625,8 +13762,6 @@ unsafe impl ::windows::core::Interface for _IInkEditEvents {
     type Vtable = _IInkEditEventsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe3b0b797_a72e_46db_a0d7_6c9eba8e9bbc);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait _IInkEditEventsImpl: IDispatchImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct _IInkEditEventsVtbl(
@@ -14733,8 +13868,6 @@ unsafe impl ::windows::core::Interface for _IInkEvents {
     type Vtable = _IInkEventsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x427b1865_ca3f_479a_83a9_0f420f2a0073);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait _IInkEventsImpl: IDispatchImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct _IInkEventsVtbl(
@@ -14841,8 +13974,6 @@ unsafe impl ::windows::core::Interface for _IInkOverlayEvents {
     type Vtable = _IInkOverlayEventsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x31179b69_e563_489e_b16f_712f1e8a0651);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait _IInkOverlayEventsImpl: IDispatchImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct _IInkOverlayEventsVtbl(
@@ -14949,8 +14080,6 @@ unsafe impl ::windows::core::Interface for _IInkPictureEvents {
     type Vtable = _IInkPictureEventsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x60ff4fee_22ff_4484_acc1_d308d9cd7ea3);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait _IInkPictureEventsImpl: IDispatchImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct _IInkPictureEventsVtbl(
@@ -15057,8 +14186,6 @@ unsafe impl ::windows::core::Interface for _IInkRecognitionEvents {
     type Vtable = _IInkRecognitionEventsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x17bce92f_2e21_47fd_9d33_3c6afbfd8c59);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait _IInkRecognitionEventsImpl: IDispatchImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct _IInkRecognitionEventsVtbl(
@@ -15165,8 +14292,6 @@ unsafe impl ::windows::core::Interface for _IInkStrokesEvents {
     type Vtable = _IInkStrokesEventsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf33053ec_5d25_430a_928f_76a6491dde15);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait _IInkStrokesEventsImpl: IDispatchImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct _IInkStrokesEventsVtbl(
@@ -15273,8 +14398,6 @@ unsafe impl ::windows::core::Interface for _IMathInputControlEvents {
     type Vtable = _IMathInputControlEventsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x683336b5_a47d_4358_96f9_875a472ae70a);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait _IMathInputControlEventsImpl: IDispatchImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct _IMathInputControlEventsVtbl(
@@ -15381,8 +14504,6 @@ unsafe impl ::windows::core::Interface for _IPenInputPanelEvents {
     type Vtable = _IPenInputPanelEventsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb7e489da_3719_439f_848f_e7acbd820f17);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait _IPenInputPanelEventsImpl: IDispatchImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct _IPenInputPanelEventsVtbl(
@@ -15418,3 +14539,5 @@ pub type enumRECO_TYPE = i32;
 pub const RECO_TYPE_WSTRING: enumRECO_TYPE = 0i32;
 #[doc = "*Required features: 'Win32_UI_TabletPC'*"]
 pub const RECO_TYPE_WCHAR: enumRECO_TYPE = 1i32;
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

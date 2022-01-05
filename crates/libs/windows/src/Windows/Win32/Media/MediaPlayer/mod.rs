@@ -1408,53 +1408,6 @@ unsafe impl ::windows::core::Interface for IFeed {
     type Vtable = IFeedVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf7f915d8_2ede_42bc_98e7_a5d05063a757);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IFeedImpl: IDispatchImpl {
-    fn Xml();
-    fn Name();
-    fn Rename();
-    fn Url();
-    fn SetUrl();
-    fn LocalId();
-    fn Path();
-    fn Move();
-    fn Parent();
-    fn LastWriteTime();
-    fn Delete();
-    fn Download();
-    fn AsyncDownload();
-    fn CancelAsyncDownload();
-    fn SyncSetting();
-    fn SetSyncSetting();
-    fn Interval();
-    fn SetInterval();
-    fn LastDownloadTime();
-    fn LocalEnclosurePath();
-    fn Items();
-    fn GetItem();
-    fn Title();
-    fn Description();
-    fn Link();
-    fn Image();
-    fn LastBuildDate();
-    fn PubDate();
-    fn Ttl();
-    fn Language();
-    fn Copyright();
-    fn MaxItemCount();
-    fn SetMaxItemCount();
-    fn DownloadEnclosuresAutomatically();
-    fn SetDownloadEnclosuresAutomatically();
-    fn DownloadStatus();
-    fn LastDownloadError();
-    fn Merge();
-    fn DownloadUrl();
-    fn IsList();
-    fn MarkAllItemsRead();
-    fn GetWatcher();
-    fn UnreadItemCount();
-    fn ItemCount();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFeedVtbl(
@@ -1906,15 +1859,6 @@ unsafe impl ::windows::core::Interface for IFeed2 {
     type Vtable = IFeed2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x33f2ea09_1398_4ab9_b6a4_f94b49d0a42e);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IFeed2Impl: IFeedImpl + IDispatchImpl {
-    fn GetItemByEffectiveId();
-    fn LastItemDownloadTime();
-    fn Username();
-    fn Password();
-    fn SetCredentials();
-    fn ClearCredentials();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFeed2Vtbl(
@@ -2164,22 +2108,6 @@ unsafe impl ::windows::core::Interface for IFeedEnclosure {
     type Vtable = IFeedEnclosureVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x361c26f7_90a4_4e67_ae09_3a36a546436a);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IFeedEnclosureImpl: IDispatchImpl {
-    fn Url();
-    fn Type();
-    fn Length();
-    fn AsyncDownload();
-    fn CancelAsyncDownload();
-    fn DownloadStatus();
-    fn LastDownloadError();
-    fn LocalPath();
-    fn Parent();
-    fn DownloadUrl();
-    fn DownloadMimeType();
-    fn RemoveFile();
-    fn SetFile();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFeedEnclosureVtbl(
@@ -2344,17 +2272,6 @@ impl ::core::fmt::Debug for IFeedEvents {
 unsafe impl ::windows::core::Interface for IFeedEvents {
     type Vtable = IFeedEventsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xabf35c99_0681_47ea_9a8c_1436a375a99e);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IFeedEventsImpl: IDispatchImpl {
-    fn Error();
-    fn FeedDeleted();
-    fn FeedRenamed();
-    fn FeedUrlChanged();
-    fn FeedMoved();
-    fn FeedDownloading();
-    fn FeedDownloadCompleted();
-    fn FeedItemCountChanged();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2578,27 +2495,6 @@ unsafe impl ::windows::core::Interface for IFeedFolder {
     type Vtable = IFeedFolderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x81f04ad1_4194_4d7d_86d6_11813cec163c);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IFeedFolderImpl: IDispatchImpl {
-    fn Feeds();
-    fn Subfolders();
-    fn CreateFeed();
-    fn CreateSubfolder();
-    fn ExistsFeed();
-    fn GetFeed();
-    fn ExistsSubfolder();
-    fn GetSubfolder();
-    fn Delete();
-    fn Name();
-    fn Rename();
-    fn Path();
-    fn Move();
-    fn Parent();
-    fn IsRoot();
-    fn TotalUnreadItemCount();
-    fn TotalItemCount();
-    fn GetWatcher();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFeedFolderVtbl(
@@ -2815,25 +2711,6 @@ impl ::core::fmt::Debug for IFeedFolderEvents {
 unsafe impl ::windows::core::Interface for IFeedFolderEvents {
     type Vtable = IFeedFolderEventsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x20a59fa6_a844_4630_9e98_175f70b4d55b);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IFeedFolderEventsImpl: IDispatchImpl {
-    fn Error();
-    fn FolderAdded();
-    fn FolderDeleted();
-    fn FolderRenamed();
-    fn FolderMovedFrom();
-    fn FolderMovedTo();
-    fn FolderItemCountChanged();
-    fn FeedAdded();
-    fn FeedDeleted();
-    fn FeedRenamed();
-    fn FeedUrlChanged();
-    fn FeedMovedFrom();
-    fn FeedMovedTo();
-    fn FeedDownloading();
-    fn FeedDownloadCompleted();
-    fn FeedItemCountChanged();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3064,26 +2941,6 @@ impl ::core::fmt::Debug for IFeedItem {
 unsafe impl ::windows::core::Interface for IFeedItem {
     type Vtable = IFeedItemVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0a1e6cad_0a47_4da2_a13d_5baaa5c8bd4f);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IFeedItemImpl: IDispatchImpl {
-    fn Xml();
-    fn Title();
-    fn Link();
-    fn Guid();
-    fn Description();
-    fn PubDate();
-    fn Comments();
-    fn Author();
-    fn Enclosure();
-    fn IsRead();
-    fn SetIsRead();
-    fn LocalId();
-    fn Parent();
-    fn Delete();
-    fn DownloadUrl();
-    fn LastDownloadTime();
-    fn Modified();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3336,10 +3193,6 @@ unsafe impl ::windows::core::Interface for IFeedItem2 {
     type Vtable = IFeedItem2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x79ac9ef4_f9c1_4d2b_a50b_a7ffba4dcf37);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IFeedItem2Impl: IFeedItemImpl + IDispatchImpl {
-    fn EffectiveId();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFeedItem2Vtbl(
@@ -3490,12 +3343,6 @@ impl ::core::fmt::Debug for IFeedsEnum {
 unsafe impl ::windows::core::Interface for IFeedsEnum {
     type Vtable = IFeedsEnumVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe3cd0028_2eed_4c60_8fae_a3225309a836);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IFeedsEnumImpl: IDispatchImpl {
-    fn Count();
-    fn Item();
-    fn _NewEnum();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3693,25 +3540,6 @@ unsafe impl ::windows::core::Interface for IFeedsManager {
     type Vtable = IFeedsManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa74029cc_1f1a_4906_88f0_810638d86591);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IFeedsManagerImpl: IDispatchImpl {
-    fn RootFolder();
-    fn IsSubscribed();
-    fn ExistsFeed();
-    fn GetFeed();
-    fn GetFeedByUrl();
-    fn ExistsFolder();
-    fn GetFolder();
-    fn DeleteFeed();
-    fn DeleteFolder();
-    fn BackgroundSync();
-    fn BackgroundSyncStatus();
-    fn DefaultInterval();
-    fn SetDefaultInterval();
-    fn AsyncSyncAll();
-    fn Normalize();
-    fn ItemCountLimit();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFeedsManagerVtbl(
@@ -3811,10 +3639,6 @@ impl ::core::fmt::Debug for IWMPAudioRenderConfig {
 unsafe impl ::windows::core::Interface for IWMPAudioRenderConfig {
     type Vtable = IWMPAudioRenderConfigVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe79c6349_5997_4ce4_917c_22a3391ec564);
-}
-pub trait IWMPAudioRenderConfigImpl {
-    fn audioOutputDevice();
-    fn SetaudioOutputDevice();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3931,12 +3755,6 @@ impl ::core::fmt::Debug for IWMPCdrom {
 unsafe impl ::windows::core::Interface for IWMPCdrom {
     type Vtable = IWMPCdromVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcfab6e98_8730_11d3_b388_00c04f68574b);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IWMPCdromImpl: IDispatchImpl {
-    fn driveSpecifier();
-    fn playlist();
-    fn eject();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4062,22 +3880,6 @@ impl ::core::fmt::Debug for IWMPCdromBurn {
 unsafe impl ::windows::core::Interface for IWMPCdromBurn {
     type Vtable = IWMPCdromBurnVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbd94dbeb_417f_4928_aa06_087d56ed9b59);
-}
-pub trait IWMPCdromBurnImpl {
-    fn isAvailable();
-    fn getItemInfo();
-    fn label();
-    fn Setlabel();
-    fn burnFormat();
-    fn SetburnFormat();
-    fn burnPlaylist();
-    fn SetburnPlaylist();
-    fn refreshStatus();
-    fn burnState();
-    fn burnProgress();
-    fn startBurn();
-    fn stopBurn();
-    fn erase();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4210,12 +4012,6 @@ unsafe impl ::windows::core::Interface for IWMPCdromCollection {
     type Vtable = IWMPCdromCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xee4c8fe2_34b2_11d3_a3bf_006097c9b344);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IWMPCdromCollectionImpl: IDispatchImpl {
-    fn count();
-    fn item();
-    fn getByDriveSpecifier();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPCdromCollectionVtbl(
@@ -4295,12 +4091,6 @@ impl ::core::fmt::Debug for IWMPCdromRip {
 unsafe impl ::windows::core::Interface for IWMPCdromRip {
     type Vtable = IWMPCdromRipVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x56e2294f_69ed_4629_a869_aea72c0dcc2c);
-}
-pub trait IWMPCdromRipImpl {
-    fn ripState();
-    fn ripProgress();
-    fn startRip();
-    fn stopRip();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4443,17 +4233,6 @@ impl ::core::fmt::Debug for IWMPClosedCaption {
 unsafe impl ::windows::core::Interface for IWMPClosedCaption {
     type Vtable = IWMPClosedCaptionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4f2df574_c588_11d3_9ed0_00c04fb6e937);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IWMPClosedCaptionImpl: IDispatchImpl {
-    fn SAMIStyle();
-    fn SetSAMIStyle();
-    fn SAMILang();
-    fn SetSAMILang();
-    fn SAMIFileName();
-    fn SetSAMIFileName();
-    fn captioningId();
-    fn SetcaptioningId();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4659,14 +4438,6 @@ unsafe impl ::windows::core::Interface for IWMPClosedCaption2 {
     type Vtable = IWMPClosedCaption2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x350ba78b_6bc8_4113_a5f5_312056934eb6);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IWMPClosedCaption2Impl: IWMPClosedCaptionImpl + IDispatchImpl {
-    fn SAMILangCount();
-    fn getSAMILangName();
-    fn getSAMILangID();
-    fn SAMIStyleCount();
-    fn getSAMIStyleName();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPClosedCaption2Vtbl(
@@ -4783,14 +4554,6 @@ unsafe impl ::windows::core::Interface for IWMPContentContainer {
     type Vtable = IWMPContentContainerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xad7f4d9c_1a9f_4ed2_9815_ecc0b58cb616);
 }
-pub trait IWMPContentContainerImpl {
-    fn GetID();
-    fn GetPrice();
-    fn GetType();
-    fn GetContentCount();
-    fn GetContentPrice();
-    fn GetContentID();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPContentContainerVtbl(
@@ -4866,11 +4629,6 @@ impl ::core::fmt::Debug for IWMPContentContainerList {
 unsafe impl ::windows::core::Interface for IWMPContentContainerList {
     type Vtable = IWMPContentContainerListVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa9937f78_0802_4af8_8b8d_e3f045bc8ab5);
-}
-pub trait IWMPContentContainerListImpl {
-    fn GetTransactionType();
-    fn GetContainerCount();
-    fn GetContainer();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5041,31 +4799,6 @@ unsafe impl ::windows::core::Interface for IWMPContentPartner {
     type Vtable = IWMPContentPartnerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x55455073_41b5_4e75_87b8_f13bdb291d08);
 }
-pub trait IWMPContentPartnerImpl {
-    fn SetCallback();
-    fn Notify();
-    fn GetItemInfo();
-    fn GetContentPartnerInfo();
-    fn GetCommands();
-    fn InvokeCommand();
-    fn CanBuySilent();
-    fn Buy();
-    fn GetStreamingURL();
-    fn Download();
-    fn DownloadTrackComplete();
-    fn RefreshLicense();
-    fn GetCatalogURL();
-    fn GetTemplate();
-    fn UpdateDevice();
-    fn GetListContents();
-    fn Login();
-    fn Authenticate();
-    fn Logout();
-    fn SendMessage();
-    fn StationEvent();
-    fn CompareContainerListPrices();
-    fn VerifyPermission();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPContentPartnerVtbl(
@@ -5217,21 +4950,6 @@ impl ::core::fmt::Debug for IWMPContentPartnerCallback {
 unsafe impl ::windows::core::Interface for IWMPContentPartnerCallback {
     type Vtable = IWMPContentPartnerCallbackVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9e8f7da2_0695_403c_b697_da10fafaa676);
-}
-pub trait IWMPContentPartnerCallbackImpl {
-    fn Notify();
-    fn BuyComplete();
-    fn DownloadTrack();
-    fn GetCatalogVersion();
-    fn UpdateDeviceComplete();
-    fn ChangeView();
-    fn AddListContents();
-    fn ListContentsComplete();
-    fn SendMessageComplete();
-    fn GetContentIDsInLibrary();
-    fn RefreshLicenseComplete();
-    fn ShowPopup();
-    fn VerifyPermissionComplete();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5417,25 +5135,6 @@ impl ::core::fmt::Debug for IWMPControls {
 unsafe impl ::windows::core::Interface for IWMPControls {
     type Vtable = IWMPControlsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x74c09e02_f828_11d2_a74b_00a0c905f36e);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IWMPControlsImpl: IDispatchImpl {
-    fn isAvailable();
-    fn play();
-    fn stop();
-    fn pause();
-    fn fastForward();
-    fn fastReverse();
-    fn currentPosition();
-    fn SetcurrentPosition();
-    fn currentPositionString();
-    fn next();
-    fn previous();
-    fn currentItem();
-    fn SetcurrentItem();
-    fn currentMarker();
-    fn SetcurrentMarker();
-    fn playItem();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5651,10 +5350,6 @@ impl ::core::fmt::Debug for IWMPControls2 {
 unsafe impl ::windows::core::Interface for IWMPControls2 {
     type Vtable = IWMPControls2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6f030d25_0890_480f_9775_1f7e40ab5b8e);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IWMPControls2Impl: IWMPControlsImpl + IDispatchImpl {
-    fn step();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5936,19 +5631,6 @@ unsafe impl ::windows::core::Interface for IWMPControls3 {
     type Vtable = IWMPControls3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa1d1110e_d545_476a_9a78_ac3e4cb1e6bd);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IWMPControls3Impl: IWMPControls2Impl + IWMPControlsImpl + IDispatchImpl {
-    fn audioLanguageCount();
-    fn getAudioLanguageID();
-    fn getAudioLanguageDescription();
-    fn currentAudioLanguage();
-    fn SetcurrentAudioLanguage();
-    fn currentAudioLanguageIndex();
-    fn SetcurrentAudioLanguageIndex();
-    fn getLanguageName();
-    fn currentPositionTimecode();
-    fn SetcurrentPositionTimecode();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPControls3Vtbl(
@@ -6051,10 +5733,6 @@ impl ::core::fmt::Debug for IWMPConvert {
 unsafe impl ::windows::core::Interface for IWMPConvert {
     type Vtable = IWMPConvertVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd683162f_57d4_4108_8373_4a9676d1c2e9);
-}
-pub trait IWMPConvertImpl {
-    fn ConvertFile();
-    fn GetErrorURL();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6256,30 +5934,6 @@ impl ::core::fmt::Debug for IWMPCore {
 unsafe impl ::windows::core::Interface for IWMPCore {
     type Vtable = IWMPCoreVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd84cca99_cce2_11d2_9ecc_0000f8085981);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IWMPCoreImpl: IDispatchImpl {
-    fn close();
-    fn URL();
-    fn SetURL();
-    fn openState();
-    fn playState();
-    fn controls();
-    fn settings();
-    fn currentMedia();
-    fn SetcurrentMedia();
-    fn mediaCollection();
-    fn playlistCollection();
-    fn versionInfo();
-    fn launchURL();
-    fn network();
-    fn currentPlaylist();
-    fn SetcurrentPlaylist();
-    fn cdromCollection();
-    fn closedCaption();
-    fn isOnline();
-    fn error();
-    fn status();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6536,10 +6190,6 @@ impl ::core::fmt::Debug for IWMPCore2 {
 unsafe impl ::windows::core::Interface for IWMPCore2 {
     type Vtable = IWMPCore2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbc17e5b7_7561_4c18_bb90_17d485775659);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IWMPCore2Impl: IWMPCoreImpl + IDispatchImpl {
-    fn dvd();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6830,11 +6480,6 @@ unsafe impl ::windows::core::Interface for IWMPCore3 {
     type Vtable = IWMPCore3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7587c667_628f_499f_88e7_6a6f4e888464);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IWMPCore3Impl: IWMPCore2Impl + IWMPCoreImpl + IDispatchImpl {
-    fn newPlaylist();
-    fn newMedia();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPCore3Vtbl(
@@ -6998,15 +6643,6 @@ unsafe impl ::windows::core::Interface for IWMPDVD {
     type Vtable = IWMPDVDVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8da61686_4668_4a5c_ae5d_803193293dbe);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IWMPDVDImpl: IDispatchImpl {
-    fn isAvailable();
-    fn domain();
-    fn topMenu();
-    fn titleMenu();
-    fn back();
-    fn resume();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPDVDVtbl(
@@ -7147,15 +6783,6 @@ impl ::core::fmt::Debug for IWMPDownloadCollection {
 unsafe impl ::windows::core::Interface for IWMPDownloadCollection {
     type Vtable = IWMPDownloadCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0a319c7f_85f9_436c_b88e_82fd88000e1c);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IWMPDownloadCollectionImpl: IDispatchImpl {
-    fn id();
-    fn count();
-    fn item();
-    fn startDownload();
-    fn removeItem();
-    fn Clear();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7303,17 +6930,6 @@ impl ::core::fmt::Debug for IWMPDownloadItem {
 unsafe impl ::windows::core::Interface for IWMPDownloadItem {
     type Vtable = IWMPDownloadItemVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc9470e8e_3f6b_46a9_a0a9_452815c34297);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IWMPDownloadItemImpl: IDispatchImpl {
-    fn sourceURL();
-    fn size();
-    fn r#type();
-    fn progress();
-    fn downloadState();
-    fn pause();
-    fn resume();
-    fn cancel();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7490,10 +7106,6 @@ unsafe impl ::windows::core::Interface for IWMPDownloadItem2 {
     type Vtable = IWMPDownloadItem2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9fbb3336_6da3_479d_b8ff_67d46e20a987);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IWMPDownloadItem2Impl: IWMPDownloadItemImpl + IDispatchImpl {
-    fn getItemInfo();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPDownloadItem2Vtbl(
@@ -7622,11 +7234,6 @@ unsafe impl ::windows::core::Interface for IWMPDownloadManager {
     type Vtable = IWMPDownloadManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe15e9ad1_8f20_4cc4_9ec7_1a328ca86a0d);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IWMPDownloadManagerImpl: IDispatchImpl {
-    fn getDownloadCollection();
-    fn createDownloadCollection();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPDownloadManagerVtbl(
@@ -7738,19 +7345,6 @@ impl ::core::fmt::Debug for IWMPEffects {
 unsafe impl ::windows::core::Interface for IWMPEffects {
     type Vtable = IWMPEffectsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd3984c13_c3cb_48e2_8be5_5168340b4f35);
-}
-pub trait IWMPEffectsImpl {
-    fn Render();
-    fn MediaInfo();
-    fn GetCapabilities();
-    fn GetTitle();
-    fn GetPresetTitle();
-    fn GetPresetCount();
-    fn SetCurrentPreset();
-    fn GetCurrentPreset();
-    fn DisplayPropertyPage();
-    fn GoFullscreen();
-    fn RenderFullScreen();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7918,14 +7512,6 @@ unsafe impl ::windows::core::Interface for IWMPEffects2 {
     type Vtable = IWMPEffects2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x695386ec_aa3c_4618_a5e1_dd9a8b987632);
 }
-pub trait IWMPEffects2Impl: IWMPEffectsImpl {
-    fn SetCore();
-    fn Create();
-    fn Destroy();
-    fn NotifyNewMedia();
-    fn OnWindowMessage();
-    fn RenderWindowed();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPEffects2Vtbl(
@@ -8067,13 +7653,6 @@ unsafe impl ::windows::core::Interface for IWMPError {
     type Vtable = IWMPErrorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa12dcf7d_14ab_4c1b_a8cd_63909f06025b);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IWMPErrorImpl: IDispatchImpl {
-    fn clearErrorQueue();
-    fn errorCount();
-    fn item();
-    fn webHelp();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPErrorVtbl(
@@ -8206,14 +7785,6 @@ impl ::core::fmt::Debug for IWMPErrorItem {
 unsafe impl ::windows::core::Interface for IWMPErrorItem {
     type Vtable = IWMPErrorItemVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3614c646_3b3b_4de7_a81e_930e3f2127b3);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IWMPErrorItemImpl: IDispatchImpl {
-    fn errorCode();
-    fn errorDescription();
-    fn errorContext();
-    fn remedy();
-    fn customUrl();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8375,10 +7946,6 @@ impl ::core::fmt::Debug for IWMPErrorItem2 {
 unsafe impl ::windows::core::Interface for IWMPErrorItem2 {
     type Vtable = IWMPErrorItem2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf75ccec0_c67c_475c_931e_8719870bee7d);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IWMPErrorItem2Impl: IWMPErrorItemImpl + IDispatchImpl {
-    fn condition();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8645,53 +8212,6 @@ impl ::core::fmt::Debug for IWMPEvents {
 unsafe impl ::windows::core::Interface for IWMPEvents {
     type Vtable = IWMPEventsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x19a6627b_da9e_47c1_bb23_00b5e668236a);
-}
-pub trait IWMPEventsImpl {
-    fn OpenStateChange();
-    fn PlayStateChange();
-    fn AudioLanguageChange();
-    fn StatusChange();
-    fn ScriptCommand();
-    fn NewStream();
-    fn Disconnect();
-    fn Buffering();
-    fn Error();
-    fn Warning();
-    fn EndOfStream();
-    fn PositionChange();
-    fn MarkerHit();
-    fn DurationUnitChange();
-    fn CdromMediaChange();
-    fn PlaylistChange();
-    fn CurrentPlaylistChange();
-    fn CurrentPlaylistItemAvailable();
-    fn MediaChange();
-    fn CurrentMediaItemAvailable();
-    fn CurrentItemChange();
-    fn MediaCollectionChange();
-    fn MediaCollectionAttributeStringAdded();
-    fn MediaCollectionAttributeStringRemoved();
-    fn MediaCollectionAttributeStringChanged();
-    fn PlaylistCollectionChange();
-    fn PlaylistCollectionPlaylistAdded();
-    fn PlaylistCollectionPlaylistRemoved();
-    fn PlaylistCollectionPlaylistSetAsDeleted();
-    fn ModeChange();
-    fn MediaError();
-    fn OpenPlaylistSwitch();
-    fn DomainChange();
-    fn SwitchedToPlayerApplication();
-    fn SwitchedToControl();
-    fn PlayerDockedStateChange();
-    fn PlayerReconnect();
-    fn Click();
-    fn DoubleClick();
-    fn KeyDown();
-    fn KeyPress();
-    fn KeyUp();
-    fn MouseDown();
-    fn MouseMove();
-    fn MouseUp();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9048,14 +8568,6 @@ impl ::core::fmt::Debug for IWMPEvents2 {
 unsafe impl ::windows::core::Interface for IWMPEvents2 {
     type Vtable = IWMPEvents2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1e7601fa_47ea_4107_9ea9_9004ed9684ff);
-}
-pub trait IWMPEvents2Impl: IWMPEventsImpl {
-    fn DeviceConnect();
-    fn DeviceDisconnect();
-    fn DeviceStatusChange();
-    fn DeviceSyncStateChange();
-    fn DeviceSyncError();
-    fn CreatePartnershipComplete();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9488,19 +9000,6 @@ impl ::core::fmt::Debug for IWMPEvents3 {
 unsafe impl ::windows::core::Interface for IWMPEvents3 {
     type Vtable = IWMPEvents3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1f504270_a66b_4223_8e96_26a06c63d69f);
-}
-pub trait IWMPEvents3Impl: IWMPEvents2Impl + IWMPEventsImpl {
-    fn CdromRipStateChange();
-    fn CdromRipMediaError();
-    fn CdromBurnStateChange();
-    fn CdromBurnMediaError();
-    fn CdromBurnError();
-    fn LibraryConnect();
-    fn LibraryDisconnect();
-    fn FolderScanStateChange();
-    fn StringCollectionChange();
-    fn MediaCollectionMediaAdded();
-    fn MediaCollectionMediaRemoved();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9974,9 +9473,6 @@ unsafe impl ::windows::core::Interface for IWMPEvents4 {
     type Vtable = IWMPEvents4Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x26dabcfa_306b_404d_9a6f_630a8405048d);
 }
-pub trait IWMPEvents4Impl: IWMPEvents3Impl + IWMPEvents2Impl + IWMPEventsImpl {
-    fn DeviceEstimation();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPEvents4Vtbl(
@@ -10162,19 +9658,6 @@ unsafe impl ::windows::core::Interface for IWMPFolderMonitorServices {
     type Vtable = IWMPFolderMonitorServicesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x788c8743_e57f_439d_a468_5bc77f2e59c6);
 }
-pub trait IWMPFolderMonitorServicesImpl {
-    fn count();
-    fn item();
-    fn add();
-    fn remove();
-    fn scanState();
-    fn currentFolder();
-    fn scannedFilesCount();
-    fn addedFilesCount();
-    fn updateProgress();
-    fn startScan();
-    fn stopScan();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPFolderMonitorServicesVtbl(
@@ -10253,11 +9736,6 @@ unsafe impl ::windows::core::Interface for IWMPGraphCreation {
     type Vtable = IWMPGraphCreationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbfb377e5_c594_4369_a970_de896d5ece74);
 }
-pub trait IWMPGraphCreationImpl {
-    fn GraphCreationPreRender();
-    fn GraphCreationPostRender();
-    fn GetGraphCreationFlags();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPGraphCreationVtbl(
@@ -10330,12 +9808,6 @@ impl ::core::fmt::Debug for IWMPLibrary {
 unsafe impl ::windows::core::Interface for IWMPLibrary {
     type Vtable = IWMPLibraryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3df47861_7df1_4c1f_a81b_4c26f0f7a7c6);
-}
-pub trait IWMPLibraryImpl {
-    fn name();
-    fn r#type();
-    fn mediaCollection();
-    fn isIdentical();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -10437,9 +9909,6 @@ unsafe impl ::windows::core::Interface for IWMPLibrary2 {
     type Vtable = IWMPLibrary2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdd578a4e_79b1_426c_bf8f_3add9072500b);
 }
-pub trait IWMPLibrary2Impl: IWMPLibraryImpl {
-    fn getItemInfo();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPLibrary2Vtbl(
@@ -10508,10 +9977,6 @@ unsafe impl ::windows::core::Interface for IWMPLibraryServices {
     type Vtable = IWMPLibraryServicesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x39c2f8d5_1cf2_4d5e_ae09_d73492cf9eaa);
 }
-pub trait IWMPLibraryServicesImpl {
-    fn getCountByType();
-    fn getLibraryByType();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPLibraryServicesVtbl(
@@ -10577,11 +10042,6 @@ impl ::core::fmt::Debug for IWMPLibrarySharingServices {
 unsafe impl ::windows::core::Interface for IWMPLibrarySharingServices {
     type Vtable = IWMPLibrarySharingServicesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x82cba86b_9f04_474b_a365_d6dd1466e541);
-}
-pub trait IWMPLibrarySharingServicesImpl {
-    fn isLibraryShared();
-    fn isLibrarySharingEnabled();
-    fn showLibrarySharing();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -10765,27 +10225,6 @@ impl ::core::fmt::Debug for IWMPMedia {
 unsafe impl ::windows::core::Interface for IWMPMedia {
     type Vtable = IWMPMediaVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x94d55e95_3fac_11d3_b155_00c04f79faa6);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IWMPMediaImpl: IDispatchImpl {
-    fn isIdentical();
-    fn sourceURL();
-    fn name();
-    fn Setname();
-    fn imageSourceWidth();
-    fn imageSourceHeight();
-    fn markerCount();
-    fn getMarkerTime();
-    fn getMarkerName();
-    fn duration();
-    fn durationString();
-    fn attributeCount();
-    fn getAttributeName();
-    fn getItemInfo();
-    fn setItemInfo();
-    fn getItemInfoByAtom();
-    fn isMemberOf();
-    fn isReadOnlyItem();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -11027,10 +10466,6 @@ impl ::core::fmt::Debug for IWMPMedia2 {
 unsafe impl ::windows::core::Interface for IWMPMedia2 {
     type Vtable = IWMPMedia2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xab7c88bb_143e_4ea4_acc3_e4350b2106c3);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IWMPMedia2Impl: IWMPMediaImpl + IDispatchImpl {
-    fn error();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -11304,11 +10739,6 @@ unsafe impl ::windows::core::Interface for IWMPMedia3 {
     type Vtable = IWMPMedia3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf118efc7_f03a_4fb4_99c9_1c02a5c1065b);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IWMPMedia3Impl: IWMPMedia2Impl + IWMPMediaImpl + IDispatchImpl {
-    fn getAttributeCountByType();
-    fn getItemInfoByType();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPMedia3Vtbl(
@@ -11511,21 +10941,6 @@ impl ::core::fmt::Debug for IWMPMediaCollection {
 unsafe impl ::windows::core::Interface for IWMPMediaCollection {
     type Vtable = IWMPMediaCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8363bc22_b4b4_4b19_989d_1cd765749dd1);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IWMPMediaCollectionImpl: IDispatchImpl {
-    fn add();
-    fn getAll();
-    fn getByName();
-    fn getByGenre();
-    fn getByAuthor();
-    fn getByAlbum();
-    fn getByAttribute();
-    fn remove();
-    fn getAttributeStringCollection();
-    fn getMediaAtom();
-    fn setDeleted();
-    fn isDeleted();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -11760,13 +11175,6 @@ unsafe impl ::windows::core::Interface for IWMPMediaCollection2 {
     type Vtable = IWMPMediaCollection2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8ba957f5_fd8c_4791_b82d_f840401ee474);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IWMPMediaCollection2Impl: IWMPMediaCollectionImpl + IDispatchImpl {
-    fn createQuery();
-    fn getPlaylistByQuery();
-    fn getStringCollectionByQuery();
-    fn getByAttributeAndMediaType();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPMediaCollection2Vtbl(
@@ -11862,10 +11270,6 @@ impl ::core::fmt::Debug for IWMPMediaPluginRegistrar {
 unsafe impl ::windows::core::Interface for IWMPMediaPluginRegistrar {
     type Vtable = IWMPMediaPluginRegistrarVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x68e27045_05bd_40b2_9720_23088c78e390);
-}
-pub trait IWMPMediaPluginRegistrarImpl {
-    fn WMPRegisterPlayerPlugin();
-    fn WMPUnRegisterPlayerPlugin();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -11987,13 +11391,6 @@ impl ::core::fmt::Debug for IWMPMetadataPicture {
 unsafe impl ::windows::core::Interface for IWMPMetadataPicture {
     type Vtable = IWMPMetadataPictureVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5c29bbe0_f87d_4c45_aa28_a70f0230ffa9);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IWMPMetadataPictureImpl: IDispatchImpl {
-    fn mimeType();
-    fn pictureType();
-    fn description();
-    fn URL();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -12118,11 +11515,6 @@ impl ::core::fmt::Debug for IWMPMetadataText {
 unsafe impl ::windows::core::Interface for IWMPMetadataText {
     type Vtable = IWMPMetadataTextVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x769a72db_13d2_45e2_9c48_53ca9d5b7450);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IWMPMetadataTextImpl: IDispatchImpl {
-    fn description();
-    fn text();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -12357,37 +11749,6 @@ unsafe impl ::windows::core::Interface for IWMPNetwork {
     type Vtable = IWMPNetworkVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xec21b779_edef_462d_bba4_ad9dde2b29a7);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IWMPNetworkImpl: IDispatchImpl {
-    fn bandWidth();
-    fn recoveredPackets();
-    fn sourceProtocol();
-    fn receivedPackets();
-    fn lostPackets();
-    fn receptionQuality();
-    fn bufferingCount();
-    fn bufferingProgress();
-    fn bufferingTime();
-    fn SetbufferingTime();
-    fn frameRate();
-    fn maxBitRate();
-    fn bitRate();
-    fn getProxySettings();
-    fn setProxySettings();
-    fn getProxyName();
-    fn setProxyName();
-    fn getProxyPort();
-    fn setProxyPort();
-    fn getProxyExceptionList();
-    fn setProxyExceptionList();
-    fn getProxyBypassForLocal();
-    fn setProxyBypassForLocal();
-    fn maxBandwidth();
-    fn SetmaxBandwidth();
-    fn downloadProgress();
-    fn encodedFrameRate();
-    fn framesSkipped();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPNetworkVtbl(
@@ -12522,15 +11883,6 @@ unsafe impl ::windows::core::Interface for IWMPNodeRealEstate {
     type Vtable = IWMPNodeRealEstateVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x42751198_5a50_4460_bcb4_709f8bdc8e59);
 }
-pub trait IWMPNodeRealEstateImpl {
-    fn GetDesiredSize();
-    fn SetRects();
-    fn GetRects();
-    fn SetWindowless();
-    fn GetWindowless();
-    fn SetFullScreen();
-    fn GetFullScreen();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPNodeRealEstateVtbl(
@@ -12607,10 +11959,6 @@ unsafe impl ::windows::core::Interface for IWMPNodeRealEstateHost {
     type Vtable = IWMPNodeRealEstateHostVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1491087d_2c6b_44c8_b019_b3c929d2ada9);
 }
-pub trait IWMPNodeRealEstateHostImpl {
-    fn OnDesiredSizeChange();
-    fn OnFullScreenTransition();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPNodeRealEstateHostVtbl(
@@ -12675,10 +12023,6 @@ unsafe impl ::windows::core::Interface for IWMPNodeWindowed {
     type Vtable = IWMPNodeWindowedVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x96740bfa_c56a_45d1_a3a4_762914d4ade9);
 }
-pub trait IWMPNodeWindowedImpl {
-    fn SetOwnerWindow();
-    fn GetOwnerWindow();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPNodeWindowedVtbl(
@@ -12737,9 +12081,6 @@ impl ::core::fmt::Debug for IWMPNodeWindowedHost {
 unsafe impl ::windows::core::Interface for IWMPNodeWindowedHost {
     type Vtable = IWMPNodeWindowedHostVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa300415a_54aa_4081_adbf_3b13610d8958);
-}
-pub trait IWMPNodeWindowedHostImpl {
-    fn OnWindowMessageFromRenderer();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -12825,9 +12166,6 @@ unsafe impl ::windows::core::Interface for IWMPNodeWindowless {
     type Vtable = IWMPNodeWindowlessVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9b9199ad_780c_4eda_b816_261eba5d1575);
 }
-pub trait IWMPNodeWindowlessImpl: IWMPWindowMessageSinkImpl {
-    fn OnDraw();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPNodeWindowlessVtbl(
@@ -12888,9 +12226,6 @@ impl ::core::fmt::Debug for IWMPNodeWindowlessHost {
 unsafe impl ::windows::core::Interface for IWMPNodeWindowlessHost {
     type Vtable = IWMPNodeWindowlessHostVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbe7017c6_ce34_4901_8106_770381aa6e3e);
-}
-pub trait IWMPNodeWindowlessHostImpl {
-    fn InvalidateRect();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -13144,17 +12479,6 @@ impl ::core::fmt::Debug for IWMPPlayer {
 unsafe impl ::windows::core::Interface for IWMPPlayer {
     type Vtable = IWMPPlayerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6bf52a4f_394a_11d3_b153_00c04f79faa6);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IWMPPlayerImpl: IWMPCoreImpl + IDispatchImpl {
-    fn enabled();
-    fn Setenabled();
-    fn fullScreen();
-    fn SetfullScreen();
-    fn enableContextMenu();
-    fn SetenableContextMenu();
-    fn SetuiMode();
-    fn uiMode();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -13466,21 +12790,6 @@ impl ::core::fmt::Debug for IWMPPlayer2 {
 unsafe impl ::windows::core::Interface for IWMPPlayer2 {
     type Vtable = IWMPPlayer2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0e6b01d1_d407_4c85_bf5f_1c01f6150280);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IWMPPlayer2Impl: IWMPCoreImpl + IDispatchImpl {
-    fn enabled();
-    fn Setenabled();
-    fn fullScreen();
-    fn SetfullScreen();
-    fn enableContextMenu();
-    fn SetenableContextMenu();
-    fn SetuiMode();
-    fn uiMode();
-    fn stretchToFit();
-    fn SetstretchToFit();
-    fn windowlessVideo();
-    fn SetwindowlessVideo();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -13821,21 +13130,6 @@ impl ::core::fmt::Debug for IWMPPlayer3 {
 unsafe impl ::windows::core::Interface for IWMPPlayer3 {
     type Vtable = IWMPPlayer3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x54062b68_052a_4c25_a39f_8b63346511d4);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IWMPPlayer3Impl: IWMPCore2Impl + IWMPCoreImpl + IDispatchImpl {
-    fn enabled();
-    fn Setenabled();
-    fn fullScreen();
-    fn SetfullScreen();
-    fn enableContextMenu();
-    fn SetenableContextMenu();
-    fn SetuiMode();
-    fn uiMode();
-    fn stretchToFit();
-    fn SetstretchToFit();
-    fn windowlessVideo();
-    fn SetwindowlessVideo();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -14224,24 +13518,6 @@ unsafe impl ::windows::core::Interface for IWMPPlayer4 {
     type Vtable = IWMPPlayer4Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6c497d62_8919_413c_82db_e935fb3ec584);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IWMPPlayer4Impl: IWMPCore3Impl + IWMPCore2Impl + IWMPCoreImpl + IDispatchImpl {
-    fn enabled();
-    fn Setenabled();
-    fn fullScreen();
-    fn SetfullScreen();
-    fn enableContextMenu();
-    fn SetenableContextMenu();
-    fn SetuiMode();
-    fn uiMode();
-    fn stretchToFit();
-    fn SetstretchToFit();
-    fn windowlessVideo();
-    fn SetwindowlessVideo();
-    fn isRemote();
-    fn playerApplication();
-    fn openPlayer();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPPlayer4Vtbl(
@@ -14413,13 +13689,6 @@ unsafe impl ::windows::core::Interface for IWMPPlayerApplication {
     type Vtable = IWMPPlayerApplicationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x40897764_ceab_47be_ad4a_8e28537f9bbf);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IWMPPlayerApplicationImpl: IDispatchImpl {
-    fn switchToPlayerApplication();
-    fn switchToControl();
-    fn playerDocked();
-    fn hasDisplay();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPPlayerApplicationVtbl(
@@ -14498,11 +13767,6 @@ impl ::core::fmt::Debug for IWMPPlayerServices {
 unsafe impl ::windows::core::Interface for IWMPPlayerServices {
     type Vtable = IWMPPlayerServicesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1d01fbdb_ade2_4c8d_9842_c190b95c3306);
-}
-pub trait IWMPPlayerServicesImpl {
-    fn activateUIPlugin();
-    fn setTaskPane();
-    fn setTaskPaneURL();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -14601,9 +13865,6 @@ impl ::core::fmt::Debug for IWMPPlayerServices2 {
 unsafe impl ::windows::core::Interface for IWMPPlayerServices2 {
     type Vtable = IWMPPlayerServices2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1bb1592f_f040_418a_9f71_17c7512b4d70);
-}
-pub trait IWMPPlayerServices2Impl: IWMPPlayerServicesImpl {
-    fn setBackgroundProcessingPriority();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -14773,23 +14034,6 @@ unsafe impl ::windows::core::Interface for IWMPPlaylist {
     type Vtable = IWMPPlaylistVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd5f0f4f1_130c_11d3_b14e_00c04f79faa6);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IWMPPlaylistImpl: IDispatchImpl {
-    fn count();
-    fn name();
-    fn Setname();
-    fn attributeCount();
-    fn attributeName();
-    fn item();
-    fn getItemInfo();
-    fn setItemInfo();
-    fn isIdentical();
-    fn clear();
-    fn insertItem();
-    fn appendItem();
-    fn removeItem();
-    fn moveItem();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPPlaylistVtbl(
@@ -14923,11 +14167,6 @@ impl ::core::fmt::Debug for IWMPPlaylistArray {
 unsafe impl ::windows::core::Interface for IWMPPlaylistArray {
     type Vtable = IWMPPlaylistArrayVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x679409c0_99f7_11d3_9fb7_00105aa620bb);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IWMPPlaylistArrayImpl: IDispatchImpl {
-    fn count();
-    fn item();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -15071,16 +14310,6 @@ unsafe impl ::windows::core::Interface for IWMPPlaylistCollection {
     type Vtable = IWMPPlaylistCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x10a13217_23a7_439b_b1c0_d847c79b7774);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IWMPPlaylistCollectionImpl: IDispatchImpl {
-    fn newPlaylist();
-    fn getAll();
-    fn getByName();
-    fn remove();
-    fn setDeleted();
-    fn isDeleted();
-    fn importPlaylist();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPPlaylistCollectionVtbl(
@@ -15174,14 +14403,6 @@ unsafe impl ::windows::core::Interface for IWMPPlugin {
     type Vtable = IWMPPluginVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf1392a70_024c_42bb_a998_73dfdfe7d5a7);
 }
-pub trait IWMPPluginImpl {
-    fn Init();
-    fn Shutdown();
-    fn GetID();
-    fn GetCaps();
-    fn AdviseWMPServices();
-    fn UnAdviseWMPServices();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPPluginVtbl(
@@ -15249,10 +14470,6 @@ impl ::core::fmt::Debug for IWMPPluginEnable {
 unsafe impl ::windows::core::Interface for IWMPPluginEnable {
     type Vtable = IWMPPluginEnableVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5fca444c_7ad1_479d_a4ef_40566a5309d6);
-}
-pub trait IWMPPluginEnableImpl {
-    fn SetEnable();
-    fn GetEnable();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -15342,15 +14559,6 @@ impl ::core::fmt::Debug for IWMPPluginUI {
 unsafe impl ::windows::core::Interface for IWMPPluginUI {
     type Vtable = IWMPPluginUIVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4c5e8f9f_ad3e_4bf9_9753_fcd30d6d38dd);
-}
-pub trait IWMPPluginUIImpl {
-    fn SetCore();
-    fn Create();
-    fn Destroy();
-    fn DisplayPropertyPage();
-    fn GetProperty();
-    fn SetProperty();
-    fn TranslateAccelerator();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -15471,11 +14679,6 @@ unsafe impl ::windows::core::Interface for IWMPQuery {
     type Vtable = IWMPQueryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa00918f3_a6b0_4bfb_9189_fd834c7bc5a5);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IWMPQueryImpl: IDispatchImpl {
-    fn addCondition();
-    fn beginNextGroup();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPQueryVtbl(
@@ -15559,12 +14762,6 @@ unsafe impl ::windows::core::Interface for IWMPRemoteMediaServices {
     type Vtable = IWMPRemoteMediaServicesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcbb92747_741f_44fe_ab5b_f1a48f3b2a59);
 }
-pub trait IWMPRemoteMediaServicesImpl {
-    fn GetServiceType();
-    fn GetApplicationName();
-    fn GetScriptableObject();
-    fn GetCustomUIMode();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPRemoteMediaServicesVtbl(
@@ -15635,10 +14832,6 @@ unsafe impl ::windows::core::Interface for IWMPRenderConfig {
     type Vtable = IWMPRenderConfigVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x959506c1_0314_4ec5_9e61_8528db5e5478);
 }
-pub trait IWMPRenderConfigImpl {
-    fn SetinProcOnly();
-    fn inProcOnly();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPRenderConfigVtbl(
@@ -15702,10 +14895,6 @@ impl ::core::fmt::Debug for IWMPServices {
 unsafe impl ::windows::core::Interface for IWMPServices {
     type Vtable = IWMPServicesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xafb6b76b_1e20_4198_83b3_191db6e0b149);
-}
-pub trait IWMPServicesImpl {
-    fn GetStreamTime();
-    fn GetStreamState();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -15905,32 +15094,6 @@ impl ::core::fmt::Debug for IWMPSettings {
 unsafe impl ::windows::core::Interface for IWMPSettings {
     type Vtable = IWMPSettingsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9104d1ab_80c9_4fed_abf0_2e6417a6df14);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IWMPSettingsImpl: IDispatchImpl {
-    fn isAvailable();
-    fn autoStart();
-    fn SetautoStart();
-    fn baseURL();
-    fn SetbaseURL();
-    fn defaultFrame();
-    fn SetdefaultFrame();
-    fn invokeURLs();
-    fn SetinvokeURLs();
-    fn mute();
-    fn Setmute();
-    fn playCount();
-    fn SetplayCount();
-    fn rate();
-    fn Setrate();
-    fn balance();
-    fn Setbalance();
-    fn volume();
-    fn Setvolume();
-    fn getMode();
-    fn setMode();
-    fn enableErrorDialogs();
-    fn SetenableErrorDialogs();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -16201,12 +15364,6 @@ unsafe impl ::windows::core::Interface for IWMPSettings2 {
     type Vtable = IWMPSettings2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfda937a4_eece_4da5_a0b6_39bf89ade2c2);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IWMPSettings2Impl: IWMPSettingsImpl + IDispatchImpl {
-    fn defaultAudioLanguage();
-    fn mediaAccessRights();
-    fn requestMediaAccessRights();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPSettings2Vtbl(
@@ -16306,9 +15463,6 @@ impl ::core::fmt::Debug for IWMPSkinManager {
 unsafe impl ::windows::core::Interface for IWMPSkinManager {
     type Vtable = IWMPSkinManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x076f2fa6_ed30_448b_8cc5_3f3ef3529c7a);
-}
-pub trait IWMPSkinManagerImpl {
-    fn SetVisualStyle();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -16418,11 +15572,6 @@ impl ::core::fmt::Debug for IWMPStringCollection {
 unsafe impl ::windows::core::Interface for IWMPStringCollection {
     type Vtable = IWMPStringCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4a976298_8c0d_11d3_b389_00c04f68574b);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IWMPStringCollectionImpl: IDispatchImpl {
-    fn count();
-    fn item();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -16581,13 +15730,6 @@ unsafe impl ::windows::core::Interface for IWMPStringCollection2 {
     type Vtable = IWMPStringCollection2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x46ad648d_53f1_4a74_92e2_2a1b68d63fd4);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IWMPStringCollection2Impl: IWMPStringCollectionImpl + IDispatchImpl {
-    fn isIdentical();
-    fn getItemInfo();
-    fn getAttributeCountByType();
-    fn getItemInfoByType();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPStringCollection2Vtbl(
@@ -16677,12 +15819,6 @@ impl ::core::fmt::Debug for IWMPSubscriptionService {
 unsafe impl ::windows::core::Interface for IWMPSubscriptionService {
     type Vtable = IWMPSubscriptionServiceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x376055f8_2a59_4a73_9501_dca5273a7a10);
-}
-pub trait IWMPSubscriptionServiceImpl {
-    fn allowPlay();
-    fn allowCDBurn();
-    fn allowPDATransfer();
-    fn startBackgroundProcessing();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -16802,12 +15938,6 @@ unsafe impl ::windows::core::Interface for IWMPSubscriptionService2 {
     type Vtable = IWMPSubscriptionService2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa94c120e_d600_4ec6_b05e_ec9d56d84de0);
 }
-pub trait IWMPSubscriptionService2Impl: IWMPSubscriptionServiceImpl {
-    fn stopBackgroundProcessing();
-    fn serviceEvent();
-    fn deviceAvailable();
-    fn prepareForSync();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPSubscriptionService2Vtbl(
@@ -16877,9 +16007,6 @@ impl ::core::fmt::Debug for IWMPSubscriptionServiceCallback {
 unsafe impl ::windows::core::Interface for IWMPSubscriptionServiceCallback {
     type Vtable = IWMPSubscriptionServiceCallbackVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdd01d127_2dc2_4c3a_876e_63312079f9b0);
-}
-pub trait IWMPSubscriptionServiceCallbackImpl {
-    fn onComplete();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -16997,24 +16124,6 @@ impl ::core::fmt::Debug for IWMPSyncDevice {
 unsafe impl ::windows::core::Interface for IWMPSyncDevice {
     type Vtable = IWMPSyncDeviceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x82a2986c_0293_4fd0_b279_b21b86c058be);
-}
-pub trait IWMPSyncDeviceImpl {
-    fn friendlyName();
-    fn SetfriendlyName();
-    fn deviceName();
-    fn deviceId();
-    fn partnershipIndex();
-    fn connected();
-    fn status();
-    fn syncState();
-    fn progress();
-    fn getItemInfo();
-    fn createPartnership();
-    fn deletePartnership();
-    fn start();
-    fn stop();
-    fn showSettings();
-    fn isIdentical();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -17182,9 +16291,6 @@ impl ::core::fmt::Debug for IWMPSyncDevice2 {
 unsafe impl ::windows::core::Interface for IWMPSyncDevice2 {
     type Vtable = IWMPSyncDevice2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x88afb4b2_140a_44d2_91e6_4543da467cd1);
-}
-pub trait IWMPSyncDevice2Impl: IWMPSyncDeviceImpl {
-    fn setItemInfo();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -17383,10 +16489,6 @@ unsafe impl ::windows::core::Interface for IWMPSyncDevice3 {
     type Vtable = IWMPSyncDevice3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb22c85f9_263c_4372_a0da_b518db9b4098);
 }
-pub trait IWMPSyncDevice3Impl: IWMPSyncDevice2Impl + IWMPSyncDeviceImpl {
-    fn estimateSyncSize();
-    fn cancelEstimation();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPSyncDevice3Vtbl(
@@ -17473,10 +16575,6 @@ unsafe impl ::windows::core::Interface for IWMPSyncServices {
     type Vtable = IWMPSyncServicesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8b5050ff_e0a4_4808_b3a8_893a9e1ed894);
 }
-pub trait IWMPSyncServicesImpl {
-    fn deviceCount();
-    fn getDevice();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPSyncServicesVtbl(
@@ -17535,9 +16633,6 @@ unsafe impl ::windows::core::Interface for IWMPTranscodePolicy {
     type Vtable = IWMPTranscodePolicyVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb64cbac3_401c_4327_a3e8_b9feb3a8c25c);
 }
-pub trait IWMPTranscodePolicyImpl {
-    fn allowTranscode();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPTranscodePolicyVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvballow: *mut i16) -> ::windows::core::HRESULT);
@@ -17589,9 +16684,6 @@ impl ::core::fmt::Debug for IWMPUserEventSink {
 unsafe impl ::windows::core::Interface for IWMPUserEventSink {
     type Vtable = IWMPUserEventSinkVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcfccfa72_c343_48c3_a2de_b7a4402e39f2);
-}
-pub trait IWMPUserEventSinkImpl {
-    fn NotifyUserEvent();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -17645,9 +16737,6 @@ impl ::core::fmt::Debug for IWMPVideoRenderConfig {
 unsafe impl ::windows::core::Interface for IWMPVideoRenderConfig {
     type Vtable = IWMPVideoRenderConfigVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6d6cf803_1ec0_4c8d_b3ca_f18e27282074);
-}
-pub trait IWMPVideoRenderConfigImpl {
-    fn SetpresenterActivate();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -17707,9 +16796,6 @@ impl ::core::fmt::Debug for IWMPWindowMessageSink {
 unsafe impl ::windows::core::Interface for IWMPWindowMessageSink {
     type Vtable = IWMPWindowMessageSinkVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3a0daa30_908d_4789_ba87_aed879b5c49b);
-}
-pub trait IWMPWindowMessageSinkImpl {
-    fn OnWindowMessage();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -17994,52 +17080,6 @@ impl ::core::fmt::Debug for IXFeed {
 unsafe impl ::windows::core::Interface for IXFeed {
     type Vtable = IXFeedVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa44179a4_e0f6_403b_af8d_d080f425a451);
-}
-pub trait IXFeedImpl {
-    fn Xml();
-    fn Name();
-    fn Rename();
-    fn Url();
-    fn SetUrl();
-    fn LocalId();
-    fn Path();
-    fn Move();
-    fn Parent();
-    fn LastWriteTime();
-    fn Delete();
-    fn Download();
-    fn AsyncDownload();
-    fn CancelAsyncDownload();
-    fn SyncSetting();
-    fn SetSyncSetting();
-    fn Interval();
-    fn SetInterval();
-    fn LastDownloadTime();
-    fn LocalEnclosurePath();
-    fn Items();
-    fn GetItem();
-    fn MarkAllItemsRead();
-    fn MaxItemCount();
-    fn SetMaxItemCount();
-    fn DownloadEnclosuresAutomatically();
-    fn SetDownloadEnclosuresAutomatically();
-    fn DownloadStatus();
-    fn LastDownloadError();
-    fn Merge();
-    fn DownloadUrl();
-    fn Title();
-    fn Description();
-    fn Link();
-    fn Image();
-    fn LastBuildDate();
-    fn PubDate();
-    fn Ttl();
-    fn Language();
-    fn Copyright();
-    fn IsList();
-    fn GetWatcher();
-    fn UnreadItemCount();
-    fn ItemCount();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -18442,14 +17482,6 @@ unsafe impl ::windows::core::Interface for IXFeed2 {
     type Vtable = IXFeed2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xce528e77_3716_4eb7_956d_f5e37502e12a);
 }
-pub trait IXFeed2Impl: IXFeedImpl {
-    fn GetItemByEffectiveId();
-    fn LastItemDownloadTime();
-    fn Username();
-    fn Password();
-    fn SetCredentials();
-    fn ClearCredentials();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXFeed2Vtbl(
@@ -18646,21 +17678,6 @@ unsafe impl ::windows::core::Interface for IXFeedEnclosure {
     type Vtable = IXFeedEnclosureVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbfbfb953_644f_4792_b69c_dfaca4cbf89a);
 }
-pub trait IXFeedEnclosureImpl {
-    fn Url();
-    fn Type();
-    fn Length();
-    fn AsyncDownload();
-    fn CancelAsyncDownload();
-    fn DownloadStatus();
-    fn LastDownloadError();
-    fn LocalPath();
-    fn Parent();
-    fn DownloadUrl();
-    fn DownloadMimeType();
-    fn RemoveFile();
-    fn SetFile();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXFeedEnclosureVtbl(
@@ -18770,16 +17787,6 @@ impl ::core::fmt::Debug for IXFeedEvents {
 unsafe impl ::windows::core::Interface for IXFeedEvents {
     type Vtable = IXFeedEventsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1630852e_1263_465b_98e5_fe60ffec4ac2);
-}
-pub trait IXFeedEventsImpl {
-    fn Error();
-    fn FeedDeleted();
-    fn FeedRenamed();
-    fn FeedUrlChanged();
-    fn FeedMoved();
-    fn FeedDownloading();
-    fn FeedDownloadCompleted();
-    fn FeedItemCountChanged();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -18944,26 +17951,6 @@ unsafe impl ::windows::core::Interface for IXFeedFolder {
     type Vtable = IXFeedFolderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4c963678_3a51_4b88_8531_98b90b6508f2);
 }
-pub trait IXFeedFolderImpl {
-    fn Feeds();
-    fn Subfolders();
-    fn CreateFeed();
-    fn CreateSubfolder();
-    fn ExistsFeed();
-    fn ExistsSubfolder();
-    fn GetFeed();
-    fn GetSubfolder();
-    fn Delete();
-    fn Name();
-    fn Rename();
-    fn Path();
-    fn Move();
-    fn Parent();
-    fn IsRoot();
-    fn GetWatcher();
-    fn TotalUnreadItemCount();
-    fn TotalItemCount();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXFeedFolderVtbl(
@@ -19123,24 +18110,6 @@ impl ::core::fmt::Debug for IXFeedFolderEvents {
 unsafe impl ::windows::core::Interface for IXFeedFolderEvents {
     type Vtable = IXFeedFolderEventsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7964b769_234a_4bb1_a5f4_90454c8ad07e);
-}
-pub trait IXFeedFolderEventsImpl {
-    fn Error();
-    fn FolderAdded();
-    fn FolderDeleted();
-    fn FolderRenamed();
-    fn FolderMovedFrom();
-    fn FolderMovedTo();
-    fn FolderItemCountChanged();
-    fn FeedAdded();
-    fn FeedDeleted();
-    fn FeedRenamed();
-    fn FeedUrlChanged();
-    fn FeedMovedFrom();
-    fn FeedMovedTo();
-    fn FeedDownloading();
-    fn FeedDownloadCompleted();
-    fn FeedItemCountChanged();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -19320,25 +18289,6 @@ impl ::core::fmt::Debug for IXFeedItem {
 unsafe impl ::windows::core::Interface for IXFeedItem {
     type Vtable = IXFeedItemVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe757b2f5_e73e_434e_a1bf_2bd7c3e60fcb);
-}
-pub trait IXFeedItemImpl {
-    fn Xml();
-    fn Title();
-    fn Link();
-    fn Guid();
-    fn Description();
-    fn PubDate();
-    fn Comments();
-    fn Author();
-    fn Enclosure();
-    fn IsRead();
-    fn SetIsRead();
-    fn LocalId();
-    fn Parent();
-    fn Delete();
-    fn DownloadUrl();
-    fn LastDownloadTime();
-    fn Modified();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -19543,9 +18493,6 @@ unsafe impl ::windows::core::Interface for IXFeedItem2 {
     type Vtable = IXFeedItem2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6cda2dc7_9013_4522_9970_2a9dd9ead5a3);
 }
-pub trait IXFeedItem2Impl: IXFeedItemImpl {
-    fn EffectiveId();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXFeedItem2Vtbl(
@@ -19638,10 +18585,6 @@ impl ::core::fmt::Debug for IXFeedsEnum {
 unsafe impl ::windows::core::Interface for IXFeedsEnum {
     type Vtable = IXFeedsEnumVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdc43a9d5_5015_4301_8c96_a47434b4d658);
-}
-pub trait IXFeedsEnumImpl {
-    fn Count();
-    fn Item();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -19780,24 +18723,6 @@ impl ::core::fmt::Debug for IXFeedsManager {
 unsafe impl ::windows::core::Interface for IXFeedsManager {
     type Vtable = IXFeedsManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5357e238_fb12_4aca_a930_cab7832b84bf);
-}
-pub trait IXFeedsManagerImpl {
-    fn RootFolder();
-    fn IsSubscribed();
-    fn ExistsFeed();
-    fn GetFeed();
-    fn GetFeedByUrl();
-    fn ExistsFolder();
-    fn GetFolder();
-    fn DeleteFeed();
-    fn DeleteFolder();
-    fn BackgroundSync();
-    fn BackgroundSyncStatus();
-    fn DefaultInterval();
-    fn SetDefaultInterval();
-    fn AsyncSyncAll();
-    fn Normalize();
-    fn ItemCountLimit();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -20525,8 +19450,6 @@ unsafe impl ::windows::core::Interface for _WMPOCXEvents {
     type Vtable = _WMPOCXEventsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6bf52a51_394a_11d3_b153_00c04f79faa6);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait _WMPOCXEventsImpl: IDispatchImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct _WMPOCXEventsVtbl(
@@ -20696,3 +19619,5 @@ pub const g_szWMParentalRating: &'static str = "WMParentalRating";
 pub const kfltTimedLevelMaximumFrequency: f32 = 22050f32;
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub const kfltTimedLevelMinimumFrequency: f32 = 20f32;
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

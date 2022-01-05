@@ -780,12 +780,6 @@ unsafe impl ::windows::core::Interface for IDtdEntity {
     type Vtable = IDtdEntityVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6a0b5ffc_63b4_480f_9e6a_8a92816aade4);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IDtdEntityImpl: IXmlNodeImpl + IXmlNodeSelectorImpl + IXmlNodeSerializerImpl {
-    fn PublicId();
-    fn SystemId();
-    fn NotationName();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDtdEntityVtbl(
@@ -806,11 +800,6 @@ unsafe impl ::windows::core::Interface for IDtdNotation {
     type Vtable = IDtdNotationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8cb4e04d_6d46_4edb_ab73_df83c51ad397);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IDtdNotationImpl: IXmlNodeImpl + IXmlNodeSelectorImpl + IXmlNodeSerializerImpl {
-    fn PublicId();
-    fn SystemId();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDtdNotationVtbl(
@@ -829,13 +818,6 @@ pub struct IXmlAttribute(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IXmlAttribute {
     type Vtable = IXmlAttributeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xac144aa4_b4f1_4db6_b206_8a22c308db0a);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IXmlAttributeImpl: IXmlNodeImpl + IXmlNodeSelectorImpl + IXmlNodeSerializerImpl {
-    fn Name();
-    fn Specified();
-    fn Value();
-    fn SetValue();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -858,8 +840,6 @@ unsafe impl ::windows::core::Interface for IXmlCDataSection {
     type Vtable = IXmlCDataSectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4d04b46f_c8bd_45b4_8899_0400d7c2c60f);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IXmlCDataSectionImpl: IXmlCharacterDataImpl + IXmlNodeImpl + IXmlNodeSelectorImpl + IXmlNodeSerializerImpl + IXmlTextImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXmlCDataSectionVtbl(
@@ -1281,16 +1261,6 @@ unsafe impl ::windows::core::Interface for IXmlCharacterData {
     type Vtable = IXmlCharacterDataVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x132e42ab_4e36_4df6_b1c8_0ce62fd88b26);
 }
-pub trait IXmlCharacterDataImpl: IXmlNodeImpl + IXmlNodeSelectorImpl + IXmlNodeSerializerImpl {
-    fn Data();
-    fn SetData();
-    fn Length();
-    fn SubstringData();
-    fn AppendData();
-    fn InsertData();
-    fn DeleteData();
-    fn ReplaceData();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXmlCharacterDataVtbl(
@@ -1316,8 +1286,6 @@ unsafe impl ::windows::core::Interface for IXmlComment {
     type Vtable = IXmlCommentVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbca474d5_b61f_4611_9cac_2e92e3476d47);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IXmlCommentImpl: IXmlCharacterDataImpl + IXmlNodeImpl + IXmlNodeSelectorImpl + IXmlNodeSerializerImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXmlCommentVtbl(
@@ -1334,26 +1302,6 @@ pub struct IXmlDocument(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IXmlDocument {
     type Vtable = IXmlDocumentVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf7f3a506_1e87_42d6_bcfb_b8c809fa5494);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IXmlDocumentImpl: IXmlNodeImpl + IXmlNodeSelectorImpl + IXmlNodeSerializerImpl {
-    fn Doctype();
-    fn Implementation();
-    fn DocumentElement();
-    fn CreateElement();
-    fn CreateDocumentFragment();
-    fn CreateTextNode();
-    fn CreateComment();
-    fn CreateProcessingInstruction();
-    fn CreateAttribute();
-    fn CreateEntityReference();
-    fn GetElementsByTagName();
-    fn CreateCDataSection();
-    fn DocumentUri();
-    fn CreateAttributeNS();
-    fn CreateElementNS();
-    fn GetElementById();
-    fn ImportNode();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1389,8 +1337,6 @@ unsafe impl ::windows::core::Interface for IXmlDocumentFragment {
     type Vtable = IXmlDocumentFragmentVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe2ea6a96_0c21_44a5_8bc9_9e4a262708ec);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IXmlDocumentFragmentImpl: IXmlNodeImpl + IXmlNodeSelectorImpl + IXmlNodeSerializerImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXmlDocumentFragmentVtbl(
@@ -1407,12 +1353,6 @@ pub struct IXmlDocumentIO(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IXmlDocumentIO {
     type Vtable = IXmlDocumentIOVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6cd0e74e_ee65_4489_9ebf_ca43e87ba637);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IXmlDocumentIOImpl {
-    fn LoadXml();
-    fn LoadXmlWithSettings();
-    fn SaveToFileAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1435,11 +1375,6 @@ unsafe impl ::windows::core::Interface for IXmlDocumentIO2 {
     type Vtable = IXmlDocumentIO2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5d034661_7bd8_4ad5_9ebf_81e6347263b1);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IXmlDocumentIO2Impl {
-    fn LoadXmlFromBuffer();
-    fn LoadXmlFromBufferWithSettings();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXmlDocumentIO2Vtbl(
@@ -1460,13 +1395,6 @@ pub struct IXmlDocumentStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IXmlDocumentStatics {
     type Vtable = IXmlDocumentStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5543d254_d757_4b79_9539_232b18f50bf1);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IXmlDocumentStaticsImpl {
-    fn LoadFromUriAsync();
-    fn LoadFromUriWithSettingsAsync();
-    fn LoadFromFileAsync();
-    fn LoadFromFileWithSettingsAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1493,12 +1421,6 @@ unsafe impl ::windows::core::Interface for IXmlDocumentType {
     type Vtable = IXmlDocumentTypeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf7342425_9781_4964_8e94_9b1c6dfc9bc7);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IXmlDocumentTypeImpl: IXmlNodeImpl + IXmlNodeSelectorImpl + IXmlNodeSerializerImpl {
-    fn Name();
-    fn Entities();
-    fn Notations();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXmlDocumentTypeVtbl(
@@ -1519,10 +1441,6 @@ unsafe impl ::windows::core::Interface for IXmlDomImplementation {
     type Vtable = IXmlDomImplementationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6de58132_f11d_4fbb_8cc6_583cba93112f);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IXmlDomImplementationImpl {
-    fn HasFeature();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXmlDomImplementationVtbl(
@@ -1540,22 +1458,6 @@ pub struct IXmlElement(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IXmlElement {
     type Vtable = IXmlElementVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2dfb8a1f_6b10_4ef8_9f83_efcce8faec37);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IXmlElementImpl: IXmlNodeImpl + IXmlNodeSelectorImpl + IXmlNodeSerializerImpl {
-    fn TagName();
-    fn GetAttribute();
-    fn SetAttribute();
-    fn RemoveAttribute();
-    fn GetAttributeNode();
-    fn SetAttributeNode();
-    fn RemoveAttributeNode();
-    fn GetElementsByTagName();
-    fn SetAttributeNS();
-    fn GetAttributeNS();
-    fn RemoveAttributeNS();
-    fn SetAttributeNodeNS();
-    fn GetAttributeNodeNS();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1587,8 +1489,6 @@ unsafe impl ::windows::core::Interface for IXmlEntityReference {
     type Vtable = IXmlEntityReferenceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2e2f47bc_c3d0_4ccf_bb86_0ab8c36a61cf);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IXmlEntityReferenceImpl: IXmlNodeImpl + IXmlNodeSelectorImpl + IXmlNodeSerializerImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXmlEntityReferenceVtbl(
@@ -1605,19 +1505,6 @@ pub struct IXmlLoadSettings(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IXmlLoadSettings {
     type Vtable = IXmlLoadSettingsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x58aa07a8_fed6_46f7_b4c5_fb1ba72108d6);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IXmlLoadSettingsImpl {
-    fn MaxElementDepth();
-    fn SetMaxElementDepth();
-    fn ProhibitDtd();
-    fn SetProhibitDtd();
-    fn ResolveExternals();
-    fn SetResolveExternals();
-    fn ValidateOnParse();
-    fn SetValidateOnParse();
-    fn ElementContentWhiteSpace();
-    fn SetElementContentWhiteSpace();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1645,17 +1532,6 @@ pub struct IXmlNamedNodeMap(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IXmlNamedNodeMap {
     type Vtable = IXmlNamedNodeMapVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb3a69eb0_aab0_4b82_a6fa_b1453f7c021b);
-}
-#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IXmlNamedNodeMapImpl: IIterableImpl<IXmlNode> + IVectorViewImpl<IXmlNode> {
-    fn Length();
-    fn Item();
-    fn GetNamedItem();
-    fn SetNamedItem();
-    fn RemoveNamedItem();
-    fn GetNamedItemNS();
-    fn RemoveNamedItemNS();
-    fn SetNamedItemNS();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2015,31 +1891,6 @@ unsafe impl ::windows::core::Interface for IXmlNode {
     type Vtable = IXmlNodeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1c741d59_2122_47d5_a856_83f3d4214875);
 }
-pub trait IXmlNodeImpl: IXmlNodeSelectorImpl + IXmlNodeSerializerImpl {
-    fn NodeValue();
-    fn SetNodeValue();
-    fn NodeType();
-    fn NodeName();
-    fn ParentNode();
-    fn ChildNodes();
-    fn FirstChild();
-    fn LastChild();
-    fn PreviousSibling();
-    fn NextSibling();
-    fn Attributes();
-    fn HasChildNodes();
-    fn OwnerDocument();
-    fn InsertBefore();
-    fn ReplaceChild();
-    fn RemoveChild();
-    fn AppendChild();
-    fn CloneNode();
-    fn NamespaceUri();
-    fn LocalName();
-    fn Prefix();
-    fn Normalize();
-    fn SetPrefix();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXmlNodeVtbl(
@@ -2079,11 +1930,6 @@ pub struct IXmlNodeList(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IXmlNodeList {
     type Vtable = IXmlNodeListVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8c60ad77_83a4_4ec1_9c54_7ba429e13da6);
-}
-#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IXmlNodeListImpl: IIterableImpl<IXmlNode> + IVectorViewImpl<IXmlNode> {
-    fn Length();
-    fn Item();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2197,12 +2043,6 @@ unsafe impl ::windows::core::Interface for IXmlNodeSelector {
     type Vtable = IXmlNodeSelectorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x63dbba8b_d0db_4fe1_b745_f9433afdc25b);
 }
-pub trait IXmlNodeSelectorImpl {
-    fn SelectSingleNode();
-    fn SelectNodes();
-    fn SelectSingleNodeNS();
-    fn SelectNodesNS();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXmlNodeSelectorVtbl(
@@ -2306,11 +2146,6 @@ unsafe impl ::windows::core::Interface for IXmlNodeSerializer {
     type Vtable = IXmlNodeSerializerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5cc5b382_e6dd_4991_abef_06d8d2e7bd0c);
 }
-pub trait IXmlNodeSerializerImpl {
-    fn GetXml();
-    fn InnerText();
-    fn SetInnerText();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXmlNodeSerializerVtbl(
@@ -2330,12 +2165,6 @@ pub struct IXmlProcessingInstruction(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IXmlProcessingInstruction {
     type Vtable = IXmlProcessingInstructionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2707fd1e_1e92_4ece_b6f4_26f069078ddc);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IXmlProcessingInstructionImpl: IXmlNodeImpl + IXmlNodeSelectorImpl + IXmlNodeSerializerImpl {
-    fn Target();
-    fn Data();
-    fn SetData();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2790,9 +2619,6 @@ unsafe impl ::windows::core::RuntimeType for IXmlText {
 unsafe impl ::windows::core::Interface for IXmlText {
     type Vtable = IXmlTextVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf931a4cb_308d_4760_a1d5_43b67450ac7e);
-}
-pub trait IXmlTextImpl: IXmlCharacterDataImpl + IXmlNodeImpl + IXmlNodeSelectorImpl + IXmlNodeSerializerImpl {
-    fn SplitText();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7847,3 +7673,5 @@ impl<'a> ::windows::core::IntoParam<'a, IXmlText> for &XmlText {
 }
 unsafe impl ::core::marker::Send for XmlText {}
 unsafe impl ::core::marker::Sync for XmlText {}
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

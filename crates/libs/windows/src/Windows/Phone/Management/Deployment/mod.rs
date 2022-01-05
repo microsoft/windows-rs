@@ -336,15 +336,6 @@ unsafe impl ::windows::core::Interface for IEnterprise {
     type Vtable = IEnterpriseVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x96592f8d_856c_4426_a947_b06307718078);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IEnterpriseImpl {
-    fn Id();
-    fn Name();
-    fn WorkplaceId();
-    fn EnrollmentValidFrom();
-    fn EnrollmentValidTo();
-    fn Status();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnterpriseVtbl(
@@ -369,14 +360,6 @@ pub struct IEnterpriseEnrollmentManager(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IEnterpriseEnrollmentManager {
     type Vtable = IEnterpriseEnrollmentManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x20f9f390_2c69_41d8_88e6_e4b3884026cb);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IEnterpriseEnrollmentManagerImpl {
-    fn EnrolledEnterprises();
-    fn CurrentEnterprise();
-    fn ValidateEnterprisesAsync();
-    fn RequestEnrollmentAsync();
-    fn RequestUnenrollmentAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -404,11 +387,6 @@ unsafe impl ::windows::core::Interface for IEnterpriseEnrollmentResult {
     type Vtable = IEnterpriseEnrollmentResultVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9ff71ce6_90db_4342_b326_1729aa91301c);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IEnterpriseEnrollmentResultImpl {
-    fn EnrolledEnterprise();
-    fn Status();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnterpriseEnrollmentResultVtbl(
@@ -427,14 +405,6 @@ pub struct IInstallationManagerStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IInstallationManagerStatics {
     type Vtable = IInstallationManagerStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x929aa738_8d49_42ac_80c9_b4ad793c43f2);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IInstallationManagerStaticsImpl {
-    fn AddPackageAsync();
-    fn AddPackagePreloadedAsync();
-    fn GetPendingPackageInstalls();
-    fn FindPackagesForCurrentPublisher();
-    fn FindPackages();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -463,12 +433,6 @@ unsafe impl ::windows::core::Interface for IInstallationManagerStatics2 {
     type Vtable = IInstallationManagerStatics2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7c6c2cbd_fa4a_4c8e_ab97_d959452f19e5);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IInstallationManagerStatics2Impl {
-    fn RemovePackageAsync();
-    fn RegisterPackageAsync();
-    fn FindPackagesByNamePublisher();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInstallationManagerStatics2Vtbl(
@@ -492,11 +456,6 @@ unsafe impl ::windows::core::Interface for IPackageInstallResult {
     type Vtable = IPackageInstallResultVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x33e8eed5_0f7e_4473_967c_7d6e1c0e7de1);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IPackageInstallResultImpl {
-    fn ProductId();
-    fn InstallState();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPackageInstallResultVtbl(
@@ -516,10 +475,6 @@ pub struct IPackageInstallResult2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPackageInstallResult2 {
     type Vtable = IPackageInstallResult2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7149d909_3ff9_41ed_a717_2bc65ffc61d2);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IPackageInstallResult2Impl {
-    fn ErrorText();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -709,3 +664,5 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Pack
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

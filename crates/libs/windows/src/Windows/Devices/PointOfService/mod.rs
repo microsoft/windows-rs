@@ -5588,20 +5588,6 @@ unsafe impl ::windows::core::Interface for IBarcodeScanner {
     type Vtable = IBarcodeScannerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbea33e06_b264_4f03_a9c1_45b20f01134f);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IBarcodeScannerImpl {
-    fn DeviceId();
-    fn Capabilities();
-    fn ClaimScannerAsync();
-    fn CheckHealthAsync();
-    fn GetSupportedSymbologiesAsync();
-    fn IsSymbologySupportedAsync();
-    fn RetrieveStatisticsAsync();
-    fn GetSupportedProfiles();
-    fn IsProfileSupported();
-    fn StatusUpdated();
-    fn RemoveStatusUpdated();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBarcodeScannerVtbl(
@@ -5638,10 +5624,6 @@ unsafe impl ::windows::core::Interface for IBarcodeScanner2 {
     type Vtable = IBarcodeScanner2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x89215167_8cee_436d_89ab_8dfb43bb4286);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IBarcodeScanner2Impl {
-    fn VideoDeviceId();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBarcodeScanner2Vtbl(
@@ -5659,13 +5641,6 @@ pub struct IBarcodeScannerCapabilities(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IBarcodeScannerCapabilities {
     type Vtable = IBarcodeScannerCapabilitiesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc60691e4_f2c8_4420_a307_b12ef6622857);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IBarcodeScannerCapabilitiesImpl {
-    fn PowerReportingType();
-    fn IsStatisticsReportingSupported();
-    fn IsStatisticsUpdatingSupported();
-    fn IsImagePreviewSupported();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5688,10 +5663,6 @@ unsafe impl ::windows::core::Interface for IBarcodeScannerCapabilities1 {
     type Vtable = IBarcodeScannerCapabilities1Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8e5ab3e9_0e2c_472f_a1cc_ee8054b6a684);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IBarcodeScannerCapabilities1Impl {
-    fn IsSoftwareTriggerSupported();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBarcodeScannerCapabilities1Vtbl(
@@ -5709,10 +5680,6 @@ pub struct IBarcodeScannerCapabilities2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IBarcodeScannerCapabilities2 {
     type Vtable = IBarcodeScannerCapabilities2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf211cfec_e1a1_4ea8_9abc_92b1596270ab);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IBarcodeScannerCapabilities2Impl {
-    fn IsVideoPreviewSupported();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5732,10 +5699,6 @@ unsafe impl ::windows::core::Interface for IBarcodeScannerDataReceivedEventArgs 
     type Vtable = IBarcodeScannerDataReceivedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4234a7e2_ed97_467d_ad2b_01e44313a929);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IBarcodeScannerDataReceivedEventArgsImpl {
-    fn Report();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBarcodeScannerDataReceivedEventArgsVtbl(
@@ -5753,12 +5716,6 @@ pub struct IBarcodeScannerErrorOccurredEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IBarcodeScannerErrorOccurredEventArgs {
     type Vtable = IBarcodeScannerErrorOccurredEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2cd2602f_cf3a_4002_a75a_c5ec468f0a20);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IBarcodeScannerErrorOccurredEventArgsImpl {
-    fn PartialInputData();
-    fn IsRetriable();
-    fn ErrorData();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5780,10 +5737,6 @@ unsafe impl ::windows::core::Interface for IBarcodeScannerImagePreviewReceivedEv
     type Vtable = IBarcodeScannerImagePreviewReceivedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf3b7de85_6e8b_434e_9f58_06ef26bc4baf);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IBarcodeScannerImagePreviewReceivedEventArgsImpl {
-    fn Preview();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBarcodeScannerImagePreviewReceivedEventArgsVtbl(
@@ -5802,12 +5755,6 @@ pub struct IBarcodeScannerReport(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IBarcodeScannerReport {
     type Vtable = IBarcodeScannerReportVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5ce4d8b0_a489_4b96_86c4_f0bf8a37753d);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IBarcodeScannerReportImpl {
-    fn ScanDataType();
-    fn ScanData();
-    fn ScanDataLabel();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5831,10 +5778,6 @@ unsafe impl ::windows::core::Interface for IBarcodeScannerReportFactory {
     type Vtable = IBarcodeScannerReportFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa2547326_2013_457c_8963_49c15dca78ce);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IBarcodeScannerReportFactoryImpl {
-    fn CreateInstance();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBarcodeScannerReportFactoryVtbl(
@@ -5853,12 +5796,6 @@ pub struct IBarcodeScannerStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IBarcodeScannerStatics {
     type Vtable = IBarcodeScannerStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5d115f6f_da49_41e8_8c8c_f0cb62a9c4fc);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IBarcodeScannerStaticsImpl {
-    fn GetDefaultAsync();
-    fn FromIdAsync();
-    fn GetDeviceSelector();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5882,10 +5819,6 @@ unsafe impl ::windows::core::Interface for IBarcodeScannerStatics2 {
     type Vtable = IBarcodeScannerStatics2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb8652473_a36f_4007_b1d0_279ebe92a656);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IBarcodeScannerStatics2Impl {
-    fn GetDeviceSelectorWithConnectionTypes();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBarcodeScannerStatics2Vtbl(
@@ -5903,11 +5836,6 @@ pub struct IBarcodeScannerStatusUpdatedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IBarcodeScannerStatusUpdatedEventArgs {
     type Vtable = IBarcodeScannerStatusUpdatedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x355d8586_9c43_462b_a91a_816dc97f452c);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IBarcodeScannerStatusUpdatedEventArgsImpl {
-    fn Status();
-    fn ExtendedStatus();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5927,103 +5855,6 @@ pub struct IBarcodeSymbologiesStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IBarcodeSymbologiesStatics {
     type Vtable = IBarcodeSymbologiesStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xca8549bb_06d2_43f4_a44b_c620679fd8d0);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IBarcodeSymbologiesStaticsImpl {
-    fn Unknown();
-    fn Ean8();
-    fn Ean8Add2();
-    fn Ean8Add5();
-    fn Eanv();
-    fn EanvAdd2();
-    fn EanvAdd5();
-    fn Ean13();
-    fn Ean13Add2();
-    fn Ean13Add5();
-    fn Isbn();
-    fn IsbnAdd5();
-    fn Ismn();
-    fn IsmnAdd2();
-    fn IsmnAdd5();
-    fn Issn();
-    fn IssnAdd2();
-    fn IssnAdd5();
-    fn Ean99();
-    fn Ean99Add2();
-    fn Ean99Add5();
-    fn Upca();
-    fn UpcaAdd2();
-    fn UpcaAdd5();
-    fn Upce();
-    fn UpceAdd2();
-    fn UpceAdd5();
-    fn UpcCoupon();
-    fn TfStd();
-    fn TfDis();
-    fn TfInt();
-    fn TfInd();
-    fn TfMat();
-    fn TfIata();
-    fn Gs1DatabarType1();
-    fn Gs1DatabarType2();
-    fn Gs1DatabarType3();
-    fn Code39();
-    fn Code39Ex();
-    fn Trioptic39();
-    fn Code32();
-    fn Pzn();
-    fn Code93();
-    fn Code93Ex();
-    fn Code128();
-    fn Gs1128();
-    fn Gs1128Coupon();
-    fn UccEan128();
-    fn Sisac();
-    fn Isbt();
-    fn Codabar();
-    fn Code11();
-    fn Msi();
-    fn Plessey();
-    fn Telepen();
-    fn Code16k();
-    fn CodablockA();
-    fn CodablockF();
-    fn Codablock128();
-    fn Code49();
-    fn Aztec();
-    fn DataCode();
-    fn DataMatrix();
-    fn HanXin();
-    fn Maxicode();
-    fn MicroPdf417();
-    fn MicroQr();
-    fn Pdf417();
-    fn Qr();
-    fn MsTag();
-    fn Ccab();
-    fn Ccc();
-    fn Tlc39();
-    fn AusPost();
-    fn CanPost();
-    fn ChinaPost();
-    fn DutchKix();
-    fn InfoMail();
-    fn ItalianPost25();
-    fn ItalianPost39();
-    fn JapanPost();
-    fn KoreanPost();
-    fn SwedenPost();
-    fn UkPost();
-    fn UsIntelligent();
-    fn UsIntelligentPkg();
-    fn UsPlanet();
-    fn UsPostNet();
-    fn Us4StateFics();
-    fn OcrA();
-    fn OcrB();
-    fn Micr();
-    fn ExtendedBase();
-    fn GetName();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6136,10 +5967,6 @@ unsafe impl ::windows::core::Interface for IBarcodeSymbologiesStatics2 {
     type Vtable = IBarcodeSymbologiesStatics2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8b7518f4_99d0_40bf_9424_b91d6dd4c6e0);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IBarcodeSymbologiesStatics2Impl {
-    fn Gs1DWCode();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBarcodeSymbologiesStatics2Vtbl(
@@ -6157,22 +5984,6 @@ pub struct IBarcodeSymbologyAttributes(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IBarcodeSymbologyAttributes {
     type Vtable = IBarcodeSymbologyAttributesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x66413a78_ab7a_4ada_8ece_936014b2ead7);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IBarcodeSymbologyAttributesImpl {
-    fn IsCheckDigitValidationEnabled();
-    fn SetIsCheckDigitValidationEnabled();
-    fn IsCheckDigitValidationSupported();
-    fn IsCheckDigitTransmissionEnabled();
-    fn SetIsCheckDigitTransmissionEnabled();
-    fn IsCheckDigitTransmissionSupported();
-    fn DecodeLength1();
-    fn SetDecodeLength1();
-    fn DecodeLength2();
-    fn SetDecodeLength2();
-    fn DecodeLengthKind();
-    fn SetDecodeLengthKind();
-    fn IsDecodeLengthSupported();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6203,19 +6014,6 @@ pub struct ICashDrawer(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICashDrawer {
     type Vtable = ICashDrawerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9f88f5c8_de54_4aee_a890_920bcbfe30fc);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ICashDrawerImpl {
-    fn DeviceId();
-    fn Capabilities();
-    fn Status();
-    fn IsDrawerOpen();
-    fn DrawerEventSource();
-    fn ClaimDrawerAsync();
-    fn CheckHealthAsync();
-    fn GetStatisticsAsync();
-    fn StatusUpdated();
-    fn RemoveStatusUpdated();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6249,15 +6047,6 @@ unsafe impl ::windows::core::Interface for ICashDrawerCapabilities {
     type Vtable = ICashDrawerCapabilitiesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0bc6de0b_e8e7_4b1f_b1d1_3e501ad08247);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ICashDrawerCapabilitiesImpl {
-    fn PowerReportingType();
-    fn IsStatisticsReportingSupported();
-    fn IsStatisticsUpdatingSupported();
-    fn IsStatusReportingSupported();
-    fn IsStatusMultiDrawerDetectSupported();
-    fn IsDrawerOpenSensorAvailable();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICashDrawerCapabilitiesVtbl(
@@ -6280,20 +6069,6 @@ pub struct ICashDrawerCloseAlarm(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICashDrawerCloseAlarm {
     type Vtable = ICashDrawerCloseAlarmVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6bf88cc7_6f63_430e_ab3b_95d75ffbe87f);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ICashDrawerCloseAlarmImpl {
-    fn SetAlarmTimeout();
-    fn AlarmTimeout();
-    fn SetBeepFrequency();
-    fn BeepFrequency();
-    fn SetBeepDuration();
-    fn BeepDuration();
-    fn SetBeepDelay();
-    fn BeepDelay();
-    fn AlarmTimeoutExpired();
-    fn RemoveAlarmTimeoutExpired();
-    fn StartAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6331,13 +6106,6 @@ pub struct ICashDrawerEventSource(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICashDrawerEventSource {
     type Vtable = ICashDrawerEventSourceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe006e46c_f2f9_442f_8dd6_06c10a4227ba);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ICashDrawerEventSourceImpl {
-    fn DrawerClosed();
-    fn RemoveDrawerClosed();
-    fn DrawerOpened();
-    fn RemoveDrawerOpened();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6433,9 +6201,6 @@ unsafe impl ::windows::core::Interface for ICashDrawerEventSourceEventArgs {
     type Vtable = ICashDrawerEventSourceEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x69cb3bc1_147f_421c_9c23_090123bb786c);
 }
-pub trait ICashDrawerEventSourceEventArgsImpl {
-    fn CashDrawer();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICashDrawerEventSourceEventArgsVtbl(
@@ -6453,12 +6218,6 @@ pub struct ICashDrawerStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICashDrawerStatics {
     type Vtable = ICashDrawerStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdfa0955a_d437_4fff_b547_dda969a4f883);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ICashDrawerStaticsImpl {
-    fn GetDefaultAsync();
-    fn FromIdAsync();
-    fn GetDeviceSelector();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6482,10 +6241,6 @@ unsafe impl ::windows::core::Interface for ICashDrawerStatics2 {
     type Vtable = ICashDrawerStatics2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3e818121_8c42_40e8_9c0e_40297048104c);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ICashDrawerStatics2Impl {
-    fn GetDeviceSelectorWithConnectionTypes();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICashDrawerStatics2Vtbl(
@@ -6503,11 +6258,6 @@ pub struct ICashDrawerStatus(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICashDrawerStatus {
     type Vtable = ICashDrawerStatusVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6bbd78bf_dca1_4e06_99eb_5af6a5aec108);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ICashDrawerStatusImpl {
-    fn StatusKind();
-    fn ExtendedStatus();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6528,10 +6278,6 @@ unsafe impl ::windows::core::Interface for ICashDrawerStatusUpdatedEventArgs {
     type Vtable = ICashDrawerStatusUpdatedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x30aae98a_0d70_459c_9553_87e124c52488);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ICashDrawerStatusUpdatedEventArgsImpl {
-    fn Status();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICashDrawerStatusUpdatedEventArgsVtbl(
@@ -6549,34 +6295,6 @@ pub struct IClaimedBarcodeScanner(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IClaimedBarcodeScanner {
     type Vtable = IClaimedBarcodeScannerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4a63b49c_8fa4_4332_bb26_945d11d81e0f);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IClaimedBarcodeScannerImpl {
-    fn DeviceId();
-    fn IsEnabled();
-    fn SetIsDisabledOnDataReceived();
-    fn IsDisabledOnDataReceived();
-    fn SetIsDecodeDataEnabled();
-    fn IsDecodeDataEnabled();
-    fn EnableAsync();
-    fn DisableAsync();
-    fn RetainDevice();
-    fn SetActiveSymbologiesAsync();
-    fn ResetStatisticsAsync();
-    fn UpdateStatisticsAsync();
-    fn SetActiveProfileAsync();
-    fn DataReceived();
-    fn RemoveDataReceived();
-    fn TriggerPressed();
-    fn RemoveTriggerPressed();
-    fn TriggerReleased();
-    fn RemoveTriggerReleased();
-    fn ReleaseDeviceRequested();
-    fn RemoveReleaseDeviceRequested();
-    fn ImagePreviewReceived();
-    fn RemoveImagePreviewReceived();
-    fn ErrorOccurred();
-    fn RemoveErrorOccurred();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6638,11 +6356,6 @@ unsafe impl ::windows::core::Interface for IClaimedBarcodeScanner1 {
     type Vtable = IClaimedBarcodeScanner1Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf61aad0c_8551_42b4_998c_970c20210a22);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IClaimedBarcodeScanner1Impl {
-    fn StartSoftwareTriggerAsync();
-    fn StopSoftwareTriggerAsync();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IClaimedBarcodeScanner1Vtbl(
@@ -6664,11 +6377,6 @@ unsafe impl ::windows::core::Interface for IClaimedBarcodeScanner2 {
     type Vtable = IClaimedBarcodeScanner2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe3b59e8c_2d8b_4f70_8af3_3448bedd5fe2);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IClaimedBarcodeScanner2Impl {
-    fn GetSymbologyAttributesAsync();
-    fn SetSymbologyAttributesAsync();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IClaimedBarcodeScanner2Vtbl(
@@ -6689,13 +6397,6 @@ pub struct IClaimedBarcodeScanner3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IClaimedBarcodeScanner3 {
     type Vtable = IClaimedBarcodeScanner3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe6ceb430_712e_45fc_8b86_cd55f5aef79d);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IClaimedBarcodeScanner3Impl {
-    fn ShowVideoPreviewAsync();
-    fn HideVideoPreview();
-    fn SetIsVideoPreviewShownOnEnable();
-    fn IsVideoPreviewShownOnEnable();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6719,11 +6420,6 @@ unsafe impl ::windows::core::Interface for IClaimedBarcodeScanner4 {
     type Vtable = IClaimedBarcodeScanner4Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5d501f97_376a_41a8_a230_2f37c1949dde);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IClaimedBarcodeScanner4Impl {
-    fn Closed();
-    fn RemoveClosed();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IClaimedBarcodeScanner4Vtbl(
@@ -6745,8 +6441,6 @@ unsafe impl ::windows::core::Interface for IClaimedBarcodeScannerClosedEventArgs
     type Vtable = IClaimedBarcodeScannerClosedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcf7d5489_a22c_4c65_a901_88d77d833954);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IClaimedBarcodeScannerClosedEventArgsImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IClaimedBarcodeScannerClosedEventArgsVtbl(
@@ -6763,21 +6457,6 @@ pub struct IClaimedCashDrawer(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IClaimedCashDrawer {
     type Vtable = IClaimedCashDrawerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xca3f99af_abb8_42c1_8a84_5c66512f5a75);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IClaimedCashDrawerImpl {
-    fn DeviceId();
-    fn IsEnabled();
-    fn IsDrawerOpen();
-    fn CloseAlarm();
-    fn OpenDrawerAsync();
-    fn EnableAsync();
-    fn DisableAsync();
-    fn RetainDeviceAsync();
-    fn ResetStatisticsAsync();
-    fn UpdateStatisticsAsync();
-    fn ReleaseDeviceRequested();
-    fn RemoveReleaseDeviceRequested();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6816,11 +6495,6 @@ unsafe impl ::windows::core::Interface for IClaimedCashDrawer2 {
     type Vtable = IClaimedCashDrawer2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9cbab5a2_de42_4d5b_b0c1_9b57a2ba89c3);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IClaimedCashDrawer2Impl {
-    fn Closed();
-    fn RemoveClosed();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IClaimedCashDrawer2Vtbl(
@@ -6842,8 +6516,6 @@ unsafe impl ::windows::core::Interface for IClaimedCashDrawerClosedEventArgs {
     type Vtable = IClaimedCashDrawerClosedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcc573f33_3f34_4c5c_baae_deadf16cd7fa);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IClaimedCashDrawerClosedEventArgsImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IClaimedCashDrawerClosedEventArgsVtbl(
@@ -6860,10 +6532,6 @@ pub struct IClaimedJournalPrinter(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IClaimedJournalPrinter {
     type Vtable = IClaimedJournalPrinterVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x67ea0630_517d_487f_9fdf_d2e0a0a264a5);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IClaimedJournalPrinterImpl {
-    fn CreateJob();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6882,20 +6550,6 @@ pub struct IClaimedLineDisplay(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IClaimedLineDisplay {
     type Vtable = IClaimedLineDisplayVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x120ac970_9a75_4acf_aae7_09972bcf8794);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IClaimedLineDisplayImpl {
-    fn DeviceId();
-    fn Capabilities();
-    fn PhysicalDeviceName();
-    fn PhysicalDeviceDescription();
-    fn DeviceControlDescription();
-    fn DeviceControlVersion();
-    fn DeviceServiceVersion();
-    fn DefaultWindow();
-    fn RetainDevice();
-    fn ReleaseDeviceRequested();
-    fn RemoveReleaseDeviceRequested();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6926,26 +6580,6 @@ pub struct IClaimedLineDisplay2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IClaimedLineDisplay2 {
     type Vtable = IClaimedLineDisplay2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa31c75ed_41f5_4e76_a074_795e47a46e97);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IClaimedLineDisplay2Impl {
-    fn GetStatisticsAsync();
-    fn CheckHealthAsync();
-    fn CheckPowerStatusAsync();
-    fn StatusUpdated();
-    fn RemoveStatusUpdated();
-    fn SupportedScreenSizesInCharacters();
-    fn MaxBitmapSizeInPixels();
-    fn SupportedCharacterSets();
-    fn CustomGlyphs();
-    fn GetAttributes();
-    fn TryUpdateAttributesAsync();
-    fn TrySetDescriptorAsync();
-    fn TryClearDescriptorsAsync();
-    fn TryCreateWindowAsync();
-    fn TryStoreStorageFileBitmapAsync();
-    fn TryStoreStorageFileBitmapWithAlignmentAsync();
-    fn TryStoreStorageFileBitmapWithAlignmentAndWidthAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6996,11 +6630,6 @@ unsafe impl ::windows::core::Interface for IClaimedLineDisplay3 {
     type Vtable = IClaimedLineDisplay3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x642ecd92_e9d4_4ecc_af75_329c274cd18f);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IClaimedLineDisplay3Impl {
-    fn Closed();
-    fn RemoveClosed();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IClaimedLineDisplay3Vtbl(
@@ -7022,8 +6651,6 @@ unsafe impl ::windows::core::Interface for IClaimedLineDisplayClosedEventArgs {
     type Vtable = IClaimedLineDisplayClosedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf915f364_d3d5_4f10_b511_90939edfacd8);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IClaimedLineDisplayClosedEventArgsImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IClaimedLineDisplayClosedEventArgsVtbl(
@@ -7040,12 +6667,6 @@ pub struct IClaimedLineDisplayStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IClaimedLineDisplayStatics {
     type Vtable = IClaimedLineDisplayStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x78ca98fb_8b6b_4973_86f0_3e570c351825);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IClaimedLineDisplayStaticsImpl {
-    fn FromIdAsync();
-    fn GetDeviceSelector();
-    fn GetDeviceSelectorWithConnectionTypes();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7067,42 +6688,6 @@ pub struct IClaimedMagneticStripeReader(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IClaimedMagneticStripeReader {
     type Vtable = IClaimedMagneticStripeReaderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x475ca8f3_9417_48bc_b9d7_4163a7844c02);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IClaimedMagneticStripeReaderImpl {
-    fn DeviceId();
-    fn IsEnabled();
-    fn SetIsDisabledOnDataReceived();
-    fn IsDisabledOnDataReceived();
-    fn SetIsDecodeDataEnabled();
-    fn IsDecodeDataEnabled();
-    fn IsDeviceAuthenticated();
-    fn SetDataEncryptionAlgorithm();
-    fn DataEncryptionAlgorithm();
-    fn SetTracksToRead();
-    fn TracksToRead();
-    fn SetIsTransmitSentinelsEnabled();
-    fn IsTransmitSentinelsEnabled();
-    fn EnableAsync();
-    fn DisableAsync();
-    fn RetainDevice();
-    fn SetErrorReportingType();
-    fn RetrieveDeviceAuthenticationDataAsync();
-    fn AuthenticateDeviceAsync();
-    fn DeAuthenticateDeviceAsync();
-    fn UpdateKeyAsync();
-    fn ResetStatisticsAsync();
-    fn UpdateStatisticsAsync();
-    fn BankCardDataReceived();
-    fn RemoveBankCardDataReceived();
-    fn AamvaCardDataReceived();
-    fn RemoveAamvaCardDataReceived();
-    fn VendorSpecificDataReceived();
-    fn RemoveVendorSpecificDataReceived();
-    fn ReleaseDeviceRequested();
-    fn RemoveReleaseDeviceRequested();
-    fn ErrorOccurred();
-    fn RemoveErrorOccurred();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7172,11 +6757,6 @@ unsafe impl ::windows::core::Interface for IClaimedMagneticStripeReader2 {
     type Vtable = IClaimedMagneticStripeReader2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x236fafdf_e2dc_4d7d_9c78_060df2bf2928);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IClaimedMagneticStripeReader2Impl {
-    fn Closed();
-    fn RemoveClosed();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IClaimedMagneticStripeReader2Vtbl(
@@ -7198,8 +6778,6 @@ unsafe impl ::windows::core::Interface for IClaimedMagneticStripeReaderClosedEve
     type Vtable = IClaimedMagneticStripeReaderClosedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x14ada93a_adcd_4c80_acda_c3eaed2647e1);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IClaimedMagneticStripeReaderClosedEventArgsImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IClaimedMagneticStripeReaderClosedEventArgsVtbl(
@@ -7216,28 +6794,6 @@ pub struct IClaimedPosPrinter(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IClaimedPosPrinter {
     type Vtable = IClaimedPosPrinterVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6d64ce0c_e03e_4b14_a38e_c28c34b86353);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IClaimedPosPrinterImpl {
-    fn DeviceId();
-    fn IsEnabled();
-    fn SetCharacterSet();
-    fn CharacterSet();
-    fn IsCoverOpen();
-    fn SetIsCharacterSetMappingEnabled();
-    fn IsCharacterSetMappingEnabled();
-    fn SetMapMode();
-    fn MapMode();
-    fn Receipt();
-    fn Slip();
-    fn Journal();
-    fn EnableAsync();
-    fn DisableAsync();
-    fn RetainDeviceAsync();
-    fn ResetStatisticsAsync();
-    fn UpdateStatisticsAsync();
-    fn ReleaseDeviceRequested();
-    fn RemoveReleaseDeviceRequested();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7282,11 +6838,6 @@ unsafe impl ::windows::core::Interface for IClaimedPosPrinter2 {
     type Vtable = IClaimedPosPrinter2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5bf7a3d5_5198_437a_82df_589993fa77e1);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IClaimedPosPrinter2Impl {
-    fn Closed();
-    fn RemoveClosed();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IClaimedPosPrinter2Vtbl(
@@ -7308,8 +6859,6 @@ unsafe impl ::windows::core::Interface for IClaimedPosPrinterClosedEventArgs {
     type Vtable = IClaimedPosPrinterClosedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe2b7a27b_4d40_471d_92ed_63375b18c788);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IClaimedPosPrinterClosedEventArgsImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IClaimedPosPrinterClosedEventArgsVtbl(
@@ -7326,15 +6875,6 @@ pub struct IClaimedReceiptPrinter(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IClaimedReceiptPrinter {
     type Vtable = IClaimedReceiptPrinterVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9ad27a74_dd61_4ee2_9837_5b5d72d538b9);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IClaimedReceiptPrinterImpl {
-    fn SidewaysMaxLines();
-    fn SidewaysMaxChars();
-    fn LinesToPaperCut();
-    fn PageSize();
-    fn PrintArea();
-    fn CreateJob();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7360,22 +6900,6 @@ pub struct IClaimedSlipPrinter(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IClaimedSlipPrinter {
     type Vtable = IClaimedSlipPrinterVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbd5deff2_af90_4e8a_b77b_e3ae9ca63a7f);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IClaimedSlipPrinterImpl {
-    fn SidewaysMaxLines();
-    fn SidewaysMaxChars();
-    fn MaxLines();
-    fn LinesNearEndToEnd();
-    fn PrintSide();
-    fn PageSize();
-    fn PrintArea();
-    fn OpenJaws();
-    fn CloseJaws();
-    fn InsertSlipAsync();
-    fn RemoveSlipAsync();
-    fn ChangePrintSide();
-    fn CreateJob();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7609,27 +7133,6 @@ unsafe impl ::windows::core::Interface for ICommonClaimedPosPrinterStation {
     type Vtable = ICommonClaimedPosPrinterStationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb7eb66a8_fe8a_4cfb_8b42_e35b280cb27c);
 }
-pub trait ICommonClaimedPosPrinterStationImpl {
-    fn SetCharactersPerLine();
-    fn CharactersPerLine();
-    fn SetLineHeight();
-    fn LineHeight();
-    fn SetLineSpacing();
-    fn LineSpacing();
-    fn LineWidth();
-    fn SetIsLetterQuality();
-    fn IsLetterQuality();
-    fn IsPaperNearEnd();
-    fn SetColorCartridge();
-    fn ColorCartridge();
-    fn IsCoverOpen();
-    fn IsCartridgeRemoved();
-    fn IsCartridgeEmpty();
-    fn IsHeadCleaning();
-    fn IsPaperEmpty();
-    fn IsReadyToPrint();
-    fn ValidateData();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICommonClaimedPosPrinterStationVtbl(
@@ -7831,21 +7334,6 @@ unsafe impl ::windows::core::RuntimeType for ICommonPosPrintStationCapabilities 
 unsafe impl ::windows::core::Interface for ICommonPosPrintStationCapabilities {
     type Vtable = ICommonPosPrintStationCapabilitiesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xde5b52ca_e02e_40e9_9e5e_1b488e6aacfc);
-}
-pub trait ICommonPosPrintStationCapabilitiesImpl {
-    fn IsPrinterPresent();
-    fn IsDualColorSupported();
-    fn ColorCartridgeCapabilities();
-    fn CartridgeSensors();
-    fn IsBoldSupported();
-    fn IsItalicSupported();
-    fn IsUnderlineSupported();
-    fn IsDoubleHighPrintSupported();
-    fn IsDoubleWidePrintSupported();
-    fn IsDoubleHighDoubleWidePrintSupported();
-    fn IsPaperEmptySensorSupported();
-    fn IsPaperNearEndSensorSupported();
-    fn SupportedCharactersPerLine();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8140,17 +7628,6 @@ unsafe impl ::windows::core::Interface for ICommonReceiptSlipCapabilities {
     type Vtable = ICommonReceiptSlipCapabilitiesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x09286b8b_9873_4d05_bfbe_4727a6038f69);
 }
-pub trait ICommonReceiptSlipCapabilitiesImpl: ICommonPosPrintStationCapabilitiesImpl {
-    fn IsBarcodeSupported();
-    fn IsBitmapSupported();
-    fn IsLeft90RotationSupported();
-    fn IsRight90RotationSupported();
-    fn Is180RotationSupported();
-    fn IsPrintAreaSupported();
-    fn RuledLineCapabilities();
-    fn SupportedBarcodeRotations();
-    fn SupportedBitmapRotations();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICommonReceiptSlipCapabilitiesVtbl(
@@ -8179,12 +7656,6 @@ unsafe impl ::windows::core::Interface for IJournalPrintJob {
     type Vtable = IJournalPrintJobVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9f4f2864_f3f0_55d0_8c39_74cc91783eed);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IJournalPrintJobImpl {
-    fn Print();
-    fn FeedPaperByLine();
-    fn FeedPaperByMapModeUnit();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IJournalPrintJobVtbl(
@@ -8205,8 +7676,6 @@ unsafe impl ::windows::core::Interface for IJournalPrinterCapabilities {
     type Vtable = IJournalPrinterCapabilitiesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3b5ccc43_e047_4463_bb58_17b5ba1d8056);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IJournalPrinterCapabilitiesImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IJournalPrinterCapabilitiesVtbl(
@@ -8223,15 +7692,6 @@ pub struct IJournalPrinterCapabilities2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IJournalPrinterCapabilities2 {
     type Vtable = IJournalPrinterCapabilities2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x03b0b645_33b8_533b_baaa_a4389283ab0a);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IJournalPrinterCapabilities2Impl {
-    fn IsReverseVideoSupported();
-    fn IsStrikethroughSupported();
-    fn IsSuperscriptSupported();
-    fn IsSubscriptSupported();
-    fn IsReversePaperFeedByLineSupported();
-    fn IsReversePaperFeedByMapModeUnitSupported();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8255,17 +7715,6 @@ pub struct ILineDisplay(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ILineDisplay {
     type Vtable = ILineDisplayVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x24f5df4e_3c99_44e2_b73f_e51be3637a8c);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ILineDisplayImpl {
-    fn DeviceId();
-    fn Capabilities();
-    fn PhysicalDeviceName();
-    fn PhysicalDeviceDescription();
-    fn DeviceControlDescription();
-    fn DeviceControlVersion();
-    fn DeviceServiceVersion();
-    fn ClaimAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8293,10 +7742,6 @@ unsafe impl ::windows::core::Interface for ILineDisplay2 {
     type Vtable = ILineDisplay2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc296a628_ef44_40f3_bd1c_b04c6a5cdc7d);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ILineDisplay2Impl {
-    fn CheckPowerStatusAsync();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILineDisplay2Vtbl(
@@ -8315,23 +7760,6 @@ pub struct ILineDisplayAttributes(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ILineDisplayAttributes {
     type Vtable = ILineDisplayAttributesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc17de99c_229a_4c14_a6f1_b4e4b1fead92);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ILineDisplayAttributesImpl {
-    fn IsPowerNotifyEnabled();
-    fn SetIsPowerNotifyEnabled();
-    fn Brightness();
-    fn SetBrightness();
-    fn BlinkRate();
-    fn SetBlinkRate();
-    fn ScreenSizeInCharacters();
-    fn SetScreenSizeInCharacters();
-    fn CharacterSet();
-    fn SetCharacterSet();
-    fn IsCharacterSetMappingEnabled();
-    fn SetIsCharacterSetMappingEnabled();
-    fn CurrentWindow();
-    fn SetCurrentWindow();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8368,27 +7796,6 @@ unsafe impl ::windows::core::Interface for ILineDisplayCapabilities {
     type Vtable = ILineDisplayCapabilitiesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5a15b5d1_8dc5_4b9c_9172_303e47b70c55);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ILineDisplayCapabilitiesImpl {
-    fn IsStatisticsReportingSupported();
-    fn IsStatisticsUpdatingSupported();
-    fn PowerReportingType();
-    fn CanChangeScreenSize();
-    fn CanDisplayBitmaps();
-    fn CanReadCharacterAtCursor();
-    fn CanMapCharacterSets();
-    fn CanDisplayCustomGlyphs();
-    fn CanReverse();
-    fn CanBlink();
-    fn CanChangeBlinkRate();
-    fn IsBrightnessSupported();
-    fn IsCursorSupported();
-    fn IsHorizontalMarqueeSupported();
-    fn IsVerticalMarqueeSupported();
-    fn IsInterCharacterWaitSupported();
-    fn SupportedDescriptors();
-    fn SupportedWindows();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILineDisplayCapabilitiesVtbl(
@@ -8424,18 +7831,6 @@ unsafe impl ::windows::core::Interface for ILineDisplayCursor {
     type Vtable = ILineDisplayCursorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xecdffc45_754a_4e3b_ab2b_151181085605);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ILineDisplayCursorImpl {
-    fn CanCustomize();
-    fn IsBlinkSupported();
-    fn IsBlockSupported();
-    fn IsHalfBlockSupported();
-    fn IsUnderlineSupported();
-    fn IsReverseSupported();
-    fn IsOtherSupported();
-    fn GetAttributes();
-    fn TryUpdateAttributesAsync();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILineDisplayCursorVtbl(
@@ -8462,17 +7857,6 @@ pub struct ILineDisplayCursorAttributes(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ILineDisplayCursorAttributes {
     type Vtable = ILineDisplayCursorAttributesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4e2d54fe_4ffd_4190_aae1_ce285f20c896);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ILineDisplayCursorAttributesImpl {
-    fn IsBlinkEnabled();
-    fn SetIsBlinkEnabled();
-    fn CursorType();
-    fn SetCursorType();
-    fn IsAutoAdvanceEnabled();
-    fn SetIsAutoAdvanceEnabled();
-    fn Position();
-    fn SetPosition();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8501,12 +7885,6 @@ unsafe impl ::windows::core::Interface for ILineDisplayCustomGlyphs {
     type Vtable = ILineDisplayCustomGlyphsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2257f63c_f263_44f1_a1a0_e750a6a0ec54);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ILineDisplayCustomGlyphsImpl {
-    fn SizeInPixels();
-    fn SupportedGlyphCodes();
-    fn TryRedefineAsync();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILineDisplayCustomGlyphsVtbl(
@@ -8529,17 +7907,6 @@ pub struct ILineDisplayMarquee(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ILineDisplayMarquee {
     type Vtable = ILineDisplayMarqueeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa3d33e3e_f46a_4b7a_bc21_53eb3b57f8b4);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ILineDisplayMarqueeImpl {
-    fn Format();
-    fn SetFormat();
-    fn RepeatWaitInterval();
-    fn SetRepeatWaitInterval();
-    fn ScrollWaitInterval();
-    fn SetScrollWaitInterval();
-    fn TryStartScrollingAsync();
-    fn TryStopScrollingAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8572,13 +7939,6 @@ unsafe impl ::windows::core::Interface for ILineDisplayStatics {
     type Vtable = ILineDisplayStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x022dc0b6_11b0_4690_9547_0b39c5af2114);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ILineDisplayStaticsImpl {
-    fn FromIdAsync();
-    fn GetDefaultAsync();
-    fn GetDeviceSelector();
-    fn GetDeviceSelectorWithConnectionTypes();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILineDisplayStaticsVtbl(
@@ -8602,10 +7962,6 @@ unsafe impl ::windows::core::Interface for ILineDisplayStatics2 {
     type Vtable = ILineDisplayStatics2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x600c3f1c_77ab_4968_a7de_c02ff169f2cc);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ILineDisplayStatics2Impl {
-    fn StatisticsCategorySelector();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILineDisplayStatics2Vtbl(
@@ -8623,12 +7979,6 @@ pub struct ILineDisplayStatisticsCategorySelector(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ILineDisplayStatisticsCategorySelector {
     type Vtable = ILineDisplayStatisticsCategorySelectorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb521c46b_9274_4d24_94f3_b6017b832444);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ILineDisplayStatisticsCategorySelectorImpl {
-    fn AllStatistics();
-    fn UnifiedPosStatistics();
-    fn ManufacturerStatistics();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8650,10 +8000,6 @@ unsafe impl ::windows::core::Interface for ILineDisplayStatusUpdatedEventArgs {
     type Vtable = ILineDisplayStatusUpdatedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xddd57c1a_86fb_4eba_93d1_6f5eda52b752);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ILineDisplayStatusUpdatedEventArgsImpl {
-    fn Status();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILineDisplayStatusUpdatedEventArgsVtbl(
@@ -8671,11 +8017,6 @@ pub struct ILineDisplayStoredBitmap(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ILineDisplayStoredBitmap {
     type Vtable = ILineDisplayStoredBitmapVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf621515b_d81e_43ba_bf1b_bcfa3c785ba0);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ILineDisplayStoredBitmapImpl {
-    fn EscapeSequence();
-    fn TryDeleteAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8696,18 +8037,6 @@ pub struct ILineDisplayWindow(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ILineDisplayWindow {
     type Vtable = ILineDisplayWindowVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd21feef4_2364_4be5_bee1_851680af4964);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ILineDisplayWindowImpl {
-    fn SizeInCharacters();
-    fn InterCharacterWaitInterval();
-    fn SetInterCharacterWaitInterval();
-    fn TryRefreshAsync();
-    fn TryDisplayTextAsync();
-    fn TryDisplayTextAtPositionAsync();
-    fn TryDisplayTextNormalAsync();
-    fn TryScrollTextAsync();
-    fn TryClearTextAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8744,18 +8073,6 @@ unsafe impl ::windows::core::Interface for ILineDisplayWindow2 {
     type Vtable = ILineDisplayWindow2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa95ce2e6_bdd8_4365_8e11_de94de8dff02);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ILineDisplayWindow2Impl {
-    fn Cursor();
-    fn Marquee();
-    fn ReadCharacterAtCursorAsync();
-    fn TryDisplayStoredBitmapAtCursorAsync();
-    fn TryDisplayStorageFileBitmapAtCursorAsync();
-    fn TryDisplayStorageFileBitmapAtCursorWithAlignmentAsync();
-    fn TryDisplayStorageFileBitmapAtCursorWithAlignmentAndWidthAsync();
-    fn TryDisplayStorageFileBitmapAtPointAsync();
-    fn TryDisplayStorageFileBitmapAtPointWithWidthAsync();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILineDisplayWindow2Vtbl(
@@ -8789,19 +8106,6 @@ unsafe impl ::windows::core::Interface for IMagneticStripeReader {
     type Vtable = IMagneticStripeReaderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1a92b015_47c3_468a_9333_0c6517574883);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IMagneticStripeReaderImpl {
-    fn DeviceId();
-    fn Capabilities();
-    fn SupportedCardTypes();
-    fn DeviceAuthenticationProtocol();
-    fn CheckHealthAsync();
-    fn ClaimReaderAsync();
-    fn RetrieveStatisticsAsync();
-    fn GetErrorReportingType();
-    fn StatusUpdated();
-    fn RemoveStatusUpdated();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMagneticStripeReaderVtbl(
@@ -8833,28 +8137,6 @@ pub struct IMagneticStripeReaderAamvaCardDataReceivedEventArgs(::windows::core::
 unsafe impl ::windows::core::Interface for IMagneticStripeReaderAamvaCardDataReceivedEventArgs {
     type Vtable = IMagneticStripeReaderAamvaCardDataReceivedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0a4bbd51_c316_4910_87f3_7a62ba862d31);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IMagneticStripeReaderAamvaCardDataReceivedEventArgsImpl {
-    fn Report();
-    fn LicenseNumber();
-    fn ExpirationDate();
-    fn Restrictions();
-    fn Class();
-    fn Endorsements();
-    fn BirthDate();
-    fn FirstName();
-    fn Surname();
-    fn Suffix();
-    fn Gender();
-    fn HairColor();
-    fn EyeColor();
-    fn Height();
-    fn Weight();
-    fn Address();
-    fn City();
-    fn State();
-    fn PostalCode();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8892,18 +8174,6 @@ unsafe impl ::windows::core::Interface for IMagneticStripeReaderBankCardDataRece
     type Vtable = IMagneticStripeReaderBankCardDataReceivedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2e958823_a31a_4763_882c_23725e39b08e);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IMagneticStripeReaderBankCardDataReceivedEventArgsImpl {
-    fn Report();
-    fn AccountNumber();
-    fn ExpirationDate();
-    fn ServiceCode();
-    fn Title();
-    fn FirstName();
-    fn MiddleInitial();
-    fn Surname();
-    fn Suffix();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMagneticStripeReaderBankCardDataReceivedEventArgsVtbl(
@@ -8929,20 +8199,6 @@ pub struct IMagneticStripeReaderCapabilities(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMagneticStripeReaderCapabilities {
     type Vtable = IMagneticStripeReaderCapabilitiesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7128809c_c440_44a2_a467_469175d02896);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IMagneticStripeReaderCapabilitiesImpl {
-    fn CardAuthentication();
-    fn SupportedEncryptionAlgorithms();
-    fn AuthenticationLevel();
-    fn IsIsoSupported();
-    fn IsJisOneSupported();
-    fn IsJisTwoSupported();
-    fn PowerReportingType();
-    fn IsStatisticsReportingSupported();
-    fn IsStatisticsUpdatingSupported();
-    fn IsTrackDataMaskingSupported();
-    fn IsTransmitSentinelsSupported();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8972,13 +8228,6 @@ unsafe impl ::windows::core::Interface for IMagneticStripeReaderCardTypesStatics
     type Vtable = IMagneticStripeReaderCardTypesStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x528f2c5d_2986_474f_8454_7ccd05928d5f);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IMagneticStripeReaderCardTypesStaticsImpl {
-    fn Unknown();
-    fn Bank();
-    fn Aamva();
-    fn ExtendedBase();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMagneticStripeReaderCardTypesStaticsVtbl(
@@ -9000,12 +8249,6 @@ unsafe impl ::windows::core::Interface for IMagneticStripeReaderEncryptionAlgori
     type Vtable = IMagneticStripeReaderEncryptionAlgorithmsStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x53b57350_c3db_4754_9c00_41392374a109);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IMagneticStripeReaderEncryptionAlgorithmsStaticsImpl {
-    fn None();
-    fn TripleDesDukpt();
-    fn ExtendedBase();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMagneticStripeReaderEncryptionAlgorithmsStaticsVtbl(
@@ -9025,15 +8268,6 @@ pub struct IMagneticStripeReaderErrorOccurredEventArgs(::windows::core::IUnknown
 unsafe impl ::windows::core::Interface for IMagneticStripeReaderErrorOccurredEventArgs {
     type Vtable = IMagneticStripeReaderErrorOccurredEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1fedf95d_2c84_41ad_b778_f2356a789ab1);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IMagneticStripeReaderErrorOccurredEventArgsImpl {
-    fn Track1Status();
-    fn Track2Status();
-    fn Track3Status();
-    fn Track4Status();
-    fn ErrorData();
-    fn PartialInputData();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9057,18 +8291,6 @@ pub struct IMagneticStripeReaderReport(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMagneticStripeReaderReport {
     type Vtable = IMagneticStripeReaderReportVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6a5b6047_99b0_4188_bef1_eddf79f78fe6);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IMagneticStripeReaderReportImpl {
-    fn CardType();
-    fn Track1();
-    fn Track2();
-    fn Track3();
-    fn Track4();
-    fn Properties();
-    fn CardAuthenticationData();
-    fn CardAuthenticationDataLength();
-    fn AdditionalSecurityInformation();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9099,12 +8321,6 @@ unsafe impl ::windows::core::Interface for IMagneticStripeReaderStatics {
     type Vtable = IMagneticStripeReaderStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc45fab4a_efd7_4760_a5ce_15b0e47e94eb);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IMagneticStripeReaderStaticsImpl {
-    fn GetDefaultAsync();
-    fn FromIdAsync();
-    fn GetDeviceSelector();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMagneticStripeReaderStaticsVtbl(
@@ -9127,10 +8343,6 @@ unsafe impl ::windows::core::Interface for IMagneticStripeReaderStatics2 {
     type Vtable = IMagneticStripeReaderStatics2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8cadc362_d667_48fa_86bc_f5ae1189262b);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IMagneticStripeReaderStatics2Impl {
-    fn GetDeviceSelectorWithConnectionTypes();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMagneticStripeReaderStatics2Vtbl(
@@ -9148,11 +8360,6 @@ pub struct IMagneticStripeReaderStatusUpdatedEventArgs(::windows::core::IUnknown
 unsafe impl ::windows::core::Interface for IMagneticStripeReaderStatusUpdatedEventArgs {
     type Vtable = IMagneticStripeReaderStatusUpdatedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x09cc6bb0_3262_401d_9e8a_e80d6358906b);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IMagneticStripeReaderStatusUpdatedEventArgsImpl {
-    fn Status();
-    fn ExtendedStatus();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9172,12 +8379,6 @@ pub struct IMagneticStripeReaderTrackData(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMagneticStripeReaderTrackData {
     type Vtable = IMagneticStripeReaderTrackDataVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x104cf671_4a9d_446e_abc5_20402307ba36);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IMagneticStripeReaderTrackDataImpl {
-    fn Data();
-    fn DiscretionaryData();
-    fn EncryptedData();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9202,10 +8403,6 @@ unsafe impl ::windows::core::Interface for IMagneticStripeReaderVendorSpecificCa
     type Vtable = IMagneticStripeReaderVendorSpecificCardDataReceivedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaf0a5514_59cc_4a60_99e8_99a53dace5aa);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IMagneticStripeReaderVendorSpecificCardDataReceivedEventArgsImpl {
-    fn Report();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMagneticStripeReaderVendorSpecificCardDataReceivedEventArgsVtbl(
@@ -9223,19 +8420,6 @@ pub struct IPosPrinter(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPosPrinter {
     type Vtable = IPosPrinterVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2a03c10e_9a19_4a01_994f_12dfad6adcbf);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IPosPrinterImpl {
-    fn DeviceId();
-    fn Capabilities();
-    fn SupportedCharacterSets();
-    fn SupportedTypeFaces();
-    fn Status();
-    fn ClaimPrinterAsync();
-    fn CheckHealthAsync();
-    fn GetStatisticsAsync();
-    fn StatusUpdated();
-    fn RemoveStatusUpdated();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9271,11 +8455,6 @@ unsafe impl ::windows::core::Interface for IPosPrinter2 {
     type Vtable = IPosPrinter2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x248475e8_8b98_5517_8e48_760e86f68987);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IPosPrinter2Impl {
-    fn SupportedBarcodeSymbologies();
-    fn GetFontProperty();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPosPrinter2Vtbl(
@@ -9295,19 +8474,6 @@ pub struct IPosPrinterCapabilities(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPosPrinterCapabilities {
     type Vtable = IPosPrinterCapabilitiesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcde95721_4380_4985_adc5_39db30cd93bc);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IPosPrinterCapabilitiesImpl {
-    fn PowerReportingType();
-    fn IsStatisticsReportingSupported();
-    fn IsStatisticsUpdatingSupported();
-    fn DefaultCharacterSet();
-    fn HasCoverSensor();
-    fn CanMapCharacterSet();
-    fn IsTransactionSupported();
-    fn Receipt();
-    fn Slip();
-    fn Journal();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9336,12 +8502,6 @@ unsafe impl ::windows::core::Interface for IPosPrinterCharacterSetIdsStatics {
     type Vtable = IPosPrinterCharacterSetIdsStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5c709eff_709a_4fe7_b215_06a748a38b39);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IPosPrinterCharacterSetIdsStaticsImpl {
-    fn Utf16LE();
-    fn Ascii();
-    fn Ansi();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPosPrinterCharacterSetIdsStaticsVtbl(
@@ -9361,12 +8521,6 @@ pub struct IPosPrinterFontProperty(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPosPrinterFontProperty {
     type Vtable = IPosPrinterFontPropertyVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa7f4e93a_f8ac_5f04_84d2_29b16d8a633c);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IPosPrinterFontPropertyImpl {
-    fn TypeFace();
-    fn IsScalableToAnySize();
-    fn CharacterSizes();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9474,12 +8628,6 @@ unsafe impl ::windows::core::Interface for IPosPrinterJob {
     type Vtable = IPosPrinterJobVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9a94005c_0615_4591_a58f_30f87edfe2e4);
 }
-pub trait IPosPrinterJobImpl {
-    fn Print();
-    fn PrintLine();
-    fn PrintNewline();
-    fn ExecuteAsync();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPosPrinterJobVtbl(
@@ -9501,35 +8649,6 @@ pub struct IPosPrinterPrintOptions(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPosPrinterPrintOptions {
     type Vtable = IPosPrinterPrintOptionsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0a2e16fd_1d02_5a58_9d59_bfcde76fde86);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IPosPrinterPrintOptionsImpl {
-    fn TypeFace();
-    fn SetTypeFace();
-    fn CharacterHeight();
-    fn SetCharacterHeight();
-    fn Bold();
-    fn SetBold();
-    fn Italic();
-    fn SetItalic();
-    fn Underline();
-    fn SetUnderline();
-    fn ReverseVideo();
-    fn SetReverseVideo();
-    fn Strikethrough();
-    fn SetStrikethrough();
-    fn Superscript();
-    fn SetSuperscript();
-    fn Subscript();
-    fn SetSubscript();
-    fn DoubleWide();
-    fn SetDoubleWide();
-    fn DoubleHigh();
-    fn SetDoubleHigh();
-    fn Alignment();
-    fn SetAlignment();
-    fn CharacterSet();
-    fn SetCharacterSet();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9574,8 +8693,6 @@ unsafe impl ::windows::core::Interface for IPosPrinterReleaseDeviceRequestedEven
     type Vtable = IPosPrinterReleaseDeviceRequestedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2bcba359_1cef_40b2_9ecb_f927f856ae3c);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IPosPrinterReleaseDeviceRequestedEventArgsImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPosPrinterReleaseDeviceRequestedEventArgsVtbl(
@@ -9592,12 +8709,6 @@ pub struct IPosPrinterStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPosPrinterStatics {
     type Vtable = IPosPrinterStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8ce0d4ea_132f_4cdf_a64a_2d0d7c96a85b);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IPosPrinterStaticsImpl {
-    fn GetDefaultAsync();
-    fn FromIdAsync();
-    fn GetDeviceSelector();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9621,10 +8732,6 @@ unsafe impl ::windows::core::Interface for IPosPrinterStatics2 {
     type Vtable = IPosPrinterStatics2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeecd2c1c_b0d0_42e7_b137_b89b16244d41);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IPosPrinterStatics2Impl {
-    fn GetDeviceSelectorWithConnectionTypes();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPosPrinterStatics2Vtbl(
@@ -9642,11 +8749,6 @@ pub struct IPosPrinterStatus(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPosPrinterStatus {
     type Vtable = IPosPrinterStatusVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd1f0c730_da40_4328_bf76_5156fa33b747);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IPosPrinterStatusImpl {
-    fn StatusKind();
-    fn ExtendedStatus();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9666,10 +8768,6 @@ pub struct IPosPrinterStatusUpdatedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPosPrinterStatusUpdatedEventArgs {
     type Vtable = IPosPrinterStatusUpdatedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2edb87df_13a6_428d_ba81_b0e7c3e5a3cd);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IPosPrinterStatusUpdatedEventArgsImpl {
-    fn Status();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9880,23 +8978,6 @@ unsafe impl ::windows::core::Interface for IReceiptOrSlipJob {
     type Vtable = IReceiptOrSlipJobVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x532199be_c8c3_4dc2_89e9_5c4a37b34ddc);
 }
-pub trait IReceiptOrSlipJobImpl: IPosPrinterJobImpl {
-    fn SetBarcodeRotation();
-    fn SetPrintRotation();
-    fn SetPrintArea();
-    fn SetBitmap();
-    fn SetBitmapCustomWidthStandardAlign();
-    fn SetCustomAlignedBitmap();
-    fn SetBitmapCustomWidthCustomAlign();
-    fn PrintSavedBitmap();
-    fn DrawRuledLine();
-    fn PrintBarcode();
-    fn PrintBarcodeCustomAlign();
-    fn PrintBitmap();
-    fn PrintBitmapCustomWidthStandardAlign();
-    fn PrintCustomAlignedBitmap();
-    fn PrintBitmapCustomWidthCustomAlign();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IReceiptOrSlipJobVtbl(
@@ -9938,12 +9019,6 @@ unsafe impl ::windows::core::Interface for IReceiptPrintJob {
     type Vtable = IReceiptPrintJobVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaa96066e_acad_4b79_9d0f_c0cfc08dc77b);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IReceiptPrintJobImpl {
-    fn MarkFeed();
-    fn CutPaper();
-    fn CutPaperDefault();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IReceiptPrintJobVtbl(
@@ -9963,13 +9038,6 @@ pub struct IReceiptPrintJob2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IReceiptPrintJob2 {
     type Vtable = IReceiptPrintJob2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0cbc12e3_9e29_5179_bcd8_1811d3b9a10e);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IReceiptPrintJob2Impl {
-    fn StampPaper();
-    fn Print();
-    fn FeedPaperByLine();
-    fn FeedPaperByMapModeUnit();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9992,12 +9060,6 @@ unsafe impl ::windows::core::Interface for IReceiptPrinterCapabilities {
     type Vtable = IReceiptPrinterCapabilitiesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb8f0b58f_51a8_43fc_9bd5_8de272a6415b);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IReceiptPrinterCapabilitiesImpl {
-    fn CanCutPaper();
-    fn IsStampSupported();
-    fn MarkFeedCapabilities();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IReceiptPrinterCapabilitiesVtbl(
@@ -10017,15 +9079,6 @@ pub struct IReceiptPrinterCapabilities2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IReceiptPrinterCapabilities2 {
     type Vtable = IReceiptPrinterCapabilities2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x20030638_8a2c_55ac_9a7b_7576d8869e99);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IReceiptPrinterCapabilities2Impl {
-    fn IsReverseVideoSupported();
-    fn IsStrikethroughSupported();
-    fn IsSuperscriptSupported();
-    fn IsSubscriptSupported();
-    fn IsReversePaperFeedByLineSupported();
-    fn IsReversePaperFeedByMapModeUnitSupported();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -10050,12 +9103,6 @@ unsafe impl ::windows::core::Interface for ISlipPrintJob {
     type Vtable = ISlipPrintJobVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5d88f95d_6131_5a4b_b7d5_8ef2da7b4165);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ISlipPrintJobImpl {
-    fn Print();
-    fn FeedPaperByLine();
-    fn FeedPaperByMapModeUnit();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISlipPrintJobVtbl(
@@ -10076,11 +9123,6 @@ unsafe impl ::windows::core::Interface for ISlipPrinterCapabilities {
     type Vtable = ISlipPrinterCapabilitiesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x99b16399_488c_4157_8ac2_9f57f708d3db);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ISlipPrinterCapabilitiesImpl {
-    fn IsFullLengthSupported();
-    fn IsBothSidesPrintingSupported();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISlipPrinterCapabilitiesVtbl(
@@ -10099,15 +9141,6 @@ pub struct ISlipPrinterCapabilities2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISlipPrinterCapabilities2 {
     type Vtable = ISlipPrinterCapabilities2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6ff89671_2d1a_5000_87c2_b0851bfdf07e);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ISlipPrinterCapabilities2Impl {
-    fn IsReverseVideoSupported();
-    fn IsStrikethroughSupported();
-    fn IsSuperscriptSupported();
-    fn IsSubscriptSupported();
-    fn IsReversePaperFeedByLineSupported();
-    fn IsReversePaperFeedByMapModeUnitSupported();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -10132,13 +9165,6 @@ unsafe impl ::windows::core::Interface for IUnifiedPosErrorData {
     type Vtable = IUnifiedPosErrorDataVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2b998c3a_555c_4889_8ed8_c599bb3a712a);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IUnifiedPosErrorDataImpl {
-    fn Message();
-    fn Severity();
-    fn Reason();
-    fn ExtendedReason();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUnifiedPosErrorDataVtbl(
@@ -10159,10 +9185,6 @@ pub struct IUnifiedPosErrorDataFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IUnifiedPosErrorDataFactory {
     type Vtable = IUnifiedPosErrorDataFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4b982551_1ffe_451b_a368_63e0ce465f5a);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IUnifiedPosErrorDataFactoryImpl {
-    fn CreateInstance();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -17323,3 +16345,5 @@ unsafe impl ::windows::core::RuntimeType for UnifiedPosPowerReportingType {
 impl ::windows::core::DefaultType for UnifiedPosPowerReportingType {
     type DefaultType = Self;
 }
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

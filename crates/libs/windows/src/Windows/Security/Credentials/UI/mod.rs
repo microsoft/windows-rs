@@ -452,29 +452,6 @@ unsafe impl ::windows::core::Interface for ICredentialPickerOptions {
     type Vtable = ICredentialPickerOptionsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x965a0b4c_95fa_467f_992b_0b22e5859bf6);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ICredentialPickerOptionsImpl {
-    fn SetCaption();
-    fn Caption();
-    fn SetMessage();
-    fn Message();
-    fn SetErrorCode();
-    fn ErrorCode();
-    fn SetTargetName();
-    fn TargetName();
-    fn SetAuthenticationProtocol();
-    fn AuthenticationProtocol();
-    fn SetCustomAuthenticationProtocol();
-    fn CustomAuthenticationProtocol();
-    fn SetPreviousCredential();
-    fn PreviousCredential();
-    fn SetAlwaysDisplayDialog();
-    fn AlwaysDisplayDialog();
-    fn SetCallerSavesCredential();
-    fn CallerSavesCredential();
-    fn SetCredentialSaveOption();
-    fn CredentialSaveOption();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICredentialPickerOptionsVtbl(
@@ -514,16 +491,6 @@ unsafe impl ::windows::core::Interface for ICredentialPickerResults {
     type Vtable = ICredentialPickerResultsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1948f99a_cc30_410c_9c38_cc0884c5b3d7);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ICredentialPickerResultsImpl {
-    fn ErrorCode();
-    fn CredentialSaveOption();
-    fn CredentialSaved();
-    fn Credential();
-    fn CredentialDomainName();
-    fn CredentialUserName();
-    fn CredentialPassword();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICredentialPickerResultsVtbl(
@@ -549,12 +516,6 @@ unsafe impl ::windows::core::Interface for ICredentialPickerStatics {
     type Vtable = ICredentialPickerStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaa3a5c73_c9ea_4782_99fb_e6d7e938e12d);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ICredentialPickerStaticsImpl {
-    fn PickWithOptionsAsync();
-    fn PickWithMessageAsync();
-    fn PickWithCaptionAsync();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICredentialPickerStaticsVtbl(
@@ -577,11 +538,6 @@ pub struct IUserConsentVerifierStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IUserConsentVerifierStatics {
     type Vtable = IUserConsentVerifierStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaf4f3f91_564c_4ddc_b8b5_973447627c65);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IUserConsentVerifierStaticsImpl {
-    fn CheckAvailabilityAsync();
-    fn RequestVerificationAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -699,3 +655,5 @@ unsafe impl ::windows::core::RuntimeType for UserConsentVerifierAvailability {
 impl ::windows::core::DefaultType for UserConsentVerifierAvailability {
     type DefaultType = Self;
 }
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

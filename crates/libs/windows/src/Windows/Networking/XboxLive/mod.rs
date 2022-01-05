@@ -6,18 +6,6 @@ unsafe impl ::windows::core::Interface for IXboxLiveDeviceAddress {
     type Vtable = IXboxLiveDeviceAddressVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf5bbd279_3c86_4b57_a31a_b9462408fd01);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IXboxLiveDeviceAddressImpl {
-    fn SnapshotChanged();
-    fn RemoveSnapshotChanged();
-    fn GetSnapshotAsBase64();
-    fn GetSnapshotAsBuffer();
-    fn GetSnapshotAsBytes();
-    fn Compare();
-    fn IsValid();
-    fn IsLocal();
-    fn NetworkAccessKind();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXboxLiveDeviceAddressVtbl(
@@ -47,14 +35,6 @@ unsafe impl ::windows::core::Interface for IXboxLiveDeviceAddressStatics {
     type Vtable = IXboxLiveDeviceAddressStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5954a819_4a79_4931_827c_7f503e963263);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IXboxLiveDeviceAddressStaticsImpl {
-    fn CreateFromSnapshotBase64();
-    fn CreateFromSnapshotBuffer();
-    fn CreateFromSnapshotBytes();
-    fn GetLocal();
-    fn MaxSnapshotBytesSize();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXboxLiveDeviceAddressStaticsVtbl(
@@ -77,21 +57,6 @@ pub struct IXboxLiveEndpointPair(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IXboxLiveEndpointPair {
     type Vtable = IXboxLiveEndpointPairVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1e9a839b_813e_44e0_b87f_c87a093475e4);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IXboxLiveEndpointPairImpl {
-    fn StateChanged();
-    fn RemoveStateChanged();
-    fn DeleteAsync();
-    fn GetRemoteSocketAddressBytes();
-    fn GetLocalSocketAddressBytes();
-    fn State();
-    fn Template();
-    fn RemoteDeviceAddress();
-    fn RemoteHostName();
-    fn RemotePort();
-    fn LocalHostName();
-    fn LocalPort();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -125,13 +90,6 @@ unsafe impl ::windows::core::Interface for IXboxLiveEndpointPairCreationResult {
     type Vtable = IXboxLiveEndpointPairCreationResultVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd9a8bb95_2aab_4d1e_9794_33ecc0dcf0fe);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IXboxLiveEndpointPairCreationResultImpl {
-    fn DeviceAddress();
-    fn Status();
-    fn IsExistingPathEvaluation();
-    fn EndpointPair();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXboxLiveEndpointPairCreationResultVtbl(
@@ -153,11 +111,6 @@ unsafe impl ::windows::core::Interface for IXboxLiveEndpointPairStateChangedEven
     type Vtable = IXboxLiveEndpointPairStateChangedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x592e3b55_de08_44e7_ac3b_b9b9a169583a);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IXboxLiveEndpointPairStateChangedEventArgsImpl {
-    fn OldState();
-    fn NewState();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXboxLiveEndpointPairStateChangedEventArgsVtbl(
@@ -177,11 +130,6 @@ unsafe impl ::windows::core::Interface for IXboxLiveEndpointPairStatics {
     type Vtable = IXboxLiveEndpointPairStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x64316b30_217a_4243_8ee1_6729281d27db);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IXboxLiveEndpointPairStaticsImpl {
-    fn FindEndpointPairBySocketAddressBytes();
-    fn FindEndpointPairByHostNamesAndPorts();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXboxLiveEndpointPairStaticsVtbl(
@@ -200,22 +148,6 @@ pub struct IXboxLiveEndpointPairTemplate(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IXboxLiveEndpointPairTemplate {
     type Vtable = IXboxLiveEndpointPairTemplateVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6b286ecf_3457_40ce_b9a1_c0cfe0213ea7);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IXboxLiveEndpointPairTemplateImpl {
-    fn InboundEndpointPairCreated();
-    fn RemoveInboundEndpointPairCreated();
-    fn CreateEndpointPairDefaultAsync();
-    fn CreateEndpointPairWithBehaviorsAsync();
-    fn CreateEndpointPairForPortsDefaultAsync();
-    fn CreateEndpointPairForPortsWithBehaviorsAsync();
-    fn Name();
-    fn SocketKind();
-    fn InitiatorBoundPortRangeLower();
-    fn InitiatorBoundPortRangeUpper();
-    fn AcceptorBoundPortRangeLower();
-    fn AcceptorBoundPortRangeUpper();
-    fn EndpointPairs();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -254,11 +186,6 @@ unsafe impl ::windows::core::Interface for IXboxLiveEndpointPairTemplateStatics 
     type Vtable = IXboxLiveEndpointPairTemplateStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1e13137b_737b_4a23_bc64_0870f75655ba);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IXboxLiveEndpointPairTemplateStaticsImpl {
-    fn GetTemplateByName();
-    fn Templates();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXboxLiveEndpointPairTemplateStaticsVtbl(
@@ -279,10 +206,6 @@ unsafe impl ::windows::core::Interface for IXboxLiveInboundEndpointPairCreatedEv
     type Vtable = IXboxLiveInboundEndpointPairCreatedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdc183b62_22ba_48d2_80de_c23968bd198b);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IXboxLiveInboundEndpointPairCreatedEventArgsImpl {
-    fn EndpointPair();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXboxLiveInboundEndpointPairCreatedEventArgsVtbl(
@@ -300,25 +223,6 @@ pub struct IXboxLiveQualityOfServiceMeasurement(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IXboxLiveQualityOfServiceMeasurement {
     type Vtable = IXboxLiveQualityOfServiceMeasurementVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4d682bce_a5d6_47e6_a236_cfde5fbdf2ed);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IXboxLiveQualityOfServiceMeasurementImpl {
-    fn MeasureAsync();
-    fn GetMetricResultsForDevice();
-    fn GetMetricResultsForMetric();
-    fn GetMetricResult();
-    fn GetPrivatePayloadResult();
-    fn Metrics();
-    fn DeviceAddresses();
-    fn ShouldRequestPrivatePayloads();
-    fn SetShouldRequestPrivatePayloads();
-    fn TimeoutInMilliseconds();
-    fn SetTimeoutInMilliseconds();
-    fn NumberOfProbesToAttempt();
-    fn SetNumberOfProbesToAttempt();
-    fn NumberOfResultsPending();
-    fn MetricResults();
-    fn PrivatePayloadResults();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -360,20 +264,6 @@ unsafe impl ::windows::core::Interface for IXboxLiveQualityOfServiceMeasurementS
     type Vtable = IXboxLiveQualityOfServiceMeasurementStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6e352dca_23cf_440a_b077_5e30857a8234);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IXboxLiveQualityOfServiceMeasurementStaticsImpl {
-    fn PublishPrivatePayloadBytes();
-    fn ClearPrivatePayload();
-    fn MaxSimultaneousProbeConnections();
-    fn SetMaxSimultaneousProbeConnections();
-    fn IsSystemOutboundBandwidthConstrained();
-    fn SetIsSystemOutboundBandwidthConstrained();
-    fn IsSystemInboundBandwidthConstrained();
-    fn SetIsSystemInboundBandwidthConstrained();
-    fn PublishedPrivatePayload();
-    fn SetPublishedPrivatePayload();
-    fn MaxPrivatePayloadSize();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXboxLiveQualityOfServiceMeasurementStaticsVtbl(
@@ -404,13 +294,6 @@ unsafe impl ::windows::core::Interface for IXboxLiveQualityOfServiceMetricResult
     type Vtable = IXboxLiveQualityOfServiceMetricResultVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaeec53d1_3561_4782_b0cf_d3ae29d9fa87);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IXboxLiveQualityOfServiceMetricResultImpl {
-    fn Status();
-    fn DeviceAddress();
-    fn Metric();
-    fn Value();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXboxLiveQualityOfServiceMetricResultVtbl(
@@ -431,12 +314,6 @@ pub struct IXboxLiveQualityOfServicePrivatePayloadResult(::windows::core::IUnkno
 unsafe impl ::windows::core::Interface for IXboxLiveQualityOfServicePrivatePayloadResult {
     type Vtable = IXboxLiveQualityOfServicePrivatePayloadResultVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5a6302ae_6f38_41c0_9fcc_ea6cb978cafc);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IXboxLiveQualityOfServicePrivatePayloadResultImpl {
-    fn Status();
-    fn DeviceAddress();
-    fn Value();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2058,3 +1935,5 @@ unsafe impl ::windows::core::RuntimeType for XboxLiveSocketKind {
 impl ::windows::core::DefaultType for XboxLiveSocketKind {
     type DefaultType = Self;
 }
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

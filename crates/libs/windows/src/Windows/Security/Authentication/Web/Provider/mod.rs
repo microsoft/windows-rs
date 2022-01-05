@@ -6,12 +6,6 @@ unsafe impl ::windows::core::Interface for IWebAccountClientView {
     type Vtable = IWebAccountClientViewVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe7bd66ba_0bc7_4c66_bfd4_65d3082cbca8);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IWebAccountClientViewImpl {
-    fn ApplicationCallbackUri();
-    fn Type();
-    fn AccountPairwiseId();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWebAccountClientViewVtbl(
@@ -33,11 +27,6 @@ unsafe impl ::windows::core::Interface for IWebAccountClientViewFactory {
     type Vtable = IWebAccountClientViewFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x616d16a4_de22_4855_a326_06cebf2a3f23);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IWebAccountClientViewFactoryImpl {
-    fn Create();
-    fn CreateWithPairwiseId();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWebAccountClientViewFactoryVtbl(
@@ -58,19 +47,6 @@ pub struct IWebAccountManagerStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IWebAccountManagerStatics {
     type Vtable = IWebAccountManagerStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb2e8e1a6_d49a_4032_84bf_1a2847747bf1);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IWebAccountManagerStaticsImpl {
-    fn UpdateWebAccountPropertiesAsync();
-    fn AddWebAccountAsync();
-    fn DeleteWebAccountAsync();
-    fn FindAllProviderWebAccountsAsync();
-    fn PushCookiesAsync();
-    fn SetViewAsync();
-    fn ClearViewAsync();
-    fn GetViewsAsync();
-    fn SetWebAccountPictureAsync();
-    fn ClearWebAccountPictureAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -109,10 +85,6 @@ unsafe impl ::windows::core::Interface for IWebAccountManagerStatics2 {
     type Vtable = IWebAccountManagerStatics2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x68a7a829_2d5f_4653_8bb0_bd2fa6bd2d87);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IWebAccountManagerStatics2Impl {
-    fn PullCookiesAsync();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWebAccountManagerStatics2Vtbl(
@@ -131,13 +103,6 @@ pub struct IWebAccountManagerStatics3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IWebAccountManagerStatics3 {
     type Vtable = IWebAccountManagerStatics3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdd4523a6_8a4f_4aa2_b15e_03f550af1359);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IWebAccountManagerStatics3Impl {
-    fn FindAllProviderWebAccountsForUserAsync();
-    fn AddWebAccountForUserAsync();
-    fn AddWebAccountWithScopeForUserAsync();
-    fn AddWebAccountWithScopeAndMapForUserAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -164,11 +129,6 @@ unsafe impl ::windows::core::Interface for IWebAccountManagerStatics4 {
     type Vtable = IWebAccountManagerStatics4Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x59ebc2d2_f7db_412f_bc3f_f2fea04430b4);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IWebAccountManagerStatics4Impl {
-    fn InvalidateAppCacheForAllAccountsAsync();
-    fn InvalidateAppCacheForAccountAsync();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWebAccountManagerStatics4Vtbl(
@@ -189,13 +149,6 @@ pub struct IWebAccountMapManagerStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IWebAccountMapManagerStatics {
     type Vtable = IWebAccountMapManagerStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe8fa446f_3a1b_48a4_8e90_1e59ca6f54db);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IWebAccountMapManagerStaticsImpl {
-    fn AddWebAccountWithScopeAndMapAsync();
-    fn SetPerAppToPerUserAccountAsync();
-    fn GetPerUserFromPerAppAccountAsync();
-    fn ClearPerUserFromPerAppAccountAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -221,10 +174,6 @@ pub struct IWebAccountProviderAddAccountOperation(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IWebAccountProviderAddAccountOperation {
     type Vtable = IWebAccountProviderAddAccountOperationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x73ebdccf_4378_4c79_9335_a5d7ab81594e);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IWebAccountProviderAddAccountOperationImpl: IWebAccountProviderOperationImpl {
-    fn ReportCompleted();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -316,10 +265,6 @@ unsafe impl ::windows::core::Interface for IWebAccountProviderBaseReportOperatio
     type Vtable = IWebAccountProviderBaseReportOperationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbba4acbb_993b_4d57_bbe4_1421e3668b4c);
 }
-pub trait IWebAccountProviderBaseReportOperationImpl {
-    fn ReportCompleted();
-    fn ReportError();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWebAccountProviderBaseReportOperationVtbl(
@@ -340,10 +285,6 @@ unsafe impl ::windows::core::Interface for IWebAccountProviderDeleteAccountOpera
     type Vtable = IWebAccountProviderDeleteAccountOperationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0abb48b8_9e01_49c9_a355_7d48caf7d6ca);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IWebAccountProviderDeleteAccountOperationImpl: IWebAccountProviderOperationImpl {
-    fn WebAccount();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWebAccountProviderDeleteAccountOperationVtbl(
@@ -362,11 +303,6 @@ pub struct IWebAccountProviderManageAccountOperation(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IWebAccountProviderManageAccountOperation {
     type Vtable = IWebAccountProviderManageAccountOperationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xed20dc5c_d21b_463e_a9b7_c1fd0edae978);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IWebAccountProviderManageAccountOperationImpl: IWebAccountProviderOperationImpl {
-    fn WebAccount();
-    fn ReportCompleted();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -457,9 +393,6 @@ unsafe impl ::windows::core::Interface for IWebAccountProviderOperation {
     type Vtable = IWebAccountProviderOperationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6d5d2426_10b1_419a_a44e_f9c5161574e6);
 }
-pub trait IWebAccountProviderOperationImpl {
-    fn Kind();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWebAccountProviderOperationVtbl(
@@ -477,14 +410,6 @@ pub struct IWebAccountProviderRetrieveCookiesOperation(::windows::core::IUnknown
 unsafe impl ::windows::core::Interface for IWebAccountProviderRetrieveCookiesOperation {
     type Vtable = IWebAccountProviderRetrieveCookiesOperationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5a040441_0fa3_4ab1_a01c_20b110358594);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IWebAccountProviderRetrieveCookiesOperationImpl: IWebAccountProviderOperationImpl {
-    fn Context();
-    fn Cookies();
-    fn SetUri();
-    fn Uri();
-    fn ApplicationCallbackUri();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -512,12 +437,6 @@ pub struct IWebAccountProviderSignOutAccountOperation(::windows::core::IUnknown)
 unsafe impl ::windows::core::Interface for IWebAccountProviderSignOutAccountOperation {
     type Vtable = IWebAccountProviderSignOutAccountOperationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb890e21d_0c55_47bc_8c72_04a6fc7cac07);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IWebAccountProviderSignOutAccountOperationImpl: IWebAccountProviderOperationImpl {
-    fn WebAccount();
-    fn ApplicationCallbackUri();
-    fn ClientId();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -646,10 +565,6 @@ unsafe impl ::windows::core::Interface for IWebAccountProviderSilentReportOperat
     type Vtable = IWebAccountProviderSilentReportOperationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe0b545f8_3b0f_44da_924c_7b18baaa62a9);
 }
-pub trait IWebAccountProviderSilentReportOperationImpl: IWebAccountProviderBaseReportOperationImpl {
-    fn ReportUserInteractionRequired();
-    fn ReportUserInteractionRequiredWithError();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWebAccountProviderSilentReportOperationVtbl(
@@ -738,9 +653,6 @@ unsafe impl ::windows::core::RuntimeType for IWebAccountProviderTokenObjects {
 unsafe impl ::windows::core::Interface for IWebAccountProviderTokenObjects {
     type Vtable = IWebAccountProviderTokenObjectsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x408f284b_1328_42db_89a4_0bce7a717d8e);
-}
-pub trait IWebAccountProviderTokenObjectsImpl {
-    fn Operation();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -859,9 +771,6 @@ unsafe impl ::windows::core::RuntimeType for IWebAccountProviderTokenObjects2 {
 unsafe impl ::windows::core::Interface for IWebAccountProviderTokenObjects2 {
     type Vtable = IWebAccountProviderTokenObjects2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1020b893_5ca5_4fff_95fb_b820273fc395);
-}
-pub trait IWebAccountProviderTokenObjects2Impl: IWebAccountProviderTokenObjectsImpl {
-    fn User();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1005,12 +914,6 @@ unsafe impl ::windows::core::Interface for IWebAccountProviderTokenOperation {
     type Vtable = IWebAccountProviderTokenOperationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x95c613be_2034_4c38_9434_d26c14b2b4b2);
 }
-pub trait IWebAccountProviderTokenOperationImpl: IWebAccountProviderOperationImpl {
-    fn ProviderRequest();
-    fn ProviderResponses();
-    fn SetCacheExpirationTime();
-    fn CacheExpirationTime();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWebAccountProviderTokenOperationVtbl(
@@ -1134,9 +1037,6 @@ unsafe impl ::windows::core::Interface for IWebAccountProviderUIReportOperation 
     type Vtable = IWebAccountProviderUIReportOperationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x28ff92d3_8f80_42fb_944f_b2107bbd42e6);
 }
-pub trait IWebAccountProviderUIReportOperationImpl: IWebAccountProviderBaseReportOperationImpl {
-    fn ReportUserCanceled();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWebAccountProviderUIReportOperationVtbl(
@@ -1154,12 +1054,6 @@ pub struct IWebAccountScopeManagerStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IWebAccountScopeManagerStatics {
     type Vtable = IWebAccountScopeManagerStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5c6ce37c_12b2_423a_bf3d_85b8d7e53656);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IWebAccountScopeManagerStaticsImpl {
-    fn AddWebAccountWithScopeAsync();
-    fn SetScopeAsync();
-    fn GetScope();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1183,14 +1077,6 @@ pub struct IWebProviderTokenRequest(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IWebProviderTokenRequest {
     type Vtable = IWebProviderTokenRequestVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1e18778b_8805_454b_9f11_468d2af1095a);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IWebProviderTokenRequestImpl {
-    fn ClientRequest();
-    fn WebAccounts();
-    fn WebAccountSelectionOptions();
-    fn ApplicationCallbackUri();
-    fn GetApplicationTokenBindingKeyAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1218,10 +1104,6 @@ unsafe impl ::windows::core::Interface for IWebProviderTokenRequest2 {
     type Vtable = IWebProviderTokenRequest2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb5d72e4c_10b1_4aa6_88b1_0b6c9e0c1e46);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IWebProviderTokenRequest2Impl {
-    fn GetApplicationTokenBindingKeyIdAsync();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWebProviderTokenRequest2Vtbl(
@@ -1240,12 +1122,6 @@ pub struct IWebProviderTokenRequest3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IWebProviderTokenRequest3 {
     type Vtable = IWebProviderTokenRequest3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1b2716aa_4289_446e_9256_dafb6f66a51e);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IWebProviderTokenRequest3Impl {
-    fn ApplicationPackageFamilyName();
-    fn ApplicationProcessName();
-    fn CheckApplicationForCapabilityAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1268,10 +1144,6 @@ unsafe impl ::windows::core::Interface for IWebProviderTokenResponse {
     type Vtable = IWebProviderTokenResponseVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xef213793_ef55_4186_b7ce_8cb2e7f9849e);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IWebProviderTokenResponseImpl {
-    fn ClientResponse();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWebProviderTokenResponseVtbl(
@@ -1290,10 +1162,6 @@ pub struct IWebProviderTokenResponseFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IWebProviderTokenResponseFactory {
     type Vtable = IWebProviderTokenResponseFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfa49d99a_25ba_4077_9cfa_9db4dea7b71a);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IWebProviderTokenResponseFactoryImpl {
-    fn Create();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3350,3 +3218,5 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &WebP
 }
 unsafe impl ::core::marker::Send for WebProviderTokenResponse {}
 unsafe impl ::core::marker::Sync for WebProviderTokenResponse {}
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

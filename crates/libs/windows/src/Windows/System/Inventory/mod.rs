@@ -6,13 +6,6 @@ unsafe impl ::windows::core::Interface for IInstalledDesktopApp {
     type Vtable = IInstalledDesktopAppVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x75eab8ed_c0bc_5364_4c28_166e0545167a);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IInstalledDesktopAppImpl {
-    fn Id();
-    fn DisplayName();
-    fn Publisher();
-    fn DisplayVersion();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInstalledDesktopAppVtbl(
@@ -33,10 +26,6 @@ pub struct IInstalledDesktopAppStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IInstalledDesktopAppStatics {
     type Vtable = IInstalledDesktopAppStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x264cf74e_21cd_5f9b_6056_7866ad72489a);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IInstalledDesktopAppStaticsImpl {
-    fn GetInventoryAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -203,3 +192,5 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IStringable> f
 }
 unsafe impl ::core::marker::Send for InstalledDesktopApp {}
 unsafe impl ::core::marker::Sync for InstalledDesktopApp {}
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

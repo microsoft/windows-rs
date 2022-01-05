@@ -1870,3 +1870,5 @@ pub const SELCERT_SERIAL_NUM: u32 = 106u32;
 pub const SELCERT_THUMBPRINT: u32 = 107u32;
 #[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
 pub const SELCERT_VALIDITY: u32 = 104u32;
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

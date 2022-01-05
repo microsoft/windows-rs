@@ -6433,3 +6433,5 @@ pub const WSA_PNRP_ERROR_BASE: u32 = 11500u32;
 pub const WSA_PNRP_INVALID_IDENTITY: u32 = 11503u32;
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
 pub const WSA_PNRP_TOO_MUCH_LOAD: u32 = 11504u32;
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

@@ -65,12 +65,6 @@ unsafe impl ::windows::core::Interface for IEnumVdsObject {
     type Vtable = IEnumVdsObjectVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x118610b7_8d94_4030_b5b8_500889788e4e);
 }
-pub trait IEnumVdsObjectImpl {
-    fn Next();
-    fn Skip();
-    fn Reset();
-    fn Clone();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumVdsObjectVtbl(
@@ -136,10 +130,6 @@ unsafe impl ::windows::core::Interface for IVdsAdmin {
     type Vtable = IVdsAdminVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd188e97d_85aa_4d33_abc6_26299a10ffc1);
 }
-pub trait IVdsAdminImpl {
-    fn RegisterProvider();
-    fn UnregisterProvider();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVdsAdminVtbl(
@@ -198,9 +188,6 @@ impl ::core::fmt::Debug for IVdsAdviseSink {
 unsafe impl ::windows::core::Interface for IVdsAdviseSink {
     type Vtable = IVdsAdviseSinkVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8326cd1d_cf59_4936_b786_5efc08798e25);
-}
-pub trait IVdsAdviseSinkImpl {
-    fn OnNotify();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -261,11 +248,6 @@ impl ::core::fmt::Debug for IVdsAsync {
 unsafe impl ::windows::core::Interface for IVdsAsync {
     type Vtable = IVdsAsyncVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd5d23b6d_5a55_4492_9889_397a3c2d2dbc);
-}
-pub trait IVdsAsyncImpl {
-    fn Cancel();
-    fn Wait();
-    fn QueryStatus();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -360,16 +342,6 @@ unsafe impl ::windows::core::Interface for IVdsController {
     type Vtable = IVdsControllerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcb53d96e_dffb_474a_a078_790d1e2bc082);
 }
-pub trait IVdsControllerImpl {
-    fn GetProperties();
-    fn GetSubSystem();
-    fn GetPortProperties();
-    fn FlushCache();
-    fn InvalidateCache();
-    fn Reset();
-    fn QueryAssociatedLuns();
-    fn SetStatus();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVdsControllerVtbl(
@@ -436,9 +408,6 @@ impl ::core::fmt::Debug for IVdsControllerControllerPort {
 unsafe impl ::windows::core::Interface for IVdsControllerControllerPort {
     type Vtable = IVdsControllerControllerPortVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xca5d735f_6bae_42c0_b30e_f2666045ce71);
-}
-pub trait IVdsControllerControllerPortImpl {
-    fn QueryControllerPorts();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -511,13 +480,6 @@ impl ::core::fmt::Debug for IVdsControllerPort {
 unsafe impl ::windows::core::Interface for IVdsControllerPort {
     type Vtable = IVdsControllerPortVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x18691d0d_4e7f_43e8_92e4_cf44beeed11c);
-}
-pub trait IVdsControllerPortImpl {
-    fn GetProperties();
-    fn GetController();
-    fn QueryAssociatedLuns();
-    fn Reset();
-    fn SetStatus();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -605,14 +567,6 @@ unsafe impl ::windows::core::Interface for IVdsDrive {
     type Vtable = IVdsDriveVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xff24efa4_aade_4b6b_898b_eaa6a20887c7);
 }
-pub trait IVdsDriveImpl {
-    fn GetProperties();
-    fn GetSubSystem();
-    fn QueryExtents();
-    fn SetFlags();
-    fn ClearFlags();
-    fn SetStatus();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVdsDriveVtbl(
@@ -678,9 +632,6 @@ impl ::core::fmt::Debug for IVdsDrive2 {
 unsafe impl ::windows::core::Interface for IVdsDrive2 {
     type Vtable = IVdsDrive2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x60b5a730_addf_4436_8ca7_5769e2d1ffa4);
-}
-pub trait IVdsDrive2Impl {
-    fn GetProperties2();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -749,11 +700,6 @@ unsafe impl ::windows::core::Interface for IVdsHwProvider {
     type Vtable = IVdsHwProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd99bdaae_b13a_4178_9fdb_e27f16b4603e);
 }
-pub trait IVdsHwProviderImpl {
-    fn QuerySubSystems();
-    fn Reenumerate();
-    fn Refresh();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVdsHwProviderVtbl(
@@ -815,9 +761,6 @@ unsafe impl ::windows::core::Interface for IVdsHwProviderPrivate {
     type Vtable = IVdsHwProviderPrivateVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x98f17bf3_9f33_4f12_8714_8b4075092c2e);
 }
-pub trait IVdsHwProviderPrivateImpl {
-    fn QueryIfCreatedLun();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVdsHwProviderPrivateVtbl(
@@ -875,9 +818,6 @@ impl ::core::fmt::Debug for IVdsHwProviderPrivateMpio {
 unsafe impl ::windows::core::Interface for IVdsHwProviderPrivateMpio {
     type Vtable = IVdsHwProviderPrivateMpioVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x310a7715_ac2b_4c6f_9827_3d742f351676);
-}
-pub trait IVdsHwProviderPrivateMpioImpl {
-    fn SetAllPathStatusesFromHbaPort();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -945,11 +885,6 @@ unsafe impl ::windows::core::Interface for IVdsHwProviderStoragePools {
     type Vtable = IVdsHwProviderStoragePoolsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd5b5937a_f188_4c79_b86c_11c920ad11b8);
 }
-pub trait IVdsHwProviderStoragePoolsImpl {
-    fn QueryStoragePools();
-    fn CreateLunInStoragePool();
-    fn QueryMaxLunCreateSizeInStoragePool();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVdsHwProviderStoragePoolsVtbl(
@@ -1013,9 +948,6 @@ unsafe impl ::windows::core::Interface for IVdsHwProviderType {
     type Vtable = IVdsHwProviderTypeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3e0f5166_542d_4fc6_947a_012174240b7e);
 }
-pub trait IVdsHwProviderTypeImpl {
-    fn GetProviderType();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVdsHwProviderTypeVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptype: *mut VDS_HWPROVIDER_TYPE) -> ::windows::core::HRESULT);
@@ -1068,9 +1000,6 @@ impl ::core::fmt::Debug for IVdsHwProviderType2 {
 unsafe impl ::windows::core::Interface for IVdsHwProviderType2 {
     type Vtable = IVdsHwProviderType2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8190236f_c4d0_4e81_8011_d69512fcc984);
-}
-pub trait IVdsHwProviderType2Impl {
-    fn GetProviderType2();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1151,15 +1080,6 @@ impl ::core::fmt::Debug for IVdsIscsiPortal {
 unsafe impl ::windows::core::Interface for IVdsIscsiPortal {
     type Vtable = IVdsIscsiPortalVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7fa1499d_ec85_4a8a_a47b_ff69201fcd34);
-}
-pub trait IVdsIscsiPortalImpl {
-    fn GetProperties();
-    fn GetSubSystem();
-    fn QueryAssociatedPortalGroups();
-    fn SetStatus();
-    fn SetIpsecTunnelAddress();
-    fn GetIpsecSecurity();
-    fn SetIpsecSecurity();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1249,14 +1169,6 @@ impl ::core::fmt::Debug for IVdsIscsiPortalGroup {
 unsafe impl ::windows::core::Interface for IVdsIscsiPortalGroup {
     type Vtable = IVdsIscsiPortalGroupVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfef5f89d_a3dd_4b36_bf28_e7dde045c593);
-}
-pub trait IVdsIscsiPortalGroupImpl {
-    fn GetProperties();
-    fn GetTarget();
-    fn QueryAssociatedPortals();
-    fn AddPortal();
-    fn RemovePortal();
-    fn Delete();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1366,18 +1278,6 @@ impl ::core::fmt::Debug for IVdsIscsiTarget {
 unsafe impl ::windows::core::Interface for IVdsIscsiTarget {
     type Vtable = IVdsIscsiTargetVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaa8f5055_83e5_4bcc_aa73_19851a36a849);
-}
-pub trait IVdsIscsiTargetImpl {
-    fn GetProperties();
-    fn GetSubSystem();
-    fn QueryPortalGroups();
-    fn QueryAssociatedLuns();
-    fn CreatePortalGroup();
-    fn Delete();
-    fn SetFriendlyName();
-    fn SetSharedSecret();
-    fn RememberInitiatorSharedSecret();
-    fn GetConnectedInitiators();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1531,25 +1431,6 @@ unsafe impl ::windows::core::Interface for IVdsLun {
     type Vtable = IVdsLunVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3540a9c7_e60f_4111_a840_8bba6c2c83d8);
 }
-pub trait IVdsLunImpl {
-    fn GetProperties();
-    fn GetSubSystem();
-    fn GetIdentificationData();
-    fn QueryActiveControllers();
-    fn Extend();
-    fn Shrink();
-    fn QueryPlexes();
-    fn AddPlex();
-    fn RemovePlex();
-    fn Recover();
-    fn SetMask();
-    fn Delete();
-    fn AssociateControllers();
-    fn QueryHints();
-    fn ApplyHints();
-    fn SetStatus();
-    fn QueryMaxLunExtendSize();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVdsLunVtbl(
@@ -1635,10 +1516,6 @@ unsafe impl ::windows::core::Interface for IVdsLun2 {
     type Vtable = IVdsLun2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe5b3a735_9efb_499a_8071_4394d9ee6fcb);
 }
-pub trait IVdsLun2Impl {
-    fn QueryHints2();
-    fn ApplyHints2();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVdsLun2Vtbl(
@@ -1704,10 +1581,6 @@ unsafe impl ::windows::core::Interface for IVdsLunControllerPorts {
     type Vtable = IVdsLunControllerPortsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x451fe266_da6d_406a_bb60_82e534f85aeb);
 }
-pub trait IVdsLunControllerPortsImpl {
-    fn AssociateControllerPorts();
-    fn QueryActiveControllerPorts();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVdsLunControllerPortsVtbl(
@@ -1770,10 +1643,6 @@ impl ::core::fmt::Debug for IVdsLunIscsi {
 unsafe impl ::windows::core::Interface for IVdsLunIscsi {
     type Vtable = IVdsLunIscsiVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0d7c1e64_b59b_45ae_b86a_2c2cc6a42067);
-}
-pub trait IVdsLunIscsiImpl {
-    fn AssociateTargets();
-    fn QueryAssociatedTargets();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1848,12 +1717,6 @@ unsafe impl ::windows::core::Interface for IVdsLunMpio {
     type Vtable = IVdsLunMpioVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7c5fbae3_333a_48a1_a982_33c15788cde3);
 }
-pub trait IVdsLunMpioImpl {
-    fn GetPathInfo();
-    fn GetLoadBalancePolicy();
-    fn SetLoadBalancePolicy();
-    fn GetSupportedLbPolicies();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVdsLunMpioVtbl(
@@ -1917,9 +1780,6 @@ unsafe impl ::windows::core::Interface for IVdsLunNaming {
     type Vtable = IVdsLunNamingVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x907504cb_6b4e_4d88_a34d_17ba661fbb06);
 }
-pub trait IVdsLunNamingImpl {
-    fn SetFriendlyName();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVdsLunNamingVtbl(
@@ -1978,9 +1838,6 @@ impl ::core::fmt::Debug for IVdsLunNumber {
 unsafe impl ::windows::core::Interface for IVdsLunNumber {
     type Vtable = IVdsLunNumberVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd3f95e46_54b3_41f9_b678_0f1871443a08);
-}
-pub trait IVdsLunNumberImpl {
-    fn GetLunNumber();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2056,13 +1913,6 @@ unsafe impl ::windows::core::Interface for IVdsLunPlex {
     type Vtable = IVdsLunPlexVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0ee1a790_5d2e_4abb_8c99_c481e8be2138);
 }
-pub trait IVdsLunPlexImpl {
-    fn GetProperties();
-    fn GetLun();
-    fn QueryExtents();
-    fn QueryHints();
-    fn ApplyHints();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVdsLunPlexVtbl(
@@ -2135,11 +1985,6 @@ unsafe impl ::windows::core::Interface for IVdsMaintenance {
     type Vtable = IVdsMaintenanceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdaebeef3_8523_47ed_a2b9_05cecce2a1ae);
 }
-pub trait IVdsMaintenanceImpl {
-    fn StartMaintenance();
-    fn StopMaintenance();
-    fn PulseMaintenance();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVdsMaintenanceVtbl(
@@ -2200,9 +2045,6 @@ impl ::core::fmt::Debug for IVdsProvider {
 unsafe impl ::windows::core::Interface for IVdsProvider {
     type Vtable = IVdsProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x10c5e575_7984_4e81_a56b_431f5f92ae42);
-}
-pub trait IVdsProviderImpl {
-    fn GetProperties();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2273,11 +2115,6 @@ unsafe impl ::windows::core::Interface for IVdsProviderPrivate {
     type Vtable = IVdsProviderPrivateVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x11f3cd41_b7e8_48ff_9472_9dff018aa292);
 }
-pub trait IVdsProviderPrivateImpl {
-    fn GetObject();
-    fn OnLoad();
-    fn OnUnload();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVdsProviderPrivateVtbl(
@@ -2339,9 +2176,6 @@ impl ::core::fmt::Debug for IVdsProviderSupport {
 unsafe impl ::windows::core::Interface for IVdsProviderSupport {
     type Vtable = IVdsProviderSupportVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1732be13_e8f9_4a03_bfbc_5f616aa66ce1);
-}
-pub trait IVdsProviderSupportImpl {
-    fn GetVersionSupport();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2422,14 +2256,6 @@ impl ::core::fmt::Debug for IVdsStoragePool {
 unsafe impl ::windows::core::Interface for IVdsStoragePool {
     type Vtable = IVdsStoragePoolVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x932ca8cf_0eb3_4ba8_9620_22665d7f8450);
-}
-pub trait IVdsStoragePoolImpl {
-    fn GetProvider();
-    fn GetProperties();
-    fn GetAttributes();
-    fn QueryDriveExtents();
-    fn QueryAllocatedLuns();
-    fn QueryAllocatedStoragePools();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2551,20 +2377,6 @@ unsafe impl ::windows::core::Interface for IVdsSubSystem {
     type Vtable = IVdsSubSystemVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6fcee2d3_6d90_4f91_80e2_a5c7caaca9d8);
 }
-pub trait IVdsSubSystemImpl {
-    fn GetProperties();
-    fn GetProvider();
-    fn QueryControllers();
-    fn QueryLuns();
-    fn QueryDrives();
-    fn GetDrive();
-    fn Reenumerate();
-    fn SetControllerStatus();
-    fn CreateLun();
-    fn ReplaceDrive();
-    fn SetStatus();
-    fn QueryMaxLunCreateSize();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVdsSubSystemVtbl(
@@ -2655,12 +2467,6 @@ unsafe impl ::windows::core::Interface for IVdsSubSystem2 {
     type Vtable = IVdsSubSystem2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbe666735_7800_4a77_9d9c_40f85b87e292);
 }
-pub trait IVdsSubSystem2Impl {
-    fn GetProperties2();
-    fn GetDrive2();
-    fn CreateLun2();
-    fn QueryMaxLunCreateSize2();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVdsSubSystem2Vtbl(
@@ -2724,9 +2530,6 @@ impl ::core::fmt::Debug for IVdsSubSystemInterconnect {
 unsafe impl ::windows::core::Interface for IVdsSubSystemInterconnect {
     type Vtable = IVdsSubSystemInterconnectVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9e6fa560_c141_477b_83ba_0b6c38f7febf);
-}
-pub trait IVdsSubSystemInterconnectImpl {
-    fn GetSupportedInterconnects();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2796,12 +2599,6 @@ unsafe impl ::windows::core::Interface for IVdsSubSystemIscsi {
     type Vtable = IVdsSubSystemIscsiVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0027346f_40d0_4b45_8cec_5906dc0380c8);
 }
-pub trait IVdsSubSystemIscsiImpl {
-    fn QueryTargets();
-    fn QueryPortals();
-    fn CreateTarget();
-    fn SetIpsecGroupPresharedKey();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVdsSubSystemIscsiVtbl(
@@ -2863,9 +2660,6 @@ impl ::core::fmt::Debug for IVdsSubSystemNaming {
 unsafe impl ::windows::core::Interface for IVdsSubSystemNaming {
     type Vtable = IVdsSubSystemNamingVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0d70faa3_9cd4_4900_aa20_6981b6aafc75);
-}
-pub trait IVdsSubSystemNamingImpl {
-    fn SetFriendlyName();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7192,3 +6986,5 @@ impl ::core::default::Default for VDS_WWN {
 }
 #[doc = "*Required features: 'Win32_Storage_VirtualDiskService'*"]
 pub const VER_VDS_LUN_INFORMATION: u32 = 1u32;
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

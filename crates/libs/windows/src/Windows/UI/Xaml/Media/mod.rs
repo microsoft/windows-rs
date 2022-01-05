@@ -4116,19 +4116,6 @@ unsafe impl ::windows::core::Interface for IAcrylicBrush {
     type Vtable = IAcrylicBrushVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x79bbcf4e_cd66_4f1b_a8b6_cd6d2977c18d);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IAcrylicBrushImpl {
-    fn BackgroundSource();
-    fn SetBackgroundSource();
-    fn TintColor();
-    fn SetTintColor();
-    fn TintOpacity();
-    fn SetTintOpacity();
-    fn TintTransitionDuration();
-    fn SetTintTransitionDuration();
-    fn AlwaysUseFallback();
-    fn SetAlwaysUseFallback();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAcrylicBrushVtbl(
@@ -4158,11 +4145,6 @@ unsafe impl ::windows::core::Interface for IAcrylicBrush2 {
     type Vtable = IAcrylicBrush2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc9645383_b19e_5ac0_86ff_3d90506dbcda);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IAcrylicBrush2Impl {
-    fn TintLuminosityOpacity();
-    fn SetTintLuminosityOpacity();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAcrylicBrush2Vtbl(
@@ -4184,10 +4166,6 @@ unsafe impl ::windows::core::Interface for IAcrylicBrushFactory {
     type Vtable = IAcrylicBrushFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x81a32568_f6cc_4013_8363_928ae23b7a61);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IAcrylicBrushFactoryImpl {
-    fn CreateInstance();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAcrylicBrushFactoryVtbl(
@@ -4205,14 +4183,6 @@ pub struct IAcrylicBrushStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAcrylicBrushStatics {
     type Vtable = IAcrylicBrushStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2787fd79_a3da_423f_b81a_599147971523);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IAcrylicBrushStaticsImpl {
-    fn BackgroundSourceProperty();
-    fn TintColorProperty();
-    fn TintOpacityProperty();
-    fn TintTransitionDurationProperty();
-    fn AlwaysUseFallbackProperty();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4236,10 +4206,6 @@ unsafe impl ::windows::core::Interface for IAcrylicBrushStatics2 {
     type Vtable = IAcrylicBrushStatics2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x129188a8_bf11_5bbc_8445_8c510e5926c0);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IAcrylicBrushStatics2Impl {
-    fn TintLuminosityOpacityProperty();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAcrylicBrushStatics2Vtbl(
@@ -4257,19 +4223,6 @@ pub struct IArcSegment(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IArcSegment {
     type Vtable = IArcSegmentVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x07940c5f_63fb_4469_91be_f1097c168052);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IArcSegmentImpl {
-    fn Point();
-    fn SetPoint();
-    fn Size();
-    fn SetSize();
-    fn RotationAngle();
-    fn SetRotationAngle();
-    fn IsLargeArc();
-    fn SetIsLargeArc();
-    fn SweepDirection();
-    fn SetSweepDirection();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4302,14 +4255,6 @@ unsafe impl ::windows::core::Interface for IArcSegmentStatics {
     type Vtable = IArcSegmentStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x82348f6e_8a69_4204_9c12_7207df317643);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IArcSegmentStaticsImpl {
-    fn PointProperty();
-    fn SizeProperty();
-    fn RotationAngleProperty();
-    fn IsLargeArcProperty();
-    fn SweepDirectionProperty();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IArcSegmentStaticsVtbl(
@@ -4331,15 +4276,6 @@ pub struct IBezierSegment(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IBezierSegment {
     type Vtable = IBezierSegmentVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaf4bb9ee_8984_49b7_81df_3f35994b95eb);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IBezierSegmentImpl {
-    fn Point1();
-    fn SetPoint1();
-    fn Point2();
-    fn SetPoint2();
-    fn Point3();
-    fn SetPoint3();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4370,12 +4306,6 @@ unsafe impl ::windows::core::Interface for IBezierSegmentStatics {
     type Vtable = IBezierSegmentStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc0287bac_1410_4530_8452_1c9d0ad1f341);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IBezierSegmentStaticsImpl {
-    fn Point1Property();
-    fn Point2Property();
-    fn Point3Property();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBezierSegmentStaticsVtbl(
@@ -4396,8 +4326,6 @@ unsafe impl ::windows::core::Interface for IBitmapCache {
     type Vtable = IBitmapCacheVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x79c2219e_44d2_4610_9735_9bec83809ecf);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IBitmapCacheImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBitmapCacheVtbl(
@@ -4414,15 +4342,6 @@ pub struct IBrush(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IBrush {
     type Vtable = IBrushVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8806a321_1e06_422c_a1cc_01696559e021);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IBrushImpl {
-    fn Opacity();
-    fn SetOpacity();
-    fn Transform();
-    fn SetTransform();
-    fn RelativeTransform();
-    fn SetRelativeTransform();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4447,10 +4366,6 @@ unsafe impl ::windows::core::Interface for IBrushFactory {
     type Vtable = IBrushFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x399658a2_14fb_4b8f_83e6_6e3dab12069b);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IBrushFactoryImpl {
-    fn CreateInstance();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBrushFactoryVtbl(
@@ -4468,10 +4383,6 @@ pub struct IBrushOverrides2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IBrushOverrides2 {
     type Vtable = IBrushOverrides2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd092b151_d83b_5a81_a71e_a1c7f8ad6963);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IBrushOverrides2Impl {
-    fn PopulatePropertyInfoOverride();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4491,12 +4402,6 @@ pub struct IBrushStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IBrushStatics {
     type Vtable = IBrushStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe70c3102_0225_47f5_b22e_0467619f6a22);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IBrushStaticsImpl {
-    fn OpacityProperty();
-    fn TransformProperty();
-    fn RelativeTransformProperty();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4518,8 +4423,6 @@ unsafe impl ::windows::core::Interface for ICacheMode {
     type Vtable = ICacheModeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x98dc8b11_c6f9_4dab_b838_5fd5ec8c7350);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ICacheModeImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICacheModeVtbl(
@@ -4536,10 +4439,6 @@ pub struct ICacheModeFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICacheModeFactory {
     type Vtable = ICacheModeFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeb1f8c5b_0abb_4e70_b8a8_620d0d953ab2);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ICacheModeFactoryImpl {
-    fn CreateInstance();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4558,27 +4457,6 @@ pub struct ICompositeTransform(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICompositeTransform {
     type Vtable = ICompositeTransformVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc8a4385b_f24a_4701_a265_a78846f142b9);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ICompositeTransformImpl {
-    fn CenterX();
-    fn SetCenterX();
-    fn CenterY();
-    fn SetCenterY();
-    fn ScaleX();
-    fn SetScaleX();
-    fn ScaleY();
-    fn SetScaleY();
-    fn SkewX();
-    fn SetSkewX();
-    fn SkewY();
-    fn SetSkewY();
-    fn Rotation();
-    fn SetRotation();
-    fn TranslateX();
-    fn SetTranslateX();
-    fn TranslateY();
-    fn SetTranslateY();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4615,18 +4493,6 @@ unsafe impl ::windows::core::Interface for ICompositeTransformStatics {
     type Vtable = ICompositeTransformStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2f190c08_8266_496f_9653_a18bd4f836aa);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ICompositeTransformStaticsImpl {
-    fn CenterXProperty();
-    fn CenterYProperty();
-    fn ScaleXProperty();
-    fn ScaleYProperty();
-    fn SkewXProperty();
-    fn SkewYProperty();
-    fn RotationProperty();
-    fn TranslateXProperty();
-    fn TranslateYProperty();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositeTransformStaticsVtbl(
@@ -4653,8 +4519,6 @@ unsafe impl ::windows::core::Interface for ICompositionTarget {
     type Vtable = ICompositionTargetVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x26cfbff0_713c_4bec_8803_e101f7b14ed3);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ICompositionTargetImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositionTargetVtbl(
@@ -4671,13 +4535,6 @@ pub struct ICompositionTargetStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICompositionTargetStatics {
     type Vtable = ICompositionTargetStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2b1af03d_1ed2_4b59_bd00_7594ee92832b);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ICompositionTargetStaticsImpl {
-    fn Rendering();
-    fn RemoveRendering();
-    fn SurfaceContentsLost();
-    fn RemoveSurfaceContentsLost();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4704,11 +4561,6 @@ unsafe impl ::windows::core::Interface for ICompositionTargetStatics3 {
     type Vtable = ICompositionTargetStatics3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbc0a7cd9_6750_4708_994c_2028e0312ac8);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ICompositionTargetStatics3Impl {
-    fn Rendered();
-    fn RemoveRendered();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositionTargetStatics3Vtbl(
@@ -4729,15 +4581,6 @@ pub struct IEllipseGeometry(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IEllipseGeometry {
     type Vtable = IEllipseGeometryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd4f61bba_4ea2_40d6_aa6c_8d38aa87651f);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IEllipseGeometryImpl {
-    fn Center();
-    fn SetCenter();
-    fn RadiusX();
-    fn SetRadiusX();
-    fn RadiusY();
-    fn SetRadiusY();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4764,12 +4607,6 @@ unsafe impl ::windows::core::Interface for IEllipseGeometryStatics {
     type Vtable = IEllipseGeometryStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1744db47_f635_4b16_aee6_e052a65defb2);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IEllipseGeometryStaticsImpl {
-    fn CenterProperty();
-    fn RadiusXProperty();
-    fn RadiusYProperty();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEllipseGeometryStaticsVtbl(
@@ -4790,10 +4627,6 @@ unsafe impl ::windows::core::Interface for IFontFamily {
     type Vtable = IFontFamilyVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x92467e64_d66a_4cf4_9322_3d23b3c0c361);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IFontFamilyImpl {
-    fn Source();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFontFamilyVtbl(
@@ -4811,10 +4644,6 @@ pub struct IFontFamilyFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IFontFamilyFactory {
     type Vtable = IFontFamilyFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd5603377_3dae_4dcd_af09_f9498e9ec659);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IFontFamilyFactoryImpl {
-    fn CreateInstanceWithName();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4834,10 +4663,6 @@ unsafe impl ::windows::core::Interface for IFontFamilyStatics2 {
     type Vtable = IFontFamilyStatics2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x52ad7af9_37e6_4297_a238_97fb6a408d9e);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IFontFamilyStatics2Impl {
-    fn XamlAutoFontFamily();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFontFamilyStatics2Vtbl(
@@ -4855,13 +4680,6 @@ pub struct IGeneralTransform(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGeneralTransform {
     type Vtable = IGeneralTransformVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa06798b7_a2ec_415f_ade2_eade9333f2c7);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IGeneralTransformImpl {
-    fn Inverse();
-    fn TransformPoint();
-    fn TryTransform();
-    fn TransformBounds();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4887,10 +4705,6 @@ unsafe impl ::windows::core::Interface for IGeneralTransformFactory {
     type Vtable = IGeneralTransformFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7a25c930_29c4_4e31_b6f9_dedd52e4df1b);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IGeneralTransformFactoryImpl {
-    fn CreateInstance();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGeneralTransformFactoryVtbl(
@@ -4908,12 +4722,6 @@ pub struct IGeneralTransformOverrides(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGeneralTransformOverrides {
     type Vtable = IGeneralTransformOverridesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4f121083_24cf_4524_90ad_8a42b1c12783);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IGeneralTransformOverridesImpl {
-    fn InverseCore();
-    fn TryTransformCore();
-    fn TransformBoundsCore();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4937,12 +4745,6 @@ unsafe impl ::windows::core::Interface for IGeometry {
     type Vtable = IGeometryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfa123889_0acd_417b_b62d_5ca1bf4dfc0e);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IGeometryImpl {
-    fn Transform();
-    fn SetTransform();
-    fn Bounds();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGeometryVtbl(
@@ -4964,8 +4766,6 @@ unsafe impl ::windows::core::Interface for IGeometryFactory {
     type Vtable = IGeometryFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf65daf23_d5fd_42f9_b32a_929c5a4b54e1);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IGeometryFactoryImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGeometryFactoryVtbl(
@@ -4982,13 +4782,6 @@ pub struct IGeometryGroup(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGeometryGroup {
     type Vtable = IGeometryGroupVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x55225a61_8677_4c8c_8e46_ee3dc355114b);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IGeometryGroupImpl {
-    fn FillRule();
-    fn SetFillRule();
-    fn Children();
-    fn SetChildren();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5013,11 +4806,6 @@ unsafe impl ::windows::core::Interface for IGeometryGroupStatics {
     type Vtable = IGeometryGroupStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x56c955f4_8496_4bb6_abf0_617b1fe78b45);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IGeometryGroupStaticsImpl {
-    fn FillRuleProperty();
-    fn ChildrenProperty();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGeometryGroupStaticsVtbl(
@@ -5036,12 +4824,6 @@ pub struct IGeometryStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGeometryStatics {
     type Vtable = IGeometryStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7a70aa8c_0b06_465f_b637_9a47e5a70111);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IGeometryStaticsImpl {
-    fn Empty();
-    fn StandardFlatteningTolerance();
-    fn TransformProperty();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5062,17 +4844,6 @@ pub struct IGradientBrush(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGradientBrush {
     type Vtable = IGradientBrushVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2166e69f_935a_4191_8e3c_1c8dfdfcdc78);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IGradientBrushImpl {
-    fn SpreadMethod();
-    fn SetSpreadMethod();
-    fn MappingMode();
-    fn SetMappingMode();
-    fn ColorInterpolationMode();
-    fn SetColorInterpolationMode();
-    fn GradientStops();
-    fn SetGradientStops();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5101,10 +4872,6 @@ unsafe impl ::windows::core::Interface for IGradientBrushFactory {
     type Vtable = IGradientBrushFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xed4779ca_45bd_4131_b625_be86e07c6112);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IGradientBrushFactoryImpl {
-    fn CreateInstance();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGradientBrushFactoryVtbl(
@@ -5122,13 +4889,6 @@ pub struct IGradientBrushStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGradientBrushStatics {
     type Vtable = IGradientBrushStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x961661f9_8bb4_4e6c_b923_b5d787e0f1a9);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IGradientBrushStaticsImpl {
-    fn SpreadMethodProperty();
-    fn MappingModeProperty();
-    fn ColorInterpolationModeProperty();
-    fn GradientStopsProperty();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5151,13 +4911,6 @@ unsafe impl ::windows::core::Interface for IGradientStop {
     type Vtable = IGradientStopVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x665f44fe_2e59_4c4a_ab53_076a100ccd81);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IGradientStopImpl {
-    fn Color();
-    fn SetColor();
-    fn Offset();
-    fn SetOffset();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGradientStopVtbl(
@@ -5179,11 +4932,6 @@ unsafe impl ::windows::core::Interface for IGradientStopStatics {
     type Vtable = IGradientStopStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x602a6d75_6193_4fe5_8e82_c7c6f6febafd);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IGradientStopStaticsImpl {
-    fn ColorProperty();
-    fn OffsetProperty();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGradientStopStaticsVtbl(
@@ -5202,15 +4950,6 @@ pub struct IImageBrush(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IImageBrush {
     type Vtable = IImageBrushVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9fd11377_c12a_4493_bf7d_f3a8ad74b554);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IImageBrushImpl {
-    fn ImageSource();
-    fn SetImageSource();
-    fn ImageFailed();
-    fn RemoveImageFailed();
-    fn ImageOpened();
-    fn RemoveImageOpened();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5239,10 +4978,6 @@ unsafe impl ::windows::core::Interface for IImageBrushStatics {
     type Vtable = IImageBrushStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1255b1b2_dd18_42e5_892c_eae30c305b8c);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IImageBrushStaticsImpl {
-    fn ImageSourceProperty();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IImageBrushStaticsVtbl(
@@ -5261,8 +4996,6 @@ unsafe impl ::windows::core::Interface for IImageSource {
     type Vtable = IImageSourceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x737ef309_ea41_4d96_a71c_98e98efcab07);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IImageSourceImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IImageSourceVtbl(
@@ -5280,8 +5013,6 @@ unsafe impl ::windows::core::Interface for IImageSourceFactory {
     type Vtable = IImageSourceFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x297ec001_2540_4e5a_ab66_88035dd3ddb5);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IImageSourceFactoryImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IImageSourceFactoryVtbl(
@@ -5298,13 +5029,6 @@ pub struct ILineGeometry(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ILineGeometry {
     type Vtable = ILineGeometryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x30edd4a2_8fc5_40af_a7a2_c27fe7aa1363);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ILineGeometryImpl {
-    fn StartPoint();
-    fn SetStartPoint();
-    fn EndPoint();
-    fn SetEndPoint();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5331,11 +5055,6 @@ unsafe impl ::windows::core::Interface for ILineGeometryStatics {
     type Vtable = ILineGeometryStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x578ae763_5562_4ee4_8703_ea4036d891e3);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ILineGeometryStaticsImpl {
-    fn StartPointProperty();
-    fn EndPointProperty();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILineGeometryStaticsVtbl(
@@ -5354,11 +5073,6 @@ pub struct ILineSegment(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ILineSegment {
     type Vtable = ILineSegmentVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xef6a2e25_3ff0_4420_a411_7182a4cecb15);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ILineSegmentImpl {
-    fn Point();
-    fn SetPoint();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5381,10 +5095,6 @@ unsafe impl ::windows::core::Interface for ILineSegmentStatics {
     type Vtable = ILineSegmentStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9fcab141_04c0_4afb_87b3_e800b969b894);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ILineSegmentStaticsImpl {
-    fn PointProperty();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILineSegmentStaticsVtbl(
@@ -5402,13 +5112,6 @@ pub struct ILinearGradientBrush(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ILinearGradientBrush {
     type Vtable = ILinearGradientBrushVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8e96d16b_bb84_4c6f_9dbf_9d6c5c6d9c39);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ILinearGradientBrushImpl {
-    fn StartPoint();
-    fn SetStartPoint();
-    fn EndPoint();
-    fn SetEndPoint();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5435,10 +5138,6 @@ unsafe impl ::windows::core::Interface for ILinearGradientBrushFactory {
     type Vtable = ILinearGradientBrushFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0ae0861c_1e7a_4fed_9857_ea8caa798490);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ILinearGradientBrushFactoryImpl {
-    fn CreateInstanceWithGradientStopCollectionAndAngle();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILinearGradientBrushFactoryVtbl(
@@ -5457,11 +5156,6 @@ pub struct ILinearGradientBrushStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ILinearGradientBrushStatics {
     type Vtable = ILinearGradientBrushStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7af6e504_2dc3_40e3_be0b_b314c13cb991);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ILinearGradientBrushStaticsImpl {
-    fn StartPointProperty();
-    fn EndPointProperty();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5482,10 +5176,6 @@ unsafe impl ::windows::core::Interface for ILoadedImageSourceLoadCompletedEventA
     type Vtable = ILoadedImageSourceLoadCompletedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1ac60b1e_7837_4489_b3e5_d0d5ad0a56c4);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ILoadedImageSourceLoadCompletedEventArgsImpl {
-    fn Status();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILoadedImageSourceLoadCompletedEventArgsVtbl(
@@ -5503,14 +5193,6 @@ pub struct ILoadedImageSurface(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ILoadedImageSurface {
     type Vtable = ILoadedImageSurfaceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x050c8313_6737_45ba_8531_33094febef55);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ILoadedImageSurfaceImpl {
-    fn DecodedPhysicalSize();
-    fn DecodedSize();
-    fn NaturalSize();
-    fn LoadCompleted();
-    fn RemoveLoadCompleted();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5539,13 +5221,6 @@ unsafe impl ::windows::core::Interface for ILoadedImageSurfaceStatics {
     type Vtable = ILoadedImageSurfaceStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x22b8edf6_84ad_40ab_937d_4871613e765d);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ILoadedImageSurfaceStaticsImpl {
-    fn StartLoadFromUriWithSize();
-    fn StartLoadFromUri();
-    fn StartLoadFromStreamWithSize();
-    fn StartLoadFromStream();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILoadedImageSurfaceStaticsVtbl(
@@ -5571,11 +5246,6 @@ unsafe impl ::windows::core::Interface for IMatrix3DProjection {
     type Vtable = IMatrix3DProjectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6f03e149_bfc9_4c01_b578_50338cec97fc);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IMatrix3DProjectionImpl {
-    fn ProjectionMatrix();
-    fn SetProjectionMatrix();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMatrix3DProjectionVtbl(
@@ -5597,10 +5267,6 @@ unsafe impl ::windows::core::Interface for IMatrix3DProjectionStatics {
     type Vtable = IMatrix3DProjectionStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xae9d5895_41ec_4e37_abaa_69f41d2f876b);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IMatrix3DProjectionStaticsImpl {
-    fn ProjectionMatrixProperty();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMatrix3DProjectionStaticsVtbl(
@@ -5619,8 +5285,6 @@ unsafe impl ::windows::core::Interface for IMatrixHelper {
     type Vtable = IMatrixHelperVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf3cf4882_06b5_48c8_9eb2_1763e9364038);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IMatrixHelperImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMatrixHelperVtbl(
@@ -5637,13 +5301,6 @@ pub struct IMatrixHelperStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMatrixHelperStatics {
     type Vtable = IMatrixHelperStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc18606a6_39f4_4b8a_8403_28e5e5f033b4);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IMatrixHelperStaticsImpl {
-    fn Identity();
-    fn FromElements();
-    fn GetIsIdentity();
-    fn Transform();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5667,11 +5324,6 @@ unsafe impl ::windows::core::Interface for IMatrixTransform {
     type Vtable = IMatrixTransformVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xedfdd551_5fed_45fc_ae62_92a4b6cf9707);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IMatrixTransformImpl {
-    fn Matrix();
-    fn SetMatrix();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMatrixTransformVtbl(
@@ -5691,10 +5343,6 @@ unsafe impl ::windows::core::Interface for IMatrixTransformStatics {
     type Vtable = IMatrixTransformStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x43e02e47_15b8_4758_bb97_7d52420acc5b);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IMatrixTransformStaticsImpl {
-    fn MatrixProperty();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMatrixTransformStaticsVtbl(
@@ -5712,11 +5360,6 @@ pub struct IMediaTransportControlsThumbnailRequestedEventArgs(::windows::core::I
 unsafe impl ::windows::core::Interface for IMediaTransportControlsThumbnailRequestedEventArgs {
     type Vtable = IMediaTransportControlsThumbnailRequestedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe4a8b21c_e3c2_485c_ae69_f1537b76755a);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IMediaTransportControlsThumbnailRequestedEventArgsImpl {
-    fn SetThumbnailImage();
-    fn GetDeferral();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5739,10 +5382,6 @@ unsafe impl ::windows::core::Interface for IPartialMediaFailureDetectedEventArgs
     type Vtable = IPartialMediaFailureDetectedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x02b65a91_e5a1_442b_88d3_2dc127bfc59b);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IPartialMediaFailureDetectedEventArgsImpl {
-    fn StreamKind();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPartialMediaFailureDetectedEventArgsVtbl(
@@ -5762,10 +5401,6 @@ unsafe impl ::windows::core::Interface for IPartialMediaFailureDetectedEventArgs
     type Vtable = IPartialMediaFailureDetectedEventArgs2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x73074875_890d_416b_b9ae_e84dfd9c4b1b);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IPartialMediaFailureDetectedEventArgs2Impl {
-    fn ExtendedError();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPartialMediaFailureDetectedEventArgs2Vtbl(
@@ -5783,17 +5418,6 @@ pub struct IPathFigure(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPathFigure {
     type Vtable = IPathFigureVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5d955c8c_5fa9_4dda_a3cc_10fcdcaa20d7);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IPathFigureImpl {
-    fn Segments();
-    fn SetSegments();
-    fn StartPoint();
-    fn SetStartPoint();
-    fn IsClosed();
-    fn SetIsClosed();
-    fn IsFilled();
-    fn SetIsFilled();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5824,13 +5448,6 @@ unsafe impl ::windows::core::Interface for IPathFigureStatics {
     type Vtable = IPathFigureStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb60591d9_2395_4317_9552_3a58526f8c7b);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IPathFigureStaticsImpl {
-    fn SegmentsProperty();
-    fn StartPointProperty();
-    fn IsClosedProperty();
-    fn IsFilledProperty();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPathFigureStaticsVtbl(
@@ -5851,13 +5468,6 @@ pub struct IPathGeometry(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPathGeometry {
     type Vtable = IPathGeometryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x081b9df8_bae6_4bcb_813c_bde0e46dc8b7);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IPathGeometryImpl {
-    fn FillRule();
-    fn SetFillRule();
-    fn Figures();
-    fn SetFigures();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5882,11 +5492,6 @@ unsafe impl ::windows::core::Interface for IPathGeometryStatics {
     type Vtable = IPathGeometryStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd9e58bba_2cba_4741_8f8d_3198cf5186b9);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IPathGeometryStaticsImpl {
-    fn FillRuleProperty();
-    fn FiguresProperty();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPathGeometryStaticsVtbl(
@@ -5906,8 +5511,6 @@ unsafe impl ::windows::core::Interface for IPathSegment {
     type Vtable = IPathSegmentVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfcfa71cf_9ce3_474f_8157_10b6435a616b);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IPathSegmentImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPathSegmentVtbl(
@@ -5925,8 +5528,6 @@ unsafe impl ::windows::core::Interface for IPathSegmentFactory {
     type Vtable = IPathSegmentFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2a1c0aae_eccd_4464_a148_6ffdb3aa281f);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IPathSegmentFactoryImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPathSegmentFactoryVtbl(
@@ -5943,34 +5544,6 @@ pub struct IPlaneProjection(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPlaneProjection {
     type Vtable = IPlaneProjectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe6f82bfa_6726_469a_b259_a5188347ca8f);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IPlaneProjectionImpl {
-    fn LocalOffsetX();
-    fn SetLocalOffsetX();
-    fn LocalOffsetY();
-    fn SetLocalOffsetY();
-    fn LocalOffsetZ();
-    fn SetLocalOffsetZ();
-    fn RotationX();
-    fn SetRotationX();
-    fn RotationY();
-    fn SetRotationY();
-    fn RotationZ();
-    fn SetRotationZ();
-    fn CenterOfRotationX();
-    fn SetCenterOfRotationX();
-    fn CenterOfRotationY();
-    fn SetCenterOfRotationY();
-    fn CenterOfRotationZ();
-    fn SetCenterOfRotationZ();
-    fn GlobalOffsetX();
-    fn SetGlobalOffsetX();
-    fn GlobalOffsetY();
-    fn SetGlobalOffsetY();
-    fn GlobalOffsetZ();
-    fn SetGlobalOffsetZ();
-    fn ProjectionMatrix();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6015,22 +5588,6 @@ unsafe impl ::windows::core::Interface for IPlaneProjectionStatics {
     type Vtable = IPlaneProjectionStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xad919c67_3bdc_4855_8969_d1f9a3adc27d);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IPlaneProjectionStaticsImpl {
-    fn LocalOffsetXProperty();
-    fn LocalOffsetYProperty();
-    fn LocalOffsetZProperty();
-    fn RotationXProperty();
-    fn RotationYProperty();
-    fn RotationZProperty();
-    fn CenterOfRotationXProperty();
-    fn CenterOfRotationYProperty();
-    fn CenterOfRotationZProperty();
-    fn GlobalOffsetXProperty();
-    fn GlobalOffsetYProperty();
-    fn GlobalOffsetZProperty();
-    fn ProjectionMatrixProperty();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPlaneProjectionStaticsVtbl(
@@ -6061,11 +5618,6 @@ unsafe impl ::windows::core::Interface for IPolyBezierSegment {
     type Vtable = IPolyBezierSegmentVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x36805271_38c4_4bcf_96cd_028a6d38af25);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IPolyBezierSegmentImpl {
-    fn Points();
-    fn SetPoints();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPolyBezierSegmentVtbl(
@@ -6087,10 +5639,6 @@ unsafe impl ::windows::core::Interface for IPolyBezierSegmentStatics {
     type Vtable = IPolyBezierSegmentStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1d91a6da_1492_4acc_bd66_a496f3d829d6);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IPolyBezierSegmentStaticsImpl {
-    fn PointsProperty();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPolyBezierSegmentStaticsVtbl(
@@ -6108,11 +5656,6 @@ pub struct IPolyLineSegment(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPolyLineSegment {
     type Vtable = IPolyLineSegmentVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4b397f87_a2e6_479d_bdc8_6f4464646887);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IPolyLineSegmentImpl {
-    fn Points();
-    fn SetPoints();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6135,10 +5678,6 @@ unsafe impl ::windows::core::Interface for IPolyLineSegmentStatics {
     type Vtable = IPolyLineSegmentStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd64a2c87_33f1_4e70_a47f_b4981ef648a2);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IPolyLineSegmentStaticsImpl {
-    fn PointsProperty();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPolyLineSegmentStaticsVtbl(
@@ -6156,11 +5695,6 @@ pub struct IPolyQuadraticBezierSegment(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPolyQuadraticBezierSegment {
     type Vtable = IPolyQuadraticBezierSegmentVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdd5ced7d_e6db_4c96_b6a1_3fce96e987a6);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IPolyQuadraticBezierSegmentImpl {
-    fn Points();
-    fn SetPoints();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6183,10 +5717,6 @@ unsafe impl ::windows::core::Interface for IPolyQuadraticBezierSegmentStatics {
     type Vtable = IPolyQuadraticBezierSegmentStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfdf5eb75_7ad5_4c89_8169_8c9786abd9eb);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IPolyQuadraticBezierSegmentStaticsImpl {
-    fn PointsProperty();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPolyQuadraticBezierSegmentStaticsVtbl(
@@ -6205,8 +5735,6 @@ unsafe impl ::windows::core::Interface for IProjection {
     type Vtable = IProjectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb3443557_7f39_4d04_a89c_844338cac897);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IProjectionImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IProjectionVtbl(
@@ -6223,10 +5751,6 @@ pub struct IProjectionFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IProjectionFactory {
     type Vtable = IProjectionFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc4f29cab_60ad_4f24_bd27_9d69c3127c9a);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IProjectionFactoryImpl {
-    fn CreateInstance();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6245,13 +5769,6 @@ pub struct IQuadraticBezierSegment(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IQuadraticBezierSegment {
     type Vtable = IQuadraticBezierSegmentVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2c509a5b_bf18_455a_a078_914b5232d8af);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IQuadraticBezierSegmentImpl {
-    fn Point1();
-    fn SetPoint1();
-    fn Point2();
-    fn SetPoint2();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6278,11 +5795,6 @@ unsafe impl ::windows::core::Interface for IQuadraticBezierSegmentStatics {
     type Vtable = IQuadraticBezierSegmentStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x69c78278_3c0b_4b4f_b7a2_f003ded41bb0);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IQuadraticBezierSegmentStaticsImpl {
-    fn Point1Property();
-    fn Point2Property();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IQuadraticBezierSegmentStaticsVtbl(
@@ -6302,8 +5814,6 @@ unsafe impl ::windows::core::Interface for IRateChangedRoutedEventArgs {
     type Vtable = IRateChangedRoutedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9016aa6f_3ca8_4c80_8e2f_8851a68f131f);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IRateChangedRoutedEventArgsImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRateChangedRoutedEventArgsVtbl(
@@ -6320,11 +5830,6 @@ pub struct IRectangleGeometry(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IRectangleGeometry {
     type Vtable = IRectangleGeometryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa25a1f58_c575_4196_91cf_9fdfb10445c3);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IRectangleGeometryImpl {
-    fn Rect();
-    fn SetRect();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6347,10 +5852,6 @@ unsafe impl ::windows::core::Interface for IRectangleGeometryStatics {
     type Vtable = IRectangleGeometryStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x377f8dba_7902_48e3_83be_7c8002a6653c);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IRectangleGeometryStaticsImpl {
-    fn RectProperty();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRectangleGeometryStaticsVtbl(
@@ -6368,10 +5869,6 @@ pub struct IRenderedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IRenderedEventArgs {
     type Vtable = IRenderedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe349817d_81c7_4938_828c_a7e2797b35a6);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IRenderedEventArgsImpl {
-    fn FrameDuration();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6392,10 +5889,6 @@ unsafe impl ::windows::core::Interface for IRenderingEventArgs {
     type Vtable = IRenderingEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5bf7d30d_9748_4aed_8380_d7890eb776a0);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IRenderingEventArgsImpl {
-    fn RenderingTime();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRenderingEventArgsVtbl(
@@ -6415,8 +5908,6 @@ unsafe impl ::windows::core::Interface for IRevealBackgroundBrush {
     type Vtable = IRevealBackgroundBrushVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x261dcc0e_1991_4cdf_aee0_6350a3f90bb9);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IRevealBackgroundBrushImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRevealBackgroundBrushVtbl(
@@ -6433,10 +5924,6 @@ pub struct IRevealBackgroundBrushFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IRevealBackgroundBrushFactory {
     type Vtable = IRevealBackgroundBrushFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8c56bcaa_02a5_4f45_8506_8d39228f5d3f);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IRevealBackgroundBrushFactoryImpl {
-    fn CreateInstance();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6456,8 +5943,6 @@ unsafe impl ::windows::core::Interface for IRevealBorderBrush {
     type Vtable = IRevealBorderBrushVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x060ba115_c542_483c_8202_5f03331866c9);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IRevealBorderBrushImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRevealBorderBrushVtbl(
@@ -6474,10 +5959,6 @@ pub struct IRevealBorderBrushFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IRevealBorderBrushFactory {
     type Vtable = IRevealBorderBrushFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x94c25298_f5f8_4482_a25c_6758501a8626);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IRevealBorderBrushFactoryImpl {
-    fn CreateInstance();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6496,15 +5977,6 @@ pub struct IRevealBrush(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IRevealBrush {
     type Vtable = IRevealBrushVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2036a0ed_8271_4398_9019_25872093f13f);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IRevealBrushImpl {
-    fn Color();
-    fn SetColor();
-    fn TargetTheme();
-    fn SetTargetTheme();
-    fn AlwaysUseFallback();
-    fn SetAlwaysUseFallback();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6529,10 +6001,6 @@ unsafe impl ::windows::core::Interface for IRevealBrushFactory {
     type Vtable = IRevealBrushFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9d9379ce_e3a0_4aaf_be37_ea9d9dd43105);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IRevealBrushFactoryImpl {
-    fn CreateInstance();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRevealBrushFactoryVtbl(
@@ -6550,15 +6018,6 @@ pub struct IRevealBrushStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IRevealBrushStatics {
     type Vtable = IRevealBrushStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x190f2625_7209_4d42_a847_1ac4bbbb3499);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IRevealBrushStaticsImpl {
-    fn ColorProperty();
-    fn TargetThemeProperty();
-    fn AlwaysUseFallbackProperty();
-    fn StateProperty();
-    fn SetState();
-    fn GetState();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6583,15 +6042,6 @@ unsafe impl ::windows::core::Interface for IRotateTransform {
     type Vtable = IRotateTransformVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x688ea9b9_1e4e_4596_86e3_428b27334faf);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IRotateTransformImpl {
-    fn CenterX();
-    fn SetCenterX();
-    fn CenterY();
-    fn SetCenterY();
-    fn Angle();
-    fn SetAngle();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRotateTransformVtbl(
@@ -6615,12 +6065,6 @@ unsafe impl ::windows::core::Interface for IRotateTransformStatics {
     type Vtable = IRotateTransformStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa131eb8a_51a3_41b6_b9d3_a10e429054ab);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IRotateTransformStaticsImpl {
-    fn CenterXProperty();
-    fn CenterYProperty();
-    fn AngleProperty();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRotateTransformStaticsVtbl(
@@ -6640,17 +6084,6 @@ pub struct IScaleTransform(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IScaleTransform {
     type Vtable = IScaleTransformVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xed67f18d_936e_43ab_929a_e9cd0a511e52);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IScaleTransformImpl {
-    fn CenterX();
-    fn SetCenterX();
-    fn CenterY();
-    fn SetCenterY();
-    fn ScaleX();
-    fn SetScaleX();
-    fn ScaleY();
-    fn SetScaleY();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6677,13 +6110,6 @@ unsafe impl ::windows::core::Interface for IScaleTransformStatics {
     type Vtable = IScaleTransformStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9d9436f4_40a7_46dd_975a_07d337cd852e);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IScaleTransformStaticsImpl {
-    fn CenterXProperty();
-    fn CenterYProperty();
-    fn ScaleXProperty();
-    fn ScaleYProperty();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IScaleTransformStaticsVtbl(
@@ -6705,8 +6131,6 @@ unsafe impl ::windows::core::Interface for IShadow {
     type Vtable = IShadowVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6813a583_f3b4_5fcf_8694_2cd0aefc2fad);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IShadowImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IShadowVtbl(
@@ -6724,8 +6148,6 @@ unsafe impl ::windows::core::Interface for IShadowFactory {
     type Vtable = IShadowFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x19899f25_d28b_51e6_94b0_d7e709686305);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IShadowFactoryImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IShadowFactoryVtbl(
@@ -6742,17 +6164,6 @@ pub struct ISkewTransform(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISkewTransform {
     type Vtable = ISkewTransformVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4e8a3b15_7a0f_4617_9e98_1e65bdc92115);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ISkewTransformImpl {
-    fn CenterX();
-    fn SetCenterX();
-    fn CenterY();
-    fn SetCenterY();
-    fn AngleX();
-    fn SetAngleX();
-    fn AngleY();
-    fn SetAngleY();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6779,13 +6190,6 @@ unsafe impl ::windows::core::Interface for ISkewTransformStatics {
     type Vtable = ISkewTransformStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xecd11d73_5614_4b31_b6af_beae10105624);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ISkewTransformStaticsImpl {
-    fn CenterXProperty();
-    fn CenterYProperty();
-    fn AngleXProperty();
-    fn AngleYProperty();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISkewTransformStaticsVtbl(
@@ -6807,11 +6211,6 @@ unsafe impl ::windows::core::Interface for ISolidColorBrush {
     type Vtable = ISolidColorBrushVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9d850850_66f3_48df_9a8f_824bd5e070af);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ISolidColorBrushImpl {
-    fn Color();
-    fn SetColor();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISolidColorBrushVtbl(
@@ -6831,10 +6230,6 @@ unsafe impl ::windows::core::Interface for ISolidColorBrushFactory {
     type Vtable = ISolidColorBrushFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd935ce0c_86f5_4da6_8a27_b1619ef7f92b);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ISolidColorBrushFactoryImpl {
-    fn CreateInstanceWithColor();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISolidColorBrushFactoryVtbl(
@@ -6852,10 +6247,6 @@ pub struct ISolidColorBrushStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISolidColorBrushStatics {
     type Vtable = ISolidColorBrushStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe1a65efa_2b23_41ba_b9ba_7094ec8e4e9f);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ISolidColorBrushStaticsImpl {
-    fn ColorProperty();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6875,10 +6266,6 @@ unsafe impl ::windows::core::Interface for IThemeShadow {
     type Vtable = IThemeShadowVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3eccad09_7985_5f39_8b62_6c10696dca6f);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IThemeShadowImpl {
-    fn Receivers();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IThemeShadowVtbl(
@@ -6897,10 +6284,6 @@ unsafe impl ::windows::core::Interface for IThemeShadowFactory {
     type Vtable = IThemeShadowFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2e71465d_0f67_590e_831b_7e5e2a32b778);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IThemeShadowFactoryImpl {
-    fn CreateInstance();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IThemeShadowFactoryVtbl(
@@ -6918,15 +6301,6 @@ pub struct ITileBrush(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ITileBrush {
     type Vtable = ITileBrushVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc201cf06_cd84_48a5_9607_664d7361cd61);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ITileBrushImpl {
-    fn AlignmentX();
-    fn SetAlignmentX();
-    fn AlignmentY();
-    fn SetAlignmentY();
-    fn Stretch();
-    fn SetStretch();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6951,10 +6325,6 @@ unsafe impl ::windows::core::Interface for ITileBrushFactory {
     type Vtable = ITileBrushFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaa159f7c_ed6a_4fb3_b014_b5c7e379a4de);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ITileBrushFactoryImpl {
-    fn CreateInstance();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITileBrushFactoryVtbl(
@@ -6972,12 +6342,6 @@ pub struct ITileBrushStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ITileBrushStatics {
     type Vtable = ITileBrushStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3497c25b_b562_4e68_8435_2399f6eb94d5);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ITileBrushStaticsImpl {
-    fn AlignmentXProperty();
-    fn AlignmentYProperty();
-    fn StretchProperty();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6998,15 +6362,6 @@ pub struct ITimelineMarker(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ITimelineMarker {
     type Vtable = ITimelineMarkerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa68ef02d_45ba_4e50_8cad_aaea3a227af5);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ITimelineMarkerImpl {
-    fn Time();
-    fn SetTime();
-    fn Type();
-    fn SetType();
-    fn Text();
-    fn SetText();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7033,11 +6388,6 @@ unsafe impl ::windows::core::Interface for ITimelineMarkerRoutedEventArgs {
     type Vtable = ITimelineMarkerRoutedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7c3b3ef3_2c88_4d9c_99b6_46cdbd48d4c1);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ITimelineMarkerRoutedEventArgsImpl {
-    fn Marker();
-    fn SetMarker();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITimelineMarkerRoutedEventArgsVtbl(
@@ -7056,12 +6406,6 @@ pub struct ITimelineMarkerStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ITimelineMarkerStatics {
     type Vtable = ITimelineMarkerStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc4aef0c6_16a3_484b_87f5_6528b8f04a47);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ITimelineMarkerStaticsImpl {
-    fn TimeProperty();
-    fn TypeProperty();
-    fn TextProperty();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7083,8 +6427,6 @@ unsafe impl ::windows::core::Interface for ITransform {
     type Vtable = ITransformVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4df74078_bfd6_4ed1_9682_d2fd8bf2fe6f);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ITransformImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITransformVtbl(
@@ -7102,8 +6444,6 @@ unsafe impl ::windows::core::Interface for ITransformFactory {
     type Vtable = ITransformFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1a955a66_7cf4_4320_b416_6181192fcc6d);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ITransformFactoryImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITransformFactoryVtbl(
@@ -7120,12 +6460,6 @@ pub struct ITransformGroup(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ITransformGroup {
     type Vtable = ITransformGroupVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x63418ccc_8d2d_4737_b951_2afce1ddc4c4);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ITransformGroupImpl {
-    fn Children();
-    fn SetChildren();
-    fn Value();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7149,10 +6483,6 @@ unsafe impl ::windows::core::Interface for ITransformGroupStatics {
     type Vtable = ITransformGroupStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x25312f2a_cfab_4b24_9713_5bdead1929c0);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ITransformGroupStaticsImpl {
-    fn ChildrenProperty();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITransformGroupStaticsVtbl(
@@ -7170,13 +6500,6 @@ pub struct ITranslateTransform(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ITranslateTransform {
     type Vtable = ITranslateTransformVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc975905c_3c36_4229_817b_178f64c0e113);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ITranslateTransformImpl {
-    fn X();
-    fn SetX();
-    fn Y();
-    fn SetY();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7199,11 +6522,6 @@ unsafe impl ::windows::core::Interface for ITranslateTransformStatics {
     type Vtable = ITranslateTransformStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf419aa91_e042_4111_9c2f_d201304123dd);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ITranslateTransformStaticsImpl {
-    fn XProperty();
-    fn YProperty();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITranslateTransformStaticsVtbl(
@@ -7223,8 +6541,6 @@ unsafe impl ::windows::core::Interface for IVisualTreeHelper {
     type Vtable = IVisualTreeHelperVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x24b935e3_52c7_4141_8bac_a73d06130569);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IVisualTreeHelperImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVisualTreeHelperVtbl(
@@ -7241,17 +6557,6 @@ pub struct IVisualTreeHelperStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IVisualTreeHelperStatics {
     type Vtable = IVisualTreeHelperStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe75758c4_d25d_4b1d_971f_596f17f12baa);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IVisualTreeHelperStaticsImpl {
-    fn FindElementsInHostCoordinatesPoint();
-    fn FindElementsInHostCoordinatesRect();
-    fn FindAllElementsInHostCoordinatesPoint();
-    fn FindAllElementsInHostCoordinatesRect();
-    fn GetChild();
-    fn GetChildrenCount();
-    fn GetParent();
-    fn DisconnectChildrenRecursive();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7282,10 +6587,6 @@ unsafe impl ::windows::core::Interface for IVisualTreeHelperStatics2 {
     type Vtable = IVisualTreeHelperStatics2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x07bcd176_869f_44a7_8797_2103a4c3e47a);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IVisualTreeHelperStatics2Impl {
-    fn GetOpenPopups();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVisualTreeHelperStatics2Vtbl(
@@ -7304,10 +6605,6 @@ pub struct IVisualTreeHelperStatics3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IVisualTreeHelperStatics3 {
     type Vtable = IVisualTreeHelperStatics3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x40420d50_ca16_57da_8aac_944c8af577fd);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IVisualTreeHelperStatics3Impl {
-    fn GetOpenPopupsForXamlRoot();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7328,11 +6625,6 @@ unsafe impl ::windows::core::Interface for IXamlCompositionBrushBase {
     type Vtable = IXamlCompositionBrushBaseVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x03e432d9_b35c_4a79_811c_c5652004da0e);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IXamlCompositionBrushBaseImpl {
-    fn FallbackColor();
-    fn SetFallbackColor();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXamlCompositionBrushBaseVtbl(
@@ -7352,10 +6644,6 @@ unsafe impl ::windows::core::Interface for IXamlCompositionBrushBaseFactory {
     type Vtable = IXamlCompositionBrushBaseFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x394f0823_2451_4ed8_bd24_488149b3428d);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IXamlCompositionBrushBaseFactoryImpl {
-    fn CreateInstance();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXamlCompositionBrushBaseFactoryVtbl(
@@ -7373,11 +6661,6 @@ pub struct IXamlCompositionBrushBaseOverrides(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IXamlCompositionBrushBaseOverrides {
     type Vtable = IXamlCompositionBrushBaseOverridesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd19127f1_38b4_4ea1_8f33_849629a4c9c1);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IXamlCompositionBrushBaseOverridesImpl {
-    fn OnConnected();
-    fn OnDisconnected();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7397,11 +6680,6 @@ pub struct IXamlCompositionBrushBaseProtected(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IXamlCompositionBrushBaseProtected {
     type Vtable = IXamlCompositionBrushBaseProtectedVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1513f3d8_0457_4e1c_ad77_11c1d9879743);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IXamlCompositionBrushBaseProtectedImpl {
-    fn CompositionBrush();
-    fn SetCompositionBrush();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7424,10 +6702,6 @@ unsafe impl ::windows::core::Interface for IXamlCompositionBrushBaseStatics {
     type Vtable = IXamlCompositionBrushBaseStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4fd49b06_061a_441f_b97a_adfbd41ae681);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IXamlCompositionBrushBaseStaticsImpl {
-    fn FallbackColorProperty();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXamlCompositionBrushBaseStaticsVtbl(
@@ -7446,8 +6720,6 @@ unsafe impl ::windows::core::Interface for IXamlLight {
     type Vtable = IXamlLightVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0cc3fc1f_b327_4a18_9648_7c84db26ce22);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IXamlLightImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXamlLightVtbl(
@@ -7464,10 +6736,6 @@ pub struct IXamlLightFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IXamlLightFactory {
     type Vtable = IXamlLightFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x87ded768_3055_43b8_8ef6_798dc4c2329a);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IXamlLightFactoryImpl {
-    fn CreateInstance();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7486,12 +6754,6 @@ pub struct IXamlLightOverrides(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IXamlLightOverrides {
     type Vtable = IXamlLightOverridesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7c6296c7_0173_48e1_b73d_7fa216a9ac28);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IXamlLightOverridesImpl {
-    fn GetId();
-    fn OnConnected();
-    fn OnDisconnected();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7513,11 +6775,6 @@ unsafe impl ::windows::core::Interface for IXamlLightProtected {
     type Vtable = IXamlLightProtectedVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5ecf220b_1252_43d0_9729_6ea692046838);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IXamlLightProtectedImpl {
-    fn CompositionLight();
-    fn SetCompositionLight();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXamlLightProtectedVtbl(
@@ -7538,13 +6795,6 @@ pub struct IXamlLightStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IXamlLightStatics {
     type Vtable = IXamlLightStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb5ea9d69_b508_4e9c_bd27_6b044b5f78a0);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IXamlLightStaticsImpl {
-    fn AddTargetElement();
-    fn RemoveTargetElement();
-    fn AddTargetBrush();
-    fn RemoveTargetBrush();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -16263,3 +15513,5 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &XamlLight 
 }
 unsafe impl ::core::marker::Send for XamlLight {}
 unsafe impl ::core::marker::Sync for XamlLight {}
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

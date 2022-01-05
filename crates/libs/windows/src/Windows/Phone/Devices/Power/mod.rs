@@ -123,13 +123,6 @@ unsafe impl ::windows::core::Interface for IBattery {
     type Vtable = IBatteryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x972adbdd_6720_4702_a476_b9d38a0070e3);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IBatteryImpl {
-    fn RemainingChargePercent();
-    fn RemainingDischargeTime();
-    fn RemainingChargePercentChanged();
-    fn RemoveRemainingChargePercentChanged();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBatteryVtbl(
@@ -154,10 +147,6 @@ unsafe impl ::windows::core::Interface for IBatteryStatics {
     type Vtable = IBatteryStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfaf5bc70_6369_11e1_b86c_0800200c9a66);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IBatteryStaticsImpl {
-    fn GetDefault();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBatteryStaticsVtbl(
@@ -169,3 +158,5 @@ pub struct IBatteryStaticsVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

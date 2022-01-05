@@ -173,3 +173,5 @@ pub const AllocationStateUnknown: eUserAllocationState = 0i32;
 pub const AllocationStateBusy: eUserAllocationState = 1i32;
 #[doc = "*Required features: 'Win32_System_ApplicationVerifier'*"]
 pub const AllocationStateFree: eUserAllocationState = 2i32;
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

@@ -1389,9 +1389,6 @@ unsafe impl ::windows::core::Interface for ICcgDomainAuthCredentials {
     type Vtable = ICcgDomainAuthCredentialsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6ecda518_2010_4437_8bc3_46e752b7b172);
 }
-pub trait ICcgDomainAuthCredentialsImpl {
-    fn GetPasswordCredentials();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICcgDomainAuthCredentialsVtbl(
@@ -20528,3 +20525,5 @@ pub const TlsSignatureAlgorithm_Rsa: eTlsSignatureAlgorithm = 1i32;
 pub const TlsSignatureAlgorithm_Dsa: eTlsSignatureAlgorithm = 2i32;
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
 pub const TlsSignatureAlgorithm_Ecdsa: eTlsSignatureAlgorithm = 3i32;
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

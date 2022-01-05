@@ -7265,3 +7265,5 @@ impl ::core::default::Default for _URB_SET_FRAME_LENGTH {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

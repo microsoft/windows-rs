@@ -155,7 +155,6 @@ unsafe impl ::windows::core::Interface for IGeometrySource2D {
     type Vtable = IGeometrySource2DVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcaff7902_670c_4181_a624_da977203b845);
 }
-pub trait IGeometrySource2DImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGeometrySource2DVtbl(
@@ -279,3 +278,5 @@ impl ::core::default::Default for SizeInt32 {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

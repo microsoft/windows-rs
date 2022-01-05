@@ -639,12 +639,6 @@ unsafe impl ::windows::core::Interface for IAudioCaptureEffectsManager {
     type Vtable = IAudioCaptureEffectsManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8f85c271_038d_4393_8298_540110608eef);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IAudioCaptureEffectsManagerImpl {
-    fn AudioCaptureEffectsChanged();
-    fn RemoveAudioCaptureEffectsChanged();
-    fn GetAudioCaptureEffects();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAudioCaptureEffectsManagerVtbl(
@@ -667,10 +661,6 @@ pub struct IAudioEffect(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAudioEffect {
     type Vtable = IAudioEffectVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x34aafa51_9207_4055_be93_6e5734a86ae4);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IAudioEffectImpl {
-    fn AudioEffectType();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -768,10 +758,6 @@ unsafe impl ::windows::core::Interface for IAudioEffectDefinition {
     type Vtable = IAudioEffectDefinitionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe4d7f974_7d80_4f73_9089_e31c9db9c294);
 }
-pub trait IAudioEffectDefinitionImpl {
-    fn ActivatableClassId();
-    fn Properties();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAudioEffectDefinitionVtbl(
@@ -792,11 +778,6 @@ unsafe impl ::windows::core::Interface for IAudioEffectDefinitionFactory {
     type Vtable = IAudioEffectDefinitionFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8e1da646_e705_45ed_8a2b_fc4e4f405a97);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IAudioEffectDefinitionFactoryImpl {
-    fn Create();
-    fn CreateWithProperties();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAudioEffectDefinitionFactoryVtbl(
@@ -816,13 +797,6 @@ pub struct IAudioEffectsManagerStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAudioEffectsManagerStatics {
     type Vtable = IAudioEffectsManagerStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x66406c04_86fa_47cc_a315_f489d8c3fe10);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IAudioEffectsManagerStaticsImpl {
-    fn CreateAudioRenderEffectsManager();
-    fn CreateAudioRenderEffectsManagerWithMode();
-    fn CreateAudioCaptureEffectsManager();
-    fn CreateAudioCaptureEffectsManagerWithMode();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -849,12 +823,6 @@ unsafe impl ::windows::core::Interface for IAudioRenderEffectsManager {
     type Vtable = IAudioRenderEffectsManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4dc98966_8751_42b2_bfcb_39ca7864bd47);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IAudioRenderEffectsManagerImpl {
-    fn AudioRenderEffectsChanged();
-    fn RemoveAudioRenderEffectsChanged();
-    fn GetAudioRenderEffects();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAudioRenderEffectsManagerVtbl(
@@ -879,12 +847,6 @@ pub struct IAudioRenderEffectsManager2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAudioRenderEffectsManager2 {
     type Vtable = IAudioRenderEffectsManager2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa844cd09_5ecc_44b3_bb4e_1db07287139c);
-}
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
-pub trait IAudioRenderEffectsManager2Impl {
-    fn EffectsProviderThumbnail();
-    fn EffectsProviderSettingsLabel();
-    fn ShowSettingsUI();
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
@@ -1036,14 +998,6 @@ unsafe impl ::windows::core::RuntimeType for IBasicAudioEffect {
 unsafe impl ::windows::core::Interface for IBasicAudioEffect {
     type Vtable = IBasicAudioEffectVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8c062c53_6bc0_48b8_a99a_4b41550f1359);
-}
-pub trait IBasicAudioEffectImpl: IMediaExtensionImpl {
-    fn UseInputFrameForOutput();
-    fn SupportedEncodingProperties();
-    fn SetEncodingProperties();
-    fn ProcessFrame();
-    fn Close();
-    fn DiscardQueuedFrames();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1213,16 +1167,6 @@ unsafe impl ::windows::core::Interface for IBasicVideoEffect {
     type Vtable = IBasicVideoEffectVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8262c7ef_b360_40be_949b_2ff42ff35693);
 }
-pub trait IBasicVideoEffectImpl: IMediaExtensionImpl {
-    fn IsReadOnly();
-    fn SupportedMemoryTypes();
-    fn TimeIndependent();
-    fn SupportedEncodingProperties();
-    fn SetEncodingProperties();
-    fn ProcessFrame();
-    fn Close();
-    fn DiscardQueuedFrames();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBasicVideoEffectVtbl(
@@ -1250,13 +1194,6 @@ unsafe impl ::windows::core::Interface for ICompositeVideoFrameContext {
     type Vtable = ICompositeVideoFrameContextVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6c30024b_f514_4278_a5f7_b9188049d110);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ICompositeVideoFrameContextImpl {
-    fn SurfacesToOverlay();
-    fn BackgroundFrame();
-    fn OutputFrame();
-    fn GetOverlayForSurface();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositeVideoFrameContextVtbl(
@@ -1280,11 +1217,6 @@ unsafe impl ::windows::core::Interface for IProcessAudioFrameContext {
     type Vtable = IProcessAudioFrameContextVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4cd92946_1222_4a27_a586_fb3e20273255);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IProcessAudioFrameContextImpl {
-    fn InputFrame();
-    fn OutputFrame();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IProcessAudioFrameContextVtbl(
@@ -1304,11 +1236,6 @@ unsafe impl ::windows::core::Interface for IProcessVideoFrameContext {
     type Vtable = IProcessVideoFrameContextVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x276f0e2b_6461_401e_ba78_0fdad6114eec);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IProcessVideoFrameContextImpl {
-    fn InputFrame();
-    fn OutputFrame();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IProcessVideoFrameContextVtbl(
@@ -1327,11 +1254,6 @@ pub struct ISlowMotionEffectDefinition(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISlowMotionEffectDefinition {
     type Vtable = ISlowMotionEffectDefinitionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x35053cd0_176c_4763_82c4_1b02dbe31737);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ISlowMotionEffectDefinitionImpl: IVideoEffectDefinitionImpl {
-    fn TimeStretchRate();
-    fn SetTimeStretchRate();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1470,13 +1392,6 @@ unsafe impl ::windows::core::Interface for IVideoCompositor {
     type Vtable = IVideoCompositorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8510b43e_420c_420f_96c7_7c98bba1fc55);
 }
-pub trait IVideoCompositorImpl: IMediaExtensionImpl {
-    fn TimeIndependent();
-    fn SetEncodingProperties();
-    fn CompositeFrame();
-    fn Close();
-    fn DiscardQueuedFrames();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVideoCompositorVtbl(
@@ -1578,10 +1493,6 @@ unsafe impl ::windows::core::Interface for IVideoCompositorDefinition {
     type Vtable = IVideoCompositorDefinitionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7946b8d0_2010_4ae3_9ab2_2cef42edd4d2);
 }
-pub trait IVideoCompositorDefinitionImpl {
-    fn ActivatableClassId();
-    fn Properties();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVideoCompositorDefinitionVtbl(
@@ -1601,11 +1512,6 @@ pub struct IVideoCompositorDefinitionFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IVideoCompositorDefinitionFactory {
     type Vtable = IVideoCompositorDefinitionFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4366fd10_68b8_4d52_89b6_02a968cca899);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IVideoCompositorDefinitionFactoryImpl {
-    fn Create();
-    fn CreateWithProperties();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1705,10 +1611,6 @@ unsafe impl ::windows::core::Interface for IVideoEffectDefinition {
     type Vtable = IVideoEffectDefinitionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x39f38cf0_8d0f_4f3e_84fc_2d46a5297943);
 }
-pub trait IVideoEffectDefinitionImpl {
-    fn ActivatableClassId();
-    fn Properties();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVideoEffectDefinitionVtbl(
@@ -1729,11 +1631,6 @@ unsafe impl ::windows::core::Interface for IVideoEffectDefinitionFactory {
     type Vtable = IVideoEffectDefinitionFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x81439b4e_6e33_428f_9d21_b5aafef7617c);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IVideoEffectDefinitionFactoryImpl {
-    fn Create();
-    fn CreateWithProperties();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVideoEffectDefinitionFactoryVtbl(
@@ -1753,21 +1650,6 @@ pub struct IVideoTransformEffectDefinition(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IVideoTransformEffectDefinition {
     type Vtable = IVideoTransformEffectDefinitionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9664bb6a_1ea6_4aa6_8074_abe8851ecae2);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IVideoTransformEffectDefinitionImpl: IVideoEffectDefinitionImpl {
-    fn PaddingColor();
-    fn SetPaddingColor();
-    fn OutputSize();
-    fn SetOutputSize();
-    fn CropRectangle();
-    fn SetCropRectangle();
-    fn Rotation();
-    fn SetRotation();
-    fn Mirror();
-    fn SetMirror();
-    fn SetProcessingAlgorithm();
-    fn ProcessingAlgorithm();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1810,10 +1692,6 @@ unsafe impl ::windows::core::Interface for IVideoTransformEffectDefinition2 {
     type Vtable = IVideoTransformEffectDefinition2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf0a8089f_66c8_4694_9fd9_1136abf7444a);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IVideoTransformEffectDefinition2Impl {
-    fn SphericalProjection();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVideoTransformEffectDefinition2Vtbl(
@@ -1831,19 +1709,6 @@ pub struct IVideoTransformSphericalProjection(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IVideoTransformSphericalProjection {
     type Vtable = IVideoTransformSphericalProjectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcf4401f0_9bf2_4c39_9f41_e022514a8468);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IVideoTransformSphericalProjectionImpl {
-    fn IsEnabled();
-    fn SetIsEnabled();
-    fn FrameFormat();
-    fn SetFrameFormat();
-    fn ProjectionMode();
-    fn SetProjectionMode();
-    fn HorizontalFieldOfViewInDegrees();
-    fn SetHorizontalFieldOfViewInDegrees();
-    fn ViewOrientation();
-    fn SetViewOrientation();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2875,3 +2740,5 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Vide
 }
 unsafe impl ::core::marker::Send for VideoTransformSphericalProjection {}
 unsafe impl ::core::marker::Sync for VideoTransformSphericalProjection {}
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

@@ -8,12 +8,6 @@ unsafe impl ::windows::core::Interface for IIppAttributeError {
     type Vtable = IIppAttributeErrorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x750feda1_9eef_5c39_93e4_46149bbcef27);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IIppAttributeErrorImpl {
-    fn Reason();
-    fn ExtendedError();
-    fn GetUnsupportedValues();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IIppAttributeErrorVtbl(
@@ -34,28 +28,6 @@ pub struct IIppAttributeValue(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IIppAttributeValue {
     type Vtable = IIppAttributeValueVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x99407fed_e2bb_59a3_988b_28a974052a26);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IIppAttributeValueImpl {
-    fn Kind();
-    fn GetIntegerArray();
-    fn GetBooleanArray();
-    fn GetEnumArray();
-    fn GetOctetStringArray();
-    fn GetDateTimeArray();
-    fn GetResolutionArray();
-    fn GetRangeOfIntegerArray();
-    fn GetCollectionArray();
-    fn GetTextWithLanguageArray();
-    fn GetNameWithLanguageArray();
-    fn GetTextWithoutLanguageArray();
-    fn GetNameWithoutLanguageArray();
-    fn GetKeywordArray();
-    fn GetUriArray();
-    fn GetUriSchemaArray();
-    fn GetCharsetArray();
-    fn GetNaturalLanguageArray();
-    fn GetMimeMediaTypeArray();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -110,48 +82,6 @@ pub struct IIppAttributeValueStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IIppAttributeValueStatics {
     type Vtable = IIppAttributeValueStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x10d43942_dd94_5998_b235_afafb6fa7935);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IIppAttributeValueStaticsImpl {
-    fn CreateUnsupported();
-    fn CreateUnknown();
-    fn CreateNoValue();
-    fn CreateInteger();
-    fn CreateIntegerArray();
-    fn CreateBoolean();
-    fn CreateBooleanArray();
-    fn CreateEnum();
-    fn CreateEnumArray();
-    fn CreateOctetString();
-    fn CreateOctetStringArray();
-    fn CreateDateTime();
-    fn CreateDateTimeArray();
-    fn CreateResolution();
-    fn CreateResolutionArray();
-    fn CreateRangeOfInteger();
-    fn CreateRangeOfIntegerArray();
-    fn CreateCollection();
-    fn CreateCollectionArray();
-    fn CreateTextWithLanguage();
-    fn CreateTextWithLanguageArray();
-    fn CreateNameWithLanguage();
-    fn CreateNameWithLanguageArray();
-    fn CreateTextWithoutLanguage();
-    fn CreateTextWithoutLanguageArray();
-    fn CreateNameWithoutLanguage();
-    fn CreateNameWithoutLanguageArray();
-    fn CreateKeyword();
-    fn CreateKeywordArray();
-    fn CreateUri();
-    fn CreateUriArray();
-    fn CreateUriSchema();
-    fn CreateUriSchemaArray();
-    fn CreateCharset();
-    fn CreateCharsetArray();
-    fn CreateNaturalLanguage();
-    fn CreateNaturalLanguageArray();
-    fn CreateMimeMedia();
-    fn CreateMimeMediaArray();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -231,11 +161,6 @@ unsafe impl ::windows::core::Interface for IIppIntegerRange {
     type Vtable = IIppIntegerRangeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x92907346_c3ea_5ed6_bdb1_3752c62c6f7f);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IIppIntegerRangeImpl {
-    fn Start();
-    fn End();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IIppIntegerRangeVtbl(
@@ -255,10 +180,6 @@ unsafe impl ::windows::core::Interface for IIppIntegerRangeFactory {
     type Vtable = IIppIntegerRangeFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x75d4ecae_f87e_54ad_b5d0_465204db7553);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IIppIntegerRangeFactoryImpl {
-    fn CreateInstance();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IIppIntegerRangeFactoryVtbl(
@@ -276,15 +197,6 @@ pub struct IIppPrintDevice(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IIppPrintDevice {
     type Vtable = IIppPrintDeviceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd748ac56_76f3_5dc6_afd4_c2a8686b9359);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IIppPrintDeviceImpl {
-    fn PrinterName();
-    fn PrinterUri();
-    fn GetPrinterAttributesAsBuffer();
-    fn GetPrinterAttributes();
-    fn SetPrinterAttributesFromBuffer();
-    fn SetPrinterAttributes();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -314,12 +226,6 @@ unsafe impl ::windows::core::Interface for IIppResolution {
     type Vtable = IIppResolutionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcb493f86_6bf3_56f5_86ce_263d08aead63);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IIppResolutionImpl {
-    fn Width();
-    fn Height();
-    fn Unit();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IIppResolutionVtbl(
@@ -340,10 +246,6 @@ unsafe impl ::windows::core::Interface for IIppResolutionFactory {
     type Vtable = IIppResolutionFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe481c2ae_251a_5326_b173_95543ed99a35);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IIppResolutionFactoryImpl {
-    fn CreateInstance();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IIppResolutionFactoryVtbl(
@@ -361,11 +263,6 @@ pub struct IIppSetAttributesResult(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IIppSetAttributesResult {
     type Vtable = IIppSetAttributesResultVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7d1c7f55_aa9d_58a3_90e9_17bdc5281f07);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IIppSetAttributesResultImpl {
-    fn Succeeded();
-    fn AttributeErrors();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -387,11 +284,6 @@ unsafe impl ::windows::core::Interface for IIppTextWithLanguage {
     type Vtable = IIppTextWithLanguageVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x326447a6_5149_5936_90e8_0c736036bf77);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IIppTextWithLanguageImpl {
-    fn Language();
-    fn Value();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IIppTextWithLanguageVtbl(
@@ -411,10 +303,6 @@ unsafe impl ::windows::core::Interface for IIppTextWithLanguageFactory {
     type Vtable = IIppTextWithLanguageFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xca4a1e8d_2968_5775_997c_8a46f1a574ed);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IIppTextWithLanguageFactoryImpl {
-    fn CreateInstance();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IIppTextWithLanguageFactoryVtbl(
@@ -433,10 +321,6 @@ unsafe impl ::windows::core::Interface for IPrint3DDevice {
     type Vtable = IPrint3DDeviceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x041c3d19_9713_42a2_9813_7dc3337428d3);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IPrint3DDeviceImpl {
-    fn PrintSchema();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrint3DDeviceVtbl(
@@ -454,11 +338,6 @@ pub struct IPrint3DDeviceStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPrint3DDeviceStatics {
     type Vtable = IPrint3DDeviceStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfde3620a_67cd_41b7_a344_5150a1fd75b5);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IPrint3DDeviceStaticsImpl {
-    fn FromIdAsync();
-    fn GetDeviceSelector();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -479,12 +358,6 @@ pub struct IPrintSchema(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPrintSchema {
     type Vtable = IPrintSchemaVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc2b98316_26b8_4bfb_8138_9f962c22a35b);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IPrintSchemaImpl {
-    fn GetDefaultPrintTicketAsync();
-    fn GetCapabilitiesAsync();
-    fn MergeAndValidateWithDefaultPrintTicketAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1992,3 +1865,5 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prin
 }
 unsafe impl ::core::marker::Send for PrintSchema {}
 unsafe impl ::core::marker::Sync for PrintSchema {}
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

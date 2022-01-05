@@ -101,3 +101,5 @@ pub unsafe fn UalStop(data: *const UAL_DATA_BLOB) -> ::windows::core::Result<()>
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

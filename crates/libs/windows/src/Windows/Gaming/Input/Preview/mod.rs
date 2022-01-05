@@ -34,11 +34,6 @@ unsafe impl ::windows::core::Interface for IGameControllerProviderInfoStatics {
     type Vtable = IGameControllerProviderInfoStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0be1e6c5_d9bd_44ee_8362_488b2e464bfb);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IGameControllerProviderInfoStaticsImpl {
-    fn GetParentProviderId();
-    fn GetProviderId();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGameControllerProviderInfoStaticsVtbl(
@@ -53,3 +48,5 @@ pub struct IGameControllerProviderInfoStaticsVtbl(
     #[cfg(feature = "Gaming_Input_Custom")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, provider: ::windows::core::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Gaming_Input_Custom"))] usize,
 );
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

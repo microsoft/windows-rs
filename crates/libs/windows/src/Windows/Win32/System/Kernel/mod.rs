@@ -1369,3 +1369,5 @@ impl ::core::default::Default for WNF_STATE_NAME {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

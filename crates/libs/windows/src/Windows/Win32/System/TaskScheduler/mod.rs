@@ -136,12 +136,6 @@ unsafe impl ::windows::core::Interface for IAction {
     type Vtable = IActionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbae54997_48b1_4cbe_9965_d6be263ebea4);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IActionImpl: IDispatchImpl {
-    fn Id();
-    fn SetId();
-    fn Type();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IActionVtbl(
@@ -300,19 +294,6 @@ impl ::core::fmt::Debug for IActionCollection {
 unsafe impl ::windows::core::Interface for IActionCollection {
     type Vtable = IActionCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x02820e19_7b98_4ed2_b2e8_fdccceff619b);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IActionCollectionImpl: IDispatchImpl {
-    fn Count();
-    fn Item();
-    fn _NewEnum();
-    fn XmlText();
-    fn SetXmlText();
-    fn Create();
-    fn Remove();
-    fn Clear();
-    fn Context();
-    fn SetContext();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -526,11 +507,6 @@ unsafe impl ::windows::core::Interface for IBootTrigger {
     type Vtable = IBootTriggerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2a9c35da_d357_41f4_bbc1_207ac1b1f3cb);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IBootTriggerImpl: ITriggerImpl + IDispatchImpl {
-    fn Delay();
-    fn SetDelay();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBootTriggerVtbl(
@@ -715,13 +691,6 @@ impl ::core::fmt::Debug for IComHandlerAction {
 unsafe impl ::windows::core::Interface for IComHandlerAction {
     type Vtable = IComHandlerActionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6d2fd252_75c5_4f66_90ba_2a7d8cc3039f);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IComHandlerActionImpl: IActionImpl + IDispatchImpl {
-    fn ClassId();
-    fn SetClassId();
-    fn Data();
-    fn SetData();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -940,13 +909,6 @@ impl ::core::fmt::Debug for IDailyTrigger {
 unsafe impl ::windows::core::Interface for IDailyTrigger {
     type Vtable = IDailyTriggerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x126c5cd8_b288_41d5_8dbf_e491446adc5c);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IDailyTriggerImpl: ITriggerImpl + IDispatchImpl {
-    fn DaysInterval();
-    fn SetDaysInterval();
-    fn RandomDelay();
-    fn SetRandomDelay();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1214,29 +1176,6 @@ unsafe impl ::windows::core::Interface for IEmailAction {
     type Vtable = IEmailActionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x10f62c64_7e16_4314_a0c2_0c3683f99d40);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IEmailActionImpl: IActionImpl + IDispatchImpl {
-    fn Server();
-    fn SetServer();
-    fn Subject();
-    fn SetSubject();
-    fn To();
-    fn SetTo();
-    fn Cc();
-    fn SetCc();
-    fn Bcc();
-    fn SetBcc();
-    fn ReplyTo();
-    fn SetReplyTo();
-    fn From();
-    fn SetFrom();
-    fn HeaderFields();
-    fn SetHeaderFields();
-    fn Body();
-    fn SetBody();
-    fn Attachments();
-    fn SetAttachments();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEmailActionVtbl(
@@ -1357,12 +1296,6 @@ impl ::core::fmt::Debug for IEnumWorkItems {
 unsafe impl ::windows::core::Interface for IEnumWorkItems {
     type Vtable = IEnumWorkItemsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x148bd528_a2ab_11ce_b11f_00aa00530503);
-}
-pub trait IEnumWorkItemsImpl {
-    fn Next();
-    fn Skip();
-    fn Reset();
-    fn Clone();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1577,15 +1510,6 @@ unsafe impl ::windows::core::Interface for IEventTrigger {
     type Vtable = IEventTriggerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd45b0167_9653_4eef_b94f_0732ca7af251);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IEventTriggerImpl: ITriggerImpl + IDispatchImpl {
-    fn Subscription();
-    fn SetSubscription();
-    fn Delay();
-    fn SetDelay();
-    fn ValueQueries();
-    fn SetValueQueries();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEventTriggerVtbl(
@@ -1786,15 +1710,6 @@ impl ::core::fmt::Debug for IExecAction {
 unsafe impl ::windows::core::Interface for IExecAction {
     type Vtable = IExecActionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4c3d624d_fd6b_49a3_b9b7_09cb3cd3f047);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IExecActionImpl: IActionImpl + IDispatchImpl {
-    fn Path();
-    fn SetPath();
-    fn Arguments();
-    fn SetArguments();
-    fn WorkingDirectory();
-    fn SetWorkingDirectory();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2011,11 +1926,6 @@ unsafe impl ::windows::core::Interface for IExecAction2 {
     type Vtable = IExecAction2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf2a82542_bda5_4e6b_9143_e2bf4f8987b6);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IExecAction2Impl: IExecActionImpl + IActionImpl + IDispatchImpl {
-    fn HideAppWindow();
-    fn SetHideAppWindow();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IExecAction2Vtbl(
@@ -2176,17 +2086,6 @@ impl ::core::fmt::Debug for IIdleSettings {
 unsafe impl ::windows::core::Interface for IIdleSettings {
     type Vtable = IIdleSettingsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x84594461_0053_4342_a8fd_088fabf11f32);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IIdleSettingsImpl: IDispatchImpl {
-    fn IdleDuration();
-    fn SetIdleDuration();
-    fn WaitTimeout();
-    fn SetWaitTimeout();
-    fn StopOnIdleEnd();
-    fn SetStopOnIdleEnd();
-    fn RestartOnIdle();
-    fn SetRestartOnIdle();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2387,8 +2286,6 @@ unsafe impl ::windows::core::Interface for IIdleTrigger {
     type Vtable = IIdleTriggerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd537d2b0_9fb3_4d34_9739_1ff5ce7b1ef3);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IIdleTriggerImpl: ITriggerImpl + IDispatchImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IIdleTriggerVtbl(
@@ -2617,13 +2514,6 @@ unsafe impl ::windows::core::Interface for ILogonTrigger {
     type Vtable = ILogonTriggerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x72dade38_fae4_4b3e_baf4_5d009af02b1c);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait ILogonTriggerImpl: ITriggerImpl + IDispatchImpl {
-    fn Delay();
-    fn SetDelay();
-    fn UserId();
-    fn SetUserId();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILogonTriggerVtbl(
@@ -2786,15 +2676,6 @@ impl ::core::fmt::Debug for IMaintenanceSettings {
 unsafe impl ::windows::core::Interface for IMaintenanceSettings {
     type Vtable = IMaintenanceSettingsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa6024fa8_9652_4adb_a6bf_5cfcd877a7ba);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IMaintenanceSettingsImpl: IDispatchImpl {
-    fn SetPeriod();
-    fn Period();
-    fn SetDeadline();
-    fn Deadline();
-    fn SetExclusive();
-    fn Exclusive();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3034,19 +2915,6 @@ impl ::core::fmt::Debug for IMonthlyDOWTrigger {
 unsafe impl ::windows::core::Interface for IMonthlyDOWTrigger {
     type Vtable = IMonthlyDOWTriggerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x77d025a3_90fa_43aa_b52e_cda5499b946a);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IMonthlyDOWTriggerImpl: ITriggerImpl + IDispatchImpl {
-    fn DaysOfWeek();
-    fn SetDaysOfWeek();
-    fn WeeksOfMonth();
-    fn SetWeeksOfMonth();
-    fn MonthsOfYear();
-    fn SetMonthsOfYear();
-    fn RunOnLastWeekOfMonth();
-    fn SetRunOnLastWeekOfMonth();
-    fn RandomDelay();
-    fn SetRandomDelay();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3302,17 +3170,6 @@ unsafe impl ::windows::core::Interface for IMonthlyTrigger {
     type Vtable = IMonthlyTriggerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x97c45ef1_6b02_4a1a_9c0e_1ebfba1500ac);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IMonthlyTriggerImpl: ITriggerImpl + IDispatchImpl {
-    fn DaysOfMonth();
-    fn SetDaysOfMonth();
-    fn MonthsOfYear();
-    fn SetMonthsOfYear();
-    fn RunOnLastDayOfMonth();
-    fn SetRunOnLastDayOfMonth();
-    fn RandomDelay();
-    fn SetRandomDelay();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMonthlyTriggerVtbl(
@@ -3469,13 +3326,6 @@ impl ::core::fmt::Debug for INetworkSettings {
 unsafe impl ::windows::core::Interface for INetworkSettings {
     type Vtable = INetworkSettingsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9f7dea84_c30b_4245_80b6_00e9f646f1b4);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait INetworkSettingsImpl: IDispatchImpl {
-    fn Name();
-    fn SetName();
-    fn Id();
-    fn SetId();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3647,21 +3497,6 @@ unsafe impl ::windows::core::Interface for IPrincipal {
     type Vtable = IPrincipalVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd98d51e5_c9b4_496a_a9c1_18980261cf0f);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IPrincipalImpl: IDispatchImpl {
-    fn Id();
-    fn SetId();
-    fn DisplayName();
-    fn SetDisplayName();
-    fn UserId();
-    fn SetUserId();
-    fn LogonType();
-    fn SetLogonType();
-    fn GroupId();
-    fn SetGroupId();
-    fn RunLevel();
-    fn SetRunLevel();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrincipalVtbl(
@@ -3810,14 +3645,6 @@ unsafe impl ::windows::core::Interface for IPrincipal2 {
     type Vtable = IPrincipal2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x248919ae_e345_4a6d_8aeb_e0d3165c904e);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IPrincipal2Impl: IDispatchImpl {
-    fn ProcessTokenSidType();
-    fn SetProcessTokenSidType();
-    fn RequiredPrivilegeCount();
-    fn RequiredPrivilege();
-    fn AddRequiredPrivilege();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrincipal2Vtbl(
@@ -3890,9 +3717,6 @@ impl ::core::fmt::Debug for IProvideTaskPage {
 unsafe impl ::windows::core::Interface for IProvideTaskPage {
     type Vtable = IProvideTaskPageVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4086658a_cbbb_11cf_b604_00c04fd8d565);
-}
-pub trait IProvideTaskPageImpl {
-    fn GetPage();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4088,27 +3912,6 @@ unsafe impl ::windows::core::Interface for IRegisteredTask {
     type Vtable = IRegisteredTaskVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9c86f320_dee3_4dd1_b972_a303f26b061e);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IRegisteredTaskImpl: IDispatchImpl {
-    fn Name();
-    fn Path();
-    fn State();
-    fn Enabled();
-    fn SetEnabled();
-    fn Run();
-    fn RunEx();
-    fn GetInstances();
-    fn LastRunTime();
-    fn LastTaskResult();
-    fn NumberOfMissedRuns();
-    fn NextRunTime();
-    fn Definition();
-    fn Xml();
-    fn GetSecurityDescriptor();
-    fn SetSecurityDescriptor();
-    fn Stop();
-    fn GetRunTimes();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRegisteredTaskVtbl(
@@ -4256,12 +4059,6 @@ impl ::core::fmt::Debug for IRegisteredTaskCollection {
 unsafe impl ::windows::core::Interface for IRegisteredTaskCollection {
     type Vtable = IRegisteredTaskCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x86627eb4_42a7_41e4_a4d9_ac33a72f2d52);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IRegisteredTaskCollectionImpl: IDispatchImpl {
-    fn Count();
-    fn Item();
-    fn _NewEnum();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4462,27 +4259,6 @@ impl ::core::fmt::Debug for IRegistrationInfo {
 unsafe impl ::windows::core::Interface for IRegistrationInfo {
     type Vtable = IRegistrationInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x416d8b73_cb41_4ea1_805c_9be9a5ac4a74);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IRegistrationInfoImpl: IDispatchImpl {
-    fn Description();
-    fn SetDescription();
-    fn Author();
-    fn SetAuthor();
-    fn Version();
-    fn SetVersion();
-    fn Date();
-    fn SetDate();
-    fn Documentation();
-    fn SetDocumentation();
-    fn XmlText();
-    fn SetXmlText();
-    fn URI();
-    fn SetURI();
-    fn SecurityDescriptor();
-    fn SetSecurityDescriptor();
-    fn Source();
-    fn SetSource();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4717,11 +4493,6 @@ unsafe impl ::windows::core::Interface for IRegistrationTrigger {
     type Vtable = IRegistrationTriggerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4c8fec3a_c218_4e0c_b23d_629024db91a2);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IRegistrationTriggerImpl: ITriggerImpl + IDispatchImpl {
-    fn Delay();
-    fn SetDelay();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRegistrationTriggerVtbl(
@@ -4881,15 +4652,6 @@ unsafe impl ::windows::core::Interface for IRepetitionPattern {
     type Vtable = IRepetitionPatternVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7fb9acf1_26be_400e_85b5_294b9c75dfd6);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IRepetitionPatternImpl: IDispatchImpl {
-    fn Interval();
-    fn SetInterval();
-    fn Duration();
-    fn SetDuration();
-    fn StopAtDurationEnd();
-    fn SetStopAtDurationEnd();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRepetitionPatternVtbl(
@@ -5048,17 +4810,6 @@ unsafe impl ::windows::core::Interface for IRunningTask {
     type Vtable = IRunningTaskVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x653758fb_7b9a_4f1e_a471_beeb8e9b834e);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait IRunningTaskImpl: IDispatchImpl {
-    fn Name();
-    fn InstanceGuid();
-    fn Path();
-    fn State();
-    fn CurrentAction();
-    fn Stop();
-    fn Refresh();
-    fn EnginePID();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRunningTaskVtbl(
@@ -5192,12 +4943,6 @@ impl ::core::fmt::Debug for IRunningTaskCollection {
 unsafe impl ::windows::core::Interface for IRunningTaskCollection {
     type Vtable = IRunningTaskCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6a67614b_6828_4fec_aa54_6d52e8f1f2db);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IRunningTaskCollectionImpl: IDispatchImpl {
-    fn Count();
-    fn Item();
-    fn _NewEnum();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5401,37 +5146,6 @@ impl ::core::fmt::Debug for IScheduledWorkItem {
 unsafe impl ::windows::core::Interface for IScheduledWorkItem {
     type Vtable = IScheduledWorkItemVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa6b952f0_a4b1_11d0_997d_00aa006887ec);
-}
-pub trait IScheduledWorkItemImpl {
-    fn CreateTrigger();
-    fn DeleteTrigger();
-    fn GetTriggerCount();
-    fn GetTrigger();
-    fn GetTriggerString();
-    fn GetRunTimes();
-    fn GetNextRunTime();
-    fn SetIdleWait();
-    fn GetIdleWait();
-    fn Run();
-    fn Terminate();
-    fn EditWorkItem();
-    fn GetMostRecentRunTime();
-    fn GetStatus();
-    fn GetExitCode();
-    fn SetComment();
-    fn GetComment();
-    fn SetCreator();
-    fn GetCreator();
-    fn SetWorkItemData();
-    fn GetWorkItemData();
-    fn SetErrorRetryCount();
-    fn GetErrorRetryCount();
-    fn SetErrorRetryInterval();
-    fn GetErrorRetryInterval();
-    fn SetFlags();
-    fn GetFlags();
-    fn SetAccountInformation();
-    fn GetAccountInformation();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5680,15 +5394,6 @@ unsafe impl ::windows::core::Interface for ISessionStateChangeTrigger {
     type Vtable = ISessionStateChangeTriggerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x754da71b_4385_4475_9dd9_598294fa3641);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait ISessionStateChangeTriggerImpl: ITriggerImpl + IDispatchImpl {
-    fn Delay();
-    fn SetDelay();
-    fn UserId();
-    fn SetUserId();
-    fn StateChange();
-    fn SetStateChange();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISessionStateChangeTriggerVtbl(
@@ -5879,13 +5584,6 @@ impl ::core::fmt::Debug for IShowMessageAction {
 unsafe impl ::windows::core::Interface for IShowMessageAction {
     type Vtable = IShowMessageActionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x505e9e68_af89_46b8_a30f_56162a83d537);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IShowMessageActionImpl: IActionImpl + IDispatchImpl {
-    fn Title();
-    fn SetTitle();
-    fn MessageBody();
-    fn SetMessageBody();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6179,20 +5877,6 @@ unsafe impl ::windows::core::Interface for ITask {
     type Vtable = ITaskVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x148bd524_a2ab_11ce_b11f_00aa00530503);
 }
-pub trait ITaskImpl: IScheduledWorkItemImpl {
-    fn SetApplicationName();
-    fn GetApplicationName();
-    fn SetParameters();
-    fn GetParameters();
-    fn SetWorkingDirectory();
-    fn GetWorkingDirectory();
-    fn SetPriority();
-    fn GetPriority();
-    fn SetTaskFlags();
-    fn GetTaskFlags();
-    fn SetMaxRunTime();
-    fn GetMaxRunTime();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITaskVtbl(
@@ -6414,23 +6098,6 @@ unsafe impl ::windows::core::Interface for ITaskDefinition {
     type Vtable = ITaskDefinitionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf5bc8fc5_536d_4f77_b852_fbc1356fdeb6);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait ITaskDefinitionImpl: IDispatchImpl {
-    fn RegistrationInfo();
-    fn SetRegistrationInfo();
-    fn Triggers();
-    fn SetTriggers();
-    fn Settings();
-    fn SetSettings();
-    fn Data();
-    fn SetData();
-    fn Principal();
-    fn SetPrincipal();
-    fn Actions();
-    fn SetActions();
-    fn XmlText();
-    fn SetXmlText();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITaskDefinitionVtbl(
@@ -6628,22 +6295,6 @@ unsafe impl ::windows::core::Interface for ITaskFolder {
     type Vtable = ITaskFolderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8cfac062_a080_4c15_9a88_aa7c2af80dfc);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait ITaskFolderImpl: IDispatchImpl {
-    fn Name();
-    fn Path();
-    fn GetFolder();
-    fn GetFolders();
-    fn CreateFolder();
-    fn DeleteFolder();
-    fn GetTask();
-    fn GetTasks();
-    fn DeleteTask();
-    fn RegisterTask();
-    fn RegisterTaskDefinition();
-    fn GetSecurityDescriptor();
-    fn SetSecurityDescriptor();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITaskFolderVtbl(
@@ -6790,12 +6441,6 @@ unsafe impl ::windows::core::Interface for ITaskFolderCollection {
     type Vtable = ITaskFolderCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x79184a66_8664_423f_97f1_637356a5d812);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait ITaskFolderCollectionImpl: IDispatchImpl {
-    fn Count();
-    fn Item();
-    fn _NewEnum();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITaskFolderCollectionVtbl(
@@ -6878,12 +6523,6 @@ unsafe impl ::windows::core::Interface for ITaskHandler {
     type Vtable = ITaskHandlerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x839d7762_5121_4009_9234_4f0d19394f04);
 }
-pub trait ITaskHandlerImpl {
-    fn Start();
-    fn Stop();
-    fn Pause();
-    fn Resume();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITaskHandlerVtbl(
@@ -6949,10 +6588,6 @@ impl ::core::fmt::Debug for ITaskHandlerStatus {
 unsafe impl ::windows::core::Interface for ITaskHandlerStatus {
     type Vtable = ITaskHandlerStatusVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeaec7a8f_27a0_4ddc_8675_14726a01a38a);
-}
-pub trait ITaskHandlerStatusImpl {
-    fn UpdateStatus();
-    fn TaskCompleted();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7082,15 +6717,6 @@ impl ::core::fmt::Debug for ITaskNamedValueCollection {
 unsafe impl ::windows::core::Interface for ITaskNamedValueCollection {
     type Vtable = ITaskNamedValueCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb4ef826b_63c3_46e4_a504_ef69e4f7ea4d);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait ITaskNamedValueCollectionImpl: IDispatchImpl {
-    fn Count();
-    fn Item();
-    fn _NewEnum();
-    fn Create();
-    fn Remove();
-    fn Clear();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7225,13 +6851,6 @@ unsafe impl ::windows::core::Interface for ITaskNamedValuePair {
     type Vtable = ITaskNamedValuePairVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x39038068_2b46_4afd_8662_7bb6f868d221);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait ITaskNamedValuePairImpl: IDispatchImpl {
-    fn Name();
-    fn SetName();
-    fn Value();
-    fn SetValue();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITaskNamedValuePairVtbl(
@@ -7342,16 +6961,6 @@ impl ::core::fmt::Debug for ITaskScheduler {
 unsafe impl ::windows::core::Interface for ITaskScheduler {
     type Vtable = ITaskSchedulerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x148bd527_a2ab_11ce_b11f_00aa00530503);
-}
-pub trait ITaskSchedulerImpl {
-    fn SetTargetComputer();
-    fn GetTargetComputer();
-    fn Enum();
-    fn Activate();
-    fn Delete();
-    fn NewWorkItem();
-    fn AddWorkItem();
-    fn IsOfType();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7514,18 +7123,6 @@ impl ::core::fmt::Debug for ITaskService {
 unsafe impl ::windows::core::Interface for ITaskService {
     type Vtable = ITaskServiceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2faba4c7_4da9_4013_9697_20cc3fd40f85);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait ITaskServiceImpl: IDispatchImpl {
-    fn GetFolder();
-    fn GetRunningTasks();
-    fn NewTask();
-    fn Connect();
-    fn Connected();
-    fn TargetServer();
-    fn ConnectedUser();
-    fn ConnectedDomain();
-    fn HighestVersion();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7817,49 +7414,6 @@ unsafe impl ::windows::core::Interface for ITaskSettings {
     type Vtable = ITaskSettingsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8fd4711d_2d02_4c8c_87e3_eff699de127e);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait ITaskSettingsImpl: IDispatchImpl {
-    fn AllowDemandStart();
-    fn SetAllowDemandStart();
-    fn RestartInterval();
-    fn SetRestartInterval();
-    fn RestartCount();
-    fn SetRestartCount();
-    fn MultipleInstances();
-    fn SetMultipleInstances();
-    fn StopIfGoingOnBatteries();
-    fn SetStopIfGoingOnBatteries();
-    fn DisallowStartIfOnBatteries();
-    fn SetDisallowStartIfOnBatteries();
-    fn AllowHardTerminate();
-    fn SetAllowHardTerminate();
-    fn StartWhenAvailable();
-    fn SetStartWhenAvailable();
-    fn XmlText();
-    fn SetXmlText();
-    fn RunOnlyIfNetworkAvailable();
-    fn SetRunOnlyIfNetworkAvailable();
-    fn ExecutionTimeLimit();
-    fn SetExecutionTimeLimit();
-    fn Enabled();
-    fn SetEnabled();
-    fn DeleteExpiredTaskAfter();
-    fn SetDeleteExpiredTaskAfter();
-    fn Priority();
-    fn SetPriority();
-    fn Compatibility();
-    fn SetCompatibility();
-    fn Hidden();
-    fn SetHidden();
-    fn IdleSettings();
-    fn SetIdleSettings();
-    fn RunOnlyIfIdle();
-    fn SetRunOnlyIfIdle();
-    fn WakeToRun();
-    fn SetWakeToRun();
-    fn NetworkSettings();
-    fn SetNetworkSettings();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITaskSettingsVtbl(
@@ -8029,13 +7583,6 @@ impl ::core::fmt::Debug for ITaskSettings2 {
 unsafe impl ::windows::core::Interface for ITaskSettings2 {
     type Vtable = ITaskSettings2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2c05c3f0_6eed_4c05_a15f_ed7d7a98a369);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait ITaskSettings2Impl: IDispatchImpl {
-    fn DisallowStartOnRemoteAppSession();
-    fn SetDisallowStartOnRemoteAppSession();
-    fn UseUnifiedSchedulingEngine();
-    fn SetUseUnifiedSchedulingEngine();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8375,18 +7922,6 @@ unsafe impl ::windows::core::Interface for ITaskSettings3 {
     type Vtable = ITaskSettings3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0ad9d0d7_0c7f_4ebb_9a5f_d1c648dca528);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait ITaskSettings3Impl: ITaskSettingsImpl + IDispatchImpl {
-    fn DisallowStartOnRemoteAppSession();
-    fn SetDisallowStartOnRemoteAppSession();
-    fn UseUnifiedSchedulingEngine();
-    fn SetUseUnifiedSchedulingEngine();
-    fn MaintenanceSettings();
-    fn SetMaintenanceSettings();
-    fn CreateMaintenanceSettings();
-    fn Volatile();
-    fn SetVolatile();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITaskSettings3Vtbl(
@@ -8519,11 +8054,6 @@ unsafe impl ::windows::core::Interface for ITaskTrigger {
     type Vtable = ITaskTriggerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x148bd52b_a2ab_11ce_b11f_00aa00530503);
 }
-pub trait ITaskTriggerImpl {
-    fn SetTrigger();
-    fn GetTrigger();
-    fn GetTriggerString();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITaskTriggerVtbl(
@@ -8596,11 +8126,6 @@ impl ::core::fmt::Debug for ITaskVariables {
 unsafe impl ::windows::core::Interface for ITaskVariables {
     type Vtable = ITaskVariablesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3e4c9351_d966_4b8b_bb87_ceba68bb0107);
-}
-pub trait ITaskVariablesImpl {
-    fn GetInput();
-    fn SetOutput();
-    fn GetContext();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8797,11 +8322,6 @@ unsafe impl ::windows::core::Interface for ITimeTrigger {
     type Vtable = ITimeTriggerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb45747e0_eba7_4276_9f29_85c5bb300006);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait ITimeTriggerImpl: ITriggerImpl + IDispatchImpl {
-    fn RandomDelay();
-    fn SetRandomDelay();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITimeTriggerVtbl(
@@ -8994,22 +8514,6 @@ unsafe impl ::windows::core::Interface for ITrigger {
     type Vtable = ITriggerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x09941815_ea89_4b5b_89e0_2a773801fac3);
 }
-#[cfg(feature = "Win32_System_Com")]
-pub trait ITriggerImpl: IDispatchImpl {
-    fn Type();
-    fn Id();
-    fn SetId();
-    fn Repetition();
-    fn SetRepetition();
-    fn ExecutionTimeLimit();
-    fn SetExecutionTimeLimit();
-    fn StartBoundary();
-    fn SetStartBoundary();
-    fn EndBoundary();
-    fn SetEndBoundary();
-    fn Enabled();
-    fn SetEnabled();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITriggerVtbl(
@@ -9164,15 +8668,6 @@ impl ::core::fmt::Debug for ITriggerCollection {
 unsafe impl ::windows::core::Interface for ITriggerCollection {
     type Vtable = ITriggerCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x85df5081_1b24_4f32_878a_d9d14df4cb77);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait ITriggerCollectionImpl: IDispatchImpl {
-    fn Count();
-    fn Item();
-    fn _NewEnum();
-    fn Create();
-    fn Remove();
-    fn Clear();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9393,15 +8888,6 @@ impl ::core::fmt::Debug for IWeeklyTrigger {
 unsafe impl ::windows::core::Interface for IWeeklyTrigger {
     type Vtable = IWeeklyTriggerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5038fc98_82ff_436d_8728_a512a57c9dc1);
-}
-#[cfg(feature = "Win32_System_Com")]
-pub trait IWeeklyTriggerImpl: ITriggerImpl + IDispatchImpl {
-    fn DaysOfWeek();
-    fn SetDaysOfWeek();
-    fn WeeksInterval();
-    fn SetWeeksInterval();
-    fn RandomDelay();
-    fn SetRandomDelay();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9871,3 +9357,5 @@ impl ::core::default::Default for WEEKLY {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

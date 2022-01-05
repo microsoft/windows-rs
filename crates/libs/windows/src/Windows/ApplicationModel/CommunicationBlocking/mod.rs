@@ -93,15 +93,6 @@ unsafe impl ::windows::core::Interface for ICommunicationBlockingAccessManagerSt
     type Vtable = ICommunicationBlockingAccessManagerStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1c969998_9d2a_5db7_edd5_0ce407fc2595);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ICommunicationBlockingAccessManagerStaticsImpl {
-    fn IsBlockingActive();
-    fn IsBlockedNumberAsync();
-    fn ShowBlockNumbersUI();
-    fn ShowUnblockNumbersUI();
-    fn ShowBlockedCallsUI();
-    fn ShowBlockedMessagesUI();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICommunicationBlockingAccessManagerStaticsVtbl(
@@ -128,11 +119,6 @@ unsafe impl ::windows::core::Interface for ICommunicationBlockingAppManagerStati
     type Vtable = ICommunicationBlockingAppManagerStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x77db58ec_14a6_4baa_942a_6a673d999bf2);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ICommunicationBlockingAppManagerStaticsImpl {
-    fn IsCurrentAppActiveBlockingApp();
-    fn ShowCommunicationBlockingSettingsUI();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICommunicationBlockingAppManagerStaticsVtbl(
@@ -152,10 +138,6 @@ unsafe impl ::windows::core::Interface for ICommunicationBlockingAppManagerStati
     type Vtable = ICommunicationBlockingAppManagerStatics2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x14a68edd_ed88_457a_a364_a3634d6f166d);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ICommunicationBlockingAppManagerStatics2Impl: ICommunicationBlockingAppManagerStaticsImpl {
-    fn RequestSetAsActiveBlockingAppAsync();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICommunicationBlockingAppManagerStatics2Vtbl(
@@ -168,3 +150,5 @@ pub struct ICommunicationBlockingAppManagerStatics2Vtbl(
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
 );
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

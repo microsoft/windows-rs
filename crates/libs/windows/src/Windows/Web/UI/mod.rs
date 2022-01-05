@@ -487,65 +487,6 @@ unsafe impl ::windows::core::Interface for IWebViewControl {
     type Vtable = IWebViewControlVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3f921316_bc70_4bda_9136_c94370899fab);
 }
-pub trait IWebViewControlImpl {
-    fn Source();
-    fn SetSource();
-    fn DocumentTitle();
-    fn CanGoBack();
-    fn CanGoForward();
-    fn SetDefaultBackgroundColor();
-    fn DefaultBackgroundColor();
-    fn ContainsFullScreenElement();
-    fn Settings();
-    fn DeferredPermissionRequests();
-    fn GoForward();
-    fn GoBack();
-    fn Refresh();
-    fn Stop();
-    fn Navigate();
-    fn NavigateToString();
-    fn NavigateToLocalStreamUri();
-    fn NavigateWithHttpRequestMessage();
-    fn InvokeScriptAsync();
-    fn CapturePreviewToStreamAsync();
-    fn CaptureSelectedContentToDataPackageAsync();
-    fn BuildLocalStreamUri();
-    fn GetDeferredPermissionRequestById();
-    fn NavigationStarting();
-    fn RemoveNavigationStarting();
-    fn ContentLoading();
-    fn RemoveContentLoading();
-    fn DOMContentLoaded();
-    fn RemoveDOMContentLoaded();
-    fn NavigationCompleted();
-    fn RemoveNavigationCompleted();
-    fn FrameNavigationStarting();
-    fn RemoveFrameNavigationStarting();
-    fn FrameContentLoading();
-    fn RemoveFrameContentLoading();
-    fn FrameDOMContentLoaded();
-    fn RemoveFrameDOMContentLoaded();
-    fn FrameNavigationCompleted();
-    fn RemoveFrameNavigationCompleted();
-    fn ScriptNotify();
-    fn RemoveScriptNotify();
-    fn LongRunningScriptDetected();
-    fn RemoveLongRunningScriptDetected();
-    fn UnsafeContentWarningDisplaying();
-    fn RemoveUnsafeContentWarningDisplaying();
-    fn UnviewableContentIdentified();
-    fn RemoveUnviewableContentIdentified();
-    fn PermissionRequested();
-    fn RemovePermissionRequested();
-    fn UnsupportedUriSchemeIdentified();
-    fn RemoveUnsupportedUriSchemeIdentified();
-    fn NewWindowRequested();
-    fn RemoveNewWindowRequested();
-    fn ContainsFullScreenElementChanged();
-    fn RemoveContainsFullScreenElementChanged();
-    fn WebResourceRequested();
-    fn RemoveWebResourceRequested();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWebViewControlVtbl(
@@ -732,9 +673,6 @@ unsafe impl ::windows::core::Interface for IWebViewControl2 {
     type Vtable = IWebViewControl2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4d3c06f9_c8df_41cc_8bd5_2a947b204503);
 }
-pub trait IWebViewControl2Impl {
-    fn AddInitializeScript();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWebViewControl2Vtbl(
@@ -752,10 +690,6 @@ pub struct IWebViewControlContentLoadingEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IWebViewControlContentLoadingEventArgs {
     type Vtable = IWebViewControlContentLoadingEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9a3fccb2_b9bb_404b_a22b_66dccd1250c6);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IWebViewControlContentLoadingEventArgsImpl {
-    fn Uri();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -776,10 +710,6 @@ unsafe impl ::windows::core::Interface for IWebViewControlDOMContentLoadedEventA
     type Vtable = IWebViewControlDOMContentLoadedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbe8bc008_9541_4545_9ff2_2df585b29f7d);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IWebViewControlDOMContentLoadedEventArgsImpl {
-    fn Uri();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWebViewControlDOMContentLoadedEventArgsVtbl(
@@ -798,14 +728,6 @@ pub struct IWebViewControlDeferredPermissionRequest(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IWebViewControlDeferredPermissionRequest {
     type Vtable = IWebViewControlDeferredPermissionRequestVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2ce349e0_d759_445c_9926_8995298f152b);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IWebViewControlDeferredPermissionRequestImpl {
-    fn Id();
-    fn Uri();
-    fn PermissionType();
-    fn Allow();
-    fn Deny();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -830,12 +752,6 @@ unsafe impl ::windows::core::Interface for IWebViewControlLongRunningScriptDetec
     type Vtable = IWebViewControlLongRunningScriptDetectedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2a6e5bba_98b4_45bc_bbeb_0f69ce49c599);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IWebViewControlLongRunningScriptDetectedEventArgsImpl {
-    fn ExecutionTime();
-    fn StopPageScriptExecution();
-    fn SetStopPageScriptExecution();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWebViewControlLongRunningScriptDetectedEventArgsVtbl(
@@ -856,12 +772,6 @@ pub struct IWebViewControlNavigationCompletedEventArgs(::windows::core::IUnknown
 unsafe impl ::windows::core::Interface for IWebViewControlNavigationCompletedEventArgs {
     type Vtable = IWebViewControlNavigationCompletedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x20409918_4a15_4c46_a55d_f79edb0bde8b);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IWebViewControlNavigationCompletedEventArgsImpl {
-    fn Uri();
-    fn IsSuccess();
-    fn WebErrorStatus();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -884,12 +794,6 @@ unsafe impl ::windows::core::Interface for IWebViewControlNavigationStartingEven
     type Vtable = IWebViewControlNavigationStartingEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0c9057c5_0a08_41c7_863b_71e3a9549137);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IWebViewControlNavigationStartingEventArgsImpl {
-    fn Uri();
-    fn Cancel();
-    fn SetCancel();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWebViewControlNavigationStartingEventArgsVtbl(
@@ -910,13 +814,6 @@ pub struct IWebViewControlNewWindowRequestedEventArgs(::windows::core::IUnknown)
 unsafe impl ::windows::core::Interface for IWebViewControlNewWindowRequestedEventArgs {
     type Vtable = IWebViewControlNewWindowRequestedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3df44bbb_a124_46d5_a083_d02cacdff5ad);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IWebViewControlNewWindowRequestedEventArgsImpl {
-    fn Uri();
-    fn Referrer();
-    fn Handled();
-    fn SetHandled();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -941,12 +838,6 @@ unsafe impl ::windows::core::Interface for IWebViewControlNewWindowRequestedEven
     type Vtable = IWebViewControlNewWindowRequestedEventArgs2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb53c5ca6_2aae_4bfc_92b9_c30e92b48098);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IWebViewControlNewWindowRequestedEventArgs2Impl {
-    fn NewWindow();
-    fn SetNewWindow();
-    fn GetDeferral();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWebViewControlNewWindowRequestedEventArgs2Vtbl(
@@ -967,16 +858,6 @@ pub struct IWebViewControlPermissionRequest(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IWebViewControlPermissionRequest {
     type Vtable = IWebViewControlPermissionRequestVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe5bc836c_f22f_40e2_95b2_7729f840eb7f);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IWebViewControlPermissionRequestImpl {
-    fn Id();
-    fn Uri();
-    fn PermissionType();
-    fn State();
-    fn Defer();
-    fn Allow();
-    fn Deny();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1003,10 +884,6 @@ unsafe impl ::windows::core::Interface for IWebViewControlPermissionRequestedEve
     type Vtable = IWebViewControlPermissionRequestedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x27204d51_2488_4cc5_968e_0a771e59c147);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IWebViewControlPermissionRequestedEventArgsImpl {
-    fn PermissionRequest();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWebViewControlPermissionRequestedEventArgsVtbl(
@@ -1024,11 +901,6 @@ pub struct IWebViewControlScriptNotifyEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IWebViewControlScriptNotifyEventArgs {
     type Vtable = IWebViewControlScriptNotifyEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x491de57b_6f49_41bb_b591_51b85b817037);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IWebViewControlScriptNotifyEventArgsImpl {
-    fn Uri();
-    fn Value();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1049,15 +921,6 @@ pub struct IWebViewControlSettings(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IWebViewControlSettings {
     type Vtable = IWebViewControlSettingsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc9967fbf_5e98_4cfd_8cce_27b0911e3de8);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IWebViewControlSettingsImpl {
-    fn SetIsJavaScriptEnabled();
-    fn IsJavaScriptEnabled();
-    fn SetIsIndexedDBEnabled();
-    fn IsIndexedDBEnabled();
-    fn SetIsScriptNotifyAllowed();
-    fn IsScriptNotifyAllowed();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1082,12 +945,6 @@ unsafe impl ::windows::core::Interface for IWebViewControlUnsupportedUriSchemeId
     type Vtable = IWebViewControlUnsupportedUriSchemeIdentifiedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe3b81944_e4fc_43dc_94ca_f980f30bc51d);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IWebViewControlUnsupportedUriSchemeIdentifiedEventArgsImpl {
-    fn Uri();
-    fn Handled();
-    fn SetHandled();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWebViewControlUnsupportedUriSchemeIdentifiedEventArgsVtbl(
@@ -1108,12 +965,6 @@ pub struct IWebViewControlUnviewableContentIdentifiedEventArgs(::windows::core::
 unsafe impl ::windows::core::Interface for IWebViewControlUnviewableContentIdentifiedEventArgs {
     type Vtable = IWebViewControlUnviewableContentIdentifiedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4a9680db_88f2_4e20_b693_b4e2df4aa581);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IWebViewControlUnviewableContentIdentifiedEventArgsImpl {
-    fn Uri();
-    fn Referrer();
-    fn MediaType();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1136,13 +987,6 @@ pub struct IWebViewControlWebResourceRequestedEventArgs(::windows::core::IUnknow
 unsafe impl ::windows::core::Interface for IWebViewControlWebResourceRequestedEventArgs {
     type Vtable = IWebViewControlWebResourceRequestedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x44d6524d_55a4_4d8b_891c_931d8e25d42e);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IWebViewControlWebResourceRequestedEventArgsImpl {
-    fn GetDeferral();
-    fn Request();
-    fn SetResponse();
-    fn Response();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2597,3 +2441,5 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &WebV
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

@@ -41,3 +41,5 @@ pub const CT_OR_CONDITION: CONDITION_TYPE = 1i32;
 pub const CT_NOT_CONDITION: CONDITION_TYPE = 2i32;
 #[doc = "*Required features: 'Win32_System_Search_Common'*"]
 pub const CT_LEAF_CONDITION: CONDITION_TYPE = 3i32;
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

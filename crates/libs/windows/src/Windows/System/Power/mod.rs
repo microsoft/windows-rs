@@ -275,21 +275,6 @@ unsafe impl ::windows::core::Interface for IBackgroundEnergyManagerStatics {
     type Vtable = IBackgroundEnergyManagerStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb3161d95_1180_4376_96e1_4095568147ce);
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
-pub trait IBackgroundEnergyManagerStaticsImpl {
-    fn LowUsageLevel();
-    fn NearMaxAcceptableUsageLevel();
-    fn MaxAcceptableUsageLevel();
-    fn ExcessiveUsageLevel();
-    fn NearTerminationUsageLevel();
-    fn TerminationUsageLevel();
-    fn RecentEnergyUsage();
-    fn RecentEnergyUsageLevel();
-    fn RecentEnergyUsageIncreased();
-    fn RemoveRecentEnergyUsageIncreased();
-    fn RecentEnergyUsageReturnedToLow();
-    fn RemoveRecentEnergyUsageReturnedToLow();
-}
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
@@ -334,19 +319,6 @@ unsafe impl ::windows::core::Interface for IForegroundEnergyManagerStatics {
     type Vtable = IForegroundEnergyManagerStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9ff86872_e677_4814_9a20_5337ca732b98);
 }
-#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
-pub trait IForegroundEnergyManagerStaticsImpl {
-    fn LowUsageLevel();
-    fn NearMaxAcceptableUsageLevel();
-    fn MaxAcceptableUsageLevel();
-    fn ExcessiveUsageLevel();
-    fn RecentEnergyUsage();
-    fn RecentEnergyUsageLevel();
-    fn RecentEnergyUsageIncreased();
-    fn RemoveRecentEnergyUsageIncreased();
-    fn RecentEnergyUsageReturnedToLow();
-    fn RemoveRecentEnergyUsageReturnedToLow();
-}
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
@@ -384,24 +356,6 @@ pub struct IPowerManagerStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPowerManagerStatics {
     type Vtable = IPowerManagerStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1394825d_62ce_4364_98d5_aa28c7fbd15b);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IPowerManagerStaticsImpl {
-    fn EnergySaverStatus();
-    fn EnergySaverStatusChanged();
-    fn RemoveEnergySaverStatusChanged();
-    fn BatteryStatus();
-    fn BatteryStatusChanged();
-    fn RemoveBatteryStatusChanged();
-    fn PowerSupplyStatus();
-    fn PowerSupplyStatusChanged();
-    fn RemovePowerSupplyStatusChanged();
-    fn RemainingChargePercent();
-    fn RemainingChargePercentChanged();
-    fn RemoveRemainingChargePercentChanged();
-    fn RemainingDischargeTime();
-    fn RemainingDischargeTimeChanged();
-    fn RemoveRemainingDischargeTimeChanged();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -586,3 +540,5 @@ unsafe impl ::windows::core::RuntimeType for PowerSupplyStatus {
 impl ::windows::core::DefaultType for PowerSupplyStatus {
     type DefaultType = Self;
 }
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

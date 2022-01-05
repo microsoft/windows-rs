@@ -281,3 +281,5 @@ unsafe impl ::windows::core::RuntimeType for DirectXPrimitiveTopology {
 impl ::windows::core::DefaultType for DirectXPrimitiveTopology {
     type DefaultType = Self;
 }
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

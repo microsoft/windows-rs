@@ -1642,21 +1642,6 @@ unsafe impl ::windows::core::Interface for IAppInstallItem {
     type Vtable = IAppInstallItemVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x49d3dfab_168a_4cbf_a93a_9e448c82737d);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IAppInstallItemImpl {
-    fn ProductId();
-    fn PackageFamilyName();
-    fn InstallType();
-    fn IsUserInitiated();
-    fn GetCurrentStatus();
-    fn Cancel();
-    fn Pause();
-    fn Restart();
-    fn Completed();
-    fn RemoveCompleted();
-    fn StatusChanged();
-    fn RemoveStatusChanged();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppInstallItemVtbl(
@@ -1690,12 +1675,6 @@ unsafe impl ::windows::core::Interface for IAppInstallItem2 {
     type Vtable = IAppInstallItem2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd3972af8_40c0_4fd7_aa6c_0aa13ca6188c);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IAppInstallItem2Impl {
-    fn CancelWithTelemetry();
-    fn PauseWithTelemetry();
-    fn RestartWithTelemetry();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppInstallItem2Vtbl(
@@ -1715,11 +1694,6 @@ pub struct IAppInstallItem3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppInstallItem3 {
     type Vtable = IAppInstallItem3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6f3dc998_dd47_433c_9234_560172d67a45);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IAppInstallItem3Impl {
-    fn Children();
-    fn ItemOperationsMightAffectOtherItems();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1741,11 +1715,6 @@ unsafe impl ::windows::core::Interface for IAppInstallItem4 {
     type Vtable = IAppInstallItem4Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc2d1ce12_71ff_4fc8_b540_453d4b37e1d1);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IAppInstallItem4Impl {
-    fn LaunchAfterInstall();
-    fn SetLaunchAfterInstall();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppInstallItem4Vtbl(
@@ -1764,19 +1733,6 @@ pub struct IAppInstallItem5(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppInstallItem5 {
     type Vtable = IAppInstallItem5Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5510e7cc_4076_4a0b_9472_c21d9d380e55);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IAppInstallItem5Impl {
-    fn PinToDesktopAfterInstall();
-    fn SetPinToDesktopAfterInstall();
-    fn PinToStartAfterInstall();
-    fn SetPinToStartAfterInstall();
-    fn PinToTaskbarAfterInstall();
-    fn SetPinToTaskbarAfterInstall();
-    fn CompletedInstallToastNotificationMode();
-    fn SetCompletedInstallToastNotificationMode();
-    fn InstallInProgressToastNotificationMode();
-    fn SetInstallInProgressToastNotificationMode();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1804,28 +1760,6 @@ pub struct IAppInstallManager(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppInstallManager {
     type Vtable = IAppInstallManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9353e170_8441_4b45_bd72_7c2fa925beee);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IAppInstallManagerImpl {
-    fn AppInstallItems();
-    fn Cancel();
-    fn Pause();
-    fn Restart();
-    fn ItemCompleted();
-    fn RemoveItemCompleted();
-    fn ItemStatusChanged();
-    fn RemoveItemStatusChanged();
-    fn AutoUpdateSetting();
-    fn SetAutoUpdateSetting();
-    fn AcquisitionIdentity();
-    fn SetAcquisitionIdentity();
-    fn GetIsApplicableAsync();
-    fn StartAppInstallAsync();
-    fn UpdateAppByPackageFamilyNameAsync();
-    fn SearchForUpdatesAsync();
-    fn SearchForAllUpdatesAsync();
-    fn IsStoreBlockedByPolicyAsync();
-    fn GetIsAppAllowedToInstallAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1875,17 +1809,6 @@ unsafe impl ::windows::core::Interface for IAppInstallManager2 {
     type Vtable = IAppInstallManager2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x16937851_ed37_480d_8314_52e27c03f04a);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IAppInstallManager2Impl {
-    fn StartAppInstallWithTelemetryAsync();
-    fn UpdateAppByPackageFamilyNameWithTelemetryAsync();
-    fn SearchForUpdatesWithTelemetryAsync();
-    fn SearchForAllUpdatesWithTelemetryAsync();
-    fn GetIsAppAllowedToInstallWithTelemetryAsync();
-    fn CancelWithTelemetry();
-    fn PauseWithTelemetry();
-    fn RestartWithTelemetry();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppInstallManager2Vtbl(
@@ -1915,17 +1838,6 @@ pub struct IAppInstallManager3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppInstallManager3 {
     type Vtable = IAppInstallManager3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x95b24b17_e96a_4d0e_84e1_c8cb417a0178);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IAppInstallManager3Impl {
-    fn StartProductInstallAsync();
-    fn StartProductInstallForUserAsync();
-    fn UpdateAppByPackageFamilyNameForUserAsync();
-    fn SearchForUpdatesForUserAsync();
-    fn SearchForAllUpdatesForUserAsync();
-    fn GetIsAppAllowedToInstallForUserAsync();
-    fn GetIsApplicableForUserAsync();
-    fn MoveToFrontOfDownloadQueue();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1959,12 +1871,6 @@ unsafe impl ::windows::core::Interface for IAppInstallManager4 {
     type Vtable = IAppInstallManager4Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x260a2a16_5a9e_4ebd_b944_f2ba75c31159);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IAppInstallManager4Impl {
-    fn GetFreeUserEntitlementAsync();
-    fn GetFreeUserEntitlementForUserAsync();
-    fn GetFreeDeviceEntitlementAsync();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppInstallManager4Vtbl(
@@ -1988,10 +1894,6 @@ unsafe impl ::windows::core::Interface for IAppInstallManager5 {
     type Vtable = IAppInstallManager5Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3cd7be4c_1be9_4f7f_b675_aa1d64a529b2);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IAppInstallManager5Impl {
-    fn AppInstallItemsWithGroupSupport();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppInstallManager5Vtbl(
@@ -2010,17 +1912,6 @@ pub struct IAppInstallManager6(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppInstallManager6 {
     type Vtable = IAppInstallManager6Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc9e7d408_f27a_4471_b2f4_e76efcbebcca);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IAppInstallManager6Impl {
-    fn SearchForAllUpdatesWithUpdateOptionsAsync();
-    fn SearchForAllUpdatesWithUpdateOptionsForUserAsync();
-    fn SearchForUpdatesWithUpdateOptionsAsync();
-    fn SearchForUpdatesWithUpdateOptionsForUserAsync();
-    fn StartProductInstallWithOptionsAsync();
-    fn StartProductInstallWithOptionsForUserAsync();
-    fn GetIsPackageIdentityAllowedToInstallAsync();
-    fn GetIsPackageIdentityAllowedToInstallForUserAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2055,10 +1946,6 @@ unsafe impl ::windows::core::Interface for IAppInstallManager7 {
     type Vtable = IAppInstallManager7Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa5ee7b30_d5e4_49a3_9853_3db03203321d);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IAppInstallManager7Impl {
-    fn CanInstallForAllUsers();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppInstallManager7Vtbl(
@@ -2077,10 +1964,6 @@ unsafe impl ::windows::core::Interface for IAppInstallManagerItemEventArgs {
     type Vtable = IAppInstallManagerItemEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbc505743_4674_4dd1_957e_c25682086a14);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IAppInstallManagerItemEventArgsImpl {
-    fn Item();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppInstallManagerItemEventArgsVtbl(
@@ -2098,21 +1981,6 @@ pub struct IAppInstallOptions(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppInstallOptions {
     type Vtable = IAppInstallOptionsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc9808300_1cb8_4eb6_8c9f_6a30c64a5b51);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IAppInstallOptionsImpl {
-    fn CatalogId();
-    fn SetCatalogId();
-    fn ForceUseOfNonRemovableStorage();
-    fn SetForceUseOfNonRemovableStorage();
-    fn AllowForcedAppRestart();
-    fn SetAllowForcedAppRestart();
-    fn Repair();
-    fn SetRepair();
-    fn TargetVolume();
-    fn SetTargetVolume();
-    fn LaunchAfterInstall();
-    fn SetLaunchAfterInstall();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2144,27 +2012,6 @@ pub struct IAppInstallOptions2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppInstallOptions2 {
     type Vtable = IAppInstallOptions2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8a04c0d7_c94b_425e_95b4_bf27faeaee89);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IAppInstallOptions2Impl {
-    fn PinToDesktopAfterInstall();
-    fn SetPinToDesktopAfterInstall();
-    fn PinToStartAfterInstall();
-    fn SetPinToStartAfterInstall();
-    fn PinToTaskbarAfterInstall();
-    fn SetPinToTaskbarAfterInstall();
-    fn CompletedInstallToastNotificationMode();
-    fn SetCompletedInstallToastNotificationMode();
-    fn InstallInProgressToastNotificationMode();
-    fn SetInstallInProgressToastNotificationMode();
-    fn InstallForAllUsers();
-    fn SetInstallForAllUsers();
-    fn StageButDoNotInstall();
-    fn SetStageButDoNotInstall();
-    fn CampaignId();
-    fn SetCampaignId();
-    fn ExtendedCampaignId();
-    fn SetExtendedCampaignId();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2201,14 +2048,6 @@ unsafe impl ::windows::core::Interface for IAppInstallStatus {
     type Vtable = IAppInstallStatusVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x936dccfa_2450_4126_88b1_6127a644dd5c);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IAppInstallStatusImpl {
-    fn InstallState();
-    fn DownloadSizeInBytes();
-    fn BytesDownloaded();
-    fn PercentComplete();
-    fn ErrorCode();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppInstallStatusVtbl(
@@ -2231,11 +2070,6 @@ unsafe impl ::windows::core::Interface for IAppInstallStatus2 {
     type Vtable = IAppInstallStatus2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x96e7818a_5e92_4aa9_8edc_58fed4b87e00);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IAppInstallStatus2Impl {
-    fn User();
-    fn ReadyForLaunch();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppInstallStatus2Vtbl(
@@ -2256,10 +2090,6 @@ unsafe impl ::windows::core::Interface for IAppInstallStatus3 {
     type Vtable = IAppInstallStatus3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcb880c56_837b_4b4c_9ebb_6d44a0a96307);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IAppInstallStatus3Impl {
-    fn IsStaged();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppInstallStatus3Vtbl(
@@ -2277,13 +2107,6 @@ pub struct IAppUpdateOptions(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppUpdateOptions {
     type Vtable = IAppUpdateOptionsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x26f0b02f_c2f3_4aea_af8c_6308dd9db85f);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IAppUpdateOptionsImpl {
-    fn CatalogId();
-    fn SetCatalogId();
-    fn AllowForcedAppRestart();
-    fn SetAllowForcedAppRestart();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2306,11 +2129,6 @@ unsafe impl ::windows::core::Interface for IAppUpdateOptions2 {
     type Vtable = IAppUpdateOptions2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf4646e08_ed26_4bf9_9679_48f628e53df8);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IAppUpdateOptions2Impl {
-    fn AutomaticallyDownloadAndInstallUpdateIfFound();
-    fn SetAutomaticallyDownloadAndInstallUpdateIfFound();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppUpdateOptions2Vtbl(
@@ -2330,10 +2148,6 @@ unsafe impl ::windows::core::Interface for IGetEntitlementResult {
     type Vtable = IGetEntitlementResultVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x74fc843f_1a9e_4609_8e4d_819086d08a3d);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IGetEntitlementResultImpl {
-    fn Status();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGetEntitlementResultVtbl(
@@ -2345,3 +2159,5 @@ pub struct IGetEntitlementResultVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut GetEntitlementStatus) -> ::windows::core::HRESULT,
 );
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

@@ -70,3 +70,5 @@ unsafe impl ::windows::core::RuntimeType for TextUnit {
 impl ::windows::core::DefaultType for TextUnit {
     type DefaultType = Self;
 }
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

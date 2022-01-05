@@ -560,16 +560,6 @@ unsafe impl ::windows::core::Interface for IGeofence {
     type Vtable = IGeofenceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9c090823_edb8_47e0_8245_5bf61d321f2d);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IGeofenceImpl {
-    fn StartTime();
-    fn Duration();
-    fn DwellTime();
-    fn Id();
-    fn MonitoredStates();
-    fn Geoshape();
-    fn SingleUse();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGeofenceVtbl(
@@ -597,13 +587,6 @@ unsafe impl ::windows::core::Interface for IGeofenceFactory {
     type Vtable = IGeofenceFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x841f624b_325f_4b90_bca7_2b8022a93796);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IGeofenceFactoryImpl {
-    fn Create();
-    fn CreateWithMonitorStates();
-    fn CreateWithMonitorStatesAndDwellTime();
-    fn CreateWithMonitorStatesDwellTimeStartTimeAndDuration();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGeofenceFactoryVtbl(
@@ -626,17 +609,6 @@ pub struct IGeofenceMonitor(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGeofenceMonitor {
     type Vtable = IGeofenceMonitorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4c0f5f78_1c1f_4621_bbbd_833b92247226);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IGeofenceMonitorImpl {
-    fn Status();
-    fn Geofences();
-    fn LastKnownGeoposition();
-    fn GeofenceStateChanged();
-    fn RemoveGeofenceStateChanged();
-    fn ReadReports();
-    fn StatusChanged();
-    fn RemoveStatusChanged();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -669,10 +641,6 @@ unsafe impl ::windows::core::Interface for IGeofenceMonitorStatics {
     type Vtable = IGeofenceMonitorStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2dd32fcf_7e75_4899_ace3_2bd0a65cce06);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IGeofenceMonitorStaticsImpl {
-    fn Current();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGeofenceMonitorStaticsVtbl(
@@ -690,13 +658,6 @@ pub struct IGeofenceStateChangeReport(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGeofenceStateChangeReport {
     type Vtable = IGeofenceStateChangeReportVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9a243c18_2464_4c89_be05_b3ffff5babc5);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IGeofenceStateChangeReportImpl {
-    fn NewState();
-    fn Geofence();
-    fn Geoposition();
-    fn RemovalReason();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -775,3 +736,5 @@ unsafe impl ::windows::core::RuntimeType for MonitoredGeofenceStates {
 impl ::windows::core::DefaultType for MonitoredGeofenceStates {
     type DefaultType = Self;
 }
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

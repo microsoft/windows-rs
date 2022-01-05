@@ -328,11 +328,6 @@ unsafe impl ::windows::core::Interface for ICustomMapTileDataSource {
     type Vtable = ICustomMapTileDataSourceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x65da384a_2db1_4be1_b155_3d0c9ecf4799);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ICustomMapTileDataSourceImpl {
-    fn BitmapRequested();
-    fn RemoveBitmapRequested();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICustomMapTileDataSourceVtbl(
@@ -354,10 +349,6 @@ unsafe impl ::windows::core::Interface for ICustomMapTileDataSourceFactory {
     type Vtable = ICustomMapTileDataSourceFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc8477947_c955_4f22_9444_a1d8d744af11);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ICustomMapTileDataSourceFactoryImpl {
-    fn CreateInstance();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICustomMapTileDataSourceFactoryVtbl(
@@ -375,16 +366,6 @@ pub struct IHttpMapTileDataSource(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IHttpMapTileDataSource {
     type Vtable = IHttpMapTileDataSourceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9d03cb5c_fd79_4795_87be_7e54ca0b37d0);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IHttpMapTileDataSourceImpl {
-    fn UriFormatString();
-    fn SetUriFormatString();
-    fn AdditionalRequestHeaders();
-    fn AllowCaching();
-    fn SetAllowCaching();
-    fn UriRequested();
-    fn RemoveUriRequested();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -413,11 +394,6 @@ unsafe impl ::windows::core::Interface for IHttpMapTileDataSourceFactory {
     type Vtable = IHttpMapTileDataSourceFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x53b4b107_84dc_4291_89f8_6d0bb612a055);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IHttpMapTileDataSourceFactoryImpl {
-    fn CreateInstance();
-    fn CreateInstanceWithUriFormatString();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHttpMapTileDataSourceFactoryVtbl(
@@ -436,13 +412,6 @@ pub struct ILocalMapTileDataSource(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ILocalMapTileDataSource {
     type Vtable = ILocalMapTileDataSourceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x616257b5_9108_4f12_8bf4_bb3c8f6274e5);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ILocalMapTileDataSourceImpl {
-    fn UriFormatString();
-    fn SetUriFormatString();
-    fn UriRequested();
-    fn RemoveUriRequested();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -467,11 +436,6 @@ unsafe impl ::windows::core::Interface for ILocalMapTileDataSourceFactory {
     type Vtable = ILocalMapTileDataSourceFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc5cfe9fc_72ac_4839_8a0d_011f24693c79);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ILocalMapTileDataSourceFactoryImpl {
-    fn CreateInstance();
-    fn CreateInstanceWithUriFormatString();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILocalMapTileDataSourceFactoryVtbl(
@@ -491,10 +455,6 @@ unsafe impl ::windows::core::Interface for IMapActualCameraChangedEventArgs {
     type Vtable = IMapActualCameraChangedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdaa080da_b7f4_422c_a618_bbaa7c1d814c);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IMapActualCameraChangedEventArgsImpl {
-    fn Camera();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMapActualCameraChangedEventArgsVtbl(
@@ -512,10 +472,6 @@ pub struct IMapActualCameraChangedEventArgs2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMapActualCameraChangedEventArgs2 {
     type Vtable = IMapActualCameraChangedEventArgs2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7ba4c7e5_10dc_455a_9d04_1d72fb6d9b93);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IMapActualCameraChangedEventArgs2Impl {
-    fn ChangeReason();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -535,10 +491,6 @@ unsafe impl ::windows::core::Interface for IMapActualCameraChangingEventArgs {
     type Vtable = IMapActualCameraChangingEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6b0dbed6_93f7_4682_8de5_a47a1cc7a945);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IMapActualCameraChangingEventArgsImpl {
-    fn Camera();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMapActualCameraChangingEventArgsVtbl(
@@ -557,10 +509,6 @@ unsafe impl ::windows::core::Interface for IMapActualCameraChangingEventArgs2 {
     type Vtable = IMapActualCameraChangingEventArgs2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf2867897_40ac_4e8a_a927_510f3846a47e);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IMapActualCameraChangingEventArgs2Impl {
-    fn ChangeReason();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMapActualCameraChangingEventArgs2Vtbl(
@@ -578,18 +526,6 @@ pub struct IMapBillboard(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMapBillboard {
     type Vtable = IMapBillboardVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1694259d_0ae2_4f42_a02e_292ca835d39d);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IMapBillboardImpl {
-    fn Location();
-    fn SetLocation();
-    fn NormalizedAnchorPoint();
-    fn SetNormalizedAnchorPoint();
-    fn Image();
-    fn SetImage();
-    fn CollisionBehaviorDesired();
-    fn SetCollisionBehaviorDesired();
-    fn ReferenceCamera();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -623,10 +559,6 @@ unsafe impl ::windows::core::Interface for IMapBillboardFactory {
     type Vtable = IMapBillboardFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbe45a4c5_8f09_4b86_ae28_783740eb8b31);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IMapBillboardFactoryImpl {
-    fn CreateInstanceFromCamera();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMapBillboardFactoryVtbl(
@@ -644,12 +576,6 @@ pub struct IMapBillboardStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMapBillboardStatics {
     type Vtable = IMapBillboardStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfdf839fe_e1f7_4fb0_8887_7da68c647333);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IMapBillboardStaticsImpl {
-    fn LocationProperty();
-    fn NormalizedAnchorPointProperty();
-    fn CollisionBehaviorDesiredProperty();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -670,19 +596,6 @@ pub struct IMapCamera(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMapCamera {
     type Vtable = IMapCameraVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x53a6b623_c0f8_4d8b_ad1e_a59598ea840b);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IMapCameraImpl {
-    fn Location();
-    fn SetLocation();
-    fn Heading();
-    fn SetHeading();
-    fn Pitch();
-    fn SetPitch();
-    fn Roll();
-    fn SetRoll();
-    fn FieldOfView();
-    fn SetFieldOfView();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -713,13 +626,6 @@ unsafe impl ::windows::core::Interface for IMapCameraFactory {
     type Vtable = IMapCameraFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xea3b0f16_83af_4ace_8e71_10ad9f1e9e7f);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IMapCameraFactoryImpl {
-    fn CreateInstanceWithLocation();
-    fn CreateInstanceWithLocationAndHeading();
-    fn CreateInstanceWithLocationHeadingAndPitch();
-    fn CreateInstanceWithLocationHeadingPitchRollAndFieldOfView();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMapCameraFactoryVtbl(
@@ -745,12 +651,6 @@ unsafe impl ::windows::core::Interface for IMapContextRequestedEventArgs {
     type Vtable = IMapContextRequestedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfdd1b423_c961_4df2_bb57_82ee0f0bb591);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IMapContextRequestedEventArgsImpl {
-    fn Position();
-    fn Location();
-    fn MapElements();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMapContextRequestedEventArgsVtbl(
@@ -773,68 +673,6 @@ pub struct IMapControl(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMapControl {
     type Vtable = IMapControlVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x42d0b851_5256_4747_9e6c_0d11e966141e);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IMapControlImpl {
-    fn Center();
-    fn SetCenter();
-    fn Children();
-    fn ColorScheme();
-    fn SetColorScheme();
-    fn DesiredPitch();
-    fn SetDesiredPitch();
-    fn Heading();
-    fn SetHeading();
-    fn LandmarksVisible();
-    fn SetLandmarksVisible();
-    fn LoadingStatus();
-    fn MapServiceToken();
-    fn SetMapServiceToken();
-    fn MaxZoomLevel();
-    fn MinZoomLevel();
-    fn PedestrianFeaturesVisible();
-    fn SetPedestrianFeaturesVisible();
-    fn Pitch();
-    fn Style();
-    fn SetStyle();
-    fn TrafficFlowVisible();
-    fn SetTrafficFlowVisible();
-    fn TransformOrigin();
-    fn SetTransformOrigin();
-    fn WatermarkMode();
-    fn SetWatermarkMode();
-    fn ZoomLevel();
-    fn SetZoomLevel();
-    fn MapElements();
-    fn Routes();
-    fn TileSources();
-    fn CenterChanged();
-    fn RemoveCenterChanged();
-    fn HeadingChanged();
-    fn RemoveHeadingChanged();
-    fn LoadingStatusChanged();
-    fn RemoveLoadingStatusChanged();
-    fn MapDoubleTapped();
-    fn RemoveMapDoubleTapped();
-    fn MapHolding();
-    fn RemoveMapHolding();
-    fn MapTapped();
-    fn RemoveMapTapped();
-    fn PitchChanged();
-    fn RemovePitchChanged();
-    fn TransformOriginChanged();
-    fn RemoveTransformOriginChanged();
-    fn ZoomLevelChanged();
-    fn RemoveZoomLevelChanged();
-    fn FindMapElementsAtOffset();
-    fn GetLocationFromOffset();
-    fn GetOffsetFromLocation();
-    fn IsLocationInView();
-    fn TrySetViewBoundsAsync();
-    fn TrySetViewWithCenterAsync();
-    fn TrySetViewWithCenterAndZoomAsync();
-    fn TrySetViewWithCenterZoomHeadingAndPitchAsync();
-    fn TrySetViewWithCenterZoomHeadingPitchAndAnimationAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -947,58 +785,6 @@ unsafe impl ::windows::core::Interface for IMapControl2 {
     type Vtable = IMapControl2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe1fd644d_96ec_4065_b0f0_75281da3654d);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IMapControl2Impl {
-    fn BusinessLandmarksVisible();
-    fn SetBusinessLandmarksVisible();
-    fn TransitFeaturesVisible();
-    fn SetTransitFeaturesVisible();
-    fn PanInteractionMode();
-    fn SetPanInteractionMode();
-    fn RotateInteractionMode();
-    fn SetRotateInteractionMode();
-    fn TiltInteractionMode();
-    fn SetTiltInteractionMode();
-    fn ZoomInteractionMode();
-    fn SetZoomInteractionMode();
-    fn Is3DSupported();
-    fn IsStreetsideSupported();
-    fn Scene();
-    fn SetScene();
-    fn ActualCamera();
-    fn TargetCamera();
-    fn CustomExperience();
-    fn SetCustomExperience();
-    fn MapElementClick();
-    fn RemoveMapElementClick();
-    fn MapElementPointerEntered();
-    fn RemoveMapElementPointerEntered();
-    fn MapElementPointerExited();
-    fn RemoveMapElementPointerExited();
-    fn ActualCameraChanged();
-    fn RemoveActualCameraChanged();
-    fn ActualCameraChanging();
-    fn RemoveActualCameraChanging();
-    fn TargetCameraChanged();
-    fn RemoveTargetCameraChanged();
-    fn CustomExperienceChanged();
-    fn RemoveCustomExperienceChanged();
-    fn StartContinuousRotate();
-    fn StopContinuousRotate();
-    fn StartContinuousTilt();
-    fn StopContinuousTilt();
-    fn StartContinuousZoom();
-    fn StopContinuousZoom();
-    fn TryRotateAsync();
-    fn TryRotateToAsync();
-    fn TryTiltAsync();
-    fn TryTiltToAsync();
-    fn TryZoomInAsync();
-    fn TryZoomOutAsync();
-    fn TryZoomToAsync();
-    fn TrySetSceneAsync();
-    fn TrySetSceneWithAnimationAsync();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMapControl2Vtbl(
@@ -1088,11 +874,6 @@ unsafe impl ::windows::core::Interface for IMapControl3 {
     type Vtable = IMapControl3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x586328f8_8cdd_40ae_9338_af2a7be845e5);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IMapControl3Impl {
-    fn MapRightTapped();
-    fn RemoveMapRightTapped();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMapControl3Vtbl(
@@ -1113,14 +894,6 @@ pub struct IMapControl4(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMapControl4 {
     type Vtable = IMapControl4Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x068f132a_1817_466d_b7ce_419b3f8e248b);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IMapControl4Impl {
-    fn BusinessLandmarksEnabled();
-    fn SetBusinessLandmarksEnabled();
-    fn TransitFeaturesEnabled();
-    fn SetTransitFeaturesEnabled();
-    fn GetVisibleRegion();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1144,23 +917,6 @@ pub struct IMapControl5(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMapControl5 {
     type Vtable = IMapControl5Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdd9b0ffd_7823_46a2_82c9_65ddac4f365f);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IMapControl5Impl {
-    fn MapProjection();
-    fn SetMapProjection();
-    fn StyleSheet();
-    fn SetStyleSheet();
-    fn ViewPadding();
-    fn SetViewPadding();
-    fn MapContextRequested();
-    fn RemoveMapContextRequested();
-    fn FindMapElementsAtOffsetWithRadius();
-    fn GetLocationFromOffsetWithReferenceSystem();
-    fn StartContinuousPan();
-    fn StopContinuousPan();
-    fn TryPanAsync();
-    fn TryPanToAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1199,13 +955,6 @@ unsafe impl ::windows::core::Interface for IMapControl6 {
     type Vtable = IMapControl6Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb0da89a2_1041_4bea_b88a_12ac9a82e0e2);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IMapControl6Impl {
-    fn Layers();
-    fn SetLayers();
-    fn TryGetLocationFromOffset();
-    fn TryGetLocationFromOffsetWithReferenceSystem();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMapControl6Vtbl(
@@ -1231,11 +980,6 @@ unsafe impl ::windows::core::Interface for IMapControl7 {
     type Vtable = IMapControl7Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0d86e453_0c1f_4f7e_ae66_4ad0b4987857);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IMapControl7Impl {
-    fn Region();
-    fn SetRegion();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMapControl7Vtbl(
@@ -1254,13 +998,6 @@ pub struct IMapControl8(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMapControl8 {
     type Vtable = IMapControl8Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x009e9c46_724d_53ca_9421_7a48fc731523);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IMapControl8Impl {
-    fn CanTiltDown();
-    fn CanTiltUp();
-    fn CanZoomIn();
-    fn CanZoomOut();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1283,10 +1020,6 @@ unsafe impl ::windows::core::Interface for IMapControlBusinessLandmarkClickEvent
     type Vtable = IMapControlBusinessLandmarkClickEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5e464922_4a1a_4797_beb7_5cf7754cb867);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IMapControlBusinessLandmarkClickEventArgsImpl {
-    fn LocalLocations();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMapControlBusinessLandmarkClickEventArgsVtbl(
@@ -1305,10 +1038,6 @@ pub struct IMapControlBusinessLandmarkPointerEnteredEventArgs(::windows::core::I
 unsafe impl ::windows::core::Interface for IMapControlBusinessLandmarkPointerEnteredEventArgs {
     type Vtable = IMapControlBusinessLandmarkPointerEnteredEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5e4081a6_ea98_4f95_8caf_5b42696ff504);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IMapControlBusinessLandmarkPointerEnteredEventArgsImpl {
-    fn LocalLocations();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1329,10 +1058,6 @@ unsafe impl ::windows::core::Interface for IMapControlBusinessLandmarkPointerExi
     type Vtable = IMapControlBusinessLandmarkPointerExitedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2bb52caf_f24a_46d0_b463_65f719731057);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IMapControlBusinessLandmarkPointerExitedEventArgsImpl {
-    fn LocalLocations();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMapControlBusinessLandmarkPointerExitedEventArgsVtbl(
@@ -1352,10 +1077,6 @@ unsafe impl ::windows::core::Interface for IMapControlBusinessLandmarkRightTappe
     type Vtable = IMapControlBusinessLandmarkRightTappedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x59ab8ae7_f184_4ab1_b0b0_35c8bf0654b2);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IMapControlBusinessLandmarkRightTappedEventArgsImpl {
-    fn LocalLocations();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMapControlBusinessLandmarkRightTappedEventArgsVtbl(
@@ -1374,17 +1095,6 @@ pub struct IMapControlDataHelper(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMapControlDataHelper {
     type Vtable = IMapControlDataHelperVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8bb0f09c_14ab_486c_9de5_5a5def0205a2);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IMapControlDataHelperImpl {
-    fn BusinessLandmarkClick();
-    fn RemoveBusinessLandmarkClick();
-    fn TransitFeatureClick();
-    fn RemoveTransitFeatureClick();
-    fn BusinessLandmarkRightTapped();
-    fn RemoveBusinessLandmarkRightTapped();
-    fn TransitFeatureRightTapped();
-    fn RemoveTransitFeatureRightTapped();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1419,17 +1129,6 @@ unsafe impl ::windows::core::Interface for IMapControlDataHelper2 {
     type Vtable = IMapControlDataHelper2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x59ce429e_562f_4c21_a674_0f11decf0fb3);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IMapControlDataHelper2Impl {
-    fn BusinessLandmarkPointerEntered();
-    fn RemoveBusinessLandmarkPointerEntered();
-    fn TransitFeaturePointerEntered();
-    fn RemoveTransitFeaturePointerEntered();
-    fn BusinessLandmarkPointerExited();
-    fn RemoveBusinessLandmarkPointerExited();
-    fn TransitFeaturePointerExited();
-    fn RemoveTransitFeaturePointerExited();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMapControlDataHelper2Vtbl(
@@ -1463,10 +1162,6 @@ unsafe impl ::windows::core::Interface for IMapControlDataHelperFactory {
     type Vtable = IMapControlDataHelperFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3b70aa8e_02ef_469c_bbaf_dc2158d4289b);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IMapControlDataHelperFactoryImpl {
-    fn CreateInstance();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMapControlDataHelperFactoryVtbl(
@@ -1485,10 +1180,6 @@ unsafe impl ::windows::core::Interface for IMapControlDataHelperStatics {
     type Vtable = IMapControlDataHelperStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7a6632d6_e944_4110_83cf_314d0722e2e5);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IMapControlDataHelperStaticsImpl {
-    fn CreateMapControl();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMapControlDataHelperStaticsVtbl(
@@ -1506,33 +1197,6 @@ pub struct IMapControlStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMapControlStatics {
     type Vtable = IMapControlStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc2c61795_2147_4f0a_942a_5493a85de807);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IMapControlStaticsImpl {
-    fn CenterProperty();
-    fn ChildrenProperty();
-    fn ColorSchemeProperty();
-    fn DesiredPitchProperty();
-    fn HeadingProperty();
-    fn LandmarksVisibleProperty();
-    fn LoadingStatusProperty();
-    fn MapServiceTokenProperty();
-    fn PedestrianFeaturesVisibleProperty();
-    fn PitchProperty();
-    fn StyleProperty();
-    fn TrafficFlowVisibleProperty();
-    fn TransformOriginProperty();
-    fn WatermarkModeProperty();
-    fn ZoomLevelProperty();
-    fn MapElementsProperty();
-    fn RoutesProperty();
-    fn TileSourcesProperty();
-    fn LocationProperty();
-    fn GetLocation();
-    fn SetLocation();
-    fn NormalizedAnchorPointProperty();
-    fn GetNormalizedAnchorPoint();
-    fn SetNormalizedAnchorPoint();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1579,18 +1243,6 @@ unsafe impl ::windows::core::Interface for IMapControlStatics2 {
     type Vtable = IMapControlStatics2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x04852b93_b446_4d31_9752_1ec69a5996ae);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IMapControlStatics2Impl {
-    fn BusinessLandmarksVisibleProperty();
-    fn TransitFeaturesVisibleProperty();
-    fn PanInteractionModeProperty();
-    fn RotateInteractionModeProperty();
-    fn TiltInteractionModeProperty();
-    fn ZoomInteractionModeProperty();
-    fn Is3DSupportedProperty();
-    fn IsStreetsideSupportedProperty();
-    fn SceneProperty();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMapControlStatics2Vtbl(
@@ -1617,11 +1269,6 @@ unsafe impl ::windows::core::Interface for IMapControlStatics4 {
     type Vtable = IMapControlStatics4Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfe785d97_5d13_4fa1_bf1d_84061768c183);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IMapControlStatics4Impl {
-    fn BusinessLandmarksEnabledProperty();
-    fn TransitFeaturesEnabledProperty();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMapControlStatics4Vtbl(
@@ -1640,12 +1287,6 @@ pub struct IMapControlStatics5(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMapControlStatics5 {
     type Vtable = IMapControlStatics5Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x09626f00_b7dd_4189_a7f7_830c412deea3);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IMapControlStatics5Impl {
-    fn MapProjectionProperty();
-    fn StyleSheetProperty();
-    fn ViewPaddingProperty();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1667,10 +1308,6 @@ unsafe impl ::windows::core::Interface for IMapControlStatics6 {
     type Vtable = IMapControlStatics6Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3ccfdd7f_24d1_40a2_8351_b3063a8c95a4);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IMapControlStatics6Impl {
-    fn LayersProperty();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMapControlStatics6Vtbl(
@@ -1689,10 +1326,6 @@ unsafe impl ::windows::core::Interface for IMapControlStatics7 {
     type Vtable = IMapControlStatics7Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x55f1ac4d_72c2_46b2_b7ae_790260be641b);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IMapControlStatics7Impl {
-    fn RegionProperty();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMapControlStatics7Vtbl(
@@ -1710,13 +1343,6 @@ pub struct IMapControlStatics8(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMapControlStatics8 {
     type Vtable = IMapControlStatics8Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xadb7a7b0_0605_592c_bf9d_d10bdc2be47b);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IMapControlStatics8Impl {
-    fn CanTiltDownProperty();
-    fn CanTiltUpProperty();
-    fn CanZoomInProperty();
-    fn CanZoomOutProperty();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1738,12 +1364,6 @@ pub struct IMapControlTransitFeatureClickEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMapControlTransitFeatureClickEventArgs {
     type Vtable = IMapControlTransitFeatureClickEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x76179969_b765_4622_b08a_3072745a4541);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IMapControlTransitFeatureClickEventArgsImpl {
-    fn DisplayName();
-    fn Location();
-    fn TransitProperties();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1767,12 +1387,6 @@ unsafe impl ::windows::core::Interface for IMapControlTransitFeaturePointerEnter
     type Vtable = IMapControlTransitFeaturePointerEnteredEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x73911a4e_ec4f_479e_94a1_36e081d0d897);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IMapControlTransitFeaturePointerEnteredEventArgsImpl {
-    fn DisplayName();
-    fn Location();
-    fn TransitProperties();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMapControlTransitFeaturePointerEnteredEventArgsVtbl(
@@ -1794,12 +1408,6 @@ pub struct IMapControlTransitFeaturePointerExitedEventArgs(::windows::core::IUnk
 unsafe impl ::windows::core::Interface for IMapControlTransitFeaturePointerExitedEventArgs {
     type Vtable = IMapControlTransitFeaturePointerExitedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6a11258d_448d_44e7_bc69_d13d497154e9);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IMapControlTransitFeaturePointerExitedEventArgsImpl {
-    fn DisplayName();
-    fn Location();
-    fn TransitProperties();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1823,12 +1431,6 @@ unsafe impl ::windows::core::Interface for IMapControlTransitFeatureRightTappedE
     type Vtable = IMapControlTransitFeatureRightTappedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaea1cc49_a729_4eae_a59a_3ec9a125a028);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IMapControlTransitFeatureRightTappedEventArgsImpl {
-    fn DisplayName();
-    fn Location();
-    fn TransitProperties();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMapControlTransitFeatureRightTappedEventArgsVtbl(
@@ -1851,8 +1453,6 @@ unsafe impl ::windows::core::Interface for IMapCustomExperience {
     type Vtable = IMapCustomExperienceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x64592866_14a3_4e5f_8883_8e9c500eeede);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IMapCustomExperienceImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMapCustomExperienceVtbl(
@@ -1870,8 +1470,6 @@ unsafe impl ::windows::core::Interface for IMapCustomExperienceChangedEventArgs 
     type Vtable = IMapCustomExperienceChangedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb9e6fb9b_8fc1_4042_ac34_a61b38bb7514);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IMapCustomExperienceChangedEventArgsImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMapCustomExperienceChangedEventArgsVtbl(
@@ -1888,10 +1486,6 @@ pub struct IMapCustomExperienceFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMapCustomExperienceFactory {
     type Vtable = IMapCustomExperienceFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7a403fb5_a1b1_4e7f_921e_3e6b8d8ebed6);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IMapCustomExperienceFactoryImpl {
-    fn CreateInstance();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1910,13 +1504,6 @@ pub struct IMapElement(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMapElement {
     type Vtable = IMapElementVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd61fc4df_b245_47f2_9ac2_43c058b1c903);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IMapElementImpl {
-    fn ZIndex();
-    fn SetZIndex();
-    fn Visible();
-    fn SetVisible();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1939,11 +1526,6 @@ unsafe impl ::windows::core::Interface for IMapElement2 {
     type Vtable = IMapElement2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6619f261_fba6_4964_a7ff_f1af63ab9cb0);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IMapElement2Impl {
-    fn MapTabIndex();
-    fn SetMapTabIndex();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMapElement2Vtbl(
@@ -1962,15 +1544,6 @@ pub struct IMapElement3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMapElement3 {
     type Vtable = IMapElement3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x13efbc59_45ed_48b4_93ad_e3f78f8cf218);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IMapElement3Impl {
-    fn MapStyleSheetEntry();
-    fn SetMapStyleSheetEntry();
-    fn MapStyleSheetEntryState();
-    fn SetMapStyleSheetEntryState();
-    fn Tag();
-    fn SetTag();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1994,21 +1567,6 @@ pub struct IMapElement3D(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMapElement3D {
     type Vtable = IMapElement3DVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x827af8d5_3843_48e2_bd00_0f0644fbe6a5);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IMapElement3DImpl {
-    fn Location();
-    fn SetLocation();
-    fn Model();
-    fn SetModel();
-    fn Heading();
-    fn SetHeading();
-    fn Pitch();
-    fn SetPitch();
-    fn Roll();
-    fn SetRoll();
-    fn Scale();
-    fn SetScale();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2043,14 +1601,6 @@ unsafe impl ::windows::core::Interface for IMapElement3DStatics {
     type Vtable = IMapElement3DStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6128011a_450f_442a_b9d9_aa815c71907a);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IMapElement3DStaticsImpl {
-    fn LocationProperty();
-    fn HeadingProperty();
-    fn PitchProperty();
-    fn RollProperty();
-    fn ScaleProperty();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMapElement3DStaticsVtbl(
@@ -2073,11 +1623,6 @@ unsafe impl ::windows::core::Interface for IMapElement4 {
     type Vtable = IMapElement4Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x645883b6_1fc1_4ceb_93bd_dc2c960072e9);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IMapElement4Impl {
-    fn IsEnabled();
-    fn SetIsEnabled();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMapElement4Vtbl(
@@ -2096,12 +1641,6 @@ pub struct IMapElementClickEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMapElementClickEventArgs {
     type Vtable = IMapElementClickEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x40168a11_d080_4519_99a1_3149fb8999d0);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IMapElementClickEventArgsImpl {
-    fn Position();
-    fn Location();
-    fn MapElements();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2126,10 +1665,6 @@ unsafe impl ::windows::core::Interface for IMapElementFactory {
     type Vtable = IMapElementFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4a30d007_0bd6_47a5_860b_7e7cf5f0c573);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IMapElementFactoryImpl {
-    fn CreateInstance();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMapElementFactoryVtbl(
@@ -2147,12 +1682,6 @@ pub struct IMapElementPointerEnteredEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMapElementPointerEnteredEventArgs {
     type Vtable = IMapElementPointerEnteredEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xab85dd4e_91d7_4b31_8f0a_d390c7d3a2ef);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IMapElementPointerEnteredEventArgsImpl {
-    fn Position();
-    fn Location();
-    fn MapElement();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2176,12 +1705,6 @@ unsafe impl ::windows::core::Interface for IMapElementPointerExitedEventArgs {
     type Vtable = IMapElementPointerExitedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc1a45af9_60c9_4679_9119_20abc75d931f);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IMapElementPointerExitedEventArgsImpl {
-    fn Position();
-    fn Location();
-    fn MapElement();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMapElementPointerExitedEventArgsVtbl(
@@ -2204,11 +1727,6 @@ unsafe impl ::windows::core::Interface for IMapElementStatics {
     type Vtable = IMapElementStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe8c71cf2_bfef_4b49_8e99_41b5e3789fd2);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IMapElementStaticsImpl {
-    fn ZIndexProperty();
-    fn VisibleProperty();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMapElementStaticsVtbl(
@@ -2228,10 +1746,6 @@ unsafe impl ::windows::core::Interface for IMapElementStatics2 {
     type Vtable = IMapElementStatics2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9bf72f30_80fe_4f30_bcc1_fa894050f676);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IMapElementStatics2Impl {
-    fn MapTabIndexProperty();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMapElementStatics2Vtbl(
@@ -2249,12 +1763,6 @@ pub struct IMapElementStatics3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMapElementStatics3 {
     type Vtable = IMapElementStatics3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe11ee92f_9742_49aa_aad8_2e466bff3796);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IMapElementStatics3Impl {
-    fn MapStyleSheetEntryProperty();
-    fn MapStyleSheetEntryStateProperty();
-    fn TagProperty();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2276,10 +1784,6 @@ unsafe impl ::windows::core::Interface for IMapElementStatics4 {
     type Vtable = IMapElementStatics4Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa4296f0b_dff8_467c_9315_6f6db93ee2ba);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IMapElementStatics4Impl {
-    fn IsEnabledProperty();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMapElementStatics4Vtbl(
@@ -2297,19 +1801,6 @@ pub struct IMapElementsLayer(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMapElementsLayer {
     type Vtable = IMapElementsLayerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xde79689a_01ef_46f4_ac60_7c200b552610);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IMapElementsLayerImpl {
-    fn MapElements();
-    fn SetMapElements();
-    fn MapElementClick();
-    fn RemoveMapElementClick();
-    fn MapElementPointerEntered();
-    fn RemoveMapElementPointerEntered();
-    fn MapElementPointerExited();
-    fn RemoveMapElementPointerExited();
-    fn MapContextRequested();
-    fn RemoveMapContextRequested();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2348,12 +1839,6 @@ unsafe impl ::windows::core::Interface for IMapElementsLayerClickEventArgs {
     type Vtable = IMapElementsLayerClickEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2ca7cf66_af1b_4c05_8c85_f74ae3d4677f);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IMapElementsLayerClickEventArgsImpl {
-    fn Position();
-    fn Location();
-    fn MapElements();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMapElementsLayerClickEventArgsVtbl(
@@ -2376,12 +1861,6 @@ pub struct IMapElementsLayerContextRequestedEventArgs(::windows::core::IUnknown)
 unsafe impl ::windows::core::Interface for IMapElementsLayerContextRequestedEventArgs {
     type Vtable = IMapElementsLayerContextRequestedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xda45d0b3_7a0e_4758_808b_3a637627eb0d);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IMapElementsLayerContextRequestedEventArgsImpl {
-    fn Position();
-    fn Location();
-    fn MapElements();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2406,12 +1885,6 @@ unsafe impl ::windows::core::Interface for IMapElementsLayerPointerEnteredEventA
     type Vtable = IMapElementsLayerPointerEnteredEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x757fc032_4694_4404_8c89_348b6b76c5e6);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IMapElementsLayerPointerEnteredEventArgsImpl {
-    fn Position();
-    fn Location();
-    fn MapElement();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMapElementsLayerPointerEnteredEventArgsVtbl(
@@ -2433,12 +1906,6 @@ pub struct IMapElementsLayerPointerExitedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMapElementsLayerPointerExitedEventArgs {
     type Vtable = IMapElementsLayerPointerExitedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x92f3c6ad_03ed_4c39_af20_2a07ee1ccea6);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IMapElementsLayerPointerExitedEventArgsImpl {
-    fn Position();
-    fn Location();
-    fn MapElement();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2462,10 +1929,6 @@ unsafe impl ::windows::core::Interface for IMapElementsLayerStatics {
     type Vtable = IMapElementsLayerStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x34005727_f509_4d28_9180_911c03411d74);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IMapElementsLayerStaticsImpl {
-    fn MapElementsProperty();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMapElementsLayerStaticsVtbl(
@@ -2483,17 +1946,6 @@ pub struct IMapIcon(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMapIcon {
     type Vtable = IMapIconVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd2096872_23d9_4a2b_8be0_69f3a85482ab);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IMapIconImpl {
-    fn Location();
-    fn SetLocation();
-    fn Title();
-    fn SetTitle();
-    fn NormalizedAnchorPoint();
-    fn SetNormalizedAnchorPoint();
-    fn Image();
-    fn SetImage();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2526,11 +1978,6 @@ unsafe impl ::windows::core::Interface for IMapIcon2 {
     type Vtable = IMapIcon2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x611254b9_d8aa_4bbd_a316_badf06911d63);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IMapIcon2Impl {
-    fn CollisionBehaviorDesired();
-    fn SetCollisionBehaviorDesired();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMapIcon2Vtbl(
@@ -2549,12 +1996,6 @@ pub struct IMapIconStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMapIconStatics {
     type Vtable = IMapIconStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdcbc9e56_1190_4b5d_9e56_e5b6724aa328);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IMapIconStaticsImpl {
-    fn LocationProperty();
-    fn TitleProperty();
-    fn NormalizedAnchorPointProperty();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2576,10 +2017,6 @@ unsafe impl ::windows::core::Interface for IMapIconStatics2 {
     type Vtable = IMapIconStatics2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xff4c306a_cf76_46ab_a12f_b603b986c696);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IMapIconStatics2Impl {
-    fn CollisionBehaviorDesiredProperty();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMapIconStatics2Vtbl(
@@ -2597,11 +2034,6 @@ pub struct IMapInputEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMapInputEventArgs {
     type Vtable = IMapInputEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9fc503a0_a8a2_4394_92e9_2247764f2f49);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IMapInputEventArgsImpl {
-    fn Position();
-    fn Location();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2623,14 +2055,6 @@ pub struct IMapItemsControl(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMapItemsControl {
     type Vtable = IMapItemsControlVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x94c2c4d3_b335_42c5_b660_e6a07ec3bddc);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IMapItemsControlImpl {
-    fn ItemsSource();
-    fn SetItemsSource();
-    fn Items();
-    fn ItemTemplate();
-    fn SetItemTemplate();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2655,12 +2079,6 @@ unsafe impl ::windows::core::Interface for IMapItemsControlStatics {
     type Vtable = IMapItemsControlStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x33a859c7_789b_425c_8a0a_32385896cb4a);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IMapItemsControlStaticsImpl {
-    fn ItemsSourceProperty();
-    fn ItemsProperty();
-    fn ItemTemplateProperty();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMapItemsControlStaticsVtbl(
@@ -2680,15 +2098,6 @@ pub struct IMapLayer(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMapLayer {
     type Vtable = IMapLayerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6d0ff9c1_a14d_4f97_8f57_46715b57683a);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IMapLayerImpl {
-    fn MapTabIndex();
-    fn SetMapTabIndex();
-    fn Visible();
-    fn SetVisible();
-    fn ZIndex();
-    fn SetZIndex();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2713,10 +2122,6 @@ unsafe impl ::windows::core::Interface for IMapLayerFactory {
     type Vtable = IMapLayerFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe02a2207_dee3_47c8_9825_bd029c5752f7);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IMapLayerFactoryImpl {
-    fn CreateInstance();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMapLayerFactoryVtbl(
@@ -2734,12 +2139,6 @@ pub struct IMapLayerStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMapLayerStatics {
     type Vtable = IMapLayerStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9ca4a26b_5db9_4f0c_bdd5_b1bffdcce946);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IMapLayerStaticsImpl {
-    fn MapTabIndexProperty();
-    fn VisibleProperty();
-    fn ZIndexProperty();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2761,8 +2160,6 @@ unsafe impl ::windows::core::Interface for IMapModel3D {
     type Vtable = IMapModel3DVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf8c541a1_ca27_4968_a2bf_9c20f06a0468);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IMapModel3DImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMapModel3DVtbl(
@@ -2779,10 +2176,6 @@ pub struct IMapModel3DFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMapModel3DFactory {
     type Vtable = IMapModel3DFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdf7f0bcc_580a_498b_939b_0119a9dadb9e);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IMapModel3DFactoryImpl {
-    fn CreateInstance();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2801,11 +2194,6 @@ pub struct IMapModel3DStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMapModel3DStatics {
     type Vtable = IMapModel3DStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4834a480_8e56_4b0f_872d_7ead103187cd);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IMapModel3DStaticsImpl {
-    fn CreateFrom3MFAsync();
-    fn CreateFrom3MFWithShadingOptionAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2827,19 +2215,6 @@ pub struct IMapPolygon(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMapPolygon {
     type Vtable = IMapPolygonVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xabda2285_4926_4c3a_a5f9_19df7f69db3d);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IMapPolygonImpl {
-    fn Path();
-    fn SetPath();
-    fn StrokeColor();
-    fn SetStrokeColor();
-    fn StrokeThickness();
-    fn SetStrokeThickness();
-    fn StrokeDashed();
-    fn SetStrokeDashed();
-    fn FillColor();
-    fn SetFillColor();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2870,10 +2245,6 @@ unsafe impl ::windows::core::Interface for IMapPolygon2 {
     type Vtable = IMapPolygon2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x96c8a11e_636b_4018_9c2e_acc9122a01b2);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IMapPolygon2Impl {
-    fn Paths();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMapPolygon2Vtbl(
@@ -2892,12 +2263,6 @@ pub struct IMapPolygonStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMapPolygonStatics {
     type Vtable = IMapPolygonStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x37f573be_097b_424c_87cc_2ee042fda6d2);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IMapPolygonStaticsImpl {
-    fn PathProperty();
-    fn StrokeThicknessProperty();
-    fn StrokeDashedProperty();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2918,17 +2283,6 @@ pub struct IMapPolyline(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMapPolyline {
     type Vtable = IMapPolylineVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfbad24a2_24df_4a86_8ffa_0f8f4d9ec17d);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IMapPolylineImpl {
-    fn Path();
-    fn SetPath();
-    fn StrokeColor();
-    fn SetStrokeColor();
-    fn StrokeThickness();
-    fn SetStrokeThickness();
-    fn StrokeDashed();
-    fn SetStrokeDashed();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2957,11 +2311,6 @@ unsafe impl ::windows::core::Interface for IMapPolylineStatics {
     type Vtable = IMapPolylineStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x61fde44b_1ddf_4303_b809_ec87f58ad065);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IMapPolylineStaticsImpl {
-    fn PathProperty();
-    fn StrokeDashedProperty();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMapPolylineStaticsVtbl(
@@ -2980,11 +2329,6 @@ pub struct IMapRightTappedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMapRightTappedEventArgs {
     type Vtable = IMapRightTappedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x20943171_6fe8_40a6_ad0e_297379b575a7);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IMapRightTappedEventArgsImpl {
-    fn Position();
-    fn Location();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3006,14 +2350,6 @@ pub struct IMapRouteView(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMapRouteView {
     type Vtable = IMapRouteViewVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x740eaec5_bacc_41e1_a67e_dd6513832049);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IMapRouteViewImpl {
-    fn RouteColor();
-    fn SetRouteColor();
-    fn OutlineColor();
-    fn SetOutlineColor();
-    fn Route();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3038,10 +2374,6 @@ unsafe impl ::windows::core::Interface for IMapRouteViewFactory {
     type Vtable = IMapRouteViewFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf083addf_0066_4628_82fe_ea78c23cec1e);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IMapRouteViewFactoryImpl {
-    fn CreateInstanceWithMapRoute();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMapRouteViewFactoryVtbl(
@@ -3060,12 +2392,6 @@ pub struct IMapScene(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMapScene {
     type Vtable = IMapSceneVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8bba10a9_50e7_482c_9789_c688b178ac24);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IMapSceneImpl {
-    fn TargetCamera();
-    fn TargetCameraChanged();
-    fn RemoveTargetCameraChanged();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3088,18 +2414,6 @@ pub struct IMapSceneStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMapSceneStatics {
     type Vtable = IMapSceneStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x03e4ad6c_86ec_44d9_9597_fb75b7deba0a);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IMapSceneStaticsImpl {
-    fn CreateFromBoundingBox();
-    fn CreateFromBoundingBoxWithHeadingAndPitch();
-    fn CreateFromCamera();
-    fn CreateFromLocation();
-    fn CreateFromLocationWithHeadingAndPitch();
-    fn CreateFromLocationAndRadius();
-    fn CreateFromLocationAndRadiusWithHeadingAndPitch();
-    fn CreateFromLocations();
-    fn CreateFromLocationsWithHeadingAndPitch();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3135,8 +2449,6 @@ unsafe impl ::windows::core::Interface for IMapStyleSheet {
     type Vtable = IMapStyleSheetVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xae54b2bf_8991_42ed_8d58_20473deede1d);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IMapStyleSheetImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMapStyleSheetVtbl(
@@ -3153,73 +2465,6 @@ pub struct IMapStyleSheetEntriesStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMapStyleSheetEntriesStatics {
     type Vtable = IMapStyleSheetEntriesStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc9636345_ef1a_41a4_a757_bd4f43e1e4d1);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IMapStyleSheetEntriesStaticsImpl {
-    fn Area();
-    fn Airport();
-    fn Cemetery();
-    fn Continent();
-    fn Education();
-    fn IndigenousPeoplesReserve();
-    fn Island();
-    fn Medical();
-    fn Military();
-    fn Nautical();
-    fn Neighborhood();
-    fn Runway();
-    fn Sand();
-    fn ShoppingCenter();
-    fn Stadium();
-    fn Vegetation();
-    fn Forest();
-    fn GolfCourse();
-    fn Park();
-    fn PlayingField();
-    fn Reserve();
-    fn Point();
-    fn NaturalPoint();
-    fn Peak();
-    fn VolcanicPeak();
-    fn WaterPoint();
-    fn PointOfInterest();
-    fn Business();
-    fn FoodPoint();
-    fn PopulatedPlace();
-    fn Capital();
-    fn AdminDistrictCapital();
-    fn CountryRegionCapital();
-    fn RoadShield();
-    fn RoadExit();
-    fn Transit();
-    fn Political();
-    fn CountryRegion();
-    fn AdminDistrict();
-    fn District();
-    fn Structure();
-    fn Building();
-    fn EducationBuilding();
-    fn MedicalBuilding();
-    fn TransitBuilding();
-    fn Transportation();
-    fn Road();
-    fn ControlledAccessHighway();
-    fn HighSpeedRamp();
-    fn Highway();
-    fn MajorRoad();
-    fn ArterialRoad();
-    fn Street();
-    fn Ramp();
-    fn UnpavedStreet();
-    fn TollRoad();
-    fn Railway();
-    fn Trail();
-    fn WaterRoute();
-    fn Water();
-    fn River();
-    fn RouteLine();
-    fn WalkingRoute();
-    fn DrivingRoute();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3302,12 +2547,6 @@ unsafe impl ::windows::core::Interface for IMapStyleSheetEntryStatesStatics {
     type Vtable = IMapStyleSheetEntryStatesStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x23ac5532_866d_4bfa_b481_39bea1de3506);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IMapStyleSheetEntryStatesStaticsImpl {
-    fn Disabled();
-    fn Hover();
-    fn Selected();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMapStyleSheetEntryStatesStaticsVtbl(
@@ -3327,18 +2566,6 @@ pub struct IMapStyleSheetStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMapStyleSheetStatics {
     type Vtable = IMapStyleSheetStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xabbd00ad_0a1c_4335_82f4_61d936aa197d);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IMapStyleSheetStaticsImpl {
-    fn Aerial();
-    fn AerialWithOverlay();
-    fn RoadLight();
-    fn RoadDark();
-    fn RoadHighContrastLight();
-    fn RoadHighContrastDark();
-    fn Combine();
-    fn ParseFromJson();
-    fn TryParseFromJson();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3367,10 +2594,6 @@ unsafe impl ::windows::core::Interface for IMapTargetCameraChangedEventArgs {
     type Vtable = IMapTargetCameraChangedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdbf00472_e953_4fa8_97d0_ea86359057cf);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IMapTargetCameraChangedEventArgsImpl {
-    fn Camera();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMapTargetCameraChangedEventArgsVtbl(
@@ -3389,10 +2612,6 @@ unsafe impl ::windows::core::Interface for IMapTargetCameraChangedEventArgs2 {
     type Vtable = IMapTargetCameraChangedEventArgs2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x97c0b332_f2b6_460b_8d91_ac020a2383dd);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IMapTargetCameraChangedEventArgs2Impl {
-    fn ChangeReason();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMapTargetCameraChangedEventArgs2Vtbl(
@@ -3410,12 +2629,6 @@ pub struct IMapTileBitmapRequest(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMapTileBitmapRequest {
     type Vtable = IMapTileBitmapRequestVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x46733fbc_d89d_472b_b5f6_d7066b0584f4);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IMapTileBitmapRequestImpl {
-    fn PixelData();
-    fn SetPixelData();
-    fn GetDeferral();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3439,10 +2652,6 @@ unsafe impl ::windows::core::Interface for IMapTileBitmapRequestDeferral {
     type Vtable = IMapTileBitmapRequestDeferralVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfe370542_a4ac_4efa_9665_0490b0cafdd2);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IMapTileBitmapRequestDeferralImpl {
-    fn Complete();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMapTileBitmapRequestDeferralVtbl(
@@ -3460,13 +2669,6 @@ pub struct IMapTileBitmapRequestedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMapTileBitmapRequestedEventArgs {
     type Vtable = IMapTileBitmapRequestedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x337f691d_9b02_4aa2_8b1e_cc4d91719bf3);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IMapTileBitmapRequestedEventArgsImpl {
-    fn X();
-    fn Y();
-    fn ZoomLevel();
-    fn Request();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3489,10 +2691,6 @@ unsafe impl ::windows::core::Interface for IMapTileBitmapRequestedEventArgs2 {
     type Vtable = IMapTileBitmapRequestedEventArgs2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0261d114_246a_5296_bc85_590f53aa39c8);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IMapTileBitmapRequestedEventArgs2Impl {
-    fn FrameIndex();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMapTileBitmapRequestedEventArgs2Vtbl(
@@ -3511,8 +2709,6 @@ unsafe impl ::windows::core::Interface for IMapTileDataSource {
     type Vtable = IMapTileDataSourceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc03d9f5e_be1f_4c69_9969_79467a513c38);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IMapTileDataSourceImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMapTileDataSourceVtbl(
@@ -3529,10 +2725,6 @@ pub struct IMapTileDataSourceFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMapTileDataSourceFactory {
     type Vtable = IMapTileDataSourceFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa3920fbd_e446_4648_a74d_fd2c5d557c06);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IMapTileDataSourceFactoryImpl {
-    fn CreateInstance();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3551,31 +2743,6 @@ pub struct IMapTileSource(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMapTileSource {
     type Vtable = IMapTileSourceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x88a76e4e_2fdf_4567_9255_1100519c8d62);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IMapTileSourceImpl {
-    fn DataSource();
-    fn SetDataSource();
-    fn Layer();
-    fn SetLayer();
-    fn ZoomLevelRange();
-    fn SetZoomLevelRange();
-    fn Bounds();
-    fn SetBounds();
-    fn AllowOverstretch();
-    fn SetAllowOverstretch();
-    fn IsFadingEnabled();
-    fn SetIsFadingEnabled();
-    fn IsTransparencyEnabled();
-    fn SetIsTransparencyEnabled();
-    fn IsRetryEnabled();
-    fn SetIsRetryEnabled();
-    fn ZIndex();
-    fn SetZIndex();
-    fn TilePixelSize();
-    fn SetTilePixelSize();
-    fn Visible();
-    fn SetVisible();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3618,19 +2785,6 @@ unsafe impl ::windows::core::Interface for IMapTileSource2 {
     type Vtable = IMapTileSource2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8e65ebbd_4095_5c15_99f1_1260b4e8b0a9);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IMapTileSource2Impl {
-    fn AnimationState();
-    fn AutoPlay();
-    fn SetAutoPlay();
-    fn FrameCount();
-    fn SetFrameCount();
-    fn FrameDuration();
-    fn SetFrameDuration();
-    fn Pause();
-    fn Play();
-    fn Stop();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMapTileSource2Vtbl(
@@ -3660,14 +2814,6 @@ unsafe impl ::windows::core::Interface for IMapTileSourceFactory {
     type Vtable = IMapTileSourceFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcd7f811f_77fa_482b_9d34_71d31d465c48);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IMapTileSourceFactoryImpl {
-    fn CreateInstance();
-    fn CreateInstanceWithDataSource();
-    fn CreateInstanceWithDataSourceAndZoomRange();
-    fn CreateInstanceWithDataSourceZoomRangeAndBounds();
-    fn CreateInstanceWithDataSourceZoomRangeBoundsAndTileSize();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMapTileSourceFactoryVtbl(
@@ -3691,20 +2837,6 @@ pub struct IMapTileSourceStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMapTileSourceStatics {
     type Vtable = IMapTileSourceStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x93fcc93c_7035_4603_99b1_e659921b6093);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IMapTileSourceStaticsImpl {
-    fn DataSourceProperty();
-    fn LayerProperty();
-    fn ZoomLevelRangeProperty();
-    fn BoundsProperty();
-    fn AllowOverstretchProperty();
-    fn IsFadingEnabledProperty();
-    fn IsTransparencyEnabledProperty();
-    fn IsRetryEnabledProperty();
-    fn ZIndexProperty();
-    fn TilePixelSizeProperty();
-    fn VisibleProperty();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3734,13 +2866,6 @@ unsafe impl ::windows::core::Interface for IMapTileSourceStatics2 {
     type Vtable = IMapTileSourceStatics2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x75cdd47e_669c_50fd_ad85_5ea5174cf59b);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IMapTileSourceStatics2Impl {
-    fn AnimationStateProperty();
-    fn AutoPlayProperty();
-    fn FrameCountProperty();
-    fn FrameDurationProperty();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMapTileSourceStatics2Vtbl(
@@ -3761,12 +2886,6 @@ pub struct IMapTileUriRequest(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMapTileUriRequest {
     type Vtable = IMapTileUriRequestVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x17402335_3127_45b8_87a7_99f87d4e2745);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IMapTileUriRequestImpl {
-    fn Uri();
-    fn SetUri();
-    fn GetDeferral();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3790,10 +2909,6 @@ unsafe impl ::windows::core::Interface for IMapTileUriRequestDeferral {
     type Vtable = IMapTileUriRequestDeferralVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc117ade0_bf3e_4c51_8faa_4b593cf68eb2);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IMapTileUriRequestDeferralImpl {
-    fn Complete();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMapTileUriRequestDeferralVtbl(
@@ -3811,13 +2926,6 @@ pub struct IMapTileUriRequestedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMapTileUriRequestedEventArgs {
     type Vtable = IMapTileUriRequestedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd2147b43_1bbf_4b98_8dd3_b7834e407e0d);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IMapTileUriRequestedEventArgsImpl {
-    fn X();
-    fn Y();
-    fn ZoomLevel();
-    fn Request();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3840,10 +2948,6 @@ unsafe impl ::windows::core::Interface for IMapTileUriRequestedEventArgs2 {
     type Vtable = IMapTileUriRequestedEventArgs2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2302185d_33b5_5a55_92f5_74a86a22efa6);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IMapTileUriRequestedEventArgs2Impl {
-    fn FrameIndex();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMapTileUriRequestedEventArgs2Vtbl(
@@ -3861,21 +2965,6 @@ pub struct IStreetsideExperience(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IStreetsideExperience {
     type Vtable = IStreetsideExperienceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa558aec9_e30c_46c8_8116_484691675558);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IStreetsideExperienceImpl {
-    fn AddressTextVisible();
-    fn SetAddressTextVisible();
-    fn CursorVisible();
-    fn SetCursorVisible();
-    fn OverviewMapVisible();
-    fn SetOverviewMapVisible();
-    fn StreetLabelsVisible();
-    fn SetStreetLabelsVisible();
-    fn ExitButtonVisible();
-    fn SetExitButtonVisible();
-    fn ZoomButtonsVisible();
-    fn SetZoomButtonsVisible();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3906,11 +2995,6 @@ unsafe impl ::windows::core::Interface for IStreetsideExperienceFactory {
     type Vtable = IStreetsideExperienceFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7a5bcf3c_649e_4342_9995_68a6cf5961a7);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IStreetsideExperienceFactoryImpl {
-    fn CreateInstanceWithPanorama();
-    fn CreateInstanceWithPanoramaHeadingPitchAndFieldOfView();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IStreetsideExperienceFactoryVtbl(
@@ -3930,10 +3014,6 @@ unsafe impl ::windows::core::Interface for IStreetsidePanorama {
     type Vtable = IStreetsidePanoramaVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6fe00fd8_ad60_4664_b539_b1069f16c5af);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IStreetsidePanoramaImpl {
-    fn Location();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IStreetsidePanoramaVtbl(
@@ -3952,11 +3032,6 @@ pub struct IStreetsidePanoramaStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IStreetsidePanoramaStatics {
     type Vtable = IStreetsidePanoramaStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd3b47f69_54b3_4ec5_b2a0_4f8204576507);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IStreetsidePanoramaStaticsImpl {
-    fn FindNearbyWithLocationAsync();
-    fn FindNearbyWithLocationAndRadiusAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -13506,3 +12581,5 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Str
 }
 unsafe impl ::core::marker::Send for StreetsidePanorama {}
 unsafe impl ::core::marker::Sync for StreetsidePanorama {}
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

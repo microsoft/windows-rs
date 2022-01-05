@@ -397,3 +397,5 @@ pub unsafe fn RmStartSession(psessionhandle: *mut u32, dwsessionflags: u32, strs
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

@@ -451,11 +451,6 @@ unsafe impl ::windows::core::Interface for IComponentLoadFailedEventArgs {
     type Vtable = IComponentLoadFailedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x95972e93_7746_417e_8495_f031bbc5862c);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IComponentLoadFailedEventArgsImpl {
-    fn Information();
-    fn Completion();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IComponentLoadFailedEventArgsVtbl(
@@ -475,10 +470,6 @@ unsafe impl ::windows::core::Interface for IComponentRenewalStatics {
     type Vtable = IComponentRenewalStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6ffbcd67_b795_48c5_8b7b_a7c4efe202e3);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IComponentRenewalStaticsImpl {
-    fn RenewSystemComponentsAsync();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IComponentRenewalStaticsVtbl(
@@ -497,14 +488,6 @@ pub struct IHdcpSession(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IHdcpSession {
     type Vtable = IHdcpSessionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x718845e9_64d7_426d_809b_1be461941a2a);
-}
-#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IHdcpSessionImpl: IClosableImpl {
-    fn IsEffectiveProtectionAtLeast();
-    fn GetEffectiveProtection();
-    fn SetDesiredMinProtectionAsync();
-    fn ProtectionChanged();
-    fn RemoveProtectionChanged();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -531,16 +514,6 @@ pub struct IMediaProtectionManager(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMediaProtectionManager {
     type Vtable = IMediaProtectionManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x45694947_c741_434b_a79e_474c12d93d2f);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IMediaProtectionManagerImpl {
-    fn ServiceRequested();
-    fn RemoveServiceRequested();
-    fn RebootNeeded();
-    fn RemoveRebootNeeded();
-    fn ComponentLoadFailed();
-    fn RemoveComponentLoadFailed();
-    fn Properties();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -573,10 +546,6 @@ unsafe impl ::windows::core::Interface for IMediaProtectionPMPServer {
     type Vtable = IMediaProtectionPMPServerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0c111226_7b26_4d31_95bb_9c1b08ef7fc0);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IMediaProtectionPMPServerImpl {
-    fn Properties();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaProtectionPMPServerVtbl(
@@ -596,10 +565,6 @@ unsafe impl ::windows::core::Interface for IMediaProtectionPMPServerFactory {
     type Vtable = IMediaProtectionPMPServerFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x602c8e5e_f7d2_487e_af91_dbc4252b2182);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IMediaProtectionPMPServerFactoryImpl {
-    fn CreatePMPServer();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaProtectionPMPServerFactoryVtbl(
@@ -618,10 +583,6 @@ pub struct IMediaProtectionServiceCompletion(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMediaProtectionServiceCompletion {
     type Vtable = IMediaProtectionServiceCompletionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8b5cca18_cfd5_44ee_a2ed_df76010c14b5);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IMediaProtectionServiceCompletionImpl {
-    fn Complete();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -718,10 +679,6 @@ unsafe impl ::windows::core::Interface for IMediaProtectionServiceRequest {
     type Vtable = IMediaProtectionServiceRequestVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb1de0ea6_2094_478d_87a4_8b95200f85c6);
 }
-pub trait IMediaProtectionServiceRequestImpl {
-    fn ProtectionSystem();
-    fn Type();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaProtectionServiceRequestVtbl(
@@ -741,10 +698,6 @@ unsafe impl ::windows::core::Interface for IProtectionCapabilities {
     type Vtable = IProtectionCapabilitiesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc7ac5d7e_7480_4d29_a464_7bcd913dd8e4);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IProtectionCapabilitiesImpl {
-    fn IsTypeSupported();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IProtectionCapabilitiesVtbl(
@@ -762,10 +715,6 @@ pub struct IRevocationAndRenewalInformation(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IRevocationAndRenewalInformation {
     type Vtable = IRevocationAndRenewalInformationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf3a1937b_2501_439e_a6e7_6fc95e175fcf);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IRevocationAndRenewalInformationImpl {
-    fn Items();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -785,14 +734,6 @@ pub struct IRevocationAndRenewalItem(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IRevocationAndRenewalItem {
     type Vtable = IRevocationAndRenewalItemVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3099c20c_3cf0_49ea_902d_caf32d2dde2c);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IRevocationAndRenewalItemImpl {
-    fn Reasons();
-    fn HeaderHash();
-    fn PublicKeyHash();
-    fn Name();
-    fn RenewalId();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -816,11 +757,6 @@ unsafe impl ::windows::core::Interface for IServiceRequestedEventArgs {
     type Vtable = IServiceRequestedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x34283baf_abb4_4fc1_bd89_93f106573a49);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IServiceRequestedEventArgsImpl {
-    fn Request();
-    fn Completion();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IServiceRequestedEventArgsVtbl(
@@ -839,10 +775,6 @@ pub struct IServiceRequestedEventArgs2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IServiceRequestedEventArgs2 {
     type Vtable = IServiceRequestedEventArgs2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x553c69d6_fafe_4128_8dfa_130e398a13a7);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IServiceRequestedEventArgs2Impl {
-    fn MediaPlaybackItem();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1838,3 +1770,5 @@ unsafe impl ::windows::core::RuntimeType for ServiceRequestedEventHandler {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ServiceRequestedEventHandlerVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: ::windows::core::RawPtr, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

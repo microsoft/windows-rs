@@ -644,3 +644,5 @@ impl ::core::default::Default for SESSION_HEADER {
 }
 #[doc = "*Required features: 'Win32_NetworkManagement_NetBios'*"]
 pub const UNIQUE_NAME: u32 = 0u32;
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

@@ -6,21 +6,6 @@ unsafe impl ::windows::core::Interface for IMessageDialog {
     type Vtable = IMessageDialogVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x33f59b01_5325_43ab_9ab3_bdae440e4121);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IMessageDialogImpl {
-    fn Title();
-    fn SetTitle();
-    fn Commands();
-    fn DefaultCommandIndex();
-    fn SetDefaultCommandIndex();
-    fn CancelCommandIndex();
-    fn SetCancelCommandIndex();
-    fn Content();
-    fn SetContent();
-    fn ShowAsync();
-    fn Options();
-    fn SetOptions();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMessageDialogVtbl(
@@ -52,11 +37,6 @@ unsafe impl ::windows::core::Interface for IMessageDialogFactory {
     type Vtable = IMessageDialogFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2d161777_a66f_4ea5_bb87_793ffa4941f2);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IMessageDialogFactoryImpl {
-    fn Create();
-    fn CreateWithTitle();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMessageDialogFactoryVtbl(
@@ -75,13 +55,6 @@ pub struct IPopupMenu(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPopupMenu {
     type Vtable = IPopupMenuVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4e9bc6dc_880d_47fc_a0a1_72b639e62559);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IPopupMenuImpl {
-    fn Commands();
-    fn ShowAsync();
-    fn ShowAsyncWithRect();
-    fn ShowAsyncWithRectAndPlacement();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -208,14 +181,6 @@ unsafe impl ::windows::core::Interface for IUICommand {
     type Vtable = IUICommandVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4ff93a75_4145_47ff_ac7f_dff1c1fa5b0f);
 }
-pub trait IUICommandImpl {
-    fn Label();
-    fn SetLabel();
-    fn Invoked();
-    fn SetInvoked();
-    fn Id();
-    fn SetId();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUICommandVtbl(
@@ -238,12 +203,6 @@ pub struct IUICommandFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IUICommandFactory {
     type Vtable = IUICommandFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa21a8189_26b0_4676_ae94_54041bc125e8);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IUICommandFactoryImpl {
-    fn Create();
-    fn CreateWithHandler();
-    fn CreateWithHandlerAndId();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1025,3 +984,5 @@ impl<'a> ::windows::core::IntoParam<'a, IUICommand> for &UICommandSeparator {
 }
 unsafe impl ::core::marker::Send for UICommandSeparator {}
 unsafe impl ::core::marker::Sync for UICommandSeparator {}
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

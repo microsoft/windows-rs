@@ -25101,11 +25101,6 @@ unsafe impl ::windows::core::Interface for IAmbientLight {
     type Vtable = IAmbientLightVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa48130a1_b7c4_46f7_b9bf_daf43a44e6ee);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IAmbientLightImpl {
-    fn Color();
-    fn SetColor();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAmbientLightVtbl(
@@ -25125,11 +25120,6 @@ unsafe impl ::windows::core::Interface for IAmbientLight2 {
     type Vtable = IAmbientLight2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3b64a6bf_5f97_4c94_86e5_042dd386b27d);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IAmbientLight2Impl {
-    fn Intensity();
-    fn SetIntensity();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAmbientLight2Vtbl(
@@ -25148,17 +25138,6 @@ pub struct IAnimationController(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAnimationController {
     type Vtable = IAnimationControllerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc934efd2_0722_4f5f_a4e2_9510f3d43bf7);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IAnimationControllerImpl {
-    fn PlaybackRate();
-    fn SetPlaybackRate();
-    fn Progress();
-    fn SetProgress();
-    fn ProgressBehavior();
-    fn SetProgressBehavior();
-    fn Pause();
-    fn Resume();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -25184,11 +25163,6 @@ pub struct IAnimationControllerStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAnimationControllerStatics {
     type Vtable = IAnimationControllerStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe71164df_651b_4800_b9e5_6a3bcfed3365);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IAnimationControllerStaticsImpl {
-    fn MaxPlaybackRate();
-    fn MinPlaybackRate();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -25275,9 +25249,6 @@ unsafe impl ::windows::core::Interface for IAnimationObject {
     type Vtable = IAnimationObjectVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe7141e0a_04b8_4fc5_a4dc_195392e57807);
 }
-pub trait IAnimationObjectImpl {
-    fn PopulatePropertyInfo();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAnimationObjectVtbl(
@@ -25295,11 +25266,6 @@ pub struct IAnimationPropertyInfo(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAnimationPropertyInfo {
     type Vtable = IAnimationPropertyInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf4716f05_ed77_4e3c_b328_5c3985b3738f);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IAnimationPropertyInfoImpl {
-    fn AccessMode();
-    fn SetAccessMode();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -25320,11 +25286,6 @@ unsafe impl ::windows::core::Interface for IAnimationPropertyInfo2 {
     type Vtable = IAnimationPropertyInfo2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x591720b4_7472_5218_8b39_dffe615ae6da);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IAnimationPropertyInfo2Impl {
-    fn GetResolvedCompositionObject();
-    fn GetResolvedCompositionObjectProperty();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAnimationPropertyInfo2Vtbl(
@@ -25343,11 +25304,6 @@ pub struct IBackEasingFunction(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IBackEasingFunction {
     type Vtable = IBackEasingFunctionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb8560da4_5e3c_545d_b263_7987a2bd27cb);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IBackEasingFunctionImpl {
-    fn Mode();
-    fn Amplitude();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -25368,10 +25324,6 @@ unsafe impl ::windows::core::Interface for IBooleanKeyFrameAnimation {
     type Vtable = IBooleanKeyFrameAnimationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x95e23a08_d1f4_4972_9770_3efe68d82e14);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IBooleanKeyFrameAnimationImpl {
-    fn InsertKeyFrame();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBooleanKeyFrameAnimationVtbl(
@@ -25389,12 +25341,6 @@ pub struct IBounceEasingFunction(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IBounceEasingFunction {
     type Vtable = IBounceEasingFunctionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe7fdb44b_aad5_5174_9421_eef8b75a6a43);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IBounceEasingFunctionImpl {
-    fn Mode();
-    fn Bounces();
-    fn Bounciness();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -25415,13 +25361,6 @@ pub struct IBounceScalarNaturalMotionAnimation(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IBounceScalarNaturalMotionAnimation {
     type Vtable = IBounceScalarNaturalMotionAnimationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbaa30dcc_a633_4618_9b06_7f7c72c87cff);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IBounceScalarNaturalMotionAnimationImpl {
-    fn Acceleration();
-    fn SetAcceleration();
-    fn Restitution();
-    fn SetRestitution();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -25444,13 +25383,6 @@ unsafe impl ::windows::core::Interface for IBounceVector2NaturalMotionAnimation 
     type Vtable = IBounceVector2NaturalMotionAnimationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xda344196_2154_4b3c_88aa_47361204eccd);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IBounceVector2NaturalMotionAnimationImpl {
-    fn Acceleration();
-    fn SetAcceleration();
-    fn Restitution();
-    fn SetRestitution();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBounceVector2NaturalMotionAnimationVtbl(
@@ -25471,13 +25403,6 @@ pub struct IBounceVector3NaturalMotionAnimation(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IBounceVector3NaturalMotionAnimation {
     type Vtable = IBounceVector3NaturalMotionAnimationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x47dabc31_10d3_4518_86f1_09caf742d113);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IBounceVector3NaturalMotionAnimationImpl {
-    fn Acceleration();
-    fn SetAcceleration();
-    fn Restitution();
-    fn SetRestitution();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -25500,10 +25425,6 @@ unsafe impl ::windows::core::Interface for ICircleEasingFunction {
     type Vtable = ICircleEasingFunctionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1e07222a_6f82_5a28_8748_2e92fc46ee2b);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ICircleEasingFunctionImpl {
-    fn Mode();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICircleEasingFunctionVtbl(
@@ -25521,13 +25442,6 @@ pub struct IColorKeyFrameAnimation(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IColorKeyFrameAnimation {
     type Vtable = IColorKeyFrameAnimationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x93adb5e9_8e05_4593_84a3_dca152781e56);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IColorKeyFrameAnimationImpl {
-    fn InterpolationColorSpace();
-    fn SetInterpolationColorSpace();
-    fn InsertKeyFrame();
-    fn InsertKeyFrameWithEasingFunction();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -25549,20 +25463,6 @@ pub struct ICompositionAnimation(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICompositionAnimation {
     type Vtable = ICompositionAnimationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x464c4c2c_1caa_4061_9b40_e13fde1503ca);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ICompositionAnimationImpl {
-    fn ClearAllParameters();
-    fn ClearParameter();
-    fn SetColorParameter();
-    fn SetMatrix3x2Parameter();
-    fn SetMatrix4x4Parameter();
-    fn SetQuaternionParameter();
-    fn SetReferenceParameter();
-    fn SetScalarParameter();
-    fn SetVector2Parameter();
-    fn SetVector3Parameter();
-    fn SetVector4Parameter();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -25598,12 +25498,6 @@ unsafe impl ::windows::core::Interface for ICompositionAnimation2 {
     type Vtable = ICompositionAnimation2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x369b603e_a80f_4948_93e3_ed23fb38c6cb);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ICompositionAnimation2Impl {
-    fn SetBooleanParameter();
-    fn Target();
-    fn SetTarget();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositionAnimation2Vtbl(
@@ -25624,10 +25518,6 @@ unsafe impl ::windows::core::Interface for ICompositionAnimation3 {
     type Vtable = ICompositionAnimation3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd51e030d_7da4_4bd7_bc2d_f4517529f43a);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ICompositionAnimation3Impl {
-    fn InitialValueExpressions();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositionAnimation3Vtbl(
@@ -25646,10 +25536,6 @@ pub struct ICompositionAnimation4(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICompositionAnimation4 {
     type Vtable = ICompositionAnimation4Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x770137be_76bc_4e23_bfed_fe9cc20f6ec9);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ICompositionAnimation4Impl {
-    fn SetExpressionReferenceParameter();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -25729,7 +25615,6 @@ unsafe impl ::windows::core::Interface for ICompositionAnimationBase {
     type Vtable = ICompositionAnimationBaseVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1c2c2999_e818_48d3_a6dd_d78c82f8ace9);
 }
-pub trait ICompositionAnimationBaseImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositionAnimationBaseVtbl(
@@ -25747,8 +25632,6 @@ unsafe impl ::windows::core::Interface for ICompositionAnimationFactory {
     type Vtable = ICompositionAnimationFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x10f6c4fb_6e51_4c25_bbd3_586a9bec3ef4);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ICompositionAnimationFactoryImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositionAnimationFactoryVtbl(
@@ -25765,13 +25648,6 @@ pub struct ICompositionAnimationGroup(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICompositionAnimationGroup {
     type Vtable = ICompositionAnimationGroupVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5e7cc90c_cd14_4e07_8a55_c72527aabdac);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ICompositionAnimationGroupImpl {
-    fn Count();
-    fn Add();
-    fn Remove();
-    fn RemoveAll();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -25794,8 +25670,6 @@ unsafe impl ::windows::core::Interface for ICompositionBackdropBrush {
     type Vtable = ICompositionBackdropBrushVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc5acae58_3898_499e_8d7f_224e91286a5d);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ICompositionBackdropBrushImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositionBackdropBrushVtbl(
@@ -25813,8 +25687,6 @@ unsafe impl ::windows::core::Interface for ICompositionBatchCompletedEventArgs {
     type Vtable = ICompositionBatchCompletedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0d00dad0_9464_450a_a562_2e2698b0a812);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ICompositionBatchCompletedEventArgsImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositionBatchCompletedEventArgsVtbl(
@@ -25832,8 +25704,6 @@ unsafe impl ::windows::core::Interface for ICompositionBrush {
     type Vtable = ICompositionBrushVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xab0d7608_30c0_40e9_b568_b60a6bd1fb46);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ICompositionBrushImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositionBrushVtbl(
@@ -25851,8 +25721,6 @@ unsafe impl ::windows::core::Interface for ICompositionBrushFactory {
     type Vtable = ICompositionBrushFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xda53fb4c_4650_47c4_ad76_765379607ed6);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ICompositionBrushFactoryImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositionBrushFactoryVtbl(
@@ -25869,13 +25737,6 @@ pub struct ICompositionCapabilities(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICompositionCapabilities {
     type Vtable = ICompositionCapabilitiesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8253353e_b517_48bc_b1e8_4b3561a2e181);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ICompositionCapabilitiesImpl {
-    fn AreEffectsSupported();
-    fn AreEffectsFast();
-    fn Changed();
-    fn RemoveChanged();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -25900,10 +25761,6 @@ unsafe impl ::windows::core::Interface for ICompositionCapabilitiesStatics {
     type Vtable = ICompositionCapabilitiesStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf7b7a86e_6416_49e5_8ddf_afe949e20562);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ICompositionCapabilitiesStaticsImpl {
-    fn GetForCurrentView();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositionCapabilitiesStaticsVtbl(
@@ -25922,8 +25779,6 @@ unsafe impl ::windows::core::Interface for ICompositionClip {
     type Vtable = ICompositionClipVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1ccd2a52_cfc7_4ace_9983_146bb8eb6a3c);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ICompositionClipImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositionClipVtbl(
@@ -25940,23 +25795,6 @@ pub struct ICompositionClip2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICompositionClip2 {
     type Vtable = ICompositionClip2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5893e069_3516_40e1_89e0_5ba924927235);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ICompositionClip2Impl {
-    fn AnchorPoint();
-    fn SetAnchorPoint();
-    fn CenterPoint();
-    fn SetCenterPoint();
-    fn Offset();
-    fn SetOffset();
-    fn RotationAngle();
-    fn SetRotationAngle();
-    fn RotationAngleInDegrees();
-    fn SetRotationAngleInDegrees();
-    fn Scale();
-    fn SetScale();
-    fn TransformMatrix();
-    fn SetTransformMatrix();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -25999,8 +25837,6 @@ unsafe impl ::windows::core::Interface for ICompositionClipFactory {
     type Vtable = ICompositionClipFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb9484caf_20c7_4aed_ac4a_9c78ba1302cf);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ICompositionClipFactoryImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositionClipFactoryVtbl(
@@ -26017,11 +25853,6 @@ pub struct ICompositionColorBrush(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICompositionColorBrush {
     type Vtable = ICompositionColorBrushVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2b264c5e_bf35_4831_8642_cf70c20fff2f);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ICompositionColorBrushImpl {
-    fn Color();
-    fn SetColor();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -26041,13 +25872,6 @@ pub struct ICompositionColorGradientStop(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICompositionColorGradientStop {
     type Vtable = ICompositionColorGradientStopVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6f00ca92_c801_4e41_9a8f_a53e20f57778);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ICompositionColorGradientStopImpl {
-    fn Color();
-    fn SetColor();
-    fn Offset();
-    fn SetOffset();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -26070,8 +25894,6 @@ unsafe impl ::windows::core::Interface for ICompositionColorGradientStopCollecti
     type Vtable = ICompositionColorGradientStopCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9f1d20ec_7b04_4b1d_90bc_9fa32c0cfd26);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ICompositionColorGradientStopCollectionImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositionColorGradientStopCollectionVtbl(
@@ -26088,13 +25910,6 @@ pub struct ICompositionCommitBatch(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICompositionCommitBatch {
     type Vtable = ICompositionCommitBatchVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0d00dad0_ca07_4400_8c8e_cb5db08559cc);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ICompositionCommitBatchImpl {
-    fn IsActive();
-    fn IsEnded();
-    fn Completed();
-    fn RemoveCompleted();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -26119,10 +25934,6 @@ unsafe impl ::windows::core::Interface for ICompositionContainerShape {
     type Vtable = ICompositionContainerShapeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4f5e859b_2e5b_44a8_982c_aa0f69c16059);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ICompositionContainerShapeImpl {
-    fn Shapes();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositionContainerShapeVtbl(
@@ -26141,12 +25952,6 @@ pub struct ICompositionDrawingSurface(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICompositionDrawingSurface {
     type Vtable = ICompositionDrawingSurfaceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa166c300_fad0_4d11_9e67_e433162ff49e);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ICompositionDrawingSurfaceImpl {
-    fn AlphaMode();
-    fn PixelFormat();
-    fn Size();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -26170,15 +25975,6 @@ pub struct ICompositionDrawingSurface2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICompositionDrawingSurface2 {
     type Vtable = ICompositionDrawingSurface2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfad0e88b_e354_44e8_8e3d_c4880d5a213f);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ICompositionDrawingSurface2Impl {
-    fn SizeInt32();
-    fn Resize();
-    fn Scroll();
-    fn ScrollRect();
-    fn ScrollWithClip();
-    fn ScrollRectWithClip();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -26209,8 +26005,6 @@ unsafe impl ::windows::core::Interface for ICompositionDrawingSurfaceFactory {
     type Vtable = ICompositionDrawingSurfaceFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9497b00a_312d_46b9_9db3_412fd79464c8);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ICompositionDrawingSurfaceFactoryImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositionDrawingSurfaceFactoryVtbl(
@@ -26228,8 +26022,6 @@ unsafe impl ::windows::core::Interface for ICompositionEasingFunction {
     type Vtable = ICompositionEasingFunctionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5145e356_bf79_4ea8_8cc2_6b5b472e6c9a);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ICompositionEasingFunctionImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositionEasingFunctionVtbl(
@@ -26247,8 +26039,6 @@ unsafe impl ::windows::core::Interface for ICompositionEasingFunctionFactory {
     type Vtable = ICompositionEasingFunctionFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x60840774_3da0_4949_8200_7206c00190a0);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ICompositionEasingFunctionFactoryImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositionEasingFunctionFactoryVtbl(
@@ -26265,20 +26055,6 @@ pub struct ICompositionEasingFunctionStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICompositionEasingFunctionStatics {
     type Vtable = ICompositionEasingFunctionStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x17a766b6_2936_53ea_b5af_c642f4a61083);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ICompositionEasingFunctionStaticsImpl {
-    fn CreateCubicBezierEasingFunction();
-    fn CreateLinearEasingFunction();
-    fn CreateStepEasingFunction();
-    fn CreateStepEasingFunctionWithStepCount();
-    fn CreateBackEasingFunction();
-    fn CreateBounceEasingFunction();
-    fn CreateCircleEasingFunction();
-    fn CreateElasticEasingFunction();
-    fn CreateExponentialEasingFunction();
-    fn CreatePowerEasingFunction();
-    fn CreateSineEasingFunction();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -26309,11 +26085,6 @@ unsafe impl ::windows::core::Interface for ICompositionEffectBrush {
     type Vtable = ICompositionEffectBrushVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbf7f795e_83cc_44bf_a447_3e3c071789ec);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ICompositionEffectBrushImpl {
-    fn GetSourceParameter();
-    fn SetSourceParameter();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositionEffectBrushVtbl(
@@ -26332,12 +26103,6 @@ pub struct ICompositionEffectFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICompositionEffectFactory {
     type Vtable = ICompositionEffectFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbe5624af_ba7e_4510_9850_41c0b4ff74df);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ICompositionEffectFactoryImpl {
-    fn CreateBrush();
-    fn ExtendedError();
-    fn LoadStatus();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -26359,10 +26124,6 @@ unsafe impl ::windows::core::Interface for ICompositionEffectSourceParameter {
     type Vtable = ICompositionEffectSourceParameterVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x858ab13a_3292_4e4e_b3bb_2b6c6544a6ee);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ICompositionEffectSourceParameterImpl {
-    fn Name();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositionEffectSourceParameterVtbl(
@@ -26381,10 +26142,6 @@ unsafe impl ::windows::core::Interface for ICompositionEffectSourceParameterFact
     type Vtable = ICompositionEffectSourceParameterFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb3d9f276_aba3_4724_acf3_d0397464db1c);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ICompositionEffectSourceParameterFactoryImpl {
-    fn Create();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositionEffectSourceParameterFactoryVtbl(
@@ -26402,13 +26159,6 @@ pub struct ICompositionEllipseGeometry(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICompositionEllipseGeometry {
     type Vtable = ICompositionEllipseGeometryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4801f884_f6ad_4b93_afa9_897b64e57b1f);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ICompositionEllipseGeometryImpl {
-    fn Center();
-    fn SetCenter();
-    fn Radius();
-    fn SetRadius();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -26435,13 +26185,6 @@ unsafe impl ::windows::core::Interface for ICompositionGeometricClip {
     type Vtable = ICompositionGeometricClipVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc840b581_81c9_4444_a2c1_ccaece3a50e5);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ICompositionGeometricClipImpl {
-    fn Geometry();
-    fn SetGeometry();
-    fn ViewBox();
-    fn SetViewBox();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositionGeometricClipVtbl(
@@ -26462,15 +26205,6 @@ pub struct ICompositionGeometry(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICompositionGeometry {
     type Vtable = ICompositionGeometryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe985217c_6a17_4207_abd8_5fd3dd612a9d);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ICompositionGeometryImpl {
-    fn TrimEnd();
-    fn SetTrimEnd();
-    fn TrimOffset();
-    fn SetTrimOffset();
-    fn TrimStart();
-    fn SetTrimStart();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -26495,8 +26229,6 @@ unsafe impl ::windows::core::Interface for ICompositionGeometryFactory {
     type Vtable = ICompositionGeometryFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbffebfe1_8c25_480b_9f56_fed6b288055d);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ICompositionGeometryFactoryImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositionGeometryFactoryVtbl(
@@ -26513,28 +26245,6 @@ pub struct ICompositionGradientBrush(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICompositionGradientBrush {
     type Vtable = ICompositionGradientBrushVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1d9709e0_ffc6_4c0e_a9ab_34144d4c9098);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ICompositionGradientBrushImpl {
-    fn AnchorPoint();
-    fn SetAnchorPoint();
-    fn CenterPoint();
-    fn SetCenterPoint();
-    fn ColorStops();
-    fn ExtendMode();
-    fn SetExtendMode();
-    fn InterpolationSpace();
-    fn SetInterpolationSpace();
-    fn Offset();
-    fn SetOffset();
-    fn RotationAngle();
-    fn SetRotationAngle();
-    fn RotationAngleInDegrees();
-    fn SetRotationAngleInDegrees();
-    fn Scale();
-    fn SetScale();
-    fn TransformMatrix();
-    fn SetTransformMatrix();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -26582,11 +26292,6 @@ unsafe impl ::windows::core::Interface for ICompositionGradientBrush2 {
     type Vtable = ICompositionGradientBrush2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x899dd5a1_b4c7_4b33_a1b6_264addc26d10);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ICompositionGradientBrush2Impl {
-    fn MappingMode();
-    fn SetMappingMode();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositionGradientBrush2Vtbl(
@@ -26606,8 +26311,6 @@ unsafe impl ::windows::core::Interface for ICompositionGradientBrushFactory {
     type Vtable = ICompositionGradientBrushFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x56d765d7_f189_48c9_9c8d_94daf1bec010);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ICompositionGradientBrushFactoryImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositionGradientBrushFactoryVtbl(
@@ -26624,12 +26327,6 @@ pub struct ICompositionGraphicsDevice(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICompositionGraphicsDevice {
     type Vtable = ICompositionGraphicsDeviceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfb22c6e1_80a2_4667_9936_dbeaf6eefe95);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ICompositionGraphicsDeviceImpl {
-    fn CreateDrawingSurface();
-    fn RenderingDeviceReplaced();
-    fn RemoveRenderingDeviceReplaced();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -26654,11 +26351,6 @@ unsafe impl ::windows::core::Interface for ICompositionGraphicsDevice2 {
     type Vtable = ICompositionGraphicsDevice2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0fb8bdf6_c0f0_4bcc_9fb8_084982490d7d);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ICompositionGraphicsDevice2Impl {
-    fn CreateDrawingSurface2();
-    fn CreateVirtualDrawingSurface();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositionGraphicsDevice2Vtbl(
@@ -26680,11 +26372,6 @@ unsafe impl ::windows::core::Interface for ICompositionGraphicsDevice3 {
     type Vtable = ICompositionGraphicsDevice3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x37f67514_d3ef_49d1_b69d_0d8eabeb3626);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ICompositionGraphicsDevice3Impl {
-    fn CreateMipmapSurface();
-    fn Trim();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositionGraphicsDevice3Vtbl(
@@ -26705,10 +26392,6 @@ unsafe impl ::windows::core::Interface for ICompositionGraphicsDevice4 {
     type Vtable = ICompositionGraphicsDevice4Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5a73bff9_a97f_4cf5_ba46_98ef358e71b1);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ICompositionGraphicsDevice4Impl {
-    fn CaptureAsync();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositionGraphicsDevice4Vtbl(
@@ -26728,10 +26411,6 @@ unsafe impl ::windows::core::Interface for ICompositionLight {
     type Vtable = ICompositionLightVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x41a6d7c2_2e5d_4bc1_b09e_8f0a03e3d8d3);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ICompositionLightImpl {
-    fn Targets();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositionLightVtbl(
@@ -26750,10 +26429,6 @@ unsafe impl ::windows::core::Interface for ICompositionLight2 {
     type Vtable = ICompositionLight2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa7bcda72_f35d_425d_9b98_23f4205f6669);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ICompositionLight2Impl {
-    fn ExclusionsFromTargets();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositionLight2Vtbl(
@@ -26771,11 +26446,6 @@ pub struct ICompositionLight3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICompositionLight3 {
     type Vtable = ICompositionLight3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4b0b00e4_df07_4959_b7a4_4f7e4233f838);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ICompositionLight3Impl {
-    fn IsEnabled();
-    fn SetIsEnabled();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -26796,8 +26466,6 @@ unsafe impl ::windows::core::Interface for ICompositionLightFactory {
     type Vtable = ICompositionLightFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x069cf306_da3c_4b44_838a_5e03d51ace55);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ICompositionLightFactoryImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositionLightFactoryVtbl(
@@ -26814,13 +26482,6 @@ pub struct ICompositionLineGeometry(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICompositionLineGeometry {
     type Vtable = ICompositionLineGeometryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdd7615a4_0c9a_4b67_8dce_440a5bf9cdec);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ICompositionLineGeometryImpl {
-    fn Start();
-    fn SetStart();
-    fn End();
-    fn SetEnd();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -26847,13 +26508,6 @@ unsafe impl ::windows::core::Interface for ICompositionLinearGradientBrush {
     type Vtable = ICompositionLinearGradientBrushVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x983bc519_a9db_413c_a2d8_2a9056fc525e);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ICompositionLinearGradientBrushImpl {
-    fn EndPoint();
-    fn SetEndPoint();
-    fn StartPoint();
-    fn SetStartPoint();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositionLinearGradientBrushVtbl(
@@ -26879,13 +26533,6 @@ unsafe impl ::windows::core::Interface for ICompositionMaskBrush {
     type Vtable = ICompositionMaskBrushVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x522cf09e_be6b_4f41_be49_f9226d471b4a);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ICompositionMaskBrushImpl {
-    fn Mask();
-    fn SetMask();
-    fn Source();
-    fn SetSource();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositionMaskBrushVtbl(
@@ -26906,14 +26553,6 @@ pub struct ICompositionMipmapSurface(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICompositionMipmapSurface {
     type Vtable = ICompositionMipmapSurfaceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4863675c_cf4a_4b1c_9ece_c5ec0c2b2fe6);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ICompositionMipmapSurfaceImpl {
-    fn LevelCount();
-    fn AlphaMode();
-    fn PixelFormat();
-    fn SizeInt32();
-    fn GetDrawingSurfaceForLevel();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -26939,33 +26578,6 @@ pub struct ICompositionNineGridBrush(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICompositionNineGridBrush {
     type Vtable = ICompositionNineGridBrushVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf25154e4_bc8c_4be7_b80f_8685b83c0186);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ICompositionNineGridBrushImpl {
-    fn BottomInset();
-    fn SetBottomInset();
-    fn BottomInsetScale();
-    fn SetBottomInsetScale();
-    fn IsCenterHollow();
-    fn SetIsCenterHollow();
-    fn LeftInset();
-    fn SetLeftInset();
-    fn LeftInsetScale();
-    fn SetLeftInsetScale();
-    fn RightInset();
-    fn SetRightInset();
-    fn RightInsetScale();
-    fn SetRightInsetScale();
-    fn Source();
-    fn SetSource();
-    fn TopInset();
-    fn SetTopInset();
-    fn TopInsetScale();
-    fn SetTopInsetScale();
-    fn SetInsets();
-    fn SetInsetsWithValues();
-    fn SetInsetScales();
-    fn SetInsetScalesWithValues();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -27008,14 +26620,6 @@ unsafe impl ::windows::core::Interface for ICompositionObject {
     type Vtable = ICompositionObjectVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbcb4ad45_7609_4550_934f_16002a68fded);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ICompositionObjectImpl {
-    fn Compositor();
-    fn Dispatcher();
-    fn Properties();
-    fn StartAnimation();
-    fn StopAnimation();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositionObjectVtbl(
@@ -27038,15 +26642,6 @@ pub struct ICompositionObject2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICompositionObject2 {
     type Vtable = ICompositionObject2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xef874ea1_5cff_4b68_9e30_a1519d08ba03);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ICompositionObject2Impl {
-    fn Comment();
-    fn SetComment();
-    fn ImplicitAnimations();
-    fn SetImplicitAnimations();
-    fn StartAnimationGroup();
-    fn StopAnimationGroup();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -27071,10 +26666,6 @@ unsafe impl ::windows::core::Interface for ICompositionObject3 {
     type Vtable = ICompositionObject3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4bc27925_dacd_4cf2_98b1_986b76e7ebe6);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ICompositionObject3Impl {
-    fn DispatcherQueue();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositionObject3Vtbl(
@@ -27094,10 +26685,6 @@ unsafe impl ::windows::core::Interface for ICompositionObject4 {
     type Vtable = ICompositionObject4Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0bb3784c_346b_4a7c_966b_7310966553d5);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ICompositionObject4Impl {
-    fn TryGetAnimationController();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositionObject4Vtbl(
@@ -27116,8 +26703,6 @@ unsafe impl ::windows::core::Interface for ICompositionObjectFactory {
     type Vtable = ICompositionObjectFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x51205c5e_558a_4f2a_8d39_37bfe1e20ddd);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ICompositionObjectFactoryImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositionObjectFactoryVtbl(
@@ -27134,11 +26719,6 @@ pub struct ICompositionObjectStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICompositionObjectStatics {
     type Vtable = ICompositionObjectStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc1ed052f_1ba2_44ba_a904_6a882a0a5adb);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ICompositionObjectStaticsImpl {
-    fn StartAnimationWithIAnimationObject();
-    fn StartAnimationGroupWithIAnimationObject();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -27159,8 +26739,6 @@ unsafe impl ::windows::core::Interface for ICompositionPath {
     type Vtable = ICompositionPathVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x66da1d5f_2e10_4f22_8a06_0a8151919e60);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ICompositionPathImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositionPathVtbl(
@@ -27177,10 +26755,6 @@ pub struct ICompositionPathFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICompositionPathFactory {
     type Vtable = ICompositionPathFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9c1e8c6a_0f33_4751_9437_eb3fb9d3ab07);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ICompositionPathFactoryImpl {
-    fn Create();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -27201,11 +26775,6 @@ unsafe impl ::windows::core::Interface for ICompositionPathGeometry {
     type Vtable = ICompositionPathGeometryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0b6a417e_2c77_4c23_af5e_6304c147bb61);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ICompositionPathGeometryImpl {
-    fn Path();
-    fn SetPath();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositionPathGeometryVtbl(
@@ -27224,19 +26793,6 @@ pub struct ICompositionProjectedShadow(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICompositionProjectedShadow {
     type Vtable = ICompositionProjectedShadowVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x285b8e72_4328_523f_bcf2_5557c52c3b25);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ICompositionProjectedShadowImpl {
-    fn BlurRadiusMultiplier();
-    fn SetBlurRadiusMultiplier();
-    fn Casters();
-    fn LightSource();
-    fn SetLightSource();
-    fn MaxBlurRadius();
-    fn SetMaxBlurRadius();
-    fn MinBlurRadius();
-    fn SetMinBlurRadius();
-    fn Receivers();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -27265,13 +26821,6 @@ unsafe impl ::windows::core::Interface for ICompositionProjectedShadowCaster {
     type Vtable = ICompositionProjectedShadowCasterVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb1d7d426_1e36_5a62_be56_a16112fdd148);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ICompositionProjectedShadowCasterImpl {
-    fn Brush();
-    fn SetBrush();
-    fn CastingVisual();
-    fn SetCastingVisual();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositionProjectedShadowCasterVtbl(
@@ -27292,16 +26841,6 @@ pub struct ICompositionProjectedShadowCasterCollection(::windows::core::IUnknown
 unsafe impl ::windows::core::Interface for ICompositionProjectedShadowCasterCollection {
     type Vtable = ICompositionProjectedShadowCasterCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd2525c0c_e07f_58a3_ac91_37f73ee91740);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ICompositionProjectedShadowCasterCollectionImpl {
-    fn Count();
-    fn InsertAbove();
-    fn InsertAtBottom();
-    fn InsertAtTop();
-    fn InsertBelow();
-    fn Remove();
-    fn RemoveAll();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -27327,10 +26866,6 @@ unsafe impl ::windows::core::Interface for ICompositionProjectedShadowCasterColl
     type Vtable = ICompositionProjectedShadowCasterCollectionStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x56fbb136_e94f_5299_ab5b_6e15e38bd899);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ICompositionProjectedShadowCasterCollectionStaticsImpl {
-    fn MaxRespectedCasters();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositionProjectedShadowCasterCollectionStaticsVtbl(
@@ -27348,11 +26883,6 @@ pub struct ICompositionProjectedShadowReceiver(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICompositionProjectedShadowReceiver {
     type Vtable = ICompositionProjectedShadowReceiverVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1377985a_6a49_536a_9be4_a96a8e5298a9);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ICompositionProjectedShadowReceiverImpl {
-    fn ReceivingVisual();
-    fn SetReceivingVisual();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -27372,13 +26902,6 @@ pub struct ICompositionProjectedShadowReceiverUnorderedCollection(::windows::cor
 unsafe impl ::windows::core::Interface for ICompositionProjectedShadowReceiverUnorderedCollection {
     type Vtable = ICompositionProjectedShadowReceiverUnorderedCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x02b3e3b7_27d2_599f_ac4b_ab787cdde6fd);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ICompositionProjectedShadowReceiverUnorderedCollectionImpl {
-    fn Add();
-    fn Count();
-    fn Remove();
-    fn RemoveAll();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -27400,25 +26923,6 @@ pub struct ICompositionPropertySet(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICompositionPropertySet {
     type Vtable = ICompositionPropertySetVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc9d6d202_5f67_4453_9117_9eadd430d3c2);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ICompositionPropertySetImpl {
-    fn InsertColor();
-    fn InsertMatrix3x2();
-    fn InsertMatrix4x4();
-    fn InsertQuaternion();
-    fn InsertScalar();
-    fn InsertVector2();
-    fn InsertVector3();
-    fn InsertVector4();
-    fn TryGetColor();
-    fn TryGetMatrix3x2();
-    fn TryGetMatrix4x4();
-    fn TryGetQuaternion();
-    fn TryGetScalar();
-    fn TryGetVector2();
-    fn TryGetVector3();
-    fn TryGetVector4();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -27465,11 +26969,6 @@ unsafe impl ::windows::core::Interface for ICompositionPropertySet2 {
     type Vtable = ICompositionPropertySet2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xde80731e_a211_4455_8880_7d0f3f6a44fd);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ICompositionPropertySet2Impl {
-    fn InsertBoolean();
-    fn TryGetBoolean();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositionPropertySet2Vtbl(
@@ -27488,15 +26987,6 @@ pub struct ICompositionRadialGradientBrush(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICompositionRadialGradientBrush {
     type Vtable = ICompositionRadialGradientBrushVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3d3b50c5_e3fa_4ce2_b9fc_3ee12561788f);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ICompositionRadialGradientBrushImpl {
-    fn EllipseCenter();
-    fn SetEllipseCenter();
-    fn EllipseRadius();
-    fn SetEllipseRadius();
-    fn GradientOriginOffset();
-    fn SetGradientOriginOffset();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -27527,13 +27017,6 @@ unsafe impl ::windows::core::Interface for ICompositionRectangleGeometry {
     type Vtable = ICompositionRectangleGeometryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0cd51428_5356_4246_aecf_7a0b76975400);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ICompositionRectangleGeometryImpl {
-    fn Offset();
-    fn SetOffset();
-    fn Size();
-    fn SetSize();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositionRectangleGeometryVtbl(
@@ -27558,15 +27041,6 @@ pub struct ICompositionRoundedRectangleGeometry(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICompositionRoundedRectangleGeometry {
     type Vtable = ICompositionRoundedRectangleGeometryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8770c822_1d50_4b8b_b013_7c9a0e46935f);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ICompositionRoundedRectangleGeometryImpl {
-    fn CornerRadius();
-    fn SetCornerRadius();
-    fn Offset();
-    fn SetOffset();
-    fn Size();
-    fn SetSize();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -27597,16 +27071,6 @@ unsafe impl ::windows::core::Interface for ICompositionScopedBatch {
     type Vtable = ICompositionScopedBatchVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0d00dad0_fb07_46fd_8c72_6280d1a3d1dd);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ICompositionScopedBatchImpl {
-    fn IsActive();
-    fn IsEnded();
-    fn End();
-    fn Resume();
-    fn Suspend();
-    fn Completed();
-    fn RemoveCompleted();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositionScopedBatchVtbl(
@@ -27633,8 +27097,6 @@ unsafe impl ::windows::core::Interface for ICompositionShadow {
     type Vtable = ICompositionShadowVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x329e52e2_4335_49cc_b14a_37782d10f0c4);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ICompositionShadowImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositionShadowVtbl(
@@ -27652,8 +27114,6 @@ unsafe impl ::windows::core::Interface for ICompositionShadowFactory {
     type Vtable = ICompositionShadowFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x221f492f_dcba_4b91_999e_1dc217a01530);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ICompositionShadowFactoryImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositionShadowFactoryVtbl(
@@ -27670,21 +27130,6 @@ pub struct ICompositionShape(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICompositionShape {
     type Vtable = ICompositionShapeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb47ce2f7_9a88_42c4_9e87_2e500ca8688c);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ICompositionShapeImpl {
-    fn CenterPoint();
-    fn SetCenterPoint();
-    fn Offset();
-    fn SetOffset();
-    fn RotationAngle();
-    fn SetRotationAngle();
-    fn RotationAngleInDegrees();
-    fn SetRotationAngleInDegrees();
-    fn Scale();
-    fn SetScale();
-    fn TransformMatrix();
-    fn SetTransformMatrix();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -27723,8 +27168,6 @@ unsafe impl ::windows::core::Interface for ICompositionShapeFactory {
     type Vtable = ICompositionShapeFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1dfc36d0_b05a_44ef_82b0_12118bcd4cd0);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ICompositionShapeFactoryImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositionShapeFactoryVtbl(
@@ -27741,32 +27184,6 @@ pub struct ICompositionSpriteShape(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICompositionSpriteShape {
     type Vtable = ICompositionSpriteShapeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x401b61bb_0007_4363_b1f3_6bcc003fb83e);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ICompositionSpriteShapeImpl {
-    fn FillBrush();
-    fn SetFillBrush();
-    fn Geometry();
-    fn SetGeometry();
-    fn IsStrokeNonScaling();
-    fn SetIsStrokeNonScaling();
-    fn StrokeBrush();
-    fn SetStrokeBrush();
-    fn StrokeDashArray();
-    fn StrokeDashCap();
-    fn SetStrokeDashCap();
-    fn StrokeDashOffset();
-    fn SetStrokeDashOffset();
-    fn StrokeEndCap();
-    fn SetStrokeEndCap();
-    fn StrokeLineJoin();
-    fn SetStrokeLineJoin();
-    fn StrokeMiterLimit();
-    fn SetStrokeMiterLimit();
-    fn StrokeStartCap();
-    fn SetStrokeStartCap();
-    fn StrokeThickness();
-    fn SetStrokeThickness();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -27883,10 +27300,6 @@ unsafe impl ::windows::core::Interface for ICompositionSupportsSystemBackdrop {
     type Vtable = ICompositionSupportsSystemBackdropVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x397dafe4_b6c2_5bb9_951d_f5707de8b7bc);
 }
-pub trait ICompositionSupportsSystemBackdropImpl {
-    fn SystemBackdrop();
-    fn SetSystemBackdrop();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositionSupportsSystemBackdropVtbl(
@@ -27966,7 +27379,6 @@ unsafe impl ::windows::core::Interface for ICompositionSurface {
     type Vtable = ICompositionSurfaceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1527540d_42c7_47a6_a408_668f79a90dfb);
 }
-pub trait ICompositionSurfaceImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositionSurfaceVtbl(
@@ -27983,19 +27395,6 @@ pub struct ICompositionSurfaceBrush(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICompositionSurfaceBrush {
     type Vtable = ICompositionSurfaceBrushVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xad016d79_1e4c_4c0d_9c29_83338c87c162);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ICompositionSurfaceBrushImpl {
-    fn BitmapInterpolationMode();
-    fn SetBitmapInterpolationMode();
-    fn HorizontalAlignmentRatio();
-    fn SetHorizontalAlignmentRatio();
-    fn Stretch();
-    fn SetStretch();
-    fn Surface();
-    fn SetSurface();
-    fn VerticalAlignmentRatio();
-    fn SetVerticalAlignmentRatio();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -28023,23 +27422,6 @@ pub struct ICompositionSurfaceBrush2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICompositionSurfaceBrush2 {
     type Vtable = ICompositionSurfaceBrush2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd27174d5_64f5_4692_9dc7_71b61d7e5880);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ICompositionSurfaceBrush2Impl {
-    fn AnchorPoint();
-    fn SetAnchorPoint();
-    fn CenterPoint();
-    fn SetCenterPoint();
-    fn Offset();
-    fn SetOffset();
-    fn RotationAngle();
-    fn SetRotationAngle();
-    fn RotationAngleInDegrees();
-    fn SetRotationAngleInDegrees();
-    fn Scale();
-    fn SetScale();
-    fn TransformMatrix();
-    fn SetTransformMatrix();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -28081,11 +27463,6 @@ pub struct ICompositionSurfaceBrush3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICompositionSurfaceBrush3 {
     type Vtable = ICompositionSurfaceBrush3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x550bb289_1fe0_42e5_8195_1eefa87ff08e);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ICompositionSurfaceBrush3Impl {
-    fn SnapToPixels();
-    fn SetSnapToPixels();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -28175,9 +27552,6 @@ unsafe impl ::windows::core::Interface for ICompositionSurfaceFacade {
     type Vtable = ICompositionSurfaceFacadeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe01622c8_2332_55c7_8868_a7312c5c229d);
 }
-pub trait ICompositionSurfaceFacadeImpl {
-    fn GetRealSurface();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositionSurfaceFacadeVtbl(
@@ -28195,11 +27569,6 @@ pub struct ICompositionTarget(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICompositionTarget {
     type Vtable = ICompositionTargetVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa1bea8ba_d726_4663_8129_6b5e7927ffa6);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ICompositionTargetImpl {
-    fn Root();
-    fn SetRoot();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -28220,8 +27589,6 @@ unsafe impl ::windows::core::Interface for ICompositionTargetFactory {
     type Vtable = ICompositionTargetFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x93cd9d2b_8516_4b14_a8ce_f49e2119ec42);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ICompositionTargetFactoryImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositionTargetFactoryVtbl(
@@ -28239,8 +27606,6 @@ unsafe impl ::windows::core::Interface for ICompositionTransform {
     type Vtable = ICompositionTransformVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7cd54529_fbed_4112_abc5_185906dd927c);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ICompositionTransformImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositionTransformVtbl(
@@ -28258,8 +27623,6 @@ unsafe impl ::windows::core::Interface for ICompositionTransformFactory {
     type Vtable = ICompositionTransformFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaaaeca26_c149_517a_8f72_6bff7a65ce08);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ICompositionTransformFactoryImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositionTransformFactoryVtbl(
@@ -28276,19 +27639,6 @@ pub struct ICompositionViewBox(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICompositionViewBox {
     type Vtable = ICompositionViewBoxVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb440bf07_068f_4537_84c6_4ecbe019e1f4);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ICompositionViewBoxImpl {
-    fn HorizontalAlignmentRatio();
-    fn SetHorizontalAlignmentRatio();
-    fn Offset();
-    fn SetOffset();
-    fn Size();
-    fn SetSize();
-    fn Stretch();
-    fn SetStretch();
-    fn VerticalAlignmentRatio();
-    fn SetVerticalAlignmentRatio();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -28321,10 +27671,6 @@ unsafe impl ::windows::core::Interface for ICompositionVirtualDrawingSurface {
     type Vtable = ICompositionVirtualDrawingSurfaceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa9c384db_8740_4f94_8b9d_b68521e7863d);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ICompositionVirtualDrawingSurfaceImpl {
-    fn Trim();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositionVirtualDrawingSurfaceVtbl(
@@ -28344,8 +27690,6 @@ unsafe impl ::windows::core::Interface for ICompositionVirtualDrawingSurfaceFact
     type Vtable = ICompositionVirtualDrawingSurfaceFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6766106c_d56b_4a49_b1df_5076a0620768);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ICompositionVirtualDrawingSurfaceFactoryImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositionVirtualDrawingSurfaceFactoryVtbl(
@@ -28362,15 +27706,6 @@ pub struct ICompositionVisualSurface(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICompositionVisualSurface {
     type Vtable = ICompositionVisualSurfaceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb224d803_4f6e_4a3f_8cae_3dc1cda74fc6);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ICompositionVisualSurfaceImpl {
-    fn SourceVisual();
-    fn SetSourceVisual();
-    fn SourceOffset();
-    fn SetSourceOffset();
-    fn SourceSize();
-    fn SetSourceSize();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -28398,33 +27733,6 @@ pub struct ICompositor(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICompositor {
     type Vtable = ICompositorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb403ca50_7f8c_4e83_985f_cc45060036d8);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ICompositorImpl {
-    fn CreateColorKeyFrameAnimation();
-    fn CreateColorBrush();
-    fn CreateColorBrushWithColor();
-    fn CreateContainerVisual();
-    fn CreateCubicBezierEasingFunction();
-    fn CreateEffectFactory();
-    fn CreateEffectFactoryWithProperties();
-    fn CreateExpressionAnimation();
-    fn CreateExpressionAnimationWithExpression();
-    fn CreateInsetClip();
-    fn CreateInsetClipWithInsets();
-    fn CreateLinearEasingFunction();
-    fn CreatePropertySet();
-    fn CreateQuaternionKeyFrameAnimation();
-    fn CreateScalarKeyFrameAnimation();
-    fn CreateScopedBatch();
-    fn CreateSpriteVisual();
-    fn CreateSurfaceBrush();
-    fn CreateSurfaceBrushWithSurface();
-    fn CreateTargetForCurrentView();
-    fn CreateVector2KeyFrameAnimation();
-    fn CreateVector3KeyFrameAnimation();
-    fn CreateVector4KeyFrameAnimation();
-    fn GetCommitBatch();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -28470,22 +27778,6 @@ unsafe impl ::windows::core::Interface for ICompositor2 {
     type Vtable = ICompositor2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x735081dc_5e24_45da_a38f_e32cc349a9a0);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ICompositor2Impl {
-    fn CreateAmbientLight();
-    fn CreateAnimationGroup();
-    fn CreateBackdropBrush();
-    fn CreateDistantLight();
-    fn CreateDropShadow();
-    fn CreateImplicitAnimationCollection();
-    fn CreateLayerVisual();
-    fn CreateMaskBrush();
-    fn CreateNineGridBrush();
-    fn CreatePointLight();
-    fn CreateSpotLight();
-    fn CreateStepEasingFunction();
-    fn CreateStepEasingFunctionWithStepCount();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositor2Vtbl(
@@ -28516,10 +27808,6 @@ unsafe impl ::windows::core::Interface for ICompositor3 {
     type Vtable = ICompositor3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc9dd8ef0_6eb1_4e3c_a658_675d9c64d4ab);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ICompositor3Impl {
-    fn CreateHostBackdropBrush();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositor3Vtbl(
@@ -28537,15 +27825,6 @@ pub struct ICompositor4(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICompositor4 {
     type Vtable = ICompositor4Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xae47e78a_7910_4425_a482_a05b758adce9);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ICompositor4Impl {
-    fn CreateColorGradientStop();
-    fn CreateColorGradientStopWithOffsetAndColor();
-    fn CreateLinearGradientBrush();
-    fn CreateSpringScalarAnimation();
-    fn CreateSpringVector2Animation();
-    fn CreateSpringVector3Animation();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -28569,29 +27848,6 @@ pub struct ICompositor5(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICompositor5 {
     type Vtable = ICompositor5Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x48ea31ad_7fcd_4076_a79c_90cc4b852c9b);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ICompositor5Impl {
-    fn Comment();
-    fn SetComment();
-    fn GlobalPlaybackRate();
-    fn SetGlobalPlaybackRate();
-    fn CreateBounceScalarAnimation();
-    fn CreateBounceVector2Animation();
-    fn CreateBounceVector3Animation();
-    fn CreateContainerShape();
-    fn CreateEllipseGeometry();
-    fn CreateLineGeometry();
-    fn CreatePathGeometry();
-    fn CreatePathGeometryWithPath();
-    fn CreatePathKeyFrameAnimation();
-    fn CreateRectangleGeometry();
-    fn CreateRoundedRectangleGeometry();
-    fn CreateShapeVisual();
-    fn CreateSpriteShape();
-    fn CreateSpriteShapeWithGeometry();
-    fn CreateViewBox();
-    fn RequestCommitAsync();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -28631,14 +27887,6 @@ unsafe impl ::windows::core::Interface for ICompositor6 {
     type Vtable = ICompositor6Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7a38b2bd_cec8_4eeb_830f_d8d07aedebc3);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ICompositor6Impl {
-    fn CreateGeometricClip();
-    fn CreateGeometricClipWithGeometry();
-    fn CreateRedirectVisual();
-    fn CreateRedirectVisualWithSourceVisual();
-    fn CreateBooleanKeyFrameAnimation();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositor6Vtbl(
@@ -28660,14 +27908,6 @@ pub struct ICompositor7(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICompositor7 {
     type Vtable = ICompositor7Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd3483fad_9a12_53ba_bfc8_88b7ff7977c6);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ICompositor7Impl {
-    fn DispatcherQueue();
-    fn CreateAnimationPropertyInfo();
-    fn CreateRectangleClip();
-    fn CreateRectangleClipWithSides();
-    fn CreateRectangleClipWithSidesAndRadius();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -28693,11 +27933,6 @@ unsafe impl ::windows::core::Interface for ICompositorStatics {
     type Vtable = ICompositorStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x080db93e_121e_4d97_8b74_1dfcf91987ea);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ICompositorStaticsImpl {
-    fn MaxGlobalPlaybackRate();
-    fn MinGlobalPlaybackRate();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositorStaticsVtbl(
@@ -28717,10 +27952,6 @@ unsafe impl ::windows::core::Interface for ICompositorWithBlurredWallpaperBackdr
     type Vtable = ICompositorWithBlurredWallpaperBackdropBrushVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0d8fb190_f122_5b8d_9fdd_543b0d8eb7f3);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ICompositorWithBlurredWallpaperBackdropBrushImpl {
-    fn TryCreateBlurredWallpaperBackdropBrush();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositorWithBlurredWallpaperBackdropBrushVtbl(
@@ -28738,12 +27969,6 @@ pub struct ICompositorWithProjectedShadow(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICompositorWithProjectedShadow {
     type Vtable = ICompositorWithProjectedShadowVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa2e6330e_8a60_5a38_bb85_b44ea901677c);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ICompositorWithProjectedShadowImpl {
-    fn CreateProjectedShadowCaster();
-    fn CreateProjectedShadow();
-    fn CreateProjectedShadowReceiver();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -28765,10 +27990,6 @@ unsafe impl ::windows::core::Interface for ICompositorWithRadialGradient {
     type Vtable = ICompositorWithRadialGradientVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x98b9c1a7_8e71_4b53_b4a8_69ba5d19dc5b);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ICompositorWithRadialGradientImpl {
-    fn CreateRadialGradientBrush();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositorWithRadialGradientVtbl(
@@ -28786,10 +28007,6 @@ pub struct ICompositorWithVisualSurface(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICompositorWithVisualSurface {
     type Vtable = ICompositorWithVisualSurfaceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcfa1658b_0123_4551_8891_89bdcc40322b);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ICompositorWithVisualSurfaceImpl {
-    fn CreateVisualSurface();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -28809,10 +28026,6 @@ unsafe impl ::windows::core::Interface for IContainerVisual {
     type Vtable = IContainerVisualVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x02f6bc74_ed20_4773_afe6_d49b4a93db32);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IContainerVisualImpl {
-    fn Children();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IContainerVisualVtbl(
@@ -28831,8 +28044,6 @@ unsafe impl ::windows::core::Interface for IContainerVisualFactory {
     type Vtable = IContainerVisualFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0363a65b_c7da_4d9a_95f4_69b5c8df670b);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IContainerVisualFactoryImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IContainerVisualFactoryVtbl(
@@ -28849,11 +28060,6 @@ pub struct ICubicBezierEasingFunction(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICubicBezierEasingFunction {
     type Vtable = ICubicBezierEasingFunctionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x32350666_c1e8_44f9_96b8_c98acf0ae698);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ICubicBezierEasingFunctionImpl {
-    fn ControlPoint1();
-    fn ControlPoint2();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -28875,13 +28081,6 @@ pub struct IDelegatedInkTrailVisual(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDelegatedInkTrailVisual {
     type Vtable = IDelegatedInkTrailVisualVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x856e60b1_e1ab_5b23_8e3d_d513f221c998);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IDelegatedInkTrailVisualImpl {
-    fn AddTrailPoints();
-    fn AddTrailPointsWithPrediction();
-    fn RemoveTrailPoints();
-    fn StartNewTrail();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -28906,11 +28105,6 @@ unsafe impl ::windows::core::Interface for IDelegatedInkTrailVisualStatics {
     type Vtable = IDelegatedInkTrailVisualStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0daf6bd5_42c6_555c_9267_e0ac663af836);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IDelegatedInkTrailVisualStaticsImpl {
-    fn Create();
-    fn CreateForSwapChain();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDelegatedInkTrailVisualStaticsVtbl(
@@ -28929,15 +28123,6 @@ pub struct IDistantLight(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDistantLight {
     type Vtable = IDistantLightVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x318cfafc_5ce3_4b55_ab5d_07a00353ac99);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IDistantLightImpl {
-    fn Color();
-    fn SetColor();
-    fn CoordinateSpace();
-    fn SetCoordinateSpace();
-    fn Direction();
-    fn SetDirection();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -28964,11 +28149,6 @@ unsafe impl ::windows::core::Interface for IDistantLight2 {
     type Vtable = IDistantLight2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdbcdaa1c_294b_48d7_b60e_76df64aa392b);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IDistantLight2Impl {
-    fn Intensity();
-    fn SetIntensity();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDistantLight2Vtbl(
@@ -28987,19 +28167,6 @@ pub struct IDropShadow(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDropShadow {
     type Vtable = IDropShadowVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcb977c07_a154_4851_85e7_a8924c84fad8);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IDropShadowImpl {
-    fn BlurRadius();
-    fn SetBlurRadius();
-    fn Color();
-    fn SetColor();
-    fn Mask();
-    fn SetMask();
-    fn Offset();
-    fn SetOffset();
-    fn Opacity();
-    fn SetOpacity();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -29030,11 +28197,6 @@ unsafe impl ::windows::core::Interface for IDropShadow2 {
     type Vtable = IDropShadow2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6c4218bc_15b9_4c2d_8d4a_0767df11977a);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IDropShadow2Impl {
-    fn SourcePolicy();
-    fn SetSourcePolicy();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDropShadow2Vtbl(
@@ -29053,12 +28215,6 @@ pub struct IElasticEasingFunction(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IElasticEasingFunction {
     type Vtable = IElasticEasingFunctionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x66de6285_054e_5594_8475_c22cb51f1bd5);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IElasticEasingFunctionImpl {
-    fn Mode();
-    fn Oscillations();
-    fn Springiness();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -29080,11 +28236,6 @@ unsafe impl ::windows::core::Interface for IExponentialEasingFunction {
     type Vtable = IExponentialEasingFunctionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6f7d1a51_98d2_5638_a34a_00486554c750);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IExponentialEasingFunctionImpl {
-    fn Mode();
-    fn Exponent();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IExponentialEasingFunctionVtbl(
@@ -29103,11 +28254,6 @@ pub struct IExpressionAnimation(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IExpressionAnimation {
     type Vtable = IExpressionAnimationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6acc5431_7d3d_4bf3_abb6_f44bdc4888c1);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IExpressionAnimationImpl {
-    fn Expression();
-    fn SetExpression();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -29128,8 +28274,6 @@ unsafe impl ::windows::core::Interface for IImplicitAnimationCollection {
     type Vtable = IImplicitAnimationCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0598a3ff_0a92_4c9d_a427_b25519250dbf);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IImplicitAnimationCollectionImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IImplicitAnimationCollectionVtbl(
@@ -29146,17 +28290,6 @@ pub struct IInsetClip(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IInsetClip {
     type Vtable = IInsetClipVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1e73e647_84c7_477a_b474_5880e0442e15);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IInsetClipImpl {
-    fn BottomInset();
-    fn SetBottomInset();
-    fn LeftInset();
-    fn SetLeftInset();
-    fn RightInset();
-    fn SetRightInset();
-    fn TopInset();
-    fn SetTopInset();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -29182,22 +28315,6 @@ pub struct IKeyFrameAnimation(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IKeyFrameAnimation {
     type Vtable = IKeyFrameAnimationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x126e7f22_3ae9_4540_9a8a_deae8a4a4a84);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IKeyFrameAnimationImpl {
-    fn DelayTime();
-    fn SetDelayTime();
-    fn Duration();
-    fn SetDuration();
-    fn IterationBehavior();
-    fn SetIterationBehavior();
-    fn IterationCount();
-    fn SetIterationCount();
-    fn KeyFrameCount();
-    fn StopBehavior();
-    fn SetStopBehavior();
-    fn InsertExpressionKeyFrame();
-    fn InsertExpressionKeyFrameWithEasingFunction();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -29233,11 +28350,6 @@ unsafe impl ::windows::core::Interface for IKeyFrameAnimation2 {
     type Vtable = IKeyFrameAnimation2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf4b488bb_2940_4ec0_a41a_eb6d801a2f18);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IKeyFrameAnimation2Impl {
-    fn Direction();
-    fn SetDirection();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IKeyFrameAnimation2Vtbl(
@@ -29256,11 +28368,6 @@ pub struct IKeyFrameAnimation3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IKeyFrameAnimation3 {
     type Vtable = IKeyFrameAnimation3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x845bf0b4_d8de_462f_8753_c80d43c6ff5a);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IKeyFrameAnimation3Impl {
-    fn DelayBehavior();
-    fn SetDelayBehavior();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -29281,8 +28388,6 @@ unsafe impl ::windows::core::Interface for IKeyFrameAnimationFactory {
     type Vtable = IKeyFrameAnimationFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbf0803f8_712a_4fc1_8c87_970859ed8d2e);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IKeyFrameAnimationFactoryImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IKeyFrameAnimationFactoryVtbl(
@@ -29299,11 +28404,6 @@ pub struct ILayerVisual(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ILayerVisual {
     type Vtable = ILayerVisualVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaf843985_0444_4887_8e83_b40b253f822c);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ILayerVisualImpl {
-    fn Effect();
-    fn SetEffect();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -29324,11 +28424,6 @@ unsafe impl ::windows::core::Interface for ILayerVisual2 {
     type Vtable = ILayerVisual2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x98f9aeeb_6f23_49f1_90b1_1f59a14fbce3);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ILayerVisual2Impl {
-    fn Shadow();
-    fn SetShadow();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILayerVisual2Vtbl(
@@ -29348,8 +28443,6 @@ unsafe impl ::windows::core::Interface for ILinearEasingFunction {
     type Vtable = ILinearEasingFunctionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9400975a_c7a6_46b3_acf7_1a268a0a117d);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ILinearEasingFunctionImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILinearEasingFunctionVtbl(
@@ -29366,15 +28459,6 @@ pub struct INaturalMotionAnimation(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for INaturalMotionAnimation {
     type Vtable = INaturalMotionAnimationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x438de12d_769b_4821_a949_284a6547e873);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait INaturalMotionAnimationImpl {
-    fn DelayBehavior();
-    fn SetDelayBehavior();
-    fn DelayTime();
-    fn SetDelayTime();
-    fn StopBehavior();
-    fn SetStopBehavior();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -29401,8 +28485,6 @@ unsafe impl ::windows::core::Interface for INaturalMotionAnimationFactory {
     type Vtable = INaturalMotionAnimationFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf53acb06_cf6a_4387_a3fe_5221f3e7e0e0);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait INaturalMotionAnimationFactoryImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct INaturalMotionAnimationFactoryVtbl(
@@ -29419,11 +28501,6 @@ pub struct IPathKeyFrameAnimation(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPathKeyFrameAnimation {
     type Vtable = IPathKeyFrameAnimationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9d0d18c9_1576_4b3f_be60_1d5031f5e71b);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IPathKeyFrameAnimationImpl {
-    fn InsertKeyFrame();
-    fn InsertKeyFrameWithEasingFunction();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -29443,21 +28520,6 @@ pub struct IPointLight(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPointLight {
     type Vtable = IPointLightVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb18545b3_0c5a_4ab0_bedc_4f3546948272);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IPointLightImpl {
-    fn Color();
-    fn SetColor();
-    fn ConstantAttenuation();
-    fn SetConstantAttenuation();
-    fn CoordinateSpace();
-    fn SetCoordinateSpace();
-    fn LinearAttenuation();
-    fn SetLinearAttenuation();
-    fn Offset();
-    fn SetOffset();
-    fn QuadraticAttenuation();
-    fn SetQuadraticAttenuation();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -29490,11 +28552,6 @@ unsafe impl ::windows::core::Interface for IPointLight2 {
     type Vtable = IPointLight2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xefe98f2c_0678_4f69_b164_a810d995bcb7);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IPointLight2Impl {
-    fn Intensity();
-    fn SetIntensity();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPointLight2Vtbl(
@@ -29513,13 +28570,6 @@ pub struct IPointLight3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPointLight3 {
     type Vtable = IPointLight3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4c0a8367_d4e9_468a_87ae_7ba43ab29485);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IPointLight3Impl {
-    fn MinAttenuationCutoff();
-    fn SetMinAttenuationCutoff();
-    fn MaxAttenuationCutoff();
-    fn SetMaxAttenuationCutoff();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -29542,11 +28592,6 @@ unsafe impl ::windows::core::Interface for IPowerEasingFunction {
     type Vtable = IPowerEasingFunctionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc3ff53d6_138b_5815_891a_b7f615ccc563);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IPowerEasingFunctionImpl {
-    fn Mode();
-    fn Power();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPowerEasingFunctionVtbl(
@@ -29565,11 +28610,6 @@ pub struct IQuaternionKeyFrameAnimation(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IQuaternionKeyFrameAnimation {
     type Vtable = IQuaternionKeyFrameAnimationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x404e5835_ecf6_4240_8520_671279cf36bc);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IQuaternionKeyFrameAnimationImpl {
-    fn InsertKeyFrame();
-    fn InsertKeyFrameWithEasingFunction();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -29591,25 +28631,6 @@ pub struct IRectangleClip(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IRectangleClip {
     type Vtable = IRectangleClipVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb3e7549e_00b4_5b53_8be8_353f6c433101);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IRectangleClipImpl {
-    fn Bottom();
-    fn SetBottom();
-    fn BottomLeftRadius();
-    fn SetBottomLeftRadius();
-    fn BottomRightRadius();
-    fn SetBottomRightRadius();
-    fn Left();
-    fn SetLeft();
-    fn Right();
-    fn SetRight();
-    fn Top();
-    fn SetTop();
-    fn TopLeftRadius();
-    fn SetTopLeftRadius();
-    fn TopRightRadius();
-    fn SetTopRightRadius();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -29652,11 +28673,6 @@ unsafe impl ::windows::core::Interface for IRedirectVisual {
     type Vtable = IRedirectVisualVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8cc6e340_8b75_5422_b06f_09ffe9f8617e);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IRedirectVisualImpl {
-    fn Source();
-    fn SetSource();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRedirectVisualVtbl(
@@ -29676,10 +28692,6 @@ unsafe impl ::windows::core::Interface for IRenderingDeviceReplacedEventArgs {
     type Vtable = IRenderingDeviceReplacedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3a31ac7d_28bf_4e7a_8524_71679d480f38);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IRenderingDeviceReplacedEventArgsImpl {
-    fn GraphicsDevice();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRenderingDeviceReplacedEventArgsVtbl(
@@ -29697,11 +28709,6 @@ pub struct IScalarKeyFrameAnimation(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IScalarKeyFrameAnimation {
     type Vtable = IScalarKeyFrameAnimationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xae288fa9_252c_4b95_a725_bf85e38000a1);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IScalarKeyFrameAnimationImpl {
-    fn InsertKeyFrame();
-    fn InsertKeyFrameWithEasingFunction();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -29721,15 +28728,6 @@ pub struct IScalarNaturalMotionAnimation(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IScalarNaturalMotionAnimation {
     type Vtable = IScalarNaturalMotionAnimationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x94a94581_bf92_495b_b5bd_d2c659430737);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IScalarNaturalMotionAnimationImpl {
-    fn FinalValue();
-    fn SetFinalValue();
-    fn InitialValue();
-    fn SetInitialValue();
-    fn InitialVelocity();
-    fn SetInitialVelocity();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -29758,8 +28756,6 @@ unsafe impl ::windows::core::Interface for IScalarNaturalMotionAnimationFactory 
     type Vtable = IScalarNaturalMotionAnimationFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x835aa4fc_671c_41dd_af48_ae8def8b1529);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IScalarNaturalMotionAnimationFactoryImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IScalarNaturalMotionAnimationFactoryVtbl(
@@ -29776,12 +28772,6 @@ pub struct IShapeVisual(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IShapeVisual {
     type Vtable = IShapeVisualVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf2bd13c3_ba7e_4b0f_9126_ffb7536b8176);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IShapeVisualImpl {
-    fn Shapes();
-    fn ViewBox();
-    fn SetViewBox();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -29804,10 +28794,6 @@ unsafe impl ::windows::core::Interface for ISineEasingFunction {
     type Vtable = ISineEasingFunctionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf1b518bf_9563_5474_bd13_44b2df4b1d58);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ISineEasingFunctionImpl {
-    fn Mode();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISineEasingFunctionVtbl(
@@ -29825,33 +28811,6 @@ pub struct ISpotLight(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISpotLight {
     type Vtable = ISpotLightVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5a9fe273_44a1_4f95_a422_8fa5116bdb44);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ISpotLightImpl {
-    fn ConstantAttenuation();
-    fn SetConstantAttenuation();
-    fn CoordinateSpace();
-    fn SetCoordinateSpace();
-    fn Direction();
-    fn SetDirection();
-    fn InnerConeAngle();
-    fn SetInnerConeAngle();
-    fn InnerConeAngleInDegrees();
-    fn SetInnerConeAngleInDegrees();
-    fn InnerConeColor();
-    fn SetInnerConeColor();
-    fn LinearAttenuation();
-    fn SetLinearAttenuation();
-    fn Offset();
-    fn SetOffset();
-    fn OuterConeAngle();
-    fn SetOuterConeAngle();
-    fn OuterConeAngleInDegrees();
-    fn SetOuterConeAngleInDegrees();
-    fn OuterConeColor();
-    fn SetOuterConeColor();
-    fn QuadraticAttenuation();
-    fn SetQuadraticAttenuation();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -29898,13 +28857,6 @@ unsafe impl ::windows::core::Interface for ISpotLight2 {
     type Vtable = ISpotLight2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x64ee615e_0686_4dea_a9e8_bc3a8c701459);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ISpotLight2Impl {
-    fn InnerConeIntensity();
-    fn SetInnerConeIntensity();
-    fn OuterConeIntensity();
-    fn SetOuterConeIntensity();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpotLight2Vtbl(
@@ -29926,13 +28878,6 @@ unsafe impl ::windows::core::Interface for ISpotLight3 {
     type Vtable = ISpotLight3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe4d03eea_131f_480e_859e_b82705b74360);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ISpotLight3Impl {
-    fn MinAttenuationCutoff();
-    fn SetMinAttenuationCutoff();
-    fn MaxAttenuationCutoff();
-    fn SetMaxAttenuationCutoff();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpotLight3Vtbl(
@@ -29953,13 +28898,6 @@ pub struct ISpringScalarNaturalMotionAnimation(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISpringScalarNaturalMotionAnimation {
     type Vtable = ISpringScalarNaturalMotionAnimationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0572a95f_37f9_4fbe_b87b_5cd03a89501c);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ISpringScalarNaturalMotionAnimationImpl {
-    fn DampingRatio();
-    fn SetDampingRatio();
-    fn Period();
-    fn SetPeriod();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -29984,13 +28922,6 @@ unsafe impl ::windows::core::Interface for ISpringVector2NaturalMotionAnimation 
     type Vtable = ISpringVector2NaturalMotionAnimationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x23f494b5_ee73_4f0f_a423_402b946df4b3);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ISpringVector2NaturalMotionAnimationImpl {
-    fn DampingRatio();
-    fn SetDampingRatio();
-    fn Period();
-    fn SetPeriod();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpringVector2NaturalMotionAnimationVtbl(
@@ -30013,13 +28944,6 @@ pub struct ISpringVector3NaturalMotionAnimation(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISpringVector3NaturalMotionAnimation {
     type Vtable = ISpringVector3NaturalMotionAnimationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6c8749df_d57b_4794_8e2d_cecb11e194e5);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait ISpringVector3NaturalMotionAnimationImpl {
-    fn DampingRatio();
-    fn SetDampingRatio();
-    fn Period();
-    fn SetPeriod();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -30044,11 +28968,6 @@ unsafe impl ::windows::core::Interface for ISpriteVisual {
     type Vtable = ISpriteVisualVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x08e05581_1ad1_4f97_9757_402d76e4233b);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ISpriteVisualImpl {
-    fn Brush();
-    fn SetBrush();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpriteVisualVtbl(
@@ -30068,11 +28987,6 @@ unsafe impl ::windows::core::Interface for ISpriteVisual2 {
     type Vtable = ISpriteVisual2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x588c9664_997a_4850_91fe_53cb58f81ce9);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait ISpriteVisual2Impl {
-    fn Shadow();
-    fn SetShadow();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpriteVisual2Vtbl(
@@ -30091,19 +29005,6 @@ pub struct IStepEasingFunction(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IStepEasingFunction {
     type Vtable = IStepEasingFunctionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd0caa74b_560c_4a0b_a5f6_206ca8c3ecd6);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IStepEasingFunctionImpl {
-    fn FinalStep();
-    fn SetFinalStep();
-    fn InitialStep();
-    fn SetInitialStep();
-    fn IsFinalStepSingleFrame();
-    fn SetIsFinalStepSingleFrame();
-    fn IsInitialStepSingleFrame();
-    fn SetIsInitialStepSingleFrame();
-    fn StepCount();
-    fn SetStepCount();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -30132,11 +29033,6 @@ unsafe impl ::windows::core::Interface for IVector2KeyFrameAnimation {
     type Vtable = IVector2KeyFrameAnimationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdf414515_4e29_4f11_b55e_bf2a6eb36294);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IVector2KeyFrameAnimationImpl {
-    fn InsertKeyFrame();
-    fn InsertKeyFrameWithEasingFunction();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVector2KeyFrameAnimationVtbl(
@@ -30157,15 +29053,6 @@ pub struct IVector2NaturalMotionAnimation(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IVector2NaturalMotionAnimation {
     type Vtable = IVector2NaturalMotionAnimationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0f3e0b7d_e512_479d_a00c_77c93a30a395);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IVector2NaturalMotionAnimationImpl {
-    fn FinalValue();
-    fn SetFinalValue();
-    fn InitialValue();
-    fn SetInitialValue();
-    fn InitialVelocity();
-    fn SetInitialVelocity();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -30196,8 +29083,6 @@ unsafe impl ::windows::core::Interface for IVector2NaturalMotionAnimationFactory
     type Vtable = IVector2NaturalMotionAnimationFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8c74ff61_0761_48a2_bddb_6afcc52b89d8);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IVector2NaturalMotionAnimationFactoryImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVector2NaturalMotionAnimationFactoryVtbl(
@@ -30214,11 +29099,6 @@ pub struct IVector3KeyFrameAnimation(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IVector3KeyFrameAnimation {
     type Vtable = IVector3KeyFrameAnimationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc8039daa_a281_43c2_a73d_b68e3c533c40);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IVector3KeyFrameAnimationImpl {
-    fn InsertKeyFrame();
-    fn InsertKeyFrameWithEasingFunction();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -30240,15 +29120,6 @@ pub struct IVector3NaturalMotionAnimation(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IVector3NaturalMotionAnimation {
     type Vtable = IVector3NaturalMotionAnimationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9c17042c_e2ca_45ad_969e_4e78b7b9ad41);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IVector3NaturalMotionAnimationImpl {
-    fn FinalValue();
-    fn SetFinalValue();
-    fn InitialValue();
-    fn SetInitialValue();
-    fn InitialVelocity();
-    fn SetInitialVelocity();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -30279,8 +29150,6 @@ unsafe impl ::windows::core::Interface for IVector3NaturalMotionAnimationFactory
     type Vtable = IVector3NaturalMotionAnimationFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x21a81d2f_0880_457b_ac87_b609018c876d);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IVector3NaturalMotionAnimationFactoryImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVector3NaturalMotionAnimationFactoryVtbl(
@@ -30297,11 +29166,6 @@ pub struct IVector4KeyFrameAnimation(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IVector4KeyFrameAnimation {
     type Vtable = IVector4KeyFrameAnimationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2457945b_addd_4385_9606_b6a3d5e4e1b9);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IVector4KeyFrameAnimationImpl {
-    fn InsertKeyFrame();
-    fn InsertKeyFrameWithEasingFunction();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -30323,42 +29187,6 @@ pub struct IVisual(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IVisual {
     type Vtable = IVisualVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x117e202d_a859_4c89_873b_c2aa566788e3);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IVisualImpl {
-    fn AnchorPoint();
-    fn SetAnchorPoint();
-    fn BackfaceVisibility();
-    fn SetBackfaceVisibility();
-    fn BorderMode();
-    fn SetBorderMode();
-    fn CenterPoint();
-    fn SetCenterPoint();
-    fn Clip();
-    fn SetClip();
-    fn CompositeMode();
-    fn SetCompositeMode();
-    fn IsVisible();
-    fn SetIsVisible();
-    fn Offset();
-    fn SetOffset();
-    fn Opacity();
-    fn SetOpacity();
-    fn Orientation();
-    fn SetOrientation();
-    fn Parent();
-    fn RotationAngle();
-    fn SetRotationAngle();
-    fn RotationAngleInDegrees();
-    fn SetRotationAngleInDegrees();
-    fn RotationAxis();
-    fn SetRotationAxis();
-    fn Scale();
-    fn SetScale();
-    fn Size();
-    fn SetSize();
-    fn TransformMatrix();
-    fn SetTransformMatrix();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -30426,15 +29254,6 @@ unsafe impl ::windows::core::Interface for IVisual2 {
     type Vtable = IVisual2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3052b611_56c3_4c3e_8bf3_f6e1ad473f06);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IVisual2Impl {
-    fn ParentForTransform();
-    fn SetParentForTransform();
-    fn RelativeOffsetAdjustment();
-    fn SetRelativeOffsetAdjustment();
-    fn RelativeSizeAdjustment();
-    fn SetRelativeSizeAdjustment();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVisual2Vtbl(
@@ -30462,11 +29281,6 @@ unsafe impl ::windows::core::Interface for IVisual3 {
     type Vtable = IVisual3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x30be580d_f4b6_4ab7_80dd_3738cbac9f2c);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IVisual3Impl {
-    fn IsHitTestVisible();
-    fn SetIsHitTestVisible();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVisual3Vtbl(
@@ -30486,11 +29300,6 @@ unsafe impl ::windows::core::Interface for IVisual4 {
     type Vtable = IVisual4Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9476bf11_e24b_5bf9_9ebe_6274109b2711);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IVisual4Impl {
-    fn IsPixelSnappingEnabled();
-    fn SetIsPixelSnappingEnabled();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVisual4Vtbl(
@@ -30509,16 +29318,6 @@ pub struct IVisualCollection(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IVisualCollection {
     type Vtable = IVisualCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8b745505_fd3e_4a98_84a8_e949468c6bcb);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IVisualCollectionImpl {
-    fn Count();
-    fn InsertAbove();
-    fn InsertAtBottom();
-    fn InsertAtTop();
-    fn InsertBelow();
-    fn Remove();
-    fn RemoveAll();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -30604,7 +29403,6 @@ unsafe impl ::windows::core::Interface for IVisualElement {
     type Vtable = IVisualElementVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x01e64612_1d82_42f4_8e3f_a722ded33fc7);
 }
-pub trait IVisualElementImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVisualElementVtbl(
@@ -30691,9 +29489,6 @@ unsafe impl ::windows::core::Interface for IVisualElement2 {
     type Vtable = IVisualElement2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x993ae8a0_6057_5e40_918c_e06e0b7e7c64);
 }
-pub trait IVisualElement2Impl {
-    fn GetVisualInternal();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVisualElement2Vtbl(
@@ -30712,8 +29507,6 @@ unsafe impl ::windows::core::Interface for IVisualFactory {
     type Vtable = IVisualFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xad0ff93e_b502_4eb5_87b4_9a38a71d0137);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IVisualFactoryImpl {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVisualFactoryVtbl(
@@ -30730,13 +29523,6 @@ pub struct IVisualUnorderedCollection(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IVisualUnorderedCollection {
     type Vtable = IVisualUnorderedCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x338faa70_54c8_40a7_8029_c9ceeb0aa250);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IVisualUnorderedCollectionImpl {
-    fn Count();
-    fn Add();
-    fn Remove();
-    fn RemoveAll();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -45419,3 +44205,5 @@ impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &VisualUnorderedC
 }
 unsafe impl ::core::marker::Send for VisualUnorderedCollection {}
 unsafe impl ::core::marker::Sync for VisualUnorderedCollection {}
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

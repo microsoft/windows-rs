@@ -6,14 +6,6 @@ unsafe impl ::windows::core::Interface for IPhoneNumberFormatter {
     type Vtable = IPhoneNumberFormatterVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1556b49e_bad4_4b4a_900d_4407adb7c981);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IPhoneNumberFormatterImpl {
-    fn Format();
-    fn FormatWithOutputFormat();
-    fn FormatPartialString();
-    fn FormatString();
-    fn FormatStringWithLeftToRightMarkers();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPhoneNumberFormatterVtbl(
@@ -36,13 +28,6 @@ unsafe impl ::windows::core::Interface for IPhoneNumberFormatterStatics {
     type Vtable = IPhoneNumberFormatterStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5ca6f931_84d9_414b_ab4e_a0552c878602);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IPhoneNumberFormatterStaticsImpl {
-    fn TryCreate();
-    fn GetCountryCodeForRegion();
-    fn GetNationalDirectDialingPrefixForRegion();
-    fn WrapWithLeftToRightMarkers();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPhoneNumberFormatterStaticsVtbl(
@@ -63,17 +48,6 @@ pub struct IPhoneNumberInfo(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPhoneNumberInfo {
     type Vtable = IPhoneNumberInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1c7ce4dd_c8b4_4ea3_9aef_b342e2c5b417);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IPhoneNumberInfoImpl {
-    fn CountryCode();
-    fn PhoneNumber();
-    fn GetLengthOfGeographicalAreaCode();
-    fn GetNationalSignificantNumber();
-    fn GetLengthOfNationalDestinationCode();
-    fn PredictNumberKind();
-    fn GetGeographicRegionCode();
-    fn CheckNumberMatch();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -100,10 +74,6 @@ unsafe impl ::windows::core::Interface for IPhoneNumberInfoFactory {
     type Vtable = IPhoneNumberInfoFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8202b964_adaa_4cff_8fcf_17e7516a28ff);
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IPhoneNumberInfoFactoryImpl {
-    fn Create();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPhoneNumberInfoFactoryVtbl(
@@ -121,11 +91,6 @@ pub struct IPhoneNumberInfoStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPhoneNumberInfoStatics {
     type Vtable = IPhoneNumberInfoStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5b3f4f6a_86a9_40e9_8649_6d61161928d4);
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IPhoneNumberInfoStaticsImpl {
-    fn TryParse();
-    fn TryParseWithRegion();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -641,3 +606,5 @@ unsafe impl ::windows::core::RuntimeType for PredictedPhoneNumberKind {
 impl ::windows::core::DefaultType for PredictedPhoneNumberKind {
     type DefaultType = Self;
 }
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");
