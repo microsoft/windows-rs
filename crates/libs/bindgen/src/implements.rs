@@ -39,6 +39,7 @@ fn gen_interface(def: &TypeDef, cfg: &Cfg, gen: &Gen) -> TokenStream {
         cfg.features.insert("implement_exclusive");
     }
 
+    let runtime_name = gen_runtime_name(def, &cfg, gen);
     let cfg = cfg.gen(gen);
 
     let methods = def.methods().map(|method| {
@@ -52,6 +53,7 @@ fn gen_interface(def: &TypeDef, cfg: &Cfg, gen: &Gen) -> TokenStream {
         pub trait #ident : Sized #(+#requires)* where #(#constraints)* {
             #(#methods)*
         }
+        #runtime_name
     }
 }
 

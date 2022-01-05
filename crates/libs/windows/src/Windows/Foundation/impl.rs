@@ -3,6 +3,9 @@ pub trait IAsyncActionImpl: Sized + IAsyncInfoImpl {
     fn Completed(&self) -> ::windows::core::Result<AsyncActionCompletedHandler>;
     fn GetResults(&self) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IAsyncAction {
+    const NAME: &'static str = "Windows.Foundation.IAsyncAction";
+}
 pub trait IAsyncActionWithProgressImpl<TProgress>: Sized + IAsyncInfoImpl
 where
     TProgress: ::windows::core::RuntimeType + 'static,
@@ -13,12 +16,18 @@ where
     fn Completed(&self) -> ::windows::core::Result<AsyncActionWithProgressCompletedHandler<TProgress>>;
     fn GetResults(&self) -> ::windows::core::Result<()>;
 }
+impl<TProgress: ::windows::core::RuntimeType + 'static> ::windows::core::RuntimeName for IAsyncActionWithProgress<TProgress> {
+    const NAME: &'static str = "Windows.Foundation.IAsyncActionWithProgress";
+}
 pub trait IAsyncInfoImpl: Sized {
     fn Id(&self) -> ::windows::core::Result<u32>;
     fn Status(&self) -> ::windows::core::Result<AsyncStatus>;
     fn ErrorCode(&self) -> ::windows::core::Result<::windows::core::HRESULT>;
     fn Cancel(&self) -> ::windows::core::Result<()>;
     fn Close(&self) -> ::windows::core::Result<()>;
+}
+impl ::windows::core::RuntimeName for IAsyncInfo {
+    const NAME: &'static str = "Windows.Foundation.IAsyncInfo";
 }
 pub trait IAsyncOperationImpl<TResult>: Sized + IAsyncInfoImpl
 where
@@ -27,6 +36,9 @@ where
     fn SetCompleted(&self, handler: &::core::option::Option<AsyncOperationCompletedHandler<TResult>>) -> ::windows::core::Result<()>;
     fn Completed(&self) -> ::windows::core::Result<AsyncOperationCompletedHandler<TResult>>;
     fn GetResults(&self) -> ::windows::core::Result<TResult>;
+}
+impl<TResult: ::windows::core::RuntimeType + 'static> ::windows::core::RuntimeName for IAsyncOperation<TResult> {
+    const NAME: &'static str = "Windows.Foundation.IAsyncOperation";
 }
 pub trait IAsyncOperationWithProgressImpl<TResult, TProgress>: Sized + IAsyncInfoImpl
 where
@@ -39,19 +51,36 @@ where
     fn Completed(&self) -> ::windows::core::Result<AsyncOperationWithProgressCompletedHandler<TResult, TProgress>>;
     fn GetResults(&self) -> ::windows::core::Result<TResult>;
 }
+impl<TResult: ::windows::core::RuntimeType + 'static, TProgress: ::windows::core::RuntimeType + 'static> ::windows::core::RuntimeName for IAsyncOperationWithProgress<TResult, TProgress> {
+    const NAME: &'static str = "Windows.Foundation.IAsyncOperationWithProgress";
+}
 pub trait IClosableImpl: Sized {
     fn Close(&self) -> ::windows::core::Result<()>;
+}
+impl ::windows::core::RuntimeName for IClosable {
+    const NAME: &'static str = "Windows.Foundation.IClosable";
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IDeferralImpl: Sized + IClosableImpl {
     fn Complete(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IDeferral {
+    const NAME: &'static str = "Windows.Foundation.IDeferral";
+}
+#[cfg(feature = "implement_exclusive")]
 pub trait IDeferralFactoryImpl: Sized {
     fn Create(&self, handler: &::core::option::Option<DeferralCompletedHandler>) -> ::windows::core::Result<Deferral>;
 }
+#[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IDeferralFactory {
+    const NAME: &'static str = "Windows.Foundation.IDeferralFactory";
+}
 pub trait IGetActivationFactoryImpl: Sized {
     fn GetActivationFactory(&self, activatableclassid: &::windows::core::HSTRING) -> ::windows::core::Result<::windows::core::IInspectable>;
+}
+impl ::windows::core::RuntimeName for IGetActivationFactory {
+    const NAME: &'static str = "Windows.Foundation.IGetActivationFactory";
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IGuidHelperStaticsImpl: Sized {
@@ -59,17 +88,31 @@ pub trait IGuidHelperStaticsImpl: Sized {
     fn Empty(&self) -> ::windows::core::Result<::windows::core::GUID>;
     fn Equals(&self, target: &::windows::core::GUID, value: &::windows::core::GUID) -> ::windows::core::Result<bool>;
 }
+#[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IGuidHelperStatics {
+    const NAME: &'static str = "Windows.Foundation.IGuidHelperStatics";
+}
 pub trait IMemoryBufferImpl: Sized + IClosableImpl {
     fn CreateReference(&self) -> ::windows::core::Result<IMemoryBufferReference>;
+}
+impl ::windows::core::RuntimeName for IMemoryBuffer {
+    const NAME: &'static str = "Windows.Foundation.IMemoryBuffer";
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IMemoryBufferFactoryImpl: Sized {
     fn Create(&self, capacity: u32) -> ::windows::core::Result<MemoryBuffer>;
 }
+#[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IMemoryBufferFactory {
+    const NAME: &'static str = "Windows.Foundation.IMemoryBufferFactory";
+}
 pub trait IMemoryBufferReferenceImpl: Sized + IClosableImpl {
     fn Capacity(&self) -> ::windows::core::Result<u32>;
     fn Closed(&self, handler: &::core::option::Option<TypedEventHandler<IMemoryBufferReference, ::windows::core::IInspectable>>) -> ::windows::core::Result<EventRegistrationToken>;
     fn RemoveClosed(&self, cookie: &EventRegistrationToken) -> ::windows::core::Result<()>;
+}
+impl ::windows::core::RuntimeName for IMemoryBufferReference {
+    const NAME: &'static str = "Windows.Foundation.IMemoryBufferReference";
 }
 pub trait IPropertyValueImpl: Sized {
     fn Type(&self) -> ::windows::core::Result<PropertyType>;
@@ -111,6 +154,9 @@ pub trait IPropertyValueImpl: Sized {
     fn GetPointArray(&self, value: &mut ::windows::core::Array<Point>) -> ::windows::core::Result<()>;
     fn GetSizeArray(&self, value: &mut ::windows::core::Array<Size>) -> ::windows::core::Result<()>;
     fn GetRectArray(&self, value: &mut ::windows::core::Array<Rect>) -> ::windows::core::Result<()>;
+}
+impl ::windows::core::RuntimeName for IPropertyValue {
+    const NAME: &'static str = "Windows.Foundation.IPropertyValue";
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IPropertyValueStaticsImpl: Sized {
@@ -154,11 +200,18 @@ pub trait IPropertyValueStaticsImpl: Sized {
     fn CreateSizeArray(&self, value: &[<Size as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<::windows::core::IInspectable>;
     fn CreateRectArray(&self, value: &[<Rect as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<::windows::core::IInspectable>;
 }
+#[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IPropertyValueStatics {
+    const NAME: &'static str = "Windows.Foundation.IPropertyValueStatics";
+}
 pub trait IReferenceImpl<T>: Sized + IPropertyValueImpl
 where
     T: ::windows::core::RuntimeType + 'static,
 {
     fn Value(&self) -> ::windows::core::Result<T>;
+}
+impl<T: ::windows::core::RuntimeType + 'static> ::windows::core::RuntimeName for IReference<T> {
+    const NAME: &'static str = "Windows.Foundation.IReference";
 }
 pub trait IReferenceArrayImpl<T>: Sized + IPropertyValueImpl
 where
@@ -166,13 +219,23 @@ where
 {
     fn Value(&self) -> ::windows::core::Result<::windows::core::Array<T>>;
 }
+impl<T: ::windows::core::RuntimeType + 'static> ::windows::core::RuntimeName for IReferenceArray<T> {
+    const NAME: &'static str = "Windows.Foundation.IReferenceArray";
+}
 pub trait IStringableImpl: Sized {
     fn ToString(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+}
+impl ::windows::core::RuntimeName for IStringable {
+    const NAME: &'static str = "Windows.Foundation.IStringable";
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IUriEscapeStaticsImpl: Sized {
     fn UnescapeComponent(&self, tounescape: &::windows::core::HSTRING) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn EscapeComponent(&self, toescape: &::windows::core::HSTRING) -> ::windows::core::Result<::windows::core::HSTRING>;
+}
+#[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IUriEscapeStatics {
+    const NAME: &'static str = "Windows.Foundation.IUriEscapeStatics";
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IUriRuntimeClassImpl: Sized {
@@ -195,24 +258,47 @@ pub trait IUriRuntimeClassImpl: Sized {
     fn CombineUri(&self, relativeuri: &::windows::core::HSTRING) -> ::windows::core::Result<Uri>;
 }
 #[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IUriRuntimeClass {
+    const NAME: &'static str = "Windows.Foundation.IUriRuntimeClass";
+}
+#[cfg(feature = "implement_exclusive")]
 pub trait IUriRuntimeClassFactoryImpl: Sized {
     fn CreateUri(&self, uri: &::windows::core::HSTRING) -> ::windows::core::Result<Uri>;
     fn CreateWithRelativeUri(&self, baseuri: &::windows::core::HSTRING, relativeuri: &::windows::core::HSTRING) -> ::windows::core::Result<Uri>;
+}
+#[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IUriRuntimeClassFactory {
+    const NAME: &'static str = "Windows.Foundation.IUriRuntimeClassFactory";
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IUriRuntimeClassWithAbsoluteCanonicalUriImpl: Sized {
     fn AbsoluteCanonicalUri(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn DisplayIri(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
+#[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IUriRuntimeClassWithAbsoluteCanonicalUri {
+    const NAME: &'static str = "Windows.Foundation.IUriRuntimeClassWithAbsoluteCanonicalUri";
+}
 pub trait IWwwFormUrlDecoderEntryImpl: Sized {
     fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn Value(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+}
+impl ::windows::core::RuntimeName for IWwwFormUrlDecoderEntry {
+    const NAME: &'static str = "Windows.Foundation.IWwwFormUrlDecoderEntry";
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IWwwFormUrlDecoderRuntimeClassImpl: Sized + IIterableImpl<IWwwFormUrlDecoderEntry> + IVectorViewImpl<IWwwFormUrlDecoderEntry> {
     fn GetFirstValueByName(&self, name: &::windows::core::HSTRING) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
+#[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
+impl ::windows::core::RuntimeName for IWwwFormUrlDecoderRuntimeClass {
+    const NAME: &'static str = "Windows.Foundation.IWwwFormUrlDecoderRuntimeClass";
+}
 #[cfg(feature = "implement_exclusive")]
 pub trait IWwwFormUrlDecoderRuntimeClassFactoryImpl: Sized {
     fn CreateWwwFormUrlDecoder(&self, query: &::windows::core::HSTRING) -> ::windows::core::Result<WwwFormUrlDecoder>;
+}
+#[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IWwwFormUrlDecoderRuntimeClassFactory {
+    const NAME: &'static str = "Windows.Foundation.IWwwFormUrlDecoderRuntimeClassFactory";
 }

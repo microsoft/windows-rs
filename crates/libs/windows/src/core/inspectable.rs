@@ -33,6 +33,10 @@ unsafe impl RuntimeType for IInspectable {
     const SIGNATURE: ConstBuffer = ConstBuffer::from_slice(b"cinterface(IInspectable)");
 }
 
+impl RuntimeName for IInspectable {
+    const NAME: &'static str = "";
+}
+
 impl core::fmt::Debug for IInspectable {
     fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         // Attempts to retrieve the string representation of the object via the

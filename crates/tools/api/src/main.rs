@@ -114,9 +114,11 @@ fn collect_trees<'a>(output: &std::path::Path, root: &'static str, tree: &'a rea
 }
 
 fn gen_tree(output: &std::path::Path, _root: &'static str, tree: &reader::TypeTree) {
-    // if tree.namespace != "Windows.Foundation" {
-    //     return;
-    // }
+    if tree.namespace != "Windows.Foundation" {
+        return;
+    }
+
+    println!("{}", tree.namespace);
 
     let path = std::path::PathBuf::from(output).join(tree.namespace.replace('.', "/"));
     let gen = bindgen::Gen { namespace: tree.namespace, min_xaml: true, cfg: true, doc: true, ..Default::default() };
@@ -139,7 +141,6 @@ fn fmt_tokens(namespace: &str, tokens: &mut String) {
     let output = child.wait_with_output().unwrap();
 
     if output.status.success() {
-        println!("{}", namespace);
         *tokens = String::from_utf8(output.stdout).expect("Failed to parse UTF-8");
     } else {
         println!("** {} - rustfmt failed", namespace);

@@ -141,19 +141,6 @@ fn gen_agile(def: &TypeDef, cfg: &Cfg, gen: &Gen) -> TokenStream {
     }
 }
 
-fn gen_runtime_name(def: &TypeDef, cfg: &Cfg, gen: &Gen) -> TokenStream {
-    let name = gen_type_ident(def, gen);
-    let runtime_name = format!("{}", def.type_name());
-    let cfg = cfg.gen(gen);
-
-    quote! {
-        #cfg
-        impl ::windows::core::RuntimeName for #name {
-            const NAME: &'static str = #runtime_name;
-        }
-    }
-}
-
 fn gen_conversions(def: &TypeDef, cfg: &Cfg, gen: &Gen) -> TokenStream {
     let name = gen_type_ident(def, gen);
     let mut tokens = quote! {};
