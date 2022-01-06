@@ -15,8 +15,12 @@ fn gen_interface(def: &TypeDef, cfg: &Cfg, gen: &Gen) -> TokenStream {
     // and if interface is exclusive then only provide implement trait if "implement_exclusive" is featured.
     // Also cfg should include all method cfgs.
 
-    let ident = gen_impl_ident(def, gen);
+    let type_ident = gen_ident(def.name());
+    let impl_ident = type_ident.join("Impl");
+    let vtbl_ident = type_ident.join("Vtbl");
     let constraints = gen_type_constraints(def, gen);
+    let generics = gen_type_generics(def, gen);
+    let phantoms = gen_phantoms(def, gen);
     let mut cfg = cfg.clone();
     let mut requires = vec![];
 
@@ -42,18 +46,56 @@ fn gen_interface(def: &TypeDef, cfg: &Cfg, gen: &Gen) -> TokenStream {
     let runtime_name = gen_runtime_name(def, &cfg, gen);
     let cfg = cfg.gen(gen);
 
-    let methods = def.methods().map(|method| {
+    let method_traits = def.methods().map(|method| {
         let name = gen_ident(&method.rust_name());
         let signature = gen_impl_signature(def, &method, gen);
         quote! { fn #name #signature; }
     });
 
+    let method_impls = def.methods().map(|method| {
+        let name = gen_ident(&method.rust_name());
+        let signature = method.signature(&def.generics);
+        let vtbl_signature = gen_vtbl_signature(&def, &method, gen);
+        let invoke_upcall = gen_winrt_upcall(&signature, quote! { (*this).#name }, gen);
+
+        quote! {
+            unsafe extern "system" fn #name<#(#constraints)* Impl: #impl_ident<#(#generics)*>, const OFFSET: usize> #vtbl_signature {
+                let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+                #invoke_upcall
+            }
+        }
+    });
+
+    let method_ptrs = def.methods().map(|method| {
+        let name = gen_ident(&method.rust_name());
+        let signature = gen_impl_signature(def, &method, gen);
+        quote! { #name::<#(#generics)* Impl, OFFSET>, }
+    });
+
     quote!{
         #cfg
-        pub trait #ident : Sized #(+#requires)* where #(#constraints)* {
-            #(#methods)*
+        pub trait #impl_ident<#(#generics)*> : Sized #(+#requires)* where #(#constraints)* {
+            #(#method_traits)*
         }
+        
         #runtime_name
+        #cfg
+        impl<#(#constraints)*> #vtbl_ident<#(#generics)*> {
+            // TODO: adjust `base` type
+            pub const fn new<Impl: #impl_ident<#(#generics)*>, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> #vtbl_ident<#(#generics)*> {
+                #(#method_impls)*
+                Self(
+                    base.0,
+                    base.1,
+                    base.2,
+                    base.3,
+                    ::windows::core::GetRuntimeClassName::<#type_ident<#(#generics)*>>,
+                    base.5,
+                    #(#method_ptrs)*
+                    #(#phantoms)*
+                )
+            }
+        }
     }
 }
 
