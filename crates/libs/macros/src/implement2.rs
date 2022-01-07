@@ -34,6 +34,24 @@ pub fn gen(attributes: proc_macro::TokenStream, original_type: proc_macro::Token
         offset
     });
 
+    let froms = attributes.implement.iter().enumerate().map(|(enumerate, implement)| {
+        let interface_ident = implement.to_ident();
+        let offset: TokenStream = format!("{}", enumerate).into();
+        quote! {
+            impl From<#original_ident> for #interface_ident {
+                fn from(this: #original_ident) -> Self {
+                    unsafe {
+                        let this = #impl_ident::new(this);
+                        let ptr = ::std::boxed::Box::into_raw(::std::boxed::Box::new(this));
+                        ::core::mem::transmute_copy(&::core::ptr::NonNull::new_unchecked(
+                            &mut (*ptr).vtables.#offset as *mut _ as _,
+                        ))
+                    }
+                }
+            }
+        }
+    });
+
     let mut tokens = quote! {
         struct #impl_ident {
             base: ::core::option::Option<::windows::core::IInspectable>,
@@ -78,6 +96,7 @@ pub fn gen(attributes: proc_macro::TokenStream, original_type: proc_macro::Token
                 0
             }
         }
+        #(#froms)*
     };
 
     let mut tokens = tokens.parse::<proc_macro::TokenStream>().unwrap();
