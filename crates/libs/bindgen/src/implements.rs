@@ -85,6 +85,7 @@ fn gen_interface(def: &TypeDef, cfg: &Cfg, gen: &Gen) -> TokenStream {
             pub const fn new<Impl: #impl_ident<#(#generics)*>, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> #vtbl_ident<#(#generics)*> {
                 #(#method_impls)*
                 Self(
+                    // TODO: reformat vtable types to refer to base type rather than duplicating
                     base.0,
                     base.1,
                     base.2,

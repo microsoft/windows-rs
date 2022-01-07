@@ -2,33 +2,138 @@
 use syn::parse::*;
 use syn::Ident;
 use syn::*;
+use quote::*;
 
 // New traits-based implement macro that doesn't rely on metadata
 // Also no support for overrides (Xaml) but developers can still implement overrides directly by implementning the necessary override interface
 // Maybe gen up override traits to have a default implementation to make this simpler { Ok() }
 // And don't make the overrides required constraints.
-pub fn gen(_attribute: proc_macro::TokenStream, original_type: proc_macro::TokenStream) -> proc_macro::TokenStream {
-    original_type
+pub fn gen(attributes: proc_macro::TokenStream, original_type: proc_macro::TokenStream) -> proc_macro::TokenStream {
+    let attributes = syn::parse_macro_input!(attributes as ImplementAttributes);
+
+    let original_type2 = original_type.clone();
+    let original_ident = TokenStream(syn::parse_macro_input!(original_type2 as syn::ItemStruct).ident.to_string());
+    let impl_ident = original_ident.join("Impl");
+
+    let mut tokens = quote! {
+        struct #impl_ident {
+            base: ::core::option::Option<::windows::core::IInspectable>,
+            identity: *const ::windows::core::IInspectableVtbl,
+            vtables: (*const IClosableVtbl, *const IStringableVtbl),
+            _this: #original_ident,
+            count: ::windows::core::WeakRefCount,
+        }
+    };
+
+    let mut tokens = tokens.parse::<proc_macro::TokenStream>().unwrap();
+    tokens.extend(core::iter::once(original_type));
+    tokens
 }
 
-pub enum UseTree2 {
+#[derive(Default)]
+struct ImplementType {
+    type_name: String,
+    generics: Vec<ImplementType>,
+}
+
+#[derive(Default)]
+struct ImplementAttributes {
+    pub implement: Vec<ImplementType>,
+}
+
+impl Parse for ImplementAttributes {
+    fn parse(cursor: ParseStream) -> Result<Self> {
+        let mut input = Self::default();
+
+        while !cursor.is_empty() {
+            input.parse_implement(cursor)?;
+        }
+
+        Ok(input)
+    }
+}
+
+impl ImplementAttributes {
+    fn parse_implement(&mut self, cursor: ParseStream) -> Result<()> {
+        let tree = cursor.parse::<UseTree2>()?;
+        self.walk_implement(&tree, &mut String::new())?;
+
+        if !cursor.is_empty() {
+            cursor.parse::<Token![,]>()?;
+        }
+
+        Ok(())
+    }
+
+    fn walk_implement(&mut self, tree: &UseTree2, namespace: &mut String) -> Result<()> {
+        match tree {
+            UseTree2::Path(input) => {
+                if !namespace.is_empty() {
+                    namespace.push('.');
+                }
+
+                namespace.push_str(&input.ident.to_string());
+                self.walk_implement(&*input.tree, namespace)?;
+            }
+            UseTree2::Name(input) => {
+                self.implement.push(tree.to_element_type(namespace)?);
+            }
+            UseTree2::Group(input) => {
+                for tree in &input.items {
+                    self.walk_implement(tree, namespace)?;
+                }
+            }
+        }
+
+        Ok(())
+    }
+}
+
+enum UseTree2 {
     Path(UsePath2),
     Name(UseName2),
     Group(UseGroup2),
 }
 
-pub struct UsePath2 {
+impl UseTree2 {
+    fn to_element_type(&self, namespace: &mut String) -> Result<ImplementType> {
+        match self {
+            UseTree2::Path(input) => {
+                if !namespace.is_empty() {
+                    namespace.push_str("::");
+                }
+
+                namespace.push_str(&input.ident.to_string());
+                input.tree.to_element_type(namespace)
+            }
+            UseTree2::Name(input) => {
+                let name = input.ident.to_string();
+                let mut def = ImplementType::default();
+                def.type_name = format!("{}::{}", namespace, name);
+
+                for g in &input.generics {
+                    def.generics.push(g.to_element_type(&mut String::new())?);
+                }
+
+                Ok(def)
+            }
+            UseTree2::Group(input) => Err(Error::new(input.brace_token.span, "Syntax not supported")),
+        }
+    }
+}
+
+struct UsePath2 {
     pub ident: Ident,
     pub colon2_token: Token![::],
     pub tree: Box<UseTree2>,
 }
 
-pub struct UseName2 {
+struct UseName2 {
     pub ident: Ident,
     pub generics: Vec<UseTree2>,
 }
 
-pub struct UseGroup2 {
+struct UseGroup2 {
     pub brace_token: token::Brace,
     pub items: syn::punctuated::Punctuated<UseTree2, Token![,]>,
 }
