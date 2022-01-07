@@ -10,9 +10,139 @@ pub trait IAppointmentCalendarCancelMeetingRequestImpl: Sized {
     fn ReportFailedAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>;
 }
 #[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IAppointmentCalendarCancelMeetingRequest {
+    const NAME: &'static str = "Windows.ApplicationModel.Appointments.DataProvider.IAppointmentCalendarCancelMeetingRequest";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IAppointmentCalendarCancelMeetingRequestVtbl {
+    pub const fn new<Impl: IAppointmentCalendarCancelMeetingRequestImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IAppointmentCalendarCancelMeetingRequestVtbl {
+        unsafe extern "system" fn AppointmentCalendarLocalId<Impl: IAppointmentCalendarCancelMeetingRequestImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).AppointmentCalendarLocalId() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn AppointmentLocalId<Impl: IAppointmentCalendarCancelMeetingRequestImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).AppointmentLocalId() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn AppointmentOriginalStartTime<Impl: IAppointmentCalendarCancelMeetingRequestImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).AppointmentOriginalStartTime() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn Subject<Impl: IAppointmentCalendarCancelMeetingRequestImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).Subject() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn Comment<Impl: IAppointmentCalendarCancelMeetingRequestImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).Comment() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn NotifyInvitees<Impl: IAppointmentCalendarCancelMeetingRequestImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).NotifyInvitees() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn ReportCompletedAsync<Impl: IAppointmentCalendarCancelMeetingRequestImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).ReportCompletedAsync() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn ReportFailedAsync<Impl: IAppointmentCalendarCancelMeetingRequestImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).ReportFailedAsync() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IAppointmentCalendarCancelMeetingRequest>, base.5, AppointmentCalendarLocalId::<Impl, OFFSET>, AppointmentLocalId::<Impl, OFFSET>, AppointmentOriginalStartTime::<Impl, OFFSET>, Subject::<Impl, OFFSET>, Comment::<Impl, OFFSET>, NotifyInvitees::<Impl, OFFSET>, ReportCompletedAsync::<Impl, OFFSET>, ReportFailedAsync::<Impl, OFFSET>)
+    }
+}
+#[cfg(feature = "implement_exclusive")]
 pub trait IAppointmentCalendarCancelMeetingRequestEventArgsImpl: Sized {
     fn Request(&self) -> ::windows::core::Result<AppointmentCalendarCancelMeetingRequest>;
     fn GetDeferral(&self) -> ::windows::core::Result<super::super::super::Foundation::Deferral>;
+}
+#[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IAppointmentCalendarCancelMeetingRequestEventArgs {
+    const NAME: &'static str = "Windows.ApplicationModel.Appointments.DataProvider.IAppointmentCalendarCancelMeetingRequestEventArgs";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IAppointmentCalendarCancelMeetingRequestEventArgsVtbl {
+    pub const fn new<Impl: IAppointmentCalendarCancelMeetingRequestEventArgsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IAppointmentCalendarCancelMeetingRequestEventArgsVtbl {
+        unsafe extern "system" fn Request<Impl: IAppointmentCalendarCancelMeetingRequestEventArgsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).Request() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn GetDeferral<Impl: IAppointmentCalendarCancelMeetingRequestEventArgsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).GetDeferral() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IAppointmentCalendarCancelMeetingRequestEventArgs>, base.5, Request::<Impl, OFFSET>, GetDeferral::<Impl, OFFSET>)
+    }
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAppointmentCalendarCreateOrUpdateAppointmentRequestImpl: Sized {
@@ -24,9 +154,117 @@ pub trait IAppointmentCalendarCreateOrUpdateAppointmentRequestImpl: Sized {
     fn ReportFailedAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>;
 }
 #[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IAppointmentCalendarCreateOrUpdateAppointmentRequest {
+    const NAME: &'static str = "Windows.ApplicationModel.Appointments.DataProvider.IAppointmentCalendarCreateOrUpdateAppointmentRequest";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IAppointmentCalendarCreateOrUpdateAppointmentRequestVtbl {
+    pub const fn new<Impl: IAppointmentCalendarCreateOrUpdateAppointmentRequestImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IAppointmentCalendarCreateOrUpdateAppointmentRequestVtbl {
+        unsafe extern "system" fn AppointmentCalendarLocalId<Impl: IAppointmentCalendarCreateOrUpdateAppointmentRequestImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).AppointmentCalendarLocalId() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn Appointment<Impl: IAppointmentCalendarCreateOrUpdateAppointmentRequestImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).Appointment() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn NotifyInvitees<Impl: IAppointmentCalendarCreateOrUpdateAppointmentRequestImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).NotifyInvitees() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn ChangedProperties<Impl: IAppointmentCalendarCreateOrUpdateAppointmentRequestImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).ChangedProperties() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn ReportCompletedAsync<Impl: IAppointmentCalendarCreateOrUpdateAppointmentRequestImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, createdorupdatedappointment: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).ReportCompletedAsync(&*(&createdorupdatedappointment as *const <super::Appointment as ::windows::core::Abi>::Abi as *const <super::Appointment as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn ReportFailedAsync<Impl: IAppointmentCalendarCreateOrUpdateAppointmentRequestImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).ReportFailedAsync() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IAppointmentCalendarCreateOrUpdateAppointmentRequest>, base.5, AppointmentCalendarLocalId::<Impl, OFFSET>, Appointment::<Impl, OFFSET>, NotifyInvitees::<Impl, OFFSET>, ChangedProperties::<Impl, OFFSET>, ReportCompletedAsync::<Impl, OFFSET>, ReportFailedAsync::<Impl, OFFSET>)
+    }
+}
+#[cfg(feature = "implement_exclusive")]
 pub trait IAppointmentCalendarCreateOrUpdateAppointmentRequestEventArgsImpl: Sized {
     fn Request(&self) -> ::windows::core::Result<AppointmentCalendarCreateOrUpdateAppointmentRequest>;
     fn GetDeferral(&self) -> ::windows::core::Result<super::super::super::Foundation::Deferral>;
+}
+#[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IAppointmentCalendarCreateOrUpdateAppointmentRequestEventArgs {
+    const NAME: &'static str = "Windows.ApplicationModel.Appointments.DataProvider.IAppointmentCalendarCreateOrUpdateAppointmentRequestEventArgs";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IAppointmentCalendarCreateOrUpdateAppointmentRequestEventArgsVtbl {
+    pub const fn new<Impl: IAppointmentCalendarCreateOrUpdateAppointmentRequestEventArgsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IAppointmentCalendarCreateOrUpdateAppointmentRequestEventArgsVtbl {
+        unsafe extern "system" fn Request<Impl: IAppointmentCalendarCreateOrUpdateAppointmentRequestEventArgsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).Request() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn GetDeferral<Impl: IAppointmentCalendarCreateOrUpdateAppointmentRequestEventArgsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).GetDeferral() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IAppointmentCalendarCreateOrUpdateAppointmentRequestEventArgs>, base.5, Request::<Impl, OFFSET>, GetDeferral::<Impl, OFFSET>)
+    }
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAppointmentCalendarForwardMeetingRequestImpl: Sized {
@@ -41,9 +279,150 @@ pub trait IAppointmentCalendarForwardMeetingRequestImpl: Sized {
     fn ReportFailedAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>;
 }
 #[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IAppointmentCalendarForwardMeetingRequest {
+    const NAME: &'static str = "Windows.ApplicationModel.Appointments.DataProvider.IAppointmentCalendarForwardMeetingRequest";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IAppointmentCalendarForwardMeetingRequestVtbl {
+    pub const fn new<Impl: IAppointmentCalendarForwardMeetingRequestImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IAppointmentCalendarForwardMeetingRequestVtbl {
+        unsafe extern "system" fn AppointmentCalendarLocalId<Impl: IAppointmentCalendarForwardMeetingRequestImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).AppointmentCalendarLocalId() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn AppointmentLocalId<Impl: IAppointmentCalendarForwardMeetingRequestImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).AppointmentLocalId() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn AppointmentOriginalStartTime<Impl: IAppointmentCalendarForwardMeetingRequestImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).AppointmentOriginalStartTime() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn Invitees<Impl: IAppointmentCalendarForwardMeetingRequestImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).Invitees() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn Subject<Impl: IAppointmentCalendarForwardMeetingRequestImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).Subject() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn ForwardHeader<Impl: IAppointmentCalendarForwardMeetingRequestImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).ForwardHeader() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn Comment<Impl: IAppointmentCalendarForwardMeetingRequestImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).Comment() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn ReportCompletedAsync<Impl: IAppointmentCalendarForwardMeetingRequestImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).ReportCompletedAsync() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn ReportFailedAsync<Impl: IAppointmentCalendarForwardMeetingRequestImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).ReportFailedAsync() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IAppointmentCalendarForwardMeetingRequest>, base.5, AppointmentCalendarLocalId::<Impl, OFFSET>, AppointmentLocalId::<Impl, OFFSET>, AppointmentOriginalStartTime::<Impl, OFFSET>, Invitees::<Impl, OFFSET>, Subject::<Impl, OFFSET>, ForwardHeader::<Impl, OFFSET>, Comment::<Impl, OFFSET>, ReportCompletedAsync::<Impl, OFFSET>, ReportFailedAsync::<Impl, OFFSET>)
+    }
+}
+#[cfg(feature = "implement_exclusive")]
 pub trait IAppointmentCalendarForwardMeetingRequestEventArgsImpl: Sized {
     fn Request(&self) -> ::windows::core::Result<AppointmentCalendarForwardMeetingRequest>;
     fn GetDeferral(&self) -> ::windows::core::Result<super::super::super::Foundation::Deferral>;
+}
+#[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IAppointmentCalendarForwardMeetingRequestEventArgs {
+    const NAME: &'static str = "Windows.ApplicationModel.Appointments.DataProvider.IAppointmentCalendarForwardMeetingRequestEventArgs";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IAppointmentCalendarForwardMeetingRequestEventArgsVtbl {
+    pub const fn new<Impl: IAppointmentCalendarForwardMeetingRequestEventArgsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IAppointmentCalendarForwardMeetingRequestEventArgsVtbl {
+        unsafe extern "system" fn Request<Impl: IAppointmentCalendarForwardMeetingRequestEventArgsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).Request() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn GetDeferral<Impl: IAppointmentCalendarForwardMeetingRequestEventArgsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).GetDeferral() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IAppointmentCalendarForwardMeetingRequestEventArgs>, base.5, Request::<Impl, OFFSET>, GetDeferral::<Impl, OFFSET>)
+    }
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAppointmentCalendarProposeNewTimeForMeetingRequestImpl: Sized {
@@ -58,9 +437,150 @@ pub trait IAppointmentCalendarProposeNewTimeForMeetingRequestImpl: Sized {
     fn ReportFailedAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>;
 }
 #[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IAppointmentCalendarProposeNewTimeForMeetingRequest {
+    const NAME: &'static str = "Windows.ApplicationModel.Appointments.DataProvider.IAppointmentCalendarProposeNewTimeForMeetingRequest";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IAppointmentCalendarProposeNewTimeForMeetingRequestVtbl {
+    pub const fn new<Impl: IAppointmentCalendarProposeNewTimeForMeetingRequestImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IAppointmentCalendarProposeNewTimeForMeetingRequestVtbl {
+        unsafe extern "system" fn AppointmentCalendarLocalId<Impl: IAppointmentCalendarProposeNewTimeForMeetingRequestImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).AppointmentCalendarLocalId() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn AppointmentLocalId<Impl: IAppointmentCalendarProposeNewTimeForMeetingRequestImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).AppointmentLocalId() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn AppointmentOriginalStartTime<Impl: IAppointmentCalendarProposeNewTimeForMeetingRequestImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).AppointmentOriginalStartTime() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn NewStartTime<Impl: IAppointmentCalendarProposeNewTimeForMeetingRequestImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::DateTime) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).NewStartTime() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn NewDuration<Impl: IAppointmentCalendarProposeNewTimeForMeetingRequestImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).NewDuration() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn Subject<Impl: IAppointmentCalendarProposeNewTimeForMeetingRequestImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).Subject() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn Comment<Impl: IAppointmentCalendarProposeNewTimeForMeetingRequestImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).Comment() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn ReportCompletedAsync<Impl: IAppointmentCalendarProposeNewTimeForMeetingRequestImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).ReportCompletedAsync() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn ReportFailedAsync<Impl: IAppointmentCalendarProposeNewTimeForMeetingRequestImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).ReportFailedAsync() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IAppointmentCalendarProposeNewTimeForMeetingRequest>, base.5, AppointmentCalendarLocalId::<Impl, OFFSET>, AppointmentLocalId::<Impl, OFFSET>, AppointmentOriginalStartTime::<Impl, OFFSET>, NewStartTime::<Impl, OFFSET>, NewDuration::<Impl, OFFSET>, Subject::<Impl, OFFSET>, Comment::<Impl, OFFSET>, ReportCompletedAsync::<Impl, OFFSET>, ReportFailedAsync::<Impl, OFFSET>)
+    }
+}
+#[cfg(feature = "implement_exclusive")]
 pub trait IAppointmentCalendarProposeNewTimeForMeetingRequestEventArgsImpl: Sized {
     fn Request(&self) -> ::windows::core::Result<AppointmentCalendarProposeNewTimeForMeetingRequest>;
     fn GetDeferral(&self) -> ::windows::core::Result<super::super::super::Foundation::Deferral>;
+}
+#[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IAppointmentCalendarProposeNewTimeForMeetingRequestEventArgs {
+    const NAME: &'static str = "Windows.ApplicationModel.Appointments.DataProvider.IAppointmentCalendarProposeNewTimeForMeetingRequestEventArgs";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IAppointmentCalendarProposeNewTimeForMeetingRequestEventArgsVtbl {
+    pub const fn new<Impl: IAppointmentCalendarProposeNewTimeForMeetingRequestEventArgsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IAppointmentCalendarProposeNewTimeForMeetingRequestEventArgsVtbl {
+        unsafe extern "system" fn Request<Impl: IAppointmentCalendarProposeNewTimeForMeetingRequestEventArgsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).Request() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn GetDeferral<Impl: IAppointmentCalendarProposeNewTimeForMeetingRequestEventArgsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).GetDeferral() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IAppointmentCalendarProposeNewTimeForMeetingRequestEventArgs>, base.5, Request::<Impl, OFFSET>, GetDeferral::<Impl, OFFSET>)
+    }
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAppointmentCalendarSyncManagerSyncRequestImpl: Sized {
@@ -69,9 +589,84 @@ pub trait IAppointmentCalendarSyncManagerSyncRequestImpl: Sized {
     fn ReportFailedAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>;
 }
 #[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IAppointmentCalendarSyncManagerSyncRequest {
+    const NAME: &'static str = "Windows.ApplicationModel.Appointments.DataProvider.IAppointmentCalendarSyncManagerSyncRequest";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IAppointmentCalendarSyncManagerSyncRequestVtbl {
+    pub const fn new<Impl: IAppointmentCalendarSyncManagerSyncRequestImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IAppointmentCalendarSyncManagerSyncRequestVtbl {
+        unsafe extern "system" fn AppointmentCalendarLocalId<Impl: IAppointmentCalendarSyncManagerSyncRequestImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).AppointmentCalendarLocalId() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn ReportCompletedAsync<Impl: IAppointmentCalendarSyncManagerSyncRequestImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).ReportCompletedAsync() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn ReportFailedAsync<Impl: IAppointmentCalendarSyncManagerSyncRequestImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).ReportFailedAsync() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IAppointmentCalendarSyncManagerSyncRequest>, base.5, AppointmentCalendarLocalId::<Impl, OFFSET>, ReportCompletedAsync::<Impl, OFFSET>, ReportFailedAsync::<Impl, OFFSET>)
+    }
+}
+#[cfg(feature = "implement_exclusive")]
 pub trait IAppointmentCalendarSyncManagerSyncRequestEventArgsImpl: Sized {
     fn Request(&self) -> ::windows::core::Result<AppointmentCalendarSyncManagerSyncRequest>;
     fn GetDeferral(&self) -> ::windows::core::Result<super::super::super::Foundation::Deferral>;
+}
+#[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IAppointmentCalendarSyncManagerSyncRequestEventArgs {
+    const NAME: &'static str = "Windows.ApplicationModel.Appointments.DataProvider.IAppointmentCalendarSyncManagerSyncRequestEventArgs";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IAppointmentCalendarSyncManagerSyncRequestEventArgsVtbl {
+    pub const fn new<Impl: IAppointmentCalendarSyncManagerSyncRequestEventArgsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IAppointmentCalendarSyncManagerSyncRequestEventArgsVtbl {
+        unsafe extern "system" fn Request<Impl: IAppointmentCalendarSyncManagerSyncRequestEventArgsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).Request() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn GetDeferral<Impl: IAppointmentCalendarSyncManagerSyncRequestEventArgsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).GetDeferral() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IAppointmentCalendarSyncManagerSyncRequestEventArgs>, base.5, Request::<Impl, OFFSET>, GetDeferral::<Impl, OFFSET>)
+    }
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAppointmentCalendarUpdateMeetingResponseRequestImpl: Sized {
@@ -86,9 +681,150 @@ pub trait IAppointmentCalendarUpdateMeetingResponseRequestImpl: Sized {
     fn ReportFailedAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>;
 }
 #[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IAppointmentCalendarUpdateMeetingResponseRequest {
+    const NAME: &'static str = "Windows.ApplicationModel.Appointments.DataProvider.IAppointmentCalendarUpdateMeetingResponseRequest";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IAppointmentCalendarUpdateMeetingResponseRequestVtbl {
+    pub const fn new<Impl: IAppointmentCalendarUpdateMeetingResponseRequestImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IAppointmentCalendarUpdateMeetingResponseRequestVtbl {
+        unsafe extern "system" fn AppointmentCalendarLocalId<Impl: IAppointmentCalendarUpdateMeetingResponseRequestImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).AppointmentCalendarLocalId() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn AppointmentLocalId<Impl: IAppointmentCalendarUpdateMeetingResponseRequestImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).AppointmentLocalId() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn AppointmentOriginalStartTime<Impl: IAppointmentCalendarUpdateMeetingResponseRequestImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).AppointmentOriginalStartTime() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn Response<Impl: IAppointmentCalendarUpdateMeetingResponseRequestImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut super::AppointmentParticipantResponse) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).Response() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn Subject<Impl: IAppointmentCalendarUpdateMeetingResponseRequestImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).Subject() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn Comment<Impl: IAppointmentCalendarUpdateMeetingResponseRequestImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).Comment() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SendUpdate<Impl: IAppointmentCalendarUpdateMeetingResponseRequestImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).SendUpdate() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn ReportCompletedAsync<Impl: IAppointmentCalendarUpdateMeetingResponseRequestImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).ReportCompletedAsync() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn ReportFailedAsync<Impl: IAppointmentCalendarUpdateMeetingResponseRequestImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).ReportFailedAsync() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IAppointmentCalendarUpdateMeetingResponseRequest>, base.5, AppointmentCalendarLocalId::<Impl, OFFSET>, AppointmentLocalId::<Impl, OFFSET>, AppointmentOriginalStartTime::<Impl, OFFSET>, Response::<Impl, OFFSET>, Subject::<Impl, OFFSET>, Comment::<Impl, OFFSET>, SendUpdate::<Impl, OFFSET>, ReportCompletedAsync::<Impl, OFFSET>, ReportFailedAsync::<Impl, OFFSET>)
+    }
+}
+#[cfg(feature = "implement_exclusive")]
 pub trait IAppointmentCalendarUpdateMeetingResponseRequestEventArgsImpl: Sized {
     fn Request(&self) -> ::windows::core::Result<AppointmentCalendarUpdateMeetingResponseRequest>;
     fn GetDeferral(&self) -> ::windows::core::Result<super::super::super::Foundation::Deferral>;
+}
+#[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IAppointmentCalendarUpdateMeetingResponseRequestEventArgs {
+    const NAME: &'static str = "Windows.ApplicationModel.Appointments.DataProvider.IAppointmentCalendarUpdateMeetingResponseRequestEventArgs";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IAppointmentCalendarUpdateMeetingResponseRequestEventArgsVtbl {
+    pub const fn new<Impl: IAppointmentCalendarUpdateMeetingResponseRequestEventArgsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IAppointmentCalendarUpdateMeetingResponseRequestEventArgsVtbl {
+        unsafe extern "system" fn Request<Impl: IAppointmentCalendarUpdateMeetingResponseRequestEventArgsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).Request() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn GetDeferral<Impl: IAppointmentCalendarUpdateMeetingResponseRequestEventArgsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).GetDeferral() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IAppointmentCalendarUpdateMeetingResponseRequestEventArgs>, base.5, Request::<Impl, OFFSET>, GetDeferral::<Impl, OFFSET>)
+    }
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAppointmentDataProviderConnectionImpl: Sized {
@@ -107,6 +843,151 @@ pub trait IAppointmentDataProviderConnectionImpl: Sized {
     fn Start(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IAppointmentDataProviderConnection {
+    const NAME: &'static str = "Windows.ApplicationModel.Appointments.DataProvider.IAppointmentDataProviderConnection";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IAppointmentDataProviderConnectionVtbl {
+    pub const fn new<Impl: IAppointmentDataProviderConnectionImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IAppointmentDataProviderConnectionVtbl {
+        unsafe extern "system" fn SyncRequested<Impl: IAppointmentDataProviderConnectionImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).SyncRequested(&*(&handler as *const <super::super::super::Foundation::TypedEventHandler<AppointmentDataProviderConnection, AppointmentCalendarSyncManagerSyncRequestEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::TypedEventHandler<AppointmentDataProviderConnection, AppointmentCalendarSyncManagerSyncRequestEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn RemoveSyncRequested<Impl: IAppointmentDataProviderConnectionImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).RemoveSyncRequested(&*(&token as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
+        }
+        unsafe extern "system" fn CreateOrUpdateAppointmentRequested<Impl: IAppointmentDataProviderConnectionImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).CreateOrUpdateAppointmentRequested(&*(&handler as *const <super::super::super::Foundation::TypedEventHandler<AppointmentDataProviderConnection, AppointmentCalendarCreateOrUpdateAppointmentRequestEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::TypedEventHandler<AppointmentDataProviderConnection, AppointmentCalendarCreateOrUpdateAppointmentRequestEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn RemoveCreateOrUpdateAppointmentRequested<Impl: IAppointmentDataProviderConnectionImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).RemoveCreateOrUpdateAppointmentRequested(&*(&token as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
+        }
+        unsafe extern "system" fn CancelMeetingRequested<Impl: IAppointmentDataProviderConnectionImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).CancelMeetingRequested(&*(&handler as *const <super::super::super::Foundation::TypedEventHandler<AppointmentDataProviderConnection, AppointmentCalendarCancelMeetingRequestEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::TypedEventHandler<AppointmentDataProviderConnection, AppointmentCalendarCancelMeetingRequestEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn RemoveCancelMeetingRequested<Impl: IAppointmentDataProviderConnectionImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).RemoveCancelMeetingRequested(&*(&token as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
+        }
+        unsafe extern "system" fn ForwardMeetingRequested<Impl: IAppointmentDataProviderConnectionImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).ForwardMeetingRequested(&*(&handler as *const <super::super::super::Foundation::TypedEventHandler<AppointmentDataProviderConnection, AppointmentCalendarForwardMeetingRequestEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::TypedEventHandler<AppointmentDataProviderConnection, AppointmentCalendarForwardMeetingRequestEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn RemoveForwardMeetingRequested<Impl: IAppointmentDataProviderConnectionImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).RemoveForwardMeetingRequested(&*(&token as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
+        }
+        unsafe extern "system" fn ProposeNewTimeForMeetingRequested<Impl: IAppointmentDataProviderConnectionImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).ProposeNewTimeForMeetingRequested(&*(&handler as *const <super::super::super::Foundation::TypedEventHandler<AppointmentDataProviderConnection, AppointmentCalendarProposeNewTimeForMeetingRequestEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::TypedEventHandler<AppointmentDataProviderConnection, AppointmentCalendarProposeNewTimeForMeetingRequestEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn RemoveProposeNewTimeForMeetingRequested<Impl: IAppointmentDataProviderConnectionImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).RemoveProposeNewTimeForMeetingRequested(&*(&token as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
+        }
+        unsafe extern "system" fn UpdateMeetingResponseRequested<Impl: IAppointmentDataProviderConnectionImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).UpdateMeetingResponseRequested(&*(&handler as *const <super::super::super::Foundation::TypedEventHandler<AppointmentDataProviderConnection, AppointmentCalendarUpdateMeetingResponseRequestEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::TypedEventHandler<AppointmentDataProviderConnection, AppointmentCalendarUpdateMeetingResponseRequestEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn RemoveUpdateMeetingResponseRequested<Impl: IAppointmentDataProviderConnectionImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).RemoveUpdateMeetingResponseRequested(&*(&token as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
+        }
+        unsafe extern "system" fn Start<Impl: IAppointmentDataProviderConnectionImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).Start().into()
+        }
+        Self(
+            base.0,
+            base.1,
+            base.2,
+            base.3,
+            ::windows::core::GetRuntimeClassName::<IAppointmentDataProviderConnection>,
+            base.5,
+            SyncRequested::<Impl, OFFSET>,
+            RemoveSyncRequested::<Impl, OFFSET>,
+            CreateOrUpdateAppointmentRequested::<Impl, OFFSET>,
+            RemoveCreateOrUpdateAppointmentRequested::<Impl, OFFSET>,
+            CancelMeetingRequested::<Impl, OFFSET>,
+            RemoveCancelMeetingRequested::<Impl, OFFSET>,
+            ForwardMeetingRequested::<Impl, OFFSET>,
+            RemoveForwardMeetingRequested::<Impl, OFFSET>,
+            ProposeNewTimeForMeetingRequested::<Impl, OFFSET>,
+            RemoveProposeNewTimeForMeetingRequested::<Impl, OFFSET>,
+            UpdateMeetingResponseRequested::<Impl, OFFSET>,
+            RemoveUpdateMeetingResponseRequested::<Impl, OFFSET>,
+            Start::<Impl, OFFSET>,
+        )
+    }
+}
+#[cfg(feature = "implement_exclusive")]
 pub trait IAppointmentDataProviderTriggerDetailsImpl: Sized {
     fn Connection(&self) -> ::windows::core::Result<AppointmentDataProviderConnection>;
+}
+#[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IAppointmentDataProviderTriggerDetails {
+    const NAME: &'static str = "Windows.ApplicationModel.Appointments.DataProvider.IAppointmentDataProviderTriggerDetails";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IAppointmentDataProviderTriggerDetailsVtbl {
+    pub const fn new<Impl: IAppointmentDataProviderTriggerDetailsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IAppointmentDataProviderTriggerDetailsVtbl {
+        unsafe extern "system" fn Connection<Impl: IAppointmentDataProviderTriggerDetailsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).Connection() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IAppointmentDataProviderTriggerDetails>, base.5, Connection::<Impl, OFFSET>)
+    }
 }

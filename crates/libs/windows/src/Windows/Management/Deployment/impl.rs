@@ -32,15 +32,355 @@ pub trait IAddPackageOptionsImpl: Sized {
     fn SetDeferRegistrationWhenPackagesAreInUse(&self, value: bool) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IAddPackageOptions {
+    const NAME: &'static str = "Windows.Management.Deployment.IAddPackageOptions";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IAddPackageOptionsVtbl {
+    pub const fn new<Impl: IAddPackageOptionsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IAddPackageOptionsVtbl {
+        unsafe extern "system" fn DependencyPackageUris<Impl: IAddPackageOptionsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).DependencyPackageUris() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn TargetVolume<Impl: IAddPackageOptionsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).TargetVolume() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetTargetVolume<Impl: IAddPackageOptionsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetTargetVolume(&*(&value as *const <PackageVolume as ::windows::core::Abi>::Abi as *const <PackageVolume as ::windows::core::DefaultType>::DefaultType)).into()
+        }
+        unsafe extern "system" fn OptionalPackageFamilyNames<Impl: IAddPackageOptionsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).OptionalPackageFamilyNames() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn OptionalPackageUris<Impl: IAddPackageOptionsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).OptionalPackageUris() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn RelatedPackageUris<Impl: IAddPackageOptionsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).RelatedPackageUris() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn ExternalLocationUri<Impl: IAddPackageOptionsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).ExternalLocationUri() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetExternalLocationUri<Impl: IAddPackageOptionsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetExternalLocationUri(&*(&value as *const <super::super::Foundation::Uri as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Uri as ::windows::core::DefaultType>::DefaultType)).into()
+        }
+        unsafe extern "system" fn StubPackageOption<Impl: IAddPackageOptionsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut StubPackageOption) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).StubPackageOption() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetStubPackageOption<Impl: IAddPackageOptionsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: StubPackageOption) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetStubPackageOption(value).into()
+        }
+        unsafe extern "system" fn DeveloperMode<Impl: IAddPackageOptionsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).DeveloperMode() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetDeveloperMode<Impl: IAddPackageOptionsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetDeveloperMode(value).into()
+        }
+        unsafe extern "system" fn ForceAppShutdown<Impl: IAddPackageOptionsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).ForceAppShutdown() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetForceAppShutdown<Impl: IAddPackageOptionsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetForceAppShutdown(value).into()
+        }
+        unsafe extern "system" fn ForceTargetAppShutdown<Impl: IAddPackageOptionsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).ForceTargetAppShutdown() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetForceTargetAppShutdown<Impl: IAddPackageOptionsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetForceTargetAppShutdown(value).into()
+        }
+        unsafe extern "system" fn ForceUpdateFromAnyVersion<Impl: IAddPackageOptionsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).ForceUpdateFromAnyVersion() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetForceUpdateFromAnyVersion<Impl: IAddPackageOptionsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetForceUpdateFromAnyVersion(value).into()
+        }
+        unsafe extern "system" fn InstallAllResources<Impl: IAddPackageOptionsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).InstallAllResources() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetInstallAllResources<Impl: IAddPackageOptionsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetInstallAllResources(value).into()
+        }
+        unsafe extern "system" fn RequiredContentGroupOnly<Impl: IAddPackageOptionsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).RequiredContentGroupOnly() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetRequiredContentGroupOnly<Impl: IAddPackageOptionsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetRequiredContentGroupOnly(value).into()
+        }
+        unsafe extern "system" fn RetainFilesOnFailure<Impl: IAddPackageOptionsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).RetainFilesOnFailure() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetRetainFilesOnFailure<Impl: IAddPackageOptionsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetRetainFilesOnFailure(value).into()
+        }
+        unsafe extern "system" fn StageInPlace<Impl: IAddPackageOptionsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).StageInPlace() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetStageInPlace<Impl: IAddPackageOptionsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetStageInPlace(value).into()
+        }
+        unsafe extern "system" fn AllowUnsigned<Impl: IAddPackageOptionsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).AllowUnsigned() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetAllowUnsigned<Impl: IAddPackageOptionsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetAllowUnsigned(value).into()
+        }
+        unsafe extern "system" fn DeferRegistrationWhenPackagesAreInUse<Impl: IAddPackageOptionsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).DeferRegistrationWhenPackagesAreInUse() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetDeferRegistrationWhenPackagesAreInUse<Impl: IAddPackageOptionsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetDeferRegistrationWhenPackagesAreInUse(value).into()
+        }
+        Self(
+            base.0,
+            base.1,
+            base.2,
+            base.3,
+            ::windows::core::GetRuntimeClassName::<IAddPackageOptions>,
+            base.5,
+            DependencyPackageUris::<Impl, OFFSET>,
+            TargetVolume::<Impl, OFFSET>,
+            SetTargetVolume::<Impl, OFFSET>,
+            OptionalPackageFamilyNames::<Impl, OFFSET>,
+            OptionalPackageUris::<Impl, OFFSET>,
+            RelatedPackageUris::<Impl, OFFSET>,
+            ExternalLocationUri::<Impl, OFFSET>,
+            SetExternalLocationUri::<Impl, OFFSET>,
+            StubPackageOption::<Impl, OFFSET>,
+            SetStubPackageOption::<Impl, OFFSET>,
+            DeveloperMode::<Impl, OFFSET>,
+            SetDeveloperMode::<Impl, OFFSET>,
+            ForceAppShutdown::<Impl, OFFSET>,
+            SetForceAppShutdown::<Impl, OFFSET>,
+            ForceTargetAppShutdown::<Impl, OFFSET>,
+            SetForceTargetAppShutdown::<Impl, OFFSET>,
+            ForceUpdateFromAnyVersion::<Impl, OFFSET>,
+            SetForceUpdateFromAnyVersion::<Impl, OFFSET>,
+            InstallAllResources::<Impl, OFFSET>,
+            SetInstallAllResources::<Impl, OFFSET>,
+            RequiredContentGroupOnly::<Impl, OFFSET>,
+            SetRequiredContentGroupOnly::<Impl, OFFSET>,
+            RetainFilesOnFailure::<Impl, OFFSET>,
+            SetRetainFilesOnFailure::<Impl, OFFSET>,
+            StageInPlace::<Impl, OFFSET>,
+            SetStageInPlace::<Impl, OFFSET>,
+            AllowUnsigned::<Impl, OFFSET>,
+            SetAllowUnsigned::<Impl, OFFSET>,
+            DeferRegistrationWhenPackagesAreInUse::<Impl, OFFSET>,
+            SetDeferRegistrationWhenPackagesAreInUse::<Impl, OFFSET>,
+        )
+    }
+}
+#[cfg(feature = "implement_exclusive")]
 pub trait IAppInstallerManagerImpl: Sized {
     fn SetAutoUpdateSettings(&self, packagefamilyname: &::windows::core::HSTRING, appinstallerinfo: &::core::option::Option<AutoUpdateSettingsOptions>) -> ::windows::core::Result<()>;
     fn ClearAutoUpdateSettings(&self, packagefamilyname: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
     fn PauseAutoUpdatesUntil(&self, packagefamilyname: &::windows::core::HSTRING, datetime: &super::super::Foundation::DateTime) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IAppInstallerManager {
+    const NAME: &'static str = "Windows.Management.Deployment.IAppInstallerManager";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IAppInstallerManagerVtbl {
+    pub const fn new<Impl: IAppInstallerManagerImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IAppInstallerManagerVtbl {
+        unsafe extern "system" fn SetAutoUpdateSettings<Impl: IAppInstallerManagerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, packagefamilyname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, appinstallerinfo: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetAutoUpdateSettings(&*(&packagefamilyname as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&appinstallerinfo as *const <AutoUpdateSettingsOptions as ::windows::core::Abi>::Abi as *const <AutoUpdateSettingsOptions as ::windows::core::DefaultType>::DefaultType)).into()
+        }
+        unsafe extern "system" fn ClearAutoUpdateSettings<Impl: IAppInstallerManagerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, packagefamilyname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).ClearAutoUpdateSettings(&*(&packagefamilyname as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
+        }
+        unsafe extern "system" fn PauseAutoUpdatesUntil<Impl: IAppInstallerManagerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, packagefamilyname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, datetime: super::super::Foundation::DateTime) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).PauseAutoUpdatesUntil(&*(&packagefamilyname as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&datetime as *const <super::super::Foundation::DateTime as ::windows::core::Abi>::Abi as *const <super::super::Foundation::DateTime as ::windows::core::DefaultType>::DefaultType)).into()
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IAppInstallerManager>, base.5, SetAutoUpdateSettings::<Impl, OFFSET>, ClearAutoUpdateSettings::<Impl, OFFSET>, PauseAutoUpdatesUntil::<Impl, OFFSET>)
+    }
+}
+#[cfg(feature = "implement_exclusive")]
 pub trait IAppInstallerManagerStaticsImpl: Sized {
     fn GetDefault(&self) -> ::windows::core::Result<AppInstallerManager>;
     fn GetForSystem(&self) -> ::windows::core::Result<AppInstallerManager>;
+}
+#[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IAppInstallerManagerStatics {
+    const NAME: &'static str = "Windows.Management.Deployment.IAppInstallerManagerStatics";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IAppInstallerManagerStaticsVtbl {
+    pub const fn new<Impl: IAppInstallerManagerStaticsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IAppInstallerManagerStaticsVtbl {
+        unsafe extern "system" fn GetDefault<Impl: IAppInstallerManagerStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).GetDefault() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn GetForSystem<Impl: IAppInstallerManagerStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).GetForSystem() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IAppInstallerManagerStatics>, base.5, GetDefault::<Impl, OFFSET>, GetForSystem::<Impl, OFFSET>)
+    }
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAutoUpdateSettingsOptionsImpl: Sized {
@@ -68,8 +408,247 @@ pub trait IAutoUpdateSettingsOptionsImpl: Sized {
     fn OptionalPackageUris(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<super::super::Foundation::Uri>>;
 }
 #[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IAutoUpdateSettingsOptions {
+    const NAME: &'static str = "Windows.Management.Deployment.IAutoUpdateSettingsOptions";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IAutoUpdateSettingsOptionsVtbl {
+    pub const fn new<Impl: IAutoUpdateSettingsOptionsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IAutoUpdateSettingsOptionsVtbl {
+        unsafe extern "system" fn Version<Impl: IAutoUpdateSettingsOptionsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::ApplicationModel::PackageVersion) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).Version() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetVersion<Impl: IAutoUpdateSettingsOptionsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: super::super::ApplicationModel::PackageVersion) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetVersion(&*(&value as *const <super::super::ApplicationModel::PackageVersion as ::windows::core::Abi>::Abi as *const <super::super::ApplicationModel::PackageVersion as ::windows::core::DefaultType>::DefaultType)).into()
+        }
+        unsafe extern "system" fn AppInstallerUri<Impl: IAutoUpdateSettingsOptionsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).AppInstallerUri() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetAppInstallerUri<Impl: IAutoUpdateSettingsOptionsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetAppInstallerUri(&*(&value as *const <super::super::Foundation::Uri as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Uri as ::windows::core::DefaultType>::DefaultType)).into()
+        }
+        unsafe extern "system" fn OnLaunch<Impl: IAutoUpdateSettingsOptionsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).OnLaunch() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetOnLaunch<Impl: IAutoUpdateSettingsOptionsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetOnLaunch(value).into()
+        }
+        unsafe extern "system" fn HoursBetweenUpdateChecks<Impl: IAutoUpdateSettingsOptionsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).HoursBetweenUpdateChecks() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetHoursBetweenUpdateChecks<Impl: IAutoUpdateSettingsOptionsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetHoursBetweenUpdateChecks(value).into()
+        }
+        unsafe extern "system" fn ShowPrompt<Impl: IAutoUpdateSettingsOptionsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).ShowPrompt() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetShowPrompt<Impl: IAutoUpdateSettingsOptionsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetShowPrompt(value).into()
+        }
+        unsafe extern "system" fn UpdateBlocksActivation<Impl: IAutoUpdateSettingsOptionsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).UpdateBlocksActivation() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetUpdateBlocksActivation<Impl: IAutoUpdateSettingsOptionsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetUpdateBlocksActivation(value).into()
+        }
+        unsafe extern "system" fn AutomaticBackgroundTask<Impl: IAutoUpdateSettingsOptionsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).AutomaticBackgroundTask() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetAutomaticBackgroundTask<Impl: IAutoUpdateSettingsOptionsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetAutomaticBackgroundTask(value).into()
+        }
+        unsafe extern "system" fn ForceUpdateFromAnyVersion<Impl: IAutoUpdateSettingsOptionsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).ForceUpdateFromAnyVersion() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetForceUpdateFromAnyVersion<Impl: IAutoUpdateSettingsOptionsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetForceUpdateFromAnyVersion(value).into()
+        }
+        unsafe extern "system" fn IsAutoRepairEnabled<Impl: IAutoUpdateSettingsOptionsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).IsAutoRepairEnabled() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetIsAutoRepairEnabled<Impl: IAutoUpdateSettingsOptionsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetIsAutoRepairEnabled(value).into()
+        }
+        unsafe extern "system" fn UpdateUris<Impl: IAutoUpdateSettingsOptionsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).UpdateUris() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn RepairUris<Impl: IAutoUpdateSettingsOptionsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).RepairUris() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn DependencyPackageUris<Impl: IAutoUpdateSettingsOptionsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).DependencyPackageUris() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn OptionalPackageUris<Impl: IAutoUpdateSettingsOptionsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).OptionalPackageUris() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(
+            base.0,
+            base.1,
+            base.2,
+            base.3,
+            ::windows::core::GetRuntimeClassName::<IAutoUpdateSettingsOptions>,
+            base.5,
+            Version::<Impl, OFFSET>,
+            SetVersion::<Impl, OFFSET>,
+            AppInstallerUri::<Impl, OFFSET>,
+            SetAppInstallerUri::<Impl, OFFSET>,
+            OnLaunch::<Impl, OFFSET>,
+            SetOnLaunch::<Impl, OFFSET>,
+            HoursBetweenUpdateChecks::<Impl, OFFSET>,
+            SetHoursBetweenUpdateChecks::<Impl, OFFSET>,
+            ShowPrompt::<Impl, OFFSET>,
+            SetShowPrompt::<Impl, OFFSET>,
+            UpdateBlocksActivation::<Impl, OFFSET>,
+            SetUpdateBlocksActivation::<Impl, OFFSET>,
+            AutomaticBackgroundTask::<Impl, OFFSET>,
+            SetAutomaticBackgroundTask::<Impl, OFFSET>,
+            ForceUpdateFromAnyVersion::<Impl, OFFSET>,
+            SetForceUpdateFromAnyVersion::<Impl, OFFSET>,
+            IsAutoRepairEnabled::<Impl, OFFSET>,
+            SetIsAutoRepairEnabled::<Impl, OFFSET>,
+            UpdateUris::<Impl, OFFSET>,
+            RepairUris::<Impl, OFFSET>,
+            DependencyPackageUris::<Impl, OFFSET>,
+            OptionalPackageUris::<Impl, OFFSET>,
+        )
+    }
+}
+#[cfg(feature = "implement_exclusive")]
 pub trait IAutoUpdateSettingsOptionsStaticsImpl: Sized {
     fn CreateFromAppInstallerInfo(&self, appinstallerinfo: &::core::option::Option<super::super::ApplicationModel::AppInstallerInfo>) -> ::windows::core::Result<AutoUpdateSettingsOptions>;
+}
+#[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IAutoUpdateSettingsOptionsStatics {
+    const NAME: &'static str = "Windows.Management.Deployment.IAutoUpdateSettingsOptionsStatics";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IAutoUpdateSettingsOptionsStaticsVtbl {
+    pub const fn new<Impl: IAutoUpdateSettingsOptionsStaticsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IAutoUpdateSettingsOptionsStaticsVtbl {
+        unsafe extern "system" fn CreateFromAppInstallerInfo<Impl: IAutoUpdateSettingsOptionsStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, appinstallerinfo: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).CreateFromAppInstallerInfo(&*(&appinstallerinfo as *const <super::super::ApplicationModel::AppInstallerInfo as ::windows::core::Abi>::Abi as *const <super::super::ApplicationModel::AppInstallerInfo as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IAutoUpdateSettingsOptionsStatics>, base.5, CreateFromAppInstallerInfo::<Impl, OFFSET>)
+    }
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ICreateSharedPackageContainerOptionsImpl: Sized {
@@ -80,10 +659,104 @@ pub trait ICreateSharedPackageContainerOptionsImpl: Sized {
     fn SetCreateCollisionOption(&self, value: SharedPackageContainerCreationCollisionOptions) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for ICreateSharedPackageContainerOptions {
+    const NAME: &'static str = "Windows.Management.Deployment.ICreateSharedPackageContainerOptions";
+}
+#[cfg(feature = "implement_exclusive")]
+impl ICreateSharedPackageContainerOptionsVtbl {
+    pub const fn new<Impl: ICreateSharedPackageContainerOptionsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> ICreateSharedPackageContainerOptionsVtbl {
+        unsafe extern "system" fn Members<Impl: ICreateSharedPackageContainerOptionsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).Members() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn ForceAppShutdown<Impl: ICreateSharedPackageContainerOptionsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).ForceAppShutdown() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetForceAppShutdown<Impl: ICreateSharedPackageContainerOptionsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetForceAppShutdown(value).into()
+        }
+        unsafe extern "system" fn CreateCollisionOption<Impl: ICreateSharedPackageContainerOptionsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut SharedPackageContainerCreationCollisionOptions) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).CreateCollisionOption() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetCreateCollisionOption<Impl: ICreateSharedPackageContainerOptionsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: SharedPackageContainerCreationCollisionOptions) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetCreateCollisionOption(value).into()
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<ICreateSharedPackageContainerOptions>, base.5, Members::<Impl, OFFSET>, ForceAppShutdown::<Impl, OFFSET>, SetForceAppShutdown::<Impl, OFFSET>, CreateCollisionOption::<Impl, OFFSET>, SetCreateCollisionOption::<Impl, OFFSET>)
+    }
+}
+#[cfg(feature = "implement_exclusive")]
 pub trait ICreateSharedPackageContainerResultImpl: Sized {
     fn Container(&self) -> ::windows::core::Result<SharedPackageContainer>;
     fn Status(&self) -> ::windows::core::Result<SharedPackageContainerOperationStatus>;
     fn ExtendedError(&self) -> ::windows::core::Result<::windows::core::HRESULT>;
+}
+#[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for ICreateSharedPackageContainerResult {
+    const NAME: &'static str = "Windows.Management.Deployment.ICreateSharedPackageContainerResult";
+}
+#[cfg(feature = "implement_exclusive")]
+impl ICreateSharedPackageContainerResultVtbl {
+    pub const fn new<Impl: ICreateSharedPackageContainerResultImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> ICreateSharedPackageContainerResultVtbl {
+        unsafe extern "system" fn Container<Impl: ICreateSharedPackageContainerResultImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).Container() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn Status<Impl: ICreateSharedPackageContainerResultImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut SharedPackageContainerOperationStatus) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).Status() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn ExtendedError<Impl: ICreateSharedPackageContainerResultImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::HRESULT) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).ExtendedError() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<ICreateSharedPackageContainerResult>, base.5, Container::<Impl, OFFSET>, Status::<Impl, OFFSET>, ExtendedError::<Impl, OFFSET>)
+    }
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IDeleteSharedPackageContainerOptionsImpl: Sized {
@@ -93,9 +766,81 @@ pub trait IDeleteSharedPackageContainerOptionsImpl: Sized {
     fn SetAllUsers(&self, value: bool) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IDeleteSharedPackageContainerOptions {
+    const NAME: &'static str = "Windows.Management.Deployment.IDeleteSharedPackageContainerOptions";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IDeleteSharedPackageContainerOptionsVtbl {
+    pub const fn new<Impl: IDeleteSharedPackageContainerOptionsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IDeleteSharedPackageContainerOptionsVtbl {
+        unsafe extern "system" fn ForceAppShutdown<Impl: IDeleteSharedPackageContainerOptionsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).ForceAppShutdown() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetForceAppShutdown<Impl: IDeleteSharedPackageContainerOptionsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetForceAppShutdown(value).into()
+        }
+        unsafe extern "system" fn AllUsers<Impl: IDeleteSharedPackageContainerOptionsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).AllUsers() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetAllUsers<Impl: IDeleteSharedPackageContainerOptionsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetAllUsers(value).into()
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IDeleteSharedPackageContainerOptions>, base.5, ForceAppShutdown::<Impl, OFFSET>, SetForceAppShutdown::<Impl, OFFSET>, AllUsers::<Impl, OFFSET>, SetAllUsers::<Impl, OFFSET>)
+    }
+}
+#[cfg(feature = "implement_exclusive")]
 pub trait IDeleteSharedPackageContainerResultImpl: Sized {
     fn Status(&self) -> ::windows::core::Result<SharedPackageContainerOperationStatus>;
     fn ExtendedError(&self) -> ::windows::core::Result<::windows::core::HRESULT>;
+}
+#[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IDeleteSharedPackageContainerResult {
+    const NAME: &'static str = "Windows.Management.Deployment.IDeleteSharedPackageContainerResult";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IDeleteSharedPackageContainerResultVtbl {
+    pub const fn new<Impl: IDeleteSharedPackageContainerResultImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IDeleteSharedPackageContainerResultVtbl {
+        unsafe extern "system" fn Status<Impl: IDeleteSharedPackageContainerResultImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut SharedPackageContainerOperationStatus) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).Status() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn ExtendedError<Impl: IDeleteSharedPackageContainerResultImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::HRESULT) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).ExtendedError() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IDeleteSharedPackageContainerResult>, base.5, Status::<Impl, OFFSET>, ExtendedError::<Impl, OFFSET>)
+    }
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IDeploymentResultImpl: Sized {
@@ -104,8 +849,72 @@ pub trait IDeploymentResultImpl: Sized {
     fn ExtendedErrorCode(&self) -> ::windows::core::Result<::windows::core::HRESULT>;
 }
 #[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IDeploymentResult {
+    const NAME: &'static str = "Windows.Management.Deployment.IDeploymentResult";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IDeploymentResultVtbl {
+    pub const fn new<Impl: IDeploymentResultImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IDeploymentResultVtbl {
+        unsafe extern "system" fn ErrorText<Impl: IDeploymentResultImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).ErrorText() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn ActivityId<Impl: IDeploymentResultImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).ActivityId() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn ExtendedErrorCode<Impl: IDeploymentResultImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::HRESULT) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).ExtendedErrorCode() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IDeploymentResult>, base.5, ErrorText::<Impl, OFFSET>, ActivityId::<Impl, OFFSET>, ExtendedErrorCode::<Impl, OFFSET>)
+    }
+}
+#[cfg(feature = "implement_exclusive")]
 pub trait IDeploymentResult2Impl: Sized {
     fn IsRegistered(&self) -> ::windows::core::Result<bool>;
+}
+#[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IDeploymentResult2 {
+    const NAME: &'static str = "Windows.Management.Deployment.IDeploymentResult2";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IDeploymentResult2Vtbl {
+    pub const fn new<Impl: IDeploymentResult2Impl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IDeploymentResult2Vtbl {
+        unsafe extern "system" fn IsRegistered<Impl: IDeploymentResult2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).IsRegistered() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IDeploymentResult2>, base.5, IsRegistered::<Impl, OFFSET>)
+    }
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IFindSharedPackageContainerOptionsImpl: Sized {
@@ -115,9 +924,81 @@ pub trait IFindSharedPackageContainerOptionsImpl: Sized {
     fn SetPackageFamilyName(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IFindSharedPackageContainerOptions {
+    const NAME: &'static str = "Windows.Management.Deployment.IFindSharedPackageContainerOptions";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IFindSharedPackageContainerOptionsVtbl {
+    pub const fn new<Impl: IFindSharedPackageContainerOptionsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IFindSharedPackageContainerOptionsVtbl {
+        unsafe extern "system" fn Name<Impl: IFindSharedPackageContainerOptionsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).Name() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetName<Impl: IFindSharedPackageContainerOptionsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetName(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
+        }
+        unsafe extern "system" fn PackageFamilyName<Impl: IFindSharedPackageContainerOptionsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).PackageFamilyName() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetPackageFamilyName<Impl: IFindSharedPackageContainerOptionsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetPackageFamilyName(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IFindSharedPackageContainerOptions>, base.5, Name::<Impl, OFFSET>, SetName::<Impl, OFFSET>, PackageFamilyName::<Impl, OFFSET>, SetPackageFamilyName::<Impl, OFFSET>)
+    }
+}
+#[cfg(feature = "implement_exclusive")]
 pub trait IPackageAllUserProvisioningOptionsImpl: Sized {
     fn OptionalPackageFamilyNames(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>;
     fn ProjectionOrderPackageFamilyNames(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>;
+}
+#[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IPackageAllUserProvisioningOptions {
+    const NAME: &'static str = "Windows.Management.Deployment.IPackageAllUserProvisioningOptions";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IPackageAllUserProvisioningOptionsVtbl {
+    pub const fn new<Impl: IPackageAllUserProvisioningOptionsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IPackageAllUserProvisioningOptionsVtbl {
+        unsafe extern "system" fn OptionalPackageFamilyNames<Impl: IPackageAllUserProvisioningOptionsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).OptionalPackageFamilyNames() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn ProjectionOrderPackageFamilyNames<Impl: IPackageAllUserProvisioningOptionsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).ProjectionOrderPackageFamilyNames() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IPackageAllUserProvisioningOptions>, base.5, OptionalPackageFamilyNames::<Impl, OFFSET>, ProjectionOrderPackageFamilyNames::<Impl, OFFSET>)
+    }
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IPackageManagerImpl: Sized {
@@ -139,8 +1020,235 @@ pub trait IPackageManagerImpl: Sized {
     fn FindPackageByUserSecurityIdPackageFullName(&self, usersecurityid: &::windows::core::HSTRING, packagefullname: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::ApplicationModel::Package>;
 }
 #[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IPackageManager {
+    const NAME: &'static str = "Windows.Management.Deployment.IPackageManager";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IPackageManagerVtbl {
+    pub const fn new<Impl: IPackageManagerImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IPackageManagerVtbl {
+        unsafe extern "system" fn AddPackageAsync<Impl: IPackageManagerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, packageuri: ::windows::core::RawPtr, dependencypackageuris: ::windows::core::RawPtr, deploymentoptions: DeploymentOptions, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).AddPackageAsync(&*(&packageuri as *const <super::super::Foundation::Uri as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Uri as ::windows::core::DefaultType>::DefaultType), &*(&dependencypackageuris as *const <super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri> as ::windows::core::DefaultType>::DefaultType), deploymentoptions) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn UpdatePackageAsync<Impl: IPackageManagerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, packageuri: ::windows::core::RawPtr, dependencypackageuris: ::windows::core::RawPtr, deploymentoptions: DeploymentOptions, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).UpdatePackageAsync(&*(&packageuri as *const <super::super::Foundation::Uri as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Uri as ::windows::core::DefaultType>::DefaultType), &*(&dependencypackageuris as *const <super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri> as ::windows::core::DefaultType>::DefaultType), deploymentoptions) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn RemovePackageAsync<Impl: IPackageManagerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, packagefullname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).RemovePackageAsync(&*(&packagefullname as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn StagePackageAsync<Impl: IPackageManagerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, packageuri: ::windows::core::RawPtr, dependencypackageuris: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).StagePackageAsync(&*(&packageuri as *const <super::super::Foundation::Uri as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Uri as ::windows::core::DefaultType>::DefaultType), &*(&dependencypackageuris as *const <super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri> as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn RegisterPackageAsync<Impl: IPackageManagerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, manifesturi: ::windows::core::RawPtr, dependencypackageuris: ::windows::core::RawPtr, deploymentoptions: DeploymentOptions, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).RegisterPackageAsync(&*(&manifesturi as *const <super::super::Foundation::Uri as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Uri as ::windows::core::DefaultType>::DefaultType), &*(&dependencypackageuris as *const <super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri> as ::windows::core::DefaultType>::DefaultType), deploymentoptions) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn FindPackages<Impl: IPackageManagerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).FindPackages() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn FindPackagesByUserSecurityId<Impl: IPackageManagerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, usersecurityid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).FindPackagesByUserSecurityId(&*(&usersecurityid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn FindPackagesByNamePublisher<Impl: IPackageManagerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, packagename: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, packagepublisher: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).FindPackagesByNamePublisher(&*(&packagename as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&packagepublisher as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn FindPackagesByUserSecurityIdNamePublisher<Impl: IPackageManagerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, usersecurityid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, packagename: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, packagepublisher: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).FindPackagesByUserSecurityIdNamePublisher(
+                &*(&usersecurityid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType),
+                &*(&packagename as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType),
+                &*(&packagepublisher as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType),
+            ) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn FindUsers<Impl: IPackageManagerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, packagefullname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).FindUsers(&*(&packagefullname as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetPackageState<Impl: IPackageManagerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, packagefullname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, packagestate: PackageState) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetPackageState(&*(&packagefullname as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), packagestate).into()
+        }
+        unsafe extern "system" fn FindPackageByPackageFullName<Impl: IPackageManagerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, packagefullname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).FindPackageByPackageFullName(&*(&packagefullname as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn CleanupPackageForUserAsync<Impl: IPackageManagerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, packagename: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, usersecurityid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).CleanupPackageForUserAsync(&*(&packagename as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&usersecurityid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn FindPackagesByPackageFamilyName<Impl: IPackageManagerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, packagefamilyname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).FindPackagesByPackageFamilyName(&*(&packagefamilyname as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn FindPackagesByUserSecurityIdPackageFamilyName<Impl: IPackageManagerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, usersecurityid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, packagefamilyname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).FindPackagesByUserSecurityIdPackageFamilyName(&*(&usersecurityid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&packagefamilyname as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn FindPackageByUserSecurityIdPackageFullName<Impl: IPackageManagerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, usersecurityid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, packagefullname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).FindPackageByUserSecurityIdPackageFullName(&*(&usersecurityid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&packagefullname as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(
+            base.0,
+            base.1,
+            base.2,
+            base.3,
+            ::windows::core::GetRuntimeClassName::<IPackageManager>,
+            base.5,
+            AddPackageAsync::<Impl, OFFSET>,
+            UpdatePackageAsync::<Impl, OFFSET>,
+            RemovePackageAsync::<Impl, OFFSET>,
+            StagePackageAsync::<Impl, OFFSET>,
+            RegisterPackageAsync::<Impl, OFFSET>,
+            FindPackages::<Impl, OFFSET>,
+            FindPackagesByUserSecurityId::<Impl, OFFSET>,
+            FindPackagesByNamePublisher::<Impl, OFFSET>,
+            FindPackagesByUserSecurityIdNamePublisher::<Impl, OFFSET>,
+            FindUsers::<Impl, OFFSET>,
+            SetPackageState::<Impl, OFFSET>,
+            FindPackageByPackageFullName::<Impl, OFFSET>,
+            CleanupPackageForUserAsync::<Impl, OFFSET>,
+            FindPackagesByPackageFamilyName::<Impl, OFFSET>,
+            FindPackagesByUserSecurityIdPackageFamilyName::<Impl, OFFSET>,
+            FindPackageByUserSecurityIdPackageFullName::<Impl, OFFSET>,
+        )
+    }
+}
+#[cfg(feature = "implement_exclusive")]
 pub trait IPackageManager10Impl: Sized {
     fn ProvisionPackageForAllUsersWithOptionsAsync(&self, mainpackagefamilyname: &::windows::core::HSTRING, options: &::core::option::Option<PackageAllUserProvisioningOptions>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>;
+}
+#[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IPackageManager10 {
+    const NAME: &'static str = "Windows.Management.Deployment.IPackageManager10";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IPackageManager10Vtbl {
+    pub const fn new<Impl: IPackageManager10Impl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IPackageManager10Vtbl {
+        unsafe extern "system" fn ProvisionPackageForAllUsersWithOptionsAsync<Impl: IPackageManager10Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, mainpackagefamilyname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, options: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).ProvisionPackageForAllUsersWithOptionsAsync(&*(&mainpackagefamilyname as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&options as *const <PackageAllUserProvisioningOptions as ::windows::core::Abi>::Abi as *const <PackageAllUserProvisioningOptions as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IPackageManager10>, base.5, ProvisionPackageForAllUsersWithOptionsAsync::<Impl, OFFSET>)
+    }
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IPackageManager2Impl: Sized {
@@ -154,6 +1262,148 @@ pub trait IPackageManager2Impl: Sized {
     fn FindPackagesByPackageFamilyNameWithPackageTypes(&self, packagefamilyname: &::windows::core::HSTRING, packagetypes: PackageTypes) -> ::windows::core::Result<super::super::Foundation::Collections::IIterable<super::super::ApplicationModel::Package>>;
     fn FindPackagesByUserSecurityIdPackageFamilyNameWithPackageTypes(&self, usersecurityid: &::windows::core::HSTRING, packagefamilyname: &::windows::core::HSTRING, packagetypes: PackageTypes) -> ::windows::core::Result<super::super::Foundation::Collections::IIterable<super::super::ApplicationModel::Package>>;
     fn StageUserDataAsync(&self, packagefullname: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>;
+}
+#[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IPackageManager2 {
+    const NAME: &'static str = "Windows.Management.Deployment.IPackageManager2";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IPackageManager2Vtbl {
+    pub const fn new<Impl: IPackageManager2Impl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IPackageManager2Vtbl {
+        unsafe extern "system" fn RemovePackageWithOptionsAsync<Impl: IPackageManager2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, packagefullname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, removaloptions: RemovalOptions, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).RemovePackageWithOptionsAsync(&*(&packagefullname as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), removaloptions) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn StagePackageWithOptionsAsync<Impl: IPackageManager2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, packageuri: ::windows::core::RawPtr, dependencypackageuris: ::windows::core::RawPtr, deploymentoptions: DeploymentOptions, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).StagePackageWithOptionsAsync(&*(&packageuri as *const <super::super::Foundation::Uri as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Uri as ::windows::core::DefaultType>::DefaultType), &*(&dependencypackageuris as *const <super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri> as ::windows::core::DefaultType>::DefaultType), deploymentoptions) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn RegisterPackageByFullNameAsync<Impl: IPackageManager2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, mainpackagefullname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, dependencypackagefullnames: ::windows::core::RawPtr, deploymentoptions: DeploymentOptions, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).RegisterPackageByFullNameAsync(&*(&mainpackagefullname as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&dependencypackagefullnames as *const <super::super::Foundation::Collections::IIterable<::windows::core::HSTRING> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::IIterable<::windows::core::HSTRING> as ::windows::core::DefaultType>::DefaultType), deploymentoptions) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn FindPackagesWithPackageTypes<Impl: IPackageManager2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, packagetypes: PackageTypes, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).FindPackagesWithPackageTypes(packagetypes) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn FindPackagesByUserSecurityIdWithPackageTypes<Impl: IPackageManager2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, usersecurityid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, packagetypes: PackageTypes, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).FindPackagesByUserSecurityIdWithPackageTypes(&*(&usersecurityid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), packagetypes) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn FindPackagesByNamePublisherWithPackageTypes<Impl: IPackageManager2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, packagename: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, packagepublisher: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, packagetypes: PackageTypes, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).FindPackagesByNamePublisherWithPackageTypes(&*(&packagename as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&packagepublisher as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), packagetypes) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn FindPackagesByUserSecurityIdNamePublisherWithPackageTypes<Impl: IPackageManager2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, usersecurityid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, packagename: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, packagepublisher: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, packagetypes: PackageTypes, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).FindPackagesByUserSecurityIdNamePublisherWithPackageTypes(
+                &*(&usersecurityid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType),
+                &*(&packagename as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType),
+                &*(&packagepublisher as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType),
+                packagetypes,
+            ) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn FindPackagesByPackageFamilyNameWithPackageTypes<Impl: IPackageManager2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, packagefamilyname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, packagetypes: PackageTypes, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).FindPackagesByPackageFamilyNameWithPackageTypes(&*(&packagefamilyname as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), packagetypes) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn FindPackagesByUserSecurityIdPackageFamilyNameWithPackageTypes<Impl: IPackageManager2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, usersecurityid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, packagefamilyname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, packagetypes: PackageTypes, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).FindPackagesByUserSecurityIdPackageFamilyNameWithPackageTypes(&*(&usersecurityid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&packagefamilyname as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), packagetypes) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn StageUserDataAsync<Impl: IPackageManager2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, packagefullname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).StageUserDataAsync(&*(&packagefullname as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(
+            base.0,
+            base.1,
+            base.2,
+            base.3,
+            ::windows::core::GetRuntimeClassName::<IPackageManager2>,
+            base.5,
+            RemovePackageWithOptionsAsync::<Impl, OFFSET>,
+            StagePackageWithOptionsAsync::<Impl, OFFSET>,
+            RegisterPackageByFullNameAsync::<Impl, OFFSET>,
+            FindPackagesWithPackageTypes::<Impl, OFFSET>,
+            FindPackagesByUserSecurityIdWithPackageTypes::<Impl, OFFSET>,
+            FindPackagesByNamePublisherWithPackageTypes::<Impl, OFFSET>,
+            FindPackagesByUserSecurityIdNamePublisherWithPackageTypes::<Impl, OFFSET>,
+            FindPackagesByPackageFamilyNameWithPackageTypes::<Impl, OFFSET>,
+            FindPackagesByUserSecurityIdPackageFamilyNameWithPackageTypes::<Impl, OFFSET>,
+            StageUserDataAsync::<Impl, OFFSET>,
+        )
+    }
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IPackageManager3Impl: Sized {
@@ -174,8 +1424,220 @@ pub trait IPackageManager3Impl: Sized {
     fn StageUserDataWithOptionsAsync(&self, packagefullname: &::windows::core::HSTRING, deploymentoptions: DeploymentOptions) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>;
 }
 #[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IPackageManager3 {
+    const NAME: &'static str = "Windows.Management.Deployment.IPackageManager3";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IPackageManager3Vtbl {
+    pub const fn new<Impl: IPackageManager3Impl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IPackageManager3Vtbl {
+        unsafe extern "system" fn AddPackageVolumeAsync<Impl: IPackageManager3Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, packagestorepath: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).AddPackageVolumeAsync(&*(&packagestorepath as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn AddPackageToVolumeAsync<Impl: IPackageManager3Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, packageuri: ::windows::core::RawPtr, dependencypackageuris: ::windows::core::RawPtr, deploymentoptions: DeploymentOptions, targetvolume: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).AddPackageToVolumeAsync(
+                &*(&packageuri as *const <super::super::Foundation::Uri as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Uri as ::windows::core::DefaultType>::DefaultType),
+                &*(&dependencypackageuris as *const <super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri> as ::windows::core::DefaultType>::DefaultType),
+                deploymentoptions,
+                &*(&targetvolume as *const <PackageVolume as ::windows::core::Abi>::Abi as *const <PackageVolume as ::windows::core::DefaultType>::DefaultType),
+            ) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn ClearPackageStatus<Impl: IPackageManager3Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, packagefullname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, status: PackageStatus) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).ClearPackageStatus(&*(&packagefullname as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), status).into()
+        }
+        unsafe extern "system" fn RegisterPackageWithAppDataVolumeAsync<Impl: IPackageManager3Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, manifesturi: ::windows::core::RawPtr, dependencypackageuris: ::windows::core::RawPtr, deploymentoptions: DeploymentOptions, appdatavolume: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).RegisterPackageWithAppDataVolumeAsync(
+                &*(&manifesturi as *const <super::super::Foundation::Uri as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Uri as ::windows::core::DefaultType>::DefaultType),
+                &*(&dependencypackageuris as *const <super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri> as ::windows::core::DefaultType>::DefaultType),
+                deploymentoptions,
+                &*(&appdatavolume as *const <PackageVolume as ::windows::core::Abi>::Abi as *const <PackageVolume as ::windows::core::DefaultType>::DefaultType),
+            ) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn FindPackageVolumeByName<Impl: IPackageManager3Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, volumename: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).FindPackageVolumeByName(&*(&volumename as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn FindPackageVolumes<Impl: IPackageManager3Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).FindPackageVolumes() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn GetDefaultPackageVolume<Impl: IPackageManager3Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).GetDefaultPackageVolume() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn MovePackageToVolumeAsync<Impl: IPackageManager3Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, packagefullname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, deploymentoptions: DeploymentOptions, targetvolume: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).MovePackageToVolumeAsync(&*(&packagefullname as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), deploymentoptions, &*(&targetvolume as *const <PackageVolume as ::windows::core::Abi>::Abi as *const <PackageVolume as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn RemovePackageVolumeAsync<Impl: IPackageManager3Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, volume: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).RemovePackageVolumeAsync(&*(&volume as *const <PackageVolume as ::windows::core::Abi>::Abi as *const <PackageVolume as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetDefaultPackageVolume<Impl: IPackageManager3Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, volume: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetDefaultPackageVolume(&*(&volume as *const <PackageVolume as ::windows::core::Abi>::Abi as *const <PackageVolume as ::windows::core::DefaultType>::DefaultType)).into()
+        }
+        unsafe extern "system" fn SetPackageStatus<Impl: IPackageManager3Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, packagefullname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, status: PackageStatus) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetPackageStatus(&*(&packagefullname as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), status).into()
+        }
+        unsafe extern "system" fn SetPackageVolumeOfflineAsync<Impl: IPackageManager3Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, packagevolume: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).SetPackageVolumeOfflineAsync(&*(&packagevolume as *const <PackageVolume as ::windows::core::Abi>::Abi as *const <PackageVolume as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetPackageVolumeOnlineAsync<Impl: IPackageManager3Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, packagevolume: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).SetPackageVolumeOnlineAsync(&*(&packagevolume as *const <PackageVolume as ::windows::core::Abi>::Abi as *const <PackageVolume as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn StagePackageToVolumeAsync<Impl: IPackageManager3Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, packageuri: ::windows::core::RawPtr, dependencypackageuris: ::windows::core::RawPtr, deploymentoptions: DeploymentOptions, targetvolume: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).StagePackageToVolumeAsync(
+                &*(&packageuri as *const <super::super::Foundation::Uri as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Uri as ::windows::core::DefaultType>::DefaultType),
+                &*(&dependencypackageuris as *const <super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri> as ::windows::core::DefaultType>::DefaultType),
+                deploymentoptions,
+                &*(&targetvolume as *const <PackageVolume as ::windows::core::Abi>::Abi as *const <PackageVolume as ::windows::core::DefaultType>::DefaultType),
+            ) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn StageUserDataWithOptionsAsync<Impl: IPackageManager3Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, packagefullname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, deploymentoptions: DeploymentOptions, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).StageUserDataWithOptionsAsync(&*(&packagefullname as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), deploymentoptions) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(
+            base.0,
+            base.1,
+            base.2,
+            base.3,
+            ::windows::core::GetRuntimeClassName::<IPackageManager3>,
+            base.5,
+            AddPackageVolumeAsync::<Impl, OFFSET>,
+            AddPackageToVolumeAsync::<Impl, OFFSET>,
+            ClearPackageStatus::<Impl, OFFSET>,
+            RegisterPackageWithAppDataVolumeAsync::<Impl, OFFSET>,
+            FindPackageVolumeByName::<Impl, OFFSET>,
+            FindPackageVolumes::<Impl, OFFSET>,
+            GetDefaultPackageVolume::<Impl, OFFSET>,
+            MovePackageToVolumeAsync::<Impl, OFFSET>,
+            RemovePackageVolumeAsync::<Impl, OFFSET>,
+            SetDefaultPackageVolume::<Impl, OFFSET>,
+            SetPackageStatus::<Impl, OFFSET>,
+            SetPackageVolumeOfflineAsync::<Impl, OFFSET>,
+            SetPackageVolumeOnlineAsync::<Impl, OFFSET>,
+            StagePackageToVolumeAsync::<Impl, OFFSET>,
+            StageUserDataWithOptionsAsync::<Impl, OFFSET>,
+        )
+    }
+}
+#[cfg(feature = "implement_exclusive")]
 pub trait IPackageManager4Impl: Sized {
     fn GetPackageVolumesAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<PackageVolume>>>;
+}
+#[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IPackageManager4 {
+    const NAME: &'static str = "Windows.Management.Deployment.IPackageManager4";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IPackageManager4Vtbl {
+    pub const fn new<Impl: IPackageManager4Impl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IPackageManager4Vtbl {
+        unsafe extern "system" fn GetPackageVolumesAsync<Impl: IPackageManager4Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).GetPackageVolumesAsync() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IPackageManager4>, base.5, GetPackageVolumesAsync::<Impl, OFFSET>)
+    }
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IPackageManager5Impl: Sized {
@@ -183,6 +1645,80 @@ pub trait IPackageManager5Impl: Sized {
     fn StagePackageToVolumeAndOptionalPackagesAsync(&self, packageuri: &::core::option::Option<super::super::Foundation::Uri>, dependencypackageuris: &::core::option::Option<super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri>>, deploymentoptions: DeploymentOptions, targetvolume: &::core::option::Option<PackageVolume>, optionalpackagefamilynames: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, externalpackageuris: &::core::option::Option<super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri>>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>;
     fn RegisterPackageByFamilyNameAndOptionalPackagesAsync(&self, mainpackagefamilyname: &::windows::core::HSTRING, dependencypackagefamilynames: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, deploymentoptions: DeploymentOptions, appdatavolume: &::core::option::Option<PackageVolume>, optionalpackagefamilynames: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>;
     fn DebugSettings(&self) -> ::windows::core::Result<PackageManagerDebugSettings>;
+}
+#[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IPackageManager5 {
+    const NAME: &'static str = "Windows.Management.Deployment.IPackageManager5";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IPackageManager5Vtbl {
+    pub const fn new<Impl: IPackageManager5Impl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IPackageManager5Vtbl {
+        unsafe extern "system" fn AddPackageToVolumeAndOptionalPackagesAsync<Impl: IPackageManager5Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, packageuri: ::windows::core::RawPtr, dependencypackageuris: ::windows::core::RawPtr, deploymentoptions: DeploymentOptions, targetvolume: ::windows::core::RawPtr, optionalpackagefamilynames: ::windows::core::RawPtr, externalpackageuris: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).AddPackageToVolumeAndOptionalPackagesAsync(
+                &*(&packageuri as *const <super::super::Foundation::Uri as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Uri as ::windows::core::DefaultType>::DefaultType),
+                &*(&dependencypackageuris as *const <super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri> as ::windows::core::DefaultType>::DefaultType),
+                deploymentoptions,
+                &*(&targetvolume as *const <PackageVolume as ::windows::core::Abi>::Abi as *const <PackageVolume as ::windows::core::DefaultType>::DefaultType),
+                &*(&optionalpackagefamilynames as *const <super::super::Foundation::Collections::IIterable<::windows::core::HSTRING> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::IIterable<::windows::core::HSTRING> as ::windows::core::DefaultType>::DefaultType),
+                &*(&externalpackageuris as *const <super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri> as ::windows::core::DefaultType>::DefaultType),
+            ) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn StagePackageToVolumeAndOptionalPackagesAsync<Impl: IPackageManager5Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, packageuri: ::windows::core::RawPtr, dependencypackageuris: ::windows::core::RawPtr, deploymentoptions: DeploymentOptions, targetvolume: ::windows::core::RawPtr, optionalpackagefamilynames: ::windows::core::RawPtr, externalpackageuris: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).StagePackageToVolumeAndOptionalPackagesAsync(
+                &*(&packageuri as *const <super::super::Foundation::Uri as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Uri as ::windows::core::DefaultType>::DefaultType),
+                &*(&dependencypackageuris as *const <super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri> as ::windows::core::DefaultType>::DefaultType),
+                deploymentoptions,
+                &*(&targetvolume as *const <PackageVolume as ::windows::core::Abi>::Abi as *const <PackageVolume as ::windows::core::DefaultType>::DefaultType),
+                &*(&optionalpackagefamilynames as *const <super::super::Foundation::Collections::IIterable<::windows::core::HSTRING> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::IIterable<::windows::core::HSTRING> as ::windows::core::DefaultType>::DefaultType),
+                &*(&externalpackageuris as *const <super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri> as ::windows::core::DefaultType>::DefaultType),
+            ) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn RegisterPackageByFamilyNameAndOptionalPackagesAsync<Impl: IPackageManager5Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, mainpackagefamilyname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, dependencypackagefamilynames: ::windows::core::RawPtr, deploymentoptions: DeploymentOptions, appdatavolume: ::windows::core::RawPtr, optionalpackagefamilynames: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).RegisterPackageByFamilyNameAndOptionalPackagesAsync(
+                &*(&mainpackagefamilyname as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType),
+                &*(&dependencypackagefamilynames as *const <super::super::Foundation::Collections::IIterable<::windows::core::HSTRING> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::IIterable<::windows::core::HSTRING> as ::windows::core::DefaultType>::DefaultType),
+                deploymentoptions,
+                &*(&appdatavolume as *const <PackageVolume as ::windows::core::Abi>::Abi as *const <PackageVolume as ::windows::core::DefaultType>::DefaultType),
+                &*(&optionalpackagefamilynames as *const <super::super::Foundation::Collections::IIterable<::windows::core::HSTRING> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::IIterable<::windows::core::HSTRING> as ::windows::core::DefaultType>::DefaultType),
+            ) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn DebugSettings<Impl: IPackageManager5Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).DebugSettings() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IPackageManager5>, base.5, AddPackageToVolumeAndOptionalPackagesAsync::<Impl, OFFSET>, StagePackageToVolumeAndOptionalPackagesAsync::<Impl, OFFSET>, RegisterPackageByFamilyNameAndOptionalPackagesAsync::<Impl, OFFSET>, DebugSettings::<Impl, OFFSET>)
+    }
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IPackageManager6Impl: Sized {
@@ -212,6 +1748,105 @@ pub trait IPackageManager6Impl: Sized {
     fn RequestAddPackageAsync(&self, packageuri: &::core::option::Option<super::super::Foundation::Uri>, dependencypackageuris: &::core::option::Option<super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri>>, deploymentoptions: DeploymentOptions, targetvolume: &::core::option::Option<PackageVolume>, optionalpackagefamilynames: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, relatedpackageuris: &::core::option::Option<super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri>>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>;
 }
 #[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IPackageManager6 {
+    const NAME: &'static str = "Windows.Management.Deployment.IPackageManager6";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IPackageManager6Vtbl {
+    pub const fn new<Impl: IPackageManager6Impl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IPackageManager6Vtbl {
+        unsafe extern "system" fn ProvisionPackageForAllUsersAsync<Impl: IPackageManager6Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, packagefamilyname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).ProvisionPackageForAllUsersAsync(&*(&packagefamilyname as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn AddPackageByAppInstallerFileAsync<Impl: IPackageManager6Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, appinstallerfileuri: ::windows::core::RawPtr, options: AddPackageByAppInstallerOptions, targetvolume: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).AddPackageByAppInstallerFileAsync(&*(&appinstallerfileuri as *const <super::super::Foundation::Uri as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Uri as ::windows::core::DefaultType>::DefaultType), options, &*(&targetvolume as *const <PackageVolume as ::windows::core::Abi>::Abi as *const <PackageVolume as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn RequestAddPackageByAppInstallerFileAsync<Impl: IPackageManager6Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, appinstallerfileuri: ::windows::core::RawPtr, options: AddPackageByAppInstallerOptions, targetvolume: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).RequestAddPackageByAppInstallerFileAsync(&*(&appinstallerfileuri as *const <super::super::Foundation::Uri as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Uri as ::windows::core::DefaultType>::DefaultType), options, &*(&targetvolume as *const <PackageVolume as ::windows::core::Abi>::Abi as *const <PackageVolume as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn AddPackageToVolumeAndRelatedSetAsync<Impl: IPackageManager6Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, packageuri: ::windows::core::RawPtr, dependencypackageuris: ::windows::core::RawPtr, options: DeploymentOptions, targetvolume: ::windows::core::RawPtr, optionalpackagefamilynames: ::windows::core::RawPtr, packageuristoinstall: ::windows::core::RawPtr, relatedpackageuris: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).AddPackageToVolumeAndRelatedSetAsync(
+                &*(&packageuri as *const <super::super::Foundation::Uri as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Uri as ::windows::core::DefaultType>::DefaultType),
+                &*(&dependencypackageuris as *const <super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri> as ::windows::core::DefaultType>::DefaultType),
+                options,
+                &*(&targetvolume as *const <PackageVolume as ::windows::core::Abi>::Abi as *const <PackageVolume as ::windows::core::DefaultType>::DefaultType),
+                &*(&optionalpackagefamilynames as *const <super::super::Foundation::Collections::IIterable<::windows::core::HSTRING> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::IIterable<::windows::core::HSTRING> as ::windows::core::DefaultType>::DefaultType),
+                &*(&packageuristoinstall as *const <super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri> as ::windows::core::DefaultType>::DefaultType),
+                &*(&relatedpackageuris as *const <super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri> as ::windows::core::DefaultType>::DefaultType),
+            ) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn StagePackageToVolumeAndRelatedSetAsync<Impl: IPackageManager6Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, packageuri: ::windows::core::RawPtr, dependencypackageuris: ::windows::core::RawPtr, options: DeploymentOptions, targetvolume: ::windows::core::RawPtr, optionalpackagefamilynames: ::windows::core::RawPtr, packageuristoinstall: ::windows::core::RawPtr, relatedpackageuris: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).StagePackageToVolumeAndRelatedSetAsync(
+                &*(&packageuri as *const <super::super::Foundation::Uri as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Uri as ::windows::core::DefaultType>::DefaultType),
+                &*(&dependencypackageuris as *const <super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri> as ::windows::core::DefaultType>::DefaultType),
+                options,
+                &*(&targetvolume as *const <PackageVolume as ::windows::core::Abi>::Abi as *const <PackageVolume as ::windows::core::DefaultType>::DefaultType),
+                &*(&optionalpackagefamilynames as *const <super::super::Foundation::Collections::IIterable<::windows::core::HSTRING> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::IIterable<::windows::core::HSTRING> as ::windows::core::DefaultType>::DefaultType),
+                &*(&packageuristoinstall as *const <super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri> as ::windows::core::DefaultType>::DefaultType),
+                &*(&relatedpackageuris as *const <super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri> as ::windows::core::DefaultType>::DefaultType),
+            ) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn RequestAddPackageAsync<Impl: IPackageManager6Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, packageuri: ::windows::core::RawPtr, dependencypackageuris: ::windows::core::RawPtr, deploymentoptions: DeploymentOptions, targetvolume: ::windows::core::RawPtr, optionalpackagefamilynames: ::windows::core::RawPtr, relatedpackageuris: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).RequestAddPackageAsync(
+                &*(&packageuri as *const <super::super::Foundation::Uri as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Uri as ::windows::core::DefaultType>::DefaultType),
+                &*(&dependencypackageuris as *const <super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri> as ::windows::core::DefaultType>::DefaultType),
+                deploymentoptions,
+                &*(&targetvolume as *const <PackageVolume as ::windows::core::Abi>::Abi as *const <PackageVolume as ::windows::core::DefaultType>::DefaultType),
+                &*(&optionalpackagefamilynames as *const <super::super::Foundation::Collections::IIterable<::windows::core::HSTRING> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::IIterable<::windows::core::HSTRING> as ::windows::core::DefaultType>::DefaultType),
+                &*(&relatedpackageuris as *const <super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri> as ::windows::core::DefaultType>::DefaultType),
+            ) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IPackageManager6>, base.5, ProvisionPackageForAllUsersAsync::<Impl, OFFSET>, AddPackageByAppInstallerFileAsync::<Impl, OFFSET>, RequestAddPackageByAppInstallerFileAsync::<Impl, OFFSET>, AddPackageToVolumeAndRelatedSetAsync::<Impl, OFFSET>, StagePackageToVolumeAndRelatedSetAsync::<Impl, OFFSET>, RequestAddPackageAsync::<Impl, OFFSET>)
+    }
+}
+#[cfg(feature = "implement_exclusive")]
 pub trait IPackageManager7Impl: Sized {
     fn RequestAddPackageAndRelatedSetAsync(
         &self,
@@ -225,8 +1860,58 @@ pub trait IPackageManager7Impl: Sized {
     ) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>;
 }
 #[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IPackageManager7 {
+    const NAME: &'static str = "Windows.Management.Deployment.IPackageManager7";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IPackageManager7Vtbl {
+    pub const fn new<Impl: IPackageManager7Impl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IPackageManager7Vtbl {
+        unsafe extern "system" fn RequestAddPackageAndRelatedSetAsync<Impl: IPackageManager7Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, packageuri: ::windows::core::RawPtr, dependencypackageuris: ::windows::core::RawPtr, deploymentoptions: DeploymentOptions, targetvolume: ::windows::core::RawPtr, optionalpackagefamilynames: ::windows::core::RawPtr, relatedpackageuris: ::windows::core::RawPtr, packageuristoinstall: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).RequestAddPackageAndRelatedSetAsync(
+                &*(&packageuri as *const <super::super::Foundation::Uri as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Uri as ::windows::core::DefaultType>::DefaultType),
+                &*(&dependencypackageuris as *const <super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri> as ::windows::core::DefaultType>::DefaultType),
+                deploymentoptions,
+                &*(&targetvolume as *const <PackageVolume as ::windows::core::Abi>::Abi as *const <PackageVolume as ::windows::core::DefaultType>::DefaultType),
+                &*(&optionalpackagefamilynames as *const <super::super::Foundation::Collections::IIterable<::windows::core::HSTRING> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::IIterable<::windows::core::HSTRING> as ::windows::core::DefaultType>::DefaultType),
+                &*(&relatedpackageuris as *const <super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri> as ::windows::core::DefaultType>::DefaultType),
+                &*(&packageuristoinstall as *const <super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri> as ::windows::core::DefaultType>::DefaultType),
+            ) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IPackageManager7>, base.5, RequestAddPackageAndRelatedSetAsync::<Impl, OFFSET>)
+    }
+}
+#[cfg(feature = "implement_exclusive")]
 pub trait IPackageManager8Impl: Sized {
     fn DeprovisionPackageForAllUsersAsync(&self, packagefamilyname: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>;
+}
+#[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IPackageManager8 {
+    const NAME: &'static str = "Windows.Management.Deployment.IPackageManager8";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IPackageManager8Vtbl {
+    pub const fn new<Impl: IPackageManager8Impl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IPackageManager8Vtbl {
+        unsafe extern "system" fn DeprovisionPackageForAllUsersAsync<Impl: IPackageManager8Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, packagefamilyname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).DeprovisionPackageForAllUsersAsync(&*(&packagefamilyname as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IPackageManager8>, base.5, DeprovisionPackageForAllUsersAsync::<Impl, OFFSET>)
+    }
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IPackageManager9Impl: Sized {
@@ -239,14 +1924,158 @@ pub trait IPackageManager9Impl: Sized {
     fn GetPackageStubPreference(&self, packagefamilyname: &::windows::core::HSTRING) -> ::windows::core::Result<PackageStubPreference>;
 }
 #[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IPackageManager9 {
+    const NAME: &'static str = "Windows.Management.Deployment.IPackageManager9";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IPackageManager9Vtbl {
+    pub const fn new<Impl: IPackageManager9Impl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IPackageManager9Vtbl {
+        unsafe extern "system" fn FindProvisionedPackages<Impl: IPackageManager9Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).FindProvisionedPackages() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn AddPackageByUriAsync<Impl: IPackageManager9Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, packageuri: ::windows::core::RawPtr, options: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).AddPackageByUriAsync(&*(&packageuri as *const <super::super::Foundation::Uri as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Uri as ::windows::core::DefaultType>::DefaultType), &*(&options as *const <AddPackageOptions as ::windows::core::Abi>::Abi as *const <AddPackageOptions as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn StagePackageByUriAsync<Impl: IPackageManager9Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, packageuri: ::windows::core::RawPtr, options: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).StagePackageByUriAsync(&*(&packageuri as *const <super::super::Foundation::Uri as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Uri as ::windows::core::DefaultType>::DefaultType), &*(&options as *const <StagePackageOptions as ::windows::core::Abi>::Abi as *const <StagePackageOptions as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn RegisterPackageByUriAsync<Impl: IPackageManager9Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, manifesturi: ::windows::core::RawPtr, options: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).RegisterPackageByUriAsync(&*(&manifesturi as *const <super::super::Foundation::Uri as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Uri as ::windows::core::DefaultType>::DefaultType), &*(&options as *const <RegisterPackageOptions as ::windows::core::Abi>::Abi as *const <RegisterPackageOptions as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn RegisterPackagesByFullNameAsync<Impl: IPackageManager9Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, packagefullnames: ::windows::core::RawPtr, options: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).RegisterPackagesByFullNameAsync(&*(&packagefullnames as *const <super::super::Foundation::Collections::IIterable<::windows::core::HSTRING> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::IIterable<::windows::core::HSTRING> as ::windows::core::DefaultType>::DefaultType), &*(&options as *const <RegisterPackageOptions as ::windows::core::Abi>::Abi as *const <RegisterPackageOptions as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetPackageStubPreference<Impl: IPackageManager9Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, packagefamilyname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, usestub: PackageStubPreference) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetPackageStubPreference(&*(&packagefamilyname as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), usestub).into()
+        }
+        unsafe extern "system" fn GetPackageStubPreference<Impl: IPackageManager9Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, packagefamilyname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut PackageStubPreference) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).GetPackageStubPreference(&*(&packagefamilyname as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IPackageManager9>, base.5, FindProvisionedPackages::<Impl, OFFSET>, AddPackageByUriAsync::<Impl, OFFSET>, StagePackageByUriAsync::<Impl, OFFSET>, RegisterPackageByUriAsync::<Impl, OFFSET>, RegisterPackagesByFullNameAsync::<Impl, OFFSET>, SetPackageStubPreference::<Impl, OFFSET>, GetPackageStubPreference::<Impl, OFFSET>)
+    }
+}
+#[cfg(feature = "implement_exclusive")]
 pub trait IPackageManagerDebugSettingsImpl: Sized {
     fn SetContentGroupStateAsync(&self, package: &::core::option::Option<super::super::ApplicationModel::Package>, contentgroupname: &::windows::core::HSTRING, state: super::super::ApplicationModel::PackageContentGroupState) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
     fn SetContentGroupStateWithPercentageAsync(&self, package: &::core::option::Option<super::super::ApplicationModel::Package>, contentgroupname: &::windows::core::HSTRING, state: super::super::ApplicationModel::PackageContentGroupState, completionpercentage: f64) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
 }
 #[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IPackageManagerDebugSettings {
+    const NAME: &'static str = "Windows.Management.Deployment.IPackageManagerDebugSettings";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IPackageManagerDebugSettingsVtbl {
+    pub const fn new<Impl: IPackageManagerDebugSettingsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IPackageManagerDebugSettingsVtbl {
+        unsafe extern "system" fn SetContentGroupStateAsync<Impl: IPackageManagerDebugSettingsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, package: ::windows::core::RawPtr, contentgroupname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, state: super::super::ApplicationModel::PackageContentGroupState, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).SetContentGroupStateAsync(&*(&package as *const <super::super::ApplicationModel::Package as ::windows::core::Abi>::Abi as *const <super::super::ApplicationModel::Package as ::windows::core::DefaultType>::DefaultType), &*(&contentgroupname as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), state) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetContentGroupStateWithPercentageAsync<Impl: IPackageManagerDebugSettingsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, package: ::windows::core::RawPtr, contentgroupname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, state: super::super::ApplicationModel::PackageContentGroupState, completionpercentage: f64, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).SetContentGroupStateWithPercentageAsync(&*(&package as *const <super::super::ApplicationModel::Package as ::windows::core::Abi>::Abi as *const <super::super::ApplicationModel::Package as ::windows::core::DefaultType>::DefaultType), &*(&contentgroupname as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), state, completionpercentage) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IPackageManagerDebugSettings>, base.5, SetContentGroupStateAsync::<Impl, OFFSET>, SetContentGroupStateWithPercentageAsync::<Impl, OFFSET>)
+    }
+}
+#[cfg(feature = "implement_exclusive")]
 pub trait IPackageUserInformationImpl: Sized {
     fn UserSecurityId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn InstallState(&self) -> ::windows::core::Result<PackageInstallState>;
+}
+#[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IPackageUserInformation {
+    const NAME: &'static str = "Windows.Management.Deployment.IPackageUserInformation";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IPackageUserInformationVtbl {
+    pub const fn new<Impl: IPackageUserInformationImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IPackageUserInformationVtbl {
+        unsafe extern "system" fn UserSecurityId<Impl: IPackageUserInformationImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).UserSecurityId() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn InstallState<Impl: IPackageUserInformationImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut PackageInstallState) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).InstallState() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IPackageUserInformation>, base.5, UserSecurityId::<Impl, OFFSET>, InstallState::<Impl, OFFSET>)
+    }
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IPackageVolumeImpl: Sized {
@@ -272,10 +2101,319 @@ pub trait IPackageVolumeImpl: Sized {
     fn FindPackageByUserSecurityIdPackageFullName(&self, usersecurityid: &::windows::core::HSTRING, packagefullname: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<super::super::ApplicationModel::Package>>;
 }
 #[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IPackageVolume {
+    const NAME: &'static str = "Windows.Management.Deployment.IPackageVolume";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IPackageVolumeVtbl {
+    pub const fn new<Impl: IPackageVolumeImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IPackageVolumeVtbl {
+        unsafe extern "system" fn IsOffline<Impl: IPackageVolumeImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).IsOffline() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn IsSystemVolume<Impl: IPackageVolumeImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).IsSystemVolume() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn MountPoint<Impl: IPackageVolumeImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).MountPoint() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn Name<Impl: IPackageVolumeImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).Name() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn PackageStorePath<Impl: IPackageVolumeImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).PackageStorePath() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SupportsHardLinks<Impl: IPackageVolumeImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).SupportsHardLinks() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn FindPackages<Impl: IPackageVolumeImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).FindPackages() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn FindPackagesByNamePublisher<Impl: IPackageVolumeImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, packagename: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, packagepublisher: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).FindPackagesByNamePublisher(&*(&packagename as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&packagepublisher as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn FindPackagesByPackageFamilyName<Impl: IPackageVolumeImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, packagefamilyname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).FindPackagesByPackageFamilyName(&*(&packagefamilyname as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn FindPackagesWithPackageTypes<Impl: IPackageVolumeImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, packagetypes: PackageTypes, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).FindPackagesWithPackageTypes(packagetypes) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn FindPackagesByNamePublisherWithPackagesTypes<Impl: IPackageVolumeImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, packagetypes: PackageTypes, packagename: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, packagepublisher: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).FindPackagesByNamePublisherWithPackagesTypes(packagetypes, &*(&packagename as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&packagepublisher as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn FindPackagesByPackageFamilyNameWithPackageTypes<Impl: IPackageVolumeImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, packagetypes: PackageTypes, packagefamilyname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).FindPackagesByPackageFamilyNameWithPackageTypes(packagetypes, &*(&packagefamilyname as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn FindPackageByPackageFullName<Impl: IPackageVolumeImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, packagefullname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).FindPackageByPackageFullName(&*(&packagefullname as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn FindPackagesByUserSecurityId<Impl: IPackageVolumeImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, usersecurityid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).FindPackagesByUserSecurityId(&*(&usersecurityid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn FindPackagesByUserSecurityIdNamePublisher<Impl: IPackageVolumeImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, usersecurityid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, packagename: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, packagepublisher: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).FindPackagesByUserSecurityIdNamePublisher(
+                &*(&usersecurityid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType),
+                &*(&packagename as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType),
+                &*(&packagepublisher as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType),
+            ) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn FindPackagesByUserSecurityIdPackageFamilyName<Impl: IPackageVolumeImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, usersecurityid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, packagefamilyname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).FindPackagesByUserSecurityIdPackageFamilyName(&*(&usersecurityid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&packagefamilyname as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn FindPackagesByUserSecurityIdWithPackageTypes<Impl: IPackageVolumeImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, usersecurityid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, packagetypes: PackageTypes, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).FindPackagesByUserSecurityIdWithPackageTypes(&*(&usersecurityid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), packagetypes) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn FindPackagesByUserSecurityIdNamePublisherWithPackageTypes<Impl: IPackageVolumeImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, usersecurityid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, packagetypes: PackageTypes, packagename: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, packagepublisher: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).FindPackagesByUserSecurityIdNamePublisherWithPackageTypes(
+                &*(&usersecurityid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType),
+                packagetypes,
+                &*(&packagename as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType),
+                &*(&packagepublisher as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType),
+            ) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn FindPackagesByUserSecurityIdPackageFamilyNameWithPackagesTypes<Impl: IPackageVolumeImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, usersecurityid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, packagetypes: PackageTypes, packagefamilyname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).FindPackagesByUserSecurityIdPackageFamilyNameWithPackagesTypes(&*(&usersecurityid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), packagetypes, &*(&packagefamilyname as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn FindPackageByUserSecurityIdPackageFullName<Impl: IPackageVolumeImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, usersecurityid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, packagefullname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).FindPackageByUserSecurityIdPackageFullName(&*(&usersecurityid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&packagefullname as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(
+            base.0,
+            base.1,
+            base.2,
+            base.3,
+            ::windows::core::GetRuntimeClassName::<IPackageVolume>,
+            base.5,
+            IsOffline::<Impl, OFFSET>,
+            IsSystemVolume::<Impl, OFFSET>,
+            MountPoint::<Impl, OFFSET>,
+            Name::<Impl, OFFSET>,
+            PackageStorePath::<Impl, OFFSET>,
+            SupportsHardLinks::<Impl, OFFSET>,
+            FindPackages::<Impl, OFFSET>,
+            FindPackagesByNamePublisher::<Impl, OFFSET>,
+            FindPackagesByPackageFamilyName::<Impl, OFFSET>,
+            FindPackagesWithPackageTypes::<Impl, OFFSET>,
+            FindPackagesByNamePublisherWithPackagesTypes::<Impl, OFFSET>,
+            FindPackagesByPackageFamilyNameWithPackageTypes::<Impl, OFFSET>,
+            FindPackageByPackageFullName::<Impl, OFFSET>,
+            FindPackagesByUserSecurityId::<Impl, OFFSET>,
+            FindPackagesByUserSecurityIdNamePublisher::<Impl, OFFSET>,
+            FindPackagesByUserSecurityIdPackageFamilyName::<Impl, OFFSET>,
+            FindPackagesByUserSecurityIdWithPackageTypes::<Impl, OFFSET>,
+            FindPackagesByUserSecurityIdNamePublisherWithPackageTypes::<Impl, OFFSET>,
+            FindPackagesByUserSecurityIdPackageFamilyNameWithPackagesTypes::<Impl, OFFSET>,
+            FindPackageByUserSecurityIdPackageFullName::<Impl, OFFSET>,
+        )
+    }
+}
+#[cfg(feature = "implement_exclusive")]
 pub trait IPackageVolume2Impl: Sized {
     fn IsFullTrustPackageSupported(&self) -> ::windows::core::Result<bool>;
     fn IsAppxInstallSupported(&self) -> ::windows::core::Result<bool>;
     fn GetAvailableSpaceAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<u64>>;
+}
+#[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IPackageVolume2 {
+    const NAME: &'static str = "Windows.Management.Deployment.IPackageVolume2";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IPackageVolume2Vtbl {
+    pub const fn new<Impl: IPackageVolume2Impl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IPackageVolume2Vtbl {
+        unsafe extern "system" fn IsFullTrustPackageSupported<Impl: IPackageVolume2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).IsFullTrustPackageSupported() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn IsAppxInstallSupported<Impl: IPackageVolume2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).IsAppxInstallSupported() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn GetAvailableSpaceAsync<Impl: IPackageVolume2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).GetAvailableSpaceAsync() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IPackageVolume2>, base.5, IsFullTrustPackageSupported::<Impl, OFFSET>, IsAppxInstallSupported::<Impl, OFFSET>, GetAvailableSpaceAsync::<Impl, OFFSET>)
+    }
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IRegisterPackageOptionsImpl: Sized {
@@ -303,12 +2441,288 @@ pub trait IRegisterPackageOptionsImpl: Sized {
     fn SetDeferRegistrationWhenPackagesAreInUse(&self, value: bool) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IRegisterPackageOptions {
+    const NAME: &'static str = "Windows.Management.Deployment.IRegisterPackageOptions";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IRegisterPackageOptionsVtbl {
+    pub const fn new<Impl: IRegisterPackageOptionsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IRegisterPackageOptionsVtbl {
+        unsafe extern "system" fn DependencyPackageUris<Impl: IRegisterPackageOptionsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).DependencyPackageUris() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn AppDataVolume<Impl: IRegisterPackageOptionsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).AppDataVolume() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetAppDataVolume<Impl: IRegisterPackageOptionsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetAppDataVolume(&*(&value as *const <PackageVolume as ::windows::core::Abi>::Abi as *const <PackageVolume as ::windows::core::DefaultType>::DefaultType)).into()
+        }
+        unsafe extern "system" fn OptionalPackageFamilyNames<Impl: IRegisterPackageOptionsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).OptionalPackageFamilyNames() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn ExternalLocationUri<Impl: IRegisterPackageOptionsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).ExternalLocationUri() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetExternalLocationUri<Impl: IRegisterPackageOptionsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetExternalLocationUri(&*(&value as *const <super::super::Foundation::Uri as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Uri as ::windows::core::DefaultType>::DefaultType)).into()
+        }
+        unsafe extern "system" fn DeveloperMode<Impl: IRegisterPackageOptionsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).DeveloperMode() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetDeveloperMode<Impl: IRegisterPackageOptionsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetDeveloperMode(value).into()
+        }
+        unsafe extern "system" fn ForceAppShutdown<Impl: IRegisterPackageOptionsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).ForceAppShutdown() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetForceAppShutdown<Impl: IRegisterPackageOptionsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetForceAppShutdown(value).into()
+        }
+        unsafe extern "system" fn ForceTargetAppShutdown<Impl: IRegisterPackageOptionsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).ForceTargetAppShutdown() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetForceTargetAppShutdown<Impl: IRegisterPackageOptionsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetForceTargetAppShutdown(value).into()
+        }
+        unsafe extern "system" fn ForceUpdateFromAnyVersion<Impl: IRegisterPackageOptionsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).ForceUpdateFromAnyVersion() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetForceUpdateFromAnyVersion<Impl: IRegisterPackageOptionsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetForceUpdateFromAnyVersion(value).into()
+        }
+        unsafe extern "system" fn InstallAllResources<Impl: IRegisterPackageOptionsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).InstallAllResources() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetInstallAllResources<Impl: IRegisterPackageOptionsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetInstallAllResources(value).into()
+        }
+        unsafe extern "system" fn StageInPlace<Impl: IRegisterPackageOptionsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).StageInPlace() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetStageInPlace<Impl: IRegisterPackageOptionsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetStageInPlace(value).into()
+        }
+        unsafe extern "system" fn AllowUnsigned<Impl: IRegisterPackageOptionsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).AllowUnsigned() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetAllowUnsigned<Impl: IRegisterPackageOptionsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetAllowUnsigned(value).into()
+        }
+        unsafe extern "system" fn DeferRegistrationWhenPackagesAreInUse<Impl: IRegisterPackageOptionsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).DeferRegistrationWhenPackagesAreInUse() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetDeferRegistrationWhenPackagesAreInUse<Impl: IRegisterPackageOptionsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetDeferRegistrationWhenPackagesAreInUse(value).into()
+        }
+        Self(
+            base.0,
+            base.1,
+            base.2,
+            base.3,
+            ::windows::core::GetRuntimeClassName::<IRegisterPackageOptions>,
+            base.5,
+            DependencyPackageUris::<Impl, OFFSET>,
+            AppDataVolume::<Impl, OFFSET>,
+            SetAppDataVolume::<Impl, OFFSET>,
+            OptionalPackageFamilyNames::<Impl, OFFSET>,
+            ExternalLocationUri::<Impl, OFFSET>,
+            SetExternalLocationUri::<Impl, OFFSET>,
+            DeveloperMode::<Impl, OFFSET>,
+            SetDeveloperMode::<Impl, OFFSET>,
+            ForceAppShutdown::<Impl, OFFSET>,
+            SetForceAppShutdown::<Impl, OFFSET>,
+            ForceTargetAppShutdown::<Impl, OFFSET>,
+            SetForceTargetAppShutdown::<Impl, OFFSET>,
+            ForceUpdateFromAnyVersion::<Impl, OFFSET>,
+            SetForceUpdateFromAnyVersion::<Impl, OFFSET>,
+            InstallAllResources::<Impl, OFFSET>,
+            SetInstallAllResources::<Impl, OFFSET>,
+            StageInPlace::<Impl, OFFSET>,
+            SetStageInPlace::<Impl, OFFSET>,
+            AllowUnsigned::<Impl, OFFSET>,
+            SetAllowUnsigned::<Impl, OFFSET>,
+            DeferRegistrationWhenPackagesAreInUse::<Impl, OFFSET>,
+            SetDeferRegistrationWhenPackagesAreInUse::<Impl, OFFSET>,
+        )
+    }
+}
+#[cfg(feature = "implement_exclusive")]
 pub trait ISharedPackageContainerImpl: Sized {
     fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn Id(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn GetMembers(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<SharedPackageContainerMember>>;
     fn RemovePackageFamily(&self, packagefamilyname: &::windows::core::HSTRING, options: &::core::option::Option<UpdateSharedPackageContainerOptions>) -> ::windows::core::Result<UpdateSharedPackageContainerResult>;
     fn ResetData(&self) -> ::windows::core::Result<UpdateSharedPackageContainerResult>;
+}
+#[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for ISharedPackageContainer {
+    const NAME: &'static str = "Windows.Management.Deployment.ISharedPackageContainer";
+}
+#[cfg(feature = "implement_exclusive")]
+impl ISharedPackageContainerVtbl {
+    pub const fn new<Impl: ISharedPackageContainerImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> ISharedPackageContainerVtbl {
+        unsafe extern "system" fn Name<Impl: ISharedPackageContainerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).Name() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn Id<Impl: ISharedPackageContainerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).Id() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn GetMembers<Impl: ISharedPackageContainerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).GetMembers() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn RemovePackageFamily<Impl: ISharedPackageContainerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, packagefamilyname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, options: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).RemovePackageFamily(&*(&packagefamilyname as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&options as *const <UpdateSharedPackageContainerOptions as ::windows::core::Abi>::Abi as *const <UpdateSharedPackageContainerOptions as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn ResetData<Impl: ISharedPackageContainerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).ResetData() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<ISharedPackageContainer>, base.5, Name::<Impl, OFFSET>, Id::<Impl, OFFSET>, GetMembers::<Impl, OFFSET>, RemovePackageFamily::<Impl, OFFSET>, ResetData::<Impl, OFFSET>)
+    }
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ISharedPackageContainerManagerImpl: Sized {
@@ -319,18 +2733,168 @@ pub trait ISharedPackageContainerManagerImpl: Sized {
     fn FindContainersWithOptions(&self, options: &::core::option::Option<FindSharedPackageContainerOptions>) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<SharedPackageContainer>>;
 }
 #[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for ISharedPackageContainerManager {
+    const NAME: &'static str = "Windows.Management.Deployment.ISharedPackageContainerManager";
+}
+#[cfg(feature = "implement_exclusive")]
+impl ISharedPackageContainerManagerVtbl {
+    pub const fn new<Impl: ISharedPackageContainerManagerImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> ISharedPackageContainerManagerVtbl {
+        unsafe extern "system" fn CreateContainer<Impl: ISharedPackageContainerManagerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, options: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).CreateContainer(&*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&options as *const <CreateSharedPackageContainerOptions as ::windows::core::Abi>::Abi as *const <CreateSharedPackageContainerOptions as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn DeleteContainer<Impl: ISharedPackageContainerManagerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, id: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, options: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).DeleteContainer(&*(&id as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&options as *const <DeleteSharedPackageContainerOptions as ::windows::core::Abi>::Abi as *const <DeleteSharedPackageContainerOptions as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn GetContainer<Impl: ISharedPackageContainerManagerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, id: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).GetContainer(&*(&id as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn FindContainers<Impl: ISharedPackageContainerManagerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).FindContainers() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn FindContainersWithOptions<Impl: ISharedPackageContainerManagerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, options: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).FindContainersWithOptions(&*(&options as *const <FindSharedPackageContainerOptions as ::windows::core::Abi>::Abi as *const <FindSharedPackageContainerOptions as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<ISharedPackageContainerManager>, base.5, CreateContainer::<Impl, OFFSET>, DeleteContainer::<Impl, OFFSET>, GetContainer::<Impl, OFFSET>, FindContainers::<Impl, OFFSET>, FindContainersWithOptions::<Impl, OFFSET>)
+    }
+}
+#[cfg(feature = "implement_exclusive")]
 pub trait ISharedPackageContainerManagerStaticsImpl: Sized {
     fn GetDefault(&self) -> ::windows::core::Result<SharedPackageContainerManager>;
     fn GetForUser(&self, usersid: &::windows::core::HSTRING) -> ::windows::core::Result<SharedPackageContainerManager>;
     fn GetForProvisioning(&self) -> ::windows::core::Result<SharedPackageContainerManager>;
 }
 #[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for ISharedPackageContainerManagerStatics {
+    const NAME: &'static str = "Windows.Management.Deployment.ISharedPackageContainerManagerStatics";
+}
+#[cfg(feature = "implement_exclusive")]
+impl ISharedPackageContainerManagerStaticsVtbl {
+    pub const fn new<Impl: ISharedPackageContainerManagerStaticsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> ISharedPackageContainerManagerStaticsVtbl {
+        unsafe extern "system" fn GetDefault<Impl: ISharedPackageContainerManagerStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).GetDefault() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn GetForUser<Impl: ISharedPackageContainerManagerStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, usersid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).GetForUser(&*(&usersid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn GetForProvisioning<Impl: ISharedPackageContainerManagerStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).GetForProvisioning() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<ISharedPackageContainerManagerStatics>, base.5, GetDefault::<Impl, OFFSET>, GetForUser::<Impl, OFFSET>, GetForProvisioning::<Impl, OFFSET>)
+    }
+}
+#[cfg(feature = "implement_exclusive")]
 pub trait ISharedPackageContainerMemberImpl: Sized {
     fn PackageFamilyName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for ISharedPackageContainerMember {
+    const NAME: &'static str = "Windows.Management.Deployment.ISharedPackageContainerMember";
+}
+#[cfg(feature = "implement_exclusive")]
+impl ISharedPackageContainerMemberVtbl {
+    pub const fn new<Impl: ISharedPackageContainerMemberImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> ISharedPackageContainerMemberVtbl {
+        unsafe extern "system" fn PackageFamilyName<Impl: ISharedPackageContainerMemberImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).PackageFamilyName() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<ISharedPackageContainerMember>, base.5, PackageFamilyName::<Impl, OFFSET>)
+    }
+}
+#[cfg(feature = "implement_exclusive")]
 pub trait ISharedPackageContainerMemberFactoryImpl: Sized {
     fn CreateInstance(&self, packagefamilyname: &::windows::core::HSTRING) -> ::windows::core::Result<SharedPackageContainerMember>;
+}
+#[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for ISharedPackageContainerMemberFactory {
+    const NAME: &'static str = "Windows.Management.Deployment.ISharedPackageContainerMemberFactory";
+}
+#[cfg(feature = "implement_exclusive")]
+impl ISharedPackageContainerMemberFactoryVtbl {
+    pub const fn new<Impl: ISharedPackageContainerMemberFactoryImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> ISharedPackageContainerMemberFactoryVtbl {
+        unsafe extern "system" fn CreateInstance<Impl: ISharedPackageContainerMemberFactoryImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, packagefamilyname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).CreateInstance(&*(&packagefamilyname as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<ISharedPackageContainerMemberFactory>, base.5, CreateInstance::<Impl, OFFSET>)
+    }
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IStagePackageOptionsImpl: Sized {
@@ -358,6 +2922,224 @@ pub trait IStagePackageOptionsImpl: Sized {
     fn SetAllowUnsigned(&self, value: bool) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IStagePackageOptions {
+    const NAME: &'static str = "Windows.Management.Deployment.IStagePackageOptions";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IStagePackageOptionsVtbl {
+    pub const fn new<Impl: IStagePackageOptionsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IStagePackageOptionsVtbl {
+        unsafe extern "system" fn DependencyPackageUris<Impl: IStagePackageOptionsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).DependencyPackageUris() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn TargetVolume<Impl: IStagePackageOptionsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).TargetVolume() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetTargetVolume<Impl: IStagePackageOptionsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetTargetVolume(&*(&value as *const <PackageVolume as ::windows::core::Abi>::Abi as *const <PackageVolume as ::windows::core::DefaultType>::DefaultType)).into()
+        }
+        unsafe extern "system" fn OptionalPackageFamilyNames<Impl: IStagePackageOptionsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).OptionalPackageFamilyNames() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn OptionalPackageUris<Impl: IStagePackageOptionsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).OptionalPackageUris() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn RelatedPackageUris<Impl: IStagePackageOptionsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).RelatedPackageUris() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn ExternalLocationUri<Impl: IStagePackageOptionsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).ExternalLocationUri() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetExternalLocationUri<Impl: IStagePackageOptionsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetExternalLocationUri(&*(&value as *const <super::super::Foundation::Uri as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Uri as ::windows::core::DefaultType>::DefaultType)).into()
+        }
+        unsafe extern "system" fn StubPackageOption<Impl: IStagePackageOptionsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut StubPackageOption) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).StubPackageOption() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetStubPackageOption<Impl: IStagePackageOptionsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: StubPackageOption) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetStubPackageOption(value).into()
+        }
+        unsafe extern "system" fn DeveloperMode<Impl: IStagePackageOptionsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).DeveloperMode() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetDeveloperMode<Impl: IStagePackageOptionsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetDeveloperMode(value).into()
+        }
+        unsafe extern "system" fn ForceUpdateFromAnyVersion<Impl: IStagePackageOptionsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).ForceUpdateFromAnyVersion() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetForceUpdateFromAnyVersion<Impl: IStagePackageOptionsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetForceUpdateFromAnyVersion(value).into()
+        }
+        unsafe extern "system" fn InstallAllResources<Impl: IStagePackageOptionsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).InstallAllResources() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetInstallAllResources<Impl: IStagePackageOptionsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetInstallAllResources(value).into()
+        }
+        unsafe extern "system" fn RequiredContentGroupOnly<Impl: IStagePackageOptionsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).RequiredContentGroupOnly() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetRequiredContentGroupOnly<Impl: IStagePackageOptionsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetRequiredContentGroupOnly(value).into()
+        }
+        unsafe extern "system" fn StageInPlace<Impl: IStagePackageOptionsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).StageInPlace() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetStageInPlace<Impl: IStagePackageOptionsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetStageInPlace(value).into()
+        }
+        unsafe extern "system" fn AllowUnsigned<Impl: IStagePackageOptionsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).AllowUnsigned() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetAllowUnsigned<Impl: IStagePackageOptionsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetAllowUnsigned(value).into()
+        }
+        Self(
+            base.0,
+            base.1,
+            base.2,
+            base.3,
+            ::windows::core::GetRuntimeClassName::<IStagePackageOptions>,
+            base.5,
+            DependencyPackageUris::<Impl, OFFSET>,
+            TargetVolume::<Impl, OFFSET>,
+            SetTargetVolume::<Impl, OFFSET>,
+            OptionalPackageFamilyNames::<Impl, OFFSET>,
+            OptionalPackageUris::<Impl, OFFSET>,
+            RelatedPackageUris::<Impl, OFFSET>,
+            ExternalLocationUri::<Impl, OFFSET>,
+            SetExternalLocationUri::<Impl, OFFSET>,
+            StubPackageOption::<Impl, OFFSET>,
+            SetStubPackageOption::<Impl, OFFSET>,
+            DeveloperMode::<Impl, OFFSET>,
+            SetDeveloperMode::<Impl, OFFSET>,
+            ForceUpdateFromAnyVersion::<Impl, OFFSET>,
+            SetForceUpdateFromAnyVersion::<Impl, OFFSET>,
+            InstallAllResources::<Impl, OFFSET>,
+            SetInstallAllResources::<Impl, OFFSET>,
+            RequiredContentGroupOnly::<Impl, OFFSET>,
+            SetRequiredContentGroupOnly::<Impl, OFFSET>,
+            StageInPlace::<Impl, OFFSET>,
+            SetStageInPlace::<Impl, OFFSET>,
+            AllowUnsigned::<Impl, OFFSET>,
+            SetAllowUnsigned::<Impl, OFFSET>,
+        )
+    }
+}
+#[cfg(feature = "implement_exclusive")]
 pub trait IUpdateSharedPackageContainerOptionsImpl: Sized {
     fn ForceAppShutdown(&self) -> ::windows::core::Result<bool>;
     fn SetForceAppShutdown(&self, value: bool) -> ::windows::core::Result<()>;
@@ -365,7 +3147,79 @@ pub trait IUpdateSharedPackageContainerOptionsImpl: Sized {
     fn SetRequirePackagesPresent(&self, value: bool) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IUpdateSharedPackageContainerOptions {
+    const NAME: &'static str = "Windows.Management.Deployment.IUpdateSharedPackageContainerOptions";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IUpdateSharedPackageContainerOptionsVtbl {
+    pub const fn new<Impl: IUpdateSharedPackageContainerOptionsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IUpdateSharedPackageContainerOptionsVtbl {
+        unsafe extern "system" fn ForceAppShutdown<Impl: IUpdateSharedPackageContainerOptionsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).ForceAppShutdown() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetForceAppShutdown<Impl: IUpdateSharedPackageContainerOptionsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetForceAppShutdown(value).into()
+        }
+        unsafe extern "system" fn RequirePackagesPresent<Impl: IUpdateSharedPackageContainerOptionsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).RequirePackagesPresent() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetRequirePackagesPresent<Impl: IUpdateSharedPackageContainerOptionsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetRequirePackagesPresent(value).into()
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IUpdateSharedPackageContainerOptions>, base.5, ForceAppShutdown::<Impl, OFFSET>, SetForceAppShutdown::<Impl, OFFSET>, RequirePackagesPresent::<Impl, OFFSET>, SetRequirePackagesPresent::<Impl, OFFSET>)
+    }
+}
+#[cfg(feature = "implement_exclusive")]
 pub trait IUpdateSharedPackageContainerResultImpl: Sized {
     fn Status(&self) -> ::windows::core::Result<SharedPackageContainerOperationStatus>;
     fn ExtendedError(&self) -> ::windows::core::Result<::windows::core::HRESULT>;
+}
+#[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IUpdateSharedPackageContainerResult {
+    const NAME: &'static str = "Windows.Management.Deployment.IUpdateSharedPackageContainerResult";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IUpdateSharedPackageContainerResultVtbl {
+    pub const fn new<Impl: IUpdateSharedPackageContainerResultImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IUpdateSharedPackageContainerResultVtbl {
+        unsafe extern "system" fn Status<Impl: IUpdateSharedPackageContainerResultImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut SharedPackageContainerOperationStatus) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).Status() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn ExtendedError<Impl: IUpdateSharedPackageContainerResultImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::HRESULT) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).ExtendedError() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IUpdateSharedPackageContainerResult>, base.5, Status::<Impl, OFFSET>, ExtendedError::<Impl, OFFSET>)
+    }
 }

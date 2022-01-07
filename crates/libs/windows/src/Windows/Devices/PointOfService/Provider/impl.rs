@@ -4,9 +4,73 @@ pub trait IBarcodeScannerDisableScannerRequestImpl: Sized {
     fn ReportFailedAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>;
 }
 #[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IBarcodeScannerDisableScannerRequest {
+    const NAME: &'static str = "Windows.Devices.PointOfService.Provider.IBarcodeScannerDisableScannerRequest";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IBarcodeScannerDisableScannerRequestVtbl {
+    pub const fn new<Impl: IBarcodeScannerDisableScannerRequestImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IBarcodeScannerDisableScannerRequestVtbl {
+        unsafe extern "system" fn ReportCompletedAsync<Impl: IBarcodeScannerDisableScannerRequestImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).ReportCompletedAsync() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn ReportFailedAsync<Impl: IBarcodeScannerDisableScannerRequestImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).ReportFailedAsync() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IBarcodeScannerDisableScannerRequest>, base.5, ReportCompletedAsync::<Impl, OFFSET>, ReportFailedAsync::<Impl, OFFSET>)
+    }
+}
+#[cfg(feature = "implement_exclusive")]
 pub trait IBarcodeScannerDisableScannerRequest2Impl: Sized {
     fn ReportFailedWithFailedReasonAsync(&self, reason: i32) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>;
     fn ReportFailedWithFailedReasonAndDescriptionAsync(&self, reason: i32, failedreasondescription: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>;
+}
+#[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IBarcodeScannerDisableScannerRequest2 {
+    const NAME: &'static str = "Windows.Devices.PointOfService.Provider.IBarcodeScannerDisableScannerRequest2";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IBarcodeScannerDisableScannerRequest2Vtbl {
+    pub const fn new<Impl: IBarcodeScannerDisableScannerRequest2Impl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IBarcodeScannerDisableScannerRequest2Vtbl {
+        unsafe extern "system" fn ReportFailedWithFailedReasonAsync<Impl: IBarcodeScannerDisableScannerRequest2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, reason: i32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).ReportFailedWithFailedReasonAsync(reason) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn ReportFailedWithFailedReasonAndDescriptionAsync<Impl: IBarcodeScannerDisableScannerRequest2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, reason: i32, failedreasondescription: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).ReportFailedWithFailedReasonAndDescriptionAsync(reason, &*(&failedreasondescription as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IBarcodeScannerDisableScannerRequest2>, base.5, ReportFailedWithFailedReasonAsync::<Impl, OFFSET>, ReportFailedWithFailedReasonAndDescriptionAsync::<Impl, OFFSET>)
+    }
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IBarcodeScannerDisableScannerRequestEventArgsImpl: Sized {
@@ -14,9 +78,73 @@ pub trait IBarcodeScannerDisableScannerRequestEventArgsImpl: Sized {
     fn GetDeferral(&self) -> ::windows::core::Result<super::super::super::Foundation::Deferral>;
 }
 #[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IBarcodeScannerDisableScannerRequestEventArgs {
+    const NAME: &'static str = "Windows.Devices.PointOfService.Provider.IBarcodeScannerDisableScannerRequestEventArgs";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IBarcodeScannerDisableScannerRequestEventArgsVtbl {
+    pub const fn new<Impl: IBarcodeScannerDisableScannerRequestEventArgsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IBarcodeScannerDisableScannerRequestEventArgsVtbl {
+        unsafe extern "system" fn Request<Impl: IBarcodeScannerDisableScannerRequestEventArgsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).Request() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn GetDeferral<Impl: IBarcodeScannerDisableScannerRequestEventArgsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).GetDeferral() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IBarcodeScannerDisableScannerRequestEventArgs>, base.5, Request::<Impl, OFFSET>, GetDeferral::<Impl, OFFSET>)
+    }
+}
+#[cfg(feature = "implement_exclusive")]
 pub trait IBarcodeScannerEnableScannerRequestImpl: Sized {
     fn ReportCompletedAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>;
     fn ReportFailedAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>;
+}
+#[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IBarcodeScannerEnableScannerRequest {
+    const NAME: &'static str = "Windows.Devices.PointOfService.Provider.IBarcodeScannerEnableScannerRequest";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IBarcodeScannerEnableScannerRequestVtbl {
+    pub const fn new<Impl: IBarcodeScannerEnableScannerRequestImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IBarcodeScannerEnableScannerRequestVtbl {
+        unsafe extern "system" fn ReportCompletedAsync<Impl: IBarcodeScannerEnableScannerRequestImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).ReportCompletedAsync() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn ReportFailedAsync<Impl: IBarcodeScannerEnableScannerRequestImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).ReportFailedAsync() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IBarcodeScannerEnableScannerRequest>, base.5, ReportCompletedAsync::<Impl, OFFSET>, ReportFailedAsync::<Impl, OFFSET>)
+    }
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IBarcodeScannerEnableScannerRequest2Impl: Sized {
@@ -24,9 +152,73 @@ pub trait IBarcodeScannerEnableScannerRequest2Impl: Sized {
     fn ReportFailedWithFailedReasonAndDescriptionAsync(&self, reason: i32, failedreasondescription: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>;
 }
 #[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IBarcodeScannerEnableScannerRequest2 {
+    const NAME: &'static str = "Windows.Devices.PointOfService.Provider.IBarcodeScannerEnableScannerRequest2";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IBarcodeScannerEnableScannerRequest2Vtbl {
+    pub const fn new<Impl: IBarcodeScannerEnableScannerRequest2Impl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IBarcodeScannerEnableScannerRequest2Vtbl {
+        unsafe extern "system" fn ReportFailedWithFailedReasonAsync<Impl: IBarcodeScannerEnableScannerRequest2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, reason: i32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).ReportFailedWithFailedReasonAsync(reason) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn ReportFailedWithFailedReasonAndDescriptionAsync<Impl: IBarcodeScannerEnableScannerRequest2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, reason: i32, failedreasondescription: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).ReportFailedWithFailedReasonAndDescriptionAsync(reason, &*(&failedreasondescription as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IBarcodeScannerEnableScannerRequest2>, base.5, ReportFailedWithFailedReasonAsync::<Impl, OFFSET>, ReportFailedWithFailedReasonAndDescriptionAsync::<Impl, OFFSET>)
+    }
+}
+#[cfg(feature = "implement_exclusive")]
 pub trait IBarcodeScannerEnableScannerRequestEventArgsImpl: Sized {
     fn Request(&self) -> ::windows::core::Result<BarcodeScannerEnableScannerRequest>;
     fn GetDeferral(&self) -> ::windows::core::Result<super::super::super::Foundation::Deferral>;
+}
+#[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IBarcodeScannerEnableScannerRequestEventArgs {
+    const NAME: &'static str = "Windows.Devices.PointOfService.Provider.IBarcodeScannerEnableScannerRequestEventArgs";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IBarcodeScannerEnableScannerRequestEventArgsVtbl {
+    pub const fn new<Impl: IBarcodeScannerEnableScannerRequestEventArgsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IBarcodeScannerEnableScannerRequestEventArgsVtbl {
+        unsafe extern "system" fn Request<Impl: IBarcodeScannerEnableScannerRequestEventArgsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).Request() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn GetDeferral<Impl: IBarcodeScannerEnableScannerRequestEventArgsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).GetDeferral() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IBarcodeScannerEnableScannerRequestEventArgs>, base.5, Request::<Impl, OFFSET>, GetDeferral::<Impl, OFFSET>)
+    }
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IBarcodeScannerFrameReaderImpl: Sized {
@@ -38,8 +230,98 @@ pub trait IBarcodeScannerFrameReaderImpl: Sized {
     fn RemoveFrameArrived(&self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IBarcodeScannerFrameReader {
+    const NAME: &'static str = "Windows.Devices.PointOfService.Provider.IBarcodeScannerFrameReader";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IBarcodeScannerFrameReaderVtbl {
+    pub const fn new<Impl: IBarcodeScannerFrameReaderImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IBarcodeScannerFrameReaderVtbl {
+        unsafe extern "system" fn StartAsync<Impl: IBarcodeScannerFrameReaderImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).StartAsync() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn StopAsync<Impl: IBarcodeScannerFrameReaderImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).StopAsync() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn TryAcquireLatestFrameAsync<Impl: IBarcodeScannerFrameReaderImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).TryAcquireLatestFrameAsync() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn Connection<Impl: IBarcodeScannerFrameReaderImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).Connection() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn FrameArrived<Impl: IBarcodeScannerFrameReaderImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).FrameArrived(&*(&handler as *const <super::super::super::Foundation::TypedEventHandler<BarcodeScannerFrameReader, BarcodeScannerFrameReaderFrameArrivedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::TypedEventHandler<BarcodeScannerFrameReader, BarcodeScannerFrameReaderFrameArrivedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn RemoveFrameArrived<Impl: IBarcodeScannerFrameReaderImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).RemoveFrameArrived(&*(&token as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IBarcodeScannerFrameReader>, base.5, StartAsync::<Impl, OFFSET>, StopAsync::<Impl, OFFSET>, TryAcquireLatestFrameAsync::<Impl, OFFSET>, Connection::<Impl, OFFSET>, FrameArrived::<Impl, OFFSET>, RemoveFrameArrived::<Impl, OFFSET>)
+    }
+}
+#[cfg(feature = "implement_exclusive")]
 pub trait IBarcodeScannerFrameReaderFrameArrivedEventArgsImpl: Sized {
     fn GetDeferral(&self) -> ::windows::core::Result<super::super::super::Foundation::Deferral>;
+}
+#[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IBarcodeScannerFrameReaderFrameArrivedEventArgs {
+    const NAME: &'static str = "Windows.Devices.PointOfService.Provider.IBarcodeScannerFrameReaderFrameArrivedEventArgs";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IBarcodeScannerFrameReaderFrameArrivedEventArgsVtbl {
+    pub const fn new<Impl: IBarcodeScannerFrameReaderFrameArrivedEventArgsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IBarcodeScannerFrameReaderFrameArrivedEventArgsVtbl {
+        unsafe extern "system" fn GetDeferral<Impl: IBarcodeScannerFrameReaderFrameArrivedEventArgsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).GetDeferral() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IBarcodeScannerFrameReaderFrameArrivedEventArgs>, base.5, GetDeferral::<Impl, OFFSET>)
+    }
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IBarcodeScannerGetSymbologyAttributesRequestImpl: Sized {
@@ -48,9 +330,84 @@ pub trait IBarcodeScannerGetSymbologyAttributesRequestImpl: Sized {
     fn ReportFailedAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>;
 }
 #[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IBarcodeScannerGetSymbologyAttributesRequest {
+    const NAME: &'static str = "Windows.Devices.PointOfService.Provider.IBarcodeScannerGetSymbologyAttributesRequest";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IBarcodeScannerGetSymbologyAttributesRequestVtbl {
+    pub const fn new<Impl: IBarcodeScannerGetSymbologyAttributesRequestImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IBarcodeScannerGetSymbologyAttributesRequestVtbl {
+        unsafe extern "system" fn Symbology<Impl: IBarcodeScannerGetSymbologyAttributesRequestImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).Symbology() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn ReportCompletedAsync<Impl: IBarcodeScannerGetSymbologyAttributesRequestImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, attributes: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).ReportCompletedAsync(&*(&attributes as *const <super::BarcodeSymbologyAttributes as ::windows::core::Abi>::Abi as *const <super::BarcodeSymbologyAttributes as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn ReportFailedAsync<Impl: IBarcodeScannerGetSymbologyAttributesRequestImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).ReportFailedAsync() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IBarcodeScannerGetSymbologyAttributesRequest>, base.5, Symbology::<Impl, OFFSET>, ReportCompletedAsync::<Impl, OFFSET>, ReportFailedAsync::<Impl, OFFSET>)
+    }
+}
+#[cfg(feature = "implement_exclusive")]
 pub trait IBarcodeScannerGetSymbologyAttributesRequest2Impl: Sized {
     fn ReportFailedWithFailedReasonAsync(&self, reason: i32) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>;
     fn ReportFailedWithFailedReasonAndDescriptionAsync(&self, reason: i32, failedreasondescription: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>;
+}
+#[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IBarcodeScannerGetSymbologyAttributesRequest2 {
+    const NAME: &'static str = "Windows.Devices.PointOfService.Provider.IBarcodeScannerGetSymbologyAttributesRequest2";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IBarcodeScannerGetSymbologyAttributesRequest2Vtbl {
+    pub const fn new<Impl: IBarcodeScannerGetSymbologyAttributesRequest2Impl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IBarcodeScannerGetSymbologyAttributesRequest2Vtbl {
+        unsafe extern "system" fn ReportFailedWithFailedReasonAsync<Impl: IBarcodeScannerGetSymbologyAttributesRequest2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, reason: i32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).ReportFailedWithFailedReasonAsync(reason) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn ReportFailedWithFailedReasonAndDescriptionAsync<Impl: IBarcodeScannerGetSymbologyAttributesRequest2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, reason: i32, failedreasondescription: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).ReportFailedWithFailedReasonAndDescriptionAsync(reason, &*(&failedreasondescription as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IBarcodeScannerGetSymbologyAttributesRequest2>, base.5, ReportFailedWithFailedReasonAsync::<Impl, OFFSET>, ReportFailedWithFailedReasonAndDescriptionAsync::<Impl, OFFSET>)
+    }
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IBarcodeScannerGetSymbologyAttributesRequestEventArgsImpl: Sized {
@@ -58,9 +415,73 @@ pub trait IBarcodeScannerGetSymbologyAttributesRequestEventArgsImpl: Sized {
     fn GetDeferral(&self) -> ::windows::core::Result<super::super::super::Foundation::Deferral>;
 }
 #[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IBarcodeScannerGetSymbologyAttributesRequestEventArgs {
+    const NAME: &'static str = "Windows.Devices.PointOfService.Provider.IBarcodeScannerGetSymbologyAttributesRequestEventArgs";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IBarcodeScannerGetSymbologyAttributesRequestEventArgsVtbl {
+    pub const fn new<Impl: IBarcodeScannerGetSymbologyAttributesRequestEventArgsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IBarcodeScannerGetSymbologyAttributesRequestEventArgsVtbl {
+        unsafe extern "system" fn Request<Impl: IBarcodeScannerGetSymbologyAttributesRequestEventArgsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).Request() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn GetDeferral<Impl: IBarcodeScannerGetSymbologyAttributesRequestEventArgsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).GetDeferral() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IBarcodeScannerGetSymbologyAttributesRequestEventArgs>, base.5, Request::<Impl, OFFSET>, GetDeferral::<Impl, OFFSET>)
+    }
+}
+#[cfg(feature = "implement_exclusive")]
 pub trait IBarcodeScannerHideVideoPreviewRequestImpl: Sized {
     fn ReportCompletedAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>;
     fn ReportFailedAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>;
+}
+#[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IBarcodeScannerHideVideoPreviewRequest {
+    const NAME: &'static str = "Windows.Devices.PointOfService.Provider.IBarcodeScannerHideVideoPreviewRequest";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IBarcodeScannerHideVideoPreviewRequestVtbl {
+    pub const fn new<Impl: IBarcodeScannerHideVideoPreviewRequestImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IBarcodeScannerHideVideoPreviewRequestVtbl {
+        unsafe extern "system" fn ReportCompletedAsync<Impl: IBarcodeScannerHideVideoPreviewRequestImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).ReportCompletedAsync() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn ReportFailedAsync<Impl: IBarcodeScannerHideVideoPreviewRequestImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).ReportFailedAsync() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IBarcodeScannerHideVideoPreviewRequest>, base.5, ReportCompletedAsync::<Impl, OFFSET>, ReportFailedAsync::<Impl, OFFSET>)
+    }
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IBarcodeScannerHideVideoPreviewRequest2Impl: Sized {
@@ -68,9 +489,73 @@ pub trait IBarcodeScannerHideVideoPreviewRequest2Impl: Sized {
     fn ReportFailedWithFailedReasonAndDescriptionAsync(&self, reason: i32, failedreasondescription: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>;
 }
 #[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IBarcodeScannerHideVideoPreviewRequest2 {
+    const NAME: &'static str = "Windows.Devices.PointOfService.Provider.IBarcodeScannerHideVideoPreviewRequest2";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IBarcodeScannerHideVideoPreviewRequest2Vtbl {
+    pub const fn new<Impl: IBarcodeScannerHideVideoPreviewRequest2Impl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IBarcodeScannerHideVideoPreviewRequest2Vtbl {
+        unsafe extern "system" fn ReportFailedWithFailedReasonAsync<Impl: IBarcodeScannerHideVideoPreviewRequest2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, reason: i32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).ReportFailedWithFailedReasonAsync(reason) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn ReportFailedWithFailedReasonAndDescriptionAsync<Impl: IBarcodeScannerHideVideoPreviewRequest2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, reason: i32, failedreasondescription: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).ReportFailedWithFailedReasonAndDescriptionAsync(reason, &*(&failedreasondescription as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IBarcodeScannerHideVideoPreviewRequest2>, base.5, ReportFailedWithFailedReasonAsync::<Impl, OFFSET>, ReportFailedWithFailedReasonAndDescriptionAsync::<Impl, OFFSET>)
+    }
+}
+#[cfg(feature = "implement_exclusive")]
 pub trait IBarcodeScannerHideVideoPreviewRequestEventArgsImpl: Sized {
     fn Request(&self) -> ::windows::core::Result<BarcodeScannerHideVideoPreviewRequest>;
     fn GetDeferral(&self) -> ::windows::core::Result<super::super::super::Foundation::Deferral>;
+}
+#[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IBarcodeScannerHideVideoPreviewRequestEventArgs {
+    const NAME: &'static str = "Windows.Devices.PointOfService.Provider.IBarcodeScannerHideVideoPreviewRequestEventArgs";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IBarcodeScannerHideVideoPreviewRequestEventArgsVtbl {
+    pub const fn new<Impl: IBarcodeScannerHideVideoPreviewRequestEventArgsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IBarcodeScannerHideVideoPreviewRequestEventArgsVtbl {
+        unsafe extern "system" fn Request<Impl: IBarcodeScannerHideVideoPreviewRequestEventArgsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).Request() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn GetDeferral<Impl: IBarcodeScannerHideVideoPreviewRequestEventArgsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).GetDeferral() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IBarcodeScannerHideVideoPreviewRequestEventArgs>, base.5, Request::<Impl, OFFSET>, GetDeferral::<Impl, OFFSET>)
+    }
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IBarcodeScannerProviderConnectionImpl: Sized {
@@ -106,14 +591,371 @@ pub trait IBarcodeScannerProviderConnectionImpl: Sized {
     fn RemoveHideVideoPreviewRequested(&self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IBarcodeScannerProviderConnection {
+    const NAME: &'static str = "Windows.Devices.PointOfService.Provider.IBarcodeScannerProviderConnection";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IBarcodeScannerProviderConnectionVtbl {
+    pub const fn new<Impl: IBarcodeScannerProviderConnectionImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IBarcodeScannerProviderConnectionVtbl {
+        unsafe extern "system" fn Id<Impl: IBarcodeScannerProviderConnectionImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).Id() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn VideoDeviceId<Impl: IBarcodeScannerProviderConnectionImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).VideoDeviceId() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SupportedSymbologies<Impl: IBarcodeScannerProviderConnectionImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).SupportedSymbologies() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn CompanyName<Impl: IBarcodeScannerProviderConnectionImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).CompanyName() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetCompanyName<Impl: IBarcodeScannerProviderConnectionImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetCompanyName(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
+        }
+        unsafe extern "system" fn Name<Impl: IBarcodeScannerProviderConnectionImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).Name() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetName<Impl: IBarcodeScannerProviderConnectionImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetName(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
+        }
+        unsafe extern "system" fn Version<Impl: IBarcodeScannerProviderConnectionImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).Version() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetVersion<Impl: IBarcodeScannerProviderConnectionImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetVersion(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
+        }
+        unsafe extern "system" fn Start<Impl: IBarcodeScannerProviderConnectionImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).Start().into()
+        }
+        unsafe extern "system" fn ReportScannedDataAsync<Impl: IBarcodeScannerProviderConnectionImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, report: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).ReportScannedDataAsync(&*(&report as *const <super::BarcodeScannerReport as ::windows::core::Abi>::Abi as *const <super::BarcodeScannerReport as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn ReportTriggerStateAsync<Impl: IBarcodeScannerProviderConnectionImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, state: BarcodeScannerTriggerState, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).ReportTriggerStateAsync(state) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn ReportErrorAsync<Impl: IBarcodeScannerProviderConnectionImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, errordata: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).ReportErrorAsync(&*(&errordata as *const <super::UnifiedPosErrorData as ::windows::core::Abi>::Abi as *const <super::UnifiedPosErrorData as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn ReportErrorAsyncWithScanReport<Impl: IBarcodeScannerProviderConnectionImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, errordata: ::windows::core::RawPtr, isretriable: bool, scanreport: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).ReportErrorAsyncWithScanReport(&*(&errordata as *const <super::UnifiedPosErrorData as ::windows::core::Abi>::Abi as *const <super::UnifiedPosErrorData as ::windows::core::DefaultType>::DefaultType), isretriable, &*(&scanreport as *const <super::BarcodeScannerReport as ::windows::core::Abi>::Abi as *const <super::BarcodeScannerReport as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn EnableScannerRequested<Impl: IBarcodeScannerProviderConnectionImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).EnableScannerRequested(&*(&handler as *const <super::super::super::Foundation::TypedEventHandler<BarcodeScannerProviderConnection, BarcodeScannerEnableScannerRequestEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::TypedEventHandler<BarcodeScannerProviderConnection, BarcodeScannerEnableScannerRequestEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn RemoveEnableScannerRequested<Impl: IBarcodeScannerProviderConnectionImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).RemoveEnableScannerRequested(&*(&token as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
+        }
+        unsafe extern "system" fn DisableScannerRequested<Impl: IBarcodeScannerProviderConnectionImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).DisableScannerRequested(&*(&handler as *const <super::super::super::Foundation::TypedEventHandler<BarcodeScannerProviderConnection, BarcodeScannerDisableScannerRequestEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::TypedEventHandler<BarcodeScannerProviderConnection, BarcodeScannerDisableScannerRequestEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn RemoveDisableScannerRequested<Impl: IBarcodeScannerProviderConnectionImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).RemoveDisableScannerRequested(&*(&token as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
+        }
+        unsafe extern "system" fn SetActiveSymbologiesRequested<Impl: IBarcodeScannerProviderConnectionImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).SetActiveSymbologiesRequested(&*(&handler as *const <super::super::super::Foundation::TypedEventHandler<BarcodeScannerProviderConnection, BarcodeScannerSetActiveSymbologiesRequestEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::TypedEventHandler<BarcodeScannerProviderConnection, BarcodeScannerSetActiveSymbologiesRequestEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn RemoveSetActiveSymbologiesRequested<Impl: IBarcodeScannerProviderConnectionImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).RemoveSetActiveSymbologiesRequested(&*(&token as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
+        }
+        unsafe extern "system" fn StartSoftwareTriggerRequested<Impl: IBarcodeScannerProviderConnectionImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).StartSoftwareTriggerRequested(&*(&handler as *const <super::super::super::Foundation::TypedEventHandler<BarcodeScannerProviderConnection, BarcodeScannerStartSoftwareTriggerRequestEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::TypedEventHandler<BarcodeScannerProviderConnection, BarcodeScannerStartSoftwareTriggerRequestEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn RemoveStartSoftwareTriggerRequested<Impl: IBarcodeScannerProviderConnectionImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).RemoveStartSoftwareTriggerRequested(&*(&token as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
+        }
+        unsafe extern "system" fn StopSoftwareTriggerRequested<Impl: IBarcodeScannerProviderConnectionImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).StopSoftwareTriggerRequested(&*(&handler as *const <super::super::super::Foundation::TypedEventHandler<BarcodeScannerProviderConnection, BarcodeScannerStopSoftwareTriggerRequestEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::TypedEventHandler<BarcodeScannerProviderConnection, BarcodeScannerStopSoftwareTriggerRequestEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn RemoveStopSoftwareTriggerRequested<Impl: IBarcodeScannerProviderConnectionImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).RemoveStopSoftwareTriggerRequested(&*(&token as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
+        }
+        unsafe extern "system" fn GetBarcodeSymbologyAttributesRequested<Impl: IBarcodeScannerProviderConnectionImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).GetBarcodeSymbologyAttributesRequested(&*(&handler as *const <super::super::super::Foundation::TypedEventHandler<BarcodeScannerProviderConnection, BarcodeScannerGetSymbologyAttributesRequestEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::TypedEventHandler<BarcodeScannerProviderConnection, BarcodeScannerGetSymbologyAttributesRequestEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn RemoveGetBarcodeSymbologyAttributesRequested<Impl: IBarcodeScannerProviderConnectionImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).RemoveGetBarcodeSymbologyAttributesRequested(&*(&token as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
+        }
+        unsafe extern "system" fn SetBarcodeSymbologyAttributesRequested<Impl: IBarcodeScannerProviderConnectionImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).SetBarcodeSymbologyAttributesRequested(&*(&handler as *const <super::super::super::Foundation::TypedEventHandler<BarcodeScannerProviderConnection, BarcodeScannerSetSymbologyAttributesRequestEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::TypedEventHandler<BarcodeScannerProviderConnection, BarcodeScannerSetSymbologyAttributesRequestEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn RemoveSetBarcodeSymbologyAttributesRequested<Impl: IBarcodeScannerProviderConnectionImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).RemoveSetBarcodeSymbologyAttributesRequested(&*(&token as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
+        }
+        unsafe extern "system" fn HideVideoPreviewRequested<Impl: IBarcodeScannerProviderConnectionImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).HideVideoPreviewRequested(&*(&handler as *const <super::super::super::Foundation::TypedEventHandler<BarcodeScannerProviderConnection, BarcodeScannerHideVideoPreviewRequestEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::TypedEventHandler<BarcodeScannerProviderConnection, BarcodeScannerHideVideoPreviewRequestEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn RemoveHideVideoPreviewRequested<Impl: IBarcodeScannerProviderConnectionImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).RemoveHideVideoPreviewRequested(&*(&token as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
+        }
+        Self(
+            base.0,
+            base.1,
+            base.2,
+            base.3,
+            ::windows::core::GetRuntimeClassName::<IBarcodeScannerProviderConnection>,
+            base.5,
+            Id::<Impl, OFFSET>,
+            VideoDeviceId::<Impl, OFFSET>,
+            SupportedSymbologies::<Impl, OFFSET>,
+            CompanyName::<Impl, OFFSET>,
+            SetCompanyName::<Impl, OFFSET>,
+            Name::<Impl, OFFSET>,
+            SetName::<Impl, OFFSET>,
+            Version::<Impl, OFFSET>,
+            SetVersion::<Impl, OFFSET>,
+            Start::<Impl, OFFSET>,
+            ReportScannedDataAsync::<Impl, OFFSET>,
+            ReportTriggerStateAsync::<Impl, OFFSET>,
+            ReportErrorAsync::<Impl, OFFSET>,
+            ReportErrorAsyncWithScanReport::<Impl, OFFSET>,
+            EnableScannerRequested::<Impl, OFFSET>,
+            RemoveEnableScannerRequested::<Impl, OFFSET>,
+            DisableScannerRequested::<Impl, OFFSET>,
+            RemoveDisableScannerRequested::<Impl, OFFSET>,
+            SetActiveSymbologiesRequested::<Impl, OFFSET>,
+            RemoveSetActiveSymbologiesRequested::<Impl, OFFSET>,
+            StartSoftwareTriggerRequested::<Impl, OFFSET>,
+            RemoveStartSoftwareTriggerRequested::<Impl, OFFSET>,
+            StopSoftwareTriggerRequested::<Impl, OFFSET>,
+            RemoveStopSoftwareTriggerRequested::<Impl, OFFSET>,
+            GetBarcodeSymbologyAttributesRequested::<Impl, OFFSET>,
+            RemoveGetBarcodeSymbologyAttributesRequested::<Impl, OFFSET>,
+            SetBarcodeSymbologyAttributesRequested::<Impl, OFFSET>,
+            RemoveSetBarcodeSymbologyAttributesRequested::<Impl, OFFSET>,
+            HideVideoPreviewRequested::<Impl, OFFSET>,
+            RemoveHideVideoPreviewRequested::<Impl, OFFSET>,
+        )
+    }
+}
+#[cfg(feature = "implement_exclusive")]
 pub trait IBarcodeScannerProviderConnection2Impl: Sized {
     fn CreateFrameReaderAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<BarcodeScannerFrameReader>>;
     fn CreateFrameReaderWithFormatAsync(&self, preferredformat: super::super::super::Graphics::Imaging::BitmapPixelFormat) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<BarcodeScannerFrameReader>>;
     fn CreateFrameReaderWithFormatAndSizeAsync(&self, preferredformat: super::super::super::Graphics::Imaging::BitmapPixelFormat, preferredsize: &super::super::super::Graphics::Imaging::BitmapSize) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<BarcodeScannerFrameReader>>;
 }
 #[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IBarcodeScannerProviderConnection2 {
+    const NAME: &'static str = "Windows.Devices.PointOfService.Provider.IBarcodeScannerProviderConnection2";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IBarcodeScannerProviderConnection2Vtbl {
+    pub const fn new<Impl: IBarcodeScannerProviderConnection2Impl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IBarcodeScannerProviderConnection2Vtbl {
+        unsafe extern "system" fn CreateFrameReaderAsync<Impl: IBarcodeScannerProviderConnection2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).CreateFrameReaderAsync() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn CreateFrameReaderWithFormatAsync<Impl: IBarcodeScannerProviderConnection2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, preferredformat: super::super::super::Graphics::Imaging::BitmapPixelFormat, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).CreateFrameReaderWithFormatAsync(preferredformat) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn CreateFrameReaderWithFormatAndSizeAsync<Impl: IBarcodeScannerProviderConnection2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, preferredformat: super::super::super::Graphics::Imaging::BitmapPixelFormat, preferredsize: super::super::super::Graphics::Imaging::BitmapSize, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).CreateFrameReaderWithFormatAndSizeAsync(preferredformat, &*(&preferredsize as *const <super::super::super::Graphics::Imaging::BitmapSize as ::windows::core::Abi>::Abi as *const <super::super::super::Graphics::Imaging::BitmapSize as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IBarcodeScannerProviderConnection2>, base.5, CreateFrameReaderAsync::<Impl, OFFSET>, CreateFrameReaderWithFormatAsync::<Impl, OFFSET>, CreateFrameReaderWithFormatAndSizeAsync::<Impl, OFFSET>)
+    }
+}
+#[cfg(feature = "implement_exclusive")]
 pub trait IBarcodeScannerProviderTriggerDetailsImpl: Sized {
     fn Connection(&self) -> ::windows::core::Result<BarcodeScannerProviderConnection>;
+}
+#[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IBarcodeScannerProviderTriggerDetails {
+    const NAME: &'static str = "Windows.Devices.PointOfService.Provider.IBarcodeScannerProviderTriggerDetails";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IBarcodeScannerProviderTriggerDetailsVtbl {
+    pub const fn new<Impl: IBarcodeScannerProviderTriggerDetailsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IBarcodeScannerProviderTriggerDetailsVtbl {
+        unsafe extern "system" fn Connection<Impl: IBarcodeScannerProviderTriggerDetailsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).Connection() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IBarcodeScannerProviderTriggerDetails>, base.5, Connection::<Impl, OFFSET>)
+    }
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IBarcodeScannerSetActiveSymbologiesRequestImpl: Sized {
@@ -122,14 +964,121 @@ pub trait IBarcodeScannerSetActiveSymbologiesRequestImpl: Sized {
     fn ReportFailedAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>;
 }
 #[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IBarcodeScannerSetActiveSymbologiesRequest {
+    const NAME: &'static str = "Windows.Devices.PointOfService.Provider.IBarcodeScannerSetActiveSymbologiesRequest";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IBarcodeScannerSetActiveSymbologiesRequestVtbl {
+    pub const fn new<Impl: IBarcodeScannerSetActiveSymbologiesRequestImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IBarcodeScannerSetActiveSymbologiesRequestVtbl {
+        unsafe extern "system" fn Symbologies<Impl: IBarcodeScannerSetActiveSymbologiesRequestImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).Symbologies() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn ReportCompletedAsync<Impl: IBarcodeScannerSetActiveSymbologiesRequestImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).ReportCompletedAsync() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn ReportFailedAsync<Impl: IBarcodeScannerSetActiveSymbologiesRequestImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).ReportFailedAsync() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IBarcodeScannerSetActiveSymbologiesRequest>, base.5, Symbologies::<Impl, OFFSET>, ReportCompletedAsync::<Impl, OFFSET>, ReportFailedAsync::<Impl, OFFSET>)
+    }
+}
+#[cfg(feature = "implement_exclusive")]
 pub trait IBarcodeScannerSetActiveSymbologiesRequest2Impl: Sized {
     fn ReportFailedWithFailedReasonAsync(&self, reason: i32) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>;
     fn ReportFailedWithFailedReasonAndDescriptionAsync(&self, reason: i32, failedreasondescription: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>;
 }
 #[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IBarcodeScannerSetActiveSymbologiesRequest2 {
+    const NAME: &'static str = "Windows.Devices.PointOfService.Provider.IBarcodeScannerSetActiveSymbologiesRequest2";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IBarcodeScannerSetActiveSymbologiesRequest2Vtbl {
+    pub const fn new<Impl: IBarcodeScannerSetActiveSymbologiesRequest2Impl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IBarcodeScannerSetActiveSymbologiesRequest2Vtbl {
+        unsafe extern "system" fn ReportFailedWithFailedReasonAsync<Impl: IBarcodeScannerSetActiveSymbologiesRequest2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, reason: i32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).ReportFailedWithFailedReasonAsync(reason) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn ReportFailedWithFailedReasonAndDescriptionAsync<Impl: IBarcodeScannerSetActiveSymbologiesRequest2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, reason: i32, failedreasondescription: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).ReportFailedWithFailedReasonAndDescriptionAsync(reason, &*(&failedreasondescription as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IBarcodeScannerSetActiveSymbologiesRequest2>, base.5, ReportFailedWithFailedReasonAsync::<Impl, OFFSET>, ReportFailedWithFailedReasonAndDescriptionAsync::<Impl, OFFSET>)
+    }
+}
+#[cfg(feature = "implement_exclusive")]
 pub trait IBarcodeScannerSetActiveSymbologiesRequestEventArgsImpl: Sized {
     fn Request(&self) -> ::windows::core::Result<BarcodeScannerSetActiveSymbologiesRequest>;
     fn GetDeferral(&self) -> ::windows::core::Result<super::super::super::Foundation::Deferral>;
+}
+#[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IBarcodeScannerSetActiveSymbologiesRequestEventArgs {
+    const NAME: &'static str = "Windows.Devices.PointOfService.Provider.IBarcodeScannerSetActiveSymbologiesRequestEventArgs";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IBarcodeScannerSetActiveSymbologiesRequestEventArgsVtbl {
+    pub const fn new<Impl: IBarcodeScannerSetActiveSymbologiesRequestEventArgsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IBarcodeScannerSetActiveSymbologiesRequestEventArgsVtbl {
+        unsafe extern "system" fn Request<Impl: IBarcodeScannerSetActiveSymbologiesRequestEventArgsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).Request() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn GetDeferral<Impl: IBarcodeScannerSetActiveSymbologiesRequestEventArgsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).GetDeferral() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IBarcodeScannerSetActiveSymbologiesRequestEventArgs>, base.5, Request::<Impl, OFFSET>, GetDeferral::<Impl, OFFSET>)
+    }
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IBarcodeScannerSetSymbologyAttributesRequestImpl: Sized {
@@ -139,9 +1088,95 @@ pub trait IBarcodeScannerSetSymbologyAttributesRequestImpl: Sized {
     fn ReportFailedAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>;
 }
 #[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IBarcodeScannerSetSymbologyAttributesRequest {
+    const NAME: &'static str = "Windows.Devices.PointOfService.Provider.IBarcodeScannerSetSymbologyAttributesRequest";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IBarcodeScannerSetSymbologyAttributesRequestVtbl {
+    pub const fn new<Impl: IBarcodeScannerSetSymbologyAttributesRequestImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IBarcodeScannerSetSymbologyAttributesRequestVtbl {
+        unsafe extern "system" fn Symbology<Impl: IBarcodeScannerSetSymbologyAttributesRequestImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).Symbology() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn Attributes<Impl: IBarcodeScannerSetSymbologyAttributesRequestImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).Attributes() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn ReportCompletedAsync<Impl: IBarcodeScannerSetSymbologyAttributesRequestImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).ReportCompletedAsync() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn ReportFailedAsync<Impl: IBarcodeScannerSetSymbologyAttributesRequestImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).ReportFailedAsync() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IBarcodeScannerSetSymbologyAttributesRequest>, base.5, Symbology::<Impl, OFFSET>, Attributes::<Impl, OFFSET>, ReportCompletedAsync::<Impl, OFFSET>, ReportFailedAsync::<Impl, OFFSET>)
+    }
+}
+#[cfg(feature = "implement_exclusive")]
 pub trait IBarcodeScannerSetSymbologyAttributesRequest2Impl: Sized {
     fn ReportFailedWithFailedReasonAsync(&self, reason: i32) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>;
     fn ReportFailedWithFailedReasonAndDescriptionAsync(&self, reason: i32, failedreasondescription: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>;
+}
+#[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IBarcodeScannerSetSymbologyAttributesRequest2 {
+    const NAME: &'static str = "Windows.Devices.PointOfService.Provider.IBarcodeScannerSetSymbologyAttributesRequest2";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IBarcodeScannerSetSymbologyAttributesRequest2Vtbl {
+    pub const fn new<Impl: IBarcodeScannerSetSymbologyAttributesRequest2Impl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IBarcodeScannerSetSymbologyAttributesRequest2Vtbl {
+        unsafe extern "system" fn ReportFailedWithFailedReasonAsync<Impl: IBarcodeScannerSetSymbologyAttributesRequest2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, reason: i32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).ReportFailedWithFailedReasonAsync(reason) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn ReportFailedWithFailedReasonAndDescriptionAsync<Impl: IBarcodeScannerSetSymbologyAttributesRequest2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, reason: i32, failedreasondescription: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).ReportFailedWithFailedReasonAndDescriptionAsync(reason, &*(&failedreasondescription as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IBarcodeScannerSetSymbologyAttributesRequest2>, base.5, ReportFailedWithFailedReasonAsync::<Impl, OFFSET>, ReportFailedWithFailedReasonAndDescriptionAsync::<Impl, OFFSET>)
+    }
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IBarcodeScannerSetSymbologyAttributesRequestEventArgsImpl: Sized {
@@ -149,9 +1184,73 @@ pub trait IBarcodeScannerSetSymbologyAttributesRequestEventArgsImpl: Sized {
     fn GetDeferral(&self) -> ::windows::core::Result<super::super::super::Foundation::Deferral>;
 }
 #[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IBarcodeScannerSetSymbologyAttributesRequestEventArgs {
+    const NAME: &'static str = "Windows.Devices.PointOfService.Provider.IBarcodeScannerSetSymbologyAttributesRequestEventArgs";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IBarcodeScannerSetSymbologyAttributesRequestEventArgsVtbl {
+    pub const fn new<Impl: IBarcodeScannerSetSymbologyAttributesRequestEventArgsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IBarcodeScannerSetSymbologyAttributesRequestEventArgsVtbl {
+        unsafe extern "system" fn Request<Impl: IBarcodeScannerSetSymbologyAttributesRequestEventArgsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).Request() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn GetDeferral<Impl: IBarcodeScannerSetSymbologyAttributesRequestEventArgsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).GetDeferral() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IBarcodeScannerSetSymbologyAttributesRequestEventArgs>, base.5, Request::<Impl, OFFSET>, GetDeferral::<Impl, OFFSET>)
+    }
+}
+#[cfg(feature = "implement_exclusive")]
 pub trait IBarcodeScannerStartSoftwareTriggerRequestImpl: Sized {
     fn ReportCompletedAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>;
     fn ReportFailedAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>;
+}
+#[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IBarcodeScannerStartSoftwareTriggerRequest {
+    const NAME: &'static str = "Windows.Devices.PointOfService.Provider.IBarcodeScannerStartSoftwareTriggerRequest";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IBarcodeScannerStartSoftwareTriggerRequestVtbl {
+    pub const fn new<Impl: IBarcodeScannerStartSoftwareTriggerRequestImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IBarcodeScannerStartSoftwareTriggerRequestVtbl {
+        unsafe extern "system" fn ReportCompletedAsync<Impl: IBarcodeScannerStartSoftwareTriggerRequestImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).ReportCompletedAsync() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn ReportFailedAsync<Impl: IBarcodeScannerStartSoftwareTriggerRequestImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).ReportFailedAsync() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IBarcodeScannerStartSoftwareTriggerRequest>, base.5, ReportCompletedAsync::<Impl, OFFSET>, ReportFailedAsync::<Impl, OFFSET>)
+    }
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IBarcodeScannerStartSoftwareTriggerRequest2Impl: Sized {
@@ -159,9 +1258,73 @@ pub trait IBarcodeScannerStartSoftwareTriggerRequest2Impl: Sized {
     fn ReportFailedWithFailedReasonAndDescriptionAsync(&self, reason: i32, failedreasondescription: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>;
 }
 #[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IBarcodeScannerStartSoftwareTriggerRequest2 {
+    const NAME: &'static str = "Windows.Devices.PointOfService.Provider.IBarcodeScannerStartSoftwareTriggerRequest2";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IBarcodeScannerStartSoftwareTriggerRequest2Vtbl {
+    pub const fn new<Impl: IBarcodeScannerStartSoftwareTriggerRequest2Impl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IBarcodeScannerStartSoftwareTriggerRequest2Vtbl {
+        unsafe extern "system" fn ReportFailedWithFailedReasonAsync<Impl: IBarcodeScannerStartSoftwareTriggerRequest2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, reason: i32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).ReportFailedWithFailedReasonAsync(reason) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn ReportFailedWithFailedReasonAndDescriptionAsync<Impl: IBarcodeScannerStartSoftwareTriggerRequest2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, reason: i32, failedreasondescription: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).ReportFailedWithFailedReasonAndDescriptionAsync(reason, &*(&failedreasondescription as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IBarcodeScannerStartSoftwareTriggerRequest2>, base.5, ReportFailedWithFailedReasonAsync::<Impl, OFFSET>, ReportFailedWithFailedReasonAndDescriptionAsync::<Impl, OFFSET>)
+    }
+}
+#[cfg(feature = "implement_exclusive")]
 pub trait IBarcodeScannerStartSoftwareTriggerRequestEventArgsImpl: Sized {
     fn Request(&self) -> ::windows::core::Result<BarcodeScannerStartSoftwareTriggerRequest>;
     fn GetDeferral(&self) -> ::windows::core::Result<super::super::super::Foundation::Deferral>;
+}
+#[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IBarcodeScannerStartSoftwareTriggerRequestEventArgs {
+    const NAME: &'static str = "Windows.Devices.PointOfService.Provider.IBarcodeScannerStartSoftwareTriggerRequestEventArgs";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IBarcodeScannerStartSoftwareTriggerRequestEventArgsVtbl {
+    pub const fn new<Impl: IBarcodeScannerStartSoftwareTriggerRequestEventArgsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IBarcodeScannerStartSoftwareTriggerRequestEventArgsVtbl {
+        unsafe extern "system" fn Request<Impl: IBarcodeScannerStartSoftwareTriggerRequestEventArgsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).Request() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn GetDeferral<Impl: IBarcodeScannerStartSoftwareTriggerRequestEventArgsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).GetDeferral() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IBarcodeScannerStartSoftwareTriggerRequestEventArgs>, base.5, Request::<Impl, OFFSET>, GetDeferral::<Impl, OFFSET>)
+    }
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IBarcodeScannerStopSoftwareTriggerRequestImpl: Sized {
@@ -169,9 +1332,73 @@ pub trait IBarcodeScannerStopSoftwareTriggerRequestImpl: Sized {
     fn ReportFailedAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>;
 }
 #[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IBarcodeScannerStopSoftwareTriggerRequest {
+    const NAME: &'static str = "Windows.Devices.PointOfService.Provider.IBarcodeScannerStopSoftwareTriggerRequest";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IBarcodeScannerStopSoftwareTriggerRequestVtbl {
+    pub const fn new<Impl: IBarcodeScannerStopSoftwareTriggerRequestImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IBarcodeScannerStopSoftwareTriggerRequestVtbl {
+        unsafe extern "system" fn ReportCompletedAsync<Impl: IBarcodeScannerStopSoftwareTriggerRequestImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).ReportCompletedAsync() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn ReportFailedAsync<Impl: IBarcodeScannerStopSoftwareTriggerRequestImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).ReportFailedAsync() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IBarcodeScannerStopSoftwareTriggerRequest>, base.5, ReportCompletedAsync::<Impl, OFFSET>, ReportFailedAsync::<Impl, OFFSET>)
+    }
+}
+#[cfg(feature = "implement_exclusive")]
 pub trait IBarcodeScannerStopSoftwareTriggerRequest2Impl: Sized {
     fn ReportFailedWithFailedReasonAsync(&self, reason: i32) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>;
     fn ReportFailedWithFailedReasonAndDescriptionAsync(&self, reason: i32, failedreasondescription: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>;
+}
+#[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IBarcodeScannerStopSoftwareTriggerRequest2 {
+    const NAME: &'static str = "Windows.Devices.PointOfService.Provider.IBarcodeScannerStopSoftwareTriggerRequest2";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IBarcodeScannerStopSoftwareTriggerRequest2Vtbl {
+    pub const fn new<Impl: IBarcodeScannerStopSoftwareTriggerRequest2Impl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IBarcodeScannerStopSoftwareTriggerRequest2Vtbl {
+        unsafe extern "system" fn ReportFailedWithFailedReasonAsync<Impl: IBarcodeScannerStopSoftwareTriggerRequest2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, reason: i32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).ReportFailedWithFailedReasonAsync(reason) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn ReportFailedWithFailedReasonAndDescriptionAsync<Impl: IBarcodeScannerStopSoftwareTriggerRequest2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, reason: i32, failedreasondescription: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).ReportFailedWithFailedReasonAndDescriptionAsync(reason, &*(&failedreasondescription as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IBarcodeScannerStopSoftwareTriggerRequest2>, base.5, ReportFailedWithFailedReasonAsync::<Impl, OFFSET>, ReportFailedWithFailedReasonAndDescriptionAsync::<Impl, OFFSET>)
+    }
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IBarcodeScannerStopSoftwareTriggerRequestEventArgsImpl: Sized {
@@ -179,11 +1406,97 @@ pub trait IBarcodeScannerStopSoftwareTriggerRequestEventArgsImpl: Sized {
     fn GetDeferral(&self) -> ::windows::core::Result<super::super::super::Foundation::Deferral>;
 }
 #[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IBarcodeScannerStopSoftwareTriggerRequestEventArgs {
+    const NAME: &'static str = "Windows.Devices.PointOfService.Provider.IBarcodeScannerStopSoftwareTriggerRequestEventArgs";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IBarcodeScannerStopSoftwareTriggerRequestEventArgsVtbl {
+    pub const fn new<Impl: IBarcodeScannerStopSoftwareTriggerRequestEventArgsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IBarcodeScannerStopSoftwareTriggerRequestEventArgsVtbl {
+        unsafe extern "system" fn Request<Impl: IBarcodeScannerStopSoftwareTriggerRequestEventArgsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).Request() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn GetDeferral<Impl: IBarcodeScannerStopSoftwareTriggerRequestEventArgsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).GetDeferral() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IBarcodeScannerStopSoftwareTriggerRequestEventArgs>, base.5, Request::<Impl, OFFSET>, GetDeferral::<Impl, OFFSET>)
+    }
+}
+#[cfg(feature = "implement_exclusive")]
 pub trait IBarcodeScannerVideoFrameImpl: Sized {
     fn Format(&self) -> ::windows::core::Result<super::super::super::Graphics::Imaging::BitmapPixelFormat>;
     fn Width(&self) -> ::windows::core::Result<u32>;
     fn Height(&self) -> ::windows::core::Result<u32>;
     fn PixelData(&self) -> ::windows::core::Result<super::super::super::Storage::Streams::IBuffer>;
+}
+#[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IBarcodeScannerVideoFrame {
+    const NAME: &'static str = "Windows.Devices.PointOfService.Provider.IBarcodeScannerVideoFrame";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IBarcodeScannerVideoFrameVtbl {
+    pub const fn new<Impl: IBarcodeScannerVideoFrameImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IBarcodeScannerVideoFrameVtbl {
+        unsafe extern "system" fn Format<Impl: IBarcodeScannerVideoFrameImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Graphics::Imaging::BitmapPixelFormat) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).Format() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn Width<Impl: IBarcodeScannerVideoFrameImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).Width() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn Height<Impl: IBarcodeScannerVideoFrameImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).Height() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn PixelData<Impl: IBarcodeScannerVideoFrameImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).PixelData() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IBarcodeScannerVideoFrame>, base.5, Format::<Impl, OFFSET>, Width::<Impl, OFFSET>, Height::<Impl, OFFSET>, PixelData::<Impl, OFFSET>)
+    }
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IBarcodeSymbologyAttributesBuilderImpl: Sized {
@@ -194,4 +1507,70 @@ pub trait IBarcodeSymbologyAttributesBuilderImpl: Sized {
     fn IsDecodeLengthSupported(&self) -> ::windows::core::Result<bool>;
     fn SetIsDecodeLengthSupported(&self, value: bool) -> ::windows::core::Result<()>;
     fn CreateAttributes(&self) -> ::windows::core::Result<super::BarcodeSymbologyAttributes>;
+}
+#[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IBarcodeSymbologyAttributesBuilder {
+    const NAME: &'static str = "Windows.Devices.PointOfService.Provider.IBarcodeSymbologyAttributesBuilder";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IBarcodeSymbologyAttributesBuilderVtbl {
+    pub const fn new<Impl: IBarcodeSymbologyAttributesBuilderImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IBarcodeSymbologyAttributesBuilderVtbl {
+        unsafe extern "system" fn IsCheckDigitValidationSupported<Impl: IBarcodeSymbologyAttributesBuilderImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).IsCheckDigitValidationSupported() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetIsCheckDigitValidationSupported<Impl: IBarcodeSymbologyAttributesBuilderImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetIsCheckDigitValidationSupported(value).into()
+        }
+        unsafe extern "system" fn IsCheckDigitTransmissionSupported<Impl: IBarcodeSymbologyAttributesBuilderImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).IsCheckDigitTransmissionSupported() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetIsCheckDigitTransmissionSupported<Impl: IBarcodeSymbologyAttributesBuilderImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetIsCheckDigitTransmissionSupported(value).into()
+        }
+        unsafe extern "system" fn IsDecodeLengthSupported<Impl: IBarcodeSymbologyAttributesBuilderImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).IsDecodeLengthSupported() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetIsDecodeLengthSupported<Impl: IBarcodeSymbologyAttributesBuilderImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetIsDecodeLengthSupported(value).into()
+        }
+        unsafe extern "system" fn CreateAttributes<Impl: IBarcodeSymbologyAttributesBuilderImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).CreateAttributes() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IBarcodeSymbologyAttributesBuilder>, base.5, IsCheckDigitValidationSupported::<Impl, OFFSET>, SetIsCheckDigitValidationSupported::<Impl, OFFSET>, IsCheckDigitTransmissionSupported::<Impl, OFFSET>, SetIsCheckDigitTransmissionSupported::<Impl, OFFSET>, IsDecodeLengthSupported::<Impl, OFFSET>, SetIsDecodeLengthSupported::<Impl, OFFSET>, CreateAttributes::<Impl, OFFSET>)
+    }
 }

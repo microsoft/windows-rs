@@ -6,10 +6,100 @@ pub trait IAccessibilitySettingsImpl: Sized {
     fn RemoveHighContrastChanged(&self, cookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IAccessibilitySettings {
+    const NAME: &'static str = "Windows.UI.ViewManagement.IAccessibilitySettings";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IAccessibilitySettingsVtbl {
+    pub const fn new<Impl: IAccessibilitySettingsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IAccessibilitySettingsVtbl {
+        unsafe extern "system" fn HighContrast<Impl: IAccessibilitySettingsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).HighContrast() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn HighContrastScheme<Impl: IAccessibilitySettingsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).HighContrastScheme() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn HighContrastChanged<Impl: IAccessibilitySettingsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).HighContrastChanged(&*(&handler as *const <super::super::Foundation::TypedEventHandler<AccessibilitySettings, ::windows::core::IInspectable> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<AccessibilitySettings, ::windows::core::IInspectable> as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn RemoveHighContrastChanged<Impl: IAccessibilitySettingsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, cookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).RemoveHighContrastChanged(&*(&cookie as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IAccessibilitySettings>, base.5, HighContrast::<Impl, OFFSET>, HighContrastScheme::<Impl, OFFSET>, HighContrastChanged::<Impl, OFFSET>, RemoveHighContrastChanged::<Impl, OFFSET>)
+    }
+}
+#[cfg(feature = "implement_exclusive")]
 pub trait IActivationViewSwitcherImpl: Sized {
     fn ShowAsStandaloneAsync(&self, viewid: i32) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
     fn ShowAsStandaloneWithSizePreferenceAsync(&self, viewid: i32, sizepreference: ViewSizePreference) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
     fn IsViewPresentedOnActivationVirtualDesktop(&self, viewid: i32) -> ::windows::core::Result<bool>;
+}
+#[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IActivationViewSwitcher {
+    const NAME: &'static str = "Windows.UI.ViewManagement.IActivationViewSwitcher";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IActivationViewSwitcherVtbl {
+    pub const fn new<Impl: IActivationViewSwitcherImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IActivationViewSwitcherVtbl {
+        unsafe extern "system" fn ShowAsStandaloneAsync<Impl: IActivationViewSwitcherImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, viewid: i32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).ShowAsStandaloneAsync(viewid) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn ShowAsStandaloneWithSizePreferenceAsync<Impl: IActivationViewSwitcherImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, viewid: i32, sizepreference: ViewSizePreference, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).ShowAsStandaloneWithSizePreferenceAsync(viewid, sizepreference) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn IsViewPresentedOnActivationVirtualDesktop<Impl: IActivationViewSwitcherImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, viewid: i32, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).IsViewPresentedOnActivationVirtualDesktop(viewid) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IActivationViewSwitcher>, base.5, ShowAsStandaloneAsync::<Impl, OFFSET>, ShowAsStandaloneWithSizePreferenceAsync::<Impl, OFFSET>, IsViewPresentedOnActivationVirtualDesktop::<Impl, OFFSET>)
+    }
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IApplicationViewImpl: Sized {
@@ -27,6 +117,146 @@ pub trait IApplicationViewImpl: Sized {
     fn RemoveConsolidated(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IApplicationView {
+    const NAME: &'static str = "Windows.UI.ViewManagement.IApplicationView";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IApplicationViewVtbl {
+    pub const fn new<Impl: IApplicationViewImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IApplicationViewVtbl {
+        unsafe extern "system" fn Orientation<Impl: IApplicationViewImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ApplicationViewOrientation) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).Orientation() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn AdjacentToLeftDisplayEdge<Impl: IApplicationViewImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).AdjacentToLeftDisplayEdge() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn AdjacentToRightDisplayEdge<Impl: IApplicationViewImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).AdjacentToRightDisplayEdge() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn IsFullScreen<Impl: IApplicationViewImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).IsFullScreen() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn IsOnLockScreen<Impl: IApplicationViewImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).IsOnLockScreen() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn IsScreenCaptureEnabled<Impl: IApplicationViewImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).IsScreenCaptureEnabled() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetIsScreenCaptureEnabled<Impl: IApplicationViewImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetIsScreenCaptureEnabled(value).into()
+        }
+        unsafe extern "system" fn SetTitle<Impl: IApplicationViewImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetTitle(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
+        }
+        unsafe extern "system" fn Title<Impl: IApplicationViewImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).Title() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn Id<Impl: IApplicationViewImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).Id() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn Consolidated<Impl: IApplicationViewImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).Consolidated(&*(&handler as *const <super::super::Foundation::TypedEventHandler<ApplicationView, ApplicationViewConsolidatedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<ApplicationView, ApplicationViewConsolidatedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn RemoveConsolidated<Impl: IApplicationViewImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).RemoveConsolidated(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
+        }
+        Self(
+            base.0,
+            base.1,
+            base.2,
+            base.3,
+            ::windows::core::GetRuntimeClassName::<IApplicationView>,
+            base.5,
+            Orientation::<Impl, OFFSET>,
+            AdjacentToLeftDisplayEdge::<Impl, OFFSET>,
+            AdjacentToRightDisplayEdge::<Impl, OFFSET>,
+            IsFullScreen::<Impl, OFFSET>,
+            IsOnLockScreen::<Impl, OFFSET>,
+            IsScreenCaptureEnabled::<Impl, OFFSET>,
+            SetIsScreenCaptureEnabled::<Impl, OFFSET>,
+            SetTitle::<Impl, OFFSET>,
+            Title::<Impl, OFFSET>,
+            Id::<Impl, OFFSET>,
+            Consolidated::<Impl, OFFSET>,
+            RemoveConsolidated::<Impl, OFFSET>,
+        )
+    }
+}
+#[cfg(feature = "implement_exclusive")]
 pub trait IApplicationView2Impl: Sized {
     fn SuppressSystemOverlays(&self) -> ::windows::core::Result<bool>;
     fn SetSuppressSystemOverlays(&self, value: bool) -> ::windows::core::Result<()>;
@@ -35,6 +265,79 @@ pub trait IApplicationView2Impl: Sized {
     fn RemoveVisibleBoundsChanged(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
     fn SetDesiredBoundsMode(&self, boundsmode: ApplicationViewBoundsMode) -> ::windows::core::Result<bool>;
     fn DesiredBoundsMode(&self) -> ::windows::core::Result<ApplicationViewBoundsMode>;
+}
+#[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IApplicationView2 {
+    const NAME: &'static str = "Windows.UI.ViewManagement.IApplicationView2";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IApplicationView2Vtbl {
+    pub const fn new<Impl: IApplicationView2Impl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IApplicationView2Vtbl {
+        unsafe extern "system" fn SuppressSystemOverlays<Impl: IApplicationView2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).SuppressSystemOverlays() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetSuppressSystemOverlays<Impl: IApplicationView2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetSuppressSystemOverlays(value).into()
+        }
+        unsafe extern "system" fn VisibleBounds<Impl: IApplicationView2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Rect) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).VisibleBounds() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn VisibleBoundsChanged<Impl: IApplicationView2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).VisibleBoundsChanged(&*(&handler as *const <super::super::Foundation::TypedEventHandler<ApplicationView, ::windows::core::IInspectable> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<ApplicationView, ::windows::core::IInspectable> as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn RemoveVisibleBoundsChanged<Impl: IApplicationView2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).RemoveVisibleBoundsChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
+        }
+        unsafe extern "system" fn SetDesiredBoundsMode<Impl: IApplicationView2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, boundsmode: ApplicationViewBoundsMode, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).SetDesiredBoundsMode(boundsmode) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn DesiredBoundsMode<Impl: IApplicationView2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ApplicationViewBoundsMode) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).DesiredBoundsMode() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IApplicationView2>, base.5, SuppressSystemOverlays::<Impl, OFFSET>, SetSuppressSystemOverlays::<Impl, OFFSET>, VisibleBounds::<Impl, OFFSET>, VisibleBoundsChanged::<Impl, OFFSET>, RemoveVisibleBoundsChanged::<Impl, OFFSET>, SetDesiredBoundsMode::<Impl, OFFSET>, DesiredBoundsMode::<Impl, OFFSET>)
+    }
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IApplicationView3Impl: Sized {
@@ -49,6 +352,87 @@ pub trait IApplicationView3Impl: Sized {
     fn SetPreferredMinSize(&self, minsize: &super::super::Foundation::Size) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IApplicationView3 {
+    const NAME: &'static str = "Windows.UI.ViewManagement.IApplicationView3";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IApplicationView3Vtbl {
+    pub const fn new<Impl: IApplicationView3Impl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IApplicationView3Vtbl {
+        unsafe extern "system" fn TitleBar<Impl: IApplicationView3Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).TitleBar() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn FullScreenSystemOverlayMode<Impl: IApplicationView3Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut FullScreenSystemOverlayMode) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).FullScreenSystemOverlayMode() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetFullScreenSystemOverlayMode<Impl: IApplicationView3Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: FullScreenSystemOverlayMode) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetFullScreenSystemOverlayMode(value).into()
+        }
+        unsafe extern "system" fn IsFullScreenMode<Impl: IApplicationView3Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).IsFullScreenMode() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn TryEnterFullScreenMode<Impl: IApplicationView3Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).TryEnterFullScreenMode() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn ExitFullScreenMode<Impl: IApplicationView3Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).ExitFullScreenMode().into()
+        }
+        unsafe extern "system" fn ShowStandardSystemOverlays<Impl: IApplicationView3Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).ShowStandardSystemOverlays().into()
+        }
+        unsafe extern "system" fn TryResizeView<Impl: IApplicationView3Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::Size, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).TryResizeView(&*(&value as *const <super::super::Foundation::Size as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Size as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetPreferredMinSize<Impl: IApplicationView3Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, minsize: super::super::Foundation::Size) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetPreferredMinSize(&*(&minsize as *const <super::super::Foundation::Size as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Size as ::windows::core::DefaultType>::DefaultType)).into()
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IApplicationView3>, base.5, TitleBar::<Impl, OFFSET>, FullScreenSystemOverlayMode::<Impl, OFFSET>, SetFullScreenSystemOverlayMode::<Impl, OFFSET>, IsFullScreenMode::<Impl, OFFSET>, TryEnterFullScreenMode::<Impl, OFFSET>, ExitFullScreenMode::<Impl, OFFSET>, ShowStandardSystemOverlays::<Impl, OFFSET>, TryResizeView::<Impl, OFFSET>, SetPreferredMinSize::<Impl, OFFSET>)
+    }
+}
+#[cfg(feature = "implement_exclusive")]
 pub trait IApplicationView4Impl: Sized {
     fn ViewMode(&self) -> ::windows::core::Result<ApplicationViewMode>;
     fn IsViewModeSupported(&self, viewmode: ApplicationViewMode) -> ::windows::core::Result<bool>;
@@ -57,9 +441,99 @@ pub trait IApplicationView4Impl: Sized {
     fn TryConsolidateAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
 }
 #[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IApplicationView4 {
+    const NAME: &'static str = "Windows.UI.ViewManagement.IApplicationView4";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IApplicationView4Vtbl {
+    pub const fn new<Impl: IApplicationView4Impl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IApplicationView4Vtbl {
+        unsafe extern "system" fn ViewMode<Impl: IApplicationView4Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ApplicationViewMode) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).ViewMode() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn IsViewModeSupported<Impl: IApplicationView4Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, viewmode: ApplicationViewMode, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).IsViewModeSupported(viewmode) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn TryEnterViewModeAsync<Impl: IApplicationView4Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, viewmode: ApplicationViewMode, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).TryEnterViewModeAsync(viewmode) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn TryEnterViewModeWithPreferencesAsync<Impl: IApplicationView4Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, viewmode: ApplicationViewMode, viewmodepreferences: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).TryEnterViewModeWithPreferencesAsync(viewmode, &*(&viewmodepreferences as *const <ViewModePreferences as ::windows::core::Abi>::Abi as *const <ViewModePreferences as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn TryConsolidateAsync<Impl: IApplicationView4Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).TryConsolidateAsync() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IApplicationView4>, base.5, ViewMode::<Impl, OFFSET>, IsViewModeSupported::<Impl, OFFSET>, TryEnterViewModeAsync::<Impl, OFFSET>, TryEnterViewModeWithPreferencesAsync::<Impl, OFFSET>, TryConsolidateAsync::<Impl, OFFSET>)
+    }
+}
+#[cfg(feature = "implement_exclusive")]
 pub trait IApplicationView7Impl: Sized {
     fn PersistedStateId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn SetPersistedStateId(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+}
+#[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IApplicationView7 {
+    const NAME: &'static str = "Windows.UI.ViewManagement.IApplicationView7";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IApplicationView7Vtbl {
+    pub const fn new<Impl: IApplicationView7Impl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IApplicationView7Vtbl {
+        unsafe extern "system" fn PersistedStateId<Impl: IApplicationView7Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).PersistedStateId() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetPersistedStateId<Impl: IApplicationView7Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetPersistedStateId(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IApplicationView7>, base.5, PersistedStateId::<Impl, OFFSET>, SetPersistedStateId::<Impl, OFFSET>)
+    }
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IApplicationView9Impl: Sized {
@@ -67,38 +541,264 @@ pub trait IApplicationView9Impl: Sized {
     fn GetDisplayRegions(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<super::WindowManagement::DisplayRegion>>;
 }
 #[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IApplicationView9 {
+    const NAME: &'static str = "Windows.UI.ViewManagement.IApplicationView9";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IApplicationView9Vtbl {
+    pub const fn new<Impl: IApplicationView9Impl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IApplicationView9Vtbl {
+        unsafe extern "system" fn WindowingEnvironment<Impl: IApplicationView9Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).WindowingEnvironment() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn GetDisplayRegions<Impl: IApplicationView9Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).GetDisplayRegions() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IApplicationView9>, base.5, WindowingEnvironment::<Impl, OFFSET>, GetDisplayRegions::<Impl, OFFSET>)
+    }
+}
+#[cfg(feature = "implement_exclusive")]
 pub trait IApplicationViewConsolidatedEventArgsImpl: Sized {
     fn IsUserInitiated(&self) -> ::windows::core::Result<bool>;
+}
+#[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IApplicationViewConsolidatedEventArgs {
+    const NAME: &'static str = "Windows.UI.ViewManagement.IApplicationViewConsolidatedEventArgs";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IApplicationViewConsolidatedEventArgsVtbl {
+    pub const fn new<Impl: IApplicationViewConsolidatedEventArgsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IApplicationViewConsolidatedEventArgsVtbl {
+        unsafe extern "system" fn IsUserInitiated<Impl: IApplicationViewConsolidatedEventArgsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).IsUserInitiated() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IApplicationViewConsolidatedEventArgs>, base.5, IsUserInitiated::<Impl, OFFSET>)
+    }
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IApplicationViewConsolidatedEventArgs2Impl: Sized {
     fn IsAppInitiated(&self) -> ::windows::core::Result<bool>;
 }
+#[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IApplicationViewConsolidatedEventArgs2 {
+    const NAME: &'static str = "Windows.UI.ViewManagement.IApplicationViewConsolidatedEventArgs2";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IApplicationViewConsolidatedEventArgs2Vtbl {
+    pub const fn new<Impl: IApplicationViewConsolidatedEventArgs2Impl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IApplicationViewConsolidatedEventArgs2Vtbl {
+        unsafe extern "system" fn IsAppInitiated<Impl: IApplicationViewConsolidatedEventArgs2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).IsAppInitiated() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IApplicationViewConsolidatedEventArgs2>, base.5, IsAppInitiated::<Impl, OFFSET>)
+    }
+}
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
 pub trait IApplicationViewFullscreenStaticsImpl: Sized {
     fn TryUnsnapToFullscreen(&self) -> ::windows::core::Result<bool>;
+}
+#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+impl ::windows::core::RuntimeName for IApplicationViewFullscreenStatics {
+    const NAME: &'static str = "Windows.UI.ViewManagement.IApplicationViewFullscreenStatics";
+}
+#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+impl IApplicationViewFullscreenStaticsVtbl {
+    pub const fn new<Impl: IApplicationViewFullscreenStaticsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IApplicationViewFullscreenStaticsVtbl {
+        unsafe extern "system" fn TryUnsnapToFullscreen<Impl: IApplicationViewFullscreenStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).TryUnsnapToFullscreen() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IApplicationViewFullscreenStatics>, base.5, TryUnsnapToFullscreen::<Impl, OFFSET>)
+    }
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IApplicationViewInteropStaticsImpl: Sized {
     fn GetApplicationViewIdForWindow(&self, window: &::core::option::Option<super::Core::ICoreWindow>) -> ::windows::core::Result<i32>;
 }
 #[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IApplicationViewInteropStatics {
+    const NAME: &'static str = "Windows.UI.ViewManagement.IApplicationViewInteropStatics";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IApplicationViewInteropStaticsVtbl {
+    pub const fn new<Impl: IApplicationViewInteropStaticsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IApplicationViewInteropStaticsVtbl {
+        unsafe extern "system" fn GetApplicationViewIdForWindow<Impl: IApplicationViewInteropStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, window: ::windows::core::RawPtr, result__: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).GetApplicationViewIdForWindow(&*(&window as *const <super::Core::ICoreWindow as ::windows::core::Abi>::Abi as *const <super::Core::ICoreWindow as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IApplicationViewInteropStatics>, base.5, GetApplicationViewIdForWindow::<Impl, OFFSET>)
+    }
+}
+#[cfg(feature = "implement_exclusive")]
 pub trait IApplicationViewScalingImpl: Sized {}
+#[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IApplicationViewScaling {
+    const NAME: &'static str = "Windows.UI.ViewManagement.IApplicationViewScaling";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IApplicationViewScalingVtbl {
+    pub const fn new<Impl: IApplicationViewScalingImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IApplicationViewScalingVtbl {
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IApplicationViewScaling>, base.5)
+    }
+}
 #[cfg(feature = "implement_exclusive")]
 pub trait IApplicationViewScalingStaticsImpl: Sized {
     fn DisableLayoutScaling(&self) -> ::windows::core::Result<bool>;
     fn TrySetDisableLayoutScaling(&self, disablelayoutscaling: bool) -> ::windows::core::Result<bool>;
+}
+#[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IApplicationViewScalingStatics {
+    const NAME: &'static str = "Windows.UI.ViewManagement.IApplicationViewScalingStatics";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IApplicationViewScalingStaticsVtbl {
+    pub const fn new<Impl: IApplicationViewScalingStaticsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IApplicationViewScalingStaticsVtbl {
+        unsafe extern "system" fn DisableLayoutScaling<Impl: IApplicationViewScalingStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).DisableLayoutScaling() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn TrySetDisableLayoutScaling<Impl: IApplicationViewScalingStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, disablelayoutscaling: bool, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).TrySetDisableLayoutScaling(disablelayoutscaling) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IApplicationViewScalingStatics>, base.5, DisableLayoutScaling::<Impl, OFFSET>, TrySetDisableLayoutScaling::<Impl, OFFSET>)
+    }
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
 pub trait IApplicationViewStaticsImpl: Sized {
     fn Value(&self) -> ::windows::core::Result<ApplicationViewState>;
     fn TryUnsnap(&self) -> ::windows::core::Result<bool>;
 }
+#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+impl ::windows::core::RuntimeName for IApplicationViewStatics {
+    const NAME: &'static str = "Windows.UI.ViewManagement.IApplicationViewStatics";
+}
+#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+impl IApplicationViewStaticsVtbl {
+    pub const fn new<Impl: IApplicationViewStaticsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IApplicationViewStaticsVtbl {
+        unsafe extern "system" fn Value<Impl: IApplicationViewStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ApplicationViewState) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).Value() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn TryUnsnap<Impl: IApplicationViewStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).TryUnsnap() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IApplicationViewStatics>, base.5, Value::<Impl, OFFSET>, TryUnsnap::<Impl, OFFSET>)
+    }
+}
 #[cfg(feature = "implement_exclusive")]
 pub trait IApplicationViewStatics2Impl: Sized {
     fn GetForCurrentView(&self) -> ::windows::core::Result<ApplicationView>;
     fn TerminateAppOnFinalViewClose(&self) -> ::windows::core::Result<bool>;
     fn SetTerminateAppOnFinalViewClose(&self, value: bool) -> ::windows::core::Result<()>;
+}
+#[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IApplicationViewStatics2 {
+    const NAME: &'static str = "Windows.UI.ViewManagement.IApplicationViewStatics2";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IApplicationViewStatics2Vtbl {
+    pub const fn new<Impl: IApplicationViewStatics2Impl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IApplicationViewStatics2Vtbl {
+        unsafe extern "system" fn GetForCurrentView<Impl: IApplicationViewStatics2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).GetForCurrentView() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn TerminateAppOnFinalViewClose<Impl: IApplicationViewStatics2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).TerminateAppOnFinalViewClose() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetTerminateAppOnFinalViewClose<Impl: IApplicationViewStatics2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetTerminateAppOnFinalViewClose(value).into()
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IApplicationViewStatics2>, base.5, GetForCurrentView::<Impl, OFFSET>, TerminateAppOnFinalViewClose::<Impl, OFFSET>, SetTerminateAppOnFinalViewClose::<Impl, OFFSET>)
+    }
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IApplicationViewStatics3Impl: Sized {
@@ -108,9 +808,67 @@ pub trait IApplicationViewStatics3Impl: Sized {
     fn SetPreferredLaunchViewSize(&self, value: &super::super::Foundation::Size) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IApplicationViewStatics3 {
+    const NAME: &'static str = "Windows.UI.ViewManagement.IApplicationViewStatics3";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IApplicationViewStatics3Vtbl {
+    pub const fn new<Impl: IApplicationViewStatics3Impl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IApplicationViewStatics3Vtbl {
+        unsafe extern "system" fn PreferredLaunchWindowingMode<Impl: IApplicationViewStatics3Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ApplicationViewWindowingMode) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).PreferredLaunchWindowingMode() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetPreferredLaunchWindowingMode<Impl: IApplicationViewStatics3Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: ApplicationViewWindowingMode) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetPreferredLaunchWindowingMode(value).into()
+        }
+        unsafe extern "system" fn PreferredLaunchViewSize<Impl: IApplicationViewStatics3Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Size) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).PreferredLaunchViewSize() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetPreferredLaunchViewSize<Impl: IApplicationViewStatics3Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::Size) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetPreferredLaunchViewSize(&*(&value as *const <super::super::Foundation::Size as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Size as ::windows::core::DefaultType>::DefaultType)).into()
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IApplicationViewStatics3>, base.5, PreferredLaunchWindowingMode::<Impl, OFFSET>, SetPreferredLaunchWindowingMode::<Impl, OFFSET>, PreferredLaunchViewSize::<Impl, OFFSET>, SetPreferredLaunchViewSize::<Impl, OFFSET>)
+    }
+}
+#[cfg(feature = "implement_exclusive")]
 pub trait IApplicationViewStatics4Impl: Sized {
     fn ClearAllPersistedState(&self) -> ::windows::core::Result<()>;
     fn ClearPersistedState(&self, key: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+}
+#[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IApplicationViewStatics4 {
+    const NAME: &'static str = "Windows.UI.ViewManagement.IApplicationViewStatics4";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IApplicationViewStatics4Vtbl {
+    pub const fn new<Impl: IApplicationViewStatics4Impl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IApplicationViewStatics4Vtbl {
+        unsafe extern "system" fn ClearAllPersistedState<Impl: IApplicationViewStatics4Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).ClearAllPersistedState().into()
+        }
+        unsafe extern "system" fn ClearPersistedState<Impl: IApplicationViewStatics4Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, key: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).ClearPersistedState(&*(&key as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IApplicationViewStatics4>, base.5, ClearAllPersistedState::<Impl, OFFSET>, ClearPersistedState::<Impl, OFFSET>)
+    }
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IApplicationViewSwitcherStaticsImpl: Sized {
@@ -124,13 +882,165 @@ pub trait IApplicationViewSwitcherStaticsImpl: Sized {
     fn PrepareForCustomAnimatedSwitchAsync(&self, toviewid: i32, fromviewid: i32, options: ApplicationViewSwitchingOptions) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
 }
 #[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IApplicationViewSwitcherStatics {
+    const NAME: &'static str = "Windows.UI.ViewManagement.IApplicationViewSwitcherStatics";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IApplicationViewSwitcherStaticsVtbl {
+    pub const fn new<Impl: IApplicationViewSwitcherStaticsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IApplicationViewSwitcherStaticsVtbl {
+        unsafe extern "system" fn DisableShowingMainViewOnActivation<Impl: IApplicationViewSwitcherStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).DisableShowingMainViewOnActivation().into()
+        }
+        unsafe extern "system" fn TryShowAsStandaloneAsync<Impl: IApplicationViewSwitcherStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, viewid: i32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).TryShowAsStandaloneAsync(viewid) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn TryShowAsStandaloneWithSizePreferenceAsync<Impl: IApplicationViewSwitcherStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, viewid: i32, sizepreference: ViewSizePreference, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).TryShowAsStandaloneWithSizePreferenceAsync(viewid, sizepreference) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn TryShowAsStandaloneWithAnchorViewAndSizePreferenceAsync<Impl: IApplicationViewSwitcherStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, viewid: i32, sizepreference: ViewSizePreference, anchorviewid: i32, anchorsizepreference: ViewSizePreference, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).TryShowAsStandaloneWithAnchorViewAndSizePreferenceAsync(viewid, sizepreference, anchorviewid, anchorsizepreference) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SwitchAsync<Impl: IApplicationViewSwitcherStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, viewid: i32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).SwitchAsync(viewid) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SwitchFromViewAsync<Impl: IApplicationViewSwitcherStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, toviewid: i32, fromviewid: i32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).SwitchFromViewAsync(toviewid, fromviewid) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SwitchFromViewWithOptionsAsync<Impl: IApplicationViewSwitcherStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, toviewid: i32, fromviewid: i32, options: ApplicationViewSwitchingOptions, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).SwitchFromViewWithOptionsAsync(toviewid, fromviewid, options) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn PrepareForCustomAnimatedSwitchAsync<Impl: IApplicationViewSwitcherStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, toviewid: i32, fromviewid: i32, options: ApplicationViewSwitchingOptions, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).PrepareForCustomAnimatedSwitchAsync(toviewid, fromviewid, options) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(
+            base.0,
+            base.1,
+            base.2,
+            base.3,
+            ::windows::core::GetRuntimeClassName::<IApplicationViewSwitcherStatics>,
+            base.5,
+            DisableShowingMainViewOnActivation::<Impl, OFFSET>,
+            TryShowAsStandaloneAsync::<Impl, OFFSET>,
+            TryShowAsStandaloneWithSizePreferenceAsync::<Impl, OFFSET>,
+            TryShowAsStandaloneWithAnchorViewAndSizePreferenceAsync::<Impl, OFFSET>,
+            SwitchAsync::<Impl, OFFSET>,
+            SwitchFromViewAsync::<Impl, OFFSET>,
+            SwitchFromViewWithOptionsAsync::<Impl, OFFSET>,
+            PrepareForCustomAnimatedSwitchAsync::<Impl, OFFSET>,
+        )
+    }
+}
+#[cfg(feature = "implement_exclusive")]
 pub trait IApplicationViewSwitcherStatics2Impl: Sized {
     fn DisableSystemViewActivationPolicy(&self) -> ::windows::core::Result<()>;
+}
+#[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IApplicationViewSwitcherStatics2 {
+    const NAME: &'static str = "Windows.UI.ViewManagement.IApplicationViewSwitcherStatics2";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IApplicationViewSwitcherStatics2Vtbl {
+    pub const fn new<Impl: IApplicationViewSwitcherStatics2Impl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IApplicationViewSwitcherStatics2Vtbl {
+        unsafe extern "system" fn DisableSystemViewActivationPolicy<Impl: IApplicationViewSwitcherStatics2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).DisableSystemViewActivationPolicy().into()
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IApplicationViewSwitcherStatics2>, base.5, DisableSystemViewActivationPolicy::<Impl, OFFSET>)
+    }
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IApplicationViewSwitcherStatics3Impl: Sized {
     fn TryShowAsViewModeAsync(&self, viewid: i32, viewmode: ApplicationViewMode) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
     fn TryShowAsViewModeWithPreferencesAsync(&self, viewid: i32, viewmode: ApplicationViewMode, viewmodepreferences: &::core::option::Option<ViewModePreferences>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
+}
+#[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IApplicationViewSwitcherStatics3 {
+    const NAME: &'static str = "Windows.UI.ViewManagement.IApplicationViewSwitcherStatics3";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IApplicationViewSwitcherStatics3Vtbl {
+    pub const fn new<Impl: IApplicationViewSwitcherStatics3Impl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IApplicationViewSwitcherStatics3Vtbl {
+        unsafe extern "system" fn TryShowAsViewModeAsync<Impl: IApplicationViewSwitcherStatics3Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, viewid: i32, viewmode: ApplicationViewMode, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).TryShowAsViewModeAsync(viewid, viewmode) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn TryShowAsViewModeWithPreferencesAsync<Impl: IApplicationViewSwitcherStatics3Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, viewid: i32, viewmode: ApplicationViewMode, viewmodepreferences: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).TryShowAsViewModeWithPreferencesAsync(viewid, viewmode, &*(&viewmodepreferences as *const <ViewModePreferences as ::windows::core::Abi>::Abi as *const <ViewModePreferences as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IApplicationViewSwitcherStatics3>, base.5, TryShowAsViewModeAsync::<Impl, OFFSET>, TryShowAsViewModeWithPreferencesAsync::<Impl, OFFSET>)
+    }
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IApplicationViewTitleBarImpl: Sized {
@@ -160,17 +1070,305 @@ pub trait IApplicationViewTitleBarImpl: Sized {
     fn ButtonInactiveBackgroundColor(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::Color>>;
 }
 #[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IApplicationViewTitleBar {
+    const NAME: &'static str = "Windows.UI.ViewManagement.IApplicationViewTitleBar";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IApplicationViewTitleBarVtbl {
+    pub const fn new<Impl: IApplicationViewTitleBarImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IApplicationViewTitleBarVtbl {
+        unsafe extern "system" fn SetForegroundColor<Impl: IApplicationViewTitleBarImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetForegroundColor(&*(&value as *const <super::super::Foundation::IReference<super::Color> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::IReference<super::Color> as ::windows::core::DefaultType>::DefaultType)).into()
+        }
+        unsafe extern "system" fn ForegroundColor<Impl: IApplicationViewTitleBarImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).ForegroundColor() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetBackgroundColor<Impl: IApplicationViewTitleBarImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetBackgroundColor(&*(&value as *const <super::super::Foundation::IReference<super::Color> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::IReference<super::Color> as ::windows::core::DefaultType>::DefaultType)).into()
+        }
+        unsafe extern "system" fn BackgroundColor<Impl: IApplicationViewTitleBarImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).BackgroundColor() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetButtonForegroundColor<Impl: IApplicationViewTitleBarImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetButtonForegroundColor(&*(&value as *const <super::super::Foundation::IReference<super::Color> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::IReference<super::Color> as ::windows::core::DefaultType>::DefaultType)).into()
+        }
+        unsafe extern "system" fn ButtonForegroundColor<Impl: IApplicationViewTitleBarImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).ButtonForegroundColor() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetButtonBackgroundColor<Impl: IApplicationViewTitleBarImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetButtonBackgroundColor(&*(&value as *const <super::super::Foundation::IReference<super::Color> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::IReference<super::Color> as ::windows::core::DefaultType>::DefaultType)).into()
+        }
+        unsafe extern "system" fn ButtonBackgroundColor<Impl: IApplicationViewTitleBarImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).ButtonBackgroundColor() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetButtonHoverForegroundColor<Impl: IApplicationViewTitleBarImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetButtonHoverForegroundColor(&*(&value as *const <super::super::Foundation::IReference<super::Color> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::IReference<super::Color> as ::windows::core::DefaultType>::DefaultType)).into()
+        }
+        unsafe extern "system" fn ButtonHoverForegroundColor<Impl: IApplicationViewTitleBarImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).ButtonHoverForegroundColor() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetButtonHoverBackgroundColor<Impl: IApplicationViewTitleBarImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetButtonHoverBackgroundColor(&*(&value as *const <super::super::Foundation::IReference<super::Color> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::IReference<super::Color> as ::windows::core::DefaultType>::DefaultType)).into()
+        }
+        unsafe extern "system" fn ButtonHoverBackgroundColor<Impl: IApplicationViewTitleBarImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).ButtonHoverBackgroundColor() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetButtonPressedForegroundColor<Impl: IApplicationViewTitleBarImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetButtonPressedForegroundColor(&*(&value as *const <super::super::Foundation::IReference<super::Color> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::IReference<super::Color> as ::windows::core::DefaultType>::DefaultType)).into()
+        }
+        unsafe extern "system" fn ButtonPressedForegroundColor<Impl: IApplicationViewTitleBarImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).ButtonPressedForegroundColor() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetButtonPressedBackgroundColor<Impl: IApplicationViewTitleBarImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetButtonPressedBackgroundColor(&*(&value as *const <super::super::Foundation::IReference<super::Color> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::IReference<super::Color> as ::windows::core::DefaultType>::DefaultType)).into()
+        }
+        unsafe extern "system" fn ButtonPressedBackgroundColor<Impl: IApplicationViewTitleBarImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).ButtonPressedBackgroundColor() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetInactiveForegroundColor<Impl: IApplicationViewTitleBarImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetInactiveForegroundColor(&*(&value as *const <super::super::Foundation::IReference<super::Color> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::IReference<super::Color> as ::windows::core::DefaultType>::DefaultType)).into()
+        }
+        unsafe extern "system" fn InactiveForegroundColor<Impl: IApplicationViewTitleBarImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).InactiveForegroundColor() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetInactiveBackgroundColor<Impl: IApplicationViewTitleBarImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetInactiveBackgroundColor(&*(&value as *const <super::super::Foundation::IReference<super::Color> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::IReference<super::Color> as ::windows::core::DefaultType>::DefaultType)).into()
+        }
+        unsafe extern "system" fn InactiveBackgroundColor<Impl: IApplicationViewTitleBarImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).InactiveBackgroundColor() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetButtonInactiveForegroundColor<Impl: IApplicationViewTitleBarImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetButtonInactiveForegroundColor(&*(&value as *const <super::super::Foundation::IReference<super::Color> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::IReference<super::Color> as ::windows::core::DefaultType>::DefaultType)).into()
+        }
+        unsafe extern "system" fn ButtonInactiveForegroundColor<Impl: IApplicationViewTitleBarImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).ButtonInactiveForegroundColor() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetButtonInactiveBackgroundColor<Impl: IApplicationViewTitleBarImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetButtonInactiveBackgroundColor(&*(&value as *const <super::super::Foundation::IReference<super::Color> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::IReference<super::Color> as ::windows::core::DefaultType>::DefaultType)).into()
+        }
+        unsafe extern "system" fn ButtonInactiveBackgroundColor<Impl: IApplicationViewTitleBarImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).ButtonInactiveBackgroundColor() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(
+            base.0,
+            base.1,
+            base.2,
+            base.3,
+            ::windows::core::GetRuntimeClassName::<IApplicationViewTitleBar>,
+            base.5,
+            SetForegroundColor::<Impl, OFFSET>,
+            ForegroundColor::<Impl, OFFSET>,
+            SetBackgroundColor::<Impl, OFFSET>,
+            BackgroundColor::<Impl, OFFSET>,
+            SetButtonForegroundColor::<Impl, OFFSET>,
+            ButtonForegroundColor::<Impl, OFFSET>,
+            SetButtonBackgroundColor::<Impl, OFFSET>,
+            ButtonBackgroundColor::<Impl, OFFSET>,
+            SetButtonHoverForegroundColor::<Impl, OFFSET>,
+            ButtonHoverForegroundColor::<Impl, OFFSET>,
+            SetButtonHoverBackgroundColor::<Impl, OFFSET>,
+            ButtonHoverBackgroundColor::<Impl, OFFSET>,
+            SetButtonPressedForegroundColor::<Impl, OFFSET>,
+            ButtonPressedForegroundColor::<Impl, OFFSET>,
+            SetButtonPressedBackgroundColor::<Impl, OFFSET>,
+            ButtonPressedBackgroundColor::<Impl, OFFSET>,
+            SetInactiveForegroundColor::<Impl, OFFSET>,
+            InactiveForegroundColor::<Impl, OFFSET>,
+            SetInactiveBackgroundColor::<Impl, OFFSET>,
+            InactiveBackgroundColor::<Impl, OFFSET>,
+            SetButtonInactiveForegroundColor::<Impl, OFFSET>,
+            ButtonInactiveForegroundColor::<Impl, OFFSET>,
+            SetButtonInactiveBackgroundColor::<Impl, OFFSET>,
+            ButtonInactiveBackgroundColor::<Impl, OFFSET>,
+        )
+    }
+}
+#[cfg(feature = "implement_exclusive")]
 pub trait IApplicationViewTransferContextImpl: Sized {
     fn ViewId(&self) -> ::windows::core::Result<i32>;
     fn SetViewId(&self, value: i32) -> ::windows::core::Result<()>;
+}
+#[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IApplicationViewTransferContext {
+    const NAME: &'static str = "Windows.UI.ViewManagement.IApplicationViewTransferContext";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IApplicationViewTransferContextVtbl {
+    pub const fn new<Impl: IApplicationViewTransferContextImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IApplicationViewTransferContextVtbl {
+        unsafe extern "system" fn ViewId<Impl: IApplicationViewTransferContextImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).ViewId() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetViewId<Impl: IApplicationViewTransferContextImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetViewId(value).into()
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IApplicationViewTransferContext>, base.5, ViewId::<Impl, OFFSET>, SetViewId::<Impl, OFFSET>)
+    }
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IApplicationViewTransferContextStaticsImpl: Sized {
     fn DataPackageFormatId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IApplicationViewTransferContextStatics {
+    const NAME: &'static str = "Windows.UI.ViewManagement.IApplicationViewTransferContextStatics";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IApplicationViewTransferContextStaticsVtbl {
+    pub const fn new<Impl: IApplicationViewTransferContextStaticsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IApplicationViewTransferContextStaticsVtbl {
+        unsafe extern "system" fn DataPackageFormatId<Impl: IApplicationViewTransferContextStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).DataPackageFormatId() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IApplicationViewTransferContextStatics>, base.5, DataPackageFormatId::<Impl, OFFSET>)
+    }
+}
+#[cfg(feature = "implement_exclusive")]
 pub trait IApplicationViewWithContextImpl: Sized {
     fn UIContext(&self) -> ::windows::core::Result<super::UIContext>;
+}
+#[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IApplicationViewWithContext {
+    const NAME: &'static str = "Windows.UI.ViewManagement.IApplicationViewWithContext";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IApplicationViewWithContextVtbl {
+    pub const fn new<Impl: IApplicationViewWithContextImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IApplicationViewWithContextVtbl {
+        unsafe extern "system" fn UIContext<Impl: IApplicationViewWithContextImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).UIContext() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IApplicationViewWithContext>, base.5, UIContext::<Impl, OFFSET>)
+    }
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IInputPaneImpl: Sized {
@@ -181,9 +1379,92 @@ pub trait IInputPaneImpl: Sized {
     fn OccludedRect(&self) -> ::windows::core::Result<super::super::Foundation::Rect>;
 }
 #[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IInputPane {
+    const NAME: &'static str = "Windows.UI.ViewManagement.IInputPane";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IInputPaneVtbl {
+    pub const fn new<Impl: IInputPaneImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IInputPaneVtbl {
+        unsafe extern "system" fn Showing<Impl: IInputPaneImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).Showing(&*(&handler as *const <super::super::Foundation::TypedEventHandler<InputPane, InputPaneVisibilityEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<InputPane, InputPaneVisibilityEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn RemoveShowing<Impl: IInputPaneImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).RemoveShowing(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
+        }
+        unsafe extern "system" fn Hiding<Impl: IInputPaneImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).Hiding(&*(&handler as *const <super::super::Foundation::TypedEventHandler<InputPane, InputPaneVisibilityEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<InputPane, InputPaneVisibilityEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn RemoveHiding<Impl: IInputPaneImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).RemoveHiding(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
+        }
+        unsafe extern "system" fn OccludedRect<Impl: IInputPaneImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Rect) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).OccludedRect() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IInputPane>, base.5, Showing::<Impl, OFFSET>, RemoveShowing::<Impl, OFFSET>, Hiding::<Impl, OFFSET>, RemoveHiding::<Impl, OFFSET>, OccludedRect::<Impl, OFFSET>)
+    }
+}
+#[cfg(feature = "implement_exclusive")]
 pub trait IInputPane2Impl: Sized {
     fn TryShow(&self) -> ::windows::core::Result<bool>;
     fn TryHide(&self) -> ::windows::core::Result<bool>;
+}
+#[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IInputPane2 {
+    const NAME: &'static str = "Windows.UI.ViewManagement.IInputPane2";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IInputPane2Vtbl {
+    pub const fn new<Impl: IInputPane2Impl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IInputPane2Vtbl {
+        unsafe extern "system" fn TryShow<Impl: IInputPane2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).TryShow() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn TryHide<Impl: IInputPane2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).TryHide() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IInputPane2>, base.5, TryShow::<Impl, OFFSET>, TryHide::<Impl, OFFSET>)
+    }
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IInputPaneControlImpl: Sized {
@@ -191,18 +1472,121 @@ pub trait IInputPaneControlImpl: Sized {
     fn SetVisible(&self, value: bool) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IInputPaneControl {
+    const NAME: &'static str = "Windows.UI.ViewManagement.IInputPaneControl";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IInputPaneControlVtbl {
+    pub const fn new<Impl: IInputPaneControlImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IInputPaneControlVtbl {
+        unsafe extern "system" fn Visible<Impl: IInputPaneControlImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).Visible() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetVisible<Impl: IInputPaneControlImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetVisible(value).into()
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IInputPaneControl>, base.5, Visible::<Impl, OFFSET>, SetVisible::<Impl, OFFSET>)
+    }
+}
+#[cfg(feature = "implement_exclusive")]
 pub trait IInputPaneStaticsImpl: Sized {
     fn GetForCurrentView(&self) -> ::windows::core::Result<InputPane>;
+}
+#[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IInputPaneStatics {
+    const NAME: &'static str = "Windows.UI.ViewManagement.IInputPaneStatics";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IInputPaneStaticsVtbl {
+    pub const fn new<Impl: IInputPaneStaticsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IInputPaneStaticsVtbl {
+        unsafe extern "system" fn GetForCurrentView<Impl: IInputPaneStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).GetForCurrentView() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IInputPaneStatics>, base.5, GetForCurrentView::<Impl, OFFSET>)
+    }
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IInputPaneStatics2Impl: Sized {
     fn GetForUIContext(&self, context: &::core::option::Option<super::UIContext>) -> ::windows::core::Result<InputPane>;
 }
 #[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IInputPaneStatics2 {
+    const NAME: &'static str = "Windows.UI.ViewManagement.IInputPaneStatics2";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IInputPaneStatics2Vtbl {
+    pub const fn new<Impl: IInputPaneStatics2Impl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IInputPaneStatics2Vtbl {
+        unsafe extern "system" fn GetForUIContext<Impl: IInputPaneStatics2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, context: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).GetForUIContext(&*(&context as *const <super::UIContext as ::windows::core::Abi>::Abi as *const <super::UIContext as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IInputPaneStatics2>, base.5, GetForUIContext::<Impl, OFFSET>)
+    }
+}
+#[cfg(feature = "implement_exclusive")]
 pub trait IInputPaneVisibilityEventArgsImpl: Sized {
     fn OccludedRect(&self) -> ::windows::core::Result<super::super::Foundation::Rect>;
     fn SetEnsuredFocusedElementInView(&self, value: bool) -> ::windows::core::Result<()>;
     fn EnsuredFocusedElementInView(&self) -> ::windows::core::Result<bool>;
+}
+#[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IInputPaneVisibilityEventArgs {
+    const NAME: &'static str = "Windows.UI.ViewManagement.IInputPaneVisibilityEventArgs";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IInputPaneVisibilityEventArgsVtbl {
+    pub const fn new<Impl: IInputPaneVisibilityEventArgsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IInputPaneVisibilityEventArgsVtbl {
+        unsafe extern "system" fn OccludedRect<Impl: IInputPaneVisibilityEventArgsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Rect) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).OccludedRect() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetEnsuredFocusedElementInView<Impl: IInputPaneVisibilityEventArgsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetEnsuredFocusedElementInView(value).into()
+        }
+        unsafe extern "system" fn EnsuredFocusedElementInView<Impl: IInputPaneVisibilityEventArgsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).EnsuredFocusedElementInView() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IInputPaneVisibilityEventArgs>, base.5, OccludedRect::<Impl, OFFSET>, SetEnsuredFocusedElementInView::<Impl, OFFSET>, EnsuredFocusedElementInView::<Impl, OFFSET>)
+    }
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IProjectionManagerStaticsImpl: Sized {
@@ -214,11 +1598,134 @@ pub trait IProjectionManagerStaticsImpl: Sized {
     fn RemoveProjectionDisplayAvailableChanged(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IProjectionManagerStatics {
+    const NAME: &'static str = "Windows.UI.ViewManagement.IProjectionManagerStatics";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IProjectionManagerStaticsVtbl {
+    pub const fn new<Impl: IProjectionManagerStaticsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IProjectionManagerStaticsVtbl {
+        unsafe extern "system" fn StartProjectingAsync<Impl: IProjectionManagerStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, projectionviewid: i32, anchorviewid: i32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).StartProjectingAsync(projectionviewid, anchorviewid) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SwapDisplaysForViewsAsync<Impl: IProjectionManagerStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, projectionviewid: i32, anchorviewid: i32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).SwapDisplaysForViewsAsync(projectionviewid, anchorviewid) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn StopProjectingAsync<Impl: IProjectionManagerStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, projectionviewid: i32, anchorviewid: i32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).StopProjectingAsync(projectionviewid, anchorviewid) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn ProjectionDisplayAvailable<Impl: IProjectionManagerStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).ProjectionDisplayAvailable() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn ProjectionDisplayAvailableChanged<Impl: IProjectionManagerStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).ProjectionDisplayAvailableChanged(&*(&handler as *const <super::super::Foundation::EventHandler<::windows::core::IInspectable> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventHandler<::windows::core::IInspectable> as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn RemoveProjectionDisplayAvailableChanged<Impl: IProjectionManagerStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).RemoveProjectionDisplayAvailableChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IProjectionManagerStatics>, base.5, StartProjectingAsync::<Impl, OFFSET>, SwapDisplaysForViewsAsync::<Impl, OFFSET>, StopProjectingAsync::<Impl, OFFSET>, ProjectionDisplayAvailable::<Impl, OFFSET>, ProjectionDisplayAvailableChanged::<Impl, OFFSET>, RemoveProjectionDisplayAvailableChanged::<Impl, OFFSET>)
+    }
+}
+#[cfg(feature = "implement_exclusive")]
 pub trait IProjectionManagerStatics2Impl: Sized {
     fn StartProjectingWithDeviceInfoAsync(&self, projectionviewid: i32, anchorviewid: i32, displaydeviceinfo: &::core::option::Option<super::super::Devices::Enumeration::DeviceInformation>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
     fn RequestStartProjectingAsync(&self, projectionviewid: i32, anchorviewid: i32, selection: &super::super::Foundation::Rect) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
     fn RequestStartProjectingWithPlacementAsync(&self, projectionviewid: i32, anchorviewid: i32, selection: &super::super::Foundation::Rect, prefferedplacement: super::Popups::Placement) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
     fn GetDeviceSelector(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+}
+#[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IProjectionManagerStatics2 {
+    const NAME: &'static str = "Windows.UI.ViewManagement.IProjectionManagerStatics2";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IProjectionManagerStatics2Vtbl {
+    pub const fn new<Impl: IProjectionManagerStatics2Impl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IProjectionManagerStatics2Vtbl {
+        unsafe extern "system" fn StartProjectingWithDeviceInfoAsync<Impl: IProjectionManagerStatics2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, projectionviewid: i32, anchorviewid: i32, displaydeviceinfo: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).StartProjectingWithDeviceInfoAsync(projectionviewid, anchorviewid, &*(&displaydeviceinfo as *const <super::super::Devices::Enumeration::DeviceInformation as ::windows::core::Abi>::Abi as *const <super::super::Devices::Enumeration::DeviceInformation as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn RequestStartProjectingAsync<Impl: IProjectionManagerStatics2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, projectionviewid: i32, anchorviewid: i32, selection: super::super::Foundation::Rect, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).RequestStartProjectingAsync(projectionviewid, anchorviewid, &*(&selection as *const <super::super::Foundation::Rect as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Rect as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn RequestStartProjectingWithPlacementAsync<Impl: IProjectionManagerStatics2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, projectionviewid: i32, anchorviewid: i32, selection: super::super::Foundation::Rect, prefferedplacement: super::Popups::Placement, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).RequestStartProjectingWithPlacementAsync(projectionviewid, anchorviewid, &*(&selection as *const <super::super::Foundation::Rect as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Rect as ::windows::core::DefaultType>::DefaultType), prefferedplacement) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn GetDeviceSelector<Impl: IProjectionManagerStatics2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).GetDeviceSelector() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IProjectionManagerStatics2>, base.5, StartProjectingWithDeviceInfoAsync::<Impl, OFFSET>, RequestStartProjectingAsync::<Impl, OFFSET>, RequestStartProjectingWithPlacementAsync::<Impl, OFFSET>, GetDeviceSelector::<Impl, OFFSET>)
+    }
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IStatusBarImpl: Sized {
@@ -238,6 +1745,156 @@ pub trait IStatusBarImpl: Sized {
     fn RemoveHiding(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IStatusBar {
+    const NAME: &'static str = "Windows.UI.ViewManagement.IStatusBar";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IStatusBarVtbl {
+    pub const fn new<Impl: IStatusBarImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IStatusBarVtbl {
+        unsafe extern "system" fn ShowAsync<Impl: IStatusBarImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).ShowAsync() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn HideAsync<Impl: IStatusBarImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).HideAsync() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn BackgroundOpacity<Impl: IStatusBarImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).BackgroundOpacity() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetBackgroundOpacity<Impl: IStatusBarImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetBackgroundOpacity(value).into()
+        }
+        unsafe extern "system" fn ForegroundColor<Impl: IStatusBarImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).ForegroundColor() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetForegroundColor<Impl: IStatusBarImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetForegroundColor(&*(&value as *const <super::super::Foundation::IReference<super::Color> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::IReference<super::Color> as ::windows::core::DefaultType>::DefaultType)).into()
+        }
+        unsafe extern "system" fn BackgroundColor<Impl: IStatusBarImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).BackgroundColor() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetBackgroundColor<Impl: IStatusBarImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetBackgroundColor(&*(&value as *const <super::super::Foundation::IReference<super::Color> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::IReference<super::Color> as ::windows::core::DefaultType>::DefaultType)).into()
+        }
+        unsafe extern "system" fn ProgressIndicator<Impl: IStatusBarImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).ProgressIndicator() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn OccludedRect<Impl: IStatusBarImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Rect) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).OccludedRect() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn Showing<Impl: IStatusBarImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, eventhandler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).Showing(&*(&eventhandler as *const <super::super::Foundation::TypedEventHandler<StatusBar, ::windows::core::IInspectable> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<StatusBar, ::windows::core::IInspectable> as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn RemoveShowing<Impl: IStatusBarImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).RemoveShowing(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
+        }
+        unsafe extern "system" fn Hiding<Impl: IStatusBarImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, eventhandler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).Hiding(&*(&eventhandler as *const <super::super::Foundation::TypedEventHandler<StatusBar, ::windows::core::IInspectable> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<StatusBar, ::windows::core::IInspectable> as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn RemoveHiding<Impl: IStatusBarImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).RemoveHiding(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
+        }
+        Self(
+            base.0,
+            base.1,
+            base.2,
+            base.3,
+            ::windows::core::GetRuntimeClassName::<IStatusBar>,
+            base.5,
+            ShowAsync::<Impl, OFFSET>,
+            HideAsync::<Impl, OFFSET>,
+            BackgroundOpacity::<Impl, OFFSET>,
+            SetBackgroundOpacity::<Impl, OFFSET>,
+            ForegroundColor::<Impl, OFFSET>,
+            SetForegroundColor::<Impl, OFFSET>,
+            BackgroundColor::<Impl, OFFSET>,
+            SetBackgroundColor::<Impl, OFFSET>,
+            ProgressIndicator::<Impl, OFFSET>,
+            OccludedRect::<Impl, OFFSET>,
+            Showing::<Impl, OFFSET>,
+            RemoveShowing::<Impl, OFFSET>,
+            Hiding::<Impl, OFFSET>,
+            RemoveHiding::<Impl, OFFSET>,
+        )
+    }
+}
+#[cfg(feature = "implement_exclusive")]
 pub trait IStatusBarProgressIndicatorImpl: Sized {
     fn ShowAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
     fn HideAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
@@ -247,8 +1904,91 @@ pub trait IStatusBarProgressIndicatorImpl: Sized {
     fn SetProgressValue(&self, value: &::core::option::Option<super::super::Foundation::IReference<f64>>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IStatusBarProgressIndicator {
+    const NAME: &'static str = "Windows.UI.ViewManagement.IStatusBarProgressIndicator";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IStatusBarProgressIndicatorVtbl {
+    pub const fn new<Impl: IStatusBarProgressIndicatorImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IStatusBarProgressIndicatorVtbl {
+        unsafe extern "system" fn ShowAsync<Impl: IStatusBarProgressIndicatorImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).ShowAsync() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn HideAsync<Impl: IStatusBarProgressIndicatorImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).HideAsync() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn Text<Impl: IStatusBarProgressIndicatorImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).Text() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetText<Impl: IStatusBarProgressIndicatorImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetText(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
+        }
+        unsafe extern "system" fn ProgressValue<Impl: IStatusBarProgressIndicatorImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).ProgressValue() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetProgressValue<Impl: IStatusBarProgressIndicatorImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetProgressValue(&*(&value as *const <super::super::Foundation::IReference<f64> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::IReference<f64> as ::windows::core::DefaultType>::DefaultType)).into()
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IStatusBarProgressIndicator>, base.5, ShowAsync::<Impl, OFFSET>, HideAsync::<Impl, OFFSET>, Text::<Impl, OFFSET>, SetText::<Impl, OFFSET>, ProgressValue::<Impl, OFFSET>, SetProgressValue::<Impl, OFFSET>)
+    }
+}
+#[cfg(feature = "implement_exclusive")]
 pub trait IStatusBarStaticsImpl: Sized {
     fn GetForCurrentView(&self) -> ::windows::core::Result<StatusBar>;
+}
+#[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IStatusBarStatics {
+    const NAME: &'static str = "Windows.UI.ViewManagement.IStatusBarStatics";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IStatusBarStaticsVtbl {
+    pub const fn new<Impl: IStatusBarStaticsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IStatusBarStaticsVtbl {
+        unsafe extern "system" fn GetForCurrentView<Impl: IStatusBarStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).GetForCurrentView() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IStatusBarStatics>, base.5, GetForCurrentView::<Impl, OFFSET>)
+    }
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IUISettingsImpl: Sized {
@@ -267,10 +2007,219 @@ pub trait IUISettingsImpl: Sized {
     fn UIElementColor(&self, desiredelement: UIElementType) -> ::windows::core::Result<super::Color>;
 }
 #[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IUISettings {
+    const NAME: &'static str = "Windows.UI.ViewManagement.IUISettings";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IUISettingsVtbl {
+    pub const fn new<Impl: IUISettingsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IUISettingsVtbl {
+        unsafe extern "system" fn HandPreference<Impl: IUISettingsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut HandPreference) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).HandPreference() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn CursorSize<Impl: IUISettingsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Size) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).CursorSize() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn ScrollBarSize<Impl: IUISettingsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Size) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).ScrollBarSize() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn ScrollBarArrowSize<Impl: IUISettingsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Size) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).ScrollBarArrowSize() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn ScrollBarThumbBoxSize<Impl: IUISettingsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Size) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).ScrollBarThumbBoxSize() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn MessageDuration<Impl: IUISettingsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).MessageDuration() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn AnimationsEnabled<Impl: IUISettingsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).AnimationsEnabled() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn CaretBrowsingEnabled<Impl: IUISettingsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).CaretBrowsingEnabled() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn CaretBlinkRate<Impl: IUISettingsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).CaretBlinkRate() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn CaretWidth<Impl: IUISettingsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).CaretWidth() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn DoubleClickTime<Impl: IUISettingsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).DoubleClickTime() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn MouseHoverTime<Impl: IUISettingsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).MouseHoverTime() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn UIElementColor<Impl: IUISettingsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, desiredelement: UIElementType, result__: *mut super::Color) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).UIElementColor(desiredelement) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(
+            base.0,
+            base.1,
+            base.2,
+            base.3,
+            ::windows::core::GetRuntimeClassName::<IUISettings>,
+            base.5,
+            HandPreference::<Impl, OFFSET>,
+            CursorSize::<Impl, OFFSET>,
+            ScrollBarSize::<Impl, OFFSET>,
+            ScrollBarArrowSize::<Impl, OFFSET>,
+            ScrollBarThumbBoxSize::<Impl, OFFSET>,
+            MessageDuration::<Impl, OFFSET>,
+            AnimationsEnabled::<Impl, OFFSET>,
+            CaretBrowsingEnabled::<Impl, OFFSET>,
+            CaretBlinkRate::<Impl, OFFSET>,
+            CaretWidth::<Impl, OFFSET>,
+            DoubleClickTime::<Impl, OFFSET>,
+            MouseHoverTime::<Impl, OFFSET>,
+            UIElementColor::<Impl, OFFSET>,
+        )
+    }
+}
+#[cfg(feature = "implement_exclusive")]
 pub trait IUISettings2Impl: Sized {
     fn TextScaleFactor(&self) -> ::windows::core::Result<f64>;
     fn TextScaleFactorChanged(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<UISettings, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveTextScaleFactorChanged(&self, cookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+}
+#[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IUISettings2 {
+    const NAME: &'static str = "Windows.UI.ViewManagement.IUISettings2";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IUISettings2Vtbl {
+    pub const fn new<Impl: IUISettings2Impl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IUISettings2Vtbl {
+        unsafe extern "system" fn TextScaleFactor<Impl: IUISettings2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).TextScaleFactor() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn TextScaleFactorChanged<Impl: IUISettings2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).TextScaleFactorChanged(&*(&handler as *const <super::super::Foundation::TypedEventHandler<UISettings, ::windows::core::IInspectable> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<UISettings, ::windows::core::IInspectable> as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn RemoveTextScaleFactorChanged<Impl: IUISettings2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, cookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).RemoveTextScaleFactorChanged(&*(&cookie as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IUISettings2>, base.5, TextScaleFactor::<Impl, OFFSET>, TextScaleFactorChanged::<Impl, OFFSET>, RemoveTextScaleFactorChanged::<Impl, OFFSET>)
+    }
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IUISettings3Impl: Sized {
@@ -279,16 +2228,124 @@ pub trait IUISettings3Impl: Sized {
     fn RemoveColorValuesChanged(&self, cookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IUISettings3 {
+    const NAME: &'static str = "Windows.UI.ViewManagement.IUISettings3";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IUISettings3Vtbl {
+    pub const fn new<Impl: IUISettings3Impl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IUISettings3Vtbl {
+        unsafe extern "system" fn GetColorValue<Impl: IUISettings3Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, desiredcolor: UIColorType, result__: *mut super::Color) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).GetColorValue(desiredcolor) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn ColorValuesChanged<Impl: IUISettings3Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).ColorValuesChanged(&*(&handler as *const <super::super::Foundation::TypedEventHandler<UISettings, ::windows::core::IInspectable> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<UISettings, ::windows::core::IInspectable> as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn RemoveColorValuesChanged<Impl: IUISettings3Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, cookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).RemoveColorValuesChanged(&*(&cookie as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IUISettings3>, base.5, GetColorValue::<Impl, OFFSET>, ColorValuesChanged::<Impl, OFFSET>, RemoveColorValuesChanged::<Impl, OFFSET>)
+    }
+}
+#[cfg(feature = "implement_exclusive")]
 pub trait IUISettings4Impl: Sized {
     fn AdvancedEffectsEnabled(&self) -> ::windows::core::Result<bool>;
     fn AdvancedEffectsEnabledChanged(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<UISettings, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveAdvancedEffectsEnabledChanged(&self, cookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IUISettings4 {
+    const NAME: &'static str = "Windows.UI.ViewManagement.IUISettings4";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IUISettings4Vtbl {
+    pub const fn new<Impl: IUISettings4Impl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IUISettings4Vtbl {
+        unsafe extern "system" fn AdvancedEffectsEnabled<Impl: IUISettings4Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).AdvancedEffectsEnabled() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn AdvancedEffectsEnabledChanged<Impl: IUISettings4Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).AdvancedEffectsEnabledChanged(&*(&handler as *const <super::super::Foundation::TypedEventHandler<UISettings, ::windows::core::IInspectable> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<UISettings, ::windows::core::IInspectable> as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn RemoveAdvancedEffectsEnabledChanged<Impl: IUISettings4Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, cookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).RemoveAdvancedEffectsEnabledChanged(&*(&cookie as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IUISettings4>, base.5, AdvancedEffectsEnabled::<Impl, OFFSET>, AdvancedEffectsEnabledChanged::<Impl, OFFSET>, RemoveAdvancedEffectsEnabledChanged::<Impl, OFFSET>)
+    }
+}
+#[cfg(feature = "implement_exclusive")]
 pub trait IUISettings5Impl: Sized {
     fn AutoHideScrollBars(&self) -> ::windows::core::Result<bool>;
     fn AutoHideScrollBarsChanged(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<UISettings, UISettingsAutoHideScrollBarsChangedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveAutoHideScrollBarsChanged(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+}
+#[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IUISettings5 {
+    const NAME: &'static str = "Windows.UI.ViewManagement.IUISettings5";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IUISettings5Vtbl {
+    pub const fn new<Impl: IUISettings5Impl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IUISettings5Vtbl {
+        unsafe extern "system" fn AutoHideScrollBars<Impl: IUISettings5Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).AutoHideScrollBars() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn AutoHideScrollBarsChanged<Impl: IUISettings5Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).AutoHideScrollBarsChanged(&*(&handler as *const <super::super::Foundation::TypedEventHandler<UISettings, UISettingsAutoHideScrollBarsChangedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<UISettings, UISettingsAutoHideScrollBarsChangedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn RemoveAutoHideScrollBarsChanged<Impl: IUISettings5Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).RemoveAutoHideScrollBarsChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IUISettings5>, base.5, AutoHideScrollBars::<Impl, OFFSET>, AutoHideScrollBarsChanged::<Impl, OFFSET>, RemoveAutoHideScrollBarsChanged::<Impl, OFFSET>)
+    }
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IUISettings6Impl: Sized {
@@ -298,18 +2355,130 @@ pub trait IUISettings6Impl: Sized {
     fn RemoveMessageDurationChanged(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IUISettings6 {
+    const NAME: &'static str = "Windows.UI.ViewManagement.IUISettings6";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IUISettings6Vtbl {
+    pub const fn new<Impl: IUISettings6Impl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IUISettings6Vtbl {
+        unsafe extern "system" fn AnimationsEnabledChanged<Impl: IUISettings6Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).AnimationsEnabledChanged(&*(&handler as *const <super::super::Foundation::TypedEventHandler<UISettings, UISettingsAnimationsEnabledChangedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<UISettings, UISettingsAnimationsEnabledChangedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn RemoveAnimationsEnabledChanged<Impl: IUISettings6Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).RemoveAnimationsEnabledChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
+        }
+        unsafe extern "system" fn MessageDurationChanged<Impl: IUISettings6Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).MessageDurationChanged(&*(&handler as *const <super::super::Foundation::TypedEventHandler<UISettings, UISettingsMessageDurationChangedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<UISettings, UISettingsMessageDurationChangedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn RemoveMessageDurationChanged<Impl: IUISettings6Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).RemoveMessageDurationChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IUISettings6>, base.5, AnimationsEnabledChanged::<Impl, OFFSET>, RemoveAnimationsEnabledChanged::<Impl, OFFSET>, MessageDurationChanged::<Impl, OFFSET>, RemoveMessageDurationChanged::<Impl, OFFSET>)
+    }
+}
+#[cfg(feature = "implement_exclusive")]
 pub trait IUISettingsAnimationsEnabledChangedEventArgsImpl: Sized {}
+#[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IUISettingsAnimationsEnabledChangedEventArgs {
+    const NAME: &'static str = "Windows.UI.ViewManagement.IUISettingsAnimationsEnabledChangedEventArgs";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IUISettingsAnimationsEnabledChangedEventArgsVtbl {
+    pub const fn new<Impl: IUISettingsAnimationsEnabledChangedEventArgsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IUISettingsAnimationsEnabledChangedEventArgsVtbl {
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IUISettingsAnimationsEnabledChangedEventArgs>, base.5)
+    }
+}
 #[cfg(feature = "implement_exclusive")]
 pub trait IUISettingsAutoHideScrollBarsChangedEventArgsImpl: Sized {}
 #[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IUISettingsAutoHideScrollBarsChangedEventArgs {
+    const NAME: &'static str = "Windows.UI.ViewManagement.IUISettingsAutoHideScrollBarsChangedEventArgs";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IUISettingsAutoHideScrollBarsChangedEventArgsVtbl {
+    pub const fn new<Impl: IUISettingsAutoHideScrollBarsChangedEventArgsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IUISettingsAutoHideScrollBarsChangedEventArgsVtbl {
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IUISettingsAutoHideScrollBarsChangedEventArgs>, base.5)
+    }
+}
+#[cfg(feature = "implement_exclusive")]
 pub trait IUISettingsMessageDurationChangedEventArgsImpl: Sized {}
+#[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IUISettingsMessageDurationChangedEventArgs {
+    const NAME: &'static str = "Windows.UI.ViewManagement.IUISettingsMessageDurationChangedEventArgs";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IUISettingsMessageDurationChangedEventArgsVtbl {
+    pub const fn new<Impl: IUISettingsMessageDurationChangedEventArgsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IUISettingsMessageDurationChangedEventArgsVtbl {
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IUISettingsMessageDurationChangedEventArgs>, base.5)
+    }
+}
 #[cfg(feature = "implement_exclusive")]
 pub trait IUIViewSettingsImpl: Sized {
     fn UserInteractionMode(&self) -> ::windows::core::Result<UserInteractionMode>;
 }
 #[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IUIViewSettings {
+    const NAME: &'static str = "Windows.UI.ViewManagement.IUIViewSettings";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IUIViewSettingsVtbl {
+    pub const fn new<Impl: IUIViewSettingsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IUIViewSettingsVtbl {
+        unsafe extern "system" fn UserInteractionMode<Impl: IUIViewSettingsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut UserInteractionMode) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).UserInteractionMode() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IUIViewSettings>, base.5, UserInteractionMode::<Impl, OFFSET>)
+    }
+}
+#[cfg(feature = "implement_exclusive")]
 pub trait IUIViewSettingsStaticsImpl: Sized {
     fn GetForCurrentView(&self) -> ::windows::core::Result<UIViewSettings>;
+}
+#[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IUIViewSettingsStatics {
+    const NAME: &'static str = "Windows.UI.ViewManagement.IUIViewSettingsStatics";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IUIViewSettingsStaticsVtbl {
+    pub const fn new<Impl: IUIViewSettingsStaticsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IUIViewSettingsStaticsVtbl {
+        unsafe extern "system" fn GetForCurrentView<Impl: IUIViewSettingsStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).GetForCurrentView() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IUIViewSettingsStatics>, base.5, GetForCurrentView::<Impl, OFFSET>)
+    }
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IViewModePreferencesImpl: Sized {
@@ -319,6 +2488,67 @@ pub trait IViewModePreferencesImpl: Sized {
     fn SetCustomSize(&self, value: &super::super::Foundation::Size) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IViewModePreferences {
+    const NAME: &'static str = "Windows.UI.ViewManagement.IViewModePreferences";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IViewModePreferencesVtbl {
+    pub const fn new<Impl: IViewModePreferencesImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IViewModePreferencesVtbl {
+        unsafe extern "system" fn ViewSizePreference<Impl: IViewModePreferencesImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ViewSizePreference) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).ViewSizePreference() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetViewSizePreference<Impl: IViewModePreferencesImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: ViewSizePreference) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetViewSizePreference(value).into()
+        }
+        unsafe extern "system" fn CustomSize<Impl: IViewModePreferencesImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Size) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).CustomSize() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetCustomSize<Impl: IViewModePreferencesImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::Size) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetCustomSize(&*(&value as *const <super::super::Foundation::Size as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Size as ::windows::core::DefaultType>::DefaultType)).into()
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IViewModePreferences>, base.5, ViewSizePreference::<Impl, OFFSET>, SetViewSizePreference::<Impl, OFFSET>, CustomSize::<Impl, OFFSET>, SetCustomSize::<Impl, OFFSET>)
+    }
+}
+#[cfg(feature = "implement_exclusive")]
 pub trait IViewModePreferencesStaticsImpl: Sized {
     fn CreateDefault(&self, mode: ApplicationViewMode) -> ::windows::core::Result<ViewModePreferences>;
+}
+#[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IViewModePreferencesStatics {
+    const NAME: &'static str = "Windows.UI.ViewManagement.IViewModePreferencesStatics";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IViewModePreferencesStaticsVtbl {
+    pub const fn new<Impl: IViewModePreferencesStaticsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IViewModePreferencesStaticsVtbl {
+        unsafe extern "system" fn CreateDefault<Impl: IViewModePreferencesStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, mode: ApplicationViewMode, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).CreateDefault(mode) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IViewModePreferencesStatics>, base.5, CreateDefault::<Impl, OFFSET>)
+    }
 }

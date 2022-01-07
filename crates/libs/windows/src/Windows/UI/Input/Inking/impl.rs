@@ -12,6 +12,91 @@ pub trait IInkDrawingAttributesImpl: Sized {
     fn SetFitToCurve(&self, value: bool) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IInkDrawingAttributes {
+    const NAME: &'static str = "Windows.UI.Input.Inking.IInkDrawingAttributes";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IInkDrawingAttributesVtbl {
+    pub const fn new<Impl: IInkDrawingAttributesImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IInkDrawingAttributesVtbl {
+        unsafe extern "system" fn Color<Impl: IInkDrawingAttributesImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Color) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).Color() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetColor<Impl: IInkDrawingAttributesImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: super::super::Color) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetColor(&*(&value as *const <super::super::Color as ::windows::core::Abi>::Abi as *const <super::super::Color as ::windows::core::DefaultType>::DefaultType)).into()
+        }
+        unsafe extern "system" fn PenTip<Impl: IInkDrawingAttributesImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut PenTipShape) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).PenTip() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetPenTip<Impl: IInkDrawingAttributesImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: PenTipShape) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetPenTip(value).into()
+        }
+        unsafe extern "system" fn Size<Impl: IInkDrawingAttributesImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::Size) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).Size() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetSize<Impl: IInkDrawingAttributesImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: super::super::super::Foundation::Size) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetSize(&*(&value as *const <super::super::super::Foundation::Size as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::Size as ::windows::core::DefaultType>::DefaultType)).into()
+        }
+        unsafe extern "system" fn IgnorePressure<Impl: IInkDrawingAttributesImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).IgnorePressure() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetIgnorePressure<Impl: IInkDrawingAttributesImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetIgnorePressure(value).into()
+        }
+        unsafe extern "system" fn FitToCurve<Impl: IInkDrawingAttributesImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).FitToCurve() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetFitToCurve<Impl: IInkDrawingAttributesImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetFitToCurve(value).into()
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IInkDrawingAttributes>, base.5, Color::<Impl, OFFSET>, SetColor::<Impl, OFFSET>, PenTip::<Impl, OFFSET>, SetPenTip::<Impl, OFFSET>, Size::<Impl, OFFSET>, SetSize::<Impl, OFFSET>, IgnorePressure::<Impl, OFFSET>, SetIgnorePressure::<Impl, OFFSET>, FitToCurve::<Impl, OFFSET>, SetFitToCurve::<Impl, OFFSET>)
+    }
+}
+#[cfg(feature = "implement_exclusive")]
 pub trait IInkDrawingAttributes2Impl: Sized {
     fn PenTipTransform(&self) -> ::windows::core::Result<super::super::super::Foundation::Numerics::Matrix3x2>;
     fn SetPenTipTransform(&self, value: &super::super::super::Foundation::Numerics::Matrix3x2) -> ::windows::core::Result<()>;
@@ -19,9 +104,81 @@ pub trait IInkDrawingAttributes2Impl: Sized {
     fn SetDrawAsHighlighter(&self, value: bool) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IInkDrawingAttributes2 {
+    const NAME: &'static str = "Windows.UI.Input.Inking.IInkDrawingAttributes2";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IInkDrawingAttributes2Vtbl {
+    pub const fn new<Impl: IInkDrawingAttributes2Impl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IInkDrawingAttributes2Vtbl {
+        unsafe extern "system" fn PenTipTransform<Impl: IInkDrawingAttributes2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::Numerics::Matrix3x2) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).PenTipTransform() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetPenTipTransform<Impl: IInkDrawingAttributes2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: super::super::super::Foundation::Numerics::Matrix3x2) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetPenTipTransform(&*(&value as *const <super::super::super::Foundation::Numerics::Matrix3x2 as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::Numerics::Matrix3x2 as ::windows::core::DefaultType>::DefaultType)).into()
+        }
+        unsafe extern "system" fn DrawAsHighlighter<Impl: IInkDrawingAttributes2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).DrawAsHighlighter() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetDrawAsHighlighter<Impl: IInkDrawingAttributes2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetDrawAsHighlighter(value).into()
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IInkDrawingAttributes2>, base.5, PenTipTransform::<Impl, OFFSET>, SetPenTipTransform::<Impl, OFFSET>, DrawAsHighlighter::<Impl, OFFSET>, SetDrawAsHighlighter::<Impl, OFFSET>)
+    }
+}
+#[cfg(feature = "implement_exclusive")]
 pub trait IInkDrawingAttributes3Impl: Sized {
     fn Kind(&self) -> ::windows::core::Result<InkDrawingAttributesKind>;
     fn PencilProperties(&self) -> ::windows::core::Result<InkDrawingAttributesPencilProperties>;
+}
+#[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IInkDrawingAttributes3 {
+    const NAME: &'static str = "Windows.UI.Input.Inking.IInkDrawingAttributes3";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IInkDrawingAttributes3Vtbl {
+    pub const fn new<Impl: IInkDrawingAttributes3Impl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IInkDrawingAttributes3Vtbl {
+        unsafe extern "system" fn Kind<Impl: IInkDrawingAttributes3Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut InkDrawingAttributesKind) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).Kind() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn PencilProperties<Impl: IInkDrawingAttributes3Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).PencilProperties() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IInkDrawingAttributes3>, base.5, Kind::<Impl, OFFSET>, PencilProperties::<Impl, OFFSET>)
+    }
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IInkDrawingAttributes4Impl: Sized {
@@ -29,8 +186,54 @@ pub trait IInkDrawingAttributes4Impl: Sized {
     fn SetIgnoreTilt(&self, value: bool) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IInkDrawingAttributes4 {
+    const NAME: &'static str = "Windows.UI.Input.Inking.IInkDrawingAttributes4";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IInkDrawingAttributes4Vtbl {
+    pub const fn new<Impl: IInkDrawingAttributes4Impl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IInkDrawingAttributes4Vtbl {
+        unsafe extern "system" fn IgnoreTilt<Impl: IInkDrawingAttributes4Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).IgnoreTilt() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetIgnoreTilt<Impl: IInkDrawingAttributes4Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetIgnoreTilt(value).into()
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IInkDrawingAttributes4>, base.5, IgnoreTilt::<Impl, OFFSET>, SetIgnoreTilt::<Impl, OFFSET>)
+    }
+}
+#[cfg(feature = "implement_exclusive")]
 pub trait IInkDrawingAttributes5Impl: Sized {
     fn ModelerAttributes(&self) -> ::windows::core::Result<InkModelerAttributes>;
+}
+#[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IInkDrawingAttributes5 {
+    const NAME: &'static str = "Windows.UI.Input.Inking.IInkDrawingAttributes5";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IInkDrawingAttributes5Vtbl {
+    pub const fn new<Impl: IInkDrawingAttributes5Impl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IInkDrawingAttributes5Vtbl {
+        unsafe extern "system" fn ModelerAttributes<Impl: IInkDrawingAttributes5Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).ModelerAttributes() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IInkDrawingAttributes5>, base.5, ModelerAttributes::<Impl, OFFSET>)
+    }
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IInkDrawingAttributesPencilPropertiesImpl: Sized {
@@ -38,8 +241,54 @@ pub trait IInkDrawingAttributesPencilPropertiesImpl: Sized {
     fn SetOpacity(&self, value: f64) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IInkDrawingAttributesPencilProperties {
+    const NAME: &'static str = "Windows.UI.Input.Inking.IInkDrawingAttributesPencilProperties";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IInkDrawingAttributesPencilPropertiesVtbl {
+    pub const fn new<Impl: IInkDrawingAttributesPencilPropertiesImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IInkDrawingAttributesPencilPropertiesVtbl {
+        unsafe extern "system" fn Opacity<Impl: IInkDrawingAttributesPencilPropertiesImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).Opacity() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetOpacity<Impl: IInkDrawingAttributesPencilPropertiesImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetOpacity(value).into()
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IInkDrawingAttributesPencilProperties>, base.5, Opacity::<Impl, OFFSET>, SetOpacity::<Impl, OFFSET>)
+    }
+}
+#[cfg(feature = "implement_exclusive")]
 pub trait IInkDrawingAttributesStaticsImpl: Sized {
     fn CreateForPencil(&self) -> ::windows::core::Result<InkDrawingAttributes>;
+}
+#[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IInkDrawingAttributesStatics {
+    const NAME: &'static str = "Windows.UI.Input.Inking.IInkDrawingAttributesStatics";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IInkDrawingAttributesStaticsVtbl {
+    pub const fn new<Impl: IInkDrawingAttributesStaticsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IInkDrawingAttributesStaticsVtbl {
+        unsafe extern "system" fn CreateForPencil<Impl: IInkDrawingAttributesStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).CreateForPencil() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IInkDrawingAttributesStatics>, base.5, CreateForPencil::<Impl, OFFSET>)
+    }
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IInkInputConfigurationImpl: Sized {
@@ -49,9 +298,74 @@ pub trait IInkInputConfigurationImpl: Sized {
     fn SetIsEraserInputEnabled(&self, value: bool) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IInkInputConfiguration {
+    const NAME: &'static str = "Windows.UI.Input.Inking.IInkInputConfiguration";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IInkInputConfigurationVtbl {
+    pub const fn new<Impl: IInkInputConfigurationImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IInkInputConfigurationVtbl {
+        unsafe extern "system" fn IsPrimaryBarrelButtonInputEnabled<Impl: IInkInputConfigurationImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).IsPrimaryBarrelButtonInputEnabled() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetIsPrimaryBarrelButtonInputEnabled<Impl: IInkInputConfigurationImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetIsPrimaryBarrelButtonInputEnabled(value).into()
+        }
+        unsafe extern "system" fn IsEraserInputEnabled<Impl: IInkInputConfigurationImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).IsEraserInputEnabled() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetIsEraserInputEnabled<Impl: IInkInputConfigurationImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetIsEraserInputEnabled(value).into()
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IInkInputConfiguration>, base.5, IsPrimaryBarrelButtonInputEnabled::<Impl, OFFSET>, SetIsPrimaryBarrelButtonInputEnabled::<Impl, OFFSET>, IsEraserInputEnabled::<Impl, OFFSET>, SetIsEraserInputEnabled::<Impl, OFFSET>)
+    }
+}
+#[cfg(feature = "implement_exclusive")]
 pub trait IInkInputConfiguration2Impl: Sized {
     fn IsPenHapticFeedbackEnabled(&self) -> ::windows::core::Result<bool>;
     fn SetIsPenHapticFeedbackEnabled(&self, value: bool) -> ::windows::core::Result<()>;
+}
+#[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IInkInputConfiguration2 {
+    const NAME: &'static str = "Windows.UI.Input.Inking.IInkInputConfiguration2";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IInkInputConfiguration2Vtbl {
+    pub const fn new<Impl: IInkInputConfiguration2Impl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IInkInputConfiguration2Vtbl {
+        unsafe extern "system" fn IsPenHapticFeedbackEnabled<Impl: IInkInputConfiguration2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).IsPenHapticFeedbackEnabled() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetIsPenHapticFeedbackEnabled<Impl: IInkInputConfiguration2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetIsPenHapticFeedbackEnabled(value).into()
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IInkInputConfiguration2>, base.5, IsPenHapticFeedbackEnabled::<Impl, OFFSET>, SetIsPenHapticFeedbackEnabled::<Impl, OFFSET>)
+    }
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IInkInputProcessingConfigurationImpl: Sized {
@@ -59,6 +373,46 @@ pub trait IInkInputProcessingConfigurationImpl: Sized {
     fn SetMode(&self, value: InkInputProcessingMode) -> ::windows::core::Result<()>;
     fn RightDragAction(&self) -> ::windows::core::Result<InkInputRightDragAction>;
     fn SetRightDragAction(&self, value: InkInputRightDragAction) -> ::windows::core::Result<()>;
+}
+#[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IInkInputProcessingConfiguration {
+    const NAME: &'static str = "Windows.UI.Input.Inking.IInkInputProcessingConfiguration";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IInkInputProcessingConfigurationVtbl {
+    pub const fn new<Impl: IInkInputProcessingConfigurationImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IInkInputProcessingConfigurationVtbl {
+        unsafe extern "system" fn Mode<Impl: IInkInputProcessingConfigurationImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut InkInputProcessingMode) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).Mode() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetMode<Impl: IInkInputProcessingConfigurationImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: InkInputProcessingMode) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetMode(value).into()
+        }
+        unsafe extern "system" fn RightDragAction<Impl: IInkInputProcessingConfigurationImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut InkInputRightDragAction) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).RightDragAction() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetRightDragAction<Impl: IInkInputProcessingConfigurationImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: InkInputRightDragAction) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetRightDragAction(value).into()
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IInkInputProcessingConfiguration>, base.5, Mode::<Impl, OFFSET>, SetMode::<Impl, OFFSET>, RightDragAction::<Impl, OFFSET>, SetRightDragAction::<Impl, OFFSET>)
+    }
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IInkManagerImpl: Sized + IInkRecognizerContainerImpl + IInkStrokeContainerImpl {
@@ -71,6 +425,72 @@ pub trait IInkManagerImpl: Sized + IInkRecognizerContainerImpl + IInkStrokeConta
     fn RecognizeAsync2(&self, recognitiontarget: InkRecognitionTarget) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<InkRecognitionResult>>>;
 }
 #[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IInkManager {
+    const NAME: &'static str = "Windows.UI.Input.Inking.IInkManager";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IInkManagerVtbl {
+    pub const fn new<Impl: IInkManagerImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IInkManagerVtbl {
+        unsafe extern "system" fn Mode<Impl: IInkManagerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut InkManipulationMode) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).Mode() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetMode<Impl: IInkManagerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: InkManipulationMode) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetMode(value).into()
+        }
+        unsafe extern "system" fn ProcessPointerDown<Impl: IInkManagerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, pointerpoint: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).ProcessPointerDown(&*(&pointerpoint as *const <super::PointerPoint as ::windows::core::Abi>::Abi as *const <super::PointerPoint as ::windows::core::DefaultType>::DefaultType)).into()
+        }
+        unsafe extern "system" fn ProcessPointerUpdate<Impl: IInkManagerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, pointerpoint: ::windows::core::RawPtr, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).ProcessPointerUpdate(&*(&pointerpoint as *const <super::PointerPoint as ::windows::core::Abi>::Abi as *const <super::PointerPoint as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn ProcessPointerUp<Impl: IInkManagerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, pointerpoint: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::Rect) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).ProcessPointerUp(&*(&pointerpoint as *const <super::PointerPoint as ::windows::core::Abi>::Abi as *const <super::PointerPoint as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetDefaultDrawingAttributes<Impl: IInkManagerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, drawingattributes: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetDefaultDrawingAttributes(&*(&drawingattributes as *const <InkDrawingAttributes as ::windows::core::Abi>::Abi as *const <InkDrawingAttributes as ::windows::core::DefaultType>::DefaultType)).into()
+        }
+        unsafe extern "system" fn RecognizeAsync2<Impl: IInkManagerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, recognitiontarget: InkRecognitionTarget, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).RecognizeAsync2(recognitiontarget) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IInkManager>, base.5, Mode::<Impl, OFFSET>, SetMode::<Impl, OFFSET>, ProcessPointerDown::<Impl, OFFSET>, ProcessPointerUpdate::<Impl, OFFSET>, ProcessPointerUp::<Impl, OFFSET>, SetDefaultDrawingAttributes::<Impl, OFFSET>, RecognizeAsync2::<Impl, OFFSET>)
+    }
+}
+#[cfg(feature = "implement_exclusive")]
 pub trait IInkModelerAttributesImpl: Sized {
     fn PredictionTime(&self) -> ::windows::core::Result<super::super::super::Foundation::TimeSpan>;
     fn SetPredictionTime(&self, value: &super::super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
@@ -78,9 +498,74 @@ pub trait IInkModelerAttributesImpl: Sized {
     fn SetScalingFactor(&self, value: f32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IInkModelerAttributes {
+    const NAME: &'static str = "Windows.UI.Input.Inking.IInkModelerAttributes";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IInkModelerAttributesVtbl {
+    pub const fn new<Impl: IInkModelerAttributesImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IInkModelerAttributesVtbl {
+        unsafe extern "system" fn PredictionTime<Impl: IInkModelerAttributesImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).PredictionTime() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetPredictionTime<Impl: IInkModelerAttributesImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: super::super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetPredictionTime(&*(&value as *const <super::super::super::Foundation::TimeSpan as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::TimeSpan as ::windows::core::DefaultType>::DefaultType)).into()
+        }
+        unsafe extern "system" fn ScalingFactor<Impl: IInkModelerAttributesImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).ScalingFactor() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetScalingFactor<Impl: IInkModelerAttributesImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetScalingFactor(value).into()
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IInkModelerAttributes>, base.5, PredictionTime::<Impl, OFFSET>, SetPredictionTime::<Impl, OFFSET>, ScalingFactor::<Impl, OFFSET>, SetScalingFactor::<Impl, OFFSET>)
+    }
+}
+#[cfg(feature = "implement_exclusive")]
 pub trait IInkModelerAttributes2Impl: Sized {
     fn UseVelocityBasedPressure(&self) -> ::windows::core::Result<bool>;
     fn SetUseVelocityBasedPressure(&self, value: bool) -> ::windows::core::Result<()>;
+}
+#[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IInkModelerAttributes2 {
+    const NAME: &'static str = "Windows.UI.Input.Inking.IInkModelerAttributes2";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IInkModelerAttributes2Vtbl {
+    pub const fn new<Impl: IInkModelerAttributes2Impl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IInkModelerAttributes2Vtbl {
+        unsafe extern "system" fn UseVelocityBasedPressure<Impl: IInkModelerAttributes2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).UseVelocityBasedPressure() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetUseVelocityBasedPressure<Impl: IInkModelerAttributes2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetUseVelocityBasedPressure(value).into()
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IInkModelerAttributes2>, base.5, UseVelocityBasedPressure::<Impl, OFFSET>, SetUseVelocityBasedPressure::<Impl, OFFSET>)
+    }
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IInkPointImpl: Sized {
@@ -88,17 +573,132 @@ pub trait IInkPointImpl: Sized {
     fn Pressure(&self) -> ::windows::core::Result<f32>;
 }
 #[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IInkPoint {
+    const NAME: &'static str = "Windows.UI.Input.Inking.IInkPoint";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IInkPointVtbl {
+    pub const fn new<Impl: IInkPointImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IInkPointVtbl {
+        unsafe extern "system" fn Position<Impl: IInkPointImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::Point) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).Position() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn Pressure<Impl: IInkPointImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).Pressure() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IInkPoint>, base.5, Position::<Impl, OFFSET>, Pressure::<Impl, OFFSET>)
+    }
+}
+#[cfg(feature = "implement_exclusive")]
 pub trait IInkPoint2Impl: Sized {
     fn TiltX(&self) -> ::windows::core::Result<f32>;
     fn TiltY(&self) -> ::windows::core::Result<f32>;
     fn Timestamp(&self) -> ::windows::core::Result<u64>;
 }
+#[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IInkPoint2 {
+    const NAME: &'static str = "Windows.UI.Input.Inking.IInkPoint2";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IInkPoint2Vtbl {
+    pub const fn new<Impl: IInkPoint2Impl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IInkPoint2Vtbl {
+        unsafe extern "system" fn TiltX<Impl: IInkPoint2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).TiltX() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn TiltY<Impl: IInkPoint2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).TiltY() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn Timestamp<Impl: IInkPoint2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).Timestamp() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IInkPoint2>, base.5, TiltX::<Impl, OFFSET>, TiltY::<Impl, OFFSET>, Timestamp::<Impl, OFFSET>)
+    }
+}
 pub trait IInkPointFactoryImpl: Sized {
     fn CreateInkPoint(&self, position: &super::super::super::Foundation::Point, pressure: f32) -> ::windows::core::Result<InkPoint>;
+}
+impl ::windows::core::RuntimeName for IInkPointFactory {
+    const NAME: &'static str = "Windows.UI.Input.Inking.IInkPointFactory";
+}
+impl IInkPointFactoryVtbl {
+    pub const fn new<Impl: IInkPointFactoryImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IInkPointFactoryVtbl {
+        unsafe extern "system" fn CreateInkPoint<Impl: IInkPointFactoryImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, position: super::super::super::Foundation::Point, pressure: f32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).CreateInkPoint(&*(&position as *const <super::super::super::Foundation::Point as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::Point as ::windows::core::DefaultType>::DefaultType), pressure) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IInkPointFactory>, base.5, CreateInkPoint::<Impl, OFFSET>)
+    }
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IInkPointFactory2Impl: Sized {
     fn CreateInkPointWithTiltAndTimestamp(&self, position: &super::super::super::Foundation::Point, pressure: f32, tiltx: f32, tilty: f32, timestamp: u64) -> ::windows::core::Result<InkPoint>;
+}
+#[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IInkPointFactory2 {
+    const NAME: &'static str = "Windows.UI.Input.Inking.IInkPointFactory2";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IInkPointFactory2Vtbl {
+    pub const fn new<Impl: IInkPointFactory2Impl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IInkPointFactory2Vtbl {
+        unsafe extern "system" fn CreateInkPointWithTiltAndTimestamp<Impl: IInkPointFactory2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, position: super::super::super::Foundation::Point, pressure: f32, tiltx: f32, tilty: f32, timestamp: u64, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).CreateInkPointWithTiltAndTimestamp(&*(&position as *const <super::super::super::Foundation::Point as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::Point as ::windows::core::DefaultType>::DefaultType), pressure, tiltx, tilty, timestamp) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IInkPointFactory2>, base.5, CreateInkPointWithTiltAndTimestamp::<Impl, OFFSET>)
+    }
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IInkPresenterImpl: Sized {
@@ -121,13 +721,231 @@ pub trait IInkPresenterImpl: Sized {
     fn RemoveStrokesErased(&self, cookie: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IInkPresenter {
+    const NAME: &'static str = "Windows.UI.Input.Inking.IInkPresenter";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IInkPresenterVtbl {
+    pub const fn new<Impl: IInkPresenterImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IInkPresenterVtbl {
+        unsafe extern "system" fn IsInputEnabled<Impl: IInkPresenterImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).IsInputEnabled() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetIsInputEnabled<Impl: IInkPresenterImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetIsInputEnabled(value).into()
+        }
+        unsafe extern "system" fn InputDeviceTypes<Impl: IInkPresenterImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Core::CoreInputDeviceTypes) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).InputDeviceTypes() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetInputDeviceTypes<Impl: IInkPresenterImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: super::super::Core::CoreInputDeviceTypes) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetInputDeviceTypes(value).into()
+        }
+        unsafe extern "system" fn UnprocessedInput<Impl: IInkPresenterImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).UnprocessedInput() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn StrokeInput<Impl: IInkPresenterImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).StrokeInput() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn InputProcessingConfiguration<Impl: IInkPresenterImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).InputProcessingConfiguration() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn StrokeContainer<Impl: IInkPresenterImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).StrokeContainer() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetStrokeContainer<Impl: IInkPresenterImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetStrokeContainer(&*(&value as *const <InkStrokeContainer as ::windows::core::Abi>::Abi as *const <InkStrokeContainer as ::windows::core::DefaultType>::DefaultType)).into()
+        }
+        unsafe extern "system" fn CopyDefaultDrawingAttributes<Impl: IInkPresenterImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).CopyDefaultDrawingAttributes() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn UpdateDefaultDrawingAttributes<Impl: IInkPresenterImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).UpdateDefaultDrawingAttributes(&*(&value as *const <InkDrawingAttributes as ::windows::core::Abi>::Abi as *const <InkDrawingAttributes as ::windows::core::DefaultType>::DefaultType)).into()
+        }
+        unsafe extern "system" fn ActivateCustomDrying<Impl: IInkPresenterImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).ActivateCustomDrying() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetPredefinedConfiguration<Impl: IInkPresenterImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: InkPresenterPredefinedConfiguration) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetPredefinedConfiguration(value).into()
+        }
+        unsafe extern "system" fn StrokesCollected<Impl: IInkPresenterImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).StrokesCollected(&*(&handler as *const <super::super::super::Foundation::TypedEventHandler<InkPresenter, InkStrokesCollectedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::TypedEventHandler<InkPresenter, InkStrokesCollectedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn RemoveStrokesCollected<Impl: IInkPresenterImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, cookie: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).RemoveStrokesCollected(&*(&cookie as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
+        }
+        unsafe extern "system" fn StrokesErased<Impl: IInkPresenterImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).StrokesErased(&*(&handler as *const <super::super::super::Foundation::TypedEventHandler<InkPresenter, InkStrokesErasedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::TypedEventHandler<InkPresenter, InkStrokesErasedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn RemoveStrokesErased<Impl: IInkPresenterImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, cookie: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).RemoveStrokesErased(&*(&cookie as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
+        }
+        Self(
+            base.0,
+            base.1,
+            base.2,
+            base.3,
+            ::windows::core::GetRuntimeClassName::<IInkPresenter>,
+            base.5,
+            IsInputEnabled::<Impl, OFFSET>,
+            SetIsInputEnabled::<Impl, OFFSET>,
+            InputDeviceTypes::<Impl, OFFSET>,
+            SetInputDeviceTypes::<Impl, OFFSET>,
+            UnprocessedInput::<Impl, OFFSET>,
+            StrokeInput::<Impl, OFFSET>,
+            InputProcessingConfiguration::<Impl, OFFSET>,
+            StrokeContainer::<Impl, OFFSET>,
+            SetStrokeContainer::<Impl, OFFSET>,
+            CopyDefaultDrawingAttributes::<Impl, OFFSET>,
+            UpdateDefaultDrawingAttributes::<Impl, OFFSET>,
+            ActivateCustomDrying::<Impl, OFFSET>,
+            SetPredefinedConfiguration::<Impl, OFFSET>,
+            StrokesCollected::<Impl, OFFSET>,
+            RemoveStrokesCollected::<Impl, OFFSET>,
+            StrokesErased::<Impl, OFFSET>,
+            RemoveStrokesErased::<Impl, OFFSET>,
+        )
+    }
+}
+#[cfg(feature = "implement_exclusive")]
 pub trait IInkPresenter2Impl: Sized + IInkPresenterImpl {
     fn HighContrastAdjustment(&self) -> ::windows::core::Result<InkHighContrastAdjustment>;
     fn SetHighContrastAdjustment(&self, value: InkHighContrastAdjustment) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IInkPresenter2 {
+    const NAME: &'static str = "Windows.UI.Input.Inking.IInkPresenter2";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IInkPresenter2Vtbl {
+    pub const fn new<Impl: IInkPresenter2Impl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IInkPresenter2Vtbl {
+        unsafe extern "system" fn HighContrastAdjustment<Impl: IInkPresenter2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut InkHighContrastAdjustment) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).HighContrastAdjustment() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetHighContrastAdjustment<Impl: IInkPresenter2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: InkHighContrastAdjustment) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetHighContrastAdjustment(value).into()
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IInkPresenter2>, base.5, HighContrastAdjustment::<Impl, OFFSET>, SetHighContrastAdjustment::<Impl, OFFSET>)
+    }
+}
+#[cfg(feature = "implement_exclusive")]
 pub trait IInkPresenter3Impl: Sized {
     fn InputConfiguration(&self) -> ::windows::core::Result<InkInputConfiguration>;
+}
+#[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IInkPresenter3 {
+    const NAME: &'static str = "Windows.UI.Input.Inking.IInkPresenter3";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IInkPresenter3Vtbl {
+    pub const fn new<Impl: IInkPresenter3Impl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IInkPresenter3Vtbl {
+        unsafe extern "system" fn InputConfiguration<Impl: IInkPresenter3Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).InputConfiguration() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IInkPresenter3>, base.5, InputConfiguration::<Impl, OFFSET>)
+    }
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IInkPresenterProtractorImpl: Sized + IInkPresenterStencilImpl {
@@ -147,8 +965,165 @@ pub trait IInkPresenterProtractorImpl: Sized + IInkPresenterStencilImpl {
     fn SetAccentColor(&self, value: &super::super::Color) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IInkPresenterProtractor {
+    const NAME: &'static str = "Windows.UI.Input.Inking.IInkPresenterProtractor";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IInkPresenterProtractorVtbl {
+    pub const fn new<Impl: IInkPresenterProtractorImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IInkPresenterProtractorVtbl {
+        unsafe extern "system" fn AreTickMarksVisible<Impl: IInkPresenterProtractorImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).AreTickMarksVisible() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetAreTickMarksVisible<Impl: IInkPresenterProtractorImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetAreTickMarksVisible(value).into()
+        }
+        unsafe extern "system" fn AreRaysVisible<Impl: IInkPresenterProtractorImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).AreRaysVisible() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetAreRaysVisible<Impl: IInkPresenterProtractorImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetAreRaysVisible(value).into()
+        }
+        unsafe extern "system" fn IsCenterMarkerVisible<Impl: IInkPresenterProtractorImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).IsCenterMarkerVisible() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetIsCenterMarkerVisible<Impl: IInkPresenterProtractorImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetIsCenterMarkerVisible(value).into()
+        }
+        unsafe extern "system" fn IsAngleReadoutVisible<Impl: IInkPresenterProtractorImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).IsAngleReadoutVisible() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetIsAngleReadoutVisible<Impl: IInkPresenterProtractorImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetIsAngleReadoutVisible(value).into()
+        }
+        unsafe extern "system" fn IsResizable<Impl: IInkPresenterProtractorImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).IsResizable() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetIsResizable<Impl: IInkPresenterProtractorImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetIsResizable(value).into()
+        }
+        unsafe extern "system" fn Radius<Impl: IInkPresenterProtractorImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).Radius() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetRadius<Impl: IInkPresenterProtractorImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetRadius(value).into()
+        }
+        unsafe extern "system" fn AccentColor<Impl: IInkPresenterProtractorImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Color) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).AccentColor() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetAccentColor<Impl: IInkPresenterProtractorImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: super::super::Color) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetAccentColor(&*(&value as *const <super::super::Color as ::windows::core::Abi>::Abi as *const <super::super::Color as ::windows::core::DefaultType>::DefaultType)).into()
+        }
+        Self(
+            base.0,
+            base.1,
+            base.2,
+            base.3,
+            ::windows::core::GetRuntimeClassName::<IInkPresenterProtractor>,
+            base.5,
+            AreTickMarksVisible::<Impl, OFFSET>,
+            SetAreTickMarksVisible::<Impl, OFFSET>,
+            AreRaysVisible::<Impl, OFFSET>,
+            SetAreRaysVisible::<Impl, OFFSET>,
+            IsCenterMarkerVisible::<Impl, OFFSET>,
+            SetIsCenterMarkerVisible::<Impl, OFFSET>,
+            IsAngleReadoutVisible::<Impl, OFFSET>,
+            SetIsAngleReadoutVisible::<Impl, OFFSET>,
+            IsResizable::<Impl, OFFSET>,
+            SetIsResizable::<Impl, OFFSET>,
+            Radius::<Impl, OFFSET>,
+            SetRadius::<Impl, OFFSET>,
+            AccentColor::<Impl, OFFSET>,
+            SetAccentColor::<Impl, OFFSET>,
+        )
+    }
+}
+#[cfg(feature = "implement_exclusive")]
 pub trait IInkPresenterProtractorFactoryImpl: Sized {
     fn Create(&self, inkpresenter: &::core::option::Option<InkPresenter>) -> ::windows::core::Result<InkPresenterProtractor>;
+}
+#[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IInkPresenterProtractorFactory {
+    const NAME: &'static str = "Windows.UI.Input.Inking.IInkPresenterProtractorFactory";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IInkPresenterProtractorFactoryVtbl {
+    pub const fn new<Impl: IInkPresenterProtractorFactoryImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IInkPresenterProtractorFactoryVtbl {
+        unsafe extern "system" fn Create<Impl: IInkPresenterProtractorFactoryImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, inkpresenter: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).Create(&*(&inkpresenter as *const <InkPresenter as ::windows::core::Abi>::Abi as *const <InkPresenter as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IInkPresenterProtractorFactory>, base.5, Create::<Impl, OFFSET>)
+    }
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IInkPresenterRulerImpl: Sized + IInkPresenterStencilImpl {
@@ -158,14 +1133,113 @@ pub trait IInkPresenterRulerImpl: Sized + IInkPresenterStencilImpl {
     fn SetWidth(&self, value: f64) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IInkPresenterRuler {
+    const NAME: &'static str = "Windows.UI.Input.Inking.IInkPresenterRuler";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IInkPresenterRulerVtbl {
+    pub const fn new<Impl: IInkPresenterRulerImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IInkPresenterRulerVtbl {
+        unsafe extern "system" fn Length<Impl: IInkPresenterRulerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).Length() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetLength<Impl: IInkPresenterRulerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetLength(value).into()
+        }
+        unsafe extern "system" fn Width<Impl: IInkPresenterRulerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).Width() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetWidth<Impl: IInkPresenterRulerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetWidth(value).into()
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IInkPresenterRuler>, base.5, Length::<Impl, OFFSET>, SetLength::<Impl, OFFSET>, Width::<Impl, OFFSET>, SetWidth::<Impl, OFFSET>)
+    }
+}
+#[cfg(feature = "implement_exclusive")]
 pub trait IInkPresenterRuler2Impl: Sized {
     fn AreTickMarksVisible(&self) -> ::windows::core::Result<bool>;
     fn SetAreTickMarksVisible(&self, value: bool) -> ::windows::core::Result<()>;
     fn IsCompassVisible(&self) -> ::windows::core::Result<bool>;
     fn SetIsCompassVisible(&self, value: bool) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IInkPresenterRuler2 {
+    const NAME: &'static str = "Windows.UI.Input.Inking.IInkPresenterRuler2";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IInkPresenterRuler2Vtbl {
+    pub const fn new<Impl: IInkPresenterRuler2Impl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IInkPresenterRuler2Vtbl {
+        unsafe extern "system" fn AreTickMarksVisible<Impl: IInkPresenterRuler2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).AreTickMarksVisible() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetAreTickMarksVisible<Impl: IInkPresenterRuler2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetAreTickMarksVisible(value).into()
+        }
+        unsafe extern "system" fn IsCompassVisible<Impl: IInkPresenterRuler2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).IsCompassVisible() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetIsCompassVisible<Impl: IInkPresenterRuler2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetIsCompassVisible(value).into()
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IInkPresenterRuler2>, base.5, AreTickMarksVisible::<Impl, OFFSET>, SetAreTickMarksVisible::<Impl, OFFSET>, IsCompassVisible::<Impl, OFFSET>, SetIsCompassVisible::<Impl, OFFSET>)
+    }
+}
 pub trait IInkPresenterRulerFactoryImpl: Sized {
     fn Create(&self, inkpresenter: &::core::option::Option<InkPresenter>) -> ::windows::core::Result<InkPresenterRuler>;
+}
+impl ::windows::core::RuntimeName for IInkPresenterRulerFactory {
+    const NAME: &'static str = "Windows.UI.Input.Inking.IInkPresenterRulerFactory";
+}
+impl IInkPresenterRulerFactoryVtbl {
+    pub const fn new<Impl: IInkPresenterRulerFactoryImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IInkPresenterRulerFactoryVtbl {
+        unsafe extern "system" fn Create<Impl: IInkPresenterRulerFactoryImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, inkpresenter: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).Create(&*(&inkpresenter as *const <InkPresenter as ::windows::core::Abi>::Abi as *const <InkPresenter as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IInkPresenterRulerFactory>, base.5, Create::<Impl, OFFSET>)
+    }
 }
 pub trait IInkPresenterStencilImpl: Sized {
     fn Kind(&self) -> ::windows::core::Result<InkPresenterStencilKind>;
@@ -178,6 +1252,85 @@ pub trait IInkPresenterStencilImpl: Sized {
     fn Transform(&self) -> ::windows::core::Result<super::super::super::Foundation::Numerics::Matrix3x2>;
     fn SetTransform(&self, value: &super::super::super::Foundation::Numerics::Matrix3x2) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IInkPresenterStencil {
+    const NAME: &'static str = "Windows.UI.Input.Inking.IInkPresenterStencil";
+}
+impl IInkPresenterStencilVtbl {
+    pub const fn new<Impl: IInkPresenterStencilImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IInkPresenterStencilVtbl {
+        unsafe extern "system" fn Kind<Impl: IInkPresenterStencilImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut InkPresenterStencilKind) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).Kind() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn IsVisible<Impl: IInkPresenterStencilImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).IsVisible() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetIsVisible<Impl: IInkPresenterStencilImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetIsVisible(value).into()
+        }
+        unsafe extern "system" fn BackgroundColor<Impl: IInkPresenterStencilImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Color) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).BackgroundColor() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetBackgroundColor<Impl: IInkPresenterStencilImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: super::super::Color) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetBackgroundColor(&*(&value as *const <super::super::Color as ::windows::core::Abi>::Abi as *const <super::super::Color as ::windows::core::DefaultType>::DefaultType)).into()
+        }
+        unsafe extern "system" fn ForegroundColor<Impl: IInkPresenterStencilImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Color) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).ForegroundColor() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetForegroundColor<Impl: IInkPresenterStencilImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: super::super::Color) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetForegroundColor(&*(&value as *const <super::super::Color as ::windows::core::Abi>::Abi as *const <super::super::Color as ::windows::core::DefaultType>::DefaultType)).into()
+        }
+        unsafe extern "system" fn Transform<Impl: IInkPresenterStencilImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::Numerics::Matrix3x2) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).Transform() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetTransform<Impl: IInkPresenterStencilImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: super::super::super::Foundation::Numerics::Matrix3x2) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetTransform(&*(&value as *const <super::super::super::Foundation::Numerics::Matrix3x2 as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::Numerics::Matrix3x2 as ::windows::core::DefaultType>::DefaultType)).into()
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IInkPresenterStencil>, base.5, Kind::<Impl, OFFSET>, IsVisible::<Impl, OFFSET>, SetIsVisible::<Impl, OFFSET>, BackgroundColor::<Impl, OFFSET>, SetBackgroundColor::<Impl, OFFSET>, ForegroundColor::<Impl, OFFSET>, SetForegroundColor::<Impl, OFFSET>, Transform::<Impl, OFFSET>, SetTransform::<Impl, OFFSET>)
+    }
+}
 #[cfg(feature = "implement_exclusive")]
 pub trait IInkRecognitionResultImpl: Sized {
     fn BoundingRect(&self) -> ::windows::core::Result<super::super::super::Foundation::Rect>;
@@ -185,13 +1338,111 @@ pub trait IInkRecognitionResultImpl: Sized {
     fn GetStrokes(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<InkStroke>>;
 }
 #[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IInkRecognitionResult {
+    const NAME: &'static str = "Windows.UI.Input.Inking.IInkRecognitionResult";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IInkRecognitionResultVtbl {
+    pub const fn new<Impl: IInkRecognitionResultImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IInkRecognitionResultVtbl {
+        unsafe extern "system" fn BoundingRect<Impl: IInkRecognitionResultImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::Rect) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).BoundingRect() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn GetTextCandidates<Impl: IInkRecognitionResultImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).GetTextCandidates() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn GetStrokes<Impl: IInkRecognitionResultImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).GetStrokes() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IInkRecognitionResult>, base.5, BoundingRect::<Impl, OFFSET>, GetTextCandidates::<Impl, OFFSET>, GetStrokes::<Impl, OFFSET>)
+    }
+}
+#[cfg(feature = "implement_exclusive")]
 pub trait IInkRecognizerImpl: Sized {
     fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+}
+#[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IInkRecognizer {
+    const NAME: &'static str = "Windows.UI.Input.Inking.IInkRecognizer";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IInkRecognizerVtbl {
+    pub const fn new<Impl: IInkRecognizerImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IInkRecognizerVtbl {
+        unsafe extern "system" fn Name<Impl: IInkRecognizerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).Name() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IInkRecognizer>, base.5, Name::<Impl, OFFSET>)
+    }
 }
 pub trait IInkRecognizerContainerImpl: Sized {
     fn SetDefaultRecognizer(&self, recognizer: &::core::option::Option<InkRecognizer>) -> ::windows::core::Result<()>;
     fn RecognizeAsync(&self, strokecollection: &::core::option::Option<InkStrokeContainer>, recognitiontarget: InkRecognitionTarget) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<InkRecognitionResult>>>;
     fn GetRecognizers(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<InkRecognizer>>;
+}
+impl ::windows::core::RuntimeName for IInkRecognizerContainer {
+    const NAME: &'static str = "Windows.UI.Input.Inking.IInkRecognizerContainer";
+}
+impl IInkRecognizerContainerVtbl {
+    pub const fn new<Impl: IInkRecognizerContainerImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IInkRecognizerContainerVtbl {
+        unsafe extern "system" fn SetDefaultRecognizer<Impl: IInkRecognizerContainerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, recognizer: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetDefaultRecognizer(&*(&recognizer as *const <InkRecognizer as ::windows::core::Abi>::Abi as *const <InkRecognizer as ::windows::core::DefaultType>::DefaultType)).into()
+        }
+        unsafe extern "system" fn RecognizeAsync<Impl: IInkRecognizerContainerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, strokecollection: ::windows::core::RawPtr, recognitiontarget: InkRecognitionTarget, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).RecognizeAsync(&*(&strokecollection as *const <InkStrokeContainer as ::windows::core::Abi>::Abi as *const <InkStrokeContainer as ::windows::core::DefaultType>::DefaultType), recognitiontarget) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn GetRecognizers<Impl: IInkRecognizerContainerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).GetRecognizers() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IInkRecognizerContainer>, base.5, SetDefaultRecognizer::<Impl, OFFSET>, RecognizeAsync::<Impl, OFFSET>, GetRecognizers::<Impl, OFFSET>)
+    }
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IInkStrokeImpl: Sized {
@@ -205,10 +1456,130 @@ pub trait IInkStrokeImpl: Sized {
     fn Clone(&self) -> ::windows::core::Result<InkStroke>;
 }
 #[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IInkStroke {
+    const NAME: &'static str = "Windows.UI.Input.Inking.IInkStroke";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IInkStrokeVtbl {
+    pub const fn new<Impl: IInkStrokeImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IInkStrokeVtbl {
+        unsafe extern "system" fn DrawingAttributes<Impl: IInkStrokeImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).DrawingAttributes() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetDrawingAttributes<Impl: IInkStrokeImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetDrawingAttributes(&*(&value as *const <InkDrawingAttributes as ::windows::core::Abi>::Abi as *const <InkDrawingAttributes as ::windows::core::DefaultType>::DefaultType)).into()
+        }
+        unsafe extern "system" fn BoundingRect<Impl: IInkStrokeImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::Rect) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).BoundingRect() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn Selected<Impl: IInkStrokeImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).Selected() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetSelected<Impl: IInkStrokeImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetSelected(value).into()
+        }
+        unsafe extern "system" fn Recognized<Impl: IInkStrokeImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).Recognized() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn GetRenderingSegments<Impl: IInkStrokeImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).GetRenderingSegments() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn Clone<Impl: IInkStrokeImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).Clone() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IInkStroke>, base.5, DrawingAttributes::<Impl, OFFSET>, SetDrawingAttributes::<Impl, OFFSET>, BoundingRect::<Impl, OFFSET>, Selected::<Impl, OFFSET>, SetSelected::<Impl, OFFSET>, Recognized::<Impl, OFFSET>, GetRenderingSegments::<Impl, OFFSET>, Clone::<Impl, OFFSET>)
+    }
+}
+#[cfg(feature = "implement_exclusive")]
 pub trait IInkStroke2Impl: Sized {
     fn PointTransform(&self) -> ::windows::core::Result<super::super::super::Foundation::Numerics::Matrix3x2>;
     fn SetPointTransform(&self, value: &super::super::super::Foundation::Numerics::Matrix3x2) -> ::windows::core::Result<()>;
     fn GetInkPoints(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<InkPoint>>;
+}
+#[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IInkStroke2 {
+    const NAME: &'static str = "Windows.UI.Input.Inking.IInkStroke2";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IInkStroke2Vtbl {
+    pub const fn new<Impl: IInkStroke2Impl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IInkStroke2Vtbl {
+        unsafe extern "system" fn PointTransform<Impl: IInkStroke2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::Numerics::Matrix3x2) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).PointTransform() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetPointTransform<Impl: IInkStroke2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: super::super::super::Foundation::Numerics::Matrix3x2) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetPointTransform(&*(&value as *const <super::super::super::Foundation::Numerics::Matrix3x2 as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::Numerics::Matrix3x2 as ::windows::core::DefaultType>::DefaultType)).into()
+        }
+        unsafe extern "system" fn GetInkPoints<Impl: IInkStroke2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).GetInkPoints() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IInkStroke2>, base.5, PointTransform::<Impl, OFFSET>, SetPointTransform::<Impl, OFFSET>, GetInkPoints::<Impl, OFFSET>)
+    }
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IInkStroke3Impl: Sized {
@@ -219,8 +1590,80 @@ pub trait IInkStroke3Impl: Sized {
     fn SetStrokeDuration(&self, value: &::core::option::Option<super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IInkStroke3 {
+    const NAME: &'static str = "Windows.UI.Input.Inking.IInkStroke3";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IInkStroke3Vtbl {
+    pub const fn new<Impl: IInkStroke3Impl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IInkStroke3Vtbl {
+        unsafe extern "system" fn Id<Impl: IInkStroke3Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).Id() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn StrokeStartedTime<Impl: IInkStroke3Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).StrokeStartedTime() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetStrokeStartedTime<Impl: IInkStroke3Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetStrokeStartedTime(&*(&value as *const <super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime> as ::windows::core::DefaultType>::DefaultType)).into()
+        }
+        unsafe extern "system" fn StrokeDuration<Impl: IInkStroke3Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).StrokeDuration() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetStrokeDuration<Impl: IInkStroke3Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetStrokeDuration(&*(&value as *const <super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan> as ::windows::core::DefaultType>::DefaultType)).into()
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IInkStroke3>, base.5, Id::<Impl, OFFSET>, StrokeStartedTime::<Impl, OFFSET>, SetStrokeStartedTime::<Impl, OFFSET>, StrokeDuration::<Impl, OFFSET>, SetStrokeDuration::<Impl, OFFSET>)
+    }
+}
+#[cfg(feature = "implement_exclusive")]
 pub trait IInkStroke4Impl: Sized {
     fn PointerId(&self) -> ::windows::core::Result<u32>;
+}
+#[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IInkStroke4 {
+    const NAME: &'static str = "Windows.UI.Input.Inking.IInkStroke4";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IInkStroke4Vtbl {
+    pub const fn new<Impl: IInkStroke4Impl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IInkStroke4Vtbl {
+        unsafe extern "system" fn PointerId<Impl: IInkStroke4Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).PointerId() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IInkStroke4>, base.5, PointerId::<Impl, OFFSET>)
+    }
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IInkStrokeBuilderImpl: Sized {
@@ -231,12 +1674,110 @@ pub trait IInkStrokeBuilderImpl: Sized {
     fn SetDefaultDrawingAttributes(&self, drawingattributes: &::core::option::Option<InkDrawingAttributes>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IInkStrokeBuilder {
+    const NAME: &'static str = "Windows.UI.Input.Inking.IInkStrokeBuilder";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IInkStrokeBuilderVtbl {
+    pub const fn new<Impl: IInkStrokeBuilderImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IInkStrokeBuilderVtbl {
+        unsafe extern "system" fn BeginStroke<Impl: IInkStrokeBuilderImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, pointerpoint: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).BeginStroke(&*(&pointerpoint as *const <super::PointerPoint as ::windows::core::Abi>::Abi as *const <super::PointerPoint as ::windows::core::DefaultType>::DefaultType)).into()
+        }
+        unsafe extern "system" fn AppendToStroke<Impl: IInkStrokeBuilderImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, pointerpoint: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).AppendToStroke(&*(&pointerpoint as *const <super::PointerPoint as ::windows::core::Abi>::Abi as *const <super::PointerPoint as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn EndStroke<Impl: IInkStrokeBuilderImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, pointerpoint: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).EndStroke(&*(&pointerpoint as *const <super::PointerPoint as ::windows::core::Abi>::Abi as *const <super::PointerPoint as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn CreateStroke<Impl: IInkStrokeBuilderImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, points: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).CreateStroke(&*(&points as *const <super::super::super::Foundation::Collections::IIterable<super::super::super::Foundation::Point> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::Collections::IIterable<super::super::super::Foundation::Point> as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetDefaultDrawingAttributes<Impl: IInkStrokeBuilderImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, drawingattributes: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetDefaultDrawingAttributes(&*(&drawingattributes as *const <InkDrawingAttributes as ::windows::core::Abi>::Abi as *const <InkDrawingAttributes as ::windows::core::DefaultType>::DefaultType)).into()
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IInkStrokeBuilder>, base.5, BeginStroke::<Impl, OFFSET>, AppendToStroke::<Impl, OFFSET>, EndStroke::<Impl, OFFSET>, CreateStroke::<Impl, OFFSET>, SetDefaultDrawingAttributes::<Impl, OFFSET>)
+    }
+}
+#[cfg(feature = "implement_exclusive")]
 pub trait IInkStrokeBuilder2Impl: Sized {
     fn CreateStrokeFromInkPoints(&self, inkpoints: &::core::option::Option<super::super::super::Foundation::Collections::IIterable<InkPoint>>, transform: &super::super::super::Foundation::Numerics::Matrix3x2) -> ::windows::core::Result<InkStroke>;
 }
 #[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IInkStrokeBuilder2 {
+    const NAME: &'static str = "Windows.UI.Input.Inking.IInkStrokeBuilder2";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IInkStrokeBuilder2Vtbl {
+    pub const fn new<Impl: IInkStrokeBuilder2Impl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IInkStrokeBuilder2Vtbl {
+        unsafe extern "system" fn CreateStrokeFromInkPoints<Impl: IInkStrokeBuilder2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, inkpoints: ::windows::core::RawPtr, transform: super::super::super::Foundation::Numerics::Matrix3x2, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).CreateStrokeFromInkPoints(&*(&inkpoints as *const <super::super::super::Foundation::Collections::IIterable<InkPoint> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::Collections::IIterable<InkPoint> as ::windows::core::DefaultType>::DefaultType), &*(&transform as *const <super::super::super::Foundation::Numerics::Matrix3x2 as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::Numerics::Matrix3x2 as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IInkStrokeBuilder2>, base.5, CreateStrokeFromInkPoints::<Impl, OFFSET>)
+    }
+}
+#[cfg(feature = "implement_exclusive")]
 pub trait IInkStrokeBuilder3Impl: Sized {
     fn CreateStrokeFromInkPoints(&self, inkpoints: &::core::option::Option<super::super::super::Foundation::Collections::IIterable<InkPoint>>, transform: &super::super::super::Foundation::Numerics::Matrix3x2, strokestartedtime: &::core::option::Option<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>>, strokeduration: &::core::option::Option<super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>>) -> ::windows::core::Result<InkStroke>;
+}
+#[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IInkStrokeBuilder3 {
+    const NAME: &'static str = "Windows.UI.Input.Inking.IInkStrokeBuilder3";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IInkStrokeBuilder3Vtbl {
+    pub const fn new<Impl: IInkStrokeBuilder3Impl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IInkStrokeBuilder3Vtbl {
+        unsafe extern "system" fn CreateStrokeFromInkPoints<Impl: IInkStrokeBuilder3Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, inkpoints: ::windows::core::RawPtr, transform: super::super::super::Foundation::Numerics::Matrix3x2, strokestartedtime: ::windows::core::RawPtr, strokeduration: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).CreateStrokeFromInkPoints(
+                &*(&inkpoints as *const <super::super::super::Foundation::Collections::IIterable<InkPoint> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::Collections::IIterable<InkPoint> as ::windows::core::DefaultType>::DefaultType),
+                &*(&transform as *const <super::super::super::Foundation::Numerics::Matrix3x2 as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::Numerics::Matrix3x2 as ::windows::core::DefaultType>::DefaultType),
+                &*(&strokestartedtime as *const <super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime> as ::windows::core::DefaultType>::DefaultType),
+                &*(&strokeduration as *const <super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan> as ::windows::core::DefaultType>::DefaultType),
+            ) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IInkStrokeBuilder3>, base.5, CreateStrokeFromInkPoints::<Impl, OFFSET>)
+    }
 }
 pub trait IInkStrokeContainerImpl: Sized {
     fn BoundingRect(&self) -> ::windows::core::Result<super::super::super::Foundation::Rect>;
@@ -254,15 +1795,227 @@ pub trait IInkStrokeContainerImpl: Sized {
     fn GetStrokes(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<InkStroke>>;
     fn GetRecognitionResults(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<InkRecognitionResult>>;
 }
+impl ::windows::core::RuntimeName for IInkStrokeContainer {
+    const NAME: &'static str = "Windows.UI.Input.Inking.IInkStrokeContainer";
+}
+impl IInkStrokeContainerVtbl {
+    pub const fn new<Impl: IInkStrokeContainerImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IInkStrokeContainerVtbl {
+        unsafe extern "system" fn BoundingRect<Impl: IInkStrokeContainerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::Rect) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).BoundingRect() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn AddStroke<Impl: IInkStrokeContainerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, stroke: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).AddStroke(&*(&stroke as *const <InkStroke as ::windows::core::Abi>::Abi as *const <InkStroke as ::windows::core::DefaultType>::DefaultType)).into()
+        }
+        unsafe extern "system" fn DeleteSelected<Impl: IInkStrokeContainerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::Rect) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).DeleteSelected() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn MoveSelected<Impl: IInkStrokeContainerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, translation: super::super::super::Foundation::Point, result__: *mut super::super::super::Foundation::Rect) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).MoveSelected(&*(&translation as *const <super::super::super::Foundation::Point as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::Point as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SelectWithPolyLine<Impl: IInkStrokeContainerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, polyline: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::Rect) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).SelectWithPolyLine(&*(&polyline as *const <super::super::super::Foundation::Collections::IIterable<super::super::super::Foundation::Point> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::Collections::IIterable<super::super::super::Foundation::Point> as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SelectWithLine<Impl: IInkStrokeContainerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, from: super::super::super::Foundation::Point, to: super::super::super::Foundation::Point, result__: *mut super::super::super::Foundation::Rect) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).SelectWithLine(&*(&from as *const <super::super::super::Foundation::Point as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::Point as ::windows::core::DefaultType>::DefaultType), &*(&to as *const <super::super::super::Foundation::Point as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::Point as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn CopySelectedToClipboard<Impl: IInkStrokeContainerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).CopySelectedToClipboard().into()
+        }
+        unsafe extern "system" fn PasteFromClipboard<Impl: IInkStrokeContainerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, position: super::super::super::Foundation::Point, result__: *mut super::super::super::Foundation::Rect) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).PasteFromClipboard(&*(&position as *const <super::super::super::Foundation::Point as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::Point as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn CanPasteFromClipboard<Impl: IInkStrokeContainerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).CanPasteFromClipboard() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn LoadAsync<Impl: IInkStrokeContainerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, inputstream: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).LoadAsync(&*(&inputstream as *const <super::super::super::Storage::Streams::IInputStream as ::windows::core::Abi>::Abi as *const <super::super::super::Storage::Streams::IInputStream as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SaveAsync<Impl: IInkStrokeContainerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, outputstream: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).SaveAsync(&*(&outputstream as *const <super::super::super::Storage::Streams::IOutputStream as ::windows::core::Abi>::Abi as *const <super::super::super::Storage::Streams::IOutputStream as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn UpdateRecognitionResults<Impl: IInkStrokeContainerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, recognitionresults: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).UpdateRecognitionResults(&*(&recognitionresults as *const <super::super::super::Foundation::Collections::IVectorView<InkRecognitionResult> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::Collections::IVectorView<InkRecognitionResult> as ::windows::core::DefaultType>::DefaultType)).into()
+        }
+        unsafe extern "system" fn GetStrokes<Impl: IInkStrokeContainerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).GetStrokes() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn GetRecognitionResults<Impl: IInkStrokeContainerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).GetRecognitionResults() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(
+            base.0,
+            base.1,
+            base.2,
+            base.3,
+            ::windows::core::GetRuntimeClassName::<IInkStrokeContainer>,
+            base.5,
+            BoundingRect::<Impl, OFFSET>,
+            AddStroke::<Impl, OFFSET>,
+            DeleteSelected::<Impl, OFFSET>,
+            MoveSelected::<Impl, OFFSET>,
+            SelectWithPolyLine::<Impl, OFFSET>,
+            SelectWithLine::<Impl, OFFSET>,
+            CopySelectedToClipboard::<Impl, OFFSET>,
+            PasteFromClipboard::<Impl, OFFSET>,
+            CanPasteFromClipboard::<Impl, OFFSET>,
+            LoadAsync::<Impl, OFFSET>,
+            SaveAsync::<Impl, OFFSET>,
+            UpdateRecognitionResults::<Impl, OFFSET>,
+            GetStrokes::<Impl, OFFSET>,
+            GetRecognitionResults::<Impl, OFFSET>,
+        )
+    }
+}
 #[cfg(feature = "implement_exclusive")]
 pub trait IInkStrokeContainer2Impl: Sized {
     fn AddStrokes(&self, strokes: &::core::option::Option<super::super::super::Foundation::Collections::IIterable<InkStroke>>) -> ::windows::core::Result<()>;
     fn Clear(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IInkStrokeContainer2 {
+    const NAME: &'static str = "Windows.UI.Input.Inking.IInkStrokeContainer2";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IInkStrokeContainer2Vtbl {
+    pub const fn new<Impl: IInkStrokeContainer2Impl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IInkStrokeContainer2Vtbl {
+        unsafe extern "system" fn AddStrokes<Impl: IInkStrokeContainer2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, strokes: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).AddStrokes(&*(&strokes as *const <super::super::super::Foundation::Collections::IIterable<InkStroke> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::Collections::IIterable<InkStroke> as ::windows::core::DefaultType>::DefaultType)).into()
+        }
+        unsafe extern "system" fn Clear<Impl: IInkStrokeContainer2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).Clear().into()
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IInkStrokeContainer2>, base.5, AddStrokes::<Impl, OFFSET>, Clear::<Impl, OFFSET>)
+    }
+}
+#[cfg(feature = "implement_exclusive")]
 pub trait IInkStrokeContainer3Impl: Sized {
     fn SaveWithFormatAsync(&self, outputstream: &::core::option::Option<super::super::super::Storage::Streams::IOutputStream>, inkpersistenceformat: InkPersistenceFormat) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperationWithProgress<u32, u32>>;
     fn GetStrokeById(&self, id: u32) -> ::windows::core::Result<InkStroke>;
+}
+#[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IInkStrokeContainer3 {
+    const NAME: &'static str = "Windows.UI.Input.Inking.IInkStrokeContainer3";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IInkStrokeContainer3Vtbl {
+    pub const fn new<Impl: IInkStrokeContainer3Impl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IInkStrokeContainer3Vtbl {
+        unsafe extern "system" fn SaveWithFormatAsync<Impl: IInkStrokeContainer3Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, outputstream: ::windows::core::RawPtr, inkpersistenceformat: InkPersistenceFormat, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).SaveWithFormatAsync(&*(&outputstream as *const <super::super::super::Storage::Streams::IOutputStream as ::windows::core::Abi>::Abi as *const <super::super::super::Storage::Streams::IOutputStream as ::windows::core::DefaultType>::DefaultType), inkpersistenceformat) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn GetStrokeById<Impl: IInkStrokeContainer3Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, id: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).GetStrokeById(id) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IInkStrokeContainer3>, base.5, SaveWithFormatAsync::<Impl, OFFSET>, GetStrokeById::<Impl, OFFSET>)
+    }
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IInkStrokeInputImpl: Sized {
@@ -277,6 +2030,87 @@ pub trait IInkStrokeInputImpl: Sized {
     fn InkPresenter(&self) -> ::windows::core::Result<InkPresenter>;
 }
 #[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IInkStrokeInput {
+    const NAME: &'static str = "Windows.UI.Input.Inking.IInkStrokeInput";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IInkStrokeInputVtbl {
+    pub const fn new<Impl: IInkStrokeInputImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IInkStrokeInputVtbl {
+        unsafe extern "system" fn StrokeStarted<Impl: IInkStrokeInputImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).StrokeStarted(&*(&handler as *const <super::super::super::Foundation::TypedEventHandler<InkStrokeInput, super::super::Core::PointerEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::TypedEventHandler<InkStrokeInput, super::super::Core::PointerEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn RemoveStrokeStarted<Impl: IInkStrokeInputImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, cookie: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).RemoveStrokeStarted(&*(&cookie as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
+        }
+        unsafe extern "system" fn StrokeContinued<Impl: IInkStrokeInputImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).StrokeContinued(&*(&handler as *const <super::super::super::Foundation::TypedEventHandler<InkStrokeInput, super::super::Core::PointerEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::TypedEventHandler<InkStrokeInput, super::super::Core::PointerEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn RemoveStrokeContinued<Impl: IInkStrokeInputImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, cookie: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).RemoveStrokeContinued(&*(&cookie as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
+        }
+        unsafe extern "system" fn StrokeEnded<Impl: IInkStrokeInputImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).StrokeEnded(&*(&handler as *const <super::super::super::Foundation::TypedEventHandler<InkStrokeInput, super::super::Core::PointerEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::TypedEventHandler<InkStrokeInput, super::super::Core::PointerEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn RemoveStrokeEnded<Impl: IInkStrokeInputImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, cookie: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).RemoveStrokeEnded(&*(&cookie as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
+        }
+        unsafe extern "system" fn StrokeCanceled<Impl: IInkStrokeInputImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).StrokeCanceled(&*(&handler as *const <super::super::super::Foundation::TypedEventHandler<InkStrokeInput, super::super::Core::PointerEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::TypedEventHandler<InkStrokeInput, super::super::Core::PointerEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn RemoveStrokeCanceled<Impl: IInkStrokeInputImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, cookie: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).RemoveStrokeCanceled(&*(&cookie as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
+        }
+        unsafe extern "system" fn InkPresenter<Impl: IInkStrokeInputImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).InkPresenter() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IInkStrokeInput>, base.5, StrokeStarted::<Impl, OFFSET>, RemoveStrokeStarted::<Impl, OFFSET>, StrokeContinued::<Impl, OFFSET>, RemoveStrokeContinued::<Impl, OFFSET>, StrokeEnded::<Impl, OFFSET>, RemoveStrokeEnded::<Impl, OFFSET>, StrokeCanceled::<Impl, OFFSET>, RemoveStrokeCanceled::<Impl, OFFSET>, InkPresenter::<Impl, OFFSET>)
+    }
+}
+#[cfg(feature = "implement_exclusive")]
 pub trait IInkStrokeRenderingSegmentImpl: Sized {
     fn Position(&self) -> ::windows::core::Result<super::super::super::Foundation::Point>;
     fn BezierControlPoint1(&self) -> ::windows::core::Result<super::super::super::Foundation::Point>;
@@ -287,17 +2121,171 @@ pub trait IInkStrokeRenderingSegmentImpl: Sized {
     fn Twist(&self) -> ::windows::core::Result<f32>;
 }
 #[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IInkStrokeRenderingSegment {
+    const NAME: &'static str = "Windows.UI.Input.Inking.IInkStrokeRenderingSegment";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IInkStrokeRenderingSegmentVtbl {
+    pub const fn new<Impl: IInkStrokeRenderingSegmentImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IInkStrokeRenderingSegmentVtbl {
+        unsafe extern "system" fn Position<Impl: IInkStrokeRenderingSegmentImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::Point) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).Position() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn BezierControlPoint1<Impl: IInkStrokeRenderingSegmentImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::Point) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).BezierControlPoint1() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn BezierControlPoint2<Impl: IInkStrokeRenderingSegmentImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::Point) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).BezierControlPoint2() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn Pressure<Impl: IInkStrokeRenderingSegmentImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).Pressure() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn TiltX<Impl: IInkStrokeRenderingSegmentImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).TiltX() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn TiltY<Impl: IInkStrokeRenderingSegmentImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).TiltY() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn Twist<Impl: IInkStrokeRenderingSegmentImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).Twist() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IInkStrokeRenderingSegment>, base.5, Position::<Impl, OFFSET>, BezierControlPoint1::<Impl, OFFSET>, BezierControlPoint2::<Impl, OFFSET>, Pressure::<Impl, OFFSET>, TiltX::<Impl, OFFSET>, TiltY::<Impl, OFFSET>, Twist::<Impl, OFFSET>)
+    }
+}
+#[cfg(feature = "implement_exclusive")]
 pub trait IInkStrokesCollectedEventArgsImpl: Sized {
     fn Strokes(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<InkStroke>>;
+}
+#[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IInkStrokesCollectedEventArgs {
+    const NAME: &'static str = "Windows.UI.Input.Inking.IInkStrokesCollectedEventArgs";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IInkStrokesCollectedEventArgsVtbl {
+    pub const fn new<Impl: IInkStrokesCollectedEventArgsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IInkStrokesCollectedEventArgsVtbl {
+        unsafe extern "system" fn Strokes<Impl: IInkStrokesCollectedEventArgsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).Strokes() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IInkStrokesCollectedEventArgs>, base.5, Strokes::<Impl, OFFSET>)
+    }
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IInkStrokesErasedEventArgsImpl: Sized {
     fn Strokes(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<InkStroke>>;
 }
 #[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IInkStrokesErasedEventArgs {
+    const NAME: &'static str = "Windows.UI.Input.Inking.IInkStrokesErasedEventArgs";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IInkStrokesErasedEventArgsVtbl {
+    pub const fn new<Impl: IInkStrokesErasedEventArgsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IInkStrokesErasedEventArgsVtbl {
+        unsafe extern "system" fn Strokes<Impl: IInkStrokesErasedEventArgsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).Strokes() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IInkStrokesErasedEventArgs>, base.5, Strokes::<Impl, OFFSET>)
+    }
+}
+#[cfg(feature = "implement_exclusive")]
 pub trait IInkSynchronizerImpl: Sized {
     fn BeginDry(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<InkStroke>>;
     fn EndDry(&self) -> ::windows::core::Result<()>;
+}
+#[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IInkSynchronizer {
+    const NAME: &'static str = "Windows.UI.Input.Inking.IInkSynchronizer";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IInkSynchronizerVtbl {
+    pub const fn new<Impl: IInkSynchronizerImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IInkSynchronizerVtbl {
+        unsafe extern "system" fn BeginDry<Impl: IInkSynchronizerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).BeginDry() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn EndDry<Impl: IInkSynchronizerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).EndDry().into()
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IInkSynchronizer>, base.5, BeginDry::<Impl, OFFSET>, EndDry::<Impl, OFFSET>)
+    }
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IInkUnprocessedInputImpl: Sized {
@@ -318,6 +2306,154 @@ pub trait IInkUnprocessedInputImpl: Sized {
     fn InkPresenter(&self) -> ::windows::core::Result<InkPresenter>;
 }
 #[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IInkUnprocessedInput {
+    const NAME: &'static str = "Windows.UI.Input.Inking.IInkUnprocessedInput";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IInkUnprocessedInputVtbl {
+    pub const fn new<Impl: IInkUnprocessedInputImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IInkUnprocessedInputVtbl {
+        unsafe extern "system" fn PointerEntered<Impl: IInkUnprocessedInputImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).PointerEntered(&*(&handler as *const <super::super::super::Foundation::TypedEventHandler<InkUnprocessedInput, super::super::Core::PointerEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::TypedEventHandler<InkUnprocessedInput, super::super::Core::PointerEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn RemovePointerEntered<Impl: IInkUnprocessedInputImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, cookie: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).RemovePointerEntered(&*(&cookie as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
+        }
+        unsafe extern "system" fn PointerHovered<Impl: IInkUnprocessedInputImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).PointerHovered(&*(&handler as *const <super::super::super::Foundation::TypedEventHandler<InkUnprocessedInput, super::super::Core::PointerEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::TypedEventHandler<InkUnprocessedInput, super::super::Core::PointerEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn RemovePointerHovered<Impl: IInkUnprocessedInputImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, cookie: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).RemovePointerHovered(&*(&cookie as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
+        }
+        unsafe extern "system" fn PointerExited<Impl: IInkUnprocessedInputImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).PointerExited(&*(&handler as *const <super::super::super::Foundation::TypedEventHandler<InkUnprocessedInput, super::super::Core::PointerEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::TypedEventHandler<InkUnprocessedInput, super::super::Core::PointerEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn RemovePointerExited<Impl: IInkUnprocessedInputImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, cookie: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).RemovePointerExited(&*(&cookie as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
+        }
+        unsafe extern "system" fn PointerPressed<Impl: IInkUnprocessedInputImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).PointerPressed(&*(&handler as *const <super::super::super::Foundation::TypedEventHandler<InkUnprocessedInput, super::super::Core::PointerEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::TypedEventHandler<InkUnprocessedInput, super::super::Core::PointerEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn RemovePointerPressed<Impl: IInkUnprocessedInputImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, cookie: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).RemovePointerPressed(&*(&cookie as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
+        }
+        unsafe extern "system" fn PointerMoved<Impl: IInkUnprocessedInputImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).PointerMoved(&*(&handler as *const <super::super::super::Foundation::TypedEventHandler<InkUnprocessedInput, super::super::Core::PointerEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::TypedEventHandler<InkUnprocessedInput, super::super::Core::PointerEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn RemovePointerMoved<Impl: IInkUnprocessedInputImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, cookie: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).RemovePointerMoved(&*(&cookie as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
+        }
+        unsafe extern "system" fn PointerReleased<Impl: IInkUnprocessedInputImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).PointerReleased(&*(&handler as *const <super::super::super::Foundation::TypedEventHandler<InkUnprocessedInput, super::super::Core::PointerEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::TypedEventHandler<InkUnprocessedInput, super::super::Core::PointerEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn RemovePointerReleased<Impl: IInkUnprocessedInputImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, cookie: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).RemovePointerReleased(&*(&cookie as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
+        }
+        unsafe extern "system" fn PointerLost<Impl: IInkUnprocessedInputImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).PointerLost(&*(&handler as *const <super::super::super::Foundation::TypedEventHandler<InkUnprocessedInput, super::super::Core::PointerEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::TypedEventHandler<InkUnprocessedInput, super::super::Core::PointerEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn RemovePointerLost<Impl: IInkUnprocessedInputImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, cookie: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).RemovePointerLost(&*(&cookie as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
+        }
+        unsafe extern "system" fn InkPresenter<Impl: IInkUnprocessedInputImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).InkPresenter() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(
+            base.0,
+            base.1,
+            base.2,
+            base.3,
+            ::windows::core::GetRuntimeClassName::<IInkUnprocessedInput>,
+            base.5,
+            PointerEntered::<Impl, OFFSET>,
+            RemovePointerEntered::<Impl, OFFSET>,
+            PointerHovered::<Impl, OFFSET>,
+            RemovePointerHovered::<Impl, OFFSET>,
+            PointerExited::<Impl, OFFSET>,
+            RemovePointerExited::<Impl, OFFSET>,
+            PointerPressed::<Impl, OFFSET>,
+            RemovePointerPressed::<Impl, OFFSET>,
+            PointerMoved::<Impl, OFFSET>,
+            RemovePointerMoved::<Impl, OFFSET>,
+            PointerReleased::<Impl, OFFSET>,
+            RemovePointerReleased::<Impl, OFFSET>,
+            PointerLost::<Impl, OFFSET>,
+            RemovePointerLost::<Impl, OFFSET>,
+            InkPresenter::<Impl, OFFSET>,
+        )
+    }
+}
+#[cfg(feature = "implement_exclusive")]
 pub trait IPenAndInkSettingsImpl: Sized {
     fn IsHandwritingDirectlyIntoTextFieldEnabled(&self) -> ::windows::core::Result<bool>;
     fn PenHandedness(&self) -> ::windows::core::Result<PenHandedness>;
@@ -327,10 +2463,121 @@ pub trait IPenAndInkSettingsImpl: Sized {
     fn IsTouchHandwritingEnabled(&self) -> ::windows::core::Result<bool>;
 }
 #[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IPenAndInkSettings {
+    const NAME: &'static str = "Windows.UI.Input.Inking.IPenAndInkSettings";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IPenAndInkSettingsVtbl {
+    pub const fn new<Impl: IPenAndInkSettingsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IPenAndInkSettingsVtbl {
+        unsafe extern "system" fn IsHandwritingDirectlyIntoTextFieldEnabled<Impl: IPenAndInkSettingsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).IsHandwritingDirectlyIntoTextFieldEnabled() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn PenHandedness<Impl: IPenAndInkSettingsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut PenHandedness) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).PenHandedness() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn HandwritingLineHeight<Impl: IPenAndInkSettingsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut HandwritingLineHeight) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).HandwritingLineHeight() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn FontFamilyName<Impl: IPenAndInkSettingsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).FontFamilyName() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn UserConsentsToHandwritingTelemetryCollection<Impl: IPenAndInkSettingsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).UserConsentsToHandwritingTelemetryCollection() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn IsTouchHandwritingEnabled<Impl: IPenAndInkSettingsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).IsTouchHandwritingEnabled() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IPenAndInkSettings>, base.5, IsHandwritingDirectlyIntoTextFieldEnabled::<Impl, OFFSET>, PenHandedness::<Impl, OFFSET>, HandwritingLineHeight::<Impl, OFFSET>, FontFamilyName::<Impl, OFFSET>, UserConsentsToHandwritingTelemetryCollection::<Impl, OFFSET>, IsTouchHandwritingEnabled::<Impl, OFFSET>)
+    }
+}
+#[cfg(feature = "implement_exclusive")]
 pub trait IPenAndInkSettings2Impl: Sized {
     fn SetPenHandedness(&self, value: PenHandedness) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IPenAndInkSettings2 {
+    const NAME: &'static str = "Windows.UI.Input.Inking.IPenAndInkSettings2";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IPenAndInkSettings2Vtbl {
+    pub const fn new<Impl: IPenAndInkSettings2Impl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IPenAndInkSettings2Vtbl {
+        unsafe extern "system" fn SetPenHandedness<Impl: IPenAndInkSettings2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: PenHandedness) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetPenHandedness(value).into()
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IPenAndInkSettings2>, base.5, SetPenHandedness::<Impl, OFFSET>)
+    }
+}
+#[cfg(feature = "implement_exclusive")]
 pub trait IPenAndInkSettingsStaticsImpl: Sized {
     fn GetDefault(&self) -> ::windows::core::Result<PenAndInkSettings>;
+}
+#[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IPenAndInkSettingsStatics {
+    const NAME: &'static str = "Windows.UI.Input.Inking.IPenAndInkSettingsStatics";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IPenAndInkSettingsStaticsVtbl {
+    pub const fn new<Impl: IPenAndInkSettingsStaticsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IPenAndInkSettingsStaticsVtbl {
+        unsafe extern "system" fn GetDefault<Impl: IPenAndInkSettingsStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).GetDefault() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IPenAndInkSettingsStatics>, base.5, GetDefault::<Impl, OFFSET>)
+    }
 }

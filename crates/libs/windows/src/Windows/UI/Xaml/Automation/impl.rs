@@ -1,12 +1,87 @@
 #[cfg(feature = "implement_exclusive")]
 pub trait IAnnotationPatternIdentifiersImpl: Sized {}
 #[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IAnnotationPatternIdentifiers {
+    const NAME: &'static str = "Windows.UI.Xaml.Automation.IAnnotationPatternIdentifiers";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IAnnotationPatternIdentifiersVtbl {
+    pub const fn new<Impl: IAnnotationPatternIdentifiersImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IAnnotationPatternIdentifiersVtbl {
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IAnnotationPatternIdentifiers>, base.5)
+    }
+}
+#[cfg(feature = "implement_exclusive")]
 pub trait IAnnotationPatternIdentifiersStaticsImpl: Sized {
     fn AnnotationTypeIdProperty(&self) -> ::windows::core::Result<AutomationProperty>;
     fn AnnotationTypeNameProperty(&self) -> ::windows::core::Result<AutomationProperty>;
     fn AuthorProperty(&self) -> ::windows::core::Result<AutomationProperty>;
     fn DateTimeProperty(&self) -> ::windows::core::Result<AutomationProperty>;
     fn TargetProperty(&self) -> ::windows::core::Result<AutomationProperty>;
+}
+#[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IAnnotationPatternIdentifiersStatics {
+    const NAME: &'static str = "Windows.UI.Xaml.Automation.IAnnotationPatternIdentifiersStatics";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IAnnotationPatternIdentifiersStaticsVtbl {
+    pub const fn new<Impl: IAnnotationPatternIdentifiersStaticsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IAnnotationPatternIdentifiersStaticsVtbl {
+        unsafe extern "system" fn AnnotationTypeIdProperty<Impl: IAnnotationPatternIdentifiersStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).AnnotationTypeIdProperty() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn AnnotationTypeNameProperty<Impl: IAnnotationPatternIdentifiersStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).AnnotationTypeNameProperty() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn AuthorProperty<Impl: IAnnotationPatternIdentifiersStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).AuthorProperty() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn DateTimeProperty<Impl: IAnnotationPatternIdentifiersStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).DateTimeProperty() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn TargetProperty<Impl: IAnnotationPatternIdentifiersStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).TargetProperty() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IAnnotationPatternIdentifiersStatics>, base.5, AnnotationTypeIdProperty::<Impl, OFFSET>, AnnotationTypeNameProperty::<Impl, OFFSET>, AuthorProperty::<Impl, OFFSET>, DateTimeProperty::<Impl, OFFSET>, TargetProperty::<Impl, OFFSET>)
+    }
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAutomationAnnotationImpl: Sized {
@@ -16,9 +91,81 @@ pub trait IAutomationAnnotationImpl: Sized {
     fn SetElement(&self, value: &::core::option::Option<super::UIElement>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IAutomationAnnotation {
+    const NAME: &'static str = "Windows.UI.Xaml.Automation.IAutomationAnnotation";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IAutomationAnnotationVtbl {
+    pub const fn new<Impl: IAutomationAnnotationImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IAutomationAnnotationVtbl {
+        unsafe extern "system" fn Type<Impl: IAutomationAnnotationImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut AnnotationType) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).Type() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetType<Impl: IAutomationAnnotationImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: AnnotationType) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetType(value).into()
+        }
+        unsafe extern "system" fn Element<Impl: IAutomationAnnotationImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).Element() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetElement<Impl: IAutomationAnnotationImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetElement(&*(&value as *const <super::UIElement as ::windows::core::Abi>::Abi as *const <super::UIElement as ::windows::core::DefaultType>::DefaultType)).into()
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IAutomationAnnotation>, base.5, Type::<Impl, OFFSET>, SetType::<Impl, OFFSET>, Element::<Impl, OFFSET>, SetElement::<Impl, OFFSET>)
+    }
+}
+#[cfg(feature = "implement_exclusive")]
 pub trait IAutomationAnnotationFactoryImpl: Sized {
     fn CreateInstance(&self, r#type: AnnotationType) -> ::windows::core::Result<AutomationAnnotation>;
     fn CreateWithElementParameter(&self, r#type: AnnotationType, element: &::core::option::Option<super::UIElement>) -> ::windows::core::Result<AutomationAnnotation>;
+}
+#[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IAutomationAnnotationFactory {
+    const NAME: &'static str = "Windows.UI.Xaml.Automation.IAutomationAnnotationFactory";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IAutomationAnnotationFactoryVtbl {
+    pub const fn new<Impl: IAutomationAnnotationFactoryImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IAutomationAnnotationFactoryVtbl {
+        unsafe extern "system" fn CreateInstance<Impl: IAutomationAnnotationFactoryImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, r#type: AnnotationType, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).CreateInstance(r#type) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn CreateWithElementParameter<Impl: IAutomationAnnotationFactoryImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, r#type: AnnotationType, element: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).CreateWithElementParameter(r#type, &*(&element as *const <super::UIElement as ::windows::core::Abi>::Abi as *const <super::UIElement as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IAutomationAnnotationFactory>, base.5, CreateInstance::<Impl, OFFSET>, CreateWithElementParameter::<Impl, OFFSET>)
+    }
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAutomationAnnotationStaticsImpl: Sized {
@@ -26,7 +173,49 @@ pub trait IAutomationAnnotationStaticsImpl: Sized {
     fn ElementProperty(&self) -> ::windows::core::Result<super::DependencyProperty>;
 }
 #[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IAutomationAnnotationStatics {
+    const NAME: &'static str = "Windows.UI.Xaml.Automation.IAutomationAnnotationStatics";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IAutomationAnnotationStaticsVtbl {
+    pub const fn new<Impl: IAutomationAnnotationStaticsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IAutomationAnnotationStaticsVtbl {
+        unsafe extern "system" fn TypeProperty<Impl: IAutomationAnnotationStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).TypeProperty() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn ElementProperty<Impl: IAutomationAnnotationStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).ElementProperty() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IAutomationAnnotationStatics>, base.5, TypeProperty::<Impl, OFFSET>, ElementProperty::<Impl, OFFSET>)
+    }
+}
+#[cfg(feature = "implement_exclusive")]
 pub trait IAutomationElementIdentifiersImpl: Sized {}
+#[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IAutomationElementIdentifiers {
+    const NAME: &'static str = "Windows.UI.Xaml.Automation.IAutomationElementIdentifiers";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IAutomationElementIdentifiersVtbl {
+    pub const fn new<Impl: IAutomationElementIdentifiersImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IAutomationElementIdentifiersVtbl {
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IAutomationElementIdentifiers>, base.5)
+    }
+}
 #[cfg(feature = "implement_exclusive")]
 pub trait IAutomationElementIdentifiersStaticsImpl: Sized {
     fn AcceleratorKeyProperty(&self) -> ::windows::core::Result<AutomationProperty>;
@@ -54,8 +243,322 @@ pub trait IAutomationElementIdentifiersStaticsImpl: Sized {
     fn LiveSettingProperty(&self) -> ::windows::core::Result<AutomationProperty>;
 }
 #[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IAutomationElementIdentifiersStatics {
+    const NAME: &'static str = "Windows.UI.Xaml.Automation.IAutomationElementIdentifiersStatics";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IAutomationElementIdentifiersStaticsVtbl {
+    pub const fn new<Impl: IAutomationElementIdentifiersStaticsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IAutomationElementIdentifiersStaticsVtbl {
+        unsafe extern "system" fn AcceleratorKeyProperty<Impl: IAutomationElementIdentifiersStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).AcceleratorKeyProperty() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn AccessKeyProperty<Impl: IAutomationElementIdentifiersStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).AccessKeyProperty() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn AutomationIdProperty<Impl: IAutomationElementIdentifiersStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).AutomationIdProperty() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn BoundingRectangleProperty<Impl: IAutomationElementIdentifiersStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).BoundingRectangleProperty() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn ClassNameProperty<Impl: IAutomationElementIdentifiersStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).ClassNameProperty() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn ClickablePointProperty<Impl: IAutomationElementIdentifiersStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).ClickablePointProperty() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn ControlTypeProperty<Impl: IAutomationElementIdentifiersStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).ControlTypeProperty() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn HasKeyboardFocusProperty<Impl: IAutomationElementIdentifiersStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).HasKeyboardFocusProperty() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn HelpTextProperty<Impl: IAutomationElementIdentifiersStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).HelpTextProperty() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn IsContentElementProperty<Impl: IAutomationElementIdentifiersStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).IsContentElementProperty() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn IsControlElementProperty<Impl: IAutomationElementIdentifiersStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).IsControlElementProperty() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn IsEnabledProperty<Impl: IAutomationElementIdentifiersStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).IsEnabledProperty() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn IsKeyboardFocusableProperty<Impl: IAutomationElementIdentifiersStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).IsKeyboardFocusableProperty() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn IsOffscreenProperty<Impl: IAutomationElementIdentifiersStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).IsOffscreenProperty() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn IsPasswordProperty<Impl: IAutomationElementIdentifiersStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).IsPasswordProperty() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn IsRequiredForFormProperty<Impl: IAutomationElementIdentifiersStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).IsRequiredForFormProperty() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn ItemStatusProperty<Impl: IAutomationElementIdentifiersStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).ItemStatusProperty() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn ItemTypeProperty<Impl: IAutomationElementIdentifiersStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).ItemTypeProperty() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn LabeledByProperty<Impl: IAutomationElementIdentifiersStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).LabeledByProperty() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn LocalizedControlTypeProperty<Impl: IAutomationElementIdentifiersStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).LocalizedControlTypeProperty() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn NameProperty<Impl: IAutomationElementIdentifiersStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).NameProperty() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn OrientationProperty<Impl: IAutomationElementIdentifiersStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).OrientationProperty() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn LiveSettingProperty<Impl: IAutomationElementIdentifiersStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).LiveSettingProperty() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(
+            base.0,
+            base.1,
+            base.2,
+            base.3,
+            ::windows::core::GetRuntimeClassName::<IAutomationElementIdentifiersStatics>,
+            base.5,
+            AcceleratorKeyProperty::<Impl, OFFSET>,
+            AccessKeyProperty::<Impl, OFFSET>,
+            AutomationIdProperty::<Impl, OFFSET>,
+            BoundingRectangleProperty::<Impl, OFFSET>,
+            ClassNameProperty::<Impl, OFFSET>,
+            ClickablePointProperty::<Impl, OFFSET>,
+            ControlTypeProperty::<Impl, OFFSET>,
+            HasKeyboardFocusProperty::<Impl, OFFSET>,
+            HelpTextProperty::<Impl, OFFSET>,
+            IsContentElementProperty::<Impl, OFFSET>,
+            IsControlElementProperty::<Impl, OFFSET>,
+            IsEnabledProperty::<Impl, OFFSET>,
+            IsKeyboardFocusableProperty::<Impl, OFFSET>,
+            IsOffscreenProperty::<Impl, OFFSET>,
+            IsPasswordProperty::<Impl, OFFSET>,
+            IsRequiredForFormProperty::<Impl, OFFSET>,
+            ItemStatusProperty::<Impl, OFFSET>,
+            ItemTypeProperty::<Impl, OFFSET>,
+            LabeledByProperty::<Impl, OFFSET>,
+            LocalizedControlTypeProperty::<Impl, OFFSET>,
+            NameProperty::<Impl, OFFSET>,
+            OrientationProperty::<Impl, OFFSET>,
+            LiveSettingProperty::<Impl, OFFSET>,
+        )
+    }
+}
+#[cfg(feature = "implement_exclusive")]
 pub trait IAutomationElementIdentifiersStatics2Impl: Sized {
     fn ControlledPeersProperty(&self) -> ::windows::core::Result<AutomationProperty>;
+}
+#[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IAutomationElementIdentifiersStatics2 {
+    const NAME: &'static str = "Windows.UI.Xaml.Automation.IAutomationElementIdentifiersStatics2";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IAutomationElementIdentifiersStatics2Vtbl {
+    pub const fn new<Impl: IAutomationElementIdentifiersStatics2Impl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IAutomationElementIdentifiersStatics2Vtbl {
+        unsafe extern "system" fn ControlledPeersProperty<Impl: IAutomationElementIdentifiersStatics2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).ControlledPeersProperty() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IAutomationElementIdentifiersStatics2>, base.5, ControlledPeersProperty::<Impl, OFFSET>)
+    }
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAutomationElementIdentifiersStatics3Impl: Sized {
@@ -65,9 +568,95 @@ pub trait IAutomationElementIdentifiersStatics3Impl: Sized {
     fn AnnotationsProperty(&self) -> ::windows::core::Result<AutomationProperty>;
 }
 #[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IAutomationElementIdentifiersStatics3 {
+    const NAME: &'static str = "Windows.UI.Xaml.Automation.IAutomationElementIdentifiersStatics3";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IAutomationElementIdentifiersStatics3Vtbl {
+    pub const fn new<Impl: IAutomationElementIdentifiersStatics3Impl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IAutomationElementIdentifiersStatics3Vtbl {
+        unsafe extern "system" fn PositionInSetProperty<Impl: IAutomationElementIdentifiersStatics3Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).PositionInSetProperty() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SizeOfSetProperty<Impl: IAutomationElementIdentifiersStatics3Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).SizeOfSetProperty() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn LevelProperty<Impl: IAutomationElementIdentifiersStatics3Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).LevelProperty() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn AnnotationsProperty<Impl: IAutomationElementIdentifiersStatics3Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).AnnotationsProperty() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IAutomationElementIdentifiersStatics3>, base.5, PositionInSetProperty::<Impl, OFFSET>, SizeOfSetProperty::<Impl, OFFSET>, LevelProperty::<Impl, OFFSET>, AnnotationsProperty::<Impl, OFFSET>)
+    }
+}
+#[cfg(feature = "implement_exclusive")]
 pub trait IAutomationElementIdentifiersStatics4Impl: Sized {
     fn LandmarkTypeProperty(&self) -> ::windows::core::Result<AutomationProperty>;
     fn LocalizedLandmarkTypeProperty(&self) -> ::windows::core::Result<AutomationProperty>;
+}
+#[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IAutomationElementIdentifiersStatics4 {
+    const NAME: &'static str = "Windows.UI.Xaml.Automation.IAutomationElementIdentifiersStatics4";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IAutomationElementIdentifiersStatics4Vtbl {
+    pub const fn new<Impl: IAutomationElementIdentifiersStatics4Impl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IAutomationElementIdentifiersStatics4Vtbl {
+        unsafe extern "system" fn LandmarkTypeProperty<Impl: IAutomationElementIdentifiersStatics4Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).LandmarkTypeProperty() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn LocalizedLandmarkTypeProperty<Impl: IAutomationElementIdentifiersStatics4Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).LocalizedLandmarkTypeProperty() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IAutomationElementIdentifiersStatics4>, base.5, LandmarkTypeProperty::<Impl, OFFSET>, LocalizedLandmarkTypeProperty::<Impl, OFFSET>)
+    }
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAutomationElementIdentifiersStatics5Impl: Sized {
@@ -79,19 +668,168 @@ pub trait IAutomationElementIdentifiersStatics5Impl: Sized {
     fn FlowsFromProperty(&self) -> ::windows::core::Result<AutomationProperty>;
 }
 #[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IAutomationElementIdentifiersStatics5 {
+    const NAME: &'static str = "Windows.UI.Xaml.Automation.IAutomationElementIdentifiersStatics5";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IAutomationElementIdentifiersStatics5Vtbl {
+    pub const fn new<Impl: IAutomationElementIdentifiersStatics5Impl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IAutomationElementIdentifiersStatics5Vtbl {
+        unsafe extern "system" fn IsPeripheralProperty<Impl: IAutomationElementIdentifiersStatics5Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).IsPeripheralProperty() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn IsDataValidForFormProperty<Impl: IAutomationElementIdentifiersStatics5Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).IsDataValidForFormProperty() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn FullDescriptionProperty<Impl: IAutomationElementIdentifiersStatics5Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).FullDescriptionProperty() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn DescribedByProperty<Impl: IAutomationElementIdentifiersStatics5Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).DescribedByProperty() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn FlowsToProperty<Impl: IAutomationElementIdentifiersStatics5Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).FlowsToProperty() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn FlowsFromProperty<Impl: IAutomationElementIdentifiersStatics5Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).FlowsFromProperty() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IAutomationElementIdentifiersStatics5>, base.5, IsPeripheralProperty::<Impl, OFFSET>, IsDataValidForFormProperty::<Impl, OFFSET>, FullDescriptionProperty::<Impl, OFFSET>, DescribedByProperty::<Impl, OFFSET>, FlowsToProperty::<Impl, OFFSET>, FlowsFromProperty::<Impl, OFFSET>)
+    }
+}
+#[cfg(feature = "implement_exclusive")]
 pub trait IAutomationElementIdentifiersStatics6Impl: Sized {
     fn CultureProperty(&self) -> ::windows::core::Result<AutomationProperty>;
+}
+#[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IAutomationElementIdentifiersStatics6 {
+    const NAME: &'static str = "Windows.UI.Xaml.Automation.IAutomationElementIdentifiersStatics6";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IAutomationElementIdentifiersStatics6Vtbl {
+    pub const fn new<Impl: IAutomationElementIdentifiersStatics6Impl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IAutomationElementIdentifiersStatics6Vtbl {
+        unsafe extern "system" fn CultureProperty<Impl: IAutomationElementIdentifiersStatics6Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).CultureProperty() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IAutomationElementIdentifiersStatics6>, base.5, CultureProperty::<Impl, OFFSET>)
+    }
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAutomationElementIdentifiersStatics7Impl: Sized {
     fn HeadingLevelProperty(&self) -> ::windows::core::Result<AutomationProperty>;
 }
 #[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IAutomationElementIdentifiersStatics7 {
+    const NAME: &'static str = "Windows.UI.Xaml.Automation.IAutomationElementIdentifiersStatics7";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IAutomationElementIdentifiersStatics7Vtbl {
+    pub const fn new<Impl: IAutomationElementIdentifiersStatics7Impl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IAutomationElementIdentifiersStatics7Vtbl {
+        unsafe extern "system" fn HeadingLevelProperty<Impl: IAutomationElementIdentifiersStatics7Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).HeadingLevelProperty() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IAutomationElementIdentifiersStatics7>, base.5, HeadingLevelProperty::<Impl, OFFSET>)
+    }
+}
+#[cfg(feature = "implement_exclusive")]
 pub trait IAutomationElementIdentifiersStatics8Impl: Sized {
     fn IsDialogProperty(&self) -> ::windows::core::Result<AutomationProperty>;
 }
 #[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IAutomationElementIdentifiersStatics8 {
+    const NAME: &'static str = "Windows.UI.Xaml.Automation.IAutomationElementIdentifiersStatics8";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IAutomationElementIdentifiersStatics8Vtbl {
+    pub const fn new<Impl: IAutomationElementIdentifiersStatics8Impl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IAutomationElementIdentifiersStatics8Vtbl {
+        unsafe extern "system" fn IsDialogProperty<Impl: IAutomationElementIdentifiersStatics8Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).IsDialogProperty() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IAutomationElementIdentifiersStatics8>, base.5, IsDialogProperty::<Impl, OFFSET>)
+    }
+}
+#[cfg(feature = "implement_exclusive")]
 pub trait IAutomationPropertiesImpl: Sized {}
+#[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IAutomationProperties {
+    const NAME: &'static str = "Windows.UI.Xaml.Automation.IAutomationProperties";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IAutomationPropertiesVtbl {
+    pub const fn new<Impl: IAutomationPropertiesImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IAutomationPropertiesVtbl {
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IAutomationProperties>, base.5)
+    }
+}
 #[cfg(feature = "implement_exclusive")]
 pub trait IAutomationPropertiesStaticsImpl: Sized {
     fn AcceleratorKeyProperty(&self) -> ::windows::core::Result<super::DependencyProperty>;
@@ -126,12 +864,377 @@ pub trait IAutomationPropertiesStaticsImpl: Sized {
     fn SetLiveSetting(&self, element: &::core::option::Option<super::DependencyObject>, value: Peers::AutomationLiveSetting) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IAutomationPropertiesStatics {
+    const NAME: &'static str = "Windows.UI.Xaml.Automation.IAutomationPropertiesStatics";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IAutomationPropertiesStaticsVtbl {
+    pub const fn new<Impl: IAutomationPropertiesStaticsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IAutomationPropertiesStaticsVtbl {
+        unsafe extern "system" fn AcceleratorKeyProperty<Impl: IAutomationPropertiesStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).AcceleratorKeyProperty() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn GetAcceleratorKey<Impl: IAutomationPropertiesStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).GetAcceleratorKey(&*(&element as *const <super::DependencyObject as ::windows::core::Abi>::Abi as *const <super::DependencyObject as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetAcceleratorKey<Impl: IAutomationPropertiesStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetAcceleratorKey(&*(&element as *const <super::DependencyObject as ::windows::core::Abi>::Abi as *const <super::DependencyObject as ::windows::core::DefaultType>::DefaultType), &*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
+        }
+        unsafe extern "system" fn AccessKeyProperty<Impl: IAutomationPropertiesStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).AccessKeyProperty() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn GetAccessKey<Impl: IAutomationPropertiesStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).GetAccessKey(&*(&element as *const <super::DependencyObject as ::windows::core::Abi>::Abi as *const <super::DependencyObject as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetAccessKey<Impl: IAutomationPropertiesStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetAccessKey(&*(&element as *const <super::DependencyObject as ::windows::core::Abi>::Abi as *const <super::DependencyObject as ::windows::core::DefaultType>::DefaultType), &*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
+        }
+        unsafe extern "system" fn AutomationIdProperty<Impl: IAutomationPropertiesStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).AutomationIdProperty() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn GetAutomationId<Impl: IAutomationPropertiesStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).GetAutomationId(&*(&element as *const <super::DependencyObject as ::windows::core::Abi>::Abi as *const <super::DependencyObject as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetAutomationId<Impl: IAutomationPropertiesStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetAutomationId(&*(&element as *const <super::DependencyObject as ::windows::core::Abi>::Abi as *const <super::DependencyObject as ::windows::core::DefaultType>::DefaultType), &*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
+        }
+        unsafe extern "system" fn HelpTextProperty<Impl: IAutomationPropertiesStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).HelpTextProperty() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn GetHelpText<Impl: IAutomationPropertiesStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).GetHelpText(&*(&element as *const <super::DependencyObject as ::windows::core::Abi>::Abi as *const <super::DependencyObject as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetHelpText<Impl: IAutomationPropertiesStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetHelpText(&*(&element as *const <super::DependencyObject as ::windows::core::Abi>::Abi as *const <super::DependencyObject as ::windows::core::DefaultType>::DefaultType), &*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
+        }
+        unsafe extern "system" fn IsRequiredForFormProperty<Impl: IAutomationPropertiesStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).IsRequiredForFormProperty() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn GetIsRequiredForForm<Impl: IAutomationPropertiesStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).GetIsRequiredForForm(&*(&element as *const <super::DependencyObject as ::windows::core::Abi>::Abi as *const <super::DependencyObject as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetIsRequiredForForm<Impl: IAutomationPropertiesStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, value: bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetIsRequiredForForm(&*(&element as *const <super::DependencyObject as ::windows::core::Abi>::Abi as *const <super::DependencyObject as ::windows::core::DefaultType>::DefaultType), value).into()
+        }
+        unsafe extern "system" fn ItemStatusProperty<Impl: IAutomationPropertiesStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).ItemStatusProperty() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn GetItemStatus<Impl: IAutomationPropertiesStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).GetItemStatus(&*(&element as *const <super::DependencyObject as ::windows::core::Abi>::Abi as *const <super::DependencyObject as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetItemStatus<Impl: IAutomationPropertiesStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetItemStatus(&*(&element as *const <super::DependencyObject as ::windows::core::Abi>::Abi as *const <super::DependencyObject as ::windows::core::DefaultType>::DefaultType), &*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
+        }
+        unsafe extern "system" fn ItemTypeProperty<Impl: IAutomationPropertiesStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).ItemTypeProperty() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn GetItemType<Impl: IAutomationPropertiesStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).GetItemType(&*(&element as *const <super::DependencyObject as ::windows::core::Abi>::Abi as *const <super::DependencyObject as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetItemType<Impl: IAutomationPropertiesStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetItemType(&*(&element as *const <super::DependencyObject as ::windows::core::Abi>::Abi as *const <super::DependencyObject as ::windows::core::DefaultType>::DefaultType), &*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
+        }
+        unsafe extern "system" fn LabeledByProperty<Impl: IAutomationPropertiesStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).LabeledByProperty() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn GetLabeledBy<Impl: IAutomationPropertiesStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).GetLabeledBy(&*(&element as *const <super::DependencyObject as ::windows::core::Abi>::Abi as *const <super::DependencyObject as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetLabeledBy<Impl: IAutomationPropertiesStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetLabeledBy(&*(&element as *const <super::DependencyObject as ::windows::core::Abi>::Abi as *const <super::DependencyObject as ::windows::core::DefaultType>::DefaultType), &*(&value as *const <super::UIElement as ::windows::core::Abi>::Abi as *const <super::UIElement as ::windows::core::DefaultType>::DefaultType)).into()
+        }
+        unsafe extern "system" fn NameProperty<Impl: IAutomationPropertiesStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).NameProperty() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn GetName<Impl: IAutomationPropertiesStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).GetName(&*(&element as *const <super::DependencyObject as ::windows::core::Abi>::Abi as *const <super::DependencyObject as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetName<Impl: IAutomationPropertiesStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetName(&*(&element as *const <super::DependencyObject as ::windows::core::Abi>::Abi as *const <super::DependencyObject as ::windows::core::DefaultType>::DefaultType), &*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
+        }
+        unsafe extern "system" fn LiveSettingProperty<Impl: IAutomationPropertiesStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).LiveSettingProperty() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn GetLiveSetting<Impl: IAutomationPropertiesStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, result__: *mut Peers::AutomationLiveSetting) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).GetLiveSetting(&*(&element as *const <super::DependencyObject as ::windows::core::Abi>::Abi as *const <super::DependencyObject as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetLiveSetting<Impl: IAutomationPropertiesStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, value: Peers::AutomationLiveSetting) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetLiveSetting(&*(&element as *const <super::DependencyObject as ::windows::core::Abi>::Abi as *const <super::DependencyObject as ::windows::core::DefaultType>::DefaultType), value).into()
+        }
+        Self(
+            base.0,
+            base.1,
+            base.2,
+            base.3,
+            ::windows::core::GetRuntimeClassName::<IAutomationPropertiesStatics>,
+            base.5,
+            AcceleratorKeyProperty::<Impl, OFFSET>,
+            GetAcceleratorKey::<Impl, OFFSET>,
+            SetAcceleratorKey::<Impl, OFFSET>,
+            AccessKeyProperty::<Impl, OFFSET>,
+            GetAccessKey::<Impl, OFFSET>,
+            SetAccessKey::<Impl, OFFSET>,
+            AutomationIdProperty::<Impl, OFFSET>,
+            GetAutomationId::<Impl, OFFSET>,
+            SetAutomationId::<Impl, OFFSET>,
+            HelpTextProperty::<Impl, OFFSET>,
+            GetHelpText::<Impl, OFFSET>,
+            SetHelpText::<Impl, OFFSET>,
+            IsRequiredForFormProperty::<Impl, OFFSET>,
+            GetIsRequiredForForm::<Impl, OFFSET>,
+            SetIsRequiredForForm::<Impl, OFFSET>,
+            ItemStatusProperty::<Impl, OFFSET>,
+            GetItemStatus::<Impl, OFFSET>,
+            SetItemStatus::<Impl, OFFSET>,
+            ItemTypeProperty::<Impl, OFFSET>,
+            GetItemType::<Impl, OFFSET>,
+            SetItemType::<Impl, OFFSET>,
+            LabeledByProperty::<Impl, OFFSET>,
+            GetLabeledBy::<Impl, OFFSET>,
+            SetLabeledBy::<Impl, OFFSET>,
+            NameProperty::<Impl, OFFSET>,
+            GetName::<Impl, OFFSET>,
+            SetName::<Impl, OFFSET>,
+            LiveSettingProperty::<Impl, OFFSET>,
+            GetLiveSetting::<Impl, OFFSET>,
+            SetLiveSetting::<Impl, OFFSET>,
+        )
+    }
+}
+#[cfg(feature = "implement_exclusive")]
 pub trait IAutomationPropertiesStatics2Impl: Sized {
     fn AccessibilityViewProperty(&self) -> ::windows::core::Result<super::DependencyProperty>;
     fn GetAccessibilityView(&self, element: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<Peers::AccessibilityView>;
     fn SetAccessibilityView(&self, element: &::core::option::Option<super::DependencyObject>, value: Peers::AccessibilityView) -> ::windows::core::Result<()>;
     fn ControlledPeersProperty(&self) -> ::windows::core::Result<super::DependencyProperty>;
     fn GetControlledPeers(&self, element: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVector<super::UIElement>>;
+}
+#[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IAutomationPropertiesStatics2 {
+    const NAME: &'static str = "Windows.UI.Xaml.Automation.IAutomationPropertiesStatics2";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IAutomationPropertiesStatics2Vtbl {
+    pub const fn new<Impl: IAutomationPropertiesStatics2Impl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IAutomationPropertiesStatics2Vtbl {
+        unsafe extern "system" fn AccessibilityViewProperty<Impl: IAutomationPropertiesStatics2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).AccessibilityViewProperty() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn GetAccessibilityView<Impl: IAutomationPropertiesStatics2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, result__: *mut Peers::AccessibilityView) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).GetAccessibilityView(&*(&element as *const <super::DependencyObject as ::windows::core::Abi>::Abi as *const <super::DependencyObject as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetAccessibilityView<Impl: IAutomationPropertiesStatics2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, value: Peers::AccessibilityView) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetAccessibilityView(&*(&element as *const <super::DependencyObject as ::windows::core::Abi>::Abi as *const <super::DependencyObject as ::windows::core::DefaultType>::DefaultType), value).into()
+        }
+        unsafe extern "system" fn ControlledPeersProperty<Impl: IAutomationPropertiesStatics2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).ControlledPeersProperty() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn GetControlledPeers<Impl: IAutomationPropertiesStatics2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).GetControlledPeers(&*(&element as *const <super::DependencyObject as ::windows::core::Abi>::Abi as *const <super::DependencyObject as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IAutomationPropertiesStatics2>, base.5, AccessibilityViewProperty::<Impl, OFFSET>, GetAccessibilityView::<Impl, OFFSET>, SetAccessibilityView::<Impl, OFFSET>, ControlledPeersProperty::<Impl, OFFSET>, GetControlledPeers::<Impl, OFFSET>)
+    }
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAutomationPropertiesStatics3Impl: Sized {
@@ -148,6 +1251,116 @@ pub trait IAutomationPropertiesStatics3Impl: Sized {
     fn GetAnnotations(&self, element: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVector<AutomationAnnotation>>;
 }
 #[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IAutomationPropertiesStatics3 {
+    const NAME: &'static str = "Windows.UI.Xaml.Automation.IAutomationPropertiesStatics3";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IAutomationPropertiesStatics3Vtbl {
+    pub const fn new<Impl: IAutomationPropertiesStatics3Impl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IAutomationPropertiesStatics3Vtbl {
+        unsafe extern "system" fn PositionInSetProperty<Impl: IAutomationPropertiesStatics3Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).PositionInSetProperty() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn GetPositionInSet<Impl: IAutomationPropertiesStatics3Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, result__: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).GetPositionInSet(&*(&element as *const <super::DependencyObject as ::windows::core::Abi>::Abi as *const <super::DependencyObject as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetPositionInSet<Impl: IAutomationPropertiesStatics3Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, value: i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetPositionInSet(&*(&element as *const <super::DependencyObject as ::windows::core::Abi>::Abi as *const <super::DependencyObject as ::windows::core::DefaultType>::DefaultType), value).into()
+        }
+        unsafe extern "system" fn SizeOfSetProperty<Impl: IAutomationPropertiesStatics3Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).SizeOfSetProperty() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn GetSizeOfSet<Impl: IAutomationPropertiesStatics3Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, result__: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).GetSizeOfSet(&*(&element as *const <super::DependencyObject as ::windows::core::Abi>::Abi as *const <super::DependencyObject as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetSizeOfSet<Impl: IAutomationPropertiesStatics3Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, value: i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetSizeOfSet(&*(&element as *const <super::DependencyObject as ::windows::core::Abi>::Abi as *const <super::DependencyObject as ::windows::core::DefaultType>::DefaultType), value).into()
+        }
+        unsafe extern "system" fn LevelProperty<Impl: IAutomationPropertiesStatics3Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).LevelProperty() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn GetLevel<Impl: IAutomationPropertiesStatics3Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, result__: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).GetLevel(&*(&element as *const <super::DependencyObject as ::windows::core::Abi>::Abi as *const <super::DependencyObject as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetLevel<Impl: IAutomationPropertiesStatics3Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, value: i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetLevel(&*(&element as *const <super::DependencyObject as ::windows::core::Abi>::Abi as *const <super::DependencyObject as ::windows::core::DefaultType>::DefaultType), value).into()
+        }
+        unsafe extern "system" fn AnnotationsProperty<Impl: IAutomationPropertiesStatics3Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).AnnotationsProperty() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn GetAnnotations<Impl: IAutomationPropertiesStatics3Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).GetAnnotations(&*(&element as *const <super::DependencyObject as ::windows::core::Abi>::Abi as *const <super::DependencyObject as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IAutomationPropertiesStatics3>, base.5, PositionInSetProperty::<Impl, OFFSET>, GetPositionInSet::<Impl, OFFSET>, SetPositionInSet::<Impl, OFFSET>, SizeOfSetProperty::<Impl, OFFSET>, GetSizeOfSet::<Impl, OFFSET>, SetSizeOfSet::<Impl, OFFSET>, LevelProperty::<Impl, OFFSET>, GetLevel::<Impl, OFFSET>, SetLevel::<Impl, OFFSET>, AnnotationsProperty::<Impl, OFFSET>, GetAnnotations::<Impl, OFFSET>)
+    }
+}
+#[cfg(feature = "implement_exclusive")]
 pub trait IAutomationPropertiesStatics4Impl: Sized {
     fn LandmarkTypeProperty(&self) -> ::windows::core::Result<super::DependencyProperty>;
     fn GetLandmarkType(&self, element: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<Peers::AutomationLandmarkType>;
@@ -155,6 +1368,68 @@ pub trait IAutomationPropertiesStatics4Impl: Sized {
     fn LocalizedLandmarkTypeProperty(&self) -> ::windows::core::Result<super::DependencyProperty>;
     fn GetLocalizedLandmarkType(&self, element: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn SetLocalizedLandmarkType(&self, element: &::core::option::Option<super::DependencyObject>, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+}
+#[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IAutomationPropertiesStatics4 {
+    const NAME: &'static str = "Windows.UI.Xaml.Automation.IAutomationPropertiesStatics4";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IAutomationPropertiesStatics4Vtbl {
+    pub const fn new<Impl: IAutomationPropertiesStatics4Impl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IAutomationPropertiesStatics4Vtbl {
+        unsafe extern "system" fn LandmarkTypeProperty<Impl: IAutomationPropertiesStatics4Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).LandmarkTypeProperty() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn GetLandmarkType<Impl: IAutomationPropertiesStatics4Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, result__: *mut Peers::AutomationLandmarkType) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).GetLandmarkType(&*(&element as *const <super::DependencyObject as ::windows::core::Abi>::Abi as *const <super::DependencyObject as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetLandmarkType<Impl: IAutomationPropertiesStatics4Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, value: Peers::AutomationLandmarkType) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetLandmarkType(&*(&element as *const <super::DependencyObject as ::windows::core::Abi>::Abi as *const <super::DependencyObject as ::windows::core::DefaultType>::DefaultType), value).into()
+        }
+        unsafe extern "system" fn LocalizedLandmarkTypeProperty<Impl: IAutomationPropertiesStatics4Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).LocalizedLandmarkTypeProperty() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn GetLocalizedLandmarkType<Impl: IAutomationPropertiesStatics4Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).GetLocalizedLandmarkType(&*(&element as *const <super::DependencyObject as ::windows::core::Abi>::Abi as *const <super::DependencyObject as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetLocalizedLandmarkType<Impl: IAutomationPropertiesStatics4Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetLocalizedLandmarkType(&*(&element as *const <super::DependencyObject as ::windows::core::Abi>::Abi as *const <super::DependencyObject as ::windows::core::DefaultType>::DefaultType), &*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IAutomationPropertiesStatics4>, base.5, LandmarkTypeProperty::<Impl, OFFSET>, GetLandmarkType::<Impl, OFFSET>, SetLandmarkType::<Impl, OFFSET>, LocalizedLandmarkTypeProperty::<Impl, OFFSET>, GetLocalizedLandmarkType::<Impl, OFFSET>, SetLocalizedLandmarkType::<Impl, OFFSET>)
+    }
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAutomationPropertiesStatics5Impl: Sized {
@@ -178,10 +1453,251 @@ pub trait IAutomationPropertiesStatics5Impl: Sized {
     fn GetFlowsFrom(&self, element: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVector<super::DependencyObject>>;
 }
 #[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IAutomationPropertiesStatics5 {
+    const NAME: &'static str = "Windows.UI.Xaml.Automation.IAutomationPropertiesStatics5";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IAutomationPropertiesStatics5Vtbl {
+    pub const fn new<Impl: IAutomationPropertiesStatics5Impl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IAutomationPropertiesStatics5Vtbl {
+        unsafe extern "system" fn IsPeripheralProperty<Impl: IAutomationPropertiesStatics5Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).IsPeripheralProperty() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn GetIsPeripheral<Impl: IAutomationPropertiesStatics5Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).GetIsPeripheral(&*(&element as *const <super::DependencyObject as ::windows::core::Abi>::Abi as *const <super::DependencyObject as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetIsPeripheral<Impl: IAutomationPropertiesStatics5Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, value: bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetIsPeripheral(&*(&element as *const <super::DependencyObject as ::windows::core::Abi>::Abi as *const <super::DependencyObject as ::windows::core::DefaultType>::DefaultType), value).into()
+        }
+        unsafe extern "system" fn IsDataValidForFormProperty<Impl: IAutomationPropertiesStatics5Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).IsDataValidForFormProperty() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn GetIsDataValidForForm<Impl: IAutomationPropertiesStatics5Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).GetIsDataValidForForm(&*(&element as *const <super::DependencyObject as ::windows::core::Abi>::Abi as *const <super::DependencyObject as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetIsDataValidForForm<Impl: IAutomationPropertiesStatics5Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, value: bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetIsDataValidForForm(&*(&element as *const <super::DependencyObject as ::windows::core::Abi>::Abi as *const <super::DependencyObject as ::windows::core::DefaultType>::DefaultType), value).into()
+        }
+        unsafe extern "system" fn FullDescriptionProperty<Impl: IAutomationPropertiesStatics5Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).FullDescriptionProperty() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn GetFullDescription<Impl: IAutomationPropertiesStatics5Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).GetFullDescription(&*(&element as *const <super::DependencyObject as ::windows::core::Abi>::Abi as *const <super::DependencyObject as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetFullDescription<Impl: IAutomationPropertiesStatics5Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetFullDescription(&*(&element as *const <super::DependencyObject as ::windows::core::Abi>::Abi as *const <super::DependencyObject as ::windows::core::DefaultType>::DefaultType), &*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
+        }
+        unsafe extern "system" fn LocalizedControlTypeProperty<Impl: IAutomationPropertiesStatics5Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).LocalizedControlTypeProperty() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn GetLocalizedControlType<Impl: IAutomationPropertiesStatics5Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).GetLocalizedControlType(&*(&element as *const <super::DependencyObject as ::windows::core::Abi>::Abi as *const <super::DependencyObject as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetLocalizedControlType<Impl: IAutomationPropertiesStatics5Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetLocalizedControlType(&*(&element as *const <super::DependencyObject as ::windows::core::Abi>::Abi as *const <super::DependencyObject as ::windows::core::DefaultType>::DefaultType), &*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
+        }
+        unsafe extern "system" fn DescribedByProperty<Impl: IAutomationPropertiesStatics5Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).DescribedByProperty() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn GetDescribedBy<Impl: IAutomationPropertiesStatics5Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).GetDescribedBy(&*(&element as *const <super::DependencyObject as ::windows::core::Abi>::Abi as *const <super::DependencyObject as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn FlowsToProperty<Impl: IAutomationPropertiesStatics5Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).FlowsToProperty() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn GetFlowsTo<Impl: IAutomationPropertiesStatics5Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).GetFlowsTo(&*(&element as *const <super::DependencyObject as ::windows::core::Abi>::Abi as *const <super::DependencyObject as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn FlowsFromProperty<Impl: IAutomationPropertiesStatics5Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).FlowsFromProperty() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn GetFlowsFrom<Impl: IAutomationPropertiesStatics5Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).GetFlowsFrom(&*(&element as *const <super::DependencyObject as ::windows::core::Abi>::Abi as *const <super::DependencyObject as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(
+            base.0,
+            base.1,
+            base.2,
+            base.3,
+            ::windows::core::GetRuntimeClassName::<IAutomationPropertiesStatics5>,
+            base.5,
+            IsPeripheralProperty::<Impl, OFFSET>,
+            GetIsPeripheral::<Impl, OFFSET>,
+            SetIsPeripheral::<Impl, OFFSET>,
+            IsDataValidForFormProperty::<Impl, OFFSET>,
+            GetIsDataValidForForm::<Impl, OFFSET>,
+            SetIsDataValidForForm::<Impl, OFFSET>,
+            FullDescriptionProperty::<Impl, OFFSET>,
+            GetFullDescription::<Impl, OFFSET>,
+            SetFullDescription::<Impl, OFFSET>,
+            LocalizedControlTypeProperty::<Impl, OFFSET>,
+            GetLocalizedControlType::<Impl, OFFSET>,
+            SetLocalizedControlType::<Impl, OFFSET>,
+            DescribedByProperty::<Impl, OFFSET>,
+            GetDescribedBy::<Impl, OFFSET>,
+            FlowsToProperty::<Impl, OFFSET>,
+            GetFlowsTo::<Impl, OFFSET>,
+            FlowsFromProperty::<Impl, OFFSET>,
+            GetFlowsFrom::<Impl, OFFSET>,
+        )
+    }
+}
+#[cfg(feature = "implement_exclusive")]
 pub trait IAutomationPropertiesStatics6Impl: Sized {
     fn CultureProperty(&self) -> ::windows::core::Result<super::DependencyProperty>;
     fn GetCulture(&self, element: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<i32>;
     fn SetCulture(&self, element: &::core::option::Option<super::DependencyObject>, value: i32) -> ::windows::core::Result<()>;
+}
+#[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IAutomationPropertiesStatics6 {
+    const NAME: &'static str = "Windows.UI.Xaml.Automation.IAutomationPropertiesStatics6";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IAutomationPropertiesStatics6Vtbl {
+    pub const fn new<Impl: IAutomationPropertiesStatics6Impl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IAutomationPropertiesStatics6Vtbl {
+        unsafe extern "system" fn CultureProperty<Impl: IAutomationPropertiesStatics6Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).CultureProperty() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn GetCulture<Impl: IAutomationPropertiesStatics6Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, result__: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).GetCulture(&*(&element as *const <super::DependencyObject as ::windows::core::Abi>::Abi as *const <super::DependencyObject as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetCulture<Impl: IAutomationPropertiesStatics6Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, value: i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetCulture(&*(&element as *const <super::DependencyObject as ::windows::core::Abi>::Abi as *const <super::DependencyObject as ::windows::core::DefaultType>::DefaultType), value).into()
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IAutomationPropertiesStatics6>, base.5, CultureProperty::<Impl, OFFSET>, GetCulture::<Impl, OFFSET>, SetCulture::<Impl, OFFSET>)
+    }
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAutomationPropertiesStatics7Impl: Sized {
@@ -190,10 +1706,82 @@ pub trait IAutomationPropertiesStatics7Impl: Sized {
     fn SetHeadingLevel(&self, element: &::core::option::Option<super::DependencyObject>, value: Peers::AutomationHeadingLevel) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IAutomationPropertiesStatics7 {
+    const NAME: &'static str = "Windows.UI.Xaml.Automation.IAutomationPropertiesStatics7";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IAutomationPropertiesStatics7Vtbl {
+    pub const fn new<Impl: IAutomationPropertiesStatics7Impl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IAutomationPropertiesStatics7Vtbl {
+        unsafe extern "system" fn HeadingLevelProperty<Impl: IAutomationPropertiesStatics7Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).HeadingLevelProperty() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn GetHeadingLevel<Impl: IAutomationPropertiesStatics7Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, result__: *mut Peers::AutomationHeadingLevel) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).GetHeadingLevel(&*(&element as *const <super::DependencyObject as ::windows::core::Abi>::Abi as *const <super::DependencyObject as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetHeadingLevel<Impl: IAutomationPropertiesStatics7Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, value: Peers::AutomationHeadingLevel) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetHeadingLevel(&*(&element as *const <super::DependencyObject as ::windows::core::Abi>::Abi as *const <super::DependencyObject as ::windows::core::DefaultType>::DefaultType), value).into()
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IAutomationPropertiesStatics7>, base.5, HeadingLevelProperty::<Impl, OFFSET>, GetHeadingLevel::<Impl, OFFSET>, SetHeadingLevel::<Impl, OFFSET>)
+    }
+}
+#[cfg(feature = "implement_exclusive")]
 pub trait IAutomationPropertiesStatics8Impl: Sized {
     fn IsDialogProperty(&self) -> ::windows::core::Result<super::DependencyProperty>;
     fn GetIsDialog(&self, element: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<bool>;
     fn SetIsDialog(&self, element: &::core::option::Option<super::DependencyObject>, value: bool) -> ::windows::core::Result<()>;
+}
+#[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IAutomationPropertiesStatics8 {
+    const NAME: &'static str = "Windows.UI.Xaml.Automation.IAutomationPropertiesStatics8";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IAutomationPropertiesStatics8Vtbl {
+    pub const fn new<Impl: IAutomationPropertiesStatics8Impl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IAutomationPropertiesStatics8Vtbl {
+        unsafe extern "system" fn IsDialogProperty<Impl: IAutomationPropertiesStatics8Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).IsDialogProperty() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn GetIsDialog<Impl: IAutomationPropertiesStatics8Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).GetIsDialog(&*(&element as *const <super::DependencyObject as ::windows::core::Abi>::Abi as *const <super::DependencyObject as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetIsDialog<Impl: IAutomationPropertiesStatics8Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, value: bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetIsDialog(&*(&element as *const <super::DependencyObject as ::windows::core::Abi>::Abi as *const <super::DependencyObject as ::windows::core::DefaultType>::DefaultType), value).into()
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IAutomationPropertiesStatics8>, base.5, IsDialogProperty::<Impl, OFFSET>, GetIsDialog::<Impl, OFFSET>, SetIsDialog::<Impl, OFFSET>)
+    }
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAutomationPropertiesStatics9Impl: Sized {
@@ -202,15 +1790,102 @@ pub trait IAutomationPropertiesStatics9Impl: Sized {
     fn SetAutomationControlType(&self, element: &::core::option::Option<super::UIElement>, value: Peers::AutomationControlType) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IAutomationPropertiesStatics9 {
+    const NAME: &'static str = "Windows.UI.Xaml.Automation.IAutomationPropertiesStatics9";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IAutomationPropertiesStatics9Vtbl {
+    pub const fn new<Impl: IAutomationPropertiesStatics9Impl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IAutomationPropertiesStatics9Vtbl {
+        unsafe extern "system" fn AutomationControlTypeProperty<Impl: IAutomationPropertiesStatics9Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).AutomationControlTypeProperty() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn GetAutomationControlType<Impl: IAutomationPropertiesStatics9Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, result__: *mut Peers::AutomationControlType) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).GetAutomationControlType(&*(&element as *const <super::UIElement as ::windows::core::Abi>::Abi as *const <super::UIElement as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetAutomationControlType<Impl: IAutomationPropertiesStatics9Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, value: Peers::AutomationControlType) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetAutomationControlType(&*(&element as *const <super::UIElement as ::windows::core::Abi>::Abi as *const <super::UIElement as ::windows::core::DefaultType>::DefaultType), value).into()
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IAutomationPropertiesStatics9>, base.5, AutomationControlTypeProperty::<Impl, OFFSET>, GetAutomationControlType::<Impl, OFFSET>, SetAutomationControlType::<Impl, OFFSET>)
+    }
+}
+#[cfg(feature = "implement_exclusive")]
 pub trait IAutomationPropertyImpl: Sized {}
 #[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IAutomationProperty {
+    const NAME: &'static str = "Windows.UI.Xaml.Automation.IAutomationProperty";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IAutomationPropertyVtbl {
+    pub const fn new<Impl: IAutomationPropertyImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IAutomationPropertyVtbl {
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IAutomationProperty>, base.5)
+    }
+}
+#[cfg(feature = "implement_exclusive")]
 pub trait IDockPatternIdentifiersImpl: Sized {}
+#[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IDockPatternIdentifiers {
+    const NAME: &'static str = "Windows.UI.Xaml.Automation.IDockPatternIdentifiers";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IDockPatternIdentifiersVtbl {
+    pub const fn new<Impl: IDockPatternIdentifiersImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IDockPatternIdentifiersVtbl {
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IDockPatternIdentifiers>, base.5)
+    }
+}
 #[cfg(feature = "implement_exclusive")]
 pub trait IDockPatternIdentifiersStaticsImpl: Sized {
     fn DockPositionProperty(&self) -> ::windows::core::Result<AutomationProperty>;
 }
 #[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IDockPatternIdentifiersStatics {
+    const NAME: &'static str = "Windows.UI.Xaml.Automation.IDockPatternIdentifiersStatics";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IDockPatternIdentifiersStaticsVtbl {
+    pub const fn new<Impl: IDockPatternIdentifiersStaticsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IDockPatternIdentifiersStaticsVtbl {
+        unsafe extern "system" fn DockPositionProperty<Impl: IDockPatternIdentifiersStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).DockPositionProperty() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IDockPatternIdentifiersStatics>, base.5, DockPositionProperty::<Impl, OFFSET>)
+    }
+}
+#[cfg(feature = "implement_exclusive")]
 pub trait IDragPatternIdentifiersImpl: Sized {}
+#[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IDragPatternIdentifiers {
+    const NAME: &'static str = "Windows.UI.Xaml.Automation.IDragPatternIdentifiers";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IDragPatternIdentifiersVtbl {
+    pub const fn new<Impl: IDragPatternIdentifiersImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IDragPatternIdentifiersVtbl {
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IDragPatternIdentifiers>, base.5)
+    }
+}
 #[cfg(feature = "implement_exclusive")]
 pub trait IDragPatternIdentifiersStaticsImpl: Sized {
     fn DropEffectProperty(&self) -> ::windows::core::Result<AutomationProperty>;
@@ -219,20 +1894,157 @@ pub trait IDragPatternIdentifiersStaticsImpl: Sized {
     fn IsGrabbedProperty(&self) -> ::windows::core::Result<AutomationProperty>;
 }
 #[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IDragPatternIdentifiersStatics {
+    const NAME: &'static str = "Windows.UI.Xaml.Automation.IDragPatternIdentifiersStatics";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IDragPatternIdentifiersStaticsVtbl {
+    pub const fn new<Impl: IDragPatternIdentifiersStaticsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IDragPatternIdentifiersStaticsVtbl {
+        unsafe extern "system" fn DropEffectProperty<Impl: IDragPatternIdentifiersStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).DropEffectProperty() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn DropEffectsProperty<Impl: IDragPatternIdentifiersStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).DropEffectsProperty() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn GrabbedItemsProperty<Impl: IDragPatternIdentifiersStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).GrabbedItemsProperty() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn IsGrabbedProperty<Impl: IDragPatternIdentifiersStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).IsGrabbedProperty() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IDragPatternIdentifiersStatics>, base.5, DropEffectProperty::<Impl, OFFSET>, DropEffectsProperty::<Impl, OFFSET>, GrabbedItemsProperty::<Impl, OFFSET>, IsGrabbedProperty::<Impl, OFFSET>)
+    }
+}
+#[cfg(feature = "implement_exclusive")]
 pub trait IDropTargetPatternIdentifiersImpl: Sized {}
+#[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IDropTargetPatternIdentifiers {
+    const NAME: &'static str = "Windows.UI.Xaml.Automation.IDropTargetPatternIdentifiers";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IDropTargetPatternIdentifiersVtbl {
+    pub const fn new<Impl: IDropTargetPatternIdentifiersImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IDropTargetPatternIdentifiersVtbl {
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IDropTargetPatternIdentifiers>, base.5)
+    }
+}
 #[cfg(feature = "implement_exclusive")]
 pub trait IDropTargetPatternIdentifiersStaticsImpl: Sized {
     fn DropTargetEffectProperty(&self) -> ::windows::core::Result<AutomationProperty>;
     fn DropTargetEffectsProperty(&self) -> ::windows::core::Result<AutomationProperty>;
 }
 #[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IDropTargetPatternIdentifiersStatics {
+    const NAME: &'static str = "Windows.UI.Xaml.Automation.IDropTargetPatternIdentifiersStatics";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IDropTargetPatternIdentifiersStaticsVtbl {
+    pub const fn new<Impl: IDropTargetPatternIdentifiersStaticsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IDropTargetPatternIdentifiersStaticsVtbl {
+        unsafe extern "system" fn DropTargetEffectProperty<Impl: IDropTargetPatternIdentifiersStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).DropTargetEffectProperty() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn DropTargetEffectsProperty<Impl: IDropTargetPatternIdentifiersStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).DropTargetEffectsProperty() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IDropTargetPatternIdentifiersStatics>, base.5, DropTargetEffectProperty::<Impl, OFFSET>, DropTargetEffectsProperty::<Impl, OFFSET>)
+    }
+}
+#[cfg(feature = "implement_exclusive")]
 pub trait IExpandCollapsePatternIdentifiersImpl: Sized {}
+#[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IExpandCollapsePatternIdentifiers {
+    const NAME: &'static str = "Windows.UI.Xaml.Automation.IExpandCollapsePatternIdentifiers";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IExpandCollapsePatternIdentifiersVtbl {
+    pub const fn new<Impl: IExpandCollapsePatternIdentifiersImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IExpandCollapsePatternIdentifiersVtbl {
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IExpandCollapsePatternIdentifiers>, base.5)
+    }
+}
 #[cfg(feature = "implement_exclusive")]
 pub trait IExpandCollapsePatternIdentifiersStaticsImpl: Sized {
     fn ExpandCollapseStateProperty(&self) -> ::windows::core::Result<AutomationProperty>;
 }
 #[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IExpandCollapsePatternIdentifiersStatics {
+    const NAME: &'static str = "Windows.UI.Xaml.Automation.IExpandCollapsePatternIdentifiersStatics";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IExpandCollapsePatternIdentifiersStaticsVtbl {
+    pub const fn new<Impl: IExpandCollapsePatternIdentifiersStaticsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IExpandCollapsePatternIdentifiersStaticsVtbl {
+        unsafe extern "system" fn ExpandCollapseStateProperty<Impl: IExpandCollapsePatternIdentifiersStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).ExpandCollapseStateProperty() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IExpandCollapsePatternIdentifiersStatics>, base.5, ExpandCollapseStateProperty::<Impl, OFFSET>)
+    }
+}
+#[cfg(feature = "implement_exclusive")]
 pub trait IGridItemPatternIdentifiersImpl: Sized {}
+#[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IGridItemPatternIdentifiers {
+    const NAME: &'static str = "Windows.UI.Xaml.Automation.IGridItemPatternIdentifiers";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IGridItemPatternIdentifiersVtbl {
+    pub const fn new<Impl: IGridItemPatternIdentifiersImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IGridItemPatternIdentifiersVtbl {
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IGridItemPatternIdentifiers>, base.5)
+    }
+}
 #[cfg(feature = "implement_exclusive")]
 pub trait IGridItemPatternIdentifiersStaticsImpl: Sized {
     fn ColumnProperty(&self) -> ::windows::core::Result<AutomationProperty>;
@@ -242,21 +2054,180 @@ pub trait IGridItemPatternIdentifiersStaticsImpl: Sized {
     fn RowSpanProperty(&self) -> ::windows::core::Result<AutomationProperty>;
 }
 #[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IGridItemPatternIdentifiersStatics {
+    const NAME: &'static str = "Windows.UI.Xaml.Automation.IGridItemPatternIdentifiersStatics";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IGridItemPatternIdentifiersStaticsVtbl {
+    pub const fn new<Impl: IGridItemPatternIdentifiersStaticsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IGridItemPatternIdentifiersStaticsVtbl {
+        unsafe extern "system" fn ColumnProperty<Impl: IGridItemPatternIdentifiersStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).ColumnProperty() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn ColumnSpanProperty<Impl: IGridItemPatternIdentifiersStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).ColumnSpanProperty() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn ContainingGridProperty<Impl: IGridItemPatternIdentifiersStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).ContainingGridProperty() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn RowProperty<Impl: IGridItemPatternIdentifiersStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).RowProperty() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn RowSpanProperty<Impl: IGridItemPatternIdentifiersStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).RowSpanProperty() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IGridItemPatternIdentifiersStatics>, base.5, ColumnProperty::<Impl, OFFSET>, ColumnSpanProperty::<Impl, OFFSET>, ContainingGridProperty::<Impl, OFFSET>, RowProperty::<Impl, OFFSET>, RowSpanProperty::<Impl, OFFSET>)
+    }
+}
+#[cfg(feature = "implement_exclusive")]
 pub trait IGridPatternIdentifiersImpl: Sized {}
+#[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IGridPatternIdentifiers {
+    const NAME: &'static str = "Windows.UI.Xaml.Automation.IGridPatternIdentifiers";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IGridPatternIdentifiersVtbl {
+    pub const fn new<Impl: IGridPatternIdentifiersImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IGridPatternIdentifiersVtbl {
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IGridPatternIdentifiers>, base.5)
+    }
+}
 #[cfg(feature = "implement_exclusive")]
 pub trait IGridPatternIdentifiersStaticsImpl: Sized {
     fn ColumnCountProperty(&self) -> ::windows::core::Result<AutomationProperty>;
     fn RowCountProperty(&self) -> ::windows::core::Result<AutomationProperty>;
 }
 #[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IGridPatternIdentifiersStatics {
+    const NAME: &'static str = "Windows.UI.Xaml.Automation.IGridPatternIdentifiersStatics";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IGridPatternIdentifiersStaticsVtbl {
+    pub const fn new<Impl: IGridPatternIdentifiersStaticsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IGridPatternIdentifiersStaticsVtbl {
+        unsafe extern "system" fn ColumnCountProperty<Impl: IGridPatternIdentifiersStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).ColumnCountProperty() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn RowCountProperty<Impl: IGridPatternIdentifiersStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).RowCountProperty() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IGridPatternIdentifiersStatics>, base.5, ColumnCountProperty::<Impl, OFFSET>, RowCountProperty::<Impl, OFFSET>)
+    }
+}
+#[cfg(feature = "implement_exclusive")]
 pub trait IMultipleViewPatternIdentifiersImpl: Sized {}
+#[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IMultipleViewPatternIdentifiers {
+    const NAME: &'static str = "Windows.UI.Xaml.Automation.IMultipleViewPatternIdentifiers";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IMultipleViewPatternIdentifiersVtbl {
+    pub const fn new<Impl: IMultipleViewPatternIdentifiersImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IMultipleViewPatternIdentifiersVtbl {
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IMultipleViewPatternIdentifiers>, base.5)
+    }
+}
 #[cfg(feature = "implement_exclusive")]
 pub trait IMultipleViewPatternIdentifiersStaticsImpl: Sized {
     fn CurrentViewProperty(&self) -> ::windows::core::Result<AutomationProperty>;
     fn SupportedViewsProperty(&self) -> ::windows::core::Result<AutomationProperty>;
 }
 #[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IMultipleViewPatternIdentifiersStatics {
+    const NAME: &'static str = "Windows.UI.Xaml.Automation.IMultipleViewPatternIdentifiersStatics";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IMultipleViewPatternIdentifiersStaticsVtbl {
+    pub const fn new<Impl: IMultipleViewPatternIdentifiersStaticsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IMultipleViewPatternIdentifiersStaticsVtbl {
+        unsafe extern "system" fn CurrentViewProperty<Impl: IMultipleViewPatternIdentifiersStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).CurrentViewProperty() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SupportedViewsProperty<Impl: IMultipleViewPatternIdentifiersStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).SupportedViewsProperty() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IMultipleViewPatternIdentifiersStatics>, base.5, CurrentViewProperty::<Impl, OFFSET>, SupportedViewsProperty::<Impl, OFFSET>)
+    }
+}
+#[cfg(feature = "implement_exclusive")]
 pub trait IRangeValuePatternIdentifiersImpl: Sized {}
+#[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IRangeValuePatternIdentifiers {
+    const NAME: &'static str = "Windows.UI.Xaml.Automation.IRangeValuePatternIdentifiers";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IRangeValuePatternIdentifiersVtbl {
+    pub const fn new<Impl: IRangeValuePatternIdentifiersImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IRangeValuePatternIdentifiersVtbl {
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IRangeValuePatternIdentifiers>, base.5)
+    }
+}
 #[cfg(feature = "implement_exclusive")]
 pub trait IRangeValuePatternIdentifiersStaticsImpl: Sized {
     fn IsReadOnlyProperty(&self) -> ::windows::core::Result<AutomationProperty>;
@@ -267,7 +2238,93 @@ pub trait IRangeValuePatternIdentifiersStaticsImpl: Sized {
     fn ValueProperty(&self) -> ::windows::core::Result<AutomationProperty>;
 }
 #[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IRangeValuePatternIdentifiersStatics {
+    const NAME: &'static str = "Windows.UI.Xaml.Automation.IRangeValuePatternIdentifiersStatics";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IRangeValuePatternIdentifiersStaticsVtbl {
+    pub const fn new<Impl: IRangeValuePatternIdentifiersStaticsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IRangeValuePatternIdentifiersStaticsVtbl {
+        unsafe extern "system" fn IsReadOnlyProperty<Impl: IRangeValuePatternIdentifiersStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).IsReadOnlyProperty() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn LargeChangeProperty<Impl: IRangeValuePatternIdentifiersStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).LargeChangeProperty() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn MaximumProperty<Impl: IRangeValuePatternIdentifiersStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).MaximumProperty() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn MinimumProperty<Impl: IRangeValuePatternIdentifiersStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).MinimumProperty() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SmallChangeProperty<Impl: IRangeValuePatternIdentifiersStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).SmallChangeProperty() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn ValueProperty<Impl: IRangeValuePatternIdentifiersStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).ValueProperty() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IRangeValuePatternIdentifiersStatics>, base.5, IsReadOnlyProperty::<Impl, OFFSET>, LargeChangeProperty::<Impl, OFFSET>, MaximumProperty::<Impl, OFFSET>, MinimumProperty::<Impl, OFFSET>, SmallChangeProperty::<Impl, OFFSET>, ValueProperty::<Impl, OFFSET>)
+    }
+}
+#[cfg(feature = "implement_exclusive")]
 pub trait IScrollPatternIdentifiersImpl: Sized {}
+#[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IScrollPatternIdentifiers {
+    const NAME: &'static str = "Windows.UI.Xaml.Automation.IScrollPatternIdentifiers";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IScrollPatternIdentifiersVtbl {
+    pub const fn new<Impl: IScrollPatternIdentifiersImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IScrollPatternIdentifiersVtbl {
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IScrollPatternIdentifiers>, base.5)
+    }
+}
 #[cfg(feature = "implement_exclusive")]
 pub trait IScrollPatternIdentifiersStaticsImpl: Sized {
     fn HorizontallyScrollableProperty(&self) -> ::windows::core::Result<AutomationProperty>;
@@ -279,14 +2336,153 @@ pub trait IScrollPatternIdentifiersStaticsImpl: Sized {
     fn VerticalViewSizeProperty(&self) -> ::windows::core::Result<AutomationProperty>;
 }
 #[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IScrollPatternIdentifiersStatics {
+    const NAME: &'static str = "Windows.UI.Xaml.Automation.IScrollPatternIdentifiersStatics";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IScrollPatternIdentifiersStaticsVtbl {
+    pub const fn new<Impl: IScrollPatternIdentifiersStaticsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IScrollPatternIdentifiersStaticsVtbl {
+        unsafe extern "system" fn HorizontallyScrollableProperty<Impl: IScrollPatternIdentifiersStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).HorizontallyScrollableProperty() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn HorizontalScrollPercentProperty<Impl: IScrollPatternIdentifiersStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).HorizontalScrollPercentProperty() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn HorizontalViewSizeProperty<Impl: IScrollPatternIdentifiersStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).HorizontalViewSizeProperty() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn NoScroll<Impl: IScrollPatternIdentifiersStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).NoScroll() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn VerticallyScrollableProperty<Impl: IScrollPatternIdentifiersStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).VerticallyScrollableProperty() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn VerticalScrollPercentProperty<Impl: IScrollPatternIdentifiersStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).VerticalScrollPercentProperty() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn VerticalViewSizeProperty<Impl: IScrollPatternIdentifiersStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).VerticalViewSizeProperty() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IScrollPatternIdentifiersStatics>, base.5, HorizontallyScrollableProperty::<Impl, OFFSET>, HorizontalScrollPercentProperty::<Impl, OFFSET>, HorizontalViewSizeProperty::<Impl, OFFSET>, NoScroll::<Impl, OFFSET>, VerticallyScrollableProperty::<Impl, OFFSET>, VerticalScrollPercentProperty::<Impl, OFFSET>, VerticalViewSizeProperty::<Impl, OFFSET>)
+    }
+}
+#[cfg(feature = "implement_exclusive")]
 pub trait ISelectionItemPatternIdentifiersImpl: Sized {}
+#[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for ISelectionItemPatternIdentifiers {
+    const NAME: &'static str = "Windows.UI.Xaml.Automation.ISelectionItemPatternIdentifiers";
+}
+#[cfg(feature = "implement_exclusive")]
+impl ISelectionItemPatternIdentifiersVtbl {
+    pub const fn new<Impl: ISelectionItemPatternIdentifiersImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> ISelectionItemPatternIdentifiersVtbl {
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<ISelectionItemPatternIdentifiers>, base.5)
+    }
+}
 #[cfg(feature = "implement_exclusive")]
 pub trait ISelectionItemPatternIdentifiersStaticsImpl: Sized {
     fn IsSelectedProperty(&self) -> ::windows::core::Result<AutomationProperty>;
     fn SelectionContainerProperty(&self) -> ::windows::core::Result<AutomationProperty>;
 }
 #[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for ISelectionItemPatternIdentifiersStatics {
+    const NAME: &'static str = "Windows.UI.Xaml.Automation.ISelectionItemPatternIdentifiersStatics";
+}
+#[cfg(feature = "implement_exclusive")]
+impl ISelectionItemPatternIdentifiersStaticsVtbl {
+    pub const fn new<Impl: ISelectionItemPatternIdentifiersStaticsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> ISelectionItemPatternIdentifiersStaticsVtbl {
+        unsafe extern "system" fn IsSelectedProperty<Impl: ISelectionItemPatternIdentifiersStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).IsSelectedProperty() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SelectionContainerProperty<Impl: ISelectionItemPatternIdentifiersStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).SelectionContainerProperty() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<ISelectionItemPatternIdentifiersStatics>, base.5, IsSelectedProperty::<Impl, OFFSET>, SelectionContainerProperty::<Impl, OFFSET>)
+    }
+}
+#[cfg(feature = "implement_exclusive")]
 pub trait ISelectionPatternIdentifiersImpl: Sized {}
+#[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for ISelectionPatternIdentifiers {
+    const NAME: &'static str = "Windows.UI.Xaml.Automation.ISelectionPatternIdentifiers";
+}
+#[cfg(feature = "implement_exclusive")]
+impl ISelectionPatternIdentifiersVtbl {
+    pub const fn new<Impl: ISelectionPatternIdentifiersImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> ISelectionPatternIdentifiersVtbl {
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<ISelectionPatternIdentifiers>, base.5)
+    }
+}
 #[cfg(feature = "implement_exclusive")]
 pub trait ISelectionPatternIdentifiersStaticsImpl: Sized {
     fn CanSelectMultipleProperty(&self) -> ::windows::core::Result<AutomationProperty>;
@@ -294,13 +2490,97 @@ pub trait ISelectionPatternIdentifiersStaticsImpl: Sized {
     fn SelectionProperty(&self) -> ::windows::core::Result<AutomationProperty>;
 }
 #[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for ISelectionPatternIdentifiersStatics {
+    const NAME: &'static str = "Windows.UI.Xaml.Automation.ISelectionPatternIdentifiersStatics";
+}
+#[cfg(feature = "implement_exclusive")]
+impl ISelectionPatternIdentifiersStaticsVtbl {
+    pub const fn new<Impl: ISelectionPatternIdentifiersStaticsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> ISelectionPatternIdentifiersStaticsVtbl {
+        unsafe extern "system" fn CanSelectMultipleProperty<Impl: ISelectionPatternIdentifiersStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).CanSelectMultipleProperty() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn IsSelectionRequiredProperty<Impl: ISelectionPatternIdentifiersStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).IsSelectionRequiredProperty() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SelectionProperty<Impl: ISelectionPatternIdentifiersStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).SelectionProperty() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<ISelectionPatternIdentifiersStatics>, base.5, CanSelectMultipleProperty::<Impl, OFFSET>, IsSelectionRequiredProperty::<Impl, OFFSET>, SelectionProperty::<Impl, OFFSET>)
+    }
+}
+#[cfg(feature = "implement_exclusive")]
 pub trait ISpreadsheetItemPatternIdentifiersImpl: Sized {}
+#[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for ISpreadsheetItemPatternIdentifiers {
+    const NAME: &'static str = "Windows.UI.Xaml.Automation.ISpreadsheetItemPatternIdentifiers";
+}
+#[cfg(feature = "implement_exclusive")]
+impl ISpreadsheetItemPatternIdentifiersVtbl {
+    pub const fn new<Impl: ISpreadsheetItemPatternIdentifiersImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> ISpreadsheetItemPatternIdentifiersVtbl {
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<ISpreadsheetItemPatternIdentifiers>, base.5)
+    }
+}
 #[cfg(feature = "implement_exclusive")]
 pub trait ISpreadsheetItemPatternIdentifiersStaticsImpl: Sized {
     fn FormulaProperty(&self) -> ::windows::core::Result<AutomationProperty>;
 }
 #[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for ISpreadsheetItemPatternIdentifiersStatics {
+    const NAME: &'static str = "Windows.UI.Xaml.Automation.ISpreadsheetItemPatternIdentifiersStatics";
+}
+#[cfg(feature = "implement_exclusive")]
+impl ISpreadsheetItemPatternIdentifiersStaticsVtbl {
+    pub const fn new<Impl: ISpreadsheetItemPatternIdentifiersStaticsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> ISpreadsheetItemPatternIdentifiersStaticsVtbl {
+        unsafe extern "system" fn FormulaProperty<Impl: ISpreadsheetItemPatternIdentifiersStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).FormulaProperty() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<ISpreadsheetItemPatternIdentifiersStatics>, base.5, FormulaProperty::<Impl, OFFSET>)
+    }
+}
+#[cfg(feature = "implement_exclusive")]
 pub trait IStylesPatternIdentifiersImpl: Sized {}
+#[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IStylesPatternIdentifiers {
+    const NAME: &'static str = "Windows.UI.Xaml.Automation.IStylesPatternIdentifiers";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IStylesPatternIdentifiersVtbl {
+    pub const fn new<Impl: IStylesPatternIdentifiersImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IStylesPatternIdentifiersVtbl {
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IStylesPatternIdentifiers>, base.5)
+    }
+}
 #[cfg(feature = "implement_exclusive")]
 pub trait IStylesPatternIdentifiersStaticsImpl: Sized {
     fn ExtendedPropertiesProperty(&self) -> ::windows::core::Result<AutomationProperty>;
@@ -312,14 +2592,153 @@ pub trait IStylesPatternIdentifiersStaticsImpl: Sized {
     fn StyleNameProperty(&self) -> ::windows::core::Result<AutomationProperty>;
 }
 #[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IStylesPatternIdentifiersStatics {
+    const NAME: &'static str = "Windows.UI.Xaml.Automation.IStylesPatternIdentifiersStatics";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IStylesPatternIdentifiersStaticsVtbl {
+    pub const fn new<Impl: IStylesPatternIdentifiersStaticsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IStylesPatternIdentifiersStaticsVtbl {
+        unsafe extern "system" fn ExtendedPropertiesProperty<Impl: IStylesPatternIdentifiersStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).ExtendedPropertiesProperty() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn FillColorProperty<Impl: IStylesPatternIdentifiersStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).FillColorProperty() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn FillPatternColorProperty<Impl: IStylesPatternIdentifiersStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).FillPatternColorProperty() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn FillPatternStyleProperty<Impl: IStylesPatternIdentifiersStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).FillPatternStyleProperty() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn ShapeProperty<Impl: IStylesPatternIdentifiersStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).ShapeProperty() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn StyleIdProperty<Impl: IStylesPatternIdentifiersStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).StyleIdProperty() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn StyleNameProperty<Impl: IStylesPatternIdentifiersStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).StyleNameProperty() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IStylesPatternIdentifiersStatics>, base.5, ExtendedPropertiesProperty::<Impl, OFFSET>, FillColorProperty::<Impl, OFFSET>, FillPatternColorProperty::<Impl, OFFSET>, FillPatternStyleProperty::<Impl, OFFSET>, ShapeProperty::<Impl, OFFSET>, StyleIdProperty::<Impl, OFFSET>, StyleNameProperty::<Impl, OFFSET>)
+    }
+}
+#[cfg(feature = "implement_exclusive")]
 pub trait ITableItemPatternIdentifiersImpl: Sized {}
+#[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for ITableItemPatternIdentifiers {
+    const NAME: &'static str = "Windows.UI.Xaml.Automation.ITableItemPatternIdentifiers";
+}
+#[cfg(feature = "implement_exclusive")]
+impl ITableItemPatternIdentifiersVtbl {
+    pub const fn new<Impl: ITableItemPatternIdentifiersImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> ITableItemPatternIdentifiersVtbl {
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<ITableItemPatternIdentifiers>, base.5)
+    }
+}
 #[cfg(feature = "implement_exclusive")]
 pub trait ITableItemPatternIdentifiersStaticsImpl: Sized {
     fn ColumnHeaderItemsProperty(&self) -> ::windows::core::Result<AutomationProperty>;
     fn RowHeaderItemsProperty(&self) -> ::windows::core::Result<AutomationProperty>;
 }
 #[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for ITableItemPatternIdentifiersStatics {
+    const NAME: &'static str = "Windows.UI.Xaml.Automation.ITableItemPatternIdentifiersStatics";
+}
+#[cfg(feature = "implement_exclusive")]
+impl ITableItemPatternIdentifiersStaticsVtbl {
+    pub const fn new<Impl: ITableItemPatternIdentifiersStaticsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> ITableItemPatternIdentifiersStaticsVtbl {
+        unsafe extern "system" fn ColumnHeaderItemsProperty<Impl: ITableItemPatternIdentifiersStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).ColumnHeaderItemsProperty() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn RowHeaderItemsProperty<Impl: ITableItemPatternIdentifiersStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).RowHeaderItemsProperty() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<ITableItemPatternIdentifiersStatics>, base.5, ColumnHeaderItemsProperty::<Impl, OFFSET>, RowHeaderItemsProperty::<Impl, OFFSET>)
+    }
+}
+#[cfg(feature = "implement_exclusive")]
 pub trait ITablePatternIdentifiersImpl: Sized {}
+#[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for ITablePatternIdentifiers {
+    const NAME: &'static str = "Windows.UI.Xaml.Automation.ITablePatternIdentifiers";
+}
+#[cfg(feature = "implement_exclusive")]
+impl ITablePatternIdentifiersVtbl {
+    pub const fn new<Impl: ITablePatternIdentifiersImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> ITablePatternIdentifiersVtbl {
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<ITablePatternIdentifiers>, base.5)
+    }
+}
 #[cfg(feature = "implement_exclusive")]
 pub trait ITablePatternIdentifiersStaticsImpl: Sized {
     fn ColumnHeadersProperty(&self) -> ::windows::core::Result<AutomationProperty>;
@@ -327,13 +2746,97 @@ pub trait ITablePatternIdentifiersStaticsImpl: Sized {
     fn RowOrColumnMajorProperty(&self) -> ::windows::core::Result<AutomationProperty>;
 }
 #[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for ITablePatternIdentifiersStatics {
+    const NAME: &'static str = "Windows.UI.Xaml.Automation.ITablePatternIdentifiersStatics";
+}
+#[cfg(feature = "implement_exclusive")]
+impl ITablePatternIdentifiersStaticsVtbl {
+    pub const fn new<Impl: ITablePatternIdentifiersStaticsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> ITablePatternIdentifiersStaticsVtbl {
+        unsafe extern "system" fn ColumnHeadersProperty<Impl: ITablePatternIdentifiersStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).ColumnHeadersProperty() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn RowHeadersProperty<Impl: ITablePatternIdentifiersStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).RowHeadersProperty() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn RowOrColumnMajorProperty<Impl: ITablePatternIdentifiersStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).RowOrColumnMajorProperty() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<ITablePatternIdentifiersStatics>, base.5, ColumnHeadersProperty::<Impl, OFFSET>, RowHeadersProperty::<Impl, OFFSET>, RowOrColumnMajorProperty::<Impl, OFFSET>)
+    }
+}
+#[cfg(feature = "implement_exclusive")]
 pub trait ITogglePatternIdentifiersImpl: Sized {}
+#[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for ITogglePatternIdentifiers {
+    const NAME: &'static str = "Windows.UI.Xaml.Automation.ITogglePatternIdentifiers";
+}
+#[cfg(feature = "implement_exclusive")]
+impl ITogglePatternIdentifiersVtbl {
+    pub const fn new<Impl: ITogglePatternIdentifiersImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> ITogglePatternIdentifiersVtbl {
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<ITogglePatternIdentifiers>, base.5)
+    }
+}
 #[cfg(feature = "implement_exclusive")]
 pub trait ITogglePatternIdentifiersStaticsImpl: Sized {
     fn ToggleStateProperty(&self) -> ::windows::core::Result<AutomationProperty>;
 }
 #[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for ITogglePatternIdentifiersStatics {
+    const NAME: &'static str = "Windows.UI.Xaml.Automation.ITogglePatternIdentifiersStatics";
+}
+#[cfg(feature = "implement_exclusive")]
+impl ITogglePatternIdentifiersStaticsVtbl {
+    pub const fn new<Impl: ITogglePatternIdentifiersStaticsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> ITogglePatternIdentifiersStaticsVtbl {
+        unsafe extern "system" fn ToggleStateProperty<Impl: ITogglePatternIdentifiersStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).ToggleStateProperty() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<ITogglePatternIdentifiersStatics>, base.5, ToggleStateProperty::<Impl, OFFSET>)
+    }
+}
+#[cfg(feature = "implement_exclusive")]
 pub trait ITransformPattern2IdentifiersImpl: Sized {}
+#[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for ITransformPattern2Identifiers {
+    const NAME: &'static str = "Windows.UI.Xaml.Automation.ITransformPattern2Identifiers";
+}
+#[cfg(feature = "implement_exclusive")]
+impl ITransformPattern2IdentifiersVtbl {
+    pub const fn new<Impl: ITransformPattern2IdentifiersImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> ITransformPattern2IdentifiersVtbl {
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<ITransformPattern2Identifiers>, base.5)
+    }
+}
 #[cfg(feature = "implement_exclusive")]
 pub trait ITransformPattern2IdentifiersStaticsImpl: Sized {
     fn CanZoomProperty(&self) -> ::windows::core::Result<AutomationProperty>;
@@ -342,7 +2845,71 @@ pub trait ITransformPattern2IdentifiersStaticsImpl: Sized {
     fn MinZoomProperty(&self) -> ::windows::core::Result<AutomationProperty>;
 }
 #[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for ITransformPattern2IdentifiersStatics {
+    const NAME: &'static str = "Windows.UI.Xaml.Automation.ITransformPattern2IdentifiersStatics";
+}
+#[cfg(feature = "implement_exclusive")]
+impl ITransformPattern2IdentifiersStaticsVtbl {
+    pub const fn new<Impl: ITransformPattern2IdentifiersStaticsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> ITransformPattern2IdentifiersStaticsVtbl {
+        unsafe extern "system" fn CanZoomProperty<Impl: ITransformPattern2IdentifiersStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).CanZoomProperty() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn ZoomLevelProperty<Impl: ITransformPattern2IdentifiersStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).ZoomLevelProperty() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn MaxZoomProperty<Impl: ITransformPattern2IdentifiersStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).MaxZoomProperty() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn MinZoomProperty<Impl: ITransformPattern2IdentifiersStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).MinZoomProperty() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<ITransformPattern2IdentifiersStatics>, base.5, CanZoomProperty::<Impl, OFFSET>, ZoomLevelProperty::<Impl, OFFSET>, MaxZoomProperty::<Impl, OFFSET>, MinZoomProperty::<Impl, OFFSET>)
+    }
+}
+#[cfg(feature = "implement_exclusive")]
 pub trait ITransformPatternIdentifiersImpl: Sized {}
+#[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for ITransformPatternIdentifiers {
+    const NAME: &'static str = "Windows.UI.Xaml.Automation.ITransformPatternIdentifiers";
+}
+#[cfg(feature = "implement_exclusive")]
+impl ITransformPatternIdentifiersVtbl {
+    pub const fn new<Impl: ITransformPatternIdentifiersImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> ITransformPatternIdentifiersVtbl {
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<ITransformPatternIdentifiers>, base.5)
+    }
+}
 #[cfg(feature = "implement_exclusive")]
 pub trait ITransformPatternIdentifiersStaticsImpl: Sized {
     fn CanMoveProperty(&self) -> ::windows::core::Result<AutomationProperty>;
@@ -350,14 +2917,109 @@ pub trait ITransformPatternIdentifiersStaticsImpl: Sized {
     fn CanRotateProperty(&self) -> ::windows::core::Result<AutomationProperty>;
 }
 #[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for ITransformPatternIdentifiersStatics {
+    const NAME: &'static str = "Windows.UI.Xaml.Automation.ITransformPatternIdentifiersStatics";
+}
+#[cfg(feature = "implement_exclusive")]
+impl ITransformPatternIdentifiersStaticsVtbl {
+    pub const fn new<Impl: ITransformPatternIdentifiersStaticsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> ITransformPatternIdentifiersStaticsVtbl {
+        unsafe extern "system" fn CanMoveProperty<Impl: ITransformPatternIdentifiersStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).CanMoveProperty() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn CanResizeProperty<Impl: ITransformPatternIdentifiersStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).CanResizeProperty() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn CanRotateProperty<Impl: ITransformPatternIdentifiersStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).CanRotateProperty() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<ITransformPatternIdentifiersStatics>, base.5, CanMoveProperty::<Impl, OFFSET>, CanResizeProperty::<Impl, OFFSET>, CanRotateProperty::<Impl, OFFSET>)
+    }
+}
+#[cfg(feature = "implement_exclusive")]
 pub trait IValuePatternIdentifiersImpl: Sized {}
+#[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IValuePatternIdentifiers {
+    const NAME: &'static str = "Windows.UI.Xaml.Automation.IValuePatternIdentifiers";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IValuePatternIdentifiersVtbl {
+    pub const fn new<Impl: IValuePatternIdentifiersImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IValuePatternIdentifiersVtbl {
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IValuePatternIdentifiers>, base.5)
+    }
+}
 #[cfg(feature = "implement_exclusive")]
 pub trait IValuePatternIdentifiersStaticsImpl: Sized {
     fn IsReadOnlyProperty(&self) -> ::windows::core::Result<AutomationProperty>;
     fn ValueProperty(&self) -> ::windows::core::Result<AutomationProperty>;
 }
 #[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IValuePatternIdentifiersStatics {
+    const NAME: &'static str = "Windows.UI.Xaml.Automation.IValuePatternIdentifiersStatics";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IValuePatternIdentifiersStaticsVtbl {
+    pub const fn new<Impl: IValuePatternIdentifiersStaticsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IValuePatternIdentifiersStaticsVtbl {
+        unsafe extern "system" fn IsReadOnlyProperty<Impl: IValuePatternIdentifiersStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).IsReadOnlyProperty() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn ValueProperty<Impl: IValuePatternIdentifiersStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).ValueProperty() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IValuePatternIdentifiersStatics>, base.5, IsReadOnlyProperty::<Impl, OFFSET>, ValueProperty::<Impl, OFFSET>)
+    }
+}
+#[cfg(feature = "implement_exclusive")]
 pub trait IWindowPatternIdentifiersImpl: Sized {}
+#[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IWindowPatternIdentifiers {
+    const NAME: &'static str = "Windows.UI.Xaml.Automation.IWindowPatternIdentifiers";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IWindowPatternIdentifiersVtbl {
+    pub const fn new<Impl: IWindowPatternIdentifiersImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IWindowPatternIdentifiersVtbl {
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IWindowPatternIdentifiers>, base.5)
+    }
+}
 #[cfg(feature = "implement_exclusive")]
 pub trait IWindowPatternIdentifiersStaticsImpl: Sized {
     fn CanMaximizeProperty(&self) -> ::windows::core::Result<AutomationProperty>;
@@ -366,4 +3028,80 @@ pub trait IWindowPatternIdentifiersStaticsImpl: Sized {
     fn IsTopmostProperty(&self) -> ::windows::core::Result<AutomationProperty>;
     fn WindowInteractionStateProperty(&self) -> ::windows::core::Result<AutomationProperty>;
     fn WindowVisualStateProperty(&self) -> ::windows::core::Result<AutomationProperty>;
+}
+#[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IWindowPatternIdentifiersStatics {
+    const NAME: &'static str = "Windows.UI.Xaml.Automation.IWindowPatternIdentifiersStatics";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IWindowPatternIdentifiersStaticsVtbl {
+    pub const fn new<Impl: IWindowPatternIdentifiersStaticsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IWindowPatternIdentifiersStaticsVtbl {
+        unsafe extern "system" fn CanMaximizeProperty<Impl: IWindowPatternIdentifiersStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).CanMaximizeProperty() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn CanMinimizeProperty<Impl: IWindowPatternIdentifiersStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).CanMinimizeProperty() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn IsModalProperty<Impl: IWindowPatternIdentifiersStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).IsModalProperty() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn IsTopmostProperty<Impl: IWindowPatternIdentifiersStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).IsTopmostProperty() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn WindowInteractionStateProperty<Impl: IWindowPatternIdentifiersStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).WindowInteractionStateProperty() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn WindowVisualStateProperty<Impl: IWindowPatternIdentifiersStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).WindowVisualStateProperty() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IWindowPatternIdentifiersStatics>, base.5, CanMaximizeProperty::<Impl, OFFSET>, CanMinimizeProperty::<Impl, OFFSET>, IsModalProperty::<Impl, OFFSET>, IsTopmostProperty::<Impl, OFFSET>, WindowInteractionStateProperty::<Impl, OFFSET>, WindowVisualStateProperty::<Impl, OFFSET>)
+    }
 }

@@ -11,8 +11,6 @@ use quote::*;
 pub fn gen(attributes: proc_macro::TokenStream, original_type: proc_macro::TokenStream) -> proc_macro::TokenStream {
     let attributes = syn::parse_macro_input!(attributes as ImplementAttributes);
 
-    assert!(attributes.implement.len() == 2);
-
     let original_type2 = original_type.clone();
     let original_ident = TokenStream(syn::parse_macro_input!(original_type2 as syn::ItemStruct).ident.to_string());
     let impl_ident = original_ident.join("Impl");

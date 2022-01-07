@@ -3,6 +3,20 @@ pub trait ICachedFileUpdaterStaticsImpl: Sized {
     fn SetUpdateInformation(&self, file: &::core::option::Option<super::IStorageFile>, contentid: &::windows::core::HSTRING, readmode: ReadActivationMode, writemode: WriteActivationMode, options: CachedFileOptions) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for ICachedFileUpdaterStatics {
+    const NAME: &'static str = "Windows.Storage.Provider.ICachedFileUpdaterStatics";
+}
+#[cfg(feature = "implement_exclusive")]
+impl ICachedFileUpdaterStaticsVtbl {
+    pub const fn new<Impl: ICachedFileUpdaterStaticsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> ICachedFileUpdaterStaticsVtbl {
+        unsafe extern "system" fn SetUpdateInformation<Impl: ICachedFileUpdaterStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, file: ::windows::core::RawPtr, contentid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, readmode: ReadActivationMode, writemode: WriteActivationMode, options: CachedFileOptions) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetUpdateInformation(&*(&file as *const <super::IStorageFile as ::windows::core::Abi>::Abi as *const <super::IStorageFile as ::windows::core::DefaultType>::DefaultType), &*(&contentid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), readmode, writemode, options).into()
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<ICachedFileUpdaterStatics>, base.5, SetUpdateInformation::<Impl, OFFSET>)
+    }
+}
+#[cfg(feature = "implement_exclusive")]
 pub trait ICachedFileUpdaterUIImpl: Sized {
     fn Title(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn SetTitle(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
@@ -14,9 +28,118 @@ pub trait ICachedFileUpdaterUIImpl: Sized {
     fn UIStatus(&self) -> ::windows::core::Result<UIStatus>;
 }
 #[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for ICachedFileUpdaterUI {
+    const NAME: &'static str = "Windows.Storage.Provider.ICachedFileUpdaterUI";
+}
+#[cfg(feature = "implement_exclusive")]
+impl ICachedFileUpdaterUIVtbl {
+    pub const fn new<Impl: ICachedFileUpdaterUIImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> ICachedFileUpdaterUIVtbl {
+        unsafe extern "system" fn Title<Impl: ICachedFileUpdaterUIImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).Title() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetTitle<Impl: ICachedFileUpdaterUIImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetTitle(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
+        }
+        unsafe extern "system" fn UpdateTarget<Impl: ICachedFileUpdaterUIImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut CachedFileTarget) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).UpdateTarget() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn FileUpdateRequested<Impl: ICachedFileUpdaterUIImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).FileUpdateRequested(&*(&handler as *const <super::super::Foundation::TypedEventHandler<CachedFileUpdaterUI, FileUpdateRequestedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<CachedFileUpdaterUI, FileUpdateRequestedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn RemoveFileUpdateRequested<Impl: ICachedFileUpdaterUIImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).RemoveFileUpdateRequested(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
+        }
+        unsafe extern "system" fn UIRequested<Impl: ICachedFileUpdaterUIImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).UIRequested(&*(&handler as *const <super::super::Foundation::TypedEventHandler<CachedFileUpdaterUI, ::windows::core::IInspectable> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<CachedFileUpdaterUI, ::windows::core::IInspectable> as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn RemoveUIRequested<Impl: ICachedFileUpdaterUIImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).RemoveUIRequested(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
+        }
+        unsafe extern "system" fn UIStatus<Impl: ICachedFileUpdaterUIImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut UIStatus) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).UIStatus() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<ICachedFileUpdaterUI>, base.5, Title::<Impl, OFFSET>, SetTitle::<Impl, OFFSET>, UpdateTarget::<Impl, OFFSET>, FileUpdateRequested::<Impl, OFFSET>, RemoveFileUpdateRequested::<Impl, OFFSET>, UIRequested::<Impl, OFFSET>, RemoveUIRequested::<Impl, OFFSET>, UIStatus::<Impl, OFFSET>)
+    }
+}
+#[cfg(feature = "implement_exclusive")]
 pub trait ICachedFileUpdaterUI2Impl: Sized + ICachedFileUpdaterUIImpl {
     fn UpdateRequest(&self) -> ::windows::core::Result<FileUpdateRequest>;
     fn GetDeferral(&self) -> ::windows::core::Result<FileUpdateRequestDeferral>;
+}
+#[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for ICachedFileUpdaterUI2 {
+    const NAME: &'static str = "Windows.Storage.Provider.ICachedFileUpdaterUI2";
+}
+#[cfg(feature = "implement_exclusive")]
+impl ICachedFileUpdaterUI2Vtbl {
+    pub const fn new<Impl: ICachedFileUpdaterUI2Impl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> ICachedFileUpdaterUI2Vtbl {
+        unsafe extern "system" fn UpdateRequest<Impl: ICachedFileUpdaterUI2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).UpdateRequest() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn GetDeferral<Impl: ICachedFileUpdaterUI2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).GetDeferral() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<ICachedFileUpdaterUI2>, base.5, UpdateRequest::<Impl, OFFSET>, GetDeferral::<Impl, OFFSET>)
+    }
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IFileUpdateRequestImpl: Sized {
@@ -28,17 +151,139 @@ pub trait IFileUpdateRequestImpl: Sized {
     fn UpdateLocalFile(&self, value: &::core::option::Option<super::IStorageFile>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IFileUpdateRequest {
+    const NAME: &'static str = "Windows.Storage.Provider.IFileUpdateRequest";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IFileUpdateRequestVtbl {
+    pub const fn new<Impl: IFileUpdateRequestImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IFileUpdateRequestVtbl {
+        unsafe extern "system" fn ContentId<Impl: IFileUpdateRequestImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).ContentId() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn File<Impl: IFileUpdateRequestImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).File() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn Status<Impl: IFileUpdateRequestImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut FileUpdateStatus) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).Status() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetStatus<Impl: IFileUpdateRequestImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: FileUpdateStatus) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetStatus(value).into()
+        }
+        unsafe extern "system" fn GetDeferral<Impl: IFileUpdateRequestImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).GetDeferral() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn UpdateLocalFile<Impl: IFileUpdateRequestImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).UpdateLocalFile(&*(&value as *const <super::IStorageFile as ::windows::core::Abi>::Abi as *const <super::IStorageFile as ::windows::core::DefaultType>::DefaultType)).into()
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IFileUpdateRequest>, base.5, ContentId::<Impl, OFFSET>, File::<Impl, OFFSET>, Status::<Impl, OFFSET>, SetStatus::<Impl, OFFSET>, GetDeferral::<Impl, OFFSET>, UpdateLocalFile::<Impl, OFFSET>)
+    }
+}
+#[cfg(feature = "implement_exclusive")]
 pub trait IFileUpdateRequest2Impl: Sized + IFileUpdateRequestImpl {
     fn UserInputNeededMessage(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn SetUserInputNeededMessage(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+}
+#[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IFileUpdateRequest2 {
+    const NAME: &'static str = "Windows.Storage.Provider.IFileUpdateRequest2";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IFileUpdateRequest2Vtbl {
+    pub const fn new<Impl: IFileUpdateRequest2Impl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IFileUpdateRequest2Vtbl {
+        unsafe extern "system" fn UserInputNeededMessage<Impl: IFileUpdateRequest2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).UserInputNeededMessage() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetUserInputNeededMessage<Impl: IFileUpdateRequest2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetUserInputNeededMessage(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IFileUpdateRequest2>, base.5, UserInputNeededMessage::<Impl, OFFSET>, SetUserInputNeededMessage::<Impl, OFFSET>)
+    }
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IFileUpdateRequestDeferralImpl: Sized {
     fn Complete(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IFileUpdateRequestDeferral {
+    const NAME: &'static str = "Windows.Storage.Provider.IFileUpdateRequestDeferral";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IFileUpdateRequestDeferralVtbl {
+    pub const fn new<Impl: IFileUpdateRequestDeferralImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IFileUpdateRequestDeferralVtbl {
+        unsafe extern "system" fn Complete<Impl: IFileUpdateRequestDeferralImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).Complete().into()
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IFileUpdateRequestDeferral>, base.5, Complete::<Impl, OFFSET>)
+    }
+}
+#[cfg(feature = "implement_exclusive")]
 pub trait IFileUpdateRequestedEventArgsImpl: Sized {
     fn Request(&self) -> ::windows::core::Result<FileUpdateRequest>;
+}
+#[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IFileUpdateRequestedEventArgs {
+    const NAME: &'static str = "Windows.Storage.Provider.IFileUpdateRequestedEventArgs";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IFileUpdateRequestedEventArgsVtbl {
+    pub const fn new<Impl: IFileUpdateRequestedEventArgsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IFileUpdateRequestedEventArgsVtbl {
+        unsafe extern "system" fn Request<Impl: IFileUpdateRequestedEventArgsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).Request() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IFileUpdateRequestedEventArgs>, base.5, Request::<Impl, OFFSET>)
+    }
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IStorageProviderErrorImpl: Sized {
@@ -55,17 +300,194 @@ pub trait IStorageProviderErrorImpl: Sized {
     fn SetInformationalLink(&self, value: &::core::option::Option<StorageProviderErrorCommand>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IStorageProviderError {
+    const NAME: &'static str = "Windows.Storage.Provider.IStorageProviderError";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IStorageProviderErrorVtbl {
+    pub const fn new<Impl: IStorageProviderErrorImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IStorageProviderErrorVtbl {
+        unsafe extern "system" fn Id<Impl: IStorageProviderErrorImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).Id() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn Title<Impl: IStorageProviderErrorImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).Title() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn Message<Impl: IStorageProviderErrorImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).Message() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn FilePath<Impl: IStorageProviderErrorImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).FilePath() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetFilePath<Impl: IStorageProviderErrorImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetFilePath(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
+        }
+        unsafe extern "system" fn PrimaryAction<Impl: IStorageProviderErrorImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).PrimaryAction() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetPrimaryAction<Impl: IStorageProviderErrorImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetPrimaryAction(&*(&value as *const <StorageProviderErrorCommand as ::windows::core::Abi>::Abi as *const <StorageProviderErrorCommand as ::windows::core::DefaultType>::DefaultType)).into()
+        }
+        unsafe extern "system" fn SecondaryAction<Impl: IStorageProviderErrorImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).SecondaryAction() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetSecondaryAction<Impl: IStorageProviderErrorImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetSecondaryAction(&*(&value as *const <StorageProviderErrorCommand as ::windows::core::Abi>::Abi as *const <StorageProviderErrorCommand as ::windows::core::DefaultType>::DefaultType)).into()
+        }
+        unsafe extern "system" fn InformationalLink<Impl: IStorageProviderErrorImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).InformationalLink() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetInformationalLink<Impl: IStorageProviderErrorImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetInformationalLink(&*(&value as *const <StorageProviderErrorCommand as ::windows::core::Abi>::Abi as *const <StorageProviderErrorCommand as ::windows::core::DefaultType>::DefaultType)).into()
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IStorageProviderError>, base.5, Id::<Impl, OFFSET>, Title::<Impl, OFFSET>, Message::<Impl, OFFSET>, FilePath::<Impl, OFFSET>, SetFilePath::<Impl, OFFSET>, PrimaryAction::<Impl, OFFSET>, SetPrimaryAction::<Impl, OFFSET>, SecondaryAction::<Impl, OFFSET>, SetSecondaryAction::<Impl, OFFSET>, InformationalLink::<Impl, OFFSET>, SetInformationalLink::<Impl, OFFSET>)
+    }
+}
+#[cfg(feature = "implement_exclusive")]
 pub trait IStorageProviderErrorCommandImpl: Sized {
     fn Label(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn ActionUri(&self) -> ::windows::core::Result<super::super::Foundation::Uri>;
+}
+#[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IStorageProviderErrorCommand {
+    const NAME: &'static str = "Windows.Storage.Provider.IStorageProviderErrorCommand";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IStorageProviderErrorCommandVtbl {
+    pub const fn new<Impl: IStorageProviderErrorCommandImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IStorageProviderErrorCommandVtbl {
+        unsafe extern "system" fn Label<Impl: IStorageProviderErrorCommandImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).Label() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn ActionUri<Impl: IStorageProviderErrorCommandImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).ActionUri() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IStorageProviderErrorCommand>, base.5, Label::<Impl, OFFSET>, ActionUri::<Impl, OFFSET>)
+    }
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IStorageProviderErrorCommandFactoryImpl: Sized {
     fn CreateInstance(&self, label: &::windows::core::HSTRING, actionuri: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<StorageProviderErrorCommand>;
 }
 #[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IStorageProviderErrorCommandFactory {
+    const NAME: &'static str = "Windows.Storage.Provider.IStorageProviderErrorCommandFactory";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IStorageProviderErrorCommandFactoryVtbl {
+    pub const fn new<Impl: IStorageProviderErrorCommandFactoryImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IStorageProviderErrorCommandFactoryVtbl {
+        unsafe extern "system" fn CreateInstance<Impl: IStorageProviderErrorCommandFactoryImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, label: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, actionuri: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).CreateInstance(&*(&label as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&actionuri as *const <super::super::Foundation::Uri as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Uri as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IStorageProviderErrorCommandFactory>, base.5, CreateInstance::<Impl, OFFSET>)
+    }
+}
+#[cfg(feature = "implement_exclusive")]
 pub trait IStorageProviderErrorFactoryImpl: Sized {
     fn CreateInstance(&self, id: &::windows::core::HSTRING, title: &::windows::core::HSTRING, message: &::windows::core::HSTRING) -> ::windows::core::Result<StorageProviderError>;
+}
+#[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IStorageProviderErrorFactory {
+    const NAME: &'static str = "Windows.Storage.Provider.IStorageProviderErrorFactory";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IStorageProviderErrorFactoryVtbl {
+    pub const fn new<Impl: IStorageProviderErrorFactoryImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IStorageProviderErrorFactoryVtbl {
+        unsafe extern "system" fn CreateInstance<Impl: IStorageProviderErrorFactoryImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, id: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, title: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, message: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).CreateInstance(&*(&id as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&title as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&message as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IStorageProviderErrorFactory>, base.5, CreateInstance::<Impl, OFFSET>)
+    }
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IStorageProviderFileTypeInfoImpl: Sized {
@@ -73,8 +495,61 @@ pub trait IStorageProviderFileTypeInfoImpl: Sized {
     fn IconResource(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IStorageProviderFileTypeInfo {
+    const NAME: &'static str = "Windows.Storage.Provider.IStorageProviderFileTypeInfo";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IStorageProviderFileTypeInfoVtbl {
+    pub const fn new<Impl: IStorageProviderFileTypeInfoImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IStorageProviderFileTypeInfoVtbl {
+        unsafe extern "system" fn FileExtension<Impl: IStorageProviderFileTypeInfoImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).FileExtension() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn IconResource<Impl: IStorageProviderFileTypeInfoImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).IconResource() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IStorageProviderFileTypeInfo>, base.5, FileExtension::<Impl, OFFSET>, IconResource::<Impl, OFFSET>)
+    }
+}
+#[cfg(feature = "implement_exclusive")]
 pub trait IStorageProviderFileTypeInfoFactoryImpl: Sized {
     fn CreateInstance(&self, fileextension: &::windows::core::HSTRING, iconresource: &::windows::core::HSTRING) -> ::windows::core::Result<StorageProviderFileTypeInfo>;
+}
+#[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IStorageProviderFileTypeInfoFactory {
+    const NAME: &'static str = "Windows.Storage.Provider.IStorageProviderFileTypeInfoFactory";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IStorageProviderFileTypeInfoFactoryVtbl {
+    pub const fn new<Impl: IStorageProviderFileTypeInfoFactoryImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IStorageProviderFileTypeInfoFactoryVtbl {
+        unsafe extern "system" fn CreateInstance<Impl: IStorageProviderFileTypeInfoFactoryImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, fileextension: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, iconresource: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).CreateInstance(&*(&fileextension as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&iconresource as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IStorageProviderFileTypeInfoFactory>, base.5, CreateInstance::<Impl, OFFSET>)
+    }
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IStorageProviderGetContentInfoForPathResultImpl: Sized {
@@ -86,18 +561,153 @@ pub trait IStorageProviderGetContentInfoForPathResultImpl: Sized {
     fn SetContentId(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IStorageProviderGetContentInfoForPathResult {
+    const NAME: &'static str = "Windows.Storage.Provider.IStorageProviderGetContentInfoForPathResult";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IStorageProviderGetContentInfoForPathResultVtbl {
+    pub const fn new<Impl: IStorageProviderGetContentInfoForPathResultImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IStorageProviderGetContentInfoForPathResultVtbl {
+        unsafe extern "system" fn Status<Impl: IStorageProviderGetContentInfoForPathResultImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut StorageProviderUriSourceStatus) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).Status() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetStatus<Impl: IStorageProviderGetContentInfoForPathResultImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: StorageProviderUriSourceStatus) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetStatus(value).into()
+        }
+        unsafe extern "system" fn ContentUri<Impl: IStorageProviderGetContentInfoForPathResultImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).ContentUri() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetContentUri<Impl: IStorageProviderGetContentInfoForPathResultImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetContentUri(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
+        }
+        unsafe extern "system" fn ContentId<Impl: IStorageProviderGetContentInfoForPathResultImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).ContentId() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetContentId<Impl: IStorageProviderGetContentInfoForPathResultImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetContentId(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IStorageProviderGetContentInfoForPathResult>, base.5, Status::<Impl, OFFSET>, SetStatus::<Impl, OFFSET>, ContentUri::<Impl, OFFSET>, SetContentUri::<Impl, OFFSET>, ContentId::<Impl, OFFSET>, SetContentId::<Impl, OFFSET>)
+    }
+}
+#[cfg(feature = "implement_exclusive")]
 pub trait IStorageProviderGetPathForContentUriResultImpl: Sized {
     fn Status(&self) -> ::windows::core::Result<StorageProviderUriSourceStatus>;
     fn SetStatus(&self, value: StorageProviderUriSourceStatus) -> ::windows::core::Result<()>;
     fn Path(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn SetPath(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IStorageProviderGetPathForContentUriResult {
+    const NAME: &'static str = "Windows.Storage.Provider.IStorageProviderGetPathForContentUriResult";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IStorageProviderGetPathForContentUriResultVtbl {
+    pub const fn new<Impl: IStorageProviderGetPathForContentUriResultImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IStorageProviderGetPathForContentUriResultVtbl {
+        unsafe extern "system" fn Status<Impl: IStorageProviderGetPathForContentUriResultImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut StorageProviderUriSourceStatus) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).Status() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetStatus<Impl: IStorageProviderGetPathForContentUriResultImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: StorageProviderUriSourceStatus) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetStatus(value).into()
+        }
+        unsafe extern "system" fn Path<Impl: IStorageProviderGetPathForContentUriResultImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).Path() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetPath<Impl: IStorageProviderGetPathForContentUriResultImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetPath(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IStorageProviderGetPathForContentUriResult>, base.5, Status::<Impl, OFFSET>, SetStatus::<Impl, OFFSET>, Path::<Impl, OFFSET>, SetPath::<Impl, OFFSET>)
+    }
+}
 pub trait IStorageProviderHandlerFactoryImpl: Sized {
     fn GetStatusSource(&self, syncrootid: &::windows::core::HSTRING) -> ::windows::core::Result<IStorageProviderStatusSource>;
+}
+impl ::windows::core::RuntimeName for IStorageProviderHandlerFactory {
+    const NAME: &'static str = "Windows.Storage.Provider.IStorageProviderHandlerFactory";
+}
+impl IStorageProviderHandlerFactoryVtbl {
+    pub const fn new<Impl: IStorageProviderHandlerFactoryImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IStorageProviderHandlerFactoryVtbl {
+        unsafe extern "system" fn GetStatusSource<Impl: IStorageProviderHandlerFactoryImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, syncrootid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).GetStatusSource(&*(&syncrootid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IStorageProviderHandlerFactory>, base.5, GetStatusSource::<Impl, OFFSET>)
+    }
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IStorageProviderItemPropertiesStaticsImpl: Sized {
     fn SetAsync(&self, item: &::core::option::Option<super::IStorageItem>, itemproperties: &::core::option::Option<super::super::Foundation::Collections::IIterable<StorageProviderItemProperty>>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+}
+#[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IStorageProviderItemPropertiesStatics {
+    const NAME: &'static str = "Windows.Storage.Provider.IStorageProviderItemPropertiesStatics";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IStorageProviderItemPropertiesStaticsVtbl {
+    pub const fn new<Impl: IStorageProviderItemPropertiesStaticsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IStorageProviderItemPropertiesStaticsVtbl {
+        unsafe extern "system" fn SetAsync<Impl: IStorageProviderItemPropertiesStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, item: ::windows::core::RawPtr, itemproperties: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).SetAsync(&*(&item as *const <super::IStorageItem as ::windows::core::Abi>::Abi as *const <super::IStorageItem as ::windows::core::DefaultType>::DefaultType), &*(&itemproperties as *const <super::super::Foundation::Collections::IIterable<StorageProviderItemProperty> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::IIterable<StorageProviderItemProperty> as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IStorageProviderItemPropertiesStatics>, base.5, SetAsync::<Impl, OFFSET>)
+    }
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IStorageProviderItemPropertyImpl: Sized {
@@ -109,17 +719,150 @@ pub trait IStorageProviderItemPropertyImpl: Sized {
     fn IconResource(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IStorageProviderItemProperty {
+    const NAME: &'static str = "Windows.Storage.Provider.IStorageProviderItemProperty";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IStorageProviderItemPropertyVtbl {
+    pub const fn new<Impl: IStorageProviderItemPropertyImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IStorageProviderItemPropertyVtbl {
+        unsafe extern "system" fn SetId<Impl: IStorageProviderItemPropertyImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetId(value).into()
+        }
+        unsafe extern "system" fn Id<Impl: IStorageProviderItemPropertyImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).Id() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetValue<Impl: IStorageProviderItemPropertyImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetValue(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
+        }
+        unsafe extern "system" fn Value<Impl: IStorageProviderItemPropertyImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).Value() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetIconResource<Impl: IStorageProviderItemPropertyImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetIconResource(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
+        }
+        unsafe extern "system" fn IconResource<Impl: IStorageProviderItemPropertyImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).IconResource() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IStorageProviderItemProperty>, base.5, SetId::<Impl, OFFSET>, Id::<Impl, OFFSET>, SetValue::<Impl, OFFSET>, Value::<Impl, OFFSET>, SetIconResource::<Impl, OFFSET>, IconResource::<Impl, OFFSET>)
+    }
+}
+#[cfg(feature = "implement_exclusive")]
 pub trait IStorageProviderItemPropertyDefinitionImpl: Sized {
     fn Id(&self) -> ::windows::core::Result<i32>;
     fn SetId(&self, value: i32) -> ::windows::core::Result<()>;
     fn DisplayNameResource(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn SetDisplayNameResource(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IStorageProviderItemPropertyDefinition {
+    const NAME: &'static str = "Windows.Storage.Provider.IStorageProviderItemPropertyDefinition";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IStorageProviderItemPropertyDefinitionVtbl {
+    pub const fn new<Impl: IStorageProviderItemPropertyDefinitionImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IStorageProviderItemPropertyDefinitionVtbl {
+        unsafe extern "system" fn Id<Impl: IStorageProviderItemPropertyDefinitionImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).Id() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetId<Impl: IStorageProviderItemPropertyDefinitionImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetId(value).into()
+        }
+        unsafe extern "system" fn DisplayNameResource<Impl: IStorageProviderItemPropertyDefinitionImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).DisplayNameResource() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetDisplayNameResource<Impl: IStorageProviderItemPropertyDefinitionImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetDisplayNameResource(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IStorageProviderItemPropertyDefinition>, base.5, Id::<Impl, OFFSET>, SetId::<Impl, OFFSET>, DisplayNameResource::<Impl, OFFSET>, SetDisplayNameResource::<Impl, OFFSET>)
+    }
+}
 pub trait IStorageProviderItemPropertySourceImpl: Sized {
     fn GetItemProperties(&self, itempath: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::Collections::IIterable<StorageProviderItemProperty>>;
 }
+impl ::windows::core::RuntimeName for IStorageProviderItemPropertySource {
+    const NAME: &'static str = "Windows.Storage.Provider.IStorageProviderItemPropertySource";
+}
+impl IStorageProviderItemPropertySourceVtbl {
+    pub const fn new<Impl: IStorageProviderItemPropertySourceImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IStorageProviderItemPropertySourceVtbl {
+        unsafe extern "system" fn GetItemProperties<Impl: IStorageProviderItemPropertySourceImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, itempath: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).GetItemProperties(&*(&itempath as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IStorageProviderItemPropertySource>, base.5, GetItemProperties::<Impl, OFFSET>)
+    }
+}
 pub trait IStorageProviderPropertyCapabilitiesImpl: Sized {
     fn IsPropertySupported(&self, propertycanonicalname: &::windows::core::HSTRING) -> ::windows::core::Result<bool>;
+}
+impl ::windows::core::RuntimeName for IStorageProviderPropertyCapabilities {
+    const NAME: &'static str = "Windows.Storage.Provider.IStorageProviderPropertyCapabilities";
+}
+impl IStorageProviderPropertyCapabilitiesVtbl {
+    pub const fn new<Impl: IStorageProviderPropertyCapabilitiesImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IStorageProviderPropertyCapabilitiesVtbl {
+        unsafe extern "system" fn IsPropertySupported<Impl: IStorageProviderPropertyCapabilitiesImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, propertycanonicalname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).IsPropertySupported(&*(&propertycanonicalname as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IStorageProviderPropertyCapabilities>, base.5, IsPropertySupported::<Impl, OFFSET>)
+    }
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IStorageProviderStatusImpl: Sized {
@@ -128,14 +871,123 @@ pub trait IStorageProviderStatusImpl: Sized {
     fn ErrorMessages(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<StorageProviderError>>;
 }
 #[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IStorageProviderStatus {
+    const NAME: &'static str = "Windows.Storage.Provider.IStorageProviderStatus";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IStorageProviderStatusVtbl {
+    pub const fn new<Impl: IStorageProviderStatusImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IStorageProviderStatusVtbl {
+        unsafe extern "system" fn Message<Impl: IStorageProviderStatusImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).Message() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn State<Impl: IStorageProviderStatusImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut StorageProviderState) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).State() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn ErrorMessages<Impl: IStorageProviderStatusImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).ErrorMessages() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IStorageProviderStatus>, base.5, Message::<Impl, OFFSET>, State::<Impl, OFFSET>, ErrorMessages::<Impl, OFFSET>)
+    }
+}
+#[cfg(feature = "implement_exclusive")]
 pub trait IStorageProviderStatusFactoryImpl: Sized {
     fn CreateInstance(&self, state: StorageProviderState, message: &::windows::core::HSTRING) -> ::windows::core::Result<StorageProviderStatus>;
     fn CreateInstance2(&self, state: StorageProviderState, message: &::windows::core::HSTRING, errormessages: &::core::option::Option<super::super::Foundation::Collections::IIterable<StorageProviderError>>) -> ::windows::core::Result<StorageProviderStatus>;
+}
+#[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IStorageProviderStatusFactory {
+    const NAME: &'static str = "Windows.Storage.Provider.IStorageProviderStatusFactory";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IStorageProviderStatusFactoryVtbl {
+    pub const fn new<Impl: IStorageProviderStatusFactoryImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IStorageProviderStatusFactoryVtbl {
+        unsafe extern "system" fn CreateInstance<Impl: IStorageProviderStatusFactoryImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, state: StorageProviderState, message: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).CreateInstance(state, &*(&message as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn CreateInstance2<Impl: IStorageProviderStatusFactoryImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, state: StorageProviderState, message: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, errormessages: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).CreateInstance2(state, &*(&message as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&errormessages as *const <super::super::Foundation::Collections::IIterable<StorageProviderError> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::IIterable<StorageProviderError> as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IStorageProviderStatusFactory>, base.5, CreateInstance::<Impl, OFFSET>, CreateInstance2::<Impl, OFFSET>)
+    }
 }
 pub trait IStorageProviderStatusSourceImpl: Sized {
     fn GetStatus(&self) -> ::windows::core::Result<StorageProviderStatus>;
     fn Changed(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<IStorageProviderStatusSource, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveChanged(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+}
+impl ::windows::core::RuntimeName for IStorageProviderStatusSource {
+    const NAME: &'static str = "Windows.Storage.Provider.IStorageProviderStatusSource";
+}
+impl IStorageProviderStatusSourceVtbl {
+    pub const fn new<Impl: IStorageProviderStatusSourceImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IStorageProviderStatusSourceVtbl {
+        unsafe extern "system" fn GetStatus<Impl: IStorageProviderStatusSourceImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).GetStatus() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn Changed<Impl: IStorageProviderStatusSourceImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).Changed(&*(&handler as *const <super::super::Foundation::TypedEventHandler<IStorageProviderStatusSource, ::windows::core::IInspectable> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<IStorageProviderStatusSource, ::windows::core::IInspectable> as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn RemoveChanged<Impl: IStorageProviderStatusSourceImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).RemoveChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IStorageProviderStatusSource>, base.5, GetStatus::<Impl, OFFSET>, Changed::<Impl, OFFSET>, RemoveChanged::<Impl, OFFSET>)
+    }
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IStorageProviderSyncRootInfoImpl: Sized {
@@ -172,13 +1024,343 @@ pub trait IStorageProviderSyncRootInfoImpl: Sized {
     fn SetRecycleBinUri(&self, value: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IStorageProviderSyncRootInfo {
+    const NAME: &'static str = "Windows.Storage.Provider.IStorageProviderSyncRootInfo";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IStorageProviderSyncRootInfoVtbl {
+    pub const fn new<Impl: IStorageProviderSyncRootInfoImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IStorageProviderSyncRootInfoVtbl {
+        unsafe extern "system" fn Id<Impl: IStorageProviderSyncRootInfoImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).Id() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetId<Impl: IStorageProviderSyncRootInfoImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetId(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
+        }
+        unsafe extern "system" fn Context<Impl: IStorageProviderSyncRootInfoImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).Context() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetContext<Impl: IStorageProviderSyncRootInfoImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetContext(&*(&value as *const <super::Streams::IBuffer as ::windows::core::Abi>::Abi as *const <super::Streams::IBuffer as ::windows::core::DefaultType>::DefaultType)).into()
+        }
+        unsafe extern "system" fn Path<Impl: IStorageProviderSyncRootInfoImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).Path() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetPath<Impl: IStorageProviderSyncRootInfoImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetPath(&*(&value as *const <super::IStorageFolder as ::windows::core::Abi>::Abi as *const <super::IStorageFolder as ::windows::core::DefaultType>::DefaultType)).into()
+        }
+        unsafe extern "system" fn DisplayNameResource<Impl: IStorageProviderSyncRootInfoImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).DisplayNameResource() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetDisplayNameResource<Impl: IStorageProviderSyncRootInfoImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetDisplayNameResource(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
+        }
+        unsafe extern "system" fn IconResource<Impl: IStorageProviderSyncRootInfoImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).IconResource() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetIconResource<Impl: IStorageProviderSyncRootInfoImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetIconResource(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
+        }
+        unsafe extern "system" fn HydrationPolicy<Impl: IStorageProviderSyncRootInfoImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut StorageProviderHydrationPolicy) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).HydrationPolicy() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetHydrationPolicy<Impl: IStorageProviderSyncRootInfoImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: StorageProviderHydrationPolicy) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetHydrationPolicy(value).into()
+        }
+        unsafe extern "system" fn HydrationPolicyModifier<Impl: IStorageProviderSyncRootInfoImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut StorageProviderHydrationPolicyModifier) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).HydrationPolicyModifier() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetHydrationPolicyModifier<Impl: IStorageProviderSyncRootInfoImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: StorageProviderHydrationPolicyModifier) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetHydrationPolicyModifier(value).into()
+        }
+        unsafe extern "system" fn PopulationPolicy<Impl: IStorageProviderSyncRootInfoImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut StorageProviderPopulationPolicy) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).PopulationPolicy() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetPopulationPolicy<Impl: IStorageProviderSyncRootInfoImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: StorageProviderPopulationPolicy) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetPopulationPolicy(value).into()
+        }
+        unsafe extern "system" fn InSyncPolicy<Impl: IStorageProviderSyncRootInfoImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut StorageProviderInSyncPolicy) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).InSyncPolicy() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetInSyncPolicy<Impl: IStorageProviderSyncRootInfoImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: StorageProviderInSyncPolicy) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetInSyncPolicy(value).into()
+        }
+        unsafe extern "system" fn HardlinkPolicy<Impl: IStorageProviderSyncRootInfoImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut StorageProviderHardlinkPolicy) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).HardlinkPolicy() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetHardlinkPolicy<Impl: IStorageProviderSyncRootInfoImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: StorageProviderHardlinkPolicy) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetHardlinkPolicy(value).into()
+        }
+        unsafe extern "system" fn ShowSiblingsAsGroup<Impl: IStorageProviderSyncRootInfoImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).ShowSiblingsAsGroup() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetShowSiblingsAsGroup<Impl: IStorageProviderSyncRootInfoImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetShowSiblingsAsGroup(value).into()
+        }
+        unsafe extern "system" fn Version<Impl: IStorageProviderSyncRootInfoImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).Version() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetVersion<Impl: IStorageProviderSyncRootInfoImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetVersion(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
+        }
+        unsafe extern "system" fn ProtectionMode<Impl: IStorageProviderSyncRootInfoImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut StorageProviderProtectionMode) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).ProtectionMode() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetProtectionMode<Impl: IStorageProviderSyncRootInfoImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: StorageProviderProtectionMode) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetProtectionMode(value).into()
+        }
+        unsafe extern "system" fn AllowPinning<Impl: IStorageProviderSyncRootInfoImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).AllowPinning() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetAllowPinning<Impl: IStorageProviderSyncRootInfoImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetAllowPinning(value).into()
+        }
+        unsafe extern "system" fn StorageProviderItemPropertyDefinitions<Impl: IStorageProviderSyncRootInfoImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).StorageProviderItemPropertyDefinitions() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn RecycleBinUri<Impl: IStorageProviderSyncRootInfoImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).RecycleBinUri() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetRecycleBinUri<Impl: IStorageProviderSyncRootInfoImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetRecycleBinUri(&*(&value as *const <super::super::Foundation::Uri as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Uri as ::windows::core::DefaultType>::DefaultType)).into()
+        }
+        Self(
+            base.0,
+            base.1,
+            base.2,
+            base.3,
+            ::windows::core::GetRuntimeClassName::<IStorageProviderSyncRootInfo>,
+            base.5,
+            Id::<Impl, OFFSET>,
+            SetId::<Impl, OFFSET>,
+            Context::<Impl, OFFSET>,
+            SetContext::<Impl, OFFSET>,
+            Path::<Impl, OFFSET>,
+            SetPath::<Impl, OFFSET>,
+            DisplayNameResource::<Impl, OFFSET>,
+            SetDisplayNameResource::<Impl, OFFSET>,
+            IconResource::<Impl, OFFSET>,
+            SetIconResource::<Impl, OFFSET>,
+            HydrationPolicy::<Impl, OFFSET>,
+            SetHydrationPolicy::<Impl, OFFSET>,
+            HydrationPolicyModifier::<Impl, OFFSET>,
+            SetHydrationPolicyModifier::<Impl, OFFSET>,
+            PopulationPolicy::<Impl, OFFSET>,
+            SetPopulationPolicy::<Impl, OFFSET>,
+            InSyncPolicy::<Impl, OFFSET>,
+            SetInSyncPolicy::<Impl, OFFSET>,
+            HardlinkPolicy::<Impl, OFFSET>,
+            SetHardlinkPolicy::<Impl, OFFSET>,
+            ShowSiblingsAsGroup::<Impl, OFFSET>,
+            SetShowSiblingsAsGroup::<Impl, OFFSET>,
+            Version::<Impl, OFFSET>,
+            SetVersion::<Impl, OFFSET>,
+            ProtectionMode::<Impl, OFFSET>,
+            SetProtectionMode::<Impl, OFFSET>,
+            AllowPinning::<Impl, OFFSET>,
+            SetAllowPinning::<Impl, OFFSET>,
+            StorageProviderItemPropertyDefinitions::<Impl, OFFSET>,
+            RecycleBinUri::<Impl, OFFSET>,
+            SetRecycleBinUri::<Impl, OFFSET>,
+        )
+    }
+}
+#[cfg(feature = "implement_exclusive")]
 pub trait IStorageProviderSyncRootInfo2Impl: Sized {
     fn ProviderId(&self) -> ::windows::core::Result<::windows::core::GUID>;
     fn SetProviderId(&self, value: &::windows::core::GUID) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IStorageProviderSyncRootInfo2 {
+    const NAME: &'static str = "Windows.Storage.Provider.IStorageProviderSyncRootInfo2";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IStorageProviderSyncRootInfo2Vtbl {
+    pub const fn new<Impl: IStorageProviderSyncRootInfo2Impl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IStorageProviderSyncRootInfo2Vtbl {
+        unsafe extern "system" fn ProviderId<Impl: IStorageProviderSyncRootInfo2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).ProviderId() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetProviderId<Impl: IStorageProviderSyncRootInfo2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: ::windows::core::GUID) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetProviderId(&*(&value as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType)).into()
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IStorageProviderSyncRootInfo2>, base.5, ProviderId::<Impl, OFFSET>, SetProviderId::<Impl, OFFSET>)
+    }
+}
+#[cfg(feature = "implement_exclusive")]
 pub trait IStorageProviderSyncRootInfo3Impl: Sized {
     fn FallbackFileTypeInfo(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<StorageProviderFileTypeInfo>>;
+}
+#[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IStorageProviderSyncRootInfo3 {
+    const NAME: &'static str = "Windows.Storage.Provider.IStorageProviderSyncRootInfo3";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IStorageProviderSyncRootInfo3Vtbl {
+    pub const fn new<Impl: IStorageProviderSyncRootInfo3Impl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IStorageProviderSyncRootInfo3Vtbl {
+        unsafe extern "system" fn FallbackFileTypeInfo<Impl: IStorageProviderSyncRootInfo3Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).FallbackFileTypeInfo() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IStorageProviderSyncRootInfo3>, base.5, FallbackFileTypeInfo::<Impl, OFFSET>)
+    }
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IStorageProviderSyncRootManagerStaticsImpl: Sized {
@@ -189,10 +1371,98 @@ pub trait IStorageProviderSyncRootManagerStaticsImpl: Sized {
     fn GetCurrentSyncRoots(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<StorageProviderSyncRootInfo>>;
 }
 #[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IStorageProviderSyncRootManagerStatics {
+    const NAME: &'static str = "Windows.Storage.Provider.IStorageProviderSyncRootManagerStatics";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IStorageProviderSyncRootManagerStaticsVtbl {
+    pub const fn new<Impl: IStorageProviderSyncRootManagerStaticsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IStorageProviderSyncRootManagerStaticsVtbl {
+        unsafe extern "system" fn Register<Impl: IStorageProviderSyncRootManagerStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, syncrootinformation: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).Register(&*(&syncrootinformation as *const <StorageProviderSyncRootInfo as ::windows::core::Abi>::Abi as *const <StorageProviderSyncRootInfo as ::windows::core::DefaultType>::DefaultType)).into()
+        }
+        unsafe extern "system" fn Unregister<Impl: IStorageProviderSyncRootManagerStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, id: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).Unregister(&*(&id as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
+        }
+        unsafe extern "system" fn GetSyncRootInformationForFolder<Impl: IStorageProviderSyncRootManagerStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, folder: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).GetSyncRootInformationForFolder(&*(&folder as *const <super::IStorageFolder as ::windows::core::Abi>::Abi as *const <super::IStorageFolder as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn GetSyncRootInformationForId<Impl: IStorageProviderSyncRootManagerStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, id: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).GetSyncRootInformationForId(&*(&id as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn GetCurrentSyncRoots<Impl: IStorageProviderSyncRootManagerStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).GetCurrentSyncRoots() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IStorageProviderSyncRootManagerStatics>, base.5, Register::<Impl, OFFSET>, Unregister::<Impl, OFFSET>, GetSyncRootInformationForFolder::<Impl, OFFSET>, GetSyncRootInformationForId::<Impl, OFFSET>, GetCurrentSyncRoots::<Impl, OFFSET>)
+    }
+}
+#[cfg(feature = "implement_exclusive")]
 pub trait IStorageProviderSyncRootManagerStatics2Impl: Sized {
     fn IsSupported(&self) -> ::windows::core::Result<bool>;
+}
+#[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IStorageProviderSyncRootManagerStatics2 {
+    const NAME: &'static str = "Windows.Storage.Provider.IStorageProviderSyncRootManagerStatics2";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IStorageProviderSyncRootManagerStatics2Vtbl {
+    pub const fn new<Impl: IStorageProviderSyncRootManagerStatics2Impl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IStorageProviderSyncRootManagerStatics2Vtbl {
+        unsafe extern "system" fn IsSupported<Impl: IStorageProviderSyncRootManagerStatics2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).IsSupported() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IStorageProviderSyncRootManagerStatics2>, base.5, IsSupported::<Impl, OFFSET>)
+    }
 }
 pub trait IStorageProviderUriSourceImpl: Sized {
     fn GetPathForContentUri(&self, contenturi: &::windows::core::HSTRING, result: &::core::option::Option<StorageProviderGetPathForContentUriResult>) -> ::windows::core::Result<()>;
     fn GetContentInfoForPath(&self, path: &::windows::core::HSTRING, result: &::core::option::Option<StorageProviderGetContentInfoForPathResult>) -> ::windows::core::Result<()>;
+}
+impl ::windows::core::RuntimeName for IStorageProviderUriSource {
+    const NAME: &'static str = "Windows.Storage.Provider.IStorageProviderUriSource";
+}
+impl IStorageProviderUriSourceVtbl {
+    pub const fn new<Impl: IStorageProviderUriSourceImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IStorageProviderUriSourceVtbl {
+        unsafe extern "system" fn GetPathForContentUri<Impl: IStorageProviderUriSourceImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, contenturi: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).GetPathForContentUri(&*(&contenturi as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&result as *const <StorageProviderGetPathForContentUriResult as ::windows::core::Abi>::Abi as *const <StorageProviderGetPathForContentUriResult as ::windows::core::DefaultType>::DefaultType)).into()
+        }
+        unsafe extern "system" fn GetContentInfoForPath<Impl: IStorageProviderUriSourceImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, path: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).GetContentInfoForPath(&*(&path as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&result as *const <StorageProviderGetContentInfoForPathResult as ::windows::core::Abi>::Abi as *const <StorageProviderGetContentInfoForPathResult as ::windows::core::DefaultType>::DefaultType)).into()
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IStorageProviderUriSource>, base.5, GetPathForContentUri::<Impl, OFFSET>, GetContentInfoForPath::<Impl, OFFSET>)
+    }
 }

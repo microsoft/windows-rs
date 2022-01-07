@@ -1,15 +1,77 @@
 #[cfg(feature = "implement_exclusive")]
 pub trait IColorHelperImpl: Sized {}
 #[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IColorHelper {
+    const NAME: &'static str = "Windows.UI.IColorHelper";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IColorHelperVtbl {
+    pub const fn new<Impl: IColorHelperImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IColorHelperVtbl {
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IColorHelper>, base.5)
+    }
+}
+#[cfg(feature = "implement_exclusive")]
 pub trait IColorHelperStaticsImpl: Sized {
     fn FromArgb(&self, a: u8, r: u8, g: u8, b: u8) -> ::windows::core::Result<Color>;
+}
+#[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IColorHelperStatics {
+    const NAME: &'static str = "Windows.UI.IColorHelperStatics";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IColorHelperStaticsVtbl {
+    pub const fn new<Impl: IColorHelperStaticsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IColorHelperStaticsVtbl {
+        unsafe extern "system" fn FromArgb<Impl: IColorHelperStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, a: u8, r: u8, g: u8, b: u8, result__: *mut Color) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).FromArgb(a, r, g, b) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IColorHelperStatics>, base.5, FromArgb::<Impl, OFFSET>)
+    }
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IColorHelperStatics2Impl: Sized {
     fn ToDisplayName(&self, color: &Color) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IColorHelperStatics2 {
+    const NAME: &'static str = "Windows.UI.IColorHelperStatics2";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IColorHelperStatics2Vtbl {
+    pub const fn new<Impl: IColorHelperStatics2Impl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IColorHelperStatics2Vtbl {
+        unsafe extern "system" fn ToDisplayName<Impl: IColorHelperStatics2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, color: Color, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).ToDisplayName(&*(&color as *const <Color as ::windows::core::Abi>::Abi as *const <Color as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IColorHelperStatics2>, base.5, ToDisplayName::<Impl, OFFSET>)
+    }
+}
+#[cfg(feature = "implement_exclusive")]
 pub trait IColorsImpl: Sized {}
+#[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IColors {
+    const NAME: &'static str = "Windows.UI.IColors";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IColorsVtbl {
+    pub const fn new<Impl: IColorsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IColorsVtbl {
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IColors>, base.5)
+    }
+}
 #[cfg(feature = "implement_exclusive")]
 pub trait IColorsStaticsImpl: Sized {
     fn AliceBlue(&self) -> ::windows::core::Result<Color>;
@@ -155,8 +217,1748 @@ pub trait IColorsStaticsImpl: Sized {
     fn YellowGreen(&self) -> ::windows::core::Result<Color>;
 }
 #[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IColorsStatics {
+    const NAME: &'static str = "Windows.UI.IColorsStatics";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IColorsStaticsVtbl {
+    pub const fn new<Impl: IColorsStaticsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IColorsStaticsVtbl {
+        unsafe extern "system" fn AliceBlue<Impl: IColorsStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut Color) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).AliceBlue() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn AntiqueWhite<Impl: IColorsStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut Color) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).AntiqueWhite() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn Aqua<Impl: IColorsStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut Color) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).Aqua() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn Aquamarine<Impl: IColorsStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut Color) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).Aquamarine() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn Azure<Impl: IColorsStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut Color) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).Azure() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn Beige<Impl: IColorsStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut Color) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).Beige() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn Bisque<Impl: IColorsStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut Color) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).Bisque() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn Black<Impl: IColorsStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut Color) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).Black() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn BlanchedAlmond<Impl: IColorsStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut Color) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).BlanchedAlmond() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn Blue<Impl: IColorsStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut Color) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).Blue() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn BlueViolet<Impl: IColorsStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut Color) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).BlueViolet() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn Brown<Impl: IColorsStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut Color) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).Brown() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn BurlyWood<Impl: IColorsStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut Color) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).BurlyWood() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn CadetBlue<Impl: IColorsStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut Color) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).CadetBlue() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn Chartreuse<Impl: IColorsStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut Color) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).Chartreuse() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn Chocolate<Impl: IColorsStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut Color) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).Chocolate() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn Coral<Impl: IColorsStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut Color) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).Coral() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn CornflowerBlue<Impl: IColorsStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut Color) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).CornflowerBlue() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn Cornsilk<Impl: IColorsStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut Color) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).Cornsilk() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn Crimson<Impl: IColorsStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut Color) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).Crimson() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn Cyan<Impl: IColorsStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut Color) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).Cyan() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn DarkBlue<Impl: IColorsStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut Color) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).DarkBlue() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn DarkCyan<Impl: IColorsStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut Color) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).DarkCyan() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn DarkGoldenrod<Impl: IColorsStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut Color) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).DarkGoldenrod() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn DarkGray<Impl: IColorsStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut Color) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).DarkGray() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn DarkGreen<Impl: IColorsStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut Color) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).DarkGreen() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn DarkKhaki<Impl: IColorsStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut Color) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).DarkKhaki() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn DarkMagenta<Impl: IColorsStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut Color) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).DarkMagenta() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn DarkOliveGreen<Impl: IColorsStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut Color) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).DarkOliveGreen() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn DarkOrange<Impl: IColorsStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut Color) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).DarkOrange() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn DarkOrchid<Impl: IColorsStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut Color) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).DarkOrchid() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn DarkRed<Impl: IColorsStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut Color) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).DarkRed() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn DarkSalmon<Impl: IColorsStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut Color) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).DarkSalmon() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn DarkSeaGreen<Impl: IColorsStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut Color) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).DarkSeaGreen() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn DarkSlateBlue<Impl: IColorsStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut Color) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).DarkSlateBlue() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn DarkSlateGray<Impl: IColorsStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut Color) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).DarkSlateGray() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn DarkTurquoise<Impl: IColorsStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut Color) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).DarkTurquoise() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn DarkViolet<Impl: IColorsStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut Color) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).DarkViolet() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn DeepPink<Impl: IColorsStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut Color) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).DeepPink() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn DeepSkyBlue<Impl: IColorsStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut Color) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).DeepSkyBlue() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn DimGray<Impl: IColorsStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut Color) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).DimGray() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn DodgerBlue<Impl: IColorsStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut Color) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).DodgerBlue() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn Firebrick<Impl: IColorsStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut Color) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).Firebrick() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn FloralWhite<Impl: IColorsStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut Color) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).FloralWhite() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn ForestGreen<Impl: IColorsStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut Color) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).ForestGreen() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn Fuchsia<Impl: IColorsStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut Color) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).Fuchsia() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn Gainsboro<Impl: IColorsStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut Color) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).Gainsboro() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn GhostWhite<Impl: IColorsStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut Color) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).GhostWhite() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn Gold<Impl: IColorsStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut Color) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).Gold() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn Goldenrod<Impl: IColorsStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut Color) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).Goldenrod() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn Gray<Impl: IColorsStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut Color) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).Gray() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn Green<Impl: IColorsStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut Color) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).Green() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn GreenYellow<Impl: IColorsStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut Color) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).GreenYellow() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn Honeydew<Impl: IColorsStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut Color) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).Honeydew() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn HotPink<Impl: IColorsStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut Color) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).HotPink() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn IndianRed<Impl: IColorsStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut Color) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).IndianRed() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn Indigo<Impl: IColorsStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut Color) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).Indigo() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn Ivory<Impl: IColorsStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut Color) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).Ivory() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn Khaki<Impl: IColorsStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut Color) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).Khaki() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn Lavender<Impl: IColorsStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut Color) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).Lavender() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn LavenderBlush<Impl: IColorsStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut Color) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).LavenderBlush() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn LawnGreen<Impl: IColorsStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut Color) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).LawnGreen() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn LemonChiffon<Impl: IColorsStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut Color) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).LemonChiffon() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn LightBlue<Impl: IColorsStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut Color) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).LightBlue() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn LightCoral<Impl: IColorsStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut Color) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).LightCoral() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn LightCyan<Impl: IColorsStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut Color) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).LightCyan() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn LightGoldenrodYellow<Impl: IColorsStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut Color) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).LightGoldenrodYellow() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn LightGreen<Impl: IColorsStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut Color) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).LightGreen() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn LightGray<Impl: IColorsStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut Color) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).LightGray() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn LightPink<Impl: IColorsStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut Color) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).LightPink() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn LightSalmon<Impl: IColorsStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut Color) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).LightSalmon() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn LightSeaGreen<Impl: IColorsStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut Color) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).LightSeaGreen() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn LightSkyBlue<Impl: IColorsStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut Color) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).LightSkyBlue() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn LightSlateGray<Impl: IColorsStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut Color) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).LightSlateGray() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn LightSteelBlue<Impl: IColorsStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut Color) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).LightSteelBlue() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn LightYellow<Impl: IColorsStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut Color) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).LightYellow() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn Lime<Impl: IColorsStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut Color) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).Lime() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn LimeGreen<Impl: IColorsStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut Color) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).LimeGreen() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn Linen<Impl: IColorsStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut Color) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).Linen() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn Magenta<Impl: IColorsStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut Color) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).Magenta() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn Maroon<Impl: IColorsStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut Color) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).Maroon() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn MediumAquamarine<Impl: IColorsStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut Color) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).MediumAquamarine() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn MediumBlue<Impl: IColorsStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut Color) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).MediumBlue() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn MediumOrchid<Impl: IColorsStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut Color) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).MediumOrchid() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn MediumPurple<Impl: IColorsStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut Color) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).MediumPurple() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn MediumSeaGreen<Impl: IColorsStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut Color) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).MediumSeaGreen() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn MediumSlateBlue<Impl: IColorsStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut Color) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).MediumSlateBlue() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn MediumSpringGreen<Impl: IColorsStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut Color) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).MediumSpringGreen() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn MediumTurquoise<Impl: IColorsStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut Color) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).MediumTurquoise() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn MediumVioletRed<Impl: IColorsStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut Color) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).MediumVioletRed() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn MidnightBlue<Impl: IColorsStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut Color) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).MidnightBlue() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn MintCream<Impl: IColorsStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut Color) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).MintCream() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn MistyRose<Impl: IColorsStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut Color) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).MistyRose() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn Moccasin<Impl: IColorsStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut Color) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).Moccasin() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn NavajoWhite<Impl: IColorsStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut Color) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).NavajoWhite() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn Navy<Impl: IColorsStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut Color) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).Navy() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn OldLace<Impl: IColorsStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut Color) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).OldLace() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn Olive<Impl: IColorsStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut Color) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).Olive() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn OliveDrab<Impl: IColorsStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut Color) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).OliveDrab() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn Orange<Impl: IColorsStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut Color) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).Orange() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn OrangeRed<Impl: IColorsStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut Color) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).OrangeRed() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn Orchid<Impl: IColorsStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut Color) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).Orchid() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn PaleGoldenrod<Impl: IColorsStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut Color) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).PaleGoldenrod() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn PaleGreen<Impl: IColorsStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut Color) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).PaleGreen() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn PaleTurquoise<Impl: IColorsStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut Color) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).PaleTurquoise() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn PaleVioletRed<Impl: IColorsStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut Color) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).PaleVioletRed() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn PapayaWhip<Impl: IColorsStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut Color) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).PapayaWhip() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn PeachPuff<Impl: IColorsStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut Color) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).PeachPuff() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn Peru<Impl: IColorsStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut Color) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).Peru() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn Pink<Impl: IColorsStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut Color) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).Pink() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn Plum<Impl: IColorsStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut Color) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).Plum() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn PowderBlue<Impl: IColorsStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut Color) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).PowderBlue() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn Purple<Impl: IColorsStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut Color) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).Purple() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn Red<Impl: IColorsStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut Color) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).Red() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn RosyBrown<Impl: IColorsStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut Color) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).RosyBrown() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn RoyalBlue<Impl: IColorsStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut Color) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).RoyalBlue() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SaddleBrown<Impl: IColorsStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut Color) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).SaddleBrown() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn Salmon<Impl: IColorsStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut Color) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).Salmon() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SandyBrown<Impl: IColorsStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut Color) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).SandyBrown() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SeaGreen<Impl: IColorsStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut Color) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).SeaGreen() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SeaShell<Impl: IColorsStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut Color) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).SeaShell() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn Sienna<Impl: IColorsStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut Color) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).Sienna() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn Silver<Impl: IColorsStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut Color) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).Silver() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SkyBlue<Impl: IColorsStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut Color) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).SkyBlue() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SlateBlue<Impl: IColorsStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut Color) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).SlateBlue() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SlateGray<Impl: IColorsStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut Color) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).SlateGray() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn Snow<Impl: IColorsStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut Color) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).Snow() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SpringGreen<Impl: IColorsStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut Color) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).SpringGreen() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SteelBlue<Impl: IColorsStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut Color) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).SteelBlue() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn Tan<Impl: IColorsStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut Color) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).Tan() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn Teal<Impl: IColorsStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut Color) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).Teal() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn Thistle<Impl: IColorsStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut Color) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).Thistle() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn Tomato<Impl: IColorsStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut Color) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).Tomato() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn Transparent<Impl: IColorsStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut Color) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).Transparent() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn Turquoise<Impl: IColorsStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut Color) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).Turquoise() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn Violet<Impl: IColorsStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut Color) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).Violet() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn Wheat<Impl: IColorsStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut Color) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).Wheat() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn White<Impl: IColorsStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut Color) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).White() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn WhiteSmoke<Impl: IColorsStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut Color) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).WhiteSmoke() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn Yellow<Impl: IColorsStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut Color) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).Yellow() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn YellowGreen<Impl: IColorsStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut Color) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).YellowGreen() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(
+            base.0,
+            base.1,
+            base.2,
+            base.3,
+            ::windows::core::GetRuntimeClassName::<IColorsStatics>,
+            base.5,
+            AliceBlue::<Impl, OFFSET>,
+            AntiqueWhite::<Impl, OFFSET>,
+            Aqua::<Impl, OFFSET>,
+            Aquamarine::<Impl, OFFSET>,
+            Azure::<Impl, OFFSET>,
+            Beige::<Impl, OFFSET>,
+            Bisque::<Impl, OFFSET>,
+            Black::<Impl, OFFSET>,
+            BlanchedAlmond::<Impl, OFFSET>,
+            Blue::<Impl, OFFSET>,
+            BlueViolet::<Impl, OFFSET>,
+            Brown::<Impl, OFFSET>,
+            BurlyWood::<Impl, OFFSET>,
+            CadetBlue::<Impl, OFFSET>,
+            Chartreuse::<Impl, OFFSET>,
+            Chocolate::<Impl, OFFSET>,
+            Coral::<Impl, OFFSET>,
+            CornflowerBlue::<Impl, OFFSET>,
+            Cornsilk::<Impl, OFFSET>,
+            Crimson::<Impl, OFFSET>,
+            Cyan::<Impl, OFFSET>,
+            DarkBlue::<Impl, OFFSET>,
+            DarkCyan::<Impl, OFFSET>,
+            DarkGoldenrod::<Impl, OFFSET>,
+            DarkGray::<Impl, OFFSET>,
+            DarkGreen::<Impl, OFFSET>,
+            DarkKhaki::<Impl, OFFSET>,
+            DarkMagenta::<Impl, OFFSET>,
+            DarkOliveGreen::<Impl, OFFSET>,
+            DarkOrange::<Impl, OFFSET>,
+            DarkOrchid::<Impl, OFFSET>,
+            DarkRed::<Impl, OFFSET>,
+            DarkSalmon::<Impl, OFFSET>,
+            DarkSeaGreen::<Impl, OFFSET>,
+            DarkSlateBlue::<Impl, OFFSET>,
+            DarkSlateGray::<Impl, OFFSET>,
+            DarkTurquoise::<Impl, OFFSET>,
+            DarkViolet::<Impl, OFFSET>,
+            DeepPink::<Impl, OFFSET>,
+            DeepSkyBlue::<Impl, OFFSET>,
+            DimGray::<Impl, OFFSET>,
+            DodgerBlue::<Impl, OFFSET>,
+            Firebrick::<Impl, OFFSET>,
+            FloralWhite::<Impl, OFFSET>,
+            ForestGreen::<Impl, OFFSET>,
+            Fuchsia::<Impl, OFFSET>,
+            Gainsboro::<Impl, OFFSET>,
+            GhostWhite::<Impl, OFFSET>,
+            Gold::<Impl, OFFSET>,
+            Goldenrod::<Impl, OFFSET>,
+            Gray::<Impl, OFFSET>,
+            Green::<Impl, OFFSET>,
+            GreenYellow::<Impl, OFFSET>,
+            Honeydew::<Impl, OFFSET>,
+            HotPink::<Impl, OFFSET>,
+            IndianRed::<Impl, OFFSET>,
+            Indigo::<Impl, OFFSET>,
+            Ivory::<Impl, OFFSET>,
+            Khaki::<Impl, OFFSET>,
+            Lavender::<Impl, OFFSET>,
+            LavenderBlush::<Impl, OFFSET>,
+            LawnGreen::<Impl, OFFSET>,
+            LemonChiffon::<Impl, OFFSET>,
+            LightBlue::<Impl, OFFSET>,
+            LightCoral::<Impl, OFFSET>,
+            LightCyan::<Impl, OFFSET>,
+            LightGoldenrodYellow::<Impl, OFFSET>,
+            LightGreen::<Impl, OFFSET>,
+            LightGray::<Impl, OFFSET>,
+            LightPink::<Impl, OFFSET>,
+            LightSalmon::<Impl, OFFSET>,
+            LightSeaGreen::<Impl, OFFSET>,
+            LightSkyBlue::<Impl, OFFSET>,
+            LightSlateGray::<Impl, OFFSET>,
+            LightSteelBlue::<Impl, OFFSET>,
+            LightYellow::<Impl, OFFSET>,
+            Lime::<Impl, OFFSET>,
+            LimeGreen::<Impl, OFFSET>,
+            Linen::<Impl, OFFSET>,
+            Magenta::<Impl, OFFSET>,
+            Maroon::<Impl, OFFSET>,
+            MediumAquamarine::<Impl, OFFSET>,
+            MediumBlue::<Impl, OFFSET>,
+            MediumOrchid::<Impl, OFFSET>,
+            MediumPurple::<Impl, OFFSET>,
+            MediumSeaGreen::<Impl, OFFSET>,
+            MediumSlateBlue::<Impl, OFFSET>,
+            MediumSpringGreen::<Impl, OFFSET>,
+            MediumTurquoise::<Impl, OFFSET>,
+            MediumVioletRed::<Impl, OFFSET>,
+            MidnightBlue::<Impl, OFFSET>,
+            MintCream::<Impl, OFFSET>,
+            MistyRose::<Impl, OFFSET>,
+            Moccasin::<Impl, OFFSET>,
+            NavajoWhite::<Impl, OFFSET>,
+            Navy::<Impl, OFFSET>,
+            OldLace::<Impl, OFFSET>,
+            Olive::<Impl, OFFSET>,
+            OliveDrab::<Impl, OFFSET>,
+            Orange::<Impl, OFFSET>,
+            OrangeRed::<Impl, OFFSET>,
+            Orchid::<Impl, OFFSET>,
+            PaleGoldenrod::<Impl, OFFSET>,
+            PaleGreen::<Impl, OFFSET>,
+            PaleTurquoise::<Impl, OFFSET>,
+            PaleVioletRed::<Impl, OFFSET>,
+            PapayaWhip::<Impl, OFFSET>,
+            PeachPuff::<Impl, OFFSET>,
+            Peru::<Impl, OFFSET>,
+            Pink::<Impl, OFFSET>,
+            Plum::<Impl, OFFSET>,
+            PowderBlue::<Impl, OFFSET>,
+            Purple::<Impl, OFFSET>,
+            Red::<Impl, OFFSET>,
+            RosyBrown::<Impl, OFFSET>,
+            RoyalBlue::<Impl, OFFSET>,
+            SaddleBrown::<Impl, OFFSET>,
+            Salmon::<Impl, OFFSET>,
+            SandyBrown::<Impl, OFFSET>,
+            SeaGreen::<Impl, OFFSET>,
+            SeaShell::<Impl, OFFSET>,
+            Sienna::<Impl, OFFSET>,
+            Silver::<Impl, OFFSET>,
+            SkyBlue::<Impl, OFFSET>,
+            SlateBlue::<Impl, OFFSET>,
+            SlateGray::<Impl, OFFSET>,
+            Snow::<Impl, OFFSET>,
+            SpringGreen::<Impl, OFFSET>,
+            SteelBlue::<Impl, OFFSET>,
+            Tan::<Impl, OFFSET>,
+            Teal::<Impl, OFFSET>,
+            Thistle::<Impl, OFFSET>,
+            Tomato::<Impl, OFFSET>,
+            Transparent::<Impl, OFFSET>,
+            Turquoise::<Impl, OFFSET>,
+            Violet::<Impl, OFFSET>,
+            Wheat::<Impl, OFFSET>,
+            White::<Impl, OFFSET>,
+            WhiteSmoke::<Impl, OFFSET>,
+            Yellow::<Impl, OFFSET>,
+            YellowGreen::<Impl, OFFSET>,
+        )
+    }
+}
+#[cfg(feature = "implement_exclusive")]
 pub trait IUIContentRootImpl: Sized {
     fn UIContext(&self) -> ::windows::core::Result<UIContext>;
 }
 #[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IUIContentRoot {
+    const NAME: &'static str = "Windows.UI.IUIContentRoot";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IUIContentRootVtbl {
+    pub const fn new<Impl: IUIContentRootImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IUIContentRootVtbl {
+        unsafe extern "system" fn UIContext<Impl: IUIContentRootImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).UIContext() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IUIContentRoot>, base.5, UIContext::<Impl, OFFSET>)
+    }
+}
+#[cfg(feature = "implement_exclusive")]
 pub trait IUIContextImpl: Sized {}
+#[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IUIContext {
+    const NAME: &'static str = "Windows.UI.IUIContext";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IUIContextVtbl {
+    pub const fn new<Impl: IUIContextImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IUIContextVtbl {
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IUIContext>, base.5)
+    }
+}

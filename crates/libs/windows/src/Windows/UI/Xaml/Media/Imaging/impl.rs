@@ -16,9 +16,170 @@ pub trait IBitmapImageImpl: Sized {
     fn RemoveImageFailed(&self, token: &super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IBitmapImage {
+    const NAME: &'static str = "Windows.UI.Xaml.Media.Imaging.IBitmapImage";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IBitmapImageVtbl {
+    pub const fn new<Impl: IBitmapImageImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IBitmapImageVtbl {
+        unsafe extern "system" fn CreateOptions<Impl: IBitmapImageImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut BitmapCreateOptions) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).CreateOptions() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetCreateOptions<Impl: IBitmapImageImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: BitmapCreateOptions) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetCreateOptions(value).into()
+        }
+        unsafe extern "system" fn UriSource<Impl: IBitmapImageImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).UriSource() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetUriSource<Impl: IBitmapImageImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetUriSource(&*(&value as *const <super::super::super::super::Foundation::Uri as ::windows::core::Abi>::Abi as *const <super::super::super::super::Foundation::Uri as ::windows::core::DefaultType>::DefaultType)).into()
+        }
+        unsafe extern "system" fn DecodePixelWidth<Impl: IBitmapImageImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).DecodePixelWidth() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetDecodePixelWidth<Impl: IBitmapImageImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetDecodePixelWidth(value).into()
+        }
+        unsafe extern "system" fn DecodePixelHeight<Impl: IBitmapImageImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).DecodePixelHeight() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetDecodePixelHeight<Impl: IBitmapImageImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetDecodePixelHeight(value).into()
+        }
+        unsafe extern "system" fn DownloadProgress<Impl: IBitmapImageImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).DownloadProgress(&*(&handler as *const <DownloadProgressEventHandler as ::windows::core::Abi>::Abi as *const <DownloadProgressEventHandler as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn RemoveDownloadProgress<Impl: IBitmapImageImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, token: super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).RemoveDownloadProgress(&*(&token as *const <super::super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
+        }
+        unsafe extern "system" fn ImageOpened<Impl: IBitmapImageImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).ImageOpened(&*(&handler as *const <super::super::RoutedEventHandler as ::windows::core::Abi>::Abi as *const <super::super::RoutedEventHandler as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn RemoveImageOpened<Impl: IBitmapImageImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, token: super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).RemoveImageOpened(&*(&token as *const <super::super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
+        }
+        unsafe extern "system" fn ImageFailed<Impl: IBitmapImageImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).ImageFailed(&*(&handler as *const <super::super::ExceptionRoutedEventHandler as ::windows::core::Abi>::Abi as *const <super::super::ExceptionRoutedEventHandler as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn RemoveImageFailed<Impl: IBitmapImageImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, token: super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).RemoveImageFailed(&*(&token as *const <super::super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
+        }
+        Self(
+            base.0,
+            base.1,
+            base.2,
+            base.3,
+            ::windows::core::GetRuntimeClassName::<IBitmapImage>,
+            base.5,
+            CreateOptions::<Impl, OFFSET>,
+            SetCreateOptions::<Impl, OFFSET>,
+            UriSource::<Impl, OFFSET>,
+            SetUriSource::<Impl, OFFSET>,
+            DecodePixelWidth::<Impl, OFFSET>,
+            SetDecodePixelWidth::<Impl, OFFSET>,
+            DecodePixelHeight::<Impl, OFFSET>,
+            SetDecodePixelHeight::<Impl, OFFSET>,
+            DownloadProgress::<Impl, OFFSET>,
+            RemoveDownloadProgress::<Impl, OFFSET>,
+            ImageOpened::<Impl, OFFSET>,
+            RemoveImageOpened::<Impl, OFFSET>,
+            ImageFailed::<Impl, OFFSET>,
+            RemoveImageFailed::<Impl, OFFSET>,
+        )
+    }
+}
+#[cfg(feature = "implement_exclusive")]
 pub trait IBitmapImage2Impl: Sized {
     fn DecodePixelType(&self) -> ::windows::core::Result<DecodePixelType>;
     fn SetDecodePixelType(&self, value: DecodePixelType) -> ::windows::core::Result<()>;
+}
+#[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IBitmapImage2 {
+    const NAME: &'static str = "Windows.UI.Xaml.Media.Imaging.IBitmapImage2";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IBitmapImage2Vtbl {
+    pub const fn new<Impl: IBitmapImage2Impl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IBitmapImage2Vtbl {
+        unsafe extern "system" fn DecodePixelType<Impl: IBitmapImage2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut DecodePixelType) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).DecodePixelType() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetDecodePixelType<Impl: IBitmapImage2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: DecodePixelType) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetDecodePixelType(value).into()
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IBitmapImage2>, base.5, DecodePixelType::<Impl, OFFSET>, SetDecodePixelType::<Impl, OFFSET>)
+    }
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IBitmapImage3Impl: Sized {
@@ -30,8 +191,84 @@ pub trait IBitmapImage3Impl: Sized {
     fn Stop(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IBitmapImage3 {
+    const NAME: &'static str = "Windows.UI.Xaml.Media.Imaging.IBitmapImage3";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IBitmapImage3Vtbl {
+    pub const fn new<Impl: IBitmapImage3Impl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IBitmapImage3Vtbl {
+        unsafe extern "system" fn IsAnimatedBitmap<Impl: IBitmapImage3Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).IsAnimatedBitmap() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn IsPlaying<Impl: IBitmapImage3Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).IsPlaying() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn AutoPlay<Impl: IBitmapImage3Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).AutoPlay() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetAutoPlay<Impl: IBitmapImage3Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetAutoPlay(value).into()
+        }
+        unsafe extern "system" fn Play<Impl: IBitmapImage3Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).Play().into()
+        }
+        unsafe extern "system" fn Stop<Impl: IBitmapImage3Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).Stop().into()
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IBitmapImage3>, base.5, IsAnimatedBitmap::<Impl, OFFSET>, IsPlaying::<Impl, OFFSET>, AutoPlay::<Impl, OFFSET>, SetAutoPlay::<Impl, OFFSET>, Play::<Impl, OFFSET>, Stop::<Impl, OFFSET>)
+    }
+}
+#[cfg(feature = "implement_exclusive")]
 pub trait IBitmapImageFactoryImpl: Sized {
     fn CreateInstanceWithUriSource(&self, urisource: &::core::option::Option<super::super::super::super::Foundation::Uri>) -> ::windows::core::Result<BitmapImage>;
+}
+#[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IBitmapImageFactory {
+    const NAME: &'static str = "Windows.UI.Xaml.Media.Imaging.IBitmapImageFactory";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IBitmapImageFactoryVtbl {
+    pub const fn new<Impl: IBitmapImageFactoryImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IBitmapImageFactoryVtbl {
+        unsafe extern "system" fn CreateInstanceWithUriSource<Impl: IBitmapImageFactoryImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, urisource: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).CreateInstanceWithUriSource(&*(&urisource as *const <super::super::super::super::Foundation::Uri as ::windows::core::Abi>::Abi as *const <super::super::super::super::Foundation::Uri as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IBitmapImageFactory>, base.5, CreateInstanceWithUriSource::<Impl, OFFSET>)
+    }
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IBitmapImageStaticsImpl: Sized {
@@ -41,14 +278,132 @@ pub trait IBitmapImageStaticsImpl: Sized {
     fn DecodePixelHeightProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
 }
 #[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IBitmapImageStatics {
+    const NAME: &'static str = "Windows.UI.Xaml.Media.Imaging.IBitmapImageStatics";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IBitmapImageStaticsVtbl {
+    pub const fn new<Impl: IBitmapImageStaticsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IBitmapImageStaticsVtbl {
+        unsafe extern "system" fn CreateOptionsProperty<Impl: IBitmapImageStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).CreateOptionsProperty() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn UriSourceProperty<Impl: IBitmapImageStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).UriSourceProperty() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn DecodePixelWidthProperty<Impl: IBitmapImageStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).DecodePixelWidthProperty() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn DecodePixelHeightProperty<Impl: IBitmapImageStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).DecodePixelHeightProperty() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IBitmapImageStatics>, base.5, CreateOptionsProperty::<Impl, OFFSET>, UriSourceProperty::<Impl, OFFSET>, DecodePixelWidthProperty::<Impl, OFFSET>, DecodePixelHeightProperty::<Impl, OFFSET>)
+    }
+}
+#[cfg(feature = "implement_exclusive")]
 pub trait IBitmapImageStatics2Impl: Sized {
     fn DecodePixelTypeProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
+}
+#[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IBitmapImageStatics2 {
+    const NAME: &'static str = "Windows.UI.Xaml.Media.Imaging.IBitmapImageStatics2";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IBitmapImageStatics2Vtbl {
+    pub const fn new<Impl: IBitmapImageStatics2Impl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IBitmapImageStatics2Vtbl {
+        unsafe extern "system" fn DecodePixelTypeProperty<Impl: IBitmapImageStatics2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).DecodePixelTypeProperty() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IBitmapImageStatics2>, base.5, DecodePixelTypeProperty::<Impl, OFFSET>)
+    }
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IBitmapImageStatics3Impl: Sized {
     fn IsAnimatedBitmapProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
     fn IsPlayingProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
     fn AutoPlayProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
+}
+#[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IBitmapImageStatics3 {
+    const NAME: &'static str = "Windows.UI.Xaml.Media.Imaging.IBitmapImageStatics3";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IBitmapImageStatics3Vtbl {
+    pub const fn new<Impl: IBitmapImageStatics3Impl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IBitmapImageStatics3Vtbl {
+        unsafe extern "system" fn IsAnimatedBitmapProperty<Impl: IBitmapImageStatics3Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).IsAnimatedBitmapProperty() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn IsPlayingProperty<Impl: IBitmapImageStatics3Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).IsPlayingProperty() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn AutoPlayProperty<Impl: IBitmapImageStatics3Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).AutoPlayProperty() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IBitmapImageStatics3>, base.5, IsAnimatedBitmapProperty::<Impl, OFFSET>, IsPlayingProperty::<Impl, OFFSET>, AutoPlayProperty::<Impl, OFFSET>)
+    }
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IBitmapSourceImpl: Sized {
@@ -58,8 +413,76 @@ pub trait IBitmapSourceImpl: Sized {
     fn SetSourceAsync(&self, streamsource: &::core::option::Option<super::super::super::super::Storage::Streams::IRandomAccessStream>) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncAction>;
 }
 #[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IBitmapSource {
+    const NAME: &'static str = "Windows.UI.Xaml.Media.Imaging.IBitmapSource";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IBitmapSourceVtbl {
+    pub const fn new<Impl: IBitmapSourceImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IBitmapSourceVtbl {
+        unsafe extern "system" fn PixelWidth<Impl: IBitmapSourceImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).PixelWidth() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn PixelHeight<Impl: IBitmapSourceImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).PixelHeight() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetSource<Impl: IBitmapSourceImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, streamsource: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetSource(&*(&streamsource as *const <super::super::super::super::Storage::Streams::IRandomAccessStream as ::windows::core::Abi>::Abi as *const <super::super::super::super::Storage::Streams::IRandomAccessStream as ::windows::core::DefaultType>::DefaultType)).into()
+        }
+        unsafe extern "system" fn SetSourceAsync<Impl: IBitmapSourceImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, streamsource: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).SetSourceAsync(&*(&streamsource as *const <super::super::super::super::Storage::Streams::IRandomAccessStream as ::windows::core::Abi>::Abi as *const <super::super::super::super::Storage::Streams::IRandomAccessStream as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IBitmapSource>, base.5, PixelWidth::<Impl, OFFSET>, PixelHeight::<Impl, OFFSET>, SetSource::<Impl, OFFSET>, SetSourceAsync::<Impl, OFFSET>)
+    }
+}
+#[cfg(feature = "implement_exclusive")]
 pub trait IBitmapSourceFactoryImpl: Sized {
     fn CreateInstance(&self, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<BitmapSource>;
+}
+#[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IBitmapSourceFactory {
+    const NAME: &'static str = "Windows.UI.Xaml.Media.Imaging.IBitmapSourceFactory";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IBitmapSourceFactoryVtbl {
+    pub const fn new<Impl: IBitmapSourceFactoryImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IBitmapSourceFactoryVtbl {
+        unsafe extern "system" fn CreateInstance<Impl: IBitmapSourceFactoryImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).CreateInstance(&*(&baseinterface as *const <::windows::core::IInspectable as ::windows::core::Abi>::Abi as *const <::windows::core::IInspectable as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&innerinterface)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IBitmapSourceFactory>, base.5, CreateInstance::<Impl, OFFSET>)
+    }
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IBitmapSourceStaticsImpl: Sized {
@@ -67,9 +490,66 @@ pub trait IBitmapSourceStaticsImpl: Sized {
     fn PixelHeightProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
 }
 #[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IBitmapSourceStatics {
+    const NAME: &'static str = "Windows.UI.Xaml.Media.Imaging.IBitmapSourceStatics";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IBitmapSourceStaticsVtbl {
+    pub const fn new<Impl: IBitmapSourceStaticsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IBitmapSourceStaticsVtbl {
+        unsafe extern "system" fn PixelWidthProperty<Impl: IBitmapSourceStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).PixelWidthProperty() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn PixelHeightProperty<Impl: IBitmapSourceStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).PixelHeightProperty() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IBitmapSourceStatics>, base.5, PixelWidthProperty::<Impl, OFFSET>, PixelHeightProperty::<Impl, OFFSET>)
+    }
+}
+#[cfg(feature = "implement_exclusive")]
 pub trait IDownloadProgressEventArgsImpl: Sized {
     fn Progress(&self) -> ::windows::core::Result<i32>;
     fn SetProgress(&self, value: i32) -> ::windows::core::Result<()>;
+}
+#[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IDownloadProgressEventArgs {
+    const NAME: &'static str = "Windows.UI.Xaml.Media.Imaging.IDownloadProgressEventArgs";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IDownloadProgressEventArgsVtbl {
+    pub const fn new<Impl: IDownloadProgressEventArgsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IDownloadProgressEventArgsVtbl {
+        unsafe extern "system" fn Progress<Impl: IDownloadProgressEventArgsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).Progress() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetProgress<Impl: IDownloadProgressEventArgsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetProgress(value).into()
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IDownloadProgressEventArgs>, base.5, Progress::<Impl, OFFSET>, SetProgress::<Impl, OFFSET>)
+    }
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IRenderTargetBitmapImpl: Sized {
@@ -80,20 +560,180 @@ pub trait IRenderTargetBitmapImpl: Sized {
     fn GetPixelsAsync(&self) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<super::super::super::super::Storage::Streams::IBuffer>>;
 }
 #[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IRenderTargetBitmap {
+    const NAME: &'static str = "Windows.UI.Xaml.Media.Imaging.IRenderTargetBitmap";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IRenderTargetBitmapVtbl {
+    pub const fn new<Impl: IRenderTargetBitmapImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IRenderTargetBitmapVtbl {
+        unsafe extern "system" fn PixelWidth<Impl: IRenderTargetBitmapImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).PixelWidth() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn PixelHeight<Impl: IRenderTargetBitmapImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).PixelHeight() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn RenderAsync<Impl: IRenderTargetBitmapImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).RenderAsync(&*(&element as *const <super::super::UIElement as ::windows::core::Abi>::Abi as *const <super::super::UIElement as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn RenderToSizeAsync<Impl: IRenderTargetBitmapImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, scaledwidth: i32, scaledheight: i32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).RenderToSizeAsync(&*(&element as *const <super::super::UIElement as ::windows::core::Abi>::Abi as *const <super::super::UIElement as ::windows::core::DefaultType>::DefaultType), scaledwidth, scaledheight) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn GetPixelsAsync<Impl: IRenderTargetBitmapImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).GetPixelsAsync() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IRenderTargetBitmap>, base.5, PixelWidth::<Impl, OFFSET>, PixelHeight::<Impl, OFFSET>, RenderAsync::<Impl, OFFSET>, RenderToSizeAsync::<Impl, OFFSET>, GetPixelsAsync::<Impl, OFFSET>)
+    }
+}
+#[cfg(feature = "implement_exclusive")]
 pub trait IRenderTargetBitmapStaticsImpl: Sized {
     fn PixelWidthProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
     fn PixelHeightProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
+}
+#[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IRenderTargetBitmapStatics {
+    const NAME: &'static str = "Windows.UI.Xaml.Media.Imaging.IRenderTargetBitmapStatics";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IRenderTargetBitmapStaticsVtbl {
+    pub const fn new<Impl: IRenderTargetBitmapStaticsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IRenderTargetBitmapStaticsVtbl {
+        unsafe extern "system" fn PixelWidthProperty<Impl: IRenderTargetBitmapStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).PixelWidthProperty() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn PixelHeightProperty<Impl: IRenderTargetBitmapStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).PixelHeightProperty() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IRenderTargetBitmapStatics>, base.5, PixelWidthProperty::<Impl, OFFSET>, PixelHeightProperty::<Impl, OFFSET>)
+    }
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ISoftwareBitmapSourceImpl: Sized {
     fn SetBitmapAsync(&self, softwarebitmap: &::core::option::Option<super::super::super::super::Graphics::Imaging::SoftwareBitmap>) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncAction>;
 }
 #[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for ISoftwareBitmapSource {
+    const NAME: &'static str = "Windows.UI.Xaml.Media.Imaging.ISoftwareBitmapSource";
+}
+#[cfg(feature = "implement_exclusive")]
+impl ISoftwareBitmapSourceVtbl {
+    pub const fn new<Impl: ISoftwareBitmapSourceImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> ISoftwareBitmapSourceVtbl {
+        unsafe extern "system" fn SetBitmapAsync<Impl: ISoftwareBitmapSourceImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, softwarebitmap: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).SetBitmapAsync(&*(&softwarebitmap as *const <super::super::super::super::Graphics::Imaging::SoftwareBitmap as ::windows::core::Abi>::Abi as *const <super::super::super::super::Graphics::Imaging::SoftwareBitmap as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<ISoftwareBitmapSource>, base.5, SetBitmapAsync::<Impl, OFFSET>)
+    }
+}
+#[cfg(feature = "implement_exclusive")]
 pub trait ISurfaceImageSourceImpl: Sized {}
+#[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for ISurfaceImageSource {
+    const NAME: &'static str = "Windows.UI.Xaml.Media.Imaging.ISurfaceImageSource";
+}
+#[cfg(feature = "implement_exclusive")]
+impl ISurfaceImageSourceVtbl {
+    pub const fn new<Impl: ISurfaceImageSourceImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> ISurfaceImageSourceVtbl {
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<ISurfaceImageSource>, base.5)
+    }
+}
 #[cfg(feature = "implement_exclusive")]
 pub trait ISurfaceImageSourceFactoryImpl: Sized {
     fn CreateInstanceWithDimensions(&self, pixelwidth: i32, pixelheight: i32, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<SurfaceImageSource>;
     fn CreateInstanceWithDimensionsAndOpacity(&self, pixelwidth: i32, pixelheight: i32, isopaque: bool, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<SurfaceImageSource>;
+}
+#[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for ISurfaceImageSourceFactory {
+    const NAME: &'static str = "Windows.UI.Xaml.Media.Imaging.ISurfaceImageSourceFactory";
+}
+#[cfg(feature = "implement_exclusive")]
+impl ISurfaceImageSourceFactoryVtbl {
+    pub const fn new<Impl: ISurfaceImageSourceFactoryImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> ISurfaceImageSourceFactoryVtbl {
+        unsafe extern "system" fn CreateInstanceWithDimensions<Impl: ISurfaceImageSourceFactoryImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, pixelwidth: i32, pixelheight: i32, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).CreateInstanceWithDimensions(pixelwidth, pixelheight, &*(&baseinterface as *const <::windows::core::IInspectable as ::windows::core::Abi>::Abi as *const <::windows::core::IInspectable as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&innerinterface)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn CreateInstanceWithDimensionsAndOpacity<Impl: ISurfaceImageSourceFactoryImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, pixelwidth: i32, pixelheight: i32, isopaque: bool, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).CreateInstanceWithDimensionsAndOpacity(pixelwidth, pixelheight, isopaque, &*(&baseinterface as *const <::windows::core::IInspectable as ::windows::core::Abi>::Abi as *const <::windows::core::IInspectable as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&innerinterface)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<ISurfaceImageSourceFactory>, base.5, CreateInstanceWithDimensions::<Impl, OFFSET>, CreateInstanceWithDimensionsAndOpacity::<Impl, OFFSET>)
+    }
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ISvgImageSourceImpl: Sized {
@@ -110,16 +750,175 @@ pub trait ISvgImageSourceImpl: Sized {
     fn SetSourceAsync(&self, streamsource: &::core::option::Option<super::super::super::super::Storage::Streams::IRandomAccessStream>) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<SvgImageSourceLoadStatus>>;
 }
 #[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for ISvgImageSource {
+    const NAME: &'static str = "Windows.UI.Xaml.Media.Imaging.ISvgImageSource";
+}
+#[cfg(feature = "implement_exclusive")]
+impl ISvgImageSourceVtbl {
+    pub const fn new<Impl: ISvgImageSourceImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> ISvgImageSourceVtbl {
+        unsafe extern "system" fn UriSource<Impl: ISvgImageSourceImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).UriSource() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetUriSource<Impl: ISvgImageSourceImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetUriSource(&*(&value as *const <super::super::super::super::Foundation::Uri as ::windows::core::Abi>::Abi as *const <super::super::super::super::Foundation::Uri as ::windows::core::DefaultType>::DefaultType)).into()
+        }
+        unsafe extern "system" fn RasterizePixelWidth<Impl: ISvgImageSourceImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).RasterizePixelWidth() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetRasterizePixelWidth<Impl: ISvgImageSourceImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetRasterizePixelWidth(value).into()
+        }
+        unsafe extern "system" fn RasterizePixelHeight<Impl: ISvgImageSourceImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).RasterizePixelHeight() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetRasterizePixelHeight<Impl: ISvgImageSourceImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetRasterizePixelHeight(value).into()
+        }
+        unsafe extern "system" fn Opened<Impl: ISvgImageSourceImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).Opened(&*(&handler as *const <super::super::super::super::Foundation::TypedEventHandler<SvgImageSource, SvgImageSourceOpenedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::super::super::Foundation::TypedEventHandler<SvgImageSource, SvgImageSourceOpenedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn RemoveOpened<Impl: ISvgImageSourceImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, token: super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).RemoveOpened(&*(&token as *const <super::super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
+        }
+        unsafe extern "system" fn OpenFailed<Impl: ISvgImageSourceImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).OpenFailed(&*(&handler as *const <super::super::super::super::Foundation::TypedEventHandler<SvgImageSource, SvgImageSourceFailedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::super::super::Foundation::TypedEventHandler<SvgImageSource, SvgImageSourceFailedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn RemoveOpenFailed<Impl: ISvgImageSourceImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, token: super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).RemoveOpenFailed(&*(&token as *const <super::super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
+        }
+        unsafe extern "system" fn SetSourceAsync<Impl: ISvgImageSourceImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, streamsource: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).SetSourceAsync(&*(&streamsource as *const <super::super::super::super::Storage::Streams::IRandomAccessStream as ::windows::core::Abi>::Abi as *const <super::super::super::super::Storage::Streams::IRandomAccessStream as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<ISvgImageSource>, base.5, UriSource::<Impl, OFFSET>, SetUriSource::<Impl, OFFSET>, RasterizePixelWidth::<Impl, OFFSET>, SetRasterizePixelWidth::<Impl, OFFSET>, RasterizePixelHeight::<Impl, OFFSET>, SetRasterizePixelHeight::<Impl, OFFSET>, Opened::<Impl, OFFSET>, RemoveOpened::<Impl, OFFSET>, OpenFailed::<Impl, OFFSET>, RemoveOpenFailed::<Impl, OFFSET>, SetSourceAsync::<Impl, OFFSET>)
+    }
+}
+#[cfg(feature = "implement_exclusive")]
 pub trait ISvgImageSourceFactoryImpl: Sized {
     fn CreateInstance(&self, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<SvgImageSource>;
     fn CreateInstanceWithUriSource(&self, urisource: &::core::option::Option<super::super::super::super::Foundation::Uri>, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<SvgImageSource>;
+}
+#[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for ISvgImageSourceFactory {
+    const NAME: &'static str = "Windows.UI.Xaml.Media.Imaging.ISvgImageSourceFactory";
+}
+#[cfg(feature = "implement_exclusive")]
+impl ISvgImageSourceFactoryVtbl {
+    pub const fn new<Impl: ISvgImageSourceFactoryImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> ISvgImageSourceFactoryVtbl {
+        unsafe extern "system" fn CreateInstance<Impl: ISvgImageSourceFactoryImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).CreateInstance(&*(&baseinterface as *const <::windows::core::IInspectable as ::windows::core::Abi>::Abi as *const <::windows::core::IInspectable as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&innerinterface)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn CreateInstanceWithUriSource<Impl: ISvgImageSourceFactoryImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, urisource: ::windows::core::RawPtr, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).CreateInstanceWithUriSource(&*(&urisource as *const <super::super::super::super::Foundation::Uri as ::windows::core::Abi>::Abi as *const <super::super::super::super::Foundation::Uri as ::windows::core::DefaultType>::DefaultType), &*(&baseinterface as *const <::windows::core::IInspectable as ::windows::core::Abi>::Abi as *const <::windows::core::IInspectable as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&innerinterface)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<ISvgImageSourceFactory>, base.5, CreateInstance::<Impl, OFFSET>, CreateInstanceWithUriSource::<Impl, OFFSET>)
+    }
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ISvgImageSourceFailedEventArgsImpl: Sized {
     fn Status(&self) -> ::windows::core::Result<SvgImageSourceLoadStatus>;
 }
 #[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for ISvgImageSourceFailedEventArgs {
+    const NAME: &'static str = "Windows.UI.Xaml.Media.Imaging.ISvgImageSourceFailedEventArgs";
+}
+#[cfg(feature = "implement_exclusive")]
+impl ISvgImageSourceFailedEventArgsVtbl {
+    pub const fn new<Impl: ISvgImageSourceFailedEventArgsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> ISvgImageSourceFailedEventArgsVtbl {
+        unsafe extern "system" fn Status<Impl: ISvgImageSourceFailedEventArgsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut SvgImageSourceLoadStatus) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).Status() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<ISvgImageSourceFailedEventArgs>, base.5, Status::<Impl, OFFSET>)
+    }
+}
+#[cfg(feature = "implement_exclusive")]
 pub trait ISvgImageSourceOpenedEventArgsImpl: Sized {}
+#[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for ISvgImageSourceOpenedEventArgs {
+    const NAME: &'static str = "Windows.UI.Xaml.Media.Imaging.ISvgImageSourceOpenedEventArgs";
+}
+#[cfg(feature = "implement_exclusive")]
+impl ISvgImageSourceOpenedEventArgsVtbl {
+    pub const fn new<Impl: ISvgImageSourceOpenedEventArgsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> ISvgImageSourceOpenedEventArgsVtbl {
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<ISvgImageSourceOpenedEventArgs>, base.5)
+    }
+}
 #[cfg(feature = "implement_exclusive")]
 pub trait ISvgImageSourceStaticsImpl: Sized {
     fn UriSourceProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
@@ -127,11 +926,96 @@ pub trait ISvgImageSourceStaticsImpl: Sized {
     fn RasterizePixelHeightProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
 }
 #[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for ISvgImageSourceStatics {
+    const NAME: &'static str = "Windows.UI.Xaml.Media.Imaging.ISvgImageSourceStatics";
+}
+#[cfg(feature = "implement_exclusive")]
+impl ISvgImageSourceStaticsVtbl {
+    pub const fn new<Impl: ISvgImageSourceStaticsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> ISvgImageSourceStaticsVtbl {
+        unsafe extern "system" fn UriSourceProperty<Impl: ISvgImageSourceStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).UriSourceProperty() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn RasterizePixelWidthProperty<Impl: ISvgImageSourceStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).RasterizePixelWidthProperty() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn RasterizePixelHeightProperty<Impl: ISvgImageSourceStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).RasterizePixelHeightProperty() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<ISvgImageSourceStatics>, base.5, UriSourceProperty::<Impl, OFFSET>, RasterizePixelWidthProperty::<Impl, OFFSET>, RasterizePixelHeightProperty::<Impl, OFFSET>)
+    }
+}
+#[cfg(feature = "implement_exclusive")]
 pub trait IVirtualSurfaceImageSourceImpl: Sized {}
+#[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IVirtualSurfaceImageSource {
+    const NAME: &'static str = "Windows.UI.Xaml.Media.Imaging.IVirtualSurfaceImageSource";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IVirtualSurfaceImageSourceVtbl {
+    pub const fn new<Impl: IVirtualSurfaceImageSourceImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IVirtualSurfaceImageSourceVtbl {
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IVirtualSurfaceImageSource>, base.5)
+    }
+}
 #[cfg(feature = "implement_exclusive")]
 pub trait IVirtualSurfaceImageSourceFactoryImpl: Sized {
     fn CreateInstanceWithDimensions(&self, pixelwidth: i32, pixelheight: i32) -> ::windows::core::Result<VirtualSurfaceImageSource>;
     fn CreateInstanceWithDimensionsAndOpacity(&self, pixelwidth: i32, pixelheight: i32, isopaque: bool) -> ::windows::core::Result<VirtualSurfaceImageSource>;
+}
+#[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IVirtualSurfaceImageSourceFactory {
+    const NAME: &'static str = "Windows.UI.Xaml.Media.Imaging.IVirtualSurfaceImageSourceFactory";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IVirtualSurfaceImageSourceFactoryVtbl {
+    pub const fn new<Impl: IVirtualSurfaceImageSourceFactoryImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IVirtualSurfaceImageSourceFactoryVtbl {
+        unsafe extern "system" fn CreateInstanceWithDimensions<Impl: IVirtualSurfaceImageSourceFactoryImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, pixelwidth: i32, pixelheight: i32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).CreateInstanceWithDimensions(pixelwidth, pixelheight) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn CreateInstanceWithDimensionsAndOpacity<Impl: IVirtualSurfaceImageSourceFactoryImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, pixelwidth: i32, pixelheight: i32, isopaque: bool, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).CreateInstanceWithDimensionsAndOpacity(pixelwidth, pixelheight, isopaque) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IVirtualSurfaceImageSourceFactory>, base.5, CreateInstanceWithDimensions::<Impl, OFFSET>, CreateInstanceWithDimensionsAndOpacity::<Impl, OFFSET>)
+    }
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IWriteableBitmapImpl: Sized {
@@ -139,16 +1023,107 @@ pub trait IWriteableBitmapImpl: Sized {
     fn Invalidate(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IWriteableBitmap {
+    const NAME: &'static str = "Windows.UI.Xaml.Media.Imaging.IWriteableBitmap";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IWriteableBitmapVtbl {
+    pub const fn new<Impl: IWriteableBitmapImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IWriteableBitmapVtbl {
+        unsafe extern "system" fn PixelBuffer<Impl: IWriteableBitmapImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).PixelBuffer() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn Invalidate<Impl: IWriteableBitmapImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).Invalidate().into()
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IWriteableBitmap>, base.5, PixelBuffer::<Impl, OFFSET>, Invalidate::<Impl, OFFSET>)
+    }
+}
+#[cfg(feature = "implement_exclusive")]
 pub trait IWriteableBitmapFactoryImpl: Sized {
     fn CreateInstanceWithDimensions(&self, pixelwidth: i32, pixelheight: i32) -> ::windows::core::Result<WriteableBitmap>;
 }
 #[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IWriteableBitmapFactory {
+    const NAME: &'static str = "Windows.UI.Xaml.Media.Imaging.IWriteableBitmapFactory";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IWriteableBitmapFactoryVtbl {
+    pub const fn new<Impl: IWriteableBitmapFactoryImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IWriteableBitmapFactoryVtbl {
+        unsafe extern "system" fn CreateInstanceWithDimensions<Impl: IWriteableBitmapFactoryImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, pixelwidth: i32, pixelheight: i32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).CreateInstanceWithDimensions(pixelwidth, pixelheight) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IWriteableBitmapFactory>, base.5, CreateInstanceWithDimensions::<Impl, OFFSET>)
+    }
+}
+#[cfg(feature = "implement_exclusive")]
 pub trait IXamlRenderingBackgroundTaskImpl: Sized {}
+#[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IXamlRenderingBackgroundTask {
+    const NAME: &'static str = "Windows.UI.Xaml.Media.Imaging.IXamlRenderingBackgroundTask";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IXamlRenderingBackgroundTaskVtbl {
+    pub const fn new<Impl: IXamlRenderingBackgroundTaskImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IXamlRenderingBackgroundTaskVtbl {
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IXamlRenderingBackgroundTask>, base.5)
+    }
+}
 #[cfg(feature = "implement_exclusive")]
 pub trait IXamlRenderingBackgroundTaskFactoryImpl: Sized {
     fn CreateInstance(&self, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<XamlRenderingBackgroundTask>;
 }
 #[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IXamlRenderingBackgroundTaskFactory {
+    const NAME: &'static str = "Windows.UI.Xaml.Media.Imaging.IXamlRenderingBackgroundTaskFactory";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IXamlRenderingBackgroundTaskFactoryVtbl {
+    pub const fn new<Impl: IXamlRenderingBackgroundTaskFactoryImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IXamlRenderingBackgroundTaskFactoryVtbl {
+        unsafe extern "system" fn CreateInstance<Impl: IXamlRenderingBackgroundTaskFactoryImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).CreateInstance(&*(&baseinterface as *const <::windows::core::IInspectable as ::windows::core::Abi>::Abi as *const <::windows::core::IInspectable as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&innerinterface)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IXamlRenderingBackgroundTaskFactory>, base.5, CreateInstance::<Impl, OFFSET>)
+    }
+}
+#[cfg(feature = "implement_exclusive")]
 pub trait IXamlRenderingBackgroundTaskOverridesImpl: Sized {
     fn OnRun(&self, taskinstance: &::core::option::Option<super::super::super::super::ApplicationModel::Background::IBackgroundTaskInstance>) -> ::windows::core::Result<()>;
+}
+#[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IXamlRenderingBackgroundTaskOverrides {
+    const NAME: &'static str = "Windows.UI.Xaml.Media.Imaging.IXamlRenderingBackgroundTaskOverrides";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IXamlRenderingBackgroundTaskOverridesVtbl {
+    pub const fn new<Impl: IXamlRenderingBackgroundTaskOverridesImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IXamlRenderingBackgroundTaskOverridesVtbl {
+        unsafe extern "system" fn OnRun<Impl: IXamlRenderingBackgroundTaskOverridesImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, taskinstance: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).OnRun(&*(&taskinstance as *const <super::super::super::super::ApplicationModel::Background::IBackgroundTaskInstance as ::windows::core::Abi>::Abi as *const <super::super::super::super::ApplicationModel::Background::IBackgroundTaskInstance as ::windows::core::DefaultType>::DefaultType)).into()
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IXamlRenderingBackgroundTaskOverrides>, base.5, OnRun::<Impl, OFFSET>)
+    }
 }

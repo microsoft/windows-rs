@@ -10,6 +10,104 @@ pub trait ICortanaActionableInsightsImpl: Sized {
     fn ShowInsightsWithOptionsAsync(&self, datapackage: &::core::option::Option<super::super::ApplicationModel::DataTransfer::DataPackage>, options: &::core::option::Option<CortanaActionableInsightsOptions>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+impl ::windows::core::RuntimeName for ICortanaActionableInsights {
+    const NAME: &'static str = "Windows.Services.Cortana.ICortanaActionableInsights";
+}
+#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+impl ICortanaActionableInsightsVtbl {
+    pub const fn new<Impl: ICortanaActionableInsightsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> ICortanaActionableInsightsVtbl {
+        unsafe extern "system" fn User<Impl: ICortanaActionableInsightsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).User() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn IsAvailableAsync<Impl: ICortanaActionableInsightsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).IsAvailableAsync() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn ShowInsightsForImageAsync<Impl: ICortanaActionableInsightsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, imagestream: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).ShowInsightsForImageAsync(&*(&imagestream as *const <super::super::Storage::Streams::IRandomAccessStreamReference as ::windows::core::Abi>::Abi as *const <super::super::Storage::Streams::IRandomAccessStreamReference as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn ShowInsightsForImageWithOptionsAsync<Impl: ICortanaActionableInsightsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, imagestream: ::windows::core::RawPtr, options: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).ShowInsightsForImageWithOptionsAsync(&*(&imagestream as *const <super::super::Storage::Streams::IRandomAccessStreamReference as ::windows::core::Abi>::Abi as *const <super::super::Storage::Streams::IRandomAccessStreamReference as ::windows::core::DefaultType>::DefaultType), &*(&options as *const <CortanaActionableInsightsOptions as ::windows::core::Abi>::Abi as *const <CortanaActionableInsightsOptions as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn ShowInsightsForTextAsync<Impl: ICortanaActionableInsightsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, text: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).ShowInsightsForTextAsync(&*(&text as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn ShowInsightsForTextWithOptionsAsync<Impl: ICortanaActionableInsightsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, text: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, options: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).ShowInsightsForTextWithOptionsAsync(&*(&text as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&options as *const <CortanaActionableInsightsOptions as ::windows::core::Abi>::Abi as *const <CortanaActionableInsightsOptions as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn ShowInsightsAsync<Impl: ICortanaActionableInsightsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, datapackage: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).ShowInsightsAsync(&*(&datapackage as *const <super::super::ApplicationModel::DataTransfer::DataPackage as ::windows::core::Abi>::Abi as *const <super::super::ApplicationModel::DataTransfer::DataPackage as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn ShowInsightsWithOptionsAsync<Impl: ICortanaActionableInsightsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, datapackage: ::windows::core::RawPtr, options: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).ShowInsightsWithOptionsAsync(&*(&datapackage as *const <super::super::ApplicationModel::DataTransfer::DataPackage as ::windows::core::Abi>::Abi as *const <super::super::ApplicationModel::DataTransfer::DataPackage as ::windows::core::DefaultType>::DefaultType), &*(&options as *const <CortanaActionableInsightsOptions as ::windows::core::Abi>::Abi as *const <CortanaActionableInsightsOptions as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<ICortanaActionableInsights>, base.5, User::<Impl, OFFSET>, IsAvailableAsync::<Impl, OFFSET>, ShowInsightsForImageAsync::<Impl, OFFSET>, ShowInsightsForImageWithOptionsAsync::<Impl, OFFSET>, ShowInsightsForTextAsync::<Impl, OFFSET>, ShowInsightsForTextWithOptionsAsync::<Impl, OFFSET>, ShowInsightsAsync::<Impl, OFFSET>, ShowInsightsWithOptionsAsync::<Impl, OFFSET>)
+    }
+}
+#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
 pub trait ICortanaActionableInsightsOptionsImpl: Sized {
     fn ContentSourceWebLink(&self) -> ::windows::core::Result<super::super::Foundation::Uri>;
     fn SetContentSourceWebLink(&self, value: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<()>;
@@ -17,9 +115,81 @@ pub trait ICortanaActionableInsightsOptionsImpl: Sized {
     fn SetSurroundingText(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+impl ::windows::core::RuntimeName for ICortanaActionableInsightsOptions {
+    const NAME: &'static str = "Windows.Services.Cortana.ICortanaActionableInsightsOptions";
+}
+#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+impl ICortanaActionableInsightsOptionsVtbl {
+    pub const fn new<Impl: ICortanaActionableInsightsOptionsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> ICortanaActionableInsightsOptionsVtbl {
+        unsafe extern "system" fn ContentSourceWebLink<Impl: ICortanaActionableInsightsOptionsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).ContentSourceWebLink() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetContentSourceWebLink<Impl: ICortanaActionableInsightsOptionsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetContentSourceWebLink(&*(&value as *const <super::super::Foundation::Uri as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Uri as ::windows::core::DefaultType>::DefaultType)).into()
+        }
+        unsafe extern "system" fn SurroundingText<Impl: ICortanaActionableInsightsOptionsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).SurroundingText() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetSurroundingText<Impl: ICortanaActionableInsightsOptionsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetSurroundingText(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<ICortanaActionableInsightsOptions>, base.5, ContentSourceWebLink::<Impl, OFFSET>, SetContentSourceWebLink::<Impl, OFFSET>, SurroundingText::<Impl, OFFSET>, SetSurroundingText::<Impl, OFFSET>)
+    }
+}
+#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
 pub trait ICortanaActionableInsightsStaticsImpl: Sized {
     fn GetDefault(&self) -> ::windows::core::Result<CortanaActionableInsights>;
     fn GetForUser(&self, user: &::core::option::Option<super::super::System::User>) -> ::windows::core::Result<CortanaActionableInsights>;
+}
+#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+impl ::windows::core::RuntimeName for ICortanaActionableInsightsStatics {
+    const NAME: &'static str = "Windows.Services.Cortana.ICortanaActionableInsightsStatics";
+}
+#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+impl ICortanaActionableInsightsStaticsVtbl {
+    pub const fn new<Impl: ICortanaActionableInsightsStaticsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> ICortanaActionableInsightsStaticsVtbl {
+        unsafe extern "system" fn GetDefault<Impl: ICortanaActionableInsightsStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).GetDefault() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn GetForUser<Impl: ICortanaActionableInsightsStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, user: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).GetForUser(&*(&user as *const <super::super::System::User as ::windows::core::Abi>::Abi as *const <super::super::System::User as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<ICortanaActionableInsightsStatics>, base.5, GetDefault::<Impl, OFFSET>, GetForUser::<Impl, OFFSET>)
+    }
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
 pub trait ICortanaPermissionsManagerImpl: Sized {
@@ -29,8 +199,83 @@ pub trait ICortanaPermissionsManagerImpl: Sized {
     fn RevokePermissionsAsync(&self, permissions: &::core::option::Option<super::super::Foundation::Collections::IIterable<CortanaPermission>>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<CortanaPermissionsChangeResult>>;
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+impl ::windows::core::RuntimeName for ICortanaPermissionsManager {
+    const NAME: &'static str = "Windows.Services.Cortana.ICortanaPermissionsManager";
+}
+#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+impl ICortanaPermissionsManagerVtbl {
+    pub const fn new<Impl: ICortanaPermissionsManagerImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> ICortanaPermissionsManagerVtbl {
+        unsafe extern "system" fn IsSupported<Impl: ICortanaPermissionsManagerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).IsSupported() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn ArePermissionsGrantedAsync<Impl: ICortanaPermissionsManagerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, permissions: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).ArePermissionsGrantedAsync(&*(&permissions as *const <super::super::Foundation::Collections::IIterable<CortanaPermission> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::IIterable<CortanaPermission> as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn GrantPermissionsAsync<Impl: ICortanaPermissionsManagerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, permissions: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).GrantPermissionsAsync(&*(&permissions as *const <super::super::Foundation::Collections::IIterable<CortanaPermission> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::IIterable<CortanaPermission> as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn RevokePermissionsAsync<Impl: ICortanaPermissionsManagerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, permissions: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).RevokePermissionsAsync(&*(&permissions as *const <super::super::Foundation::Collections::IIterable<CortanaPermission> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::IIterable<CortanaPermission> as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<ICortanaPermissionsManager>, base.5, IsSupported::<Impl, OFFSET>, ArePermissionsGrantedAsync::<Impl, OFFSET>, GrantPermissionsAsync::<Impl, OFFSET>, RevokePermissionsAsync::<Impl, OFFSET>)
+    }
+}
+#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
 pub trait ICortanaPermissionsManagerStaticsImpl: Sized {
     fn GetDefault(&self) -> ::windows::core::Result<CortanaPermissionsManager>;
+}
+#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+impl ::windows::core::RuntimeName for ICortanaPermissionsManagerStatics {
+    const NAME: &'static str = "Windows.Services.Cortana.ICortanaPermissionsManagerStatics";
+}
+#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+impl ICortanaPermissionsManagerStaticsVtbl {
+    pub const fn new<Impl: ICortanaPermissionsManagerStaticsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> ICortanaPermissionsManagerStaticsVtbl {
+        unsafe extern "system" fn GetDefault<Impl: ICortanaPermissionsManagerStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).GetDefault() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<ICortanaPermissionsManagerStatics>, base.5, GetDefault::<Impl, OFFSET>)
+    }
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
 pub trait ICortanaSettingsImpl: Sized {
@@ -39,7 +284,75 @@ pub trait ICortanaSettingsImpl: Sized {
     fn SetIsVoiceActivationEnabled(&self, value: bool) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+impl ::windows::core::RuntimeName for ICortanaSettings {
+    const NAME: &'static str = "Windows.Services.Cortana.ICortanaSettings";
+}
+#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+impl ICortanaSettingsVtbl {
+    pub const fn new<Impl: ICortanaSettingsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> ICortanaSettingsVtbl {
+        unsafe extern "system" fn HasUserConsentToVoiceActivation<Impl: ICortanaSettingsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).HasUserConsentToVoiceActivation() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn IsVoiceActivationEnabled<Impl: ICortanaSettingsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).IsVoiceActivationEnabled() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetIsVoiceActivationEnabled<Impl: ICortanaSettingsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetIsVoiceActivationEnabled(value).into()
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<ICortanaSettings>, base.5, HasUserConsentToVoiceActivation::<Impl, OFFSET>, IsVoiceActivationEnabled::<Impl, OFFSET>, SetIsVoiceActivationEnabled::<Impl, OFFSET>)
+    }
+}
+#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
 pub trait ICortanaSettingsStaticsImpl: Sized {
     fn IsSupported(&self) -> ::windows::core::Result<bool>;
     fn GetDefault(&self) -> ::windows::core::Result<CortanaSettings>;
+}
+#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+impl ::windows::core::RuntimeName for ICortanaSettingsStatics {
+    const NAME: &'static str = "Windows.Services.Cortana.ICortanaSettingsStatics";
+}
+#[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
+impl ICortanaSettingsStaticsVtbl {
+    pub const fn new<Impl: ICortanaSettingsStaticsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> ICortanaSettingsStaticsVtbl {
+        unsafe extern "system" fn IsSupported<Impl: ICortanaSettingsStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).IsSupported() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn GetDefault<Impl: ICortanaSettingsStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).GetDefault() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<ICortanaSettingsStatics>, base.5, IsSupported::<Impl, OFFSET>, GetDefault::<Impl, OFFSET>)
+    }
 }

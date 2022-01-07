@@ -6,6 +6,60 @@ pub trait ISpiBusInfoImpl: Sized {
     fn SupportedDataBitLengths(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<i32>>;
 }
 #[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for ISpiBusInfo {
+    const NAME: &'static str = "Windows.Devices.Spi.ISpiBusInfo";
+}
+#[cfg(feature = "implement_exclusive")]
+impl ISpiBusInfoVtbl {
+    pub const fn new<Impl: ISpiBusInfoImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> ISpiBusInfoVtbl {
+        unsafe extern "system" fn ChipSelectLineCount<Impl: ISpiBusInfoImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).ChipSelectLineCount() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn MinClockFrequency<Impl: ISpiBusInfoImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).MinClockFrequency() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn MaxClockFrequency<Impl: ISpiBusInfoImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).MaxClockFrequency() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SupportedDataBitLengths<Impl: ISpiBusInfoImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).SupportedDataBitLengths() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<ISpiBusInfo>, base.5, ChipSelectLineCount::<Impl, OFFSET>, MinClockFrequency::<Impl, OFFSET>, MaxClockFrequency::<Impl, OFFSET>, SupportedDataBitLengths::<Impl, OFFSET>)
+    }
+}
+#[cfg(feature = "implement_exclusive")]
 pub trait ISpiConnectionSettingsImpl: Sized {
     fn ChipSelectLine(&self) -> ::windows::core::Result<i32>;
     fn SetChipSelectLine(&self, value: i32) -> ::windows::core::Result<()>;
@@ -19,17 +73,176 @@ pub trait ISpiConnectionSettingsImpl: Sized {
     fn SetSharingMode(&self, value: SpiSharingMode) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for ISpiConnectionSettings {
+    const NAME: &'static str = "Windows.Devices.Spi.ISpiConnectionSettings";
+}
+#[cfg(feature = "implement_exclusive")]
+impl ISpiConnectionSettingsVtbl {
+    pub const fn new<Impl: ISpiConnectionSettingsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> ISpiConnectionSettingsVtbl {
+        unsafe extern "system" fn ChipSelectLine<Impl: ISpiConnectionSettingsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).ChipSelectLine() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetChipSelectLine<Impl: ISpiConnectionSettingsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetChipSelectLine(value).into()
+        }
+        unsafe extern "system" fn Mode<Impl: ISpiConnectionSettingsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut SpiMode) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).Mode() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetMode<Impl: ISpiConnectionSettingsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: SpiMode) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetMode(value).into()
+        }
+        unsafe extern "system" fn DataBitLength<Impl: ISpiConnectionSettingsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).DataBitLength() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetDataBitLength<Impl: ISpiConnectionSettingsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetDataBitLength(value).into()
+        }
+        unsafe extern "system" fn ClockFrequency<Impl: ISpiConnectionSettingsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).ClockFrequency() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetClockFrequency<Impl: ISpiConnectionSettingsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetClockFrequency(value).into()
+        }
+        unsafe extern "system" fn SharingMode<Impl: ISpiConnectionSettingsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut SpiSharingMode) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).SharingMode() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetSharingMode<Impl: ISpiConnectionSettingsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: SpiSharingMode) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetSharingMode(value).into()
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<ISpiConnectionSettings>, base.5, ChipSelectLine::<Impl, OFFSET>, SetChipSelectLine::<Impl, OFFSET>, Mode::<Impl, OFFSET>, SetMode::<Impl, OFFSET>, DataBitLength::<Impl, OFFSET>, SetDataBitLength::<Impl, OFFSET>, ClockFrequency::<Impl, OFFSET>, SetClockFrequency::<Impl, OFFSET>, SharingMode::<Impl, OFFSET>, SetSharingMode::<Impl, OFFSET>)
+    }
+}
+#[cfg(feature = "implement_exclusive")]
 pub trait ISpiConnectionSettingsFactoryImpl: Sized {
     fn Create(&self, chipselectline: i32) -> ::windows::core::Result<SpiConnectionSettings>;
+}
+#[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for ISpiConnectionSettingsFactory {
+    const NAME: &'static str = "Windows.Devices.Spi.ISpiConnectionSettingsFactory";
+}
+#[cfg(feature = "implement_exclusive")]
+impl ISpiConnectionSettingsFactoryVtbl {
+    pub const fn new<Impl: ISpiConnectionSettingsFactoryImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> ISpiConnectionSettingsFactoryVtbl {
+        unsafe extern "system" fn Create<Impl: ISpiConnectionSettingsFactoryImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, chipselectline: i32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).Create(chipselectline) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<ISpiConnectionSettingsFactory>, base.5, Create::<Impl, OFFSET>)
+    }
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ISpiControllerImpl: Sized {
     fn GetDevice(&self, settings: &::core::option::Option<SpiConnectionSettings>) -> ::windows::core::Result<SpiDevice>;
 }
 #[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for ISpiController {
+    const NAME: &'static str = "Windows.Devices.Spi.ISpiController";
+}
+#[cfg(feature = "implement_exclusive")]
+impl ISpiControllerVtbl {
+    pub const fn new<Impl: ISpiControllerImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> ISpiControllerVtbl {
+        unsafe extern "system" fn GetDevice<Impl: ISpiControllerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, settings: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).GetDevice(&*(&settings as *const <SpiConnectionSettings as ::windows::core::Abi>::Abi as *const <SpiConnectionSettings as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<ISpiController>, base.5, GetDevice::<Impl, OFFSET>)
+    }
+}
+#[cfg(feature = "implement_exclusive")]
 pub trait ISpiControllerStaticsImpl: Sized {
     fn GetDefaultAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SpiController>>;
     fn GetControllersAsync(&self, provider: &::core::option::Option<Provider::ISpiProvider>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<SpiController>>>;
+}
+#[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for ISpiControllerStatics {
+    const NAME: &'static str = "Windows.Devices.Spi.ISpiControllerStatics";
+}
+#[cfg(feature = "implement_exclusive")]
+impl ISpiControllerStaticsVtbl {
+    pub const fn new<Impl: ISpiControllerStaticsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> ISpiControllerStaticsVtbl {
+        unsafe extern "system" fn GetDefaultAsync<Impl: ISpiControllerStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).GetDefaultAsync() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn GetControllersAsync<Impl: ISpiControllerStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, provider: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).GetControllersAsync(&*(&provider as *const <Provider::ISpiProvider as ::windows::core::Abi>::Abi as *const <Provider::ISpiProvider as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<ISpiControllerStatics>, base.5, GetDefaultAsync::<Impl, OFFSET>, GetControllersAsync::<Impl, OFFSET>)
+    }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ISpiDeviceImpl: Sized + IClosableImpl {
@@ -40,9 +253,109 @@ pub trait ISpiDeviceImpl: Sized + IClosableImpl {
     fn TransferSequential(&self, writebuffer: &[<u8 as ::windows::core::DefaultType>::DefaultType], readbuffer: &mut [<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<()>;
     fn TransferFullDuplex(&self, writebuffer: &[<u8 as ::windows::core::DefaultType>::DefaultType], readbuffer: &mut [<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
+impl ::windows::core::RuntimeName for ISpiDevice {
+    const NAME: &'static str = "Windows.Devices.Spi.ISpiDevice";
+}
+#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
+impl ISpiDeviceVtbl {
+    pub const fn new<Impl: ISpiDeviceImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> ISpiDeviceVtbl {
+        unsafe extern "system" fn DeviceId<Impl: ISpiDeviceImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).DeviceId() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn ConnectionSettings<Impl: ISpiDeviceImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).ConnectionSettings() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn Write<Impl: ISpiDeviceImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, buffer_array_size: u32, buffer: *const u8) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).Write(::core::slice::from_raw_parts(::core::mem::transmute_copy(&buffer), buffer_array_size as _)).into()
+        }
+        unsafe extern "system" fn Read<Impl: ISpiDeviceImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, buffer_array_size: u32, buffer: *mut u8) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).Read(::core::slice::from_raw_parts_mut(::core::mem::transmute_copy(&buffer), buffer_array_size as _)).into()
+        }
+        unsafe extern "system" fn TransferSequential<Impl: ISpiDeviceImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, writeBuffer_array_size: u32, writebuffer: *const u8, readBuffer_array_size: u32, readbuffer: *mut u8) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).TransferSequential(::core::slice::from_raw_parts(::core::mem::transmute_copy(&writebuffer), writeBuffer_array_size as _), ::core::slice::from_raw_parts_mut(::core::mem::transmute_copy(&readbuffer), readBuffer_array_size as _)).into()
+        }
+        unsafe extern "system" fn TransferFullDuplex<Impl: ISpiDeviceImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, writeBuffer_array_size: u32, writebuffer: *const u8, readBuffer_array_size: u32, readbuffer: *mut u8) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).TransferFullDuplex(::core::slice::from_raw_parts(::core::mem::transmute_copy(&writebuffer), writeBuffer_array_size as _), ::core::slice::from_raw_parts_mut(::core::mem::transmute_copy(&readbuffer), readBuffer_array_size as _)).into()
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<ISpiDevice>, base.5, DeviceId::<Impl, OFFSET>, ConnectionSettings::<Impl, OFFSET>, Write::<Impl, OFFSET>, Read::<Impl, OFFSET>, TransferSequential::<Impl, OFFSET>, TransferFullDuplex::<Impl, OFFSET>)
+    }
+}
 pub trait ISpiDeviceStaticsImpl: Sized {
     fn GetDeviceSelector(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn GetDeviceSelectorFromFriendlyName(&self, friendlyname: &::windows::core::HSTRING) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn GetBusInfo(&self, busid: &::windows::core::HSTRING) -> ::windows::core::Result<SpiBusInfo>;
     fn FromIdAsync(&self, busid: &::windows::core::HSTRING, settings: &::core::option::Option<SpiConnectionSettings>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SpiDevice>>;
+}
+impl ::windows::core::RuntimeName for ISpiDeviceStatics {
+    const NAME: &'static str = "Windows.Devices.Spi.ISpiDeviceStatics";
+}
+impl ISpiDeviceStaticsVtbl {
+    pub const fn new<Impl: ISpiDeviceStaticsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> ISpiDeviceStaticsVtbl {
+        unsafe extern "system" fn GetDeviceSelector<Impl: ISpiDeviceStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).GetDeviceSelector() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn GetDeviceSelectorFromFriendlyName<Impl: ISpiDeviceStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, friendlyname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).GetDeviceSelectorFromFriendlyName(&*(&friendlyname as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn GetBusInfo<Impl: ISpiDeviceStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, busid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).GetBusInfo(&*(&busid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn FromIdAsync<Impl: ISpiDeviceStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, busid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, settings: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).FromIdAsync(&*(&busid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&settings as *const <SpiConnectionSettings as ::windows::core::Abi>::Abi as *const <SpiConnectionSettings as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<ISpiDeviceStatics>, base.5, GetDeviceSelector::<Impl, OFFSET>, GetDeviceSelectorFromFriendlyName::<Impl, OFFSET>, GetBusInfo::<Impl, OFFSET>, FromIdAsync::<Impl, OFFSET>)
+    }
 }

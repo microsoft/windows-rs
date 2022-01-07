@@ -7,6 +7,71 @@ pub trait ISpatialSurfaceInfoImpl: Sized {
     fn TryComputeLatestMeshWithOptionsAsync(&self, maxtrianglespercubicmeter: f64, options: &::core::option::Option<SpatialSurfaceMeshOptions>) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<SpatialSurfaceMesh>>;
 }
 #[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for ISpatialSurfaceInfo {
+    const NAME: &'static str = "Windows.Perception.Spatial.Surfaces.ISpatialSurfaceInfo";
+}
+#[cfg(feature = "implement_exclusive")]
+impl ISpatialSurfaceInfoVtbl {
+    pub const fn new<Impl: ISpatialSurfaceInfoImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> ISpatialSurfaceInfoVtbl {
+        unsafe extern "system" fn Id<Impl: ISpatialSurfaceInfoImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).Id() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn UpdateTime<Impl: ISpatialSurfaceInfoImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::DateTime) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).UpdateTime() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn TryGetBounds<Impl: ISpatialSurfaceInfoImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, coordinatesystem: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).TryGetBounds(&*(&coordinatesystem as *const <super::SpatialCoordinateSystem as ::windows::core::Abi>::Abi as *const <super::SpatialCoordinateSystem as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn TryComputeLatestMeshAsync<Impl: ISpatialSurfaceInfoImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, maxtrianglespercubicmeter: f64, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).TryComputeLatestMeshAsync(maxtrianglespercubicmeter) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn TryComputeLatestMeshWithOptionsAsync<Impl: ISpatialSurfaceInfoImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, maxtrianglespercubicmeter: f64, options: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).TryComputeLatestMeshWithOptionsAsync(maxtrianglespercubicmeter, &*(&options as *const <SpatialSurfaceMeshOptions as ::windows::core::Abi>::Abi as *const <SpatialSurfaceMeshOptions as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<ISpatialSurfaceInfo>, base.5, Id::<Impl, OFFSET>, UpdateTime::<Impl, OFFSET>, TryGetBounds::<Impl, OFFSET>, TryComputeLatestMeshAsync::<Impl, OFFSET>, TryComputeLatestMeshWithOptionsAsync::<Impl, OFFSET>)
+    }
+}
+#[cfg(feature = "implement_exclusive")]
 pub trait ISpatialSurfaceMeshImpl: Sized {
     fn SurfaceInfo(&self) -> ::windows::core::Result<SpatialSurfaceInfo>;
     fn CoordinateSystem(&self) -> ::windows::core::Result<super::SpatialCoordinateSystem>;
@@ -16,11 +81,141 @@ pub trait ISpatialSurfaceMeshImpl: Sized {
     fn VertexNormals(&self) -> ::windows::core::Result<SpatialSurfaceMeshBuffer>;
 }
 #[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for ISpatialSurfaceMesh {
+    const NAME: &'static str = "Windows.Perception.Spatial.Surfaces.ISpatialSurfaceMesh";
+}
+#[cfg(feature = "implement_exclusive")]
+impl ISpatialSurfaceMeshVtbl {
+    pub const fn new<Impl: ISpatialSurfaceMeshImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> ISpatialSurfaceMeshVtbl {
+        unsafe extern "system" fn SurfaceInfo<Impl: ISpatialSurfaceMeshImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).SurfaceInfo() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn CoordinateSystem<Impl: ISpatialSurfaceMeshImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).CoordinateSystem() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn TriangleIndices<Impl: ISpatialSurfaceMeshImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).TriangleIndices() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn VertexPositions<Impl: ISpatialSurfaceMeshImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).VertexPositions() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn VertexPositionScale<Impl: ISpatialSurfaceMeshImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::Numerics::Vector3) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).VertexPositionScale() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn VertexNormals<Impl: ISpatialSurfaceMeshImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).VertexNormals() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<ISpatialSurfaceMesh>, base.5, SurfaceInfo::<Impl, OFFSET>, CoordinateSystem::<Impl, OFFSET>, TriangleIndices::<Impl, OFFSET>, VertexPositions::<Impl, OFFSET>, VertexPositionScale::<Impl, OFFSET>, VertexNormals::<Impl, OFFSET>)
+    }
+}
+#[cfg(feature = "implement_exclusive")]
 pub trait ISpatialSurfaceMeshBufferImpl: Sized {
     fn Format(&self) -> ::windows::core::Result<super::super::super::Graphics::DirectX::DirectXPixelFormat>;
     fn Stride(&self) -> ::windows::core::Result<u32>;
     fn ElementCount(&self) -> ::windows::core::Result<u32>;
     fn Data(&self) -> ::windows::core::Result<super::super::super::Storage::Streams::IBuffer>;
+}
+#[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for ISpatialSurfaceMeshBuffer {
+    const NAME: &'static str = "Windows.Perception.Spatial.Surfaces.ISpatialSurfaceMeshBuffer";
+}
+#[cfg(feature = "implement_exclusive")]
+impl ISpatialSurfaceMeshBufferVtbl {
+    pub const fn new<Impl: ISpatialSurfaceMeshBufferImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> ISpatialSurfaceMeshBufferVtbl {
+        unsafe extern "system" fn Format<Impl: ISpatialSurfaceMeshBufferImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Graphics::DirectX::DirectXPixelFormat) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).Format() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn Stride<Impl: ISpatialSurfaceMeshBufferImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).Stride() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn ElementCount<Impl: ISpatialSurfaceMeshBufferImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).ElementCount() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn Data<Impl: ISpatialSurfaceMeshBufferImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).Data() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<ISpatialSurfaceMeshBuffer>, base.5, Format::<Impl, OFFSET>, Stride::<Impl, OFFSET>, ElementCount::<Impl, OFFSET>, Data::<Impl, OFFSET>)
+    }
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ISpatialSurfaceMeshOptionsImpl: Sized {
@@ -34,10 +229,123 @@ pub trait ISpatialSurfaceMeshOptionsImpl: Sized {
     fn SetIncludeVertexNormals(&self, value: bool) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for ISpatialSurfaceMeshOptions {
+    const NAME: &'static str = "Windows.Perception.Spatial.Surfaces.ISpatialSurfaceMeshOptions";
+}
+#[cfg(feature = "implement_exclusive")]
+impl ISpatialSurfaceMeshOptionsVtbl {
+    pub const fn new<Impl: ISpatialSurfaceMeshOptionsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> ISpatialSurfaceMeshOptionsVtbl {
+        unsafe extern "system" fn VertexPositionFormat<Impl: ISpatialSurfaceMeshOptionsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Graphics::DirectX::DirectXPixelFormat) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).VertexPositionFormat() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetVertexPositionFormat<Impl: ISpatialSurfaceMeshOptionsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: super::super::super::Graphics::DirectX::DirectXPixelFormat) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetVertexPositionFormat(value).into()
+        }
+        unsafe extern "system" fn TriangleIndexFormat<Impl: ISpatialSurfaceMeshOptionsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Graphics::DirectX::DirectXPixelFormat) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).TriangleIndexFormat() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetTriangleIndexFormat<Impl: ISpatialSurfaceMeshOptionsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: super::super::super::Graphics::DirectX::DirectXPixelFormat) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetTriangleIndexFormat(value).into()
+        }
+        unsafe extern "system" fn VertexNormalFormat<Impl: ISpatialSurfaceMeshOptionsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Graphics::DirectX::DirectXPixelFormat) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).VertexNormalFormat() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetVertexNormalFormat<Impl: ISpatialSurfaceMeshOptionsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: super::super::super::Graphics::DirectX::DirectXPixelFormat) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetVertexNormalFormat(value).into()
+        }
+        unsafe extern "system" fn IncludeVertexNormals<Impl: ISpatialSurfaceMeshOptionsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).IncludeVertexNormals() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetIncludeVertexNormals<Impl: ISpatialSurfaceMeshOptionsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetIncludeVertexNormals(value).into()
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<ISpatialSurfaceMeshOptions>, base.5, VertexPositionFormat::<Impl, OFFSET>, SetVertexPositionFormat::<Impl, OFFSET>, TriangleIndexFormat::<Impl, OFFSET>, SetTriangleIndexFormat::<Impl, OFFSET>, VertexNormalFormat::<Impl, OFFSET>, SetVertexNormalFormat::<Impl, OFFSET>, IncludeVertexNormals::<Impl, OFFSET>, SetIncludeVertexNormals::<Impl, OFFSET>)
+    }
+}
+#[cfg(feature = "implement_exclusive")]
 pub trait ISpatialSurfaceMeshOptionsStaticsImpl: Sized {
     fn SupportedVertexPositionFormats(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<super::super::super::Graphics::DirectX::DirectXPixelFormat>>;
     fn SupportedTriangleIndexFormats(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<super::super::super::Graphics::DirectX::DirectXPixelFormat>>;
     fn SupportedVertexNormalFormats(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<super::super::super::Graphics::DirectX::DirectXPixelFormat>>;
+}
+#[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for ISpatialSurfaceMeshOptionsStatics {
+    const NAME: &'static str = "Windows.Perception.Spatial.Surfaces.ISpatialSurfaceMeshOptionsStatics";
+}
+#[cfg(feature = "implement_exclusive")]
+impl ISpatialSurfaceMeshOptionsStaticsVtbl {
+    pub const fn new<Impl: ISpatialSurfaceMeshOptionsStaticsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> ISpatialSurfaceMeshOptionsStaticsVtbl {
+        unsafe extern "system" fn SupportedVertexPositionFormats<Impl: ISpatialSurfaceMeshOptionsStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).SupportedVertexPositionFormats() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SupportedTriangleIndexFormats<Impl: ISpatialSurfaceMeshOptionsStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).SupportedTriangleIndexFormats() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SupportedVertexNormalFormats<Impl: ISpatialSurfaceMeshOptionsStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).SupportedVertexNormalFormats() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<ISpatialSurfaceMeshOptionsStatics>, base.5, SupportedVertexPositionFormats::<Impl, OFFSET>, SupportedTriangleIndexFormats::<Impl, OFFSET>, SupportedVertexNormalFormats::<Impl, OFFSET>)
+    }
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ISpatialSurfaceObserverImpl: Sized {
@@ -48,10 +356,96 @@ pub trait ISpatialSurfaceObserverImpl: Sized {
     fn RemoveObservedSurfacesChanged(&self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for ISpatialSurfaceObserver {
+    const NAME: &'static str = "Windows.Perception.Spatial.Surfaces.ISpatialSurfaceObserver";
+}
+#[cfg(feature = "implement_exclusive")]
+impl ISpatialSurfaceObserverVtbl {
+    pub const fn new<Impl: ISpatialSurfaceObserverImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> ISpatialSurfaceObserverVtbl {
+        unsafe extern "system" fn GetObservedSurfaces<Impl: ISpatialSurfaceObserverImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).GetObservedSurfaces() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetBoundingVolume<Impl: ISpatialSurfaceObserverImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, bounds: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetBoundingVolume(&*(&bounds as *const <super::SpatialBoundingVolume as ::windows::core::Abi>::Abi as *const <super::SpatialBoundingVolume as ::windows::core::DefaultType>::DefaultType)).into()
+        }
+        unsafe extern "system" fn SetBoundingVolumes<Impl: ISpatialSurfaceObserverImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, bounds: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetBoundingVolumes(&*(&bounds as *const <super::super::super::Foundation::Collections::IIterable<super::SpatialBoundingVolume> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::Collections::IIterable<super::SpatialBoundingVolume> as ::windows::core::DefaultType>::DefaultType)).into()
+        }
+        unsafe extern "system" fn ObservedSurfacesChanged<Impl: ISpatialSurfaceObserverImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).ObservedSurfacesChanged(&*(&handler as *const <super::super::super::Foundation::TypedEventHandler<SpatialSurfaceObserver, ::windows::core::IInspectable> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::TypedEventHandler<SpatialSurfaceObserver, ::windows::core::IInspectable> as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn RemoveObservedSurfacesChanged<Impl: ISpatialSurfaceObserverImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).RemoveObservedSurfacesChanged(&*(&token as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<ISpatialSurfaceObserver>, base.5, GetObservedSurfaces::<Impl, OFFSET>, SetBoundingVolume::<Impl, OFFSET>, SetBoundingVolumes::<Impl, OFFSET>, ObservedSurfacesChanged::<Impl, OFFSET>, RemoveObservedSurfacesChanged::<Impl, OFFSET>)
+    }
+}
+#[cfg(feature = "implement_exclusive")]
 pub trait ISpatialSurfaceObserverStaticsImpl: Sized {
     fn RequestAccessAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::SpatialPerceptionAccessStatus>>;
 }
 #[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for ISpatialSurfaceObserverStatics {
+    const NAME: &'static str = "Windows.Perception.Spatial.Surfaces.ISpatialSurfaceObserverStatics";
+}
+#[cfg(feature = "implement_exclusive")]
+impl ISpatialSurfaceObserverStaticsVtbl {
+    pub const fn new<Impl: ISpatialSurfaceObserverStaticsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> ISpatialSurfaceObserverStaticsVtbl {
+        unsafe extern "system" fn RequestAccessAsync<Impl: ISpatialSurfaceObserverStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).RequestAccessAsync() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<ISpatialSurfaceObserverStatics>, base.5, RequestAccessAsync::<Impl, OFFSET>)
+    }
+}
+#[cfg(feature = "implement_exclusive")]
 pub trait ISpatialSurfaceObserverStatics2Impl: Sized + ISpatialSurfaceObserverStaticsImpl {
     fn IsSupported(&self) -> ::windows::core::Result<bool>;
+}
+#[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for ISpatialSurfaceObserverStatics2 {
+    const NAME: &'static str = "Windows.Perception.Spatial.Surfaces.ISpatialSurfaceObserverStatics2";
+}
+#[cfg(feature = "implement_exclusive")]
+impl ISpatialSurfaceObserverStatics2Vtbl {
+    pub const fn new<Impl: ISpatialSurfaceObserverStatics2Impl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> ISpatialSurfaceObserverStatics2Vtbl {
+        unsafe extern "system" fn IsSupported<Impl: ISpatialSurfaceObserverStatics2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).IsSupported() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<ISpatialSurfaceObserverStatics2>, base.5, IsSupported::<Impl, OFFSET>)
+    }
 }

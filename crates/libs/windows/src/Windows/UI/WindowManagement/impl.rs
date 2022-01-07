@@ -31,6 +31,287 @@ pub trait IAppWindowImpl: Sized {
     fn RemoveCloseRequested(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IAppWindow {
+    const NAME: &'static str = "Windows.UI.WindowManagement.IAppWindow";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IAppWindowVtbl {
+    pub const fn new<Impl: IAppWindowImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IAppWindowVtbl {
+        unsafe extern "system" fn Content<Impl: IAppWindowImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).Content() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn DispatcherQueue<Impl: IAppWindowImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).DispatcherQueue() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn Frame<Impl: IAppWindowImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).Frame() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn IsVisible<Impl: IAppWindowImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).IsVisible() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn PersistedStateId<Impl: IAppWindowImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).PersistedStateId() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetPersistedStateId<Impl: IAppWindowImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetPersistedStateId(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
+        }
+        unsafe extern "system" fn Presenter<Impl: IAppWindowImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).Presenter() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn Title<Impl: IAppWindowImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).Title() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetTitle<Impl: IAppWindowImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetTitle(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
+        }
+        unsafe extern "system" fn TitleBar<Impl: IAppWindowImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).TitleBar() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn UIContext<Impl: IAppWindowImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).UIContext() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn WindowingEnvironment<Impl: IAppWindowImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).WindowingEnvironment() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn CloseAsync<Impl: IAppWindowImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).CloseAsync() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn GetPlacement<Impl: IAppWindowImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).GetPlacement() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn GetDisplayRegions<Impl: IAppWindowImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).GetDisplayRegions() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn RequestMoveToDisplayRegion<Impl: IAppWindowImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, displayregion: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).RequestMoveToDisplayRegion(&*(&displayregion as *const <DisplayRegion as ::windows::core::Abi>::Abi as *const <DisplayRegion as ::windows::core::DefaultType>::DefaultType)).into()
+        }
+        unsafe extern "system" fn RequestMoveAdjacentToCurrentView<Impl: IAppWindowImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).RequestMoveAdjacentToCurrentView().into()
+        }
+        unsafe extern "system" fn RequestMoveAdjacentToWindow<Impl: IAppWindowImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, anchorwindow: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).RequestMoveAdjacentToWindow(&*(&anchorwindow as *const <AppWindow as ::windows::core::Abi>::Abi as *const <AppWindow as ::windows::core::DefaultType>::DefaultType)).into()
+        }
+        unsafe extern "system" fn RequestMoveRelativeToWindowContent<Impl: IAppWindowImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, anchorwindow: ::windows::core::RawPtr, contentoffset: super::super::Foundation::Point) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).RequestMoveRelativeToWindowContent(&*(&anchorwindow as *const <AppWindow as ::windows::core::Abi>::Abi as *const <AppWindow as ::windows::core::DefaultType>::DefaultType), &*(&contentoffset as *const <super::super::Foundation::Point as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Point as ::windows::core::DefaultType>::DefaultType)).into()
+        }
+        unsafe extern "system" fn RequestMoveRelativeToCurrentViewContent<Impl: IAppWindowImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, contentoffset: super::super::Foundation::Point) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).RequestMoveRelativeToCurrentViewContent(&*(&contentoffset as *const <super::super::Foundation::Point as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Point as ::windows::core::DefaultType>::DefaultType)).into()
+        }
+        unsafe extern "system" fn RequestMoveRelativeToDisplayRegion<Impl: IAppWindowImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, displayregion: ::windows::core::RawPtr, displayregionoffset: super::super::Foundation::Point) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).RequestMoveRelativeToDisplayRegion(&*(&displayregion as *const <DisplayRegion as ::windows::core::Abi>::Abi as *const <DisplayRegion as ::windows::core::DefaultType>::DefaultType), &*(&displayregionoffset as *const <super::super::Foundation::Point as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Point as ::windows::core::DefaultType>::DefaultType)).into()
+        }
+        unsafe extern "system" fn RequestSize<Impl: IAppWindowImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, framesize: super::super::Foundation::Size) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).RequestSize(&*(&framesize as *const <super::super::Foundation::Size as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Size as ::windows::core::DefaultType>::DefaultType)).into()
+        }
+        unsafe extern "system" fn TryShowAsync<Impl: IAppWindowImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).TryShowAsync() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn Changed<Impl: IAppWindowImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).Changed(&*(&handler as *const <super::super::Foundation::TypedEventHandler<AppWindow, AppWindowChangedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<AppWindow, AppWindowChangedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn RemoveChanged<Impl: IAppWindowImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).RemoveChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
+        }
+        unsafe extern "system" fn Closed<Impl: IAppWindowImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).Closed(&*(&handler as *const <super::super::Foundation::TypedEventHandler<AppWindow, AppWindowClosedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<AppWindow, AppWindowClosedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn RemoveClosed<Impl: IAppWindowImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).RemoveClosed(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
+        }
+        unsafe extern "system" fn CloseRequested<Impl: IAppWindowImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).CloseRequested(&*(&handler as *const <super::super::Foundation::TypedEventHandler<AppWindow, AppWindowCloseRequestedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<AppWindow, AppWindowCloseRequestedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn RemoveCloseRequested<Impl: IAppWindowImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).RemoveCloseRequested(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
+        }
+        Self(
+            base.0,
+            base.1,
+            base.2,
+            base.3,
+            ::windows::core::GetRuntimeClassName::<IAppWindow>,
+            base.5,
+            Content::<Impl, OFFSET>,
+            DispatcherQueue::<Impl, OFFSET>,
+            Frame::<Impl, OFFSET>,
+            IsVisible::<Impl, OFFSET>,
+            PersistedStateId::<Impl, OFFSET>,
+            SetPersistedStateId::<Impl, OFFSET>,
+            Presenter::<Impl, OFFSET>,
+            Title::<Impl, OFFSET>,
+            SetTitle::<Impl, OFFSET>,
+            TitleBar::<Impl, OFFSET>,
+            UIContext::<Impl, OFFSET>,
+            WindowingEnvironment::<Impl, OFFSET>,
+            CloseAsync::<Impl, OFFSET>,
+            GetPlacement::<Impl, OFFSET>,
+            GetDisplayRegions::<Impl, OFFSET>,
+            RequestMoveToDisplayRegion::<Impl, OFFSET>,
+            RequestMoveAdjacentToCurrentView::<Impl, OFFSET>,
+            RequestMoveAdjacentToWindow::<Impl, OFFSET>,
+            RequestMoveRelativeToWindowContent::<Impl, OFFSET>,
+            RequestMoveRelativeToCurrentViewContent::<Impl, OFFSET>,
+            RequestMoveRelativeToDisplayRegion::<Impl, OFFSET>,
+            RequestSize::<Impl, OFFSET>,
+            TryShowAsync::<Impl, OFFSET>,
+            Changed::<Impl, OFFSET>,
+            RemoveChanged::<Impl, OFFSET>,
+            Closed::<Impl, OFFSET>,
+            RemoveClosed::<Impl, OFFSET>,
+            CloseRequested::<Impl, OFFSET>,
+            RemoveCloseRequested::<Impl, OFFSET>,
+        )
+    }
+}
+#[cfg(feature = "implement_exclusive")]
 pub trait IAppWindowChangedEventArgsImpl: Sized {
     fn DidAvailableWindowPresentationsChange(&self) -> ::windows::core::Result<bool>;
     fn DidDisplayRegionsChange(&self) -> ::windows::core::Result<bool>;
@@ -42,23 +323,224 @@ pub trait IAppWindowChangedEventArgsImpl: Sized {
     fn DidWindowPresentationChange(&self) -> ::windows::core::Result<bool>;
 }
 #[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IAppWindowChangedEventArgs {
+    const NAME: &'static str = "Windows.UI.WindowManagement.IAppWindowChangedEventArgs";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IAppWindowChangedEventArgsVtbl {
+    pub const fn new<Impl: IAppWindowChangedEventArgsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IAppWindowChangedEventArgsVtbl {
+        unsafe extern "system" fn DidAvailableWindowPresentationsChange<Impl: IAppWindowChangedEventArgsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).DidAvailableWindowPresentationsChange() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn DidDisplayRegionsChange<Impl: IAppWindowChangedEventArgsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).DidDisplayRegionsChange() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn DidFrameChange<Impl: IAppWindowChangedEventArgsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).DidFrameChange() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn DidSizeChange<Impl: IAppWindowChangedEventArgsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).DidSizeChange() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn DidTitleBarChange<Impl: IAppWindowChangedEventArgsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).DidTitleBarChange() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn DidVisibilityChange<Impl: IAppWindowChangedEventArgsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).DidVisibilityChange() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn DidWindowingEnvironmentChange<Impl: IAppWindowChangedEventArgsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).DidWindowingEnvironmentChange() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn DidWindowPresentationChange<Impl: IAppWindowChangedEventArgsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).DidWindowPresentationChange() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IAppWindowChangedEventArgs>, base.5, DidAvailableWindowPresentationsChange::<Impl, OFFSET>, DidDisplayRegionsChange::<Impl, OFFSET>, DidFrameChange::<Impl, OFFSET>, DidSizeChange::<Impl, OFFSET>, DidTitleBarChange::<Impl, OFFSET>, DidVisibilityChange::<Impl, OFFSET>, DidWindowingEnvironmentChange::<Impl, OFFSET>, DidWindowPresentationChange::<Impl, OFFSET>)
+    }
+}
+#[cfg(feature = "implement_exclusive")]
 pub trait IAppWindowCloseRequestedEventArgsImpl: Sized {
     fn Cancel(&self) -> ::windows::core::Result<bool>;
     fn SetCancel(&self, value: bool) -> ::windows::core::Result<()>;
     fn GetDeferral(&self) -> ::windows::core::Result<super::super::Foundation::Deferral>;
 }
 #[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IAppWindowCloseRequestedEventArgs {
+    const NAME: &'static str = "Windows.UI.WindowManagement.IAppWindowCloseRequestedEventArgs";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IAppWindowCloseRequestedEventArgsVtbl {
+    pub const fn new<Impl: IAppWindowCloseRequestedEventArgsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IAppWindowCloseRequestedEventArgsVtbl {
+        unsafe extern "system" fn Cancel<Impl: IAppWindowCloseRequestedEventArgsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).Cancel() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetCancel<Impl: IAppWindowCloseRequestedEventArgsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetCancel(value).into()
+        }
+        unsafe extern "system" fn GetDeferral<Impl: IAppWindowCloseRequestedEventArgsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).GetDeferral() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IAppWindowCloseRequestedEventArgs>, base.5, Cancel::<Impl, OFFSET>, SetCancel::<Impl, OFFSET>, GetDeferral::<Impl, OFFSET>)
+    }
+}
+#[cfg(feature = "implement_exclusive")]
 pub trait IAppWindowClosedEventArgsImpl: Sized {
     fn Reason(&self) -> ::windows::core::Result<AppWindowClosedReason>;
+}
+#[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IAppWindowClosedEventArgs {
+    const NAME: &'static str = "Windows.UI.WindowManagement.IAppWindowClosedEventArgs";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IAppWindowClosedEventArgsVtbl {
+    pub const fn new<Impl: IAppWindowClosedEventArgsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IAppWindowClosedEventArgsVtbl {
+        unsafe extern "system" fn Reason<Impl: IAppWindowClosedEventArgsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut AppWindowClosedReason) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).Reason() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IAppWindowClosedEventArgs>, base.5, Reason::<Impl, OFFSET>)
+    }
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAppWindowFrameImpl: Sized {
     fn DragRegionVisuals(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<super::Composition::IVisualElement>>;
 }
 #[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IAppWindowFrame {
+    const NAME: &'static str = "Windows.UI.WindowManagement.IAppWindowFrame";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IAppWindowFrameVtbl {
+    pub const fn new<Impl: IAppWindowFrameImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IAppWindowFrameVtbl {
+        unsafe extern "system" fn DragRegionVisuals<Impl: IAppWindowFrameImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).DragRegionVisuals() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IAppWindowFrame>, base.5, DragRegionVisuals::<Impl, OFFSET>)
+    }
+}
+#[cfg(feature = "implement_exclusive")]
 pub trait IAppWindowFrameStyleImpl: Sized {
     fn GetFrameStyle(&self) -> ::windows::core::Result<AppWindowFrameStyle>;
     fn SetFrameStyle(&self, framestyle: AppWindowFrameStyle) -> ::windows::core::Result<()>;
+}
+#[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IAppWindowFrameStyle {
+    const NAME: &'static str = "Windows.UI.WindowManagement.IAppWindowFrameStyle";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IAppWindowFrameStyleVtbl {
+    pub const fn new<Impl: IAppWindowFrameStyleImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IAppWindowFrameStyleVtbl {
+        unsafe extern "system" fn GetFrameStyle<Impl: IAppWindowFrameStyleImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut AppWindowFrameStyle) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).GetFrameStyle() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetFrameStyle<Impl: IAppWindowFrameStyleImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, framestyle: AppWindowFrameStyle) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetFrameStyle(framestyle).into()
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IAppWindowFrameStyle>, base.5, GetFrameStyle::<Impl, OFFSET>, SetFrameStyle::<Impl, OFFSET>)
+    }
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAppWindowPlacementImpl: Sized {
@@ -67,11 +549,85 @@ pub trait IAppWindowPlacementImpl: Sized {
     fn Size(&self) -> ::windows::core::Result<super::super::Foundation::Size>;
 }
 #[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IAppWindowPlacement {
+    const NAME: &'static str = "Windows.UI.WindowManagement.IAppWindowPlacement";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IAppWindowPlacementVtbl {
+    pub const fn new<Impl: IAppWindowPlacementImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IAppWindowPlacementVtbl {
+        unsafe extern "system" fn DisplayRegion<Impl: IAppWindowPlacementImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).DisplayRegion() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn Offset<Impl: IAppWindowPlacementImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Point) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).Offset() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn Size<Impl: IAppWindowPlacementImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Size) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).Size() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IAppWindowPlacement>, base.5, DisplayRegion::<Impl, OFFSET>, Offset::<Impl, OFFSET>, Size::<Impl, OFFSET>)
+    }
+}
+#[cfg(feature = "implement_exclusive")]
 pub trait IAppWindowPresentationConfigurationImpl: Sized {
     fn Kind(&self) -> ::windows::core::Result<AppWindowPresentationKind>;
 }
 #[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IAppWindowPresentationConfiguration {
+    const NAME: &'static str = "Windows.UI.WindowManagement.IAppWindowPresentationConfiguration";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IAppWindowPresentationConfigurationVtbl {
+    pub const fn new<Impl: IAppWindowPresentationConfigurationImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IAppWindowPresentationConfigurationVtbl {
+        unsafe extern "system" fn Kind<Impl: IAppWindowPresentationConfigurationImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut AppWindowPresentationKind) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).Kind() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IAppWindowPresentationConfiguration>, base.5, Kind::<Impl, OFFSET>)
+    }
+}
+#[cfg(feature = "implement_exclusive")]
 pub trait IAppWindowPresentationConfigurationFactoryImpl: Sized {}
+#[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IAppWindowPresentationConfigurationFactory {
+    const NAME: &'static str = "Windows.UI.WindowManagement.IAppWindowPresentationConfigurationFactory";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IAppWindowPresentationConfigurationFactoryVtbl {
+    pub const fn new<Impl: IAppWindowPresentationConfigurationFactoryImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IAppWindowPresentationConfigurationFactoryVtbl {
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IAppWindowPresentationConfigurationFactory>, base.5)
+    }
+}
 #[cfg(feature = "implement_exclusive")]
 pub trait IAppWindowPresenterImpl: Sized {
     fn GetConfiguration(&self) -> ::windows::core::Result<AppWindowPresentationConfiguration>;
@@ -80,10 +636,93 @@ pub trait IAppWindowPresenterImpl: Sized {
     fn RequestPresentationByKind(&self, presentationkind: AppWindowPresentationKind) -> ::windows::core::Result<bool>;
 }
 #[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IAppWindowPresenter {
+    const NAME: &'static str = "Windows.UI.WindowManagement.IAppWindowPresenter";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IAppWindowPresenterVtbl {
+    pub const fn new<Impl: IAppWindowPresenterImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IAppWindowPresenterVtbl {
+        unsafe extern "system" fn GetConfiguration<Impl: IAppWindowPresenterImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).GetConfiguration() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn IsPresentationSupported<Impl: IAppWindowPresenterImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, presentationkind: AppWindowPresentationKind, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).IsPresentationSupported(presentationkind) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn RequestPresentation<Impl: IAppWindowPresenterImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, configuration: ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).RequestPresentation(&*(&configuration as *const <AppWindowPresentationConfiguration as ::windows::core::Abi>::Abi as *const <AppWindowPresentationConfiguration as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn RequestPresentationByKind<Impl: IAppWindowPresenterImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, presentationkind: AppWindowPresentationKind, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).RequestPresentationByKind(presentationkind) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IAppWindowPresenter>, base.5, GetConfiguration::<Impl, OFFSET>, IsPresentationSupported::<Impl, OFFSET>, RequestPresentation::<Impl, OFFSET>, RequestPresentationByKind::<Impl, OFFSET>)
+    }
+}
+#[cfg(feature = "implement_exclusive")]
 pub trait IAppWindowStaticsImpl: Sized {
     fn TryCreateAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<AppWindow>>;
     fn ClearAllPersistedState(&self) -> ::windows::core::Result<()>;
     fn ClearPersistedState(&self, key: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+}
+#[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IAppWindowStatics {
+    const NAME: &'static str = "Windows.UI.WindowManagement.IAppWindowStatics";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IAppWindowStaticsVtbl {
+    pub const fn new<Impl: IAppWindowStaticsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IAppWindowStaticsVtbl {
+        unsafe extern "system" fn TryCreateAsync<Impl: IAppWindowStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).TryCreateAsync() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn ClearAllPersistedState<Impl: IAppWindowStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).ClearAllPersistedState().into()
+        }
+        unsafe extern "system" fn ClearPersistedState<Impl: IAppWindowStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, key: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).ClearPersistedState(&*(&key as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IAppWindowStatics>, base.5, TryCreateAsync::<Impl, OFFSET>, ClearAllPersistedState::<Impl, OFFSET>, ClearPersistedState::<Impl, OFFSET>)
+    }
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAppWindowTitleBarImpl: Sized {
@@ -117,8 +756,291 @@ pub trait IAppWindowTitleBarImpl: Sized {
     fn GetTitleBarOcclusions(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<AppWindowTitleBarOcclusion>>;
 }
 #[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IAppWindowTitleBar {
+    const NAME: &'static str = "Windows.UI.WindowManagement.IAppWindowTitleBar";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IAppWindowTitleBarVtbl {
+    pub const fn new<Impl: IAppWindowTitleBarImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IAppWindowTitleBarVtbl {
+        unsafe extern "system" fn BackgroundColor<Impl: IAppWindowTitleBarImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).BackgroundColor() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetBackgroundColor<Impl: IAppWindowTitleBarImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetBackgroundColor(&*(&value as *const <super::super::Foundation::IReference<super::Color> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::IReference<super::Color> as ::windows::core::DefaultType>::DefaultType)).into()
+        }
+        unsafe extern "system" fn ButtonBackgroundColor<Impl: IAppWindowTitleBarImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).ButtonBackgroundColor() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetButtonBackgroundColor<Impl: IAppWindowTitleBarImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetButtonBackgroundColor(&*(&value as *const <super::super::Foundation::IReference<super::Color> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::IReference<super::Color> as ::windows::core::DefaultType>::DefaultType)).into()
+        }
+        unsafe extern "system" fn ButtonForegroundColor<Impl: IAppWindowTitleBarImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).ButtonForegroundColor() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetButtonForegroundColor<Impl: IAppWindowTitleBarImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetButtonForegroundColor(&*(&value as *const <super::super::Foundation::IReference<super::Color> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::IReference<super::Color> as ::windows::core::DefaultType>::DefaultType)).into()
+        }
+        unsafe extern "system" fn ButtonHoverBackgroundColor<Impl: IAppWindowTitleBarImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).ButtonHoverBackgroundColor() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetButtonHoverBackgroundColor<Impl: IAppWindowTitleBarImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetButtonHoverBackgroundColor(&*(&value as *const <super::super::Foundation::IReference<super::Color> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::IReference<super::Color> as ::windows::core::DefaultType>::DefaultType)).into()
+        }
+        unsafe extern "system" fn ButtonHoverForegroundColor<Impl: IAppWindowTitleBarImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).ButtonHoverForegroundColor() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetButtonHoverForegroundColor<Impl: IAppWindowTitleBarImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetButtonHoverForegroundColor(&*(&value as *const <super::super::Foundation::IReference<super::Color> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::IReference<super::Color> as ::windows::core::DefaultType>::DefaultType)).into()
+        }
+        unsafe extern "system" fn ButtonInactiveBackgroundColor<Impl: IAppWindowTitleBarImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).ButtonInactiveBackgroundColor() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetButtonInactiveBackgroundColor<Impl: IAppWindowTitleBarImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetButtonInactiveBackgroundColor(&*(&value as *const <super::super::Foundation::IReference<super::Color> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::IReference<super::Color> as ::windows::core::DefaultType>::DefaultType)).into()
+        }
+        unsafe extern "system" fn ButtonInactiveForegroundColor<Impl: IAppWindowTitleBarImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).ButtonInactiveForegroundColor() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetButtonInactiveForegroundColor<Impl: IAppWindowTitleBarImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetButtonInactiveForegroundColor(&*(&value as *const <super::super::Foundation::IReference<super::Color> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::IReference<super::Color> as ::windows::core::DefaultType>::DefaultType)).into()
+        }
+        unsafe extern "system" fn ButtonPressedBackgroundColor<Impl: IAppWindowTitleBarImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).ButtonPressedBackgroundColor() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetButtonPressedBackgroundColor<Impl: IAppWindowTitleBarImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetButtonPressedBackgroundColor(&*(&value as *const <super::super::Foundation::IReference<super::Color> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::IReference<super::Color> as ::windows::core::DefaultType>::DefaultType)).into()
+        }
+        unsafe extern "system" fn ButtonPressedForegroundColor<Impl: IAppWindowTitleBarImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).ButtonPressedForegroundColor() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetButtonPressedForegroundColor<Impl: IAppWindowTitleBarImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetButtonPressedForegroundColor(&*(&value as *const <super::super::Foundation::IReference<super::Color> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::IReference<super::Color> as ::windows::core::DefaultType>::DefaultType)).into()
+        }
+        unsafe extern "system" fn ExtendsContentIntoTitleBar<Impl: IAppWindowTitleBarImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).ExtendsContentIntoTitleBar() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetExtendsContentIntoTitleBar<Impl: IAppWindowTitleBarImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetExtendsContentIntoTitleBar(value).into()
+        }
+        unsafe extern "system" fn ForegroundColor<Impl: IAppWindowTitleBarImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).ForegroundColor() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetForegroundColor<Impl: IAppWindowTitleBarImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetForegroundColor(&*(&value as *const <super::super::Foundation::IReference<super::Color> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::IReference<super::Color> as ::windows::core::DefaultType>::DefaultType)).into()
+        }
+        unsafe extern "system" fn InactiveBackgroundColor<Impl: IAppWindowTitleBarImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).InactiveBackgroundColor() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetInactiveBackgroundColor<Impl: IAppWindowTitleBarImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetInactiveBackgroundColor(&*(&value as *const <super::super::Foundation::IReference<super::Color> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::IReference<super::Color> as ::windows::core::DefaultType>::DefaultType)).into()
+        }
+        unsafe extern "system" fn InactiveForegroundColor<Impl: IAppWindowTitleBarImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).InactiveForegroundColor() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetInactiveForegroundColor<Impl: IAppWindowTitleBarImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetInactiveForegroundColor(&*(&value as *const <super::super::Foundation::IReference<super::Color> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::IReference<super::Color> as ::windows::core::DefaultType>::DefaultType)).into()
+        }
+        unsafe extern "system" fn IsVisible<Impl: IAppWindowTitleBarImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).IsVisible() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn GetTitleBarOcclusions<Impl: IAppWindowTitleBarImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).GetTitleBarOcclusions() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(
+            base.0,
+            base.1,
+            base.2,
+            base.3,
+            ::windows::core::GetRuntimeClassName::<IAppWindowTitleBar>,
+            base.5,
+            BackgroundColor::<Impl, OFFSET>,
+            SetBackgroundColor::<Impl, OFFSET>,
+            ButtonBackgroundColor::<Impl, OFFSET>,
+            SetButtonBackgroundColor::<Impl, OFFSET>,
+            ButtonForegroundColor::<Impl, OFFSET>,
+            SetButtonForegroundColor::<Impl, OFFSET>,
+            ButtonHoverBackgroundColor::<Impl, OFFSET>,
+            SetButtonHoverBackgroundColor::<Impl, OFFSET>,
+            ButtonHoverForegroundColor::<Impl, OFFSET>,
+            SetButtonHoverForegroundColor::<Impl, OFFSET>,
+            ButtonInactiveBackgroundColor::<Impl, OFFSET>,
+            SetButtonInactiveBackgroundColor::<Impl, OFFSET>,
+            ButtonInactiveForegroundColor::<Impl, OFFSET>,
+            SetButtonInactiveForegroundColor::<Impl, OFFSET>,
+            ButtonPressedBackgroundColor::<Impl, OFFSET>,
+            SetButtonPressedBackgroundColor::<Impl, OFFSET>,
+            ButtonPressedForegroundColor::<Impl, OFFSET>,
+            SetButtonPressedForegroundColor::<Impl, OFFSET>,
+            ExtendsContentIntoTitleBar::<Impl, OFFSET>,
+            SetExtendsContentIntoTitleBar::<Impl, OFFSET>,
+            ForegroundColor::<Impl, OFFSET>,
+            SetForegroundColor::<Impl, OFFSET>,
+            InactiveBackgroundColor::<Impl, OFFSET>,
+            SetInactiveBackgroundColor::<Impl, OFFSET>,
+            InactiveForegroundColor::<Impl, OFFSET>,
+            SetInactiveForegroundColor::<Impl, OFFSET>,
+            IsVisible::<Impl, OFFSET>,
+            GetTitleBarOcclusions::<Impl, OFFSET>,
+        )
+    }
+}
+#[cfg(feature = "implement_exclusive")]
 pub trait IAppWindowTitleBarOcclusionImpl: Sized {
     fn OccludingRect(&self) -> ::windows::core::Result<super::super::Foundation::Rect>;
+}
+#[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IAppWindowTitleBarOcclusion {
+    const NAME: &'static str = "Windows.UI.WindowManagement.IAppWindowTitleBarOcclusion";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IAppWindowTitleBarOcclusionVtbl {
+    pub const fn new<Impl: IAppWindowTitleBarOcclusionImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IAppWindowTitleBarOcclusionVtbl {
+        unsafe extern "system" fn OccludingRect<Impl: IAppWindowTitleBarOcclusionImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Rect) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).OccludingRect() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IAppWindowTitleBarOcclusion>, base.5, OccludingRect::<Impl, OFFSET>)
+    }
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAppWindowTitleBarVisibilityImpl: Sized {
@@ -126,9 +1048,54 @@ pub trait IAppWindowTitleBarVisibilityImpl: Sized {
     fn SetPreferredVisibility(&self, visibilitymode: AppWindowTitleBarVisibility) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IAppWindowTitleBarVisibility {
+    const NAME: &'static str = "Windows.UI.WindowManagement.IAppWindowTitleBarVisibility";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IAppWindowTitleBarVisibilityVtbl {
+    pub const fn new<Impl: IAppWindowTitleBarVisibilityImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IAppWindowTitleBarVisibilityVtbl {
+        unsafe extern "system" fn GetPreferredVisibility<Impl: IAppWindowTitleBarVisibilityImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut AppWindowTitleBarVisibility) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).GetPreferredVisibility() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetPreferredVisibility<Impl: IAppWindowTitleBarVisibilityImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, visibilitymode: AppWindowTitleBarVisibility) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetPreferredVisibility(visibilitymode).into()
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IAppWindowTitleBarVisibility>, base.5, GetPreferredVisibility::<Impl, OFFSET>, SetPreferredVisibility::<Impl, OFFSET>)
+    }
+}
+#[cfg(feature = "implement_exclusive")]
 pub trait ICompactOverlayPresentationConfigurationImpl: Sized {}
 #[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for ICompactOverlayPresentationConfiguration {
+    const NAME: &'static str = "Windows.UI.WindowManagement.ICompactOverlayPresentationConfiguration";
+}
+#[cfg(feature = "implement_exclusive")]
+impl ICompactOverlayPresentationConfigurationVtbl {
+    pub const fn new<Impl: ICompactOverlayPresentationConfigurationImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> ICompactOverlayPresentationConfigurationVtbl {
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<ICompactOverlayPresentationConfiguration>, base.5)
+    }
+}
+#[cfg(feature = "implement_exclusive")]
 pub trait IDefaultPresentationConfigurationImpl: Sized {}
+#[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IDefaultPresentationConfiguration {
+    const NAME: &'static str = "Windows.UI.WindowManagement.IDefaultPresentationConfiguration";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IDefaultPresentationConfigurationVtbl {
+    pub const fn new<Impl: IDefaultPresentationConfigurationImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IDefaultPresentationConfigurationVtbl {
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IDefaultPresentationConfiguration>, base.5)
+    }
+}
 #[cfg(feature = "implement_exclusive")]
 pub trait IDisplayRegionImpl: Sized {
     fn DisplayMonitorDeviceId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -140,13 +1107,139 @@ pub trait IDisplayRegionImpl: Sized {
     fn RemoveChanged(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IDisplayRegion {
+    const NAME: &'static str = "Windows.UI.WindowManagement.IDisplayRegion";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IDisplayRegionVtbl {
+    pub const fn new<Impl: IDisplayRegionImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IDisplayRegionVtbl {
+        unsafe extern "system" fn DisplayMonitorDeviceId<Impl: IDisplayRegionImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).DisplayMonitorDeviceId() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn IsVisible<Impl: IDisplayRegionImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).IsVisible() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn WorkAreaOffset<Impl: IDisplayRegionImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Point) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).WorkAreaOffset() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn WorkAreaSize<Impl: IDisplayRegionImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Size) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).WorkAreaSize() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn WindowingEnvironment<Impl: IDisplayRegionImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).WindowingEnvironment() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn Changed<Impl: IDisplayRegionImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).Changed(&*(&handler as *const <super::super::Foundation::TypedEventHandler<DisplayRegion, ::windows::core::IInspectable> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<DisplayRegion, ::windows::core::IInspectable> as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn RemoveChanged<Impl: IDisplayRegionImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).RemoveChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IDisplayRegion>, base.5, DisplayMonitorDeviceId::<Impl, OFFSET>, IsVisible::<Impl, OFFSET>, WorkAreaOffset::<Impl, OFFSET>, WorkAreaSize::<Impl, OFFSET>, WindowingEnvironment::<Impl, OFFSET>, Changed::<Impl, OFFSET>, RemoveChanged::<Impl, OFFSET>)
+    }
+}
+#[cfg(feature = "implement_exclusive")]
 pub trait IFullScreenPresentationConfigurationImpl: Sized {
     fn IsExclusive(&self) -> ::windows::core::Result<bool>;
     fn SetIsExclusive(&self, value: bool) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IFullScreenPresentationConfiguration {
+    const NAME: &'static str = "Windows.UI.WindowManagement.IFullScreenPresentationConfiguration";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IFullScreenPresentationConfigurationVtbl {
+    pub const fn new<Impl: IFullScreenPresentationConfigurationImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IFullScreenPresentationConfigurationVtbl {
+        unsafe extern "system" fn IsExclusive<Impl: IFullScreenPresentationConfigurationImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).IsExclusive() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetIsExclusive<Impl: IFullScreenPresentationConfigurationImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetIsExclusive(value).into()
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IFullScreenPresentationConfiguration>, base.5, IsExclusive::<Impl, OFFSET>, SetIsExclusive::<Impl, OFFSET>)
+    }
+}
+#[cfg(feature = "implement_exclusive")]
 pub trait IWindowServicesStaticsImpl: Sized {
     fn FindAllTopLevelWindowIds(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<super::WindowId>>;
+}
+#[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IWindowServicesStatics {
+    const NAME: &'static str = "Windows.UI.WindowManagement.IWindowServicesStatics";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IWindowServicesStaticsVtbl {
+    pub const fn new<Impl: IWindowServicesStaticsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IWindowServicesStaticsVtbl {
+        unsafe extern "system" fn FindAllTopLevelWindowIds<Impl: IWindowServicesStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).FindAllTopLevelWindowIds() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IWindowServicesStatics>, base.5, FindAllTopLevelWindowIds::<Impl, OFFSET>)
+    }
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IWindowingEnvironmentImpl: Sized {
@@ -157,17 +1250,159 @@ pub trait IWindowingEnvironmentImpl: Sized {
     fn RemoveChanged(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IWindowingEnvironment {
+    const NAME: &'static str = "Windows.UI.WindowManagement.IWindowingEnvironment";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IWindowingEnvironmentVtbl {
+    pub const fn new<Impl: IWindowingEnvironmentImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IWindowingEnvironmentVtbl {
+        unsafe extern "system" fn IsEnabled<Impl: IWindowingEnvironmentImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).IsEnabled() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn Kind<Impl: IWindowingEnvironmentImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut WindowingEnvironmentKind) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).Kind() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn GetDisplayRegions<Impl: IWindowingEnvironmentImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).GetDisplayRegions() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn Changed<Impl: IWindowingEnvironmentImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).Changed(&*(&handler as *const <super::super::Foundation::TypedEventHandler<WindowingEnvironment, WindowingEnvironmentChangedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<WindowingEnvironment, WindowingEnvironmentChangedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn RemoveChanged<Impl: IWindowingEnvironmentImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).RemoveChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IWindowingEnvironment>, base.5, IsEnabled::<Impl, OFFSET>, Kind::<Impl, OFFSET>, GetDisplayRegions::<Impl, OFFSET>, Changed::<Impl, OFFSET>, RemoveChanged::<Impl, OFFSET>)
+    }
+}
+#[cfg(feature = "implement_exclusive")]
 pub trait IWindowingEnvironmentAddedEventArgsImpl: Sized {
     fn WindowingEnvironment(&self) -> ::windows::core::Result<WindowingEnvironment>;
 }
 #[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IWindowingEnvironmentAddedEventArgs {
+    const NAME: &'static str = "Windows.UI.WindowManagement.IWindowingEnvironmentAddedEventArgs";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IWindowingEnvironmentAddedEventArgsVtbl {
+    pub const fn new<Impl: IWindowingEnvironmentAddedEventArgsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IWindowingEnvironmentAddedEventArgsVtbl {
+        unsafe extern "system" fn WindowingEnvironment<Impl: IWindowingEnvironmentAddedEventArgsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).WindowingEnvironment() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IWindowingEnvironmentAddedEventArgs>, base.5, WindowingEnvironment::<Impl, OFFSET>)
+    }
+}
+#[cfg(feature = "implement_exclusive")]
 pub trait IWindowingEnvironmentChangedEventArgsImpl: Sized {}
+#[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IWindowingEnvironmentChangedEventArgs {
+    const NAME: &'static str = "Windows.UI.WindowManagement.IWindowingEnvironmentChangedEventArgs";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IWindowingEnvironmentChangedEventArgsVtbl {
+    pub const fn new<Impl: IWindowingEnvironmentChangedEventArgsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IWindowingEnvironmentChangedEventArgsVtbl {
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IWindowingEnvironmentChangedEventArgs>, base.5)
+    }
+}
 #[cfg(feature = "implement_exclusive")]
 pub trait IWindowingEnvironmentRemovedEventArgsImpl: Sized {
     fn WindowingEnvironment(&self) -> ::windows::core::Result<WindowingEnvironment>;
 }
 #[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IWindowingEnvironmentRemovedEventArgs {
+    const NAME: &'static str = "Windows.UI.WindowManagement.IWindowingEnvironmentRemovedEventArgs";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IWindowingEnvironmentRemovedEventArgsVtbl {
+    pub const fn new<Impl: IWindowingEnvironmentRemovedEventArgsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IWindowingEnvironmentRemovedEventArgsVtbl {
+        unsafe extern "system" fn WindowingEnvironment<Impl: IWindowingEnvironmentRemovedEventArgsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).WindowingEnvironment() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IWindowingEnvironmentRemovedEventArgs>, base.5, WindowingEnvironment::<Impl, OFFSET>)
+    }
+}
+#[cfg(feature = "implement_exclusive")]
 pub trait IWindowingEnvironmentStaticsImpl: Sized {
     fn FindAll(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<WindowingEnvironment>>;
     fn FindAllWithKind(&self, kind: WindowingEnvironmentKind) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<WindowingEnvironment>>;
+}
+#[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IWindowingEnvironmentStatics {
+    const NAME: &'static str = "Windows.UI.WindowManagement.IWindowingEnvironmentStatics";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IWindowingEnvironmentStaticsVtbl {
+    pub const fn new<Impl: IWindowingEnvironmentStaticsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IWindowingEnvironmentStaticsVtbl {
+        unsafe extern "system" fn FindAll<Impl: IWindowingEnvironmentStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).FindAll() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn FindAllWithKind<Impl: IWindowingEnvironmentStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, kind: WindowingEnvironmentKind, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).FindAllWithKind(kind) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IWindowingEnvironmentStatics>, base.5, FindAll::<Impl, OFFSET>, FindAllWithKind::<Impl, OFFSET>)
+    }
 }

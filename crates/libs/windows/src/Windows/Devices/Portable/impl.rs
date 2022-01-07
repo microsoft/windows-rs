@@ -4,7 +4,71 @@ pub trait IServiceDeviceStaticsImpl: Sized {
     fn GetDeviceSelectorFromServiceId(&self, serviceid: &::windows::core::GUID) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IServiceDeviceStatics {
+    const NAME: &'static str = "Windows.Devices.Portable.IServiceDeviceStatics";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IServiceDeviceStaticsVtbl {
+    pub const fn new<Impl: IServiceDeviceStaticsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IServiceDeviceStaticsVtbl {
+        unsafe extern "system" fn GetDeviceSelector<Impl: IServiceDeviceStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, servicetype: ServiceDeviceType, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).GetDeviceSelector(servicetype) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn GetDeviceSelectorFromServiceId<Impl: IServiceDeviceStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, serviceid: ::windows::core::GUID, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).GetDeviceSelectorFromServiceId(&*(&serviceid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IServiceDeviceStatics>, base.5, GetDeviceSelector::<Impl, OFFSET>, GetDeviceSelectorFromServiceId::<Impl, OFFSET>)
+    }
+}
+#[cfg(feature = "implement_exclusive")]
 pub trait IStorageDeviceStaticsImpl: Sized {
     fn FromId(&self, deviceid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Storage::StorageFolder>;
     fn GetDeviceSelector(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+}
+#[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IStorageDeviceStatics {
+    const NAME: &'static str = "Windows.Devices.Portable.IStorageDeviceStatics";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IStorageDeviceStaticsVtbl {
+    pub const fn new<Impl: IStorageDeviceStaticsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IStorageDeviceStaticsVtbl {
+        unsafe extern "system" fn FromId<Impl: IStorageDeviceStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, deviceid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).FromId(&*(&deviceid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn GetDeviceSelector<Impl: IStorageDeviceStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).GetDeviceSelector() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IStorageDeviceStatics>, base.5, FromId::<Impl, OFFSET>, GetDeviceSelector::<Impl, OFFSET>)
+    }
 }

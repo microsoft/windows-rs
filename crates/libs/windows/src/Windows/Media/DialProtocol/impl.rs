@@ -6,9 +6,95 @@ pub trait IDialAppImpl: Sized {
     fn GetAppStateAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<DialAppStateDetails>>;
 }
 #[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IDialApp {
+    const NAME: &'static str = "Windows.Media.DialProtocol.IDialApp";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IDialAppVtbl {
+    pub const fn new<Impl: IDialAppImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IDialAppVtbl {
+        unsafe extern "system" fn AppName<Impl: IDialAppImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).AppName() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn RequestLaunchAsync<Impl: IDialAppImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, appargument: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).RequestLaunchAsync(&*(&appargument as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn StopAsync<Impl: IDialAppImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).StopAsync() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn GetAppStateAsync<Impl: IDialAppImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).GetAppStateAsync() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IDialApp>, base.5, AppName::<Impl, OFFSET>, RequestLaunchAsync::<Impl, OFFSET>, StopAsync::<Impl, OFFSET>, GetAppStateAsync::<Impl, OFFSET>)
+    }
+}
+#[cfg(feature = "implement_exclusive")]
 pub trait IDialAppStateDetailsImpl: Sized {
     fn State(&self) -> ::windows::core::Result<DialAppState>;
     fn FullXml(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+}
+#[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IDialAppStateDetails {
+    const NAME: &'static str = "Windows.Media.DialProtocol.IDialAppStateDetails";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IDialAppStateDetailsVtbl {
+    pub const fn new<Impl: IDialAppStateDetailsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IDialAppStateDetailsVtbl {
+        unsafe extern "system" fn State<Impl: IDialAppStateDetailsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut DialAppState) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).State() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn FullXml<Impl: IDialAppStateDetailsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).FullXml() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IDialAppStateDetails>, base.5, State::<Impl, OFFSET>, FullXml::<Impl, OFFSET>)
+    }
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IDialDeviceImpl: Sized {
@@ -16,9 +102,73 @@ pub trait IDialDeviceImpl: Sized {
     fn GetDialApp(&self, appname: &::windows::core::HSTRING) -> ::windows::core::Result<DialApp>;
 }
 #[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IDialDevice {
+    const NAME: &'static str = "Windows.Media.DialProtocol.IDialDevice";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IDialDeviceVtbl {
+    pub const fn new<Impl: IDialDeviceImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IDialDeviceVtbl {
+        unsafe extern "system" fn Id<Impl: IDialDeviceImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).Id() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn GetDialApp<Impl: IDialDeviceImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, appname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).GetDialApp(&*(&appname as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IDialDevice>, base.5, Id::<Impl, OFFSET>, GetDialApp::<Impl, OFFSET>)
+    }
+}
+#[cfg(feature = "implement_exclusive")]
 pub trait IDialDevice2Impl: Sized {
     fn FriendlyName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn Thumbnail(&self) -> ::windows::core::Result<super::super::Storage::Streams::IRandomAccessStreamReference>;
+}
+#[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IDialDevice2 {
+    const NAME: &'static str = "Windows.Media.DialProtocol.IDialDevice2";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IDialDevice2Vtbl {
+    pub const fn new<Impl: IDialDevice2Impl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IDialDevice2Vtbl {
+        unsafe extern "system" fn FriendlyName<Impl: IDialDevice2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).FriendlyName() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn Thumbnail<Impl: IDialDevice2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).Thumbnail() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IDialDevice2>, base.5, FriendlyName::<Impl, OFFSET>, Thumbnail::<Impl, OFFSET>)
+    }
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IDialDevicePickerImpl: Sized {
@@ -38,12 +188,190 @@ pub trait IDialDevicePickerImpl: Sized {
     fn SetDisplayStatus(&self, device: &::core::option::Option<DialDevice>, status: DialDeviceDisplayStatus) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IDialDevicePicker {
+    const NAME: &'static str = "Windows.Media.DialProtocol.IDialDevicePicker";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IDialDevicePickerVtbl {
+    pub const fn new<Impl: IDialDevicePickerImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IDialDevicePickerVtbl {
+        unsafe extern "system" fn Filter<Impl: IDialDevicePickerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).Filter() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn Appearance<Impl: IDialDevicePickerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).Appearance() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn DialDeviceSelected<Impl: IDialDevicePickerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).DialDeviceSelected(&*(&handler as *const <super::super::Foundation::TypedEventHandler<DialDevicePicker, DialDeviceSelectedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<DialDevicePicker, DialDeviceSelectedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn RemoveDialDeviceSelected<Impl: IDialDevicePickerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).RemoveDialDeviceSelected(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
+        }
+        unsafe extern "system" fn DisconnectButtonClicked<Impl: IDialDevicePickerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).DisconnectButtonClicked(&*(&handler as *const <super::super::Foundation::TypedEventHandler<DialDevicePicker, DialDisconnectButtonClickedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<DialDevicePicker, DialDisconnectButtonClickedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn RemoveDisconnectButtonClicked<Impl: IDialDevicePickerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).RemoveDisconnectButtonClicked(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
+        }
+        unsafe extern "system" fn DialDevicePickerDismissed<Impl: IDialDevicePickerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).DialDevicePickerDismissed(&*(&handler as *const <super::super::Foundation::TypedEventHandler<DialDevicePicker, ::windows::core::IInspectable> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<DialDevicePicker, ::windows::core::IInspectable> as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn RemoveDialDevicePickerDismissed<Impl: IDialDevicePickerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).RemoveDialDevicePickerDismissed(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
+        }
+        unsafe extern "system" fn Show<Impl: IDialDevicePickerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, selection: super::super::Foundation::Rect) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).Show(&*(&selection as *const <super::super::Foundation::Rect as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Rect as ::windows::core::DefaultType>::DefaultType)).into()
+        }
+        unsafe extern "system" fn ShowWithPlacement<Impl: IDialDevicePickerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, selection: super::super::Foundation::Rect, preferredplacement: super::super::UI::Popups::Placement) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).ShowWithPlacement(&*(&selection as *const <super::super::Foundation::Rect as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Rect as ::windows::core::DefaultType>::DefaultType), preferredplacement).into()
+        }
+        unsafe extern "system" fn PickSingleDialDeviceAsync<Impl: IDialDevicePickerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, selection: super::super::Foundation::Rect, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).PickSingleDialDeviceAsync(&*(&selection as *const <super::super::Foundation::Rect as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Rect as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn PickSingleDialDeviceAsyncWithPlacement<Impl: IDialDevicePickerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, selection: super::super::Foundation::Rect, preferredplacement: super::super::UI::Popups::Placement, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).PickSingleDialDeviceAsyncWithPlacement(&*(&selection as *const <super::super::Foundation::Rect as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Rect as ::windows::core::DefaultType>::DefaultType), preferredplacement) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn Hide<Impl: IDialDevicePickerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).Hide().into()
+        }
+        unsafe extern "system" fn SetDisplayStatus<Impl: IDialDevicePickerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, device: ::windows::core::RawPtr, status: DialDeviceDisplayStatus) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetDisplayStatus(&*(&device as *const <DialDevice as ::windows::core::Abi>::Abi as *const <DialDevice as ::windows::core::DefaultType>::DefaultType), status).into()
+        }
+        Self(
+            base.0,
+            base.1,
+            base.2,
+            base.3,
+            ::windows::core::GetRuntimeClassName::<IDialDevicePicker>,
+            base.5,
+            Filter::<Impl, OFFSET>,
+            Appearance::<Impl, OFFSET>,
+            DialDeviceSelected::<Impl, OFFSET>,
+            RemoveDialDeviceSelected::<Impl, OFFSET>,
+            DisconnectButtonClicked::<Impl, OFFSET>,
+            RemoveDisconnectButtonClicked::<Impl, OFFSET>,
+            DialDevicePickerDismissed::<Impl, OFFSET>,
+            RemoveDialDevicePickerDismissed::<Impl, OFFSET>,
+            Show::<Impl, OFFSET>,
+            ShowWithPlacement::<Impl, OFFSET>,
+            PickSingleDialDeviceAsync::<Impl, OFFSET>,
+            PickSingleDialDeviceAsyncWithPlacement::<Impl, OFFSET>,
+            Hide::<Impl, OFFSET>,
+            SetDisplayStatus::<Impl, OFFSET>,
+        )
+    }
+}
+#[cfg(feature = "implement_exclusive")]
 pub trait IDialDevicePickerFilterImpl: Sized {
     fn SupportedAppNames(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>;
 }
 #[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IDialDevicePickerFilter {
+    const NAME: &'static str = "Windows.Media.DialProtocol.IDialDevicePickerFilter";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IDialDevicePickerFilterVtbl {
+    pub const fn new<Impl: IDialDevicePickerFilterImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IDialDevicePickerFilterVtbl {
+        unsafe extern "system" fn SupportedAppNames<Impl: IDialDevicePickerFilterImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).SupportedAppNames() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IDialDevicePickerFilter>, base.5, SupportedAppNames::<Impl, OFFSET>)
+    }
+}
+#[cfg(feature = "implement_exclusive")]
 pub trait IDialDeviceSelectedEventArgsImpl: Sized {
     fn SelectedDialDevice(&self) -> ::windows::core::Result<DialDevice>;
+}
+#[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IDialDeviceSelectedEventArgs {
+    const NAME: &'static str = "Windows.Media.DialProtocol.IDialDeviceSelectedEventArgs";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IDialDeviceSelectedEventArgsVtbl {
+    pub const fn new<Impl: IDialDeviceSelectedEventArgsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IDialDeviceSelectedEventArgsVtbl {
+        unsafe extern "system" fn SelectedDialDevice<Impl: IDialDeviceSelectedEventArgsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).SelectedDialDevice() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IDialDeviceSelectedEventArgs>, base.5, SelectedDialDevice::<Impl, OFFSET>)
+    }
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IDialDeviceStaticsImpl: Sized {
@@ -52,8 +380,72 @@ pub trait IDialDeviceStaticsImpl: Sized {
     fn DeviceInfoSupportsDialAsync(&self, device: &::core::option::Option<super::super::Devices::Enumeration::DeviceInformation>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
 }
 #[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IDialDeviceStatics {
+    const NAME: &'static str = "Windows.Media.DialProtocol.IDialDeviceStatics";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IDialDeviceStaticsVtbl {
+    pub const fn new<Impl: IDialDeviceStaticsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IDialDeviceStaticsVtbl {
+        unsafe extern "system" fn GetDeviceSelector<Impl: IDialDeviceStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, appname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).GetDeviceSelector(&*(&appname as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn FromIdAsync<Impl: IDialDeviceStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).FromIdAsync(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn DeviceInfoSupportsDialAsync<Impl: IDialDeviceStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, device: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).DeviceInfoSupportsDialAsync(&*(&device as *const <super::super::Devices::Enumeration::DeviceInformation as ::windows::core::Abi>::Abi as *const <super::super::Devices::Enumeration::DeviceInformation as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IDialDeviceStatics>, base.5, GetDeviceSelector::<Impl, OFFSET>, FromIdAsync::<Impl, OFFSET>, DeviceInfoSupportsDialAsync::<Impl, OFFSET>)
+    }
+}
+#[cfg(feature = "implement_exclusive")]
 pub trait IDialDisconnectButtonClickedEventArgsImpl: Sized {
     fn Device(&self) -> ::windows::core::Result<DialDevice>;
+}
+#[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IDialDisconnectButtonClickedEventArgs {
+    const NAME: &'static str = "Windows.Media.DialProtocol.IDialDisconnectButtonClickedEventArgs";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IDialDisconnectButtonClickedEventArgsVtbl {
+    pub const fn new<Impl: IDialDisconnectButtonClickedEventArgsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IDialDisconnectButtonClickedEventArgsVtbl {
+        unsafe extern "system" fn Device<Impl: IDialDisconnectButtonClickedEventArgsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).Device() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IDialDisconnectButtonClickedEventArgs>, base.5, Device::<Impl, OFFSET>)
+    }
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IDialReceiverAppImpl: Sized {
@@ -61,10 +453,84 @@ pub trait IDialReceiverAppImpl: Sized {
     fn SetAdditionalDataAsync(&self, additionaldata: &::core::option::Option<super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::HSTRING>>>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
 }
 #[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IDialReceiverApp {
+    const NAME: &'static str = "Windows.Media.DialProtocol.IDialReceiverApp";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IDialReceiverAppVtbl {
+    pub const fn new<Impl: IDialReceiverAppImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IDialReceiverAppVtbl {
+        unsafe extern "system" fn GetAdditionalDataAsync<Impl: IDialReceiverAppImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).GetAdditionalDataAsync() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetAdditionalDataAsync<Impl: IDialReceiverAppImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, additionaldata: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).SetAdditionalDataAsync(&*(&additionaldata as *const <super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::HSTRING>> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::HSTRING>> as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IDialReceiverApp>, base.5, GetAdditionalDataAsync::<Impl, OFFSET>, SetAdditionalDataAsync::<Impl, OFFSET>)
+    }
+}
+#[cfg(feature = "implement_exclusive")]
 pub trait IDialReceiverApp2Impl: Sized {
     fn GetUniqueDeviceNameAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>;
 }
 #[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IDialReceiverApp2 {
+    const NAME: &'static str = "Windows.Media.DialProtocol.IDialReceiverApp2";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IDialReceiverApp2Vtbl {
+    pub const fn new<Impl: IDialReceiverApp2Impl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IDialReceiverApp2Vtbl {
+        unsafe extern "system" fn GetUniqueDeviceNameAsync<Impl: IDialReceiverApp2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).GetUniqueDeviceNameAsync() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IDialReceiverApp2>, base.5, GetUniqueDeviceNameAsync::<Impl, OFFSET>)
+    }
+}
+#[cfg(feature = "implement_exclusive")]
 pub trait IDialReceiverAppStaticsImpl: Sized {
     fn Current(&self) -> ::windows::core::Result<DialReceiverApp>;
+}
+#[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IDialReceiverAppStatics {
+    const NAME: &'static str = "Windows.Media.DialProtocol.IDialReceiverAppStatics";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IDialReceiverAppStaticsVtbl {
+    pub const fn new<Impl: IDialReceiverAppStaticsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IDialReceiverAppStaticsVtbl {
+        unsafe extern "system" fn Current<Impl: IDialReceiverAppStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).Current() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IDialReceiverAppStatics>, base.5, Current::<Impl, OFFSET>)
+    }
 }

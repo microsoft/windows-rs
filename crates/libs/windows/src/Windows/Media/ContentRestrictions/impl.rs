@@ -5,6 +5,49 @@ pub trait IContentRestrictionsBrowsePolicyImpl: Sized {
     fn PreferredAgeRating(&self) -> ::windows::core::Result<super::super::Foundation::IReference<u32>>;
 }
 #[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IContentRestrictionsBrowsePolicy {
+    const NAME: &'static str = "Windows.Media.ContentRestrictions.IContentRestrictionsBrowsePolicy";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IContentRestrictionsBrowsePolicyVtbl {
+    pub const fn new<Impl: IContentRestrictionsBrowsePolicyImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IContentRestrictionsBrowsePolicyVtbl {
+        unsafe extern "system" fn GeographicRegion<Impl: IContentRestrictionsBrowsePolicyImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).GeographicRegion() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn MaxBrowsableAgeRating<Impl: IContentRestrictionsBrowsePolicyImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).MaxBrowsableAgeRating() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn PreferredAgeRating<Impl: IContentRestrictionsBrowsePolicyImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).PreferredAgeRating() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IContentRestrictionsBrowsePolicy>, base.5, GeographicRegion::<Impl, OFFSET>, MaxBrowsableAgeRating::<Impl, OFFSET>, PreferredAgeRating::<Impl, OFFSET>)
+    }
+}
+#[cfg(feature = "implement_exclusive")]
 pub trait IRatedContentDescriptionImpl: Sized {
     fn Id(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn SetId(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
@@ -18,8 +61,114 @@ pub trait IRatedContentDescriptionImpl: Sized {
     fn SetRatings(&self, value: &::core::option::Option<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IRatedContentDescription {
+    const NAME: &'static str = "Windows.Media.ContentRestrictions.IRatedContentDescription";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IRatedContentDescriptionVtbl {
+    pub const fn new<Impl: IRatedContentDescriptionImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IRatedContentDescriptionVtbl {
+        unsafe extern "system" fn Id<Impl: IRatedContentDescriptionImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).Id() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetId<Impl: IRatedContentDescriptionImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetId(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
+        }
+        unsafe extern "system" fn Title<Impl: IRatedContentDescriptionImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).Title() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetTitle<Impl: IRatedContentDescriptionImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetTitle(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
+        }
+        unsafe extern "system" fn Image<Impl: IRatedContentDescriptionImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).Image() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetImage<Impl: IRatedContentDescriptionImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetImage(&*(&value as *const <super::super::Storage::Streams::IRandomAccessStreamReference as ::windows::core::Abi>::Abi as *const <super::super::Storage::Streams::IRandomAccessStreamReference as ::windows::core::DefaultType>::DefaultType)).into()
+        }
+        unsafe extern "system" fn Category<Impl: IRatedContentDescriptionImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut RatedContentCategory) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).Category() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetCategory<Impl: IRatedContentDescriptionImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: RatedContentCategory) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetCategory(value).into()
+        }
+        unsafe extern "system" fn Ratings<Impl: IRatedContentDescriptionImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).Ratings() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetRatings<Impl: IRatedContentDescriptionImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).SetRatings(&*(&value as *const <super::super::Foundation::Collections::IVector<::windows::core::HSTRING> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::IVector<::windows::core::HSTRING> as ::windows::core::DefaultType>::DefaultType)).into()
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IRatedContentDescription>, base.5, Id::<Impl, OFFSET>, SetId::<Impl, OFFSET>, Title::<Impl, OFFSET>, SetTitle::<Impl, OFFSET>, Image::<Impl, OFFSET>, SetImage::<Impl, OFFSET>, Category::<Impl, OFFSET>, SetCategory::<Impl, OFFSET>, Ratings::<Impl, OFFSET>, SetRatings::<Impl, OFFSET>)
+    }
+}
+#[cfg(feature = "implement_exclusive")]
 pub trait IRatedContentDescriptionFactoryImpl: Sized {
     fn Create(&self, id: &::windows::core::HSTRING, title: &::windows::core::HSTRING, category: RatedContentCategory) -> ::windows::core::Result<RatedContentDescription>;
+}
+#[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IRatedContentDescriptionFactory {
+    const NAME: &'static str = "Windows.Media.ContentRestrictions.IRatedContentDescriptionFactory";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IRatedContentDescriptionFactoryVtbl {
+    pub const fn new<Impl: IRatedContentDescriptionFactoryImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IRatedContentDescriptionFactoryVtbl {
+        unsafe extern "system" fn Create<Impl: IRatedContentDescriptionFactoryImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, id: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, title: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, category: RatedContentCategory, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).Create(&*(&id as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&title as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), category) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IRatedContentDescriptionFactory>, base.5, Create::<Impl, OFFSET>)
+    }
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IRatedContentRestrictionsImpl: Sized {
@@ -30,6 +179,85 @@ pub trait IRatedContentRestrictionsImpl: Sized {
     fn RemoveRestrictionsChanged(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IRatedContentRestrictions {
+    const NAME: &'static str = "Windows.Media.ContentRestrictions.IRatedContentRestrictions";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IRatedContentRestrictionsVtbl {
+    pub const fn new<Impl: IRatedContentRestrictionsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IRatedContentRestrictionsVtbl {
+        unsafe extern "system" fn GetBrowsePolicyAsync<Impl: IRatedContentRestrictionsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).GetBrowsePolicyAsync() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn GetRestrictionLevelAsync<Impl: IRatedContentRestrictionsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, ratedcontentdescription: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).GetRestrictionLevelAsync(&*(&ratedcontentdescription as *const <RatedContentDescription as ::windows::core::Abi>::Abi as *const <RatedContentDescription as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn RequestContentAccessAsync<Impl: IRatedContentRestrictionsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, ratedcontentdescription: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).RequestContentAccessAsync(&*(&ratedcontentdescription as *const <RatedContentDescription as ::windows::core::Abi>::Abi as *const <RatedContentDescription as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn RestrictionsChanged<Impl: IRatedContentRestrictionsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).RestrictionsChanged(&*(&handler as *const <super::super::Foundation::EventHandler<::windows::core::IInspectable> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventHandler<::windows::core::IInspectable> as ::windows::core::DefaultType>::DefaultType)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn RemoveRestrictionsChanged<Impl: IRatedContentRestrictionsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            (*this).RemoveRestrictionsChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IRatedContentRestrictions>, base.5, GetBrowsePolicyAsync::<Impl, OFFSET>, GetRestrictionLevelAsync::<Impl, OFFSET>, RequestContentAccessAsync::<Impl, OFFSET>, RestrictionsChanged::<Impl, OFFSET>, RemoveRestrictionsChanged::<Impl, OFFSET>)
+    }
+}
+#[cfg(feature = "implement_exclusive")]
 pub trait IRatedContentRestrictionsFactoryImpl: Sized {
     fn CreateWithMaxAgeRating(&self, maxagerating: u32) -> ::windows::core::Result<RatedContentRestrictions>;
+}
+#[cfg(feature = "implement_exclusive")]
+impl ::windows::core::RuntimeName for IRatedContentRestrictionsFactory {
+    const NAME: &'static str = "Windows.Media.ContentRestrictions.IRatedContentRestrictionsFactory";
+}
+#[cfg(feature = "implement_exclusive")]
+impl IRatedContentRestrictionsFactoryVtbl {
+    pub const fn new<Impl: IRatedContentRestrictionsFactoryImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IRatedContentRestrictionsFactoryVtbl {
+        unsafe extern "system" fn CreateWithMaxAgeRating<Impl: IRatedContentRestrictionsFactoryImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, maxagerating: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            match (*this).CreateWithMaxAgeRating(maxagerating) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IRatedContentRestrictionsFactory>, base.5, CreateWithMaxAgeRating::<Impl, OFFSET>)
+    }
 }
