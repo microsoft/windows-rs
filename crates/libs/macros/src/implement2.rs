@@ -52,7 +52,7 @@ pub fn gen(attributes: proc_macro::TokenStream, original_type: proc_macro::Token
         }
     });
 
-    let mut tokens = quote! {
+    let tokens = quote! {
         struct #impl_ident {
             base: ::core::option::Option<::windows::core::IInspectable>,
             identity: *const ::windows::core::IInspectableVtbl,
