@@ -11,17 +11,72 @@ use quote::*;
 pub fn gen(attributes: proc_macro::TokenStream, original_type: proc_macro::TokenStream) -> proc_macro::TokenStream {
     let attributes = syn::parse_macro_input!(attributes as ImplementAttributes);
 
+    assert!(attributes.implement.len() == 2);
+
     let original_type2 = original_type.clone();
     let original_ident = TokenStream(syn::parse_macro_input!(original_type2 as syn::ItemStruct).ident.to_string());
     let impl_ident = original_ident.join("Impl");
+
+    let vtbl_idents = attributes.implement.iter().map(|implement| {
+        implement.to_vtbl_ident()
+    });
+
+    let vtbl_idents2 = vtbl_idents.clone();
+
+    let vtable_news = attributes.implement.iter().enumerate().map(|(enumerate, implement)| {
+        let vtbl_ident = implement.to_vtbl_ident();
+        let offset: TokenStream = format!("{}", 1 + attributes.implement.len() - enumerate).into();
+        quote! { #vtbl_ident::new::<#original_ident, #offset>(&Self::IDENTITY) }
+    });
+
+    let vtbl_count = attributes.implement.iter().enumerate().map(|(count,_)| {
+        let offset: TokenStream = format!("{}", count).into();
+        offset
+    });
 
     let mut tokens = quote! {
         struct #impl_ident {
             base: ::core::option::Option<::windows::core::IInspectable>,
             identity: *const ::windows::core::IInspectableVtbl,
-            vtables: (*const IClosableVtbl, *const IStringableVtbl),
+            vtables: (#(*const #vtbl_idents),*),
             _this: #original_ident,
             count: ::windows::core::WeakRefCount,
+        }
+        impl #impl_ident {
+            const VTABLES: (#(#vtbl_idents2),*) = (#(#vtable_news),*);
+            const IDENTITY: ::windows::core::IInspectableVtbl = ::windows::core::IInspectableVtbl(
+                Self::QueryInterface,
+                Self::AddRef,
+                Self::Release,
+                ::windows::core::GetIids,
+                ::windows::core::GetRuntimeClassName::<::windows::core::IInspectable>,
+                ::windows::core::GetTrustLevel,
+            );
+            fn new(this: #original_ident) -> Self {
+                Self {
+                    base: ::core::option::Option::None,
+                    identity: &Self::IDENTITY,
+                    vtables:(#(&Self::VTABLES.#vtbl_count),*),
+                    _this: this,
+                    count: ::windows::core::WeakRefCount::new(),
+                }
+            }
+            unsafe extern "system" fn QueryInterface(
+                this: ::windows::core::RawPtr,
+                iid: &::windows::core::GUID,
+                interface: *mut ::windows::core::RawPtr,
+            ) -> ::windows::core::HRESULT {
+                println!("QueryInterface");
+                ::windows::core::HRESULT(0)
+            }
+            unsafe extern "system" fn AddRef(this: ::windows::core::RawPtr) -> u32 {
+                println!("AddRef");
+                0
+            }
+            unsafe extern "system" fn Release(this: ::windows::core::RawPtr) -> u32 {
+                println!("Release");
+                0
+            }
         }
     };
 
@@ -34,6 +89,15 @@ pub fn gen(attributes: proc_macro::TokenStream, original_type: proc_macro::Token
 struct ImplementType {
     type_name: String,
     generics: Vec<ImplementType>,
+}
+
+impl ImplementType {
+    fn to_ident(&self) -> TokenStream {
+        self.type_name.clone().into()
+    }
+    fn to_vtbl_ident(&self) -> TokenStream {
+        self.to_ident().join("Vtbl")
+    }
 }
 
 #[derive(Default)]
@@ -69,13 +133,13 @@ impl ImplementAttributes {
         match tree {
             UseTree2::Path(input) => {
                 if !namespace.is_empty() {
-                    namespace.push('.');
+                    namespace.push_str("::");
                 }
 
                 namespace.push_str(&input.ident.to_string());
                 self.walk_implement(&*input.tree, namespace)?;
             }
-            UseTree2::Name(input) => {
+            UseTree2::Name(_) => {
                 self.implement.push(tree.to_element_type(namespace)?);
             }
             UseTree2::Group(input) => {
@@ -107,9 +171,12 @@ impl UseTree2 {
                 input.tree.to_element_type(namespace)
             }
             UseTree2::Name(input) => {
-                let name = input.ident.to_string();
                 let mut def = ImplementType::default();
-                def.type_name = format!("{}::{}", namespace, name);
+                def.type_name = input.ident.to_string();
+
+                if !namespace.is_empty() {
+                    def.type_name = format!("{}::{}", namespace, def.type_name);
+                }
 
                 for g in &input.generics {
                     def.generics.push(g.to_element_type(&mut String::new())?);
@@ -124,7 +191,6 @@ impl UseTree2 {
 
 struct UsePath2 {
     pub ident: Ident,
-    pub colon2_token: Token![::],
     pub tree: Box<UseTree2>,
 }
 
@@ -145,7 +211,8 @@ impl Parse for UseTree2 {
             use syn::ext::IdentExt;
             let ident = input.call(Ident::parse_any)?;
             if input.peek(Token![::]) {
-                Ok(UseTree2::Path(UsePath2 { ident, colon2_token: input.parse()?, tree: Box::new(input.parse()?) }))
+                input.parse::<Token![::]>()?;
+                Ok(UseTree2::Path(UsePath2 { ident, tree: Box::new(input.parse()?) }))
             } else {
                 let generics = if input.peek(Token![<]) {
                     input.parse::<Token![<]>()?;
