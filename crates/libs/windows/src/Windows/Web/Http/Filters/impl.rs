@@ -26,9 +26,9 @@ impl ::windows::core::RuntimeName for IHttpBaseProtocolFilter {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IHttpBaseProtocolFilterVtbl {
-    pub const fn new<Impl: IHttpBaseProtocolFilterImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IHttpBaseProtocolFilterVtbl {
-        unsafe extern "system" fn AllowAutoRedirect<Impl: IHttpBaseProtocolFilterImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpBaseProtocolFilterImpl, const OFFSET: isize>() -> IHttpBaseProtocolFilterVtbl {
+        unsafe extern "system" fn AllowAutoRedirect<Impl: IHttpBaseProtocolFilterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AllowAutoRedirect() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -38,12 +38,12 @@ impl IHttpBaseProtocolFilterVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetAllowAutoRedirect<Impl: IHttpBaseProtocolFilterImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn SetAllowAutoRedirect<Impl: IHttpBaseProtocolFilterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetAllowAutoRedirect(value).into()
         }
-        unsafe extern "system" fn AllowUI<Impl: IHttpBaseProtocolFilterImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn AllowUI<Impl: IHttpBaseProtocolFilterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AllowUI() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -53,12 +53,12 @@ impl IHttpBaseProtocolFilterVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetAllowUI<Impl: IHttpBaseProtocolFilterImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn SetAllowUI<Impl: IHttpBaseProtocolFilterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetAllowUI(value).into()
         }
-        unsafe extern "system" fn AutomaticDecompression<Impl: IHttpBaseProtocolFilterImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn AutomaticDecompression<Impl: IHttpBaseProtocolFilterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AutomaticDecompression() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -68,12 +68,12 @@ impl IHttpBaseProtocolFilterVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetAutomaticDecompression<Impl: IHttpBaseProtocolFilterImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn SetAutomaticDecompression<Impl: IHttpBaseProtocolFilterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetAutomaticDecompression(value).into()
         }
-        unsafe extern "system" fn CacheControl<Impl: IHttpBaseProtocolFilterImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn CacheControl<Impl: IHttpBaseProtocolFilterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CacheControl() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -83,8 +83,8 @@ impl IHttpBaseProtocolFilterVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CookieManager<Impl: IHttpBaseProtocolFilterImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn CookieManager<Impl: IHttpBaseProtocolFilterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CookieManager() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -94,8 +94,8 @@ impl IHttpBaseProtocolFilterVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ClientCertificate<Impl: IHttpBaseProtocolFilterImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn ClientCertificate<Impl: IHttpBaseProtocolFilterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ClientCertificate() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -105,12 +105,12 @@ impl IHttpBaseProtocolFilterVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetClientCertificate<Impl: IHttpBaseProtocolFilterImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn SetClientCertificate<Impl: IHttpBaseProtocolFilterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetClientCertificate(&*(&value as *const <super::super::super::Security::Cryptography::Certificates::Certificate as ::windows::core::Abi>::Abi as *const <super::super::super::Security::Cryptography::Certificates::Certificate as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn IgnorableServerCertificateErrors<Impl: IHttpBaseProtocolFilterImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn IgnorableServerCertificateErrors<Impl: IHttpBaseProtocolFilterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IgnorableServerCertificateErrors() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -120,8 +120,8 @@ impl IHttpBaseProtocolFilterVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn MaxConnectionsPerServer<Impl: IHttpBaseProtocolFilterImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn MaxConnectionsPerServer<Impl: IHttpBaseProtocolFilterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MaxConnectionsPerServer() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -131,12 +131,12 @@ impl IHttpBaseProtocolFilterVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetMaxConnectionsPerServer<Impl: IHttpBaseProtocolFilterImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: u32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn SetMaxConnectionsPerServer<Impl: IHttpBaseProtocolFilterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetMaxConnectionsPerServer(value).into()
         }
-        unsafe extern "system" fn ProxyCredential<Impl: IHttpBaseProtocolFilterImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn ProxyCredential<Impl: IHttpBaseProtocolFilterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ProxyCredential() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -146,12 +146,12 @@ impl IHttpBaseProtocolFilterVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetProxyCredential<Impl: IHttpBaseProtocolFilterImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn SetProxyCredential<Impl: IHttpBaseProtocolFilterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetProxyCredential(&*(&value as *const <super::super::super::Security::Credentials::PasswordCredential as ::windows::core::Abi>::Abi as *const <super::super::super::Security::Credentials::PasswordCredential as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn ServerCredential<Impl: IHttpBaseProtocolFilterImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn ServerCredential<Impl: IHttpBaseProtocolFilterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ServerCredential() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -161,12 +161,12 @@ impl IHttpBaseProtocolFilterVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetServerCredential<Impl: IHttpBaseProtocolFilterImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn SetServerCredential<Impl: IHttpBaseProtocolFilterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetServerCredential(&*(&value as *const <super::super::super::Security::Credentials::PasswordCredential as ::windows::core::Abi>::Abi as *const <super::super::super::Security::Credentials::PasswordCredential as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn UseProxy<Impl: IHttpBaseProtocolFilterImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn UseProxy<Impl: IHttpBaseProtocolFilterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).UseProxy() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -176,17 +176,17 @@ impl IHttpBaseProtocolFilterVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetUseProxy<Impl: IHttpBaseProtocolFilterImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn SetUseProxy<Impl: IHttpBaseProtocolFilterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetUseProxy(value).into()
         }
         Self(
-            base.0,
-            base.1,
-            base.2,
-            base.3,
+            ::windows::core::QueryInterface::<Identity, OFFSET>,
+            ::windows::core::AddRef::<Identity, OFFSET>,
+            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IHttpBaseProtocolFilter>,
-            base.5,
+            ::windows::core::GetTrustLevel,
             AllowAutoRedirect::<Impl, OFFSET>,
             SetAllowAutoRedirect::<Impl, OFFSET>,
             AllowUI::<Impl, OFFSET>,
@@ -220,9 +220,9 @@ impl ::windows::core::RuntimeName for IHttpBaseProtocolFilter2 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IHttpBaseProtocolFilter2Vtbl {
-    pub const fn new<Impl: IHttpBaseProtocolFilter2Impl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IHttpBaseProtocolFilter2Vtbl {
-        unsafe extern "system" fn MaxVersion<Impl: IHttpBaseProtocolFilter2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut super::HttpVersion) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpBaseProtocolFilter2Impl, const OFFSET: isize>() -> IHttpBaseProtocolFilter2Vtbl {
+        unsafe extern "system" fn MaxVersion<Impl: IHttpBaseProtocolFilter2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::HttpVersion) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MaxVersion() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -232,11 +232,11 @@ impl IHttpBaseProtocolFilter2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetMaxVersion<Impl: IHttpBaseProtocolFilter2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: super::HttpVersion) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn SetMaxVersion<Impl: IHttpBaseProtocolFilter2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::HttpVersion) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetMaxVersion(value).into()
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IHttpBaseProtocolFilter2>, base.5, MaxVersion::<Impl, OFFSET>, SetMaxVersion::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHttpBaseProtocolFilter2>, ::windows::core::GetTrustLevel, MaxVersion::<Impl, OFFSET>, SetMaxVersion::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -250,9 +250,9 @@ impl ::windows::core::RuntimeName for IHttpBaseProtocolFilter3 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IHttpBaseProtocolFilter3Vtbl {
-    pub const fn new<Impl: IHttpBaseProtocolFilter3Impl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IHttpBaseProtocolFilter3Vtbl {
-        unsafe extern "system" fn CookieUsageBehavior<Impl: IHttpBaseProtocolFilter3Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut HttpCookieUsageBehavior) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpBaseProtocolFilter3Impl, const OFFSET: isize>() -> IHttpBaseProtocolFilter3Vtbl {
+        unsafe extern "system" fn CookieUsageBehavior<Impl: IHttpBaseProtocolFilter3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut HttpCookieUsageBehavior) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CookieUsageBehavior() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -262,11 +262,11 @@ impl IHttpBaseProtocolFilter3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetCookieUsageBehavior<Impl: IHttpBaseProtocolFilter3Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: HttpCookieUsageBehavior) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn SetCookieUsageBehavior<Impl: IHttpBaseProtocolFilter3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: HttpCookieUsageBehavior) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetCookieUsageBehavior(value).into()
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IHttpBaseProtocolFilter3>, base.5, CookieUsageBehavior::<Impl, OFFSET>, SetCookieUsageBehavior::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHttpBaseProtocolFilter3>, ::windows::core::GetTrustLevel, CookieUsageBehavior::<Impl, OFFSET>, SetCookieUsageBehavior::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -281,9 +281,9 @@ impl ::windows::core::RuntimeName for IHttpBaseProtocolFilter4 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IHttpBaseProtocolFilter4Vtbl {
-    pub const fn new<Impl: IHttpBaseProtocolFilter4Impl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IHttpBaseProtocolFilter4Vtbl {
-        unsafe extern "system" fn ServerCustomValidationRequested<Impl: IHttpBaseProtocolFilter4Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpBaseProtocolFilter4Impl, const OFFSET: isize>() -> IHttpBaseProtocolFilter4Vtbl {
+        unsafe extern "system" fn ServerCustomValidationRequested<Impl: IHttpBaseProtocolFilter4Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ServerCustomValidationRequested(&*(&handler as *const <super::super::super::Foundation::TypedEventHandler<HttpBaseProtocolFilter, HttpServerCustomValidationRequestedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::TypedEventHandler<HttpBaseProtocolFilter, HttpServerCustomValidationRequestedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -293,15 +293,15 @@ impl IHttpBaseProtocolFilter4Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveServerCustomValidationRequested<Impl: IHttpBaseProtocolFilter4Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn RemoveServerCustomValidationRequested<Impl: IHttpBaseProtocolFilter4Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveServerCustomValidationRequested(&*(&token as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn ClearAuthenticationCache<Impl: IHttpBaseProtocolFilter4Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn ClearAuthenticationCache<Impl: IHttpBaseProtocolFilter4Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ClearAuthenticationCache().into()
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IHttpBaseProtocolFilter4>, base.5, ServerCustomValidationRequested::<Impl, OFFSET>, RemoveServerCustomValidationRequested::<Impl, OFFSET>, ClearAuthenticationCache::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHttpBaseProtocolFilter4>, ::windows::core::GetTrustLevel, ServerCustomValidationRequested::<Impl, OFFSET>, RemoveServerCustomValidationRequested::<Impl, OFFSET>, ClearAuthenticationCache::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -314,9 +314,9 @@ impl ::windows::core::RuntimeName for IHttpBaseProtocolFilter5 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IHttpBaseProtocolFilter5Vtbl {
-    pub const fn new<Impl: IHttpBaseProtocolFilter5Impl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IHttpBaseProtocolFilter5Vtbl {
-        unsafe extern "system" fn User<Impl: IHttpBaseProtocolFilter5Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpBaseProtocolFilter5Impl, const OFFSET: isize>() -> IHttpBaseProtocolFilter5Vtbl {
+        unsafe extern "system" fn User<Impl: IHttpBaseProtocolFilter5Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).User() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -326,7 +326,7 @@ impl IHttpBaseProtocolFilter5Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IHttpBaseProtocolFilter5>, base.5, User::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHttpBaseProtocolFilter5>, ::windows::core::GetTrustLevel, User::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -339,9 +339,9 @@ impl ::windows::core::RuntimeName for IHttpBaseProtocolFilterStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IHttpBaseProtocolFilterStaticsVtbl {
-    pub const fn new<Impl: IHttpBaseProtocolFilterStaticsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IHttpBaseProtocolFilterStaticsVtbl {
-        unsafe extern "system" fn CreateForUser<Impl: IHttpBaseProtocolFilterStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, user: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpBaseProtocolFilterStaticsImpl, const OFFSET: isize>() -> IHttpBaseProtocolFilterStaticsVtbl {
+        unsafe extern "system" fn CreateForUser<Impl: IHttpBaseProtocolFilterStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, user: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateForUser(&*(&user as *const <super::super::super::System::User as ::windows::core::Abi>::Abi as *const <super::super::super::System::User as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -351,7 +351,7 @@ impl IHttpBaseProtocolFilterStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IHttpBaseProtocolFilterStatics>, base.5, CreateForUser::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHttpBaseProtocolFilterStatics>, ::windows::core::GetTrustLevel, CreateForUser::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -367,9 +367,9 @@ impl ::windows::core::RuntimeName for IHttpCacheControl {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IHttpCacheControlVtbl {
-    pub const fn new<Impl: IHttpCacheControlImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IHttpCacheControlVtbl {
-        unsafe extern "system" fn ReadBehavior<Impl: IHttpCacheControlImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut HttpCacheReadBehavior) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpCacheControlImpl, const OFFSET: isize>() -> IHttpCacheControlVtbl {
+        unsafe extern "system" fn ReadBehavior<Impl: IHttpCacheControlImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut HttpCacheReadBehavior) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ReadBehavior() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -379,12 +379,12 @@ impl IHttpCacheControlVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetReadBehavior<Impl: IHttpCacheControlImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: HttpCacheReadBehavior) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn SetReadBehavior<Impl: IHttpCacheControlImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: HttpCacheReadBehavior) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetReadBehavior(value).into()
         }
-        unsafe extern "system" fn WriteBehavior<Impl: IHttpCacheControlImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut HttpCacheWriteBehavior) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn WriteBehavior<Impl: IHttpCacheControlImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut HttpCacheWriteBehavior) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).WriteBehavior() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -394,11 +394,11 @@ impl IHttpCacheControlVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetWriteBehavior<Impl: IHttpCacheControlImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: HttpCacheWriteBehavior) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn SetWriteBehavior<Impl: IHttpCacheControlImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: HttpCacheWriteBehavior) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetWriteBehavior(value).into()
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IHttpCacheControl>, base.5, ReadBehavior::<Impl, OFFSET>, SetReadBehavior::<Impl, OFFSET>, WriteBehavior::<Impl, OFFSET>, SetWriteBehavior::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHttpCacheControl>, ::windows::core::GetTrustLevel, ReadBehavior::<Impl, OFFSET>, SetReadBehavior::<Impl, OFFSET>, WriteBehavior::<Impl, OFFSET>, SetWriteBehavior::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "Foundation")]
@@ -411,9 +411,9 @@ impl ::windows::core::RuntimeName for IHttpFilter {
 }
 #[cfg(feature = "Foundation")]
 impl IHttpFilterVtbl {
-    pub const fn new<Impl: IHttpFilterImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IHttpFilterVtbl {
-        unsafe extern "system" fn SendRequestAsync<Impl: IHttpFilterImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, request: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpFilterImpl, const OFFSET: isize>() -> IHttpFilterVtbl {
+        unsafe extern "system" fn SendRequestAsync<Impl: IHttpFilterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, request: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SendRequestAsync(&*(&request as *const <super::HttpRequestMessage as ::windows::core::Abi>::Abi as *const <super::HttpRequestMessage as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -423,7 +423,7 @@ impl IHttpFilterVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IHttpFilter>, base.5, SendRequestAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHttpFilter>, ::windows::core::GetTrustLevel, SendRequestAsync::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -442,9 +442,9 @@ impl ::windows::core::RuntimeName for IHttpServerCustomValidationRequestedEventA
 }
 #[cfg(feature = "implement_exclusive")]
 impl IHttpServerCustomValidationRequestedEventArgsVtbl {
-    pub const fn new<Impl: IHttpServerCustomValidationRequestedEventArgsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IHttpServerCustomValidationRequestedEventArgsVtbl {
-        unsafe extern "system" fn RequestMessage<Impl: IHttpServerCustomValidationRequestedEventArgsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpServerCustomValidationRequestedEventArgsImpl, const OFFSET: isize>() -> IHttpServerCustomValidationRequestedEventArgsVtbl {
+        unsafe extern "system" fn RequestMessage<Impl: IHttpServerCustomValidationRequestedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RequestMessage() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -454,8 +454,8 @@ impl IHttpServerCustomValidationRequestedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ServerCertificate<Impl: IHttpServerCustomValidationRequestedEventArgsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn ServerCertificate<Impl: IHttpServerCustomValidationRequestedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ServerCertificate() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -465,8 +465,8 @@ impl IHttpServerCustomValidationRequestedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ServerCertificateErrorSeverity<Impl: IHttpServerCustomValidationRequestedEventArgsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Networking::Sockets::SocketSslErrorSeverity) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn ServerCertificateErrorSeverity<Impl: IHttpServerCustomValidationRequestedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Networking::Sockets::SocketSslErrorSeverity) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ServerCertificateErrorSeverity() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -476,8 +476,8 @@ impl IHttpServerCustomValidationRequestedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ServerCertificateErrors<Impl: IHttpServerCustomValidationRequestedEventArgsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn ServerCertificateErrors<Impl: IHttpServerCustomValidationRequestedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ServerCertificateErrors() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -487,8 +487,8 @@ impl IHttpServerCustomValidationRequestedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ServerIntermediateCertificates<Impl: IHttpServerCustomValidationRequestedEventArgsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn ServerIntermediateCertificates<Impl: IHttpServerCustomValidationRequestedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ServerIntermediateCertificates() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -498,12 +498,12 @@ impl IHttpServerCustomValidationRequestedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Reject<Impl: IHttpServerCustomValidationRequestedEventArgsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn Reject<Impl: IHttpServerCustomValidationRequestedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Reject().into()
         }
-        unsafe extern "system" fn GetDeferral<Impl: IHttpServerCustomValidationRequestedEventArgsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn GetDeferral<Impl: IHttpServerCustomValidationRequestedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDeferral() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -513,6 +513,20 @@ impl IHttpServerCustomValidationRequestedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IHttpServerCustomValidationRequestedEventArgs>, base.5, RequestMessage::<Impl, OFFSET>, ServerCertificate::<Impl, OFFSET>, ServerCertificateErrorSeverity::<Impl, OFFSET>, ServerCertificateErrors::<Impl, OFFSET>, ServerIntermediateCertificates::<Impl, OFFSET>, Reject::<Impl, OFFSET>, GetDeferral::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, OFFSET>,
+            ::windows::core::AddRef::<Identity, OFFSET>,
+            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<IHttpServerCustomValidationRequestedEventArgs>,
+            ::windows::core::GetTrustLevel,
+            RequestMessage::<Impl, OFFSET>,
+            ServerCertificate::<Impl, OFFSET>,
+            ServerCertificateErrorSeverity::<Impl, OFFSET>,
+            ServerCertificateErrors::<Impl, OFFSET>,
+            ServerIntermediateCertificates::<Impl, OFFSET>,
+            Reject::<Impl, OFFSET>,
+            GetDeferral::<Impl, OFFSET>,
+        )
     }
 }

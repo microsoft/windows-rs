@@ -51,9 +51,9 @@ impl ::windows::core::RuntimeName for IAccessoryManager {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IAccessoryManagerVtbl {
-    pub const fn new<Impl: IAccessoryManagerImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IAccessoryManagerVtbl {
-        unsafe extern "system" fn RegisterAccessoryApp<Impl: IAccessoryManagerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAccessoryManagerImpl, const OFFSET: isize>() -> IAccessoryManagerVtbl {
+        unsafe extern "system" fn RegisterAccessoryApp<Impl: IAccessoryManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RegisterAccessoryApp() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -63,8 +63,8 @@ impl IAccessoryManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetNextTriggerDetails<Impl: IAccessoryManagerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn GetNextTriggerDetails<Impl: IAccessoryManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetNextTriggerDetails() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -74,12 +74,12 @@ impl IAccessoryManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ProcessTriggerDetails<Impl: IAccessoryManagerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, pdetails: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn ProcessTriggerDetails<Impl: IAccessoryManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdetails: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ProcessTriggerDetails(&*(&pdetails as *const <IAccessoryNotificationTriggerDetails as ::windows::core::Abi>::Abi as *const <IAccessoryNotificationTriggerDetails as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn PhoneLineDetails<Impl: IAccessoryManagerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn PhoneLineDetails<Impl: IAccessoryManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PhoneLineDetails() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -89,8 +89,8 @@ impl IAccessoryManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetPhoneLineDetails<Impl: IAccessoryManagerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, phoneline: ::windows::core::GUID, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn GetPhoneLineDetails<Impl: IAccessoryManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, phoneline: ::windows::core::GUID, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetPhoneLineDetails(&*(&phoneline as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -100,64 +100,64 @@ impl IAccessoryManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AcceptPhoneCall<Impl: IAccessoryManagerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, phonecallid: u32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn AcceptPhoneCall<Impl: IAccessoryManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, phonecallid: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AcceptPhoneCall(phonecallid).into()
         }
-        unsafe extern "system" fn AcceptPhoneCallOnEndpoint<Impl: IAccessoryManagerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, phonecallid: u32, endpoint: PhoneCallAudioEndpoint) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn AcceptPhoneCallOnEndpoint<Impl: IAccessoryManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, phonecallid: u32, endpoint: PhoneCallAudioEndpoint) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AcceptPhoneCallOnEndpoint(phonecallid, endpoint).into()
         }
-        unsafe extern "system" fn AcceptPhoneCallWithVideo<Impl: IAccessoryManagerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, phonecallid: u32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn AcceptPhoneCallWithVideo<Impl: IAccessoryManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, phonecallid: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AcceptPhoneCallWithVideo(phonecallid).into()
         }
-        unsafe extern "system" fn AcceptPhoneCallWithVideoOnAudioEndpoint<Impl: IAccessoryManagerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, phonecallid: u32, endpoint: PhoneCallAudioEndpoint) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn AcceptPhoneCallWithVideoOnAudioEndpoint<Impl: IAccessoryManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, phonecallid: u32, endpoint: PhoneCallAudioEndpoint) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AcceptPhoneCallWithVideoOnAudioEndpoint(phonecallid, endpoint).into()
         }
-        unsafe extern "system" fn RejectPhoneCall<Impl: IAccessoryManagerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, phonecallid: u32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn RejectPhoneCall<Impl: IAccessoryManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, phonecallid: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RejectPhoneCall(phonecallid).into()
         }
-        unsafe extern "system" fn RejectPhoneCallWithText<Impl: IAccessoryManagerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, phonecallid: u32, textresponseid: u32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn RejectPhoneCallWithText<Impl: IAccessoryManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, phonecallid: u32, textresponseid: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RejectPhoneCallWithText(phonecallid, textresponseid).into()
         }
-        unsafe extern "system" fn MakePhoneCall<Impl: IAccessoryManagerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, phoneline: ::windows::core::GUID, phonenumber: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn MakePhoneCall<Impl: IAccessoryManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, phoneline: ::windows::core::GUID, phonenumber: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).MakePhoneCall(&*(&phoneline as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), &*(&phonenumber as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn MakePhoneCallOnAudioEndpoint<Impl: IAccessoryManagerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, phoneline: ::windows::core::GUID, phonenumber: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, endpoint: PhoneCallAudioEndpoint) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn MakePhoneCallOnAudioEndpoint<Impl: IAccessoryManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, phoneline: ::windows::core::GUID, phonenumber: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, endpoint: PhoneCallAudioEndpoint) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).MakePhoneCallOnAudioEndpoint(&*(&phoneline as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), &*(&phonenumber as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), endpoint).into()
         }
-        unsafe extern "system" fn MakePhoneCallWithVideo<Impl: IAccessoryManagerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, phoneline: ::windows::core::GUID, phonenumber: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn MakePhoneCallWithVideo<Impl: IAccessoryManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, phoneline: ::windows::core::GUID, phonenumber: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).MakePhoneCallWithVideo(&*(&phoneline as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), &*(&phonenumber as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn MakePhoneCallWithVideoOnAudioEndpoint<Impl: IAccessoryManagerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, phoneline: ::windows::core::GUID, phonenumber: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, endpoint: PhoneCallAudioEndpoint) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn MakePhoneCallWithVideoOnAudioEndpoint<Impl: IAccessoryManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, phoneline: ::windows::core::GUID, phonenumber: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, endpoint: PhoneCallAudioEndpoint) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).MakePhoneCallWithVideoOnAudioEndpoint(&*(&phoneline as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), &*(&phonenumber as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), endpoint).into()
         }
-        unsafe extern "system" fn SwapPhoneCalls<Impl: IAccessoryManagerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, phonecallidtohold: u32, phonecallidonhold: u32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn SwapPhoneCalls<Impl: IAccessoryManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, phonecallidtohold: u32, phonecallidonhold: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SwapPhoneCalls(phonecallidtohold, phonecallidonhold).into()
         }
-        unsafe extern "system" fn HoldPhoneCall<Impl: IAccessoryManagerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, phonecallid: u32, holdcall: bool) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn HoldPhoneCall<Impl: IAccessoryManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, phonecallid: u32, holdcall: bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).HoldPhoneCall(phonecallid, holdcall).into()
         }
-        unsafe extern "system" fn EndPhoneCall<Impl: IAccessoryManagerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, phonecallid: u32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn EndPhoneCall<Impl: IAccessoryManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, phonecallid: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).EndPhoneCall(phonecallid).into()
         }
-        unsafe extern "system" fn SetPhoneMute<Impl: IAccessoryManagerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn SetPhoneMute<Impl: IAccessoryManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetPhoneMute(value).into()
         }
-        unsafe extern "system" fn PhoneMute<Impl: IAccessoryManagerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn PhoneMute<Impl: IAccessoryManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PhoneMute() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -167,12 +167,12 @@ impl IAccessoryManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetPhoneCallAudioEndpoint<Impl: IAccessoryManagerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: PhoneCallAudioEndpoint) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn SetPhoneCallAudioEndpoint<Impl: IAccessoryManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: PhoneCallAudioEndpoint) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetPhoneCallAudioEndpoint(value).into()
         }
-        unsafe extern "system" fn PhoneCallAudioEndpoint<Impl: IAccessoryManagerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut PhoneCallAudioEndpoint) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn PhoneCallAudioEndpoint<Impl: IAccessoryManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut PhoneCallAudioEndpoint) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PhoneCallAudioEndpoint() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -182,32 +182,32 @@ impl IAccessoryManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SnoozeAlarm<Impl: IAccessoryManagerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, alarmid: ::windows::core::GUID) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn SnoozeAlarm<Impl: IAccessoryManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, alarmid: ::windows::core::GUID) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SnoozeAlarm(&*(&alarmid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn SnoozeAlarmForSpecifiedTime<Impl: IAccessoryManagerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, alarmid: ::windows::core::GUID, timespan: super::super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn SnoozeAlarmForSpecifiedTime<Impl: IAccessoryManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, alarmid: ::windows::core::GUID, timespan: super::super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SnoozeAlarmForSpecifiedTime(&*(&alarmid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), &*(&timespan as *const <super::super::super::Foundation::TimeSpan as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::TimeSpan as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn DismissAlarm<Impl: IAccessoryManagerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, alarmid: ::windows::core::GUID) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn DismissAlarm<Impl: IAccessoryManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, alarmid: ::windows::core::GUID) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).DismissAlarm(&*(&alarmid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn SnoozeReminder<Impl: IAccessoryManagerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, reminderid: ::windows::core::GUID) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn SnoozeReminder<Impl: IAccessoryManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, reminderid: ::windows::core::GUID) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SnoozeReminder(&*(&reminderid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn SnoozeReminderForSpecifiedTime<Impl: IAccessoryManagerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, reminderid: ::windows::core::GUID, timespan: super::super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn SnoozeReminderForSpecifiedTime<Impl: IAccessoryManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, reminderid: ::windows::core::GUID, timespan: super::super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SnoozeReminderForSpecifiedTime(&*(&reminderid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), &*(&timespan as *const <super::super::super::Foundation::TimeSpan as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::TimeSpan as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn DismissReminder<Impl: IAccessoryManagerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, reminderid: ::windows::core::GUID) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn DismissReminder<Impl: IAccessoryManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, reminderid: ::windows::core::GUID) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).DismissReminder(&*(&reminderid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn GetMediaMetadata<Impl: IAccessoryManagerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn GetMediaMetadata<Impl: IAccessoryManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetMediaMetadata() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -217,8 +217,8 @@ impl IAccessoryManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn MediaPlaybackCapabilities<Impl: IAccessoryManagerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut PlaybackCapability) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn MediaPlaybackCapabilities<Impl: IAccessoryManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut PlaybackCapability) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MediaPlaybackCapabilities() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -228,8 +228,8 @@ impl IAccessoryManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn MediaPlaybackStatus<Impl: IAccessoryManagerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut PlaybackStatus) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn MediaPlaybackStatus<Impl: IAccessoryManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut PlaybackStatus) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MediaPlaybackStatus() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -239,12 +239,12 @@ impl IAccessoryManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PerformMediaPlaybackCommand<Impl: IAccessoryManagerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, command: PlaybackCommand) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn PerformMediaPlaybackCommand<Impl: IAccessoryManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, command: PlaybackCommand) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).PerformMediaPlaybackCommand(command).into()
         }
-        unsafe extern "system" fn DoNotDisturbEnabled<Impl: IAccessoryManagerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn DoNotDisturbEnabled<Impl: IAccessoryManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DoNotDisturbEnabled() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -254,8 +254,8 @@ impl IAccessoryManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DrivingModeEnabled<Impl: IAccessoryManagerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn DrivingModeEnabled<Impl: IAccessoryManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DrivingModeEnabled() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -265,8 +265,8 @@ impl IAccessoryManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn BatterySaverState<Impl: IAccessoryManagerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn BatterySaverState<Impl: IAccessoryManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BatterySaverState() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -276,8 +276,8 @@ impl IAccessoryManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetApps<Impl: IAccessoryManagerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn GetApps<Impl: IAccessoryManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetApps() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -287,16 +287,16 @@ impl IAccessoryManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn EnableNotificationsForApplication<Impl: IAccessoryManagerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, appid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn EnableNotificationsForApplication<Impl: IAccessoryManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, appid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).EnableNotificationsForApplication(&*(&appid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn DisableNotificationsForApplication<Impl: IAccessoryManagerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, appid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn DisableNotificationsForApplication<Impl: IAccessoryManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, appid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).DisableNotificationsForApplication(&*(&appid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn IsNotificationEnabledForApplication<Impl: IAccessoryManagerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, appid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut bool) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn IsNotificationEnabledForApplication<Impl: IAccessoryManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, appid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsNotificationEnabledForApplication(&*(&appid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -306,8 +306,8 @@ impl IAccessoryManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetEnabledAccessoryNotificationTypes<Impl: IAccessoryManagerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn GetEnabledAccessoryNotificationTypes<Impl: IAccessoryManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetEnabledAccessoryNotificationTypes() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -317,16 +317,16 @@ impl IAccessoryManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn EnableAccessoryNotificationTypes<Impl: IAccessoryManagerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, accessorynotificationtypes: i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn EnableAccessoryNotificationTypes<Impl: IAccessoryManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, accessorynotificationtypes: i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).EnableAccessoryNotificationTypes(accessorynotificationtypes).into()
         }
-        unsafe extern "system" fn DisableAllAccessoryNotificationTypes<Impl: IAccessoryManagerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn DisableAllAccessoryNotificationTypes<Impl: IAccessoryManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).DisableAllAccessoryNotificationTypes().into()
         }
-        unsafe extern "system" fn GetUserConsent<Impl: IAccessoryManagerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn GetUserConsent<Impl: IAccessoryManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetUserConsent() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -336,8 +336,8 @@ impl IAccessoryManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetAppIcon<Impl: IAccessoryManagerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, appid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn GetAppIcon<Impl: IAccessoryManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, appid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetAppIcon(&*(&appid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -348,12 +348,12 @@ impl IAccessoryManagerVtbl {
             }
         }
         Self(
-            base.0,
-            base.1,
-            base.2,
-            base.3,
+            ::windows::core::QueryInterface::<Identity, OFFSET>,
+            ::windows::core::AddRef::<Identity, OFFSET>,
+            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IAccessoryManager>,
-            base.5,
+            ::windows::core::GetTrustLevel,
             RegisterAccessoryApp::<Impl, OFFSET>,
             GetNextTriggerDetails::<Impl, OFFSET>,
             ProcessTriggerDetails::<Impl, OFFSET>,
@@ -425,13 +425,13 @@ impl ::windows::core::RuntimeName for IAccessoryManager2 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IAccessoryManager2Vtbl {
-    pub const fn new<Impl: IAccessoryManager2Impl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IAccessoryManager2Vtbl {
-        unsafe extern "system" fn RingDevice<Impl: IAccessoryManager2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAccessoryManager2Impl, const OFFSET: isize>() -> IAccessoryManager2Vtbl {
+        unsafe extern "system" fn RingDevice<Impl: IAccessoryManager2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RingDevice().into()
         }
-        unsafe extern "system" fn SpeedDialList<Impl: IAccessoryManager2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn SpeedDialList<Impl: IAccessoryManager2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SpeedDialList() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -441,12 +441,12 @@ impl IAccessoryManager2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ClearToast<Impl: IAccessoryManager2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, instanceid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn ClearToast<Impl: IAccessoryManager2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, instanceid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ClearToast(&*(&instanceid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn IsPhonePinLocked<Impl: IAccessoryManager2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn IsPhonePinLocked<Impl: IAccessoryManager2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsPhonePinLocked() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -456,24 +456,24 @@ impl IAccessoryManager2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IncreaseVolume<Impl: IAccessoryManager2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, step: i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn IncreaseVolume<Impl: IAccessoryManager2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, step: i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).IncreaseVolume(step).into()
         }
-        unsafe extern "system" fn DecreaseVolume<Impl: IAccessoryManager2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, step: i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn DecreaseVolume<Impl: IAccessoryManager2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, step: i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).DecreaseVolume(step).into()
         }
-        unsafe extern "system" fn SetMute<Impl: IAccessoryManager2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, mute: bool) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn SetMute<Impl: IAccessoryManager2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, mute: bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetMute(mute).into()
         }
-        unsafe extern "system" fn SetRingerVibrate<Impl: IAccessoryManager2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, ringer: bool, vibrate: bool) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn SetRingerVibrate<Impl: IAccessoryManager2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ringer: bool, vibrate: bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetRingerVibrate(ringer, vibrate).into()
         }
-        unsafe extern "system" fn VolumeInfo<Impl: IAccessoryManager2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn VolumeInfo<Impl: IAccessoryManager2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).VolumeInfo() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -483,8 +483,8 @@ impl IAccessoryManager2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetAllEmailAccounts<Impl: IAccessoryManager2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn GetAllEmailAccounts<Impl: IAccessoryManager2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetAllEmailAccounts() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -494,8 +494,8 @@ impl IAccessoryManager2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetFolders<Impl: IAccessoryManager2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, emailaccount: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn GetFolders<Impl: IAccessoryManager2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, emailaccount: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetFolders(&*(&emailaccount as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -505,31 +505,31 @@ impl IAccessoryManager2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn EnableEmailNotificationEmailAccount<Impl: IAccessoryManager2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, emailaccount: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn EnableEmailNotificationEmailAccount<Impl: IAccessoryManager2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, emailaccount: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).EnableEmailNotificationEmailAccount(&*(&emailaccount as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn DisableEmailNotificationEmailAccount<Impl: IAccessoryManager2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, emailaccount: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn DisableEmailNotificationEmailAccount<Impl: IAccessoryManager2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, emailaccount: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).DisableEmailNotificationEmailAccount(&*(&emailaccount as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn EnableEmailNotificationFolderFilter<Impl: IAccessoryManager2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, emailaccount: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, folders: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn EnableEmailNotificationFolderFilter<Impl: IAccessoryManager2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, emailaccount: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, folders: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this)
                 .EnableEmailNotificationFolderFilter(&*(&emailaccount as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&folders as *const <super::super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING> as ::windows::core::DefaultType>::DefaultType))
                 .into()
         }
-        unsafe extern "system" fn UpdateEmailReadStatus<Impl: IAccessoryManager2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, messageentryid: ::windows::core::RawPtr, isread: bool) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn UpdateEmailReadStatus<Impl: IAccessoryManager2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, messageentryid: ::windows::core::RawPtr, isread: bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).UpdateEmailReadStatus(&*(&messageentryid as *const <BinaryId as ::windows::core::Abi>::Abi as *const <BinaryId as ::windows::core::DefaultType>::DefaultType), isread).into()
         }
         Self(
-            base.0,
-            base.1,
-            base.2,
-            base.3,
+            ::windows::core::QueryInterface::<Identity, OFFSET>,
+            ::windows::core::AddRef::<Identity, OFFSET>,
+            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IAccessoryManager2>,
-            base.5,
+            ::windows::core::GetTrustLevel,
             RingDevice::<Impl, OFFSET>,
             SpeedDialList::<Impl, OFFSET>,
             ClearToast::<Impl, OFFSET>,
@@ -561,24 +561,24 @@ impl ::windows::core::RuntimeName for IAccessoryManager3 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IAccessoryManager3Vtbl {
-    pub const fn new<Impl: IAccessoryManager3Impl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IAccessoryManager3Vtbl {
-        unsafe extern "system" fn SnoozeAlarmByInstanceId<Impl: IAccessoryManager3Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, instanceid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAccessoryManager3Impl, const OFFSET: isize>() -> IAccessoryManager3Vtbl {
+        unsafe extern "system" fn SnoozeAlarmByInstanceId<Impl: IAccessoryManager3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, instanceid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SnoozeAlarmByInstanceId(&*(&instanceid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn DismissAlarmByInstanceId<Impl: IAccessoryManager3Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, instanceid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn DismissAlarmByInstanceId<Impl: IAccessoryManager3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, instanceid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).DismissAlarmByInstanceId(&*(&instanceid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn SnoozeReminderByInstanceId<Impl: IAccessoryManager3Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, instanceid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn SnoozeReminderByInstanceId<Impl: IAccessoryManager3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, instanceid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SnoozeReminderByInstanceId(&*(&instanceid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn DismissReminderByInstanceId<Impl: IAccessoryManager3Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, instanceid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn DismissReminderByInstanceId<Impl: IAccessoryManager3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, instanceid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).DismissReminderByInstanceId(&*(&instanceid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IAccessoryManager3>, base.5, SnoozeAlarmByInstanceId::<Impl, OFFSET>, DismissAlarmByInstanceId::<Impl, OFFSET>, SnoozeReminderByInstanceId::<Impl, OFFSET>, DismissReminderByInstanceId::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAccessoryManager3>, ::windows::core::GetTrustLevel, SnoozeAlarmByInstanceId::<Impl, OFFSET>, DismissAlarmByInstanceId::<Impl, OFFSET>, SnoozeReminderByInstanceId::<Impl, OFFSET>, DismissReminderByInstanceId::<Impl, OFFSET>)
     }
 }
 pub trait IAccessoryNotificationTriggerDetailsImpl: Sized {
@@ -593,9 +593,9 @@ impl ::windows::core::RuntimeName for IAccessoryNotificationTriggerDetails {
     const NAME: &'static str = "Windows.Phone.Notification.Management.IAccessoryNotificationTriggerDetails";
 }
 impl IAccessoryNotificationTriggerDetailsVtbl {
-    pub const fn new<Impl: IAccessoryNotificationTriggerDetailsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IAccessoryNotificationTriggerDetailsVtbl {
-        unsafe extern "system" fn TimeCreated<Impl: IAccessoryNotificationTriggerDetailsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::DateTime) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAccessoryNotificationTriggerDetailsImpl, const OFFSET: isize>() -> IAccessoryNotificationTriggerDetailsVtbl {
+        unsafe extern "system" fn TimeCreated<Impl: IAccessoryNotificationTriggerDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::DateTime) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TimeCreated() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -605,8 +605,8 @@ impl IAccessoryNotificationTriggerDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AppDisplayName<Impl: IAccessoryNotificationTriggerDetailsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn AppDisplayName<Impl: IAccessoryNotificationTriggerDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AppDisplayName() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -616,8 +616,8 @@ impl IAccessoryNotificationTriggerDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AppId<Impl: IAccessoryNotificationTriggerDetailsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn AppId<Impl: IAccessoryNotificationTriggerDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AppId() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -627,8 +627,8 @@ impl IAccessoryNotificationTriggerDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AccessoryNotificationType<Impl: IAccessoryNotificationTriggerDetailsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut AccessoryNotificationType) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn AccessoryNotificationType<Impl: IAccessoryNotificationTriggerDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut AccessoryNotificationType) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AccessoryNotificationType() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -638,8 +638,8 @@ impl IAccessoryNotificationTriggerDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn StartedProcessing<Impl: IAccessoryNotificationTriggerDetailsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn StartedProcessing<Impl: IAccessoryNotificationTriggerDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).StartedProcessing() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -649,11 +649,11 @@ impl IAccessoryNotificationTriggerDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetStartedProcessing<Impl: IAccessoryNotificationTriggerDetailsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn SetStartedProcessing<Impl: IAccessoryNotificationTriggerDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetStartedProcessing(value).into()
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IAccessoryNotificationTriggerDetails>, base.5, TimeCreated::<Impl, OFFSET>, AppDisplayName::<Impl, OFFSET>, AppId::<Impl, OFFSET>, AccessoryNotificationType::<Impl, OFFSET>, StartedProcessing::<Impl, OFFSET>, SetStartedProcessing::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAccessoryNotificationTriggerDetails>, ::windows::core::GetTrustLevel, TimeCreated::<Impl, OFFSET>, AppDisplayName::<Impl, OFFSET>, AppId::<Impl, OFFSET>, AccessoryNotificationType::<Impl, OFFSET>, StartedProcessing::<Impl, OFFSET>, SetStartedProcessing::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -669,9 +669,9 @@ impl ::windows::core::RuntimeName for IAlarmNotificationTriggerDetails {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IAlarmNotificationTriggerDetailsVtbl {
-    pub const fn new<Impl: IAlarmNotificationTriggerDetailsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IAlarmNotificationTriggerDetailsVtbl {
-        unsafe extern "system" fn AlarmId<Impl: IAlarmNotificationTriggerDetailsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAlarmNotificationTriggerDetailsImpl, const OFFSET: isize>() -> IAlarmNotificationTriggerDetailsVtbl {
+        unsafe extern "system" fn AlarmId<Impl: IAlarmNotificationTriggerDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AlarmId() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -681,8 +681,8 @@ impl IAlarmNotificationTriggerDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Title<Impl: IAlarmNotificationTriggerDetailsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn Title<Impl: IAlarmNotificationTriggerDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Title() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -692,8 +692,8 @@ impl IAlarmNotificationTriggerDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Timestamp<Impl: IAlarmNotificationTriggerDetailsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::DateTime) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn Timestamp<Impl: IAlarmNotificationTriggerDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::DateTime) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Timestamp() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -703,8 +703,8 @@ impl IAlarmNotificationTriggerDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ReminderState<Impl: IAlarmNotificationTriggerDetailsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ReminderState) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn ReminderState<Impl: IAlarmNotificationTriggerDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ReminderState) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ReminderState() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -714,7 +714,7 @@ impl IAlarmNotificationTriggerDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IAlarmNotificationTriggerDetails>, base.5, AlarmId::<Impl, OFFSET>, Title::<Impl, OFFSET>, Timestamp::<Impl, OFFSET>, ReminderState::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAlarmNotificationTriggerDetails>, ::windows::core::GetTrustLevel, AlarmId::<Impl, OFFSET>, Title::<Impl, OFFSET>, Timestamp::<Impl, OFFSET>, ReminderState::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -727,9 +727,9 @@ impl ::windows::core::RuntimeName for IAlarmNotificationTriggerDetails2 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IAlarmNotificationTriggerDetails2Vtbl {
-    pub const fn new<Impl: IAlarmNotificationTriggerDetails2Impl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IAlarmNotificationTriggerDetails2Vtbl {
-        unsafe extern "system" fn InstanceId<Impl: IAlarmNotificationTriggerDetails2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAlarmNotificationTriggerDetails2Impl, const OFFSET: isize>() -> IAlarmNotificationTriggerDetails2Vtbl {
+        unsafe extern "system" fn InstanceId<Impl: IAlarmNotificationTriggerDetails2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).InstanceId() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -739,7 +739,7 @@ impl IAlarmNotificationTriggerDetails2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IAlarmNotificationTriggerDetails2>, base.5, InstanceId::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAlarmNotificationTriggerDetails2>, ::windows::core::GetTrustLevel, InstanceId::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -753,9 +753,9 @@ impl ::windows::core::RuntimeName for IAppNotificationInfo {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IAppNotificationInfoVtbl {
-    pub const fn new<Impl: IAppNotificationInfoImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IAppNotificationInfoVtbl {
-        unsafe extern "system" fn Id<Impl: IAppNotificationInfoImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppNotificationInfoImpl, const OFFSET: isize>() -> IAppNotificationInfoVtbl {
+        unsafe extern "system" fn Id<Impl: IAppNotificationInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Id() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -765,8 +765,8 @@ impl IAppNotificationInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Name<Impl: IAppNotificationInfoImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn Name<Impl: IAppNotificationInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Name() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -776,7 +776,7 @@ impl IAppNotificationInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IAppNotificationInfo>, base.5, Id::<Impl, OFFSET>, Name::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAppNotificationInfo>, ::windows::core::GetTrustLevel, Id::<Impl, OFFSET>, Name::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -790,9 +790,9 @@ impl ::windows::core::RuntimeName for IBinaryId {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IBinaryIdVtbl {
-    pub const fn new<Impl: IBinaryIdImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IBinaryIdVtbl {
-        unsafe extern "system" fn Id<Impl: IBinaryIdImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBinaryIdImpl, const OFFSET: isize>() -> IBinaryIdVtbl {
+        unsafe extern "system" fn Id<Impl: IBinaryIdImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Id() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -802,8 +802,8 @@ impl IBinaryIdVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Length<Impl: IBinaryIdImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn Length<Impl: IBinaryIdImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Length() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -813,7 +813,7 @@ impl IBinaryIdVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IBinaryId>, base.5, Id::<Impl, OFFSET>, Length::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBinaryId>, ::windows::core::GetTrustLevel, Id::<Impl, OFFSET>, Length::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -827,9 +827,9 @@ impl ::windows::core::RuntimeName for ICalendarChangedNotificationTriggerDetails
 }
 #[cfg(feature = "implement_exclusive")]
 impl ICalendarChangedNotificationTriggerDetailsVtbl {
-    pub const fn new<Impl: ICalendarChangedNotificationTriggerDetailsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> ICalendarChangedNotificationTriggerDetailsVtbl {
-        unsafe extern "system" fn EventType<Impl: ICalendarChangedNotificationTriggerDetailsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut CalendarChangedEvent) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICalendarChangedNotificationTriggerDetailsImpl, const OFFSET: isize>() -> ICalendarChangedNotificationTriggerDetailsVtbl {
+        unsafe extern "system" fn EventType<Impl: ICalendarChangedNotificationTriggerDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut CalendarChangedEvent) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EventType() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -839,8 +839,8 @@ impl ICalendarChangedNotificationTriggerDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ItemId<Impl: ICalendarChangedNotificationTriggerDetailsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn ItemId<Impl: ICalendarChangedNotificationTriggerDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ItemId() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -850,7 +850,7 @@ impl ICalendarChangedNotificationTriggerDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<ICalendarChangedNotificationTriggerDetails>, base.5, EventType::<Impl, OFFSET>, ItemId::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICalendarChangedNotificationTriggerDetails>, ::windows::core::GetTrustLevel, EventType::<Impl, OFFSET>, ItemId::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -872,9 +872,9 @@ impl ::windows::core::RuntimeName for ICortanaTileNotificationTriggerDetails {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ICortanaTileNotificationTriggerDetailsVtbl {
-    pub const fn new<Impl: ICortanaTileNotificationTriggerDetailsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> ICortanaTileNotificationTriggerDetailsVtbl {
-        unsafe extern "system" fn TileId<Impl: ICortanaTileNotificationTriggerDetailsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICortanaTileNotificationTriggerDetailsImpl, const OFFSET: isize>() -> ICortanaTileNotificationTriggerDetailsVtbl {
+        unsafe extern "system" fn TileId<Impl: ICortanaTileNotificationTriggerDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TileId() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -884,8 +884,8 @@ impl ICortanaTileNotificationTriggerDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Content<Impl: ICortanaTileNotificationTriggerDetailsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn Content<Impl: ICortanaTileNotificationTriggerDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Content() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -895,8 +895,8 @@ impl ICortanaTileNotificationTriggerDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn LargeContent1<Impl: ICortanaTileNotificationTriggerDetailsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn LargeContent1<Impl: ICortanaTileNotificationTriggerDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).LargeContent1() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -906,8 +906,8 @@ impl ICortanaTileNotificationTriggerDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn LargeContent2<Impl: ICortanaTileNotificationTriggerDetailsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn LargeContent2<Impl: ICortanaTileNotificationTriggerDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).LargeContent2() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -917,8 +917,8 @@ impl ICortanaTileNotificationTriggerDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn EmphasizedText<Impl: ICortanaTileNotificationTriggerDetailsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn EmphasizedText<Impl: ICortanaTileNotificationTriggerDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EmphasizedText() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -928,8 +928,8 @@ impl ICortanaTileNotificationTriggerDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn NonWrappedSmallContent1<Impl: ICortanaTileNotificationTriggerDetailsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn NonWrappedSmallContent1<Impl: ICortanaTileNotificationTriggerDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).NonWrappedSmallContent1() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -939,8 +939,8 @@ impl ICortanaTileNotificationTriggerDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn NonWrappedSmallContent2<Impl: ICortanaTileNotificationTriggerDetailsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn NonWrappedSmallContent2<Impl: ICortanaTileNotificationTriggerDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).NonWrappedSmallContent2() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -950,8 +950,8 @@ impl ICortanaTileNotificationTriggerDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn NonWrappedSmallContent3<Impl: ICortanaTileNotificationTriggerDetailsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn NonWrappedSmallContent3<Impl: ICortanaTileNotificationTriggerDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).NonWrappedSmallContent3() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -961,8 +961,8 @@ impl ICortanaTileNotificationTriggerDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn NonWrappedSmallContent4<Impl: ICortanaTileNotificationTriggerDetailsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn NonWrappedSmallContent4<Impl: ICortanaTileNotificationTriggerDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).NonWrappedSmallContent4() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -972,8 +972,8 @@ impl ICortanaTileNotificationTriggerDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Source<Impl: ICortanaTileNotificationTriggerDetailsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn Source<Impl: ICortanaTileNotificationTriggerDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Source() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -983,7 +983,24 @@ impl ICortanaTileNotificationTriggerDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<ICortanaTileNotificationTriggerDetails>, base.5, TileId::<Impl, OFFSET>, Content::<Impl, OFFSET>, LargeContent1::<Impl, OFFSET>, LargeContent2::<Impl, OFFSET>, EmphasizedText::<Impl, OFFSET>, NonWrappedSmallContent1::<Impl, OFFSET>, NonWrappedSmallContent2::<Impl, OFFSET>, NonWrappedSmallContent3::<Impl, OFFSET>, NonWrappedSmallContent4::<Impl, OFFSET>, Source::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, OFFSET>,
+            ::windows::core::AddRef::<Identity, OFFSET>,
+            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<ICortanaTileNotificationTriggerDetails>,
+            ::windows::core::GetTrustLevel,
+            TileId::<Impl, OFFSET>,
+            Content::<Impl, OFFSET>,
+            LargeContent1::<Impl, OFFSET>,
+            LargeContent2::<Impl, OFFSET>,
+            EmphasizedText::<Impl, OFFSET>,
+            NonWrappedSmallContent1::<Impl, OFFSET>,
+            NonWrappedSmallContent2::<Impl, OFFSET>,
+            NonWrappedSmallContent3::<Impl, OFFSET>,
+            NonWrappedSmallContent4::<Impl, OFFSET>,
+            Source::<Impl, OFFSET>,
+        )
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -997,9 +1014,9 @@ impl ::windows::core::RuntimeName for IEmailAccountInfo {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IEmailAccountInfoVtbl {
-    pub const fn new<Impl: IEmailAccountInfoImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IEmailAccountInfoVtbl {
-        unsafe extern "system" fn DisplayName<Impl: IEmailAccountInfoImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmailAccountInfoImpl, const OFFSET: isize>() -> IEmailAccountInfoVtbl {
+        unsafe extern "system" fn DisplayName<Impl: IEmailAccountInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DisplayName() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1009,8 +1026,8 @@ impl IEmailAccountInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsNotificationEnabled<Impl: IEmailAccountInfoImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn IsNotificationEnabled<Impl: IEmailAccountInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsNotificationEnabled() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1020,7 +1037,7 @@ impl IEmailAccountInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IEmailAccountInfo>, base.5, DisplayName::<Impl, OFFSET>, IsNotificationEnabled::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEmailAccountInfo>, ::windows::core::GetTrustLevel, DisplayName::<Impl, OFFSET>, IsNotificationEnabled::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1034,9 +1051,9 @@ impl ::windows::core::RuntimeName for IEmailFolderInfo {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IEmailFolderInfoVtbl {
-    pub const fn new<Impl: IEmailFolderInfoImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IEmailFolderInfoVtbl {
-        unsafe extern "system" fn DisplayName<Impl: IEmailFolderInfoImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmailFolderInfoImpl, const OFFSET: isize>() -> IEmailFolderInfoVtbl {
+        unsafe extern "system" fn DisplayName<Impl: IEmailFolderInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DisplayName() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1046,8 +1063,8 @@ impl IEmailFolderInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsNotificationEnabled<Impl: IEmailFolderInfoImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn IsNotificationEnabled<Impl: IEmailFolderInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsNotificationEnabled() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1057,7 +1074,7 @@ impl IEmailFolderInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IEmailFolderInfo>, base.5, DisplayName::<Impl, OFFSET>, IsNotificationEnabled::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEmailFolderInfo>, ::windows::core::GetTrustLevel, DisplayName::<Impl, OFFSET>, IsNotificationEnabled::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1075,9 +1092,9 @@ impl ::windows::core::RuntimeName for IEmailNotificationTriggerDetails {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IEmailNotificationTriggerDetailsVtbl {
-    pub const fn new<Impl: IEmailNotificationTriggerDetailsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IEmailNotificationTriggerDetailsVtbl {
-        unsafe extern "system" fn AccountName<Impl: IEmailNotificationTriggerDetailsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmailNotificationTriggerDetailsImpl, const OFFSET: isize>() -> IEmailNotificationTriggerDetailsVtbl {
+        unsafe extern "system" fn AccountName<Impl: IEmailNotificationTriggerDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AccountName() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1087,8 +1104,8 @@ impl IEmailNotificationTriggerDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ParentFolderName<Impl: IEmailNotificationTriggerDetailsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn ParentFolderName<Impl: IEmailNotificationTriggerDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ParentFolderName() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1098,8 +1115,8 @@ impl IEmailNotificationTriggerDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SenderName<Impl: IEmailNotificationTriggerDetailsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn SenderName<Impl: IEmailNotificationTriggerDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SenderName() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1109,8 +1126,8 @@ impl IEmailNotificationTriggerDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SenderAddress<Impl: IEmailNotificationTriggerDetailsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn SenderAddress<Impl: IEmailNotificationTriggerDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SenderAddress() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1120,8 +1137,8 @@ impl IEmailNotificationTriggerDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn EmailMessage<Impl: IEmailNotificationTriggerDetailsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn EmailMessage<Impl: IEmailNotificationTriggerDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EmailMessage() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1131,8 +1148,8 @@ impl IEmailNotificationTriggerDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Timestamp<Impl: IEmailNotificationTriggerDetailsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::DateTime) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn Timestamp<Impl: IEmailNotificationTriggerDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::DateTime) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Timestamp() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1142,7 +1159,7 @@ impl IEmailNotificationTriggerDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IEmailNotificationTriggerDetails>, base.5, AccountName::<Impl, OFFSET>, ParentFolderName::<Impl, OFFSET>, SenderName::<Impl, OFFSET>, SenderAddress::<Impl, OFFSET>, EmailMessage::<Impl, OFFSET>, Timestamp::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEmailNotificationTriggerDetails>, ::windows::core::GetTrustLevel, AccountName::<Impl, OFFSET>, ParentFolderName::<Impl, OFFSET>, SenderName::<Impl, OFFSET>, SenderAddress::<Impl, OFFSET>, EmailMessage::<Impl, OFFSET>, Timestamp::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1155,9 +1172,9 @@ impl ::windows::core::RuntimeName for IEmailNotificationTriggerDetails2 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IEmailNotificationTriggerDetails2Vtbl {
-    pub const fn new<Impl: IEmailNotificationTriggerDetails2Impl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IEmailNotificationTriggerDetails2Vtbl {
-        unsafe extern "system" fn MessageEntryId<Impl: IEmailNotificationTriggerDetails2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmailNotificationTriggerDetails2Impl, const OFFSET: isize>() -> IEmailNotificationTriggerDetails2Vtbl {
+        unsafe extern "system" fn MessageEntryId<Impl: IEmailNotificationTriggerDetails2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MessageEntryId() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1167,7 +1184,7 @@ impl IEmailNotificationTriggerDetails2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IEmailNotificationTriggerDetails2>, base.5, MessageEntryId::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEmailNotificationTriggerDetails2>, ::windows::core::GetTrustLevel, MessageEntryId::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1183,9 +1200,9 @@ impl ::windows::core::RuntimeName for IEmailReadNotificationTriggerDetails {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IEmailReadNotificationTriggerDetailsVtbl {
-    pub const fn new<Impl: IEmailReadNotificationTriggerDetailsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IEmailReadNotificationTriggerDetailsVtbl {
-        unsafe extern "system" fn AccountName<Impl: IEmailReadNotificationTriggerDetailsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmailReadNotificationTriggerDetailsImpl, const OFFSET: isize>() -> IEmailReadNotificationTriggerDetailsVtbl {
+        unsafe extern "system" fn AccountName<Impl: IEmailReadNotificationTriggerDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AccountName() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1195,8 +1212,8 @@ impl IEmailReadNotificationTriggerDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ParentFolderName<Impl: IEmailReadNotificationTriggerDetailsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn ParentFolderName<Impl: IEmailReadNotificationTriggerDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ParentFolderName() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1206,8 +1223,8 @@ impl IEmailReadNotificationTriggerDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn MessageEntryId<Impl: IEmailReadNotificationTriggerDetailsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn MessageEntryId<Impl: IEmailReadNotificationTriggerDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MessageEntryId() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1217,8 +1234,8 @@ impl IEmailReadNotificationTriggerDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsRead<Impl: IEmailReadNotificationTriggerDetailsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn IsRead<Impl: IEmailReadNotificationTriggerDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsRead() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1228,7 +1245,7 @@ impl IEmailReadNotificationTriggerDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IEmailReadNotificationTriggerDetails>, base.5, AccountName::<Impl, OFFSET>, ParentFolderName::<Impl, OFFSET>, MessageEntryId::<Impl, OFFSET>, IsRead::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEmailReadNotificationTriggerDetails>, ::windows::core::GetTrustLevel, AccountName::<Impl, OFFSET>, ParentFolderName::<Impl, OFFSET>, MessageEntryId::<Impl, OFFSET>, IsRead::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1242,9 +1259,9 @@ impl ::windows::core::RuntimeName for IMediaControlsTriggerDetails {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IMediaControlsTriggerDetailsVtbl {
-    pub const fn new<Impl: IMediaControlsTriggerDetailsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IMediaControlsTriggerDetailsVtbl {
-        unsafe extern "system" fn PlaybackStatus<Impl: IMediaControlsTriggerDetailsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut PlaybackStatus) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaControlsTriggerDetailsImpl, const OFFSET: isize>() -> IMediaControlsTriggerDetailsVtbl {
+        unsafe extern "system" fn PlaybackStatus<Impl: IMediaControlsTriggerDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut PlaybackStatus) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PlaybackStatus() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1254,8 +1271,8 @@ impl IMediaControlsTriggerDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn MediaMetadata<Impl: IMediaControlsTriggerDetailsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn MediaMetadata<Impl: IMediaControlsTriggerDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MediaMetadata() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1265,7 +1282,7 @@ impl IMediaControlsTriggerDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IMediaControlsTriggerDetails>, base.5, PlaybackStatus::<Impl, OFFSET>, MediaMetadata::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMediaControlsTriggerDetails>, ::windows::core::GetTrustLevel, PlaybackStatus::<Impl, OFFSET>, MediaMetadata::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1284,9 +1301,9 @@ impl ::windows::core::RuntimeName for IMediaMetadata {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IMediaMetadataVtbl {
-    pub const fn new<Impl: IMediaMetadataImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IMediaMetadataVtbl {
-        unsafe extern "system" fn Title<Impl: IMediaMetadataImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaMetadataImpl, const OFFSET: isize>() -> IMediaMetadataVtbl {
+        unsafe extern "system" fn Title<Impl: IMediaMetadataImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Title() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1296,8 +1313,8 @@ impl IMediaMetadataVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Subtitle<Impl: IMediaMetadataImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn Subtitle<Impl: IMediaMetadataImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Subtitle() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1307,8 +1324,8 @@ impl IMediaMetadataVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Artist<Impl: IMediaMetadataImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn Artist<Impl: IMediaMetadataImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Artist() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1318,8 +1335,8 @@ impl IMediaMetadataVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Album<Impl: IMediaMetadataImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn Album<Impl: IMediaMetadataImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Album() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1329,8 +1346,8 @@ impl IMediaMetadataVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Track<Impl: IMediaMetadataImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn Track<Impl: IMediaMetadataImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Track() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1340,8 +1357,8 @@ impl IMediaMetadataVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Duration<Impl: IMediaMetadataImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn Duration<Impl: IMediaMetadataImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Duration() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1351,8 +1368,8 @@ impl IMediaMetadataVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Thumbnail<Impl: IMediaMetadataImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn Thumbnail<Impl: IMediaMetadataImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Thumbnail() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1362,7 +1379,7 @@ impl IMediaMetadataVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IMediaMetadata>, base.5, Title::<Impl, OFFSET>, Subtitle::<Impl, OFFSET>, Artist::<Impl, OFFSET>, Album::<Impl, OFFSET>, Track::<Impl, OFFSET>, Duration::<Impl, OFFSET>, Thumbnail::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMediaMetadata>, ::windows::core::GetTrustLevel, Title::<Impl, OFFSET>, Subtitle::<Impl, OFFSET>, Artist::<Impl, OFFSET>, Album::<Impl, OFFSET>, Track::<Impl, OFFSET>, Duration::<Impl, OFFSET>, Thumbnail::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1386,9 +1403,9 @@ impl ::windows::core::RuntimeName for IPhoneCallDetails {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IPhoneCallDetailsVtbl {
-    pub const fn new<Impl: IPhoneCallDetailsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IPhoneCallDetailsVtbl {
-        unsafe extern "system" fn PhoneLine<Impl: IPhoneCallDetailsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhoneCallDetailsImpl, const OFFSET: isize>() -> IPhoneCallDetailsVtbl {
+        unsafe extern "system" fn PhoneLine<Impl: IPhoneCallDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PhoneLine() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1398,8 +1415,8 @@ impl IPhoneCallDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CallId<Impl: IPhoneCallDetailsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn CallId<Impl: IPhoneCallDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CallId() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1409,8 +1426,8 @@ impl IPhoneCallDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CallTransport<Impl: IPhoneCallDetailsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut PhoneCallTransport) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn CallTransport<Impl: IPhoneCallDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut PhoneCallTransport) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CallTransport() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1420,8 +1437,8 @@ impl IPhoneCallDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CallMediaType<Impl: IPhoneCallDetailsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut PhoneMediaType) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn CallMediaType<Impl: IPhoneCallDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut PhoneMediaType) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CallMediaType() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1431,8 +1448,8 @@ impl IPhoneCallDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CallDirection<Impl: IPhoneCallDetailsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut PhoneCallDirection) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn CallDirection<Impl: IPhoneCallDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut PhoneCallDirection) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CallDirection() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1442,8 +1459,8 @@ impl IPhoneCallDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn State<Impl: IPhoneCallDetailsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut PhoneCallState) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn State<Impl: IPhoneCallDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut PhoneCallState) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).State() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1453,8 +1470,8 @@ impl IPhoneCallDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ConferenceCallId<Impl: IPhoneCallDetailsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn ConferenceCallId<Impl: IPhoneCallDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ConferenceCallId() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1464,8 +1481,8 @@ impl IPhoneCallDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn StartTime<Impl: IPhoneCallDetailsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::DateTime) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn StartTime<Impl: IPhoneCallDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::DateTime) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).StartTime() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1475,8 +1492,8 @@ impl IPhoneCallDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn EndTime<Impl: IPhoneCallDetailsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::DateTime) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn EndTime<Impl: IPhoneCallDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::DateTime) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EndTime() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1486,8 +1503,8 @@ impl IPhoneCallDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PhoneNumber<Impl: IPhoneCallDetailsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn PhoneNumber<Impl: IPhoneCallDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PhoneNumber() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1497,8 +1514,8 @@ impl IPhoneCallDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ContactName<Impl: IPhoneCallDetailsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn ContactName<Impl: IPhoneCallDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ContactName() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1508,8 +1525,8 @@ impl IPhoneCallDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PresetTextResponses<Impl: IPhoneCallDetailsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn PresetTextResponses<Impl: IPhoneCallDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PresetTextResponses() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1519,7 +1536,26 @@ impl IPhoneCallDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IPhoneCallDetails>, base.5, PhoneLine::<Impl, OFFSET>, CallId::<Impl, OFFSET>, CallTransport::<Impl, OFFSET>, CallMediaType::<Impl, OFFSET>, CallDirection::<Impl, OFFSET>, State::<Impl, OFFSET>, ConferenceCallId::<Impl, OFFSET>, StartTime::<Impl, OFFSET>, EndTime::<Impl, OFFSET>, PhoneNumber::<Impl, OFFSET>, ContactName::<Impl, OFFSET>, PresetTextResponses::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, OFFSET>,
+            ::windows::core::AddRef::<Identity, OFFSET>,
+            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<IPhoneCallDetails>,
+            ::windows::core::GetTrustLevel,
+            PhoneLine::<Impl, OFFSET>,
+            CallId::<Impl, OFFSET>,
+            CallTransport::<Impl, OFFSET>,
+            CallMediaType::<Impl, OFFSET>,
+            CallDirection::<Impl, OFFSET>,
+            State::<Impl, OFFSET>,
+            ConferenceCallId::<Impl, OFFSET>,
+            StartTime::<Impl, OFFSET>,
+            EndTime::<Impl, OFFSET>,
+            PhoneNumber::<Impl, OFFSET>,
+            ContactName::<Impl, OFFSET>,
+            PresetTextResponses::<Impl, OFFSET>,
+        )
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1537,9 +1573,9 @@ impl ::windows::core::RuntimeName for IPhoneLineDetails {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IPhoneLineDetailsVtbl {
-    pub const fn new<Impl: IPhoneLineDetailsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IPhoneLineDetailsVtbl {
-        unsafe extern "system" fn LineId<Impl: IPhoneLineDetailsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhoneLineDetailsImpl, const OFFSET: isize>() -> IPhoneLineDetailsVtbl {
+        unsafe extern "system" fn LineId<Impl: IPhoneLineDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).LineId() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1549,8 +1585,8 @@ impl IPhoneLineDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DisplayName<Impl: IPhoneLineDetailsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn DisplayName<Impl: IPhoneLineDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DisplayName() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1560,8 +1596,8 @@ impl IPhoneLineDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn LineNumber<Impl: IPhoneLineDetailsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn LineNumber<Impl: IPhoneLineDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).LineNumber() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1571,8 +1607,8 @@ impl IPhoneLineDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DefaultOutgoingLine<Impl: IPhoneLineDetailsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn DefaultOutgoingLine<Impl: IPhoneLineDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DefaultOutgoingLine() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1582,8 +1618,8 @@ impl IPhoneLineDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn VoicemailCount<Impl: IPhoneLineDetailsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn VoicemailCount<Impl: IPhoneLineDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).VoicemailCount() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1593,8 +1629,8 @@ impl IPhoneLineDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RegistrationState<Impl: IPhoneLineDetailsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut PhoneLineRegistrationState) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn RegistrationState<Impl: IPhoneLineDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut PhoneLineRegistrationState) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RegistrationState() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1604,7 +1640,7 @@ impl IPhoneLineDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IPhoneLineDetails>, base.5, LineId::<Impl, OFFSET>, DisplayName::<Impl, OFFSET>, LineNumber::<Impl, OFFSET>, DefaultOutgoingLine::<Impl, OFFSET>, VoicemailCount::<Impl, OFFSET>, RegistrationState::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPhoneLineDetails>, ::windows::core::GetTrustLevel, LineId::<Impl, OFFSET>, DisplayName::<Impl, OFFSET>, LineNumber::<Impl, OFFSET>, DefaultOutgoingLine::<Impl, OFFSET>, VoicemailCount::<Impl, OFFSET>, RegistrationState::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1617,9 +1653,9 @@ impl ::windows::core::RuntimeName for IPhoneLineDetails2 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IPhoneLineDetails2Vtbl {
-    pub const fn new<Impl: IPhoneLineDetails2Impl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IPhoneLineDetails2Vtbl {
-        unsafe extern "system" fn MissedCallCount<Impl: IPhoneLineDetails2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhoneLineDetails2Impl, const OFFSET: isize>() -> IPhoneLineDetails2Vtbl {
+        unsafe extern "system" fn MissedCallCount<Impl: IPhoneLineDetails2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MissedCallCount() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1629,7 +1665,7 @@ impl IPhoneLineDetails2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IPhoneLineDetails2>, base.5, MissedCallCount::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPhoneLineDetails2>, ::windows::core::GetTrustLevel, MissedCallCount::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1644,9 +1680,9 @@ impl ::windows::core::RuntimeName for IPhoneNotificationTriggerDetails {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IPhoneNotificationTriggerDetailsVtbl {
-    pub const fn new<Impl: IPhoneNotificationTriggerDetailsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IPhoneNotificationTriggerDetailsVtbl {
-        unsafe extern "system" fn PhoneNotificationType<Impl: IPhoneNotificationTriggerDetailsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut PhoneNotificationType) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhoneNotificationTriggerDetailsImpl, const OFFSET: isize>() -> IPhoneNotificationTriggerDetailsVtbl {
+        unsafe extern "system" fn PhoneNotificationType<Impl: IPhoneNotificationTriggerDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut PhoneNotificationType) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PhoneNotificationType() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1656,8 +1692,8 @@ impl IPhoneNotificationTriggerDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CallDetails<Impl: IPhoneNotificationTriggerDetailsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn CallDetails<Impl: IPhoneNotificationTriggerDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CallDetails() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1667,8 +1703,8 @@ impl IPhoneNotificationTriggerDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PhoneLineChangedId<Impl: IPhoneNotificationTriggerDetailsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn PhoneLineChangedId<Impl: IPhoneNotificationTriggerDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PhoneLineChangedId() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1678,7 +1714,7 @@ impl IPhoneNotificationTriggerDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IPhoneNotificationTriggerDetails>, base.5, PhoneNotificationType::<Impl, OFFSET>, CallDetails::<Impl, OFFSET>, PhoneLineChangedId::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPhoneNotificationTriggerDetails>, ::windows::core::GetTrustLevel, PhoneNotificationType::<Impl, OFFSET>, CallDetails::<Impl, OFFSET>, PhoneLineChangedId::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1697,9 +1733,9 @@ impl ::windows::core::RuntimeName for IReminderNotificationTriggerDetails {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IReminderNotificationTriggerDetailsVtbl {
-    pub const fn new<Impl: IReminderNotificationTriggerDetailsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IReminderNotificationTriggerDetailsVtbl {
-        unsafe extern "system" fn ReminderId<Impl: IReminderNotificationTriggerDetailsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IReminderNotificationTriggerDetailsImpl, const OFFSET: isize>() -> IReminderNotificationTriggerDetailsVtbl {
+        unsafe extern "system" fn ReminderId<Impl: IReminderNotificationTriggerDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ReminderId() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1709,8 +1745,8 @@ impl IReminderNotificationTriggerDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Title<Impl: IReminderNotificationTriggerDetailsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn Title<Impl: IReminderNotificationTriggerDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Title() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1720,8 +1756,8 @@ impl IReminderNotificationTriggerDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Description<Impl: IReminderNotificationTriggerDetailsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn Description<Impl: IReminderNotificationTriggerDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Description() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1731,8 +1767,8 @@ impl IReminderNotificationTriggerDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Details<Impl: IReminderNotificationTriggerDetailsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn Details<Impl: IReminderNotificationTriggerDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Details() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1742,8 +1778,8 @@ impl IReminderNotificationTriggerDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Timestamp<Impl: IReminderNotificationTriggerDetailsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::DateTime) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn Timestamp<Impl: IReminderNotificationTriggerDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::DateTime) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Timestamp() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1753,8 +1789,8 @@ impl IReminderNotificationTriggerDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Appointment<Impl: IReminderNotificationTriggerDetailsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn Appointment<Impl: IReminderNotificationTriggerDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Appointment() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1764,8 +1800,8 @@ impl IReminderNotificationTriggerDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ReminderState<Impl: IReminderNotificationTriggerDetailsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ReminderState) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn ReminderState<Impl: IReminderNotificationTriggerDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ReminderState) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ReminderState() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1775,7 +1811,7 @@ impl IReminderNotificationTriggerDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IReminderNotificationTriggerDetails>, base.5, ReminderId::<Impl, OFFSET>, Title::<Impl, OFFSET>, Description::<Impl, OFFSET>, Details::<Impl, OFFSET>, Timestamp::<Impl, OFFSET>, Appointment::<Impl, OFFSET>, ReminderState::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IReminderNotificationTriggerDetails>, ::windows::core::GetTrustLevel, ReminderId::<Impl, OFFSET>, Title::<Impl, OFFSET>, Description::<Impl, OFFSET>, Details::<Impl, OFFSET>, Timestamp::<Impl, OFFSET>, Appointment::<Impl, OFFSET>, ReminderState::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1788,9 +1824,9 @@ impl ::windows::core::RuntimeName for IReminderNotificationTriggerDetails2 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IReminderNotificationTriggerDetails2Vtbl {
-    pub const fn new<Impl: IReminderNotificationTriggerDetails2Impl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IReminderNotificationTriggerDetails2Vtbl {
-        unsafe extern "system" fn InstanceId<Impl: IReminderNotificationTriggerDetails2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IReminderNotificationTriggerDetails2Impl, const OFFSET: isize>() -> IReminderNotificationTriggerDetails2Vtbl {
+        unsafe extern "system" fn InstanceId<Impl: IReminderNotificationTriggerDetails2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).InstanceId() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1800,7 +1836,7 @@ impl IReminderNotificationTriggerDetails2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IReminderNotificationTriggerDetails2>, base.5, InstanceId::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IReminderNotificationTriggerDetails2>, ::windows::core::GetTrustLevel, InstanceId::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1815,9 +1851,9 @@ impl ::windows::core::RuntimeName for ISpeedDialEntry {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ISpeedDialEntryVtbl {
-    pub const fn new<Impl: ISpeedDialEntryImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> ISpeedDialEntryVtbl {
-        unsafe extern "system" fn PhoneNumber<Impl: ISpeedDialEntryImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpeedDialEntryImpl, const OFFSET: isize>() -> ISpeedDialEntryVtbl {
+        unsafe extern "system" fn PhoneNumber<Impl: ISpeedDialEntryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PhoneNumber() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1827,8 +1863,8 @@ impl ISpeedDialEntryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn NumberType<Impl: ISpeedDialEntryImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn NumberType<Impl: ISpeedDialEntryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).NumberType() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1838,8 +1874,8 @@ impl ISpeedDialEntryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ContactName<Impl: ISpeedDialEntryImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn ContactName<Impl: ISpeedDialEntryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ContactName() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1849,7 +1885,7 @@ impl ISpeedDialEntryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<ISpeedDialEntry>, base.5, PhoneNumber::<Impl, OFFSET>, NumberType::<Impl, OFFSET>, ContactName::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpeedDialEntry>, ::windows::core::GetTrustLevel, PhoneNumber::<Impl, OFFSET>, NumberType::<Impl, OFFSET>, ContactName::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1863,9 +1899,9 @@ impl ::windows::core::RuntimeName for ITextResponse {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ITextResponseVtbl {
-    pub const fn new<Impl: ITextResponseImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> ITextResponseVtbl {
-        unsafe extern "system" fn Id<Impl: ITextResponseImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITextResponseImpl, const OFFSET: isize>() -> ITextResponseVtbl {
+        unsafe extern "system" fn Id<Impl: ITextResponseImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Id() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1875,8 +1911,8 @@ impl ITextResponseVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Content<Impl: ITextResponseImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn Content<Impl: ITextResponseImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Content() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1886,7 +1922,7 @@ impl ITextResponseVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<ITextResponse>, base.5, Id::<Impl, OFFSET>, Content::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITextResponse>, ::windows::core::GetTrustLevel, Id::<Impl, OFFSET>, Content::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1903,9 +1939,9 @@ impl ::windows::core::RuntimeName for IToastNotificationTriggerDetails {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IToastNotificationTriggerDetailsVtbl {
-    pub const fn new<Impl: IToastNotificationTriggerDetailsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IToastNotificationTriggerDetailsVtbl {
-        unsafe extern "system" fn Text1<Impl: IToastNotificationTriggerDetailsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IToastNotificationTriggerDetailsImpl, const OFFSET: isize>() -> IToastNotificationTriggerDetailsVtbl {
+        unsafe extern "system" fn Text1<Impl: IToastNotificationTriggerDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Text1() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1915,8 +1951,8 @@ impl IToastNotificationTriggerDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Text2<Impl: IToastNotificationTriggerDetailsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn Text2<Impl: IToastNotificationTriggerDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Text2() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1926,8 +1962,8 @@ impl IToastNotificationTriggerDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Text3<Impl: IToastNotificationTriggerDetailsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn Text3<Impl: IToastNotificationTriggerDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Text3() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1937,8 +1973,8 @@ impl IToastNotificationTriggerDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Text4<Impl: IToastNotificationTriggerDetailsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn Text4<Impl: IToastNotificationTriggerDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Text4() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1948,8 +1984,8 @@ impl IToastNotificationTriggerDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SuppressPopup<Impl: IToastNotificationTriggerDetailsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn SuppressPopup<Impl: IToastNotificationTriggerDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SuppressPopup() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1959,7 +1995,7 @@ impl IToastNotificationTriggerDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IToastNotificationTriggerDetails>, base.5, Text1::<Impl, OFFSET>, Text2::<Impl, OFFSET>, Text3::<Impl, OFFSET>, Text4::<Impl, OFFSET>, SuppressPopup::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IToastNotificationTriggerDetails>, ::windows::core::GetTrustLevel, Text1::<Impl, OFFSET>, Text2::<Impl, OFFSET>, Text3::<Impl, OFFSET>, Text4::<Impl, OFFSET>, SuppressPopup::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1972,9 +2008,9 @@ impl ::windows::core::RuntimeName for IToastNotificationTriggerDetails2 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IToastNotificationTriggerDetails2Vtbl {
-    pub const fn new<Impl: IToastNotificationTriggerDetails2Impl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IToastNotificationTriggerDetails2Vtbl {
-        unsafe extern "system" fn InstanceId<Impl: IToastNotificationTriggerDetails2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IToastNotificationTriggerDetails2Impl, const OFFSET: isize>() -> IToastNotificationTriggerDetails2Vtbl {
+        unsafe extern "system" fn InstanceId<Impl: IToastNotificationTriggerDetails2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).InstanceId() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1984,7 +2020,7 @@ impl IToastNotificationTriggerDetails2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IToastNotificationTriggerDetails2>, base.5, InstanceId::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IToastNotificationTriggerDetails2>, ::windows::core::GetTrustLevel, InstanceId::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2001,9 +2037,9 @@ impl ::windows::core::RuntimeName for IVolumeInfo {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IVolumeInfoVtbl {
-    pub const fn new<Impl: IVolumeInfoImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IVolumeInfoVtbl {
-        unsafe extern "system" fn SystemVolume<Impl: IVolumeInfoImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVolumeInfoImpl, const OFFSET: isize>() -> IVolumeInfoVtbl {
+        unsafe extern "system" fn SystemVolume<Impl: IVolumeInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SystemVolume() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -2013,8 +2049,8 @@ impl IVolumeInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CallVolume<Impl: IVolumeInfoImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn CallVolume<Impl: IVolumeInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CallVolume() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -2024,8 +2060,8 @@ impl IVolumeInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn MediaVolume<Impl: IVolumeInfoImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn MediaVolume<Impl: IVolumeInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MediaVolume() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -2035,8 +2071,8 @@ impl IVolumeInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsMuted<Impl: IVolumeInfoImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn IsMuted<Impl: IVolumeInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsMuted() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -2046,8 +2082,8 @@ impl IVolumeInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsVibrateEnabled<Impl: IVolumeInfoImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut VibrateState) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn IsVibrateEnabled<Impl: IVolumeInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut VibrateState) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsVibrateEnabled() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -2057,6 +2093,6 @@ impl IVolumeInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IVolumeInfo>, base.5, SystemVolume::<Impl, OFFSET>, CallVolume::<Impl, OFFSET>, MediaVolume::<Impl, OFFSET>, IsMuted::<Impl, OFFSET>, IsVibrateEnabled::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVolumeInfo>, ::windows::core::GetTrustLevel, SystemVolume::<Impl, OFFSET>, CallVolume::<Impl, OFFSET>, MediaVolume::<Impl, OFFSET>, IsMuted::<Impl, OFFSET>, IsVibrateEnabled::<Impl, OFFSET>)
     }
 }

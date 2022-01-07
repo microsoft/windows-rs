@@ -9,9 +9,9 @@ impl ::windows::core::RuntimeName for ILowLevelDevicesAggregateProvider {
     const NAME: &'static str = "Windows.Devices.ILowLevelDevicesAggregateProvider";
 }
 impl ILowLevelDevicesAggregateProviderVtbl {
-    pub const fn new<Impl: ILowLevelDevicesAggregateProviderImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> ILowLevelDevicesAggregateProviderVtbl {
-        unsafe extern "system" fn AdcControllerProvider<Impl: ILowLevelDevicesAggregateProviderImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILowLevelDevicesAggregateProviderImpl, const OFFSET: isize>() -> ILowLevelDevicesAggregateProviderVtbl {
+        unsafe extern "system" fn AdcControllerProvider<Impl: ILowLevelDevicesAggregateProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AdcControllerProvider() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -21,8 +21,8 @@ impl ILowLevelDevicesAggregateProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PwmControllerProvider<Impl: ILowLevelDevicesAggregateProviderImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn PwmControllerProvider<Impl: ILowLevelDevicesAggregateProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PwmControllerProvider() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -32,8 +32,8 @@ impl ILowLevelDevicesAggregateProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GpioControllerProvider<Impl: ILowLevelDevicesAggregateProviderImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn GpioControllerProvider<Impl: ILowLevelDevicesAggregateProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GpioControllerProvider() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -43,8 +43,8 @@ impl ILowLevelDevicesAggregateProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn I2cControllerProvider<Impl: ILowLevelDevicesAggregateProviderImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn I2cControllerProvider<Impl: ILowLevelDevicesAggregateProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).I2cControllerProvider() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -54,8 +54,8 @@ impl ILowLevelDevicesAggregateProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SpiControllerProvider<Impl: ILowLevelDevicesAggregateProviderImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn SpiControllerProvider<Impl: ILowLevelDevicesAggregateProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SpiControllerProvider() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -65,7 +65,7 @@ impl ILowLevelDevicesAggregateProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<ILowLevelDevicesAggregateProvider>, base.5, AdcControllerProvider::<Impl, OFFSET>, PwmControllerProvider::<Impl, OFFSET>, GpioControllerProvider::<Impl, OFFSET>, I2cControllerProvider::<Impl, OFFSET>, SpiControllerProvider::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILowLevelDevicesAggregateProvider>, ::windows::core::GetTrustLevel, AdcControllerProvider::<Impl, OFFSET>, PwmControllerProvider::<Impl, OFFSET>, GpioControllerProvider::<Impl, OFFSET>, I2cControllerProvider::<Impl, OFFSET>, SpiControllerProvider::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -78,9 +78,9 @@ impl ::windows::core::RuntimeName for ILowLevelDevicesAggregateProviderFactory {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ILowLevelDevicesAggregateProviderFactoryVtbl {
-    pub const fn new<Impl: ILowLevelDevicesAggregateProviderFactoryImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> ILowLevelDevicesAggregateProviderFactoryVtbl {
-        unsafe extern "system" fn Create<Impl: ILowLevelDevicesAggregateProviderFactoryImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, adc: ::windows::core::RawPtr, pwm: ::windows::core::RawPtr, gpio: ::windows::core::RawPtr, i2c: ::windows::core::RawPtr, spi: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILowLevelDevicesAggregateProviderFactoryImpl, const OFFSET: isize>() -> ILowLevelDevicesAggregateProviderFactoryVtbl {
+        unsafe extern "system" fn Create<Impl: ILowLevelDevicesAggregateProviderFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, adc: ::windows::core::RawPtr, pwm: ::windows::core::RawPtr, gpio: ::windows::core::RawPtr, i2c: ::windows::core::RawPtr, spi: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(
                 &*(&adc as *const <Adc::Provider::IAdcControllerProvider as ::windows::core::Abi>::Abi as *const <Adc::Provider::IAdcControllerProvider as ::windows::core::DefaultType>::DefaultType),
                 &*(&pwm as *const <Pwm::Provider::IPwmControllerProvider as ::windows::core::Abi>::Abi as *const <Pwm::Provider::IPwmControllerProvider as ::windows::core::DefaultType>::DefaultType),
@@ -96,7 +96,7 @@ impl ILowLevelDevicesAggregateProviderFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<ILowLevelDevicesAggregateProviderFactory>, base.5, Create::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILowLevelDevicesAggregateProviderFactory>, ::windows::core::GetTrustLevel, Create::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -107,8 +107,8 @@ impl ::windows::core::RuntimeName for ILowLevelDevicesController {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ILowLevelDevicesControllerVtbl {
-    pub const fn new<Impl: ILowLevelDevicesControllerImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> ILowLevelDevicesControllerVtbl {
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<ILowLevelDevicesController>, base.5)
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILowLevelDevicesControllerImpl, const OFFSET: isize>() -> ILowLevelDevicesControllerVtbl {
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILowLevelDevicesController>, ::windows::core::GetTrustLevel)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -122,9 +122,9 @@ impl ::windows::core::RuntimeName for ILowLevelDevicesControllerStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ILowLevelDevicesControllerStaticsVtbl {
-    pub const fn new<Impl: ILowLevelDevicesControllerStaticsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> ILowLevelDevicesControllerStaticsVtbl {
-        unsafe extern "system" fn DefaultProvider<Impl: ILowLevelDevicesControllerStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILowLevelDevicesControllerStaticsImpl, const OFFSET: isize>() -> ILowLevelDevicesControllerStaticsVtbl {
+        unsafe extern "system" fn DefaultProvider<Impl: ILowLevelDevicesControllerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DefaultProvider() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -134,10 +134,10 @@ impl ILowLevelDevicesControllerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetDefaultProvider<Impl: ILowLevelDevicesControllerStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn SetDefaultProvider<Impl: ILowLevelDevicesControllerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetDefaultProvider(&*(&value as *const <ILowLevelDevicesAggregateProvider as ::windows::core::Abi>::Abi as *const <ILowLevelDevicesAggregateProvider as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<ILowLevelDevicesControllerStatics>, base.5, DefaultProvider::<Impl, OFFSET>, SetDefaultProvider::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILowLevelDevicesControllerStatics>, ::windows::core::GetTrustLevel, DefaultProvider::<Impl, OFFSET>, SetDefaultProvider::<Impl, OFFSET>)
     }
 }

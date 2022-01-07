@@ -10,9 +10,9 @@ impl ::windows::core::RuntimeName for IPhoneCallBlockedTriggerDetails {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IPhoneCallBlockedTriggerDetailsVtbl {
-    pub const fn new<Impl: IPhoneCallBlockedTriggerDetailsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IPhoneCallBlockedTriggerDetailsVtbl {
-        unsafe extern "system" fn PhoneNumber<Impl: IPhoneCallBlockedTriggerDetailsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhoneCallBlockedTriggerDetailsImpl, const OFFSET: isize>() -> IPhoneCallBlockedTriggerDetailsVtbl {
+        unsafe extern "system" fn PhoneNumber<Impl: IPhoneCallBlockedTriggerDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PhoneNumber() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -22,8 +22,8 @@ impl IPhoneCallBlockedTriggerDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn LineId<Impl: IPhoneCallBlockedTriggerDetailsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn LineId<Impl: IPhoneCallBlockedTriggerDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).LineId() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -33,8 +33,8 @@ impl IPhoneCallBlockedTriggerDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CallBlockedReason<Impl: IPhoneCallBlockedTriggerDetailsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut PhoneCallBlockedReason) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn CallBlockedReason<Impl: IPhoneCallBlockedTriggerDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut PhoneCallBlockedReason) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CallBlockedReason() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -44,7 +44,7 @@ impl IPhoneCallBlockedTriggerDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IPhoneCallBlockedTriggerDetails>, base.5, PhoneNumber::<Impl, OFFSET>, LineId::<Impl, OFFSET>, CallBlockedReason::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPhoneCallBlockedTriggerDetails>, ::windows::core::GetTrustLevel, PhoneNumber::<Impl, OFFSET>, LineId::<Impl, OFFSET>, CallBlockedReason::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -58,9 +58,9 @@ impl ::windows::core::RuntimeName for IPhoneCallOriginDataRequestTriggerDetails 
 }
 #[cfg(feature = "implement_exclusive")]
 impl IPhoneCallOriginDataRequestTriggerDetailsVtbl {
-    pub const fn new<Impl: IPhoneCallOriginDataRequestTriggerDetailsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IPhoneCallOriginDataRequestTriggerDetailsVtbl {
-        unsafe extern "system" fn RequestId<Impl: IPhoneCallOriginDataRequestTriggerDetailsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhoneCallOriginDataRequestTriggerDetailsImpl, const OFFSET: isize>() -> IPhoneCallOriginDataRequestTriggerDetailsVtbl {
+        unsafe extern "system" fn RequestId<Impl: IPhoneCallOriginDataRequestTriggerDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RequestId() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -70,8 +70,8 @@ impl IPhoneCallOriginDataRequestTriggerDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PhoneNumber<Impl: IPhoneCallOriginDataRequestTriggerDetailsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn PhoneNumber<Impl: IPhoneCallOriginDataRequestTriggerDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PhoneNumber() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -81,7 +81,7 @@ impl IPhoneCallOriginDataRequestTriggerDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IPhoneCallOriginDataRequestTriggerDetails>, base.5, RequestId::<Impl, OFFSET>, PhoneNumber::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPhoneCallOriginDataRequestTriggerDetails>, ::windows::core::GetTrustLevel, RequestId::<Impl, OFFSET>, PhoneNumber::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -99,9 +99,9 @@ impl ::windows::core::RuntimeName for IPhoneIncomingCallDismissedTriggerDetails 
 }
 #[cfg(feature = "implement_exclusive")]
 impl IPhoneIncomingCallDismissedTriggerDetailsVtbl {
-    pub const fn new<Impl: IPhoneIncomingCallDismissedTriggerDetailsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IPhoneIncomingCallDismissedTriggerDetailsVtbl {
-        unsafe extern "system" fn LineId<Impl: IPhoneIncomingCallDismissedTriggerDetailsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhoneIncomingCallDismissedTriggerDetailsImpl, const OFFSET: isize>() -> IPhoneIncomingCallDismissedTriggerDetailsVtbl {
+        unsafe extern "system" fn LineId<Impl: IPhoneIncomingCallDismissedTriggerDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).LineId() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -111,8 +111,8 @@ impl IPhoneIncomingCallDismissedTriggerDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PhoneNumber<Impl: IPhoneIncomingCallDismissedTriggerDetailsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn PhoneNumber<Impl: IPhoneIncomingCallDismissedTriggerDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PhoneNumber() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -122,8 +122,8 @@ impl IPhoneIncomingCallDismissedTriggerDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DisplayName<Impl: IPhoneIncomingCallDismissedTriggerDetailsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn DisplayName<Impl: IPhoneIncomingCallDismissedTriggerDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DisplayName() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -133,8 +133,8 @@ impl IPhoneIncomingCallDismissedTriggerDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DismissalTime<Impl: IPhoneIncomingCallDismissedTriggerDetailsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::DateTime) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn DismissalTime<Impl: IPhoneIncomingCallDismissedTriggerDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::DateTime) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DismissalTime() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -144,8 +144,8 @@ impl IPhoneIncomingCallDismissedTriggerDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TextReplyMessage<Impl: IPhoneIncomingCallDismissedTriggerDetailsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn TextReplyMessage<Impl: IPhoneIncomingCallDismissedTriggerDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TextReplyMessage() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -155,8 +155,8 @@ impl IPhoneIncomingCallDismissedTriggerDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Reason<Impl: IPhoneIncomingCallDismissedTriggerDetailsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut PhoneIncomingCallDismissedReason) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn Reason<Impl: IPhoneIncomingCallDismissedTriggerDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut PhoneIncomingCallDismissedReason) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Reason() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -166,7 +166,7 @@ impl IPhoneIncomingCallDismissedTriggerDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IPhoneIncomingCallDismissedTriggerDetails>, base.5, LineId::<Impl, OFFSET>, PhoneNumber::<Impl, OFFSET>, DisplayName::<Impl, OFFSET>, DismissalTime::<Impl, OFFSET>, TextReplyMessage::<Impl, OFFSET>, Reason::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPhoneIncomingCallDismissedTriggerDetails>, ::windows::core::GetTrustLevel, LineId::<Impl, OFFSET>, PhoneNumber::<Impl, OFFSET>, DisplayName::<Impl, OFFSET>, DismissalTime::<Impl, OFFSET>, TextReplyMessage::<Impl, OFFSET>, Reason::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -180,9 +180,9 @@ impl ::windows::core::RuntimeName for IPhoneIncomingCallNotificationTriggerDetai
 }
 #[cfg(feature = "implement_exclusive")]
 impl IPhoneIncomingCallNotificationTriggerDetailsVtbl {
-    pub const fn new<Impl: IPhoneIncomingCallNotificationTriggerDetailsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IPhoneIncomingCallNotificationTriggerDetailsVtbl {
-        unsafe extern "system" fn LineId<Impl: IPhoneIncomingCallNotificationTriggerDetailsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhoneIncomingCallNotificationTriggerDetailsImpl, const OFFSET: isize>() -> IPhoneIncomingCallNotificationTriggerDetailsVtbl {
+        unsafe extern "system" fn LineId<Impl: IPhoneIncomingCallNotificationTriggerDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).LineId() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -192,8 +192,8 @@ impl IPhoneIncomingCallNotificationTriggerDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CallId<Impl: IPhoneIncomingCallNotificationTriggerDetailsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn CallId<Impl: IPhoneIncomingCallNotificationTriggerDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CallId() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -203,7 +203,7 @@ impl IPhoneIncomingCallNotificationTriggerDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IPhoneIncomingCallNotificationTriggerDetails>, base.5, LineId::<Impl, OFFSET>, CallId::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPhoneIncomingCallNotificationTriggerDetails>, ::windows::core::GetTrustLevel, LineId::<Impl, OFFSET>, CallId::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -218,9 +218,9 @@ impl ::windows::core::RuntimeName for IPhoneLineChangedTriggerDetails {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IPhoneLineChangedTriggerDetailsVtbl {
-    pub const fn new<Impl: IPhoneLineChangedTriggerDetailsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IPhoneLineChangedTriggerDetailsVtbl {
-        unsafe extern "system" fn LineId<Impl: IPhoneLineChangedTriggerDetailsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhoneLineChangedTriggerDetailsImpl, const OFFSET: isize>() -> IPhoneLineChangedTriggerDetailsVtbl {
+        unsafe extern "system" fn LineId<Impl: IPhoneLineChangedTriggerDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).LineId() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -230,8 +230,8 @@ impl IPhoneLineChangedTriggerDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ChangeType<Impl: IPhoneLineChangedTriggerDetailsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut PhoneLineChangeKind) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn ChangeType<Impl: IPhoneLineChangedTriggerDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut PhoneLineChangeKind) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ChangeType() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -241,8 +241,8 @@ impl IPhoneLineChangedTriggerDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn HasLinePropertyChanged<Impl: IPhoneLineChangedTriggerDetailsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, lineproperty: PhoneLineProperties, result__: *mut bool) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn HasLinePropertyChanged<Impl: IPhoneLineChangedTriggerDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lineproperty: PhoneLineProperties, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).HasLinePropertyChanged(lineproperty) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -252,7 +252,7 @@ impl IPhoneLineChangedTriggerDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IPhoneLineChangedTriggerDetails>, base.5, LineId::<Impl, OFFSET>, ChangeType::<Impl, OFFSET>, HasLinePropertyChanged::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPhoneLineChangedTriggerDetails>, ::windows::core::GetTrustLevel, LineId::<Impl, OFFSET>, ChangeType::<Impl, OFFSET>, HasLinePropertyChanged::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -267,9 +267,9 @@ impl ::windows::core::RuntimeName for IPhoneNewVoicemailMessageTriggerDetails {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IPhoneNewVoicemailMessageTriggerDetailsVtbl {
-    pub const fn new<Impl: IPhoneNewVoicemailMessageTriggerDetailsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IPhoneNewVoicemailMessageTriggerDetailsVtbl {
-        unsafe extern "system" fn LineId<Impl: IPhoneNewVoicemailMessageTriggerDetailsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhoneNewVoicemailMessageTriggerDetailsImpl, const OFFSET: isize>() -> IPhoneNewVoicemailMessageTriggerDetailsVtbl {
+        unsafe extern "system" fn LineId<Impl: IPhoneNewVoicemailMessageTriggerDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).LineId() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -279,8 +279,8 @@ impl IPhoneNewVoicemailMessageTriggerDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn VoicemailCount<Impl: IPhoneNewVoicemailMessageTriggerDetailsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn VoicemailCount<Impl: IPhoneNewVoicemailMessageTriggerDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).VoicemailCount() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -290,8 +290,8 @@ impl IPhoneNewVoicemailMessageTriggerDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn OperatorMessage<Impl: IPhoneNewVoicemailMessageTriggerDetailsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn OperatorMessage<Impl: IPhoneNewVoicemailMessageTriggerDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OperatorMessage() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -301,6 +301,6 @@ impl IPhoneNewVoicemailMessageTriggerDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IPhoneNewVoicemailMessageTriggerDetails>, base.5, LineId::<Impl, OFFSET>, VoicemailCount::<Impl, OFFSET>, OperatorMessage::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPhoneNewVoicemailMessageTriggerDetails>, ::windows::core::GetTrustLevel, LineId::<Impl, OFFSET>, VoicemailCount::<Impl, OFFSET>, OperatorMessage::<Impl, OFFSET>)
     }
 }

@@ -14,9 +14,9 @@ impl ::windows::core::RuntimeName for IOfflineMapPackage {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IOfflineMapPackageVtbl {
-    pub const fn new<Impl: IOfflineMapPackageImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IOfflineMapPackageVtbl {
-        unsafe extern "system" fn Status<Impl: IOfflineMapPackageImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut OfflineMapPackageStatus) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IOfflineMapPackageImpl, const OFFSET: isize>() -> IOfflineMapPackageVtbl {
+        unsafe extern "system" fn Status<Impl: IOfflineMapPackageImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut OfflineMapPackageStatus) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Status() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -26,8 +26,8 @@ impl IOfflineMapPackageVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DisplayName<Impl: IOfflineMapPackageImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn DisplayName<Impl: IOfflineMapPackageImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DisplayName() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -37,8 +37,8 @@ impl IOfflineMapPackageVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn EnclosingRegionName<Impl: IOfflineMapPackageImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn EnclosingRegionName<Impl: IOfflineMapPackageImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EnclosingRegionName() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -48,8 +48,8 @@ impl IOfflineMapPackageVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn EstimatedSizeInBytes<Impl: IOfflineMapPackageImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn EstimatedSizeInBytes<Impl: IOfflineMapPackageImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EstimatedSizeInBytes() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -59,12 +59,12 @@ impl IOfflineMapPackageVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveStatusChanged<Impl: IOfflineMapPackageImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn RemoveStatusChanged<Impl: IOfflineMapPackageImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveStatusChanged(&*(&token as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn StatusChanged<Impl: IOfflineMapPackageImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn StatusChanged<Impl: IOfflineMapPackageImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).StatusChanged(&*(&value as *const <super::super::super::Foundation::TypedEventHandler<OfflineMapPackage, ::windows::core::IInspectable> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::TypedEventHandler<OfflineMapPackage, ::windows::core::IInspectable> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -74,8 +74,8 @@ impl IOfflineMapPackageVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RequestStartDownloadAsync<Impl: IOfflineMapPackageImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn RequestStartDownloadAsync<Impl: IOfflineMapPackageImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RequestStartDownloadAsync() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -85,7 +85,21 @@ impl IOfflineMapPackageVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IOfflineMapPackage>, base.5, Status::<Impl, OFFSET>, DisplayName::<Impl, OFFSET>, EnclosingRegionName::<Impl, OFFSET>, EstimatedSizeInBytes::<Impl, OFFSET>, RemoveStatusChanged::<Impl, OFFSET>, StatusChanged::<Impl, OFFSET>, RequestStartDownloadAsync::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, OFFSET>,
+            ::windows::core::AddRef::<Identity, OFFSET>,
+            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<IOfflineMapPackage>,
+            ::windows::core::GetTrustLevel,
+            Status::<Impl, OFFSET>,
+            DisplayName::<Impl, OFFSET>,
+            EnclosingRegionName::<Impl, OFFSET>,
+            EstimatedSizeInBytes::<Impl, OFFSET>,
+            RemoveStatusChanged::<Impl, OFFSET>,
+            StatusChanged::<Impl, OFFSET>,
+            RequestStartDownloadAsync::<Impl, OFFSET>,
+        )
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -99,9 +113,9 @@ impl ::windows::core::RuntimeName for IOfflineMapPackageQueryResult {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IOfflineMapPackageQueryResultVtbl {
-    pub const fn new<Impl: IOfflineMapPackageQueryResultImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IOfflineMapPackageQueryResultVtbl {
-        unsafe extern "system" fn Status<Impl: IOfflineMapPackageQueryResultImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut OfflineMapPackageQueryStatus) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IOfflineMapPackageQueryResultImpl, const OFFSET: isize>() -> IOfflineMapPackageQueryResultVtbl {
+        unsafe extern "system" fn Status<Impl: IOfflineMapPackageQueryResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut OfflineMapPackageQueryStatus) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Status() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -111,8 +125,8 @@ impl IOfflineMapPackageQueryResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Packages<Impl: IOfflineMapPackageQueryResultImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn Packages<Impl: IOfflineMapPackageQueryResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Packages() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -122,7 +136,7 @@ impl IOfflineMapPackageQueryResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IOfflineMapPackageQueryResult>, base.5, Status::<Impl, OFFSET>, Packages::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IOfflineMapPackageQueryResult>, ::windows::core::GetTrustLevel, Status::<Impl, OFFSET>, Packages::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -135,9 +149,9 @@ impl ::windows::core::RuntimeName for IOfflineMapPackageStartDownloadResult {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IOfflineMapPackageStartDownloadResultVtbl {
-    pub const fn new<Impl: IOfflineMapPackageStartDownloadResultImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IOfflineMapPackageStartDownloadResultVtbl {
-        unsafe extern "system" fn Status<Impl: IOfflineMapPackageStartDownloadResultImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut OfflineMapPackageStartDownloadStatus) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IOfflineMapPackageStartDownloadResultImpl, const OFFSET: isize>() -> IOfflineMapPackageStartDownloadResultVtbl {
+        unsafe extern "system" fn Status<Impl: IOfflineMapPackageStartDownloadResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut OfflineMapPackageStartDownloadStatus) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Status() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -147,7 +161,7 @@ impl IOfflineMapPackageStartDownloadResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IOfflineMapPackageStartDownloadResult>, base.5, Status::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IOfflineMapPackageStartDownloadResult>, ::windows::core::GetTrustLevel, Status::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -162,9 +176,9 @@ impl ::windows::core::RuntimeName for IOfflineMapPackageStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IOfflineMapPackageStaticsVtbl {
-    pub const fn new<Impl: IOfflineMapPackageStaticsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IOfflineMapPackageStaticsVtbl {
-        unsafe extern "system" fn FindPackagesAsync<Impl: IOfflineMapPackageStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, querypoint: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IOfflineMapPackageStaticsImpl, const OFFSET: isize>() -> IOfflineMapPackageStaticsVtbl {
+        unsafe extern "system" fn FindPackagesAsync<Impl: IOfflineMapPackageStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, querypoint: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FindPackagesAsync(&*(&querypoint as *const <super::super::super::Devices::Geolocation::Geopoint as ::windows::core::Abi>::Abi as *const <super::super::super::Devices::Geolocation::Geopoint as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -174,8 +188,8 @@ impl IOfflineMapPackageStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn FindPackagesInBoundingBoxAsync<Impl: IOfflineMapPackageStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, queryboundingbox: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn FindPackagesInBoundingBoxAsync<Impl: IOfflineMapPackageStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, queryboundingbox: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FindPackagesInBoundingBoxAsync(&*(&queryboundingbox as *const <super::super::super::Devices::Geolocation::GeoboundingBox as ::windows::core::Abi>::Abi as *const <super::super::super::Devices::Geolocation::GeoboundingBox as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -185,8 +199,8 @@ impl IOfflineMapPackageStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn FindPackagesInGeocircleAsync<Impl: IOfflineMapPackageStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, querycircle: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn FindPackagesInGeocircleAsync<Impl: IOfflineMapPackageStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, querycircle: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FindPackagesInGeocircleAsync(&*(&querycircle as *const <super::super::super::Devices::Geolocation::Geocircle as ::windows::core::Abi>::Abi as *const <super::super::super::Devices::Geolocation::Geocircle as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -196,6 +210,6 @@ impl IOfflineMapPackageStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IOfflineMapPackageStatics>, base.5, FindPackagesAsync::<Impl, OFFSET>, FindPackagesInBoundingBoxAsync::<Impl, OFFSET>, FindPackagesInGeocircleAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IOfflineMapPackageStatics>, ::windows::core::GetTrustLevel, FindPackagesAsync::<Impl, OFFSET>, FindPackagesInBoundingBoxAsync::<Impl, OFFSET>, FindPackagesInGeocircleAsync::<Impl, OFFSET>)
     }
 }

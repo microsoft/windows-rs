@@ -9,9 +9,9 @@ impl ::windows::core::RuntimeName for IArcadeStick {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IArcadeStickVtbl {
-    pub const fn new<Impl: IArcadeStickImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IArcadeStickVtbl {
-        unsafe extern "system" fn GetButtonLabel<Impl: IArcadeStickImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, button: ArcadeStickButtons, result__: *mut GameControllerButtonLabel) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IArcadeStickImpl, const OFFSET: isize>() -> IArcadeStickVtbl {
+        unsafe extern "system" fn GetButtonLabel<Impl: IArcadeStickImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, button: ArcadeStickButtons, result__: *mut GameControllerButtonLabel) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetButtonLabel(button) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -21,8 +21,8 @@ impl IArcadeStickVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetCurrentReading<Impl: IArcadeStickImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ArcadeStickReading) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn GetCurrentReading<Impl: IArcadeStickImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ArcadeStickReading) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetCurrentReading() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -32,7 +32,7 @@ impl IArcadeStickVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IArcadeStick>, base.5, GetButtonLabel::<Impl, OFFSET>, GetCurrentReading::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IArcadeStick>, ::windows::core::GetTrustLevel, GetButtonLabel::<Impl, OFFSET>, GetCurrentReading::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -49,9 +49,9 @@ impl ::windows::core::RuntimeName for IArcadeStickStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IArcadeStickStaticsVtbl {
-    pub const fn new<Impl: IArcadeStickStaticsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IArcadeStickStaticsVtbl {
-        unsafe extern "system" fn ArcadeStickAdded<Impl: IArcadeStickStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IArcadeStickStaticsImpl, const OFFSET: isize>() -> IArcadeStickStaticsVtbl {
+        unsafe extern "system" fn ArcadeStickAdded<Impl: IArcadeStickStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ArcadeStickAdded(&*(&value as *const <super::super::Foundation::EventHandler<ArcadeStick> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventHandler<ArcadeStick> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -61,12 +61,12 @@ impl IArcadeStickStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveArcadeStickAdded<Impl: IArcadeStickStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn RemoveArcadeStickAdded<Impl: IArcadeStickStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveArcadeStickAdded(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn ArcadeStickRemoved<Impl: IArcadeStickStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn ArcadeStickRemoved<Impl: IArcadeStickStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ArcadeStickRemoved(&*(&value as *const <super::super::Foundation::EventHandler<ArcadeStick> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventHandler<ArcadeStick> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -76,12 +76,12 @@ impl IArcadeStickStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveArcadeStickRemoved<Impl: IArcadeStickStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn RemoveArcadeStickRemoved<Impl: IArcadeStickStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveArcadeStickRemoved(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn ArcadeSticks<Impl: IArcadeStickStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn ArcadeSticks<Impl: IArcadeStickStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ArcadeSticks() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -91,7 +91,7 @@ impl IArcadeStickStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IArcadeStickStatics>, base.5, ArcadeStickAdded::<Impl, OFFSET>, RemoveArcadeStickAdded::<Impl, OFFSET>, ArcadeStickRemoved::<Impl, OFFSET>, RemoveArcadeStickRemoved::<Impl, OFFSET>, ArcadeSticks::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IArcadeStickStatics>, ::windows::core::GetTrustLevel, ArcadeStickAdded::<Impl, OFFSET>, RemoveArcadeStickAdded::<Impl, OFFSET>, ArcadeStickRemoved::<Impl, OFFSET>, RemoveArcadeStickRemoved::<Impl, OFFSET>, ArcadeSticks::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -104,9 +104,9 @@ impl ::windows::core::RuntimeName for IArcadeStickStatics2 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IArcadeStickStatics2Vtbl {
-    pub const fn new<Impl: IArcadeStickStatics2Impl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IArcadeStickStatics2Vtbl {
-        unsafe extern "system" fn FromGameController<Impl: IArcadeStickStatics2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, gamecontroller: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IArcadeStickStatics2Impl, const OFFSET: isize>() -> IArcadeStickStatics2Vtbl {
+        unsafe extern "system" fn FromGameController<Impl: IArcadeStickStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, gamecontroller: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FromGameController(&*(&gamecontroller as *const <IGameController as ::windows::core::Abi>::Abi as *const <IGameController as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -116,7 +116,7 @@ impl IArcadeStickStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IArcadeStickStatics2>, base.5, FromGameController::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IArcadeStickStatics2>, ::windows::core::GetTrustLevel, FromGameController::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -131,9 +131,9 @@ impl ::windows::core::RuntimeName for IFlightStick {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IFlightStickVtbl {
-    pub const fn new<Impl: IFlightStickImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IFlightStickVtbl {
-        unsafe extern "system" fn HatSwitchKind<Impl: IFlightStickImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut GameControllerSwitchKind) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFlightStickImpl, const OFFSET: isize>() -> IFlightStickVtbl {
+        unsafe extern "system" fn HatSwitchKind<Impl: IFlightStickImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut GameControllerSwitchKind) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).HatSwitchKind() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -143,8 +143,8 @@ impl IFlightStickVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetButtonLabel<Impl: IFlightStickImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, button: FlightStickButtons, result__: *mut GameControllerButtonLabel) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn GetButtonLabel<Impl: IFlightStickImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, button: FlightStickButtons, result__: *mut GameControllerButtonLabel) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetButtonLabel(button) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -154,8 +154,8 @@ impl IFlightStickVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetCurrentReading<Impl: IFlightStickImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut FlightStickReading) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn GetCurrentReading<Impl: IFlightStickImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut FlightStickReading) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetCurrentReading() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -165,7 +165,7 @@ impl IFlightStickVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IFlightStick>, base.5, HatSwitchKind::<Impl, OFFSET>, GetButtonLabel::<Impl, OFFSET>, GetCurrentReading::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IFlightStick>, ::windows::core::GetTrustLevel, HatSwitchKind::<Impl, OFFSET>, GetButtonLabel::<Impl, OFFSET>, GetCurrentReading::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -183,9 +183,9 @@ impl ::windows::core::RuntimeName for IFlightStickStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IFlightStickStaticsVtbl {
-    pub const fn new<Impl: IFlightStickStaticsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IFlightStickStaticsVtbl {
-        unsafe extern "system" fn FlightStickAdded<Impl: IFlightStickStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFlightStickStaticsImpl, const OFFSET: isize>() -> IFlightStickStaticsVtbl {
+        unsafe extern "system" fn FlightStickAdded<Impl: IFlightStickStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FlightStickAdded(&*(&value as *const <super::super::Foundation::EventHandler<FlightStick> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventHandler<FlightStick> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -195,12 +195,12 @@ impl IFlightStickStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveFlightStickAdded<Impl: IFlightStickStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn RemoveFlightStickAdded<Impl: IFlightStickStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveFlightStickAdded(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn FlightStickRemoved<Impl: IFlightStickStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn FlightStickRemoved<Impl: IFlightStickStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FlightStickRemoved(&*(&value as *const <super::super::Foundation::EventHandler<FlightStick> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventHandler<FlightStick> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -210,12 +210,12 @@ impl IFlightStickStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveFlightStickRemoved<Impl: IFlightStickStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn RemoveFlightStickRemoved<Impl: IFlightStickStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveFlightStickRemoved(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn FlightSticks<Impl: IFlightStickStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn FlightSticks<Impl: IFlightStickStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FlightSticks() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -225,8 +225,8 @@ impl IFlightStickStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn FromGameController<Impl: IFlightStickStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, gamecontroller: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn FromGameController<Impl: IFlightStickStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, gamecontroller: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FromGameController(&*(&gamecontroller as *const <IGameController as ::windows::core::Abi>::Abi as *const <IGameController as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -236,7 +236,7 @@ impl IFlightStickStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IFlightStickStatics>, base.5, FlightStickAdded::<Impl, OFFSET>, RemoveFlightStickAdded::<Impl, OFFSET>, FlightStickRemoved::<Impl, OFFSET>, RemoveFlightStickRemoved::<Impl, OFFSET>, FlightSticks::<Impl, OFFSET>, FromGameController::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IFlightStickStatics>, ::windows::core::GetTrustLevel, FlightStickAdded::<Impl, OFFSET>, RemoveFlightStickAdded::<Impl, OFFSET>, FlightStickRemoved::<Impl, OFFSET>, RemoveFlightStickRemoved::<Impl, OFFSET>, FlightSticks::<Impl, OFFSET>, FromGameController::<Impl, OFFSET>)
     }
 }
 pub trait IGameControllerImpl: Sized {
@@ -254,9 +254,9 @@ impl ::windows::core::RuntimeName for IGameController {
     const NAME: &'static str = "Windows.Gaming.Input.IGameController";
 }
 impl IGameControllerVtbl {
-    pub const fn new<Impl: IGameControllerImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IGameControllerVtbl {
-        unsafe extern "system" fn HeadsetConnected<Impl: IGameControllerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGameControllerImpl, const OFFSET: isize>() -> IGameControllerVtbl {
+        unsafe extern "system" fn HeadsetConnected<Impl: IGameControllerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).HeadsetConnected(&*(&value as *const <super::super::Foundation::TypedEventHandler<IGameController, Headset> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<IGameController, Headset> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -266,12 +266,12 @@ impl IGameControllerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveHeadsetConnected<Impl: IGameControllerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn RemoveHeadsetConnected<Impl: IGameControllerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveHeadsetConnected(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn HeadsetDisconnected<Impl: IGameControllerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn HeadsetDisconnected<Impl: IGameControllerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).HeadsetDisconnected(&*(&value as *const <super::super::Foundation::TypedEventHandler<IGameController, Headset> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<IGameController, Headset> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -281,12 +281,12 @@ impl IGameControllerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveHeadsetDisconnected<Impl: IGameControllerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn RemoveHeadsetDisconnected<Impl: IGameControllerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveHeadsetDisconnected(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn UserChanged<Impl: IGameControllerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn UserChanged<Impl: IGameControllerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).UserChanged(&*(&value as *const <super::super::Foundation::TypedEventHandler<IGameController, super::super::System::UserChangedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<IGameController, super::super::System::UserChangedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -296,12 +296,12 @@ impl IGameControllerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveUserChanged<Impl: IGameControllerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn RemoveUserChanged<Impl: IGameControllerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveUserChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn Headset<Impl: IGameControllerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn Headset<Impl: IGameControllerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Headset() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -311,8 +311,8 @@ impl IGameControllerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsWireless<Impl: IGameControllerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn IsWireless<Impl: IGameControllerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsWireless() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -322,8 +322,8 @@ impl IGameControllerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn User<Impl: IGameControllerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn User<Impl: IGameControllerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).User() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -333,7 +333,23 @@ impl IGameControllerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IGameController>, base.5, HeadsetConnected::<Impl, OFFSET>, RemoveHeadsetConnected::<Impl, OFFSET>, HeadsetDisconnected::<Impl, OFFSET>, RemoveHeadsetDisconnected::<Impl, OFFSET>, UserChanged::<Impl, OFFSET>, RemoveUserChanged::<Impl, OFFSET>, Headset::<Impl, OFFSET>, IsWireless::<Impl, OFFSET>, User::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, OFFSET>,
+            ::windows::core::AddRef::<Identity, OFFSET>,
+            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<IGameController>,
+            ::windows::core::GetTrustLevel,
+            HeadsetConnected::<Impl, OFFSET>,
+            RemoveHeadsetConnected::<Impl, OFFSET>,
+            HeadsetDisconnected::<Impl, OFFSET>,
+            RemoveHeadsetDisconnected::<Impl, OFFSET>,
+            UserChanged::<Impl, OFFSET>,
+            RemoveUserChanged::<Impl, OFFSET>,
+            Headset::<Impl, OFFSET>,
+            IsWireless::<Impl, OFFSET>,
+            User::<Impl, OFFSET>,
+        )
     }
 }
 pub trait IGameControllerBatteryInfoImpl: Sized {
@@ -343,9 +359,9 @@ impl ::windows::core::RuntimeName for IGameControllerBatteryInfo {
     const NAME: &'static str = "Windows.Gaming.Input.IGameControllerBatteryInfo";
 }
 impl IGameControllerBatteryInfoVtbl {
-    pub const fn new<Impl: IGameControllerBatteryInfoImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IGameControllerBatteryInfoVtbl {
-        unsafe extern "system" fn TryGetBatteryReport<Impl: IGameControllerBatteryInfoImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGameControllerBatteryInfoImpl, const OFFSET: isize>() -> IGameControllerBatteryInfoVtbl {
+        unsafe extern "system" fn TryGetBatteryReport<Impl: IGameControllerBatteryInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TryGetBatteryReport() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -355,7 +371,7 @@ impl IGameControllerBatteryInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IGameControllerBatteryInfo>, base.5, TryGetBatteryReport::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGameControllerBatteryInfo>, ::windows::core::GetTrustLevel, TryGetBatteryReport::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -370,9 +386,9 @@ impl ::windows::core::RuntimeName for IGamepad {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IGamepadVtbl {
-    pub const fn new<Impl: IGamepadImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IGamepadVtbl {
-        unsafe extern "system" fn Vibration<Impl: IGamepadImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut GamepadVibration) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGamepadImpl, const OFFSET: isize>() -> IGamepadVtbl {
+        unsafe extern "system" fn Vibration<Impl: IGamepadImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut GamepadVibration) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Vibration() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -382,12 +398,12 @@ impl IGamepadVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetVibration<Impl: IGamepadImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: GamepadVibration) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn SetVibration<Impl: IGamepadImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: GamepadVibration) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetVibration(&*(&value as *const <GamepadVibration as ::windows::core::Abi>::Abi as *const <GamepadVibration as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn GetCurrentReading<Impl: IGamepadImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut GamepadReading) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn GetCurrentReading<Impl: IGamepadImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut GamepadReading) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetCurrentReading() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -397,7 +413,7 @@ impl IGamepadVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IGamepad>, base.5, Vibration::<Impl, OFFSET>, SetVibration::<Impl, OFFSET>, GetCurrentReading::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGamepad>, ::windows::core::GetTrustLevel, Vibration::<Impl, OFFSET>, SetVibration::<Impl, OFFSET>, GetCurrentReading::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -410,9 +426,9 @@ impl ::windows::core::RuntimeName for IGamepad2 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IGamepad2Vtbl {
-    pub const fn new<Impl: IGamepad2Impl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IGamepad2Vtbl {
-        unsafe extern "system" fn GetButtonLabel<Impl: IGamepad2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, button: GamepadButtons, result__: *mut GameControllerButtonLabel) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGamepad2Impl, const OFFSET: isize>() -> IGamepad2Vtbl {
+        unsafe extern "system" fn GetButtonLabel<Impl: IGamepad2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, button: GamepadButtons, result__: *mut GameControllerButtonLabel) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetButtonLabel(button) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -422,7 +438,7 @@ impl IGamepad2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IGamepad2>, base.5, GetButtonLabel::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGamepad2>, ::windows::core::GetTrustLevel, GetButtonLabel::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -439,9 +455,9 @@ impl ::windows::core::RuntimeName for IGamepadStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IGamepadStaticsVtbl {
-    pub const fn new<Impl: IGamepadStaticsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IGamepadStaticsVtbl {
-        unsafe extern "system" fn GamepadAdded<Impl: IGamepadStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGamepadStaticsImpl, const OFFSET: isize>() -> IGamepadStaticsVtbl {
+        unsafe extern "system" fn GamepadAdded<Impl: IGamepadStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GamepadAdded(&*(&value as *const <super::super::Foundation::EventHandler<Gamepad> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventHandler<Gamepad> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -451,12 +467,12 @@ impl IGamepadStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveGamepadAdded<Impl: IGamepadStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn RemoveGamepadAdded<Impl: IGamepadStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveGamepadAdded(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn GamepadRemoved<Impl: IGamepadStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn GamepadRemoved<Impl: IGamepadStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GamepadRemoved(&*(&value as *const <super::super::Foundation::EventHandler<Gamepad> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventHandler<Gamepad> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -466,12 +482,12 @@ impl IGamepadStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveGamepadRemoved<Impl: IGamepadStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn RemoveGamepadRemoved<Impl: IGamepadStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveGamepadRemoved(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn Gamepads<Impl: IGamepadStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn Gamepads<Impl: IGamepadStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Gamepads() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -481,7 +497,7 @@ impl IGamepadStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IGamepadStatics>, base.5, GamepadAdded::<Impl, OFFSET>, RemoveGamepadAdded::<Impl, OFFSET>, GamepadRemoved::<Impl, OFFSET>, RemoveGamepadRemoved::<Impl, OFFSET>, Gamepads::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGamepadStatics>, ::windows::core::GetTrustLevel, GamepadAdded::<Impl, OFFSET>, RemoveGamepadAdded::<Impl, OFFSET>, GamepadRemoved::<Impl, OFFSET>, RemoveGamepadRemoved::<Impl, OFFSET>, Gamepads::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -494,9 +510,9 @@ impl ::windows::core::RuntimeName for IGamepadStatics2 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IGamepadStatics2Vtbl {
-    pub const fn new<Impl: IGamepadStatics2Impl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IGamepadStatics2Vtbl {
-        unsafe extern "system" fn FromGameController<Impl: IGamepadStatics2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, gamecontroller: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGamepadStatics2Impl, const OFFSET: isize>() -> IGamepadStatics2Vtbl {
+        unsafe extern "system" fn FromGameController<Impl: IGamepadStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, gamecontroller: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FromGameController(&*(&gamecontroller as *const <IGameController as ::windows::core::Abi>::Abi as *const <IGameController as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -506,7 +522,7 @@ impl IGamepadStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IGamepadStatics2>, base.5, FromGameController::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGamepadStatics2>, ::windows::core::GetTrustLevel, FromGameController::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -520,9 +536,9 @@ impl ::windows::core::RuntimeName for IHeadset {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IHeadsetVtbl {
-    pub const fn new<Impl: IHeadsetImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IHeadsetVtbl {
-        unsafe extern "system" fn CaptureDeviceId<Impl: IHeadsetImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHeadsetImpl, const OFFSET: isize>() -> IHeadsetVtbl {
+        unsafe extern "system" fn CaptureDeviceId<Impl: IHeadsetImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CaptureDeviceId() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -532,8 +548,8 @@ impl IHeadsetVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RenderDeviceId<Impl: IHeadsetImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn RenderDeviceId<Impl: IHeadsetImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RenderDeviceId() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -543,7 +559,7 @@ impl IHeadsetVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IHeadset>, base.5, CaptureDeviceId::<Impl, OFFSET>, RenderDeviceId::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHeadset>, ::windows::core::GetTrustLevel, CaptureDeviceId::<Impl, OFFSET>, RenderDeviceId::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -563,9 +579,9 @@ impl ::windows::core::RuntimeName for IRacingWheel {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IRacingWheelVtbl {
-    pub const fn new<Impl: IRacingWheelImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IRacingWheelVtbl {
-        unsafe extern "system" fn HasClutch<Impl: IRacingWheelImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRacingWheelImpl, const OFFSET: isize>() -> IRacingWheelVtbl {
+        unsafe extern "system" fn HasClutch<Impl: IRacingWheelImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).HasClutch() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -575,8 +591,8 @@ impl IRacingWheelVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn HasHandbrake<Impl: IRacingWheelImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn HasHandbrake<Impl: IRacingWheelImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).HasHandbrake() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -586,8 +602,8 @@ impl IRacingWheelVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn HasPatternShifter<Impl: IRacingWheelImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn HasPatternShifter<Impl: IRacingWheelImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).HasPatternShifter() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -597,8 +613,8 @@ impl IRacingWheelVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn MaxPatternShifterGear<Impl: IRacingWheelImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn MaxPatternShifterGear<Impl: IRacingWheelImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MaxPatternShifterGear() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -608,8 +624,8 @@ impl IRacingWheelVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn MaxWheelAngle<Impl: IRacingWheelImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn MaxWheelAngle<Impl: IRacingWheelImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MaxWheelAngle() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -619,8 +635,8 @@ impl IRacingWheelVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn WheelMotor<Impl: IRacingWheelImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn WheelMotor<Impl: IRacingWheelImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).WheelMotor() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -630,8 +646,8 @@ impl IRacingWheelVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetButtonLabel<Impl: IRacingWheelImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, button: RacingWheelButtons, result__: *mut GameControllerButtonLabel) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn GetButtonLabel<Impl: IRacingWheelImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, button: RacingWheelButtons, result__: *mut GameControllerButtonLabel) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetButtonLabel(button) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -641,8 +657,8 @@ impl IRacingWheelVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetCurrentReading<Impl: IRacingWheelImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut RacingWheelReading) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn GetCurrentReading<Impl: IRacingWheelImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut RacingWheelReading) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetCurrentReading() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -652,7 +668,22 @@ impl IRacingWheelVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IRacingWheel>, base.5, HasClutch::<Impl, OFFSET>, HasHandbrake::<Impl, OFFSET>, HasPatternShifter::<Impl, OFFSET>, MaxPatternShifterGear::<Impl, OFFSET>, MaxWheelAngle::<Impl, OFFSET>, WheelMotor::<Impl, OFFSET>, GetButtonLabel::<Impl, OFFSET>, GetCurrentReading::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, OFFSET>,
+            ::windows::core::AddRef::<Identity, OFFSET>,
+            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<IRacingWheel>,
+            ::windows::core::GetTrustLevel,
+            HasClutch::<Impl, OFFSET>,
+            HasHandbrake::<Impl, OFFSET>,
+            HasPatternShifter::<Impl, OFFSET>,
+            MaxPatternShifterGear::<Impl, OFFSET>,
+            MaxWheelAngle::<Impl, OFFSET>,
+            WheelMotor::<Impl, OFFSET>,
+            GetButtonLabel::<Impl, OFFSET>,
+            GetCurrentReading::<Impl, OFFSET>,
+        )
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -669,9 +700,9 @@ impl ::windows::core::RuntimeName for IRacingWheelStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IRacingWheelStaticsVtbl {
-    pub const fn new<Impl: IRacingWheelStaticsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IRacingWheelStaticsVtbl {
-        unsafe extern "system" fn RacingWheelAdded<Impl: IRacingWheelStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRacingWheelStaticsImpl, const OFFSET: isize>() -> IRacingWheelStaticsVtbl {
+        unsafe extern "system" fn RacingWheelAdded<Impl: IRacingWheelStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RacingWheelAdded(&*(&value as *const <super::super::Foundation::EventHandler<RacingWheel> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventHandler<RacingWheel> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -681,12 +712,12 @@ impl IRacingWheelStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveRacingWheelAdded<Impl: IRacingWheelStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn RemoveRacingWheelAdded<Impl: IRacingWheelStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveRacingWheelAdded(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn RacingWheelRemoved<Impl: IRacingWheelStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn RacingWheelRemoved<Impl: IRacingWheelStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RacingWheelRemoved(&*(&value as *const <super::super::Foundation::EventHandler<RacingWheel> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventHandler<RacingWheel> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -696,12 +727,12 @@ impl IRacingWheelStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveRacingWheelRemoved<Impl: IRacingWheelStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn RemoveRacingWheelRemoved<Impl: IRacingWheelStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveRacingWheelRemoved(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn RacingWheels<Impl: IRacingWheelStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn RacingWheels<Impl: IRacingWheelStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RacingWheels() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -711,7 +742,7 @@ impl IRacingWheelStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IRacingWheelStatics>, base.5, RacingWheelAdded::<Impl, OFFSET>, RemoveRacingWheelAdded::<Impl, OFFSET>, RacingWheelRemoved::<Impl, OFFSET>, RemoveRacingWheelRemoved::<Impl, OFFSET>, RacingWheels::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRacingWheelStatics>, ::windows::core::GetTrustLevel, RacingWheelAdded::<Impl, OFFSET>, RemoveRacingWheelAdded::<Impl, OFFSET>, RacingWheelRemoved::<Impl, OFFSET>, RemoveRacingWheelRemoved::<Impl, OFFSET>, RacingWheels::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -724,9 +755,9 @@ impl ::windows::core::RuntimeName for IRacingWheelStatics2 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IRacingWheelStatics2Vtbl {
-    pub const fn new<Impl: IRacingWheelStatics2Impl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IRacingWheelStatics2Vtbl {
-        unsafe extern "system" fn FromGameController<Impl: IRacingWheelStatics2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, gamecontroller: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRacingWheelStatics2Impl, const OFFSET: isize>() -> IRacingWheelStatics2Vtbl {
+        unsafe extern "system" fn FromGameController<Impl: IRacingWheelStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, gamecontroller: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FromGameController(&*(&gamecontroller as *const <IGameController as ::windows::core::Abi>::Abi as *const <IGameController as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -736,7 +767,7 @@ impl IRacingWheelStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IRacingWheelStatics2>, base.5, FromGameController::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRacingWheelStatics2>, ::windows::core::GetTrustLevel, FromGameController::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -757,9 +788,9 @@ impl ::windows::core::RuntimeName for IRawGameController {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IRawGameControllerVtbl {
-    pub const fn new<Impl: IRawGameControllerImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IRawGameControllerVtbl {
-        unsafe extern "system" fn AxisCount<Impl: IRawGameControllerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRawGameControllerImpl, const OFFSET: isize>() -> IRawGameControllerVtbl {
+        unsafe extern "system" fn AxisCount<Impl: IRawGameControllerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AxisCount() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -769,8 +800,8 @@ impl IRawGameControllerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ButtonCount<Impl: IRawGameControllerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn ButtonCount<Impl: IRawGameControllerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ButtonCount() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -780,8 +811,8 @@ impl IRawGameControllerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ForceFeedbackMotors<Impl: IRawGameControllerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn ForceFeedbackMotors<Impl: IRawGameControllerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ForceFeedbackMotors() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -791,8 +822,8 @@ impl IRawGameControllerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn HardwareProductId<Impl: IRawGameControllerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut u16) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn HardwareProductId<Impl: IRawGameControllerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).HardwareProductId() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -802,8 +833,8 @@ impl IRawGameControllerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn HardwareVendorId<Impl: IRawGameControllerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut u16) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn HardwareVendorId<Impl: IRawGameControllerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).HardwareVendorId() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -813,8 +844,8 @@ impl IRawGameControllerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SwitchCount<Impl: IRawGameControllerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn SwitchCount<Impl: IRawGameControllerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SwitchCount() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -824,8 +855,8 @@ impl IRawGameControllerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetButtonLabel<Impl: IRawGameControllerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, buttonindex: i32, result__: *mut GameControllerButtonLabel) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn GetButtonLabel<Impl: IRawGameControllerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, buttonindex: i32, result__: *mut GameControllerButtonLabel) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetButtonLabel(buttonindex) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -835,8 +866,8 @@ impl IRawGameControllerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetCurrentReading<Impl: IRawGameControllerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, buttonArray_array_size: u32, buttonarray: *mut bool, switchArray_array_size: u32, switcharray: *mut GameControllerSwitchPosition, axisArray_array_size: u32, axisarray: *mut f64, result__: *mut u64) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn GetCurrentReading<Impl: IRawGameControllerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, buttonArray_array_size: u32, buttonarray: *mut bool, switchArray_array_size: u32, switcharray: *mut GameControllerSwitchPosition, axisArray_array_size: u32, axisarray: *mut f64, result__: *mut u64) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetCurrentReading(::core::slice::from_raw_parts_mut(::core::mem::transmute_copy(&buttonarray), buttonArray_array_size as _), ::core::slice::from_raw_parts_mut(::core::mem::transmute_copy(&switcharray), switchArray_array_size as _), ::core::slice::from_raw_parts_mut(::core::mem::transmute_copy(&axisarray), axisArray_array_size as _)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -846,8 +877,8 @@ impl IRawGameControllerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetSwitchKind<Impl: IRawGameControllerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, switchindex: i32, result__: *mut GameControllerSwitchKind) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn GetSwitchKind<Impl: IRawGameControllerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, switchindex: i32, result__: *mut GameControllerSwitchKind) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetSwitchKind(switchindex) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -857,7 +888,23 @@ impl IRawGameControllerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IRawGameController>, base.5, AxisCount::<Impl, OFFSET>, ButtonCount::<Impl, OFFSET>, ForceFeedbackMotors::<Impl, OFFSET>, HardwareProductId::<Impl, OFFSET>, HardwareVendorId::<Impl, OFFSET>, SwitchCount::<Impl, OFFSET>, GetButtonLabel::<Impl, OFFSET>, GetCurrentReading::<Impl, OFFSET>, GetSwitchKind::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, OFFSET>,
+            ::windows::core::AddRef::<Identity, OFFSET>,
+            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<IRawGameController>,
+            ::windows::core::GetTrustLevel,
+            AxisCount::<Impl, OFFSET>,
+            ButtonCount::<Impl, OFFSET>,
+            ForceFeedbackMotors::<Impl, OFFSET>,
+            HardwareProductId::<Impl, OFFSET>,
+            HardwareVendorId::<Impl, OFFSET>,
+            SwitchCount::<Impl, OFFSET>,
+            GetButtonLabel::<Impl, OFFSET>,
+            GetCurrentReading::<Impl, OFFSET>,
+            GetSwitchKind::<Impl, OFFSET>,
+        )
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -872,9 +919,9 @@ impl ::windows::core::RuntimeName for IRawGameController2 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IRawGameController2Vtbl {
-    pub const fn new<Impl: IRawGameController2Impl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IRawGameController2Vtbl {
-        unsafe extern "system" fn SimpleHapticsControllers<Impl: IRawGameController2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRawGameController2Impl, const OFFSET: isize>() -> IRawGameController2Vtbl {
+        unsafe extern "system" fn SimpleHapticsControllers<Impl: IRawGameController2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SimpleHapticsControllers() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -884,8 +931,8 @@ impl IRawGameController2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn NonRoamableId<Impl: IRawGameController2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn NonRoamableId<Impl: IRawGameController2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).NonRoamableId() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -895,8 +942,8 @@ impl IRawGameController2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DisplayName<Impl: IRawGameController2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn DisplayName<Impl: IRawGameController2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DisplayName() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -906,7 +953,7 @@ impl IRawGameController2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IRawGameController2>, base.5, SimpleHapticsControllers::<Impl, OFFSET>, NonRoamableId::<Impl, OFFSET>, DisplayName::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRawGameController2>, ::windows::core::GetTrustLevel, SimpleHapticsControllers::<Impl, OFFSET>, NonRoamableId::<Impl, OFFSET>, DisplayName::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -924,9 +971,9 @@ impl ::windows::core::RuntimeName for IRawGameControllerStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IRawGameControllerStaticsVtbl {
-    pub const fn new<Impl: IRawGameControllerStaticsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IRawGameControllerStaticsVtbl {
-        unsafe extern "system" fn RawGameControllerAdded<Impl: IRawGameControllerStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRawGameControllerStaticsImpl, const OFFSET: isize>() -> IRawGameControllerStaticsVtbl {
+        unsafe extern "system" fn RawGameControllerAdded<Impl: IRawGameControllerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RawGameControllerAdded(&*(&value as *const <super::super::Foundation::EventHandler<RawGameController> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventHandler<RawGameController> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -936,12 +983,12 @@ impl IRawGameControllerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveRawGameControllerAdded<Impl: IRawGameControllerStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn RemoveRawGameControllerAdded<Impl: IRawGameControllerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveRawGameControllerAdded(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn RawGameControllerRemoved<Impl: IRawGameControllerStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn RawGameControllerRemoved<Impl: IRawGameControllerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RawGameControllerRemoved(&*(&value as *const <super::super::Foundation::EventHandler<RawGameController> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventHandler<RawGameController> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -951,12 +998,12 @@ impl IRawGameControllerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveRawGameControllerRemoved<Impl: IRawGameControllerStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn RemoveRawGameControllerRemoved<Impl: IRawGameControllerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveRawGameControllerRemoved(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn RawGameControllers<Impl: IRawGameControllerStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn RawGameControllers<Impl: IRawGameControllerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RawGameControllers() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -966,8 +1013,8 @@ impl IRawGameControllerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn FromGameController<Impl: IRawGameControllerStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, gamecontroller: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn FromGameController<Impl: IRawGameControllerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, gamecontroller: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FromGameController(&*(&gamecontroller as *const <IGameController as ::windows::core::Abi>::Abi as *const <IGameController as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -977,7 +1024,20 @@ impl IRawGameControllerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IRawGameControllerStatics>, base.5, RawGameControllerAdded::<Impl, OFFSET>, RemoveRawGameControllerAdded::<Impl, OFFSET>, RawGameControllerRemoved::<Impl, OFFSET>, RemoveRawGameControllerRemoved::<Impl, OFFSET>, RawGameControllers::<Impl, OFFSET>, FromGameController::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, OFFSET>,
+            ::windows::core::AddRef::<Identity, OFFSET>,
+            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<IRawGameControllerStatics>,
+            ::windows::core::GetTrustLevel,
+            RawGameControllerAdded::<Impl, OFFSET>,
+            RemoveRawGameControllerAdded::<Impl, OFFSET>,
+            RawGameControllerRemoved::<Impl, OFFSET>,
+            RemoveRawGameControllerRemoved::<Impl, OFFSET>,
+            RawGameControllers::<Impl, OFFSET>,
+            FromGameController::<Impl, OFFSET>,
+        )
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -992,9 +1052,9 @@ impl ::windows::core::RuntimeName for IUINavigationController {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IUINavigationControllerVtbl {
-    pub const fn new<Impl: IUINavigationControllerImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IUINavigationControllerVtbl {
-        unsafe extern "system" fn GetCurrentReading<Impl: IUINavigationControllerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut UINavigationReading) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUINavigationControllerImpl, const OFFSET: isize>() -> IUINavigationControllerVtbl {
+        unsafe extern "system" fn GetCurrentReading<Impl: IUINavigationControllerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut UINavigationReading) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetCurrentReading() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1004,8 +1064,8 @@ impl IUINavigationControllerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetOptionalButtonLabel<Impl: IUINavigationControllerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, button: OptionalUINavigationButtons, result__: *mut GameControllerButtonLabel) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn GetOptionalButtonLabel<Impl: IUINavigationControllerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, button: OptionalUINavigationButtons, result__: *mut GameControllerButtonLabel) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetOptionalButtonLabel(button) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1015,8 +1075,8 @@ impl IUINavigationControllerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetRequiredButtonLabel<Impl: IUINavigationControllerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, button: RequiredUINavigationButtons, result__: *mut GameControllerButtonLabel) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn GetRequiredButtonLabel<Impl: IUINavigationControllerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, button: RequiredUINavigationButtons, result__: *mut GameControllerButtonLabel) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetRequiredButtonLabel(button) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1026,7 +1086,7 @@ impl IUINavigationControllerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IUINavigationController>, base.5, GetCurrentReading::<Impl, OFFSET>, GetOptionalButtonLabel::<Impl, OFFSET>, GetRequiredButtonLabel::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUINavigationController>, ::windows::core::GetTrustLevel, GetCurrentReading::<Impl, OFFSET>, GetOptionalButtonLabel::<Impl, OFFSET>, GetRequiredButtonLabel::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1043,9 +1103,9 @@ impl ::windows::core::RuntimeName for IUINavigationControllerStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IUINavigationControllerStaticsVtbl {
-    pub const fn new<Impl: IUINavigationControllerStaticsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IUINavigationControllerStaticsVtbl {
-        unsafe extern "system" fn UINavigationControllerAdded<Impl: IUINavigationControllerStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUINavigationControllerStaticsImpl, const OFFSET: isize>() -> IUINavigationControllerStaticsVtbl {
+        unsafe extern "system" fn UINavigationControllerAdded<Impl: IUINavigationControllerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).UINavigationControllerAdded(&*(&value as *const <super::super::Foundation::EventHandler<UINavigationController> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventHandler<UINavigationController> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1055,12 +1115,12 @@ impl IUINavigationControllerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveUINavigationControllerAdded<Impl: IUINavigationControllerStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn RemoveUINavigationControllerAdded<Impl: IUINavigationControllerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveUINavigationControllerAdded(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn UINavigationControllerRemoved<Impl: IUINavigationControllerStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn UINavigationControllerRemoved<Impl: IUINavigationControllerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).UINavigationControllerRemoved(&*(&value as *const <super::super::Foundation::EventHandler<UINavigationController> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventHandler<UINavigationController> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1070,12 +1130,12 @@ impl IUINavigationControllerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveUINavigationControllerRemoved<Impl: IUINavigationControllerStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn RemoveUINavigationControllerRemoved<Impl: IUINavigationControllerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveUINavigationControllerRemoved(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn UINavigationControllers<Impl: IUINavigationControllerStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn UINavigationControllers<Impl: IUINavigationControllerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).UINavigationControllers() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1085,7 +1145,19 @@ impl IUINavigationControllerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IUINavigationControllerStatics>, base.5, UINavigationControllerAdded::<Impl, OFFSET>, RemoveUINavigationControllerAdded::<Impl, OFFSET>, UINavigationControllerRemoved::<Impl, OFFSET>, RemoveUINavigationControllerRemoved::<Impl, OFFSET>, UINavigationControllers::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, OFFSET>,
+            ::windows::core::AddRef::<Identity, OFFSET>,
+            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<IUINavigationControllerStatics>,
+            ::windows::core::GetTrustLevel,
+            UINavigationControllerAdded::<Impl, OFFSET>,
+            RemoveUINavigationControllerAdded::<Impl, OFFSET>,
+            UINavigationControllerRemoved::<Impl, OFFSET>,
+            RemoveUINavigationControllerRemoved::<Impl, OFFSET>,
+            UINavigationControllers::<Impl, OFFSET>,
+        )
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1098,9 +1170,9 @@ impl ::windows::core::RuntimeName for IUINavigationControllerStatics2 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IUINavigationControllerStatics2Vtbl {
-    pub const fn new<Impl: IUINavigationControllerStatics2Impl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IUINavigationControllerStatics2Vtbl {
-        unsafe extern "system" fn FromGameController<Impl: IUINavigationControllerStatics2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, gamecontroller: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUINavigationControllerStatics2Impl, const OFFSET: isize>() -> IUINavigationControllerStatics2Vtbl {
+        unsafe extern "system" fn FromGameController<Impl: IUINavigationControllerStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, gamecontroller: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FromGameController(&*(&gamecontroller as *const <IGameController as ::windows::core::Abi>::Abi as *const <IGameController as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1110,6 +1182,6 @@ impl IUINavigationControllerStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IUINavigationControllerStatics2>, base.5, FromGameController::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUINavigationControllerStatics2>, ::windows::core::GetTrustLevel, FromGameController::<Impl, OFFSET>)
     }
 }

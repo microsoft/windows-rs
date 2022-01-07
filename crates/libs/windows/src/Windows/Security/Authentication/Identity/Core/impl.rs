@@ -17,9 +17,9 @@ impl ::windows::core::RuntimeName for IMicrosoftAccountMultiFactorAuthentication
 }
 #[cfg(feature = "implement_exclusive")]
 impl IMicrosoftAccountMultiFactorAuthenticationManagerVtbl {
-    pub const fn new<Impl: IMicrosoftAccountMultiFactorAuthenticationManagerImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IMicrosoftAccountMultiFactorAuthenticationManagerVtbl {
-        unsafe extern "system" fn GetOneTimePassCodeAsync<Impl: IMicrosoftAccountMultiFactorAuthenticationManagerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, useraccountid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, codelength: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMicrosoftAccountMultiFactorAuthenticationManagerImpl, const OFFSET: isize>() -> IMicrosoftAccountMultiFactorAuthenticationManagerVtbl {
+        unsafe extern "system" fn GetOneTimePassCodeAsync<Impl: IMicrosoftAccountMultiFactorAuthenticationManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, useraccountid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, codelength: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetOneTimePassCodeAsync(&*(&useraccountid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), codelength) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -29,8 +29,8 @@ impl IMicrosoftAccountMultiFactorAuthenticationManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AddDeviceAsync<Impl: IMicrosoftAccountMultiFactorAuthenticationManagerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, useraccountid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, authenticationtoken: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, wnschannelid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn AddDeviceAsync<Impl: IMicrosoftAccountMultiFactorAuthenticationManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, useraccountid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, authenticationtoken: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, wnschannelid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AddDeviceAsync(
                 &*(&useraccountid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType),
                 &*(&authenticationtoken as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType),
@@ -44,8 +44,8 @@ impl IMicrosoftAccountMultiFactorAuthenticationManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveDeviceAsync<Impl: IMicrosoftAccountMultiFactorAuthenticationManagerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, useraccountid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn RemoveDeviceAsync<Impl: IMicrosoftAccountMultiFactorAuthenticationManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, useraccountid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RemoveDeviceAsync(&*(&useraccountid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -55,8 +55,8 @@ impl IMicrosoftAccountMultiFactorAuthenticationManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn UpdateWnsChannelAsync<Impl: IMicrosoftAccountMultiFactorAuthenticationManagerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, useraccountid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, channeluri: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn UpdateWnsChannelAsync<Impl: IMicrosoftAccountMultiFactorAuthenticationManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, useraccountid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, channeluri: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).UpdateWnsChannelAsync(&*(&useraccountid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&channeluri as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -66,8 +66,8 @@ impl IMicrosoftAccountMultiFactorAuthenticationManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetSessionsAsync<Impl: IMicrosoftAccountMultiFactorAuthenticationManagerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, useraccountidlist: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn GetSessionsAsync<Impl: IMicrosoftAccountMultiFactorAuthenticationManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, useraccountidlist: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetSessionsAsync(&*(&useraccountidlist as *const <super::super::super::super::Foundation::Collections::IIterable<::windows::core::HSTRING> as ::windows::core::Abi>::Abi as *const <super::super::super::super::Foundation::Collections::IIterable<::windows::core::HSTRING> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -77,8 +77,8 @@ impl IMicrosoftAccountMultiFactorAuthenticationManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetSessionsAndUnregisteredAccountsAsync<Impl: IMicrosoftAccountMultiFactorAuthenticationManagerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, useraccountidlist: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn GetSessionsAndUnregisteredAccountsAsync<Impl: IMicrosoftAccountMultiFactorAuthenticationManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, useraccountidlist: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetSessionsAndUnregisteredAccountsAsync(&*(&useraccountidlist as *const <super::super::super::super::Foundation::Collections::IIterable<::windows::core::HSTRING> as ::windows::core::Abi>::Abi as *const <super::super::super::super::Foundation::Collections::IIterable<::windows::core::HSTRING> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -88,8 +88,8 @@ impl IMicrosoftAccountMultiFactorAuthenticationManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ApproveSessionUsingAuthSessionInfoAsync<Impl: IMicrosoftAccountMultiFactorAuthenticationManagerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, sessionauthentictionstatus: MicrosoftAccountMultiFactorSessionAuthenticationStatus, authenticationsessioninfo: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn ApproveSessionUsingAuthSessionInfoAsync<Impl: IMicrosoftAccountMultiFactorAuthenticationManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sessionauthentictionstatus: MicrosoftAccountMultiFactorSessionAuthenticationStatus, authenticationsessioninfo: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ApproveSessionUsingAuthSessionInfoAsync(sessionauthentictionstatus, &*(&authenticationsessioninfo as *const <MicrosoftAccountMultiFactorSessionInfo as ::windows::core::Abi>::Abi as *const <MicrosoftAccountMultiFactorSessionInfo as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -99,8 +99,8 @@ impl IMicrosoftAccountMultiFactorAuthenticationManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ApproveSessionAsync<Impl: IMicrosoftAccountMultiFactorAuthenticationManagerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, sessionauthentictionstatus: MicrosoftAccountMultiFactorSessionAuthenticationStatus, useraccountid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, sessionid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, sessionauthenticationtype: MicrosoftAccountMultiFactorAuthenticationType, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn ApproveSessionAsync<Impl: IMicrosoftAccountMultiFactorAuthenticationManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sessionauthentictionstatus: MicrosoftAccountMultiFactorSessionAuthenticationStatus, useraccountid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, sessionid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, sessionauthenticationtype: MicrosoftAccountMultiFactorAuthenticationType, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ApproveSessionAsync(sessionauthentictionstatus, &*(&useraccountid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&sessionid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), sessionauthenticationtype) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -110,8 +110,8 @@ impl IMicrosoftAccountMultiFactorAuthenticationManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DenySessionUsingAuthSessionInfoAsync<Impl: IMicrosoftAccountMultiFactorAuthenticationManagerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, authenticationsessioninfo: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn DenySessionUsingAuthSessionInfoAsync<Impl: IMicrosoftAccountMultiFactorAuthenticationManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, authenticationsessioninfo: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DenySessionUsingAuthSessionInfoAsync(&*(&authenticationsessioninfo as *const <MicrosoftAccountMultiFactorSessionInfo as ::windows::core::Abi>::Abi as *const <MicrosoftAccountMultiFactorSessionInfo as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -121,8 +121,8 @@ impl IMicrosoftAccountMultiFactorAuthenticationManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DenySessionAsync<Impl: IMicrosoftAccountMultiFactorAuthenticationManagerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, useraccountid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, sessionid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, sessionauthenticationtype: MicrosoftAccountMultiFactorAuthenticationType, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn DenySessionAsync<Impl: IMicrosoftAccountMultiFactorAuthenticationManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, useraccountid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, sessionid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, sessionauthenticationtype: MicrosoftAccountMultiFactorAuthenticationType, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DenySessionAsync(&*(&useraccountid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&sessionid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), sessionauthenticationtype) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -133,12 +133,12 @@ impl IMicrosoftAccountMultiFactorAuthenticationManagerVtbl {
             }
         }
         Self(
-            base.0,
-            base.1,
-            base.2,
-            base.3,
+            ::windows::core::QueryInterface::<Identity, OFFSET>,
+            ::windows::core::AddRef::<Identity, OFFSET>,
+            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IMicrosoftAccountMultiFactorAuthenticationManager>,
-            base.5,
+            ::windows::core::GetTrustLevel,
             GetOneTimePassCodeAsync::<Impl, OFFSET>,
             AddDeviceAsync::<Impl, OFFSET>,
             RemoveDeviceAsync::<Impl, OFFSET>,
@@ -162,9 +162,9 @@ impl ::windows::core::RuntimeName for IMicrosoftAccountMultiFactorAuthenticatorS
 }
 #[cfg(feature = "implement_exclusive")]
 impl IMicrosoftAccountMultiFactorAuthenticatorStaticsVtbl {
-    pub const fn new<Impl: IMicrosoftAccountMultiFactorAuthenticatorStaticsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IMicrosoftAccountMultiFactorAuthenticatorStaticsVtbl {
-        unsafe extern "system" fn Current<Impl: IMicrosoftAccountMultiFactorAuthenticatorStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMicrosoftAccountMultiFactorAuthenticatorStaticsImpl, const OFFSET: isize>() -> IMicrosoftAccountMultiFactorAuthenticatorStaticsVtbl {
+        unsafe extern "system" fn Current<Impl: IMicrosoftAccountMultiFactorAuthenticatorStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Current() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -174,7 +174,7 @@ impl IMicrosoftAccountMultiFactorAuthenticatorStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IMicrosoftAccountMultiFactorAuthenticatorStatics>, base.5, Current::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMicrosoftAccountMultiFactorAuthenticatorStatics>, ::windows::core::GetTrustLevel, Current::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -188,9 +188,9 @@ impl ::windows::core::RuntimeName for IMicrosoftAccountMultiFactorGetSessionsRes
 }
 #[cfg(feature = "implement_exclusive")]
 impl IMicrosoftAccountMultiFactorGetSessionsResultVtbl {
-    pub const fn new<Impl: IMicrosoftAccountMultiFactorGetSessionsResultImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IMicrosoftAccountMultiFactorGetSessionsResultVtbl {
-        unsafe extern "system" fn Sessions<Impl: IMicrosoftAccountMultiFactorGetSessionsResultImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMicrosoftAccountMultiFactorGetSessionsResultImpl, const OFFSET: isize>() -> IMicrosoftAccountMultiFactorGetSessionsResultVtbl {
+        unsafe extern "system" fn Sessions<Impl: IMicrosoftAccountMultiFactorGetSessionsResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Sessions() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -200,8 +200,8 @@ impl IMicrosoftAccountMultiFactorGetSessionsResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ServiceResponse<Impl: IMicrosoftAccountMultiFactorGetSessionsResultImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut MicrosoftAccountMultiFactorServiceResponse) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn ServiceResponse<Impl: IMicrosoftAccountMultiFactorGetSessionsResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut MicrosoftAccountMultiFactorServiceResponse) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ServiceResponse() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -211,7 +211,7 @@ impl IMicrosoftAccountMultiFactorGetSessionsResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IMicrosoftAccountMultiFactorGetSessionsResult>, base.5, Sessions::<Impl, OFFSET>, ServiceResponse::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMicrosoftAccountMultiFactorGetSessionsResult>, ::windows::core::GetTrustLevel, Sessions::<Impl, OFFSET>, ServiceResponse::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -227,9 +227,9 @@ impl ::windows::core::RuntimeName for IMicrosoftAccountMultiFactorOneTimeCodedIn
 }
 #[cfg(feature = "implement_exclusive")]
 impl IMicrosoftAccountMultiFactorOneTimeCodedInfoVtbl {
-    pub const fn new<Impl: IMicrosoftAccountMultiFactorOneTimeCodedInfoImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IMicrosoftAccountMultiFactorOneTimeCodedInfoVtbl {
-        unsafe extern "system" fn Code<Impl: IMicrosoftAccountMultiFactorOneTimeCodedInfoImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMicrosoftAccountMultiFactorOneTimeCodedInfoImpl, const OFFSET: isize>() -> IMicrosoftAccountMultiFactorOneTimeCodedInfoVtbl {
+        unsafe extern "system" fn Code<Impl: IMicrosoftAccountMultiFactorOneTimeCodedInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Code() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -239,8 +239,8 @@ impl IMicrosoftAccountMultiFactorOneTimeCodedInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TimeInterval<Impl: IMicrosoftAccountMultiFactorOneTimeCodedInfoImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn TimeInterval<Impl: IMicrosoftAccountMultiFactorOneTimeCodedInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TimeInterval() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -250,8 +250,8 @@ impl IMicrosoftAccountMultiFactorOneTimeCodedInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TimeToLive<Impl: IMicrosoftAccountMultiFactorOneTimeCodedInfoImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn TimeToLive<Impl: IMicrosoftAccountMultiFactorOneTimeCodedInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TimeToLive() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -261,8 +261,8 @@ impl IMicrosoftAccountMultiFactorOneTimeCodedInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ServiceResponse<Impl: IMicrosoftAccountMultiFactorOneTimeCodedInfoImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut MicrosoftAccountMultiFactorServiceResponse) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn ServiceResponse<Impl: IMicrosoftAccountMultiFactorOneTimeCodedInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut MicrosoftAccountMultiFactorServiceResponse) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ServiceResponse() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -272,7 +272,7 @@ impl IMicrosoftAccountMultiFactorOneTimeCodedInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IMicrosoftAccountMultiFactorOneTimeCodedInfo>, base.5, Code::<Impl, OFFSET>, TimeInterval::<Impl, OFFSET>, TimeToLive::<Impl, OFFSET>, ServiceResponse::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMicrosoftAccountMultiFactorOneTimeCodedInfo>, ::windows::core::GetTrustLevel, Code::<Impl, OFFSET>, TimeInterval::<Impl, OFFSET>, TimeToLive::<Impl, OFFSET>, ServiceResponse::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -291,9 +291,9 @@ impl ::windows::core::RuntimeName for IMicrosoftAccountMultiFactorSessionInfo {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IMicrosoftAccountMultiFactorSessionInfoVtbl {
-    pub const fn new<Impl: IMicrosoftAccountMultiFactorSessionInfoImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IMicrosoftAccountMultiFactorSessionInfoVtbl {
-        unsafe extern "system" fn UserAccountId<Impl: IMicrosoftAccountMultiFactorSessionInfoImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMicrosoftAccountMultiFactorSessionInfoImpl, const OFFSET: isize>() -> IMicrosoftAccountMultiFactorSessionInfoVtbl {
+        unsafe extern "system" fn UserAccountId<Impl: IMicrosoftAccountMultiFactorSessionInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).UserAccountId() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -303,8 +303,8 @@ impl IMicrosoftAccountMultiFactorSessionInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SessionId<Impl: IMicrosoftAccountMultiFactorSessionInfoImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn SessionId<Impl: IMicrosoftAccountMultiFactorSessionInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SessionId() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -314,8 +314,8 @@ impl IMicrosoftAccountMultiFactorSessionInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DisplaySessionId<Impl: IMicrosoftAccountMultiFactorSessionInfoImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn DisplaySessionId<Impl: IMicrosoftAccountMultiFactorSessionInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DisplaySessionId() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -325,8 +325,8 @@ impl IMicrosoftAccountMultiFactorSessionInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ApprovalStatus<Impl: IMicrosoftAccountMultiFactorSessionInfoImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut MicrosoftAccountMultiFactorSessionApprovalStatus) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn ApprovalStatus<Impl: IMicrosoftAccountMultiFactorSessionInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut MicrosoftAccountMultiFactorSessionApprovalStatus) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ApprovalStatus() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -336,8 +336,8 @@ impl IMicrosoftAccountMultiFactorSessionInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AuthenticationType<Impl: IMicrosoftAccountMultiFactorSessionInfoImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut MicrosoftAccountMultiFactorAuthenticationType) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn AuthenticationType<Impl: IMicrosoftAccountMultiFactorSessionInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut MicrosoftAccountMultiFactorAuthenticationType) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AuthenticationType() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -347,8 +347,8 @@ impl IMicrosoftAccountMultiFactorSessionInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RequestTime<Impl: IMicrosoftAccountMultiFactorSessionInfoImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::super::Foundation::DateTime) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn RequestTime<Impl: IMicrosoftAccountMultiFactorSessionInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::super::Foundation::DateTime) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RequestTime() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -358,8 +358,8 @@ impl IMicrosoftAccountMultiFactorSessionInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ExpirationTime<Impl: IMicrosoftAccountMultiFactorSessionInfoImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::super::Foundation::DateTime) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn ExpirationTime<Impl: IMicrosoftAccountMultiFactorSessionInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::super::Foundation::DateTime) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ExpirationTime() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -369,7 +369,21 @@ impl IMicrosoftAccountMultiFactorSessionInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IMicrosoftAccountMultiFactorSessionInfo>, base.5, UserAccountId::<Impl, OFFSET>, SessionId::<Impl, OFFSET>, DisplaySessionId::<Impl, OFFSET>, ApprovalStatus::<Impl, OFFSET>, AuthenticationType::<Impl, OFFSET>, RequestTime::<Impl, OFFSET>, ExpirationTime::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, OFFSET>,
+            ::windows::core::AddRef::<Identity, OFFSET>,
+            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<IMicrosoftAccountMultiFactorSessionInfo>,
+            ::windows::core::GetTrustLevel,
+            UserAccountId::<Impl, OFFSET>,
+            SessionId::<Impl, OFFSET>,
+            DisplaySessionId::<Impl, OFFSET>,
+            ApprovalStatus::<Impl, OFFSET>,
+            AuthenticationType::<Impl, OFFSET>,
+            RequestTime::<Impl, OFFSET>,
+            ExpirationTime::<Impl, OFFSET>,
+        )
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -384,9 +398,9 @@ impl ::windows::core::RuntimeName for IMicrosoftAccountMultiFactorUnregisteredAc
 }
 #[cfg(feature = "implement_exclusive")]
 impl IMicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfoVtbl {
-    pub const fn new<Impl: IMicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfoImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IMicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfoVtbl {
-        unsafe extern "system" fn Sessions<Impl: IMicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfoImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfoImpl, const OFFSET: isize>() -> IMicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfoVtbl {
+        unsafe extern "system" fn Sessions<Impl: IMicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Sessions() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -396,8 +410,8 @@ impl IMicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn UnregisteredAccounts<Impl: IMicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfoImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn UnregisteredAccounts<Impl: IMicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).UnregisteredAccounts() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -407,8 +421,8 @@ impl IMicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ServiceResponse<Impl: IMicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfoImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut MicrosoftAccountMultiFactorServiceResponse) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn ServiceResponse<Impl: IMicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut MicrosoftAccountMultiFactorServiceResponse) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ServiceResponse() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -418,6 +432,6 @@ impl IMicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IMicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo>, base.5, Sessions::<Impl, OFFSET>, UnregisteredAccounts::<Impl, OFFSET>, ServiceResponse::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo>, ::windows::core::GetTrustLevel, Sessions::<Impl, OFFSET>, UnregisteredAccounts::<Impl, OFFSET>, ServiceResponse::<Impl, OFFSET>)
     }
 }

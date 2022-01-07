@@ -11,9 +11,9 @@ impl ::windows::core::RuntimeName for IMdmAllowPolicyStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IMdmAllowPolicyStaticsVtbl {
-    pub const fn new<Impl: IMdmAllowPolicyStaticsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IMdmAllowPolicyStaticsVtbl {
-        unsafe extern "system" fn IsBrowserAllowed<Impl: IMdmAllowPolicyStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMdmAllowPolicyStaticsImpl, const OFFSET: isize>() -> IMdmAllowPolicyStaticsVtbl {
+        unsafe extern "system" fn IsBrowserAllowed<Impl: IMdmAllowPolicyStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsBrowserAllowed() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -23,8 +23,8 @@ impl IMdmAllowPolicyStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsCameraAllowed<Impl: IMdmAllowPolicyStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn IsCameraAllowed<Impl: IMdmAllowPolicyStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsCameraAllowed() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -34,8 +34,8 @@ impl IMdmAllowPolicyStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsMicrosoftAccountAllowed<Impl: IMdmAllowPolicyStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn IsMicrosoftAccountAllowed<Impl: IMdmAllowPolicyStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsMicrosoftAccountAllowed() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -45,8 +45,8 @@ impl IMdmAllowPolicyStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsStoreAllowed<Impl: IMdmAllowPolicyStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn IsStoreAllowed<Impl: IMdmAllowPolicyStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsStoreAllowed() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -56,7 +56,7 @@ impl IMdmAllowPolicyStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IMdmAllowPolicyStatics>, base.5, IsBrowserAllowed::<Impl, OFFSET>, IsCameraAllowed::<Impl, OFFSET>, IsMicrosoftAccountAllowed::<Impl, OFFSET>, IsStoreAllowed::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMdmAllowPolicyStatics>, ::windows::core::GetTrustLevel, IsBrowserAllowed::<Impl, OFFSET>, IsCameraAllowed::<Impl, OFFSET>, IsMicrosoftAccountAllowed::<Impl, OFFSET>, IsStoreAllowed::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -69,9 +69,9 @@ impl ::windows::core::RuntimeName for IMdmPolicyStatics2 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IMdmPolicyStatics2Vtbl {
-    pub const fn new<Impl: IMdmPolicyStatics2Impl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IMdmPolicyStatics2Vtbl {
-        unsafe extern "system" fn GetMessagingSyncPolicy<Impl: IMdmPolicyStatics2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut MessagingSyncPolicy) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMdmPolicyStatics2Impl, const OFFSET: isize>() -> IMdmPolicyStatics2Vtbl {
+        unsafe extern "system" fn GetMessagingSyncPolicy<Impl: IMdmPolicyStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut MessagingSyncPolicy) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetMessagingSyncPolicy() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -81,7 +81,7 @@ impl IMdmPolicyStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IMdmPolicyStatics2>, base.5, GetMessagingSyncPolicy::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMdmPolicyStatics2>, ::windows::core::GetTrustLevel, GetMessagingSyncPolicy::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -94,9 +94,9 @@ impl ::windows::core::RuntimeName for IWorkplaceSettingsStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IWorkplaceSettingsStaticsVtbl {
-    pub const fn new<Impl: IWorkplaceSettingsStaticsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IWorkplaceSettingsStaticsVtbl {
-        unsafe extern "system" fn IsMicrosoftAccountOptional<Impl: IWorkplaceSettingsStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWorkplaceSettingsStaticsImpl, const OFFSET: isize>() -> IWorkplaceSettingsStaticsVtbl {
+        unsafe extern "system" fn IsMicrosoftAccountOptional<Impl: IWorkplaceSettingsStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsMicrosoftAccountOptional() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -106,6 +106,6 @@ impl IWorkplaceSettingsStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IWorkplaceSettingsStatics>, base.5, IsMicrosoftAccountOptional::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWorkplaceSettingsStatics>, ::windows::core::GetTrustLevel, IsMicrosoftAccountOptional::<Impl, OFFSET>)
     }
 }

@@ -14,9 +14,9 @@ impl ::windows::core::RuntimeName for IOnlineIdAuthenticator {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IOnlineIdAuthenticatorVtbl {
-    pub const fn new<Impl: IOnlineIdAuthenticatorImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IOnlineIdAuthenticatorVtbl {
-        unsafe extern "system" fn AuthenticateUserAsync<Impl: IOnlineIdAuthenticatorImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, request: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IOnlineIdAuthenticatorImpl, const OFFSET: isize>() -> IOnlineIdAuthenticatorVtbl {
+        unsafe extern "system" fn AuthenticateUserAsync<Impl: IOnlineIdAuthenticatorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, request: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AuthenticateUserAsync(&*(&request as *const <OnlineIdServiceTicketRequest as ::windows::core::Abi>::Abi as *const <OnlineIdServiceTicketRequest as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -26,8 +26,8 @@ impl IOnlineIdAuthenticatorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AuthenticateUserAsyncAdvanced<Impl: IOnlineIdAuthenticatorImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, requests: ::windows::core::RawPtr, credentialprompttype: CredentialPromptType, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn AuthenticateUserAsyncAdvanced<Impl: IOnlineIdAuthenticatorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, requests: ::windows::core::RawPtr, credentialprompttype: CredentialPromptType, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AuthenticateUserAsyncAdvanced(&*(&requests as *const <super::super::super::Foundation::Collections::IIterable<OnlineIdServiceTicketRequest> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::Collections::IIterable<OnlineIdServiceTicketRequest> as ::windows::core::DefaultType>::DefaultType), credentialprompttype) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -37,8 +37,8 @@ impl IOnlineIdAuthenticatorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SignOutUserAsync<Impl: IOnlineIdAuthenticatorImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn SignOutUserAsync<Impl: IOnlineIdAuthenticatorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SignOutUserAsync() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -48,12 +48,12 @@ impl IOnlineIdAuthenticatorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetApplicationId<Impl: IOnlineIdAuthenticatorImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: ::windows::core::GUID) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn SetApplicationId<Impl: IOnlineIdAuthenticatorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::GUID) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetApplicationId(&*(&value as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn ApplicationId<Impl: IOnlineIdAuthenticatorImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn ApplicationId<Impl: IOnlineIdAuthenticatorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ApplicationId() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -63,8 +63,8 @@ impl IOnlineIdAuthenticatorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CanSignOut<Impl: IOnlineIdAuthenticatorImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn CanSignOut<Impl: IOnlineIdAuthenticatorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CanSignOut() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -74,8 +74,8 @@ impl IOnlineIdAuthenticatorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AuthenticatedSafeCustomerId<Impl: IOnlineIdAuthenticatorImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn AuthenticatedSafeCustomerId<Impl: IOnlineIdAuthenticatorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AuthenticatedSafeCustomerId() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -85,7 +85,21 @@ impl IOnlineIdAuthenticatorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IOnlineIdAuthenticator>, base.5, AuthenticateUserAsync::<Impl, OFFSET>, AuthenticateUserAsyncAdvanced::<Impl, OFFSET>, SignOutUserAsync::<Impl, OFFSET>, SetApplicationId::<Impl, OFFSET>, ApplicationId::<Impl, OFFSET>, CanSignOut::<Impl, OFFSET>, AuthenticatedSafeCustomerId::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, OFFSET>,
+            ::windows::core::AddRef::<Identity, OFFSET>,
+            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<IOnlineIdAuthenticator>,
+            ::windows::core::GetTrustLevel,
+            AuthenticateUserAsync::<Impl, OFFSET>,
+            AuthenticateUserAsyncAdvanced::<Impl, OFFSET>,
+            SignOutUserAsync::<Impl, OFFSET>,
+            SetApplicationId::<Impl, OFFSET>,
+            ApplicationId::<Impl, OFFSET>,
+            CanSignOut::<Impl, OFFSET>,
+            AuthenticatedSafeCustomerId::<Impl, OFFSET>,
+        )
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -100,9 +114,9 @@ impl ::windows::core::RuntimeName for IOnlineIdServiceTicket {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IOnlineIdServiceTicketVtbl {
-    pub const fn new<Impl: IOnlineIdServiceTicketImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IOnlineIdServiceTicketVtbl {
-        unsafe extern "system" fn Value<Impl: IOnlineIdServiceTicketImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IOnlineIdServiceTicketImpl, const OFFSET: isize>() -> IOnlineIdServiceTicketVtbl {
+        unsafe extern "system" fn Value<Impl: IOnlineIdServiceTicketImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Value() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -112,8 +126,8 @@ impl IOnlineIdServiceTicketVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Request<Impl: IOnlineIdServiceTicketImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn Request<Impl: IOnlineIdServiceTicketImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Request() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -123,8 +137,8 @@ impl IOnlineIdServiceTicketVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ErrorCode<Impl: IOnlineIdServiceTicketImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn ErrorCode<Impl: IOnlineIdServiceTicketImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ErrorCode() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -134,7 +148,7 @@ impl IOnlineIdServiceTicketVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IOnlineIdServiceTicket>, base.5, Value::<Impl, OFFSET>, Request::<Impl, OFFSET>, ErrorCode::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IOnlineIdServiceTicket>, ::windows::core::GetTrustLevel, Value::<Impl, OFFSET>, Request::<Impl, OFFSET>, ErrorCode::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -148,9 +162,9 @@ impl ::windows::core::RuntimeName for IOnlineIdServiceTicketRequest {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IOnlineIdServiceTicketRequestVtbl {
-    pub const fn new<Impl: IOnlineIdServiceTicketRequestImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IOnlineIdServiceTicketRequestVtbl {
-        unsafe extern "system" fn Service<Impl: IOnlineIdServiceTicketRequestImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IOnlineIdServiceTicketRequestImpl, const OFFSET: isize>() -> IOnlineIdServiceTicketRequestVtbl {
+        unsafe extern "system" fn Service<Impl: IOnlineIdServiceTicketRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Service() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -160,8 +174,8 @@ impl IOnlineIdServiceTicketRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Policy<Impl: IOnlineIdServiceTicketRequestImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn Policy<Impl: IOnlineIdServiceTicketRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Policy() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -171,7 +185,7 @@ impl IOnlineIdServiceTicketRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IOnlineIdServiceTicketRequest>, base.5, Service::<Impl, OFFSET>, Policy::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IOnlineIdServiceTicketRequest>, ::windows::core::GetTrustLevel, Service::<Impl, OFFSET>, Policy::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -185,9 +199,9 @@ impl ::windows::core::RuntimeName for IOnlineIdServiceTicketRequestFactory {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IOnlineIdServiceTicketRequestFactoryVtbl {
-    pub const fn new<Impl: IOnlineIdServiceTicketRequestFactoryImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IOnlineIdServiceTicketRequestFactoryVtbl {
-        unsafe extern "system" fn CreateOnlineIdServiceTicketRequest<Impl: IOnlineIdServiceTicketRequestFactoryImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, service: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, policy: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IOnlineIdServiceTicketRequestFactoryImpl, const OFFSET: isize>() -> IOnlineIdServiceTicketRequestFactoryVtbl {
+        unsafe extern "system" fn CreateOnlineIdServiceTicketRequest<Impl: IOnlineIdServiceTicketRequestFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, service: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, policy: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateOnlineIdServiceTicketRequest(&*(&service as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&policy as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -197,8 +211,8 @@ impl IOnlineIdServiceTicketRequestFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateOnlineIdServiceTicketRequestAdvanced<Impl: IOnlineIdServiceTicketRequestFactoryImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, service: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn CreateOnlineIdServiceTicketRequestAdvanced<Impl: IOnlineIdServiceTicketRequestFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, service: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateOnlineIdServiceTicketRequestAdvanced(&*(&service as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -208,7 +222,7 @@ impl IOnlineIdServiceTicketRequestFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IOnlineIdServiceTicketRequestFactory>, base.5, CreateOnlineIdServiceTicketRequest::<Impl, OFFSET>, CreateOnlineIdServiceTicketRequestAdvanced::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IOnlineIdServiceTicketRequestFactory>, ::windows::core::GetTrustLevel, CreateOnlineIdServiceTicketRequest::<Impl, OFFSET>, CreateOnlineIdServiceTicketRequestAdvanced::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -224,9 +238,9 @@ impl ::windows::core::RuntimeName for IOnlineIdSystemAuthenticatorForUser {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IOnlineIdSystemAuthenticatorForUserVtbl {
-    pub const fn new<Impl: IOnlineIdSystemAuthenticatorForUserImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IOnlineIdSystemAuthenticatorForUserVtbl {
-        unsafe extern "system" fn GetTicketAsync<Impl: IOnlineIdSystemAuthenticatorForUserImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, request: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IOnlineIdSystemAuthenticatorForUserImpl, const OFFSET: isize>() -> IOnlineIdSystemAuthenticatorForUserVtbl {
+        unsafe extern "system" fn GetTicketAsync<Impl: IOnlineIdSystemAuthenticatorForUserImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, request: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetTicketAsync(&*(&request as *const <OnlineIdServiceTicketRequest as ::windows::core::Abi>::Abi as *const <OnlineIdServiceTicketRequest as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -236,12 +250,12 @@ impl IOnlineIdSystemAuthenticatorForUserVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetApplicationId<Impl: IOnlineIdSystemAuthenticatorForUserImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: ::windows::core::GUID) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn SetApplicationId<Impl: IOnlineIdSystemAuthenticatorForUserImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::GUID) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetApplicationId(&*(&value as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn ApplicationId<Impl: IOnlineIdSystemAuthenticatorForUserImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn ApplicationId<Impl: IOnlineIdSystemAuthenticatorForUserImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ApplicationId() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -251,8 +265,8 @@ impl IOnlineIdSystemAuthenticatorForUserVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn User<Impl: IOnlineIdSystemAuthenticatorForUserImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn User<Impl: IOnlineIdSystemAuthenticatorForUserImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).User() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -262,7 +276,7 @@ impl IOnlineIdSystemAuthenticatorForUserVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IOnlineIdSystemAuthenticatorForUser>, base.5, GetTicketAsync::<Impl, OFFSET>, SetApplicationId::<Impl, OFFSET>, ApplicationId::<Impl, OFFSET>, User::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IOnlineIdSystemAuthenticatorForUser>, ::windows::core::GetTrustLevel, GetTicketAsync::<Impl, OFFSET>, SetApplicationId::<Impl, OFFSET>, ApplicationId::<Impl, OFFSET>, User::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -276,9 +290,9 @@ impl ::windows::core::RuntimeName for IOnlineIdSystemAuthenticatorStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IOnlineIdSystemAuthenticatorStaticsVtbl {
-    pub const fn new<Impl: IOnlineIdSystemAuthenticatorStaticsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IOnlineIdSystemAuthenticatorStaticsVtbl {
-        unsafe extern "system" fn Default<Impl: IOnlineIdSystemAuthenticatorStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IOnlineIdSystemAuthenticatorStaticsImpl, const OFFSET: isize>() -> IOnlineIdSystemAuthenticatorStaticsVtbl {
+        unsafe extern "system" fn Default<Impl: IOnlineIdSystemAuthenticatorStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Default() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -288,8 +302,8 @@ impl IOnlineIdSystemAuthenticatorStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetForUser<Impl: IOnlineIdSystemAuthenticatorStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, user: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn GetForUser<Impl: IOnlineIdSystemAuthenticatorStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, user: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetForUser(&*(&user as *const <super::super::super::System::User as ::windows::core::Abi>::Abi as *const <super::super::super::System::User as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -299,7 +313,7 @@ impl IOnlineIdSystemAuthenticatorStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IOnlineIdSystemAuthenticatorStatics>, base.5, Default::<Impl, OFFSET>, GetForUser::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IOnlineIdSystemAuthenticatorStatics>, ::windows::core::GetTrustLevel, Default::<Impl, OFFSET>, GetForUser::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -313,9 +327,9 @@ impl ::windows::core::RuntimeName for IOnlineIdSystemIdentity {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IOnlineIdSystemIdentityVtbl {
-    pub const fn new<Impl: IOnlineIdSystemIdentityImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IOnlineIdSystemIdentityVtbl {
-        unsafe extern "system" fn Ticket<Impl: IOnlineIdSystemIdentityImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IOnlineIdSystemIdentityImpl, const OFFSET: isize>() -> IOnlineIdSystemIdentityVtbl {
+        unsafe extern "system" fn Ticket<Impl: IOnlineIdSystemIdentityImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Ticket() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -325,8 +339,8 @@ impl IOnlineIdSystemIdentityVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Id<Impl: IOnlineIdSystemIdentityImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn Id<Impl: IOnlineIdSystemIdentityImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Id() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -336,7 +350,7 @@ impl IOnlineIdSystemIdentityVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IOnlineIdSystemIdentity>, base.5, Ticket::<Impl, OFFSET>, Id::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IOnlineIdSystemIdentity>, ::windows::core::GetTrustLevel, Ticket::<Impl, OFFSET>, Id::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -351,9 +365,9 @@ impl ::windows::core::RuntimeName for IOnlineIdSystemTicketResult {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IOnlineIdSystemTicketResultVtbl {
-    pub const fn new<Impl: IOnlineIdSystemTicketResultImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IOnlineIdSystemTicketResultVtbl {
-        unsafe extern "system" fn Identity<Impl: IOnlineIdSystemTicketResultImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IOnlineIdSystemTicketResultImpl, const OFFSET: isize>() -> IOnlineIdSystemTicketResultVtbl {
+        unsafe extern "system" fn Identity<Impl: IOnlineIdSystemTicketResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Identity() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -363,8 +377,8 @@ impl IOnlineIdSystemTicketResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Status<Impl: IOnlineIdSystemTicketResultImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut OnlineIdSystemTicketStatus) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn Status<Impl: IOnlineIdSystemTicketResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut OnlineIdSystemTicketStatus) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Status() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -374,8 +388,8 @@ impl IOnlineIdSystemTicketResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ExtendedError<Impl: IOnlineIdSystemTicketResultImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::HRESULT) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn ExtendedError<Impl: IOnlineIdSystemTicketResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::HRESULT) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ExtendedError() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -385,7 +399,7 @@ impl IOnlineIdSystemTicketResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IOnlineIdSystemTicketResult>, base.5, Identity::<Impl, OFFSET>, Status::<Impl, OFFSET>, ExtendedError::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IOnlineIdSystemTicketResult>, ::windows::core::GetTrustLevel, Identity::<Impl, OFFSET>, Status::<Impl, OFFSET>, ExtendedError::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -405,9 +419,9 @@ impl ::windows::core::RuntimeName for IUserIdentity {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IUserIdentityVtbl {
-    pub const fn new<Impl: IUserIdentityImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IUserIdentityVtbl {
-        unsafe extern "system" fn Tickets<Impl: IUserIdentityImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUserIdentityImpl, const OFFSET: isize>() -> IUserIdentityVtbl {
+        unsafe extern "system" fn Tickets<Impl: IUserIdentityImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Tickets() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -417,8 +431,8 @@ impl IUserIdentityVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Id<Impl: IUserIdentityImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn Id<Impl: IUserIdentityImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Id() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -428,8 +442,8 @@ impl IUserIdentityVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SafeCustomerId<Impl: IUserIdentityImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn SafeCustomerId<Impl: IUserIdentityImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SafeCustomerId() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -439,8 +453,8 @@ impl IUserIdentityVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SignInName<Impl: IUserIdentityImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn SignInName<Impl: IUserIdentityImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SignInName() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -450,8 +464,8 @@ impl IUserIdentityVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn FirstName<Impl: IUserIdentityImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn FirstName<Impl: IUserIdentityImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FirstName() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -461,8 +475,8 @@ impl IUserIdentityVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn LastName<Impl: IUserIdentityImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn LastName<Impl: IUserIdentityImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).LastName() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -472,8 +486,8 @@ impl IUserIdentityVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsBetaAccount<Impl: IUserIdentityImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn IsBetaAccount<Impl: IUserIdentityImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsBetaAccount() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -483,8 +497,8 @@ impl IUserIdentityVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsConfirmedPC<Impl: IUserIdentityImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn IsConfirmedPC<Impl: IUserIdentityImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsConfirmedPC() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -494,6 +508,6 @@ impl IUserIdentityVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IUserIdentity>, base.5, Tickets::<Impl, OFFSET>, Id::<Impl, OFFSET>, SafeCustomerId::<Impl, OFFSET>, SignInName::<Impl, OFFSET>, FirstName::<Impl, OFFSET>, LastName::<Impl, OFFSET>, IsBetaAccount::<Impl, OFFSET>, IsConfirmedPC::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUserIdentity>, ::windows::core::GetTrustLevel, Tickets::<Impl, OFFSET>, Id::<Impl, OFFSET>, SafeCustomerId::<Impl, OFFSET>, SignInName::<Impl, OFFSET>, FirstName::<Impl, OFFSET>, LastName::<Impl, OFFSET>, IsBetaAccount::<Impl, OFFSET>, IsConfirmedPC::<Impl, OFFSET>)
     }
 }

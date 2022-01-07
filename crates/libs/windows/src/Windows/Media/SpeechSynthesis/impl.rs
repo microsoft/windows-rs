@@ -9,9 +9,9 @@ impl ::windows::core::RuntimeName for IInstalledVoicesStatic {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IInstalledVoicesStaticVtbl {
-    pub const fn new<Impl: IInstalledVoicesStaticImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IInstalledVoicesStaticVtbl {
-        unsafe extern "system" fn AllVoices<Impl: IInstalledVoicesStaticImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInstalledVoicesStaticImpl, const OFFSET: isize>() -> IInstalledVoicesStaticVtbl {
+        unsafe extern "system" fn AllVoices<Impl: IInstalledVoicesStaticImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AllVoices() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -21,8 +21,8 @@ impl IInstalledVoicesStaticVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DefaultVoice<Impl: IInstalledVoicesStaticImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn DefaultVoice<Impl: IInstalledVoicesStaticImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DefaultVoice() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -32,7 +32,7 @@ impl IInstalledVoicesStaticVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IInstalledVoicesStatic>, base.5, AllVoices::<Impl, OFFSET>, DefaultVoice::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IInstalledVoicesStatic>, ::windows::core::GetTrustLevel, AllVoices::<Impl, OFFSET>, DefaultVoice::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -45,9 +45,9 @@ impl ::windows::core::RuntimeName for IInstalledVoicesStatic2 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IInstalledVoicesStatic2Vtbl {
-    pub const fn new<Impl: IInstalledVoicesStatic2Impl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IInstalledVoicesStatic2Vtbl {
-        unsafe extern "system" fn TrySetDefaultVoiceAsync<Impl: IInstalledVoicesStatic2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, voice: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInstalledVoicesStatic2Impl, const OFFSET: isize>() -> IInstalledVoicesStatic2Vtbl {
+        unsafe extern "system" fn TrySetDefaultVoiceAsync<Impl: IInstalledVoicesStatic2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, voice: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TrySetDefaultVoiceAsync(&*(&voice as *const <VoiceInformation as ::windows::core::Abi>::Abi as *const <VoiceInformation as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -57,7 +57,7 @@ impl IInstalledVoicesStatic2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IInstalledVoicesStatic2>, base.5, TrySetDefaultVoiceAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IInstalledVoicesStatic2>, ::windows::core::GetTrustLevel, TrySetDefaultVoiceAsync::<Impl, OFFSET>)
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
@@ -70,9 +70,9 @@ impl ::windows::core::RuntimeName for ISpeechSynthesisStream {
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ISpeechSynthesisStreamVtbl {
-    pub const fn new<Impl: ISpeechSynthesisStreamImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> ISpeechSynthesisStreamVtbl {
-        unsafe extern "system" fn Markers<Impl: ISpeechSynthesisStreamImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpeechSynthesisStreamImpl, const OFFSET: isize>() -> ISpeechSynthesisStreamVtbl {
+        unsafe extern "system" fn Markers<Impl: ISpeechSynthesisStreamImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Markers() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -82,7 +82,7 @@ impl ISpeechSynthesisStreamVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<ISpeechSynthesisStream>, base.5, Markers::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpeechSynthesisStream>, ::windows::core::GetTrustLevel, Markers::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -98,9 +98,9 @@ impl ::windows::core::RuntimeName for ISpeechSynthesizer {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ISpeechSynthesizerVtbl {
-    pub const fn new<Impl: ISpeechSynthesizerImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> ISpeechSynthesizerVtbl {
-        unsafe extern "system" fn SynthesizeTextToStreamAsync<Impl: ISpeechSynthesizerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, text: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpeechSynthesizerImpl, const OFFSET: isize>() -> ISpeechSynthesizerVtbl {
+        unsafe extern "system" fn SynthesizeTextToStreamAsync<Impl: ISpeechSynthesizerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, text: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SynthesizeTextToStreamAsync(&*(&text as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -110,8 +110,8 @@ impl ISpeechSynthesizerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SynthesizeSsmlToStreamAsync<Impl: ISpeechSynthesizerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, ssml: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn SynthesizeSsmlToStreamAsync<Impl: ISpeechSynthesizerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ssml: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SynthesizeSsmlToStreamAsync(&*(&ssml as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -121,12 +121,12 @@ impl ISpeechSynthesizerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetVoice<Impl: ISpeechSynthesizerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn SetVoice<Impl: ISpeechSynthesizerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetVoice(&*(&value as *const <VoiceInformation as ::windows::core::Abi>::Abi as *const <VoiceInformation as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn Voice<Impl: ISpeechSynthesizerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn Voice<Impl: ISpeechSynthesizerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Voice() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -136,7 +136,7 @@ impl ISpeechSynthesizerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<ISpeechSynthesizer>, base.5, SynthesizeTextToStreamAsync::<Impl, OFFSET>, SynthesizeSsmlToStreamAsync::<Impl, OFFSET>, SetVoice::<Impl, OFFSET>, Voice::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpeechSynthesizer>, ::windows::core::GetTrustLevel, SynthesizeTextToStreamAsync::<Impl, OFFSET>, SynthesizeSsmlToStreamAsync::<Impl, OFFSET>, SetVoice::<Impl, OFFSET>, Voice::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -149,9 +149,9 @@ impl ::windows::core::RuntimeName for ISpeechSynthesizer2 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ISpeechSynthesizer2Vtbl {
-    pub const fn new<Impl: ISpeechSynthesizer2Impl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> ISpeechSynthesizer2Vtbl {
-        unsafe extern "system" fn Options<Impl: ISpeechSynthesizer2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpeechSynthesizer2Impl, const OFFSET: isize>() -> ISpeechSynthesizer2Vtbl {
+        unsafe extern "system" fn Options<Impl: ISpeechSynthesizer2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Options() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -161,7 +161,7 @@ impl ISpeechSynthesizer2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<ISpeechSynthesizer2>, base.5, Options::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpeechSynthesizer2>, ::windows::core::GetTrustLevel, Options::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -177,9 +177,9 @@ impl ::windows::core::RuntimeName for ISpeechSynthesizerOptions {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ISpeechSynthesizerOptionsVtbl {
-    pub const fn new<Impl: ISpeechSynthesizerOptionsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> ISpeechSynthesizerOptionsVtbl {
-        unsafe extern "system" fn IncludeWordBoundaryMetadata<Impl: ISpeechSynthesizerOptionsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpeechSynthesizerOptionsImpl, const OFFSET: isize>() -> ISpeechSynthesizerOptionsVtbl {
+        unsafe extern "system" fn IncludeWordBoundaryMetadata<Impl: ISpeechSynthesizerOptionsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IncludeWordBoundaryMetadata() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -189,12 +189,12 @@ impl ISpeechSynthesizerOptionsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetIncludeWordBoundaryMetadata<Impl: ISpeechSynthesizerOptionsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn SetIncludeWordBoundaryMetadata<Impl: ISpeechSynthesizerOptionsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetIncludeWordBoundaryMetadata(value).into()
         }
-        unsafe extern "system" fn IncludeSentenceBoundaryMetadata<Impl: ISpeechSynthesizerOptionsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn IncludeSentenceBoundaryMetadata<Impl: ISpeechSynthesizerOptionsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IncludeSentenceBoundaryMetadata() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -204,11 +204,11 @@ impl ISpeechSynthesizerOptionsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetIncludeSentenceBoundaryMetadata<Impl: ISpeechSynthesizerOptionsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn SetIncludeSentenceBoundaryMetadata<Impl: ISpeechSynthesizerOptionsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetIncludeSentenceBoundaryMetadata(value).into()
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<ISpeechSynthesizerOptions>, base.5, IncludeWordBoundaryMetadata::<Impl, OFFSET>, SetIncludeWordBoundaryMetadata::<Impl, OFFSET>, IncludeSentenceBoundaryMetadata::<Impl, OFFSET>, SetIncludeSentenceBoundaryMetadata::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpeechSynthesizerOptions>, ::windows::core::GetTrustLevel, IncludeWordBoundaryMetadata::<Impl, OFFSET>, SetIncludeWordBoundaryMetadata::<Impl, OFFSET>, IncludeSentenceBoundaryMetadata::<Impl, OFFSET>, SetIncludeSentenceBoundaryMetadata::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -226,9 +226,9 @@ impl ::windows::core::RuntimeName for ISpeechSynthesizerOptions2 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ISpeechSynthesizerOptions2Vtbl {
-    pub const fn new<Impl: ISpeechSynthesizerOptions2Impl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> ISpeechSynthesizerOptions2Vtbl {
-        unsafe extern "system" fn AudioVolume<Impl: ISpeechSynthesizerOptions2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpeechSynthesizerOptions2Impl, const OFFSET: isize>() -> ISpeechSynthesizerOptions2Vtbl {
+        unsafe extern "system" fn AudioVolume<Impl: ISpeechSynthesizerOptions2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AudioVolume() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -238,12 +238,12 @@ impl ISpeechSynthesizerOptions2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetAudioVolume<Impl: ISpeechSynthesizerOptions2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn SetAudioVolume<Impl: ISpeechSynthesizerOptions2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetAudioVolume(value).into()
         }
-        unsafe extern "system" fn SpeakingRate<Impl: ISpeechSynthesizerOptions2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn SpeakingRate<Impl: ISpeechSynthesizerOptions2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SpeakingRate() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -253,12 +253,12 @@ impl ISpeechSynthesizerOptions2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetSpeakingRate<Impl: ISpeechSynthesizerOptions2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn SetSpeakingRate<Impl: ISpeechSynthesizerOptions2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetSpeakingRate(value).into()
         }
-        unsafe extern "system" fn AudioPitch<Impl: ISpeechSynthesizerOptions2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn AudioPitch<Impl: ISpeechSynthesizerOptions2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AudioPitch() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -268,11 +268,11 @@ impl ISpeechSynthesizerOptions2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetAudioPitch<Impl: ISpeechSynthesizerOptions2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn SetAudioPitch<Impl: ISpeechSynthesizerOptions2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetAudioPitch(value).into()
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<ISpeechSynthesizerOptions2>, base.5, AudioVolume::<Impl, OFFSET>, SetAudioVolume::<Impl, OFFSET>, SpeakingRate::<Impl, OFFSET>, SetSpeakingRate::<Impl, OFFSET>, AudioPitch::<Impl, OFFSET>, SetAudioPitch::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpeechSynthesizerOptions2>, ::windows::core::GetTrustLevel, AudioVolume::<Impl, OFFSET>, SetAudioVolume::<Impl, OFFSET>, SpeakingRate::<Impl, OFFSET>, SetSpeakingRate::<Impl, OFFSET>, AudioPitch::<Impl, OFFSET>, SetAudioPitch::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -288,9 +288,9 @@ impl ::windows::core::RuntimeName for ISpeechSynthesizerOptions3 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ISpeechSynthesizerOptions3Vtbl {
-    pub const fn new<Impl: ISpeechSynthesizerOptions3Impl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> ISpeechSynthesizerOptions3Vtbl {
-        unsafe extern "system" fn AppendedSilence<Impl: ISpeechSynthesizerOptions3Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut SpeechAppendedSilence) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpeechSynthesizerOptions3Impl, const OFFSET: isize>() -> ISpeechSynthesizerOptions3Vtbl {
+        unsafe extern "system" fn AppendedSilence<Impl: ISpeechSynthesizerOptions3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut SpeechAppendedSilence) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AppendedSilence() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -300,12 +300,12 @@ impl ISpeechSynthesizerOptions3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetAppendedSilence<Impl: ISpeechSynthesizerOptions3Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: SpeechAppendedSilence) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn SetAppendedSilence<Impl: ISpeechSynthesizerOptions3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: SpeechAppendedSilence) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetAppendedSilence(value).into()
         }
-        unsafe extern "system" fn PunctuationSilence<Impl: ISpeechSynthesizerOptions3Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut SpeechPunctuationSilence) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn PunctuationSilence<Impl: ISpeechSynthesizerOptions3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut SpeechPunctuationSilence) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PunctuationSilence() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -315,11 +315,11 @@ impl ISpeechSynthesizerOptions3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetPunctuationSilence<Impl: ISpeechSynthesizerOptions3Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: SpeechPunctuationSilence) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn SetPunctuationSilence<Impl: ISpeechSynthesizerOptions3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: SpeechPunctuationSilence) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetPunctuationSilence(value).into()
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<ISpeechSynthesizerOptions3>, base.5, AppendedSilence::<Impl, OFFSET>, SetAppendedSilence::<Impl, OFFSET>, PunctuationSilence::<Impl, OFFSET>, SetPunctuationSilence::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpeechSynthesizerOptions3>, ::windows::core::GetTrustLevel, AppendedSilence::<Impl, OFFSET>, SetAppendedSilence::<Impl, OFFSET>, PunctuationSilence::<Impl, OFFSET>, SetPunctuationSilence::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -336,9 +336,9 @@ impl ::windows::core::RuntimeName for IVoiceInformation {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IVoiceInformationVtbl {
-    pub const fn new<Impl: IVoiceInformationImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IVoiceInformationVtbl {
-        unsafe extern "system" fn DisplayName<Impl: IVoiceInformationImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVoiceInformationImpl, const OFFSET: isize>() -> IVoiceInformationVtbl {
+        unsafe extern "system" fn DisplayName<Impl: IVoiceInformationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DisplayName() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -348,8 +348,8 @@ impl IVoiceInformationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Id<Impl: IVoiceInformationImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn Id<Impl: IVoiceInformationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Id() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -359,8 +359,8 @@ impl IVoiceInformationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Language<Impl: IVoiceInformationImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn Language<Impl: IVoiceInformationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Language() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -370,8 +370,8 @@ impl IVoiceInformationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Description<Impl: IVoiceInformationImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn Description<Impl: IVoiceInformationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Description() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -381,8 +381,8 @@ impl IVoiceInformationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Gender<Impl: IVoiceInformationImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut VoiceGender) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn Gender<Impl: IVoiceInformationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut VoiceGender) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Gender() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -392,6 +392,6 @@ impl IVoiceInformationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IVoiceInformation>, base.5, DisplayName::<Impl, OFFSET>, Id::<Impl, OFFSET>, Language::<Impl, OFFSET>, Description::<Impl, OFFSET>, Gender::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVoiceInformation>, ::windows::core::GetTrustLevel, DisplayName::<Impl, OFFSET>, Id::<Impl, OFFSET>, Language::<Impl, OFFSET>, Description::<Impl, OFFSET>, Gender::<Impl, OFFSET>)
     }
 }

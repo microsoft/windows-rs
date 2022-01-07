@@ -8,9 +8,9 @@ impl ::windows::core::RuntimeName for IInputActivationListenerPreviewStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IInputActivationListenerPreviewStaticsVtbl {
-    pub const fn new<Impl: IInputActivationListenerPreviewStaticsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IInputActivationListenerPreviewStaticsVtbl {
-        unsafe extern "system" fn CreateForApplicationWindow<Impl: IInputActivationListenerPreviewStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, window: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInputActivationListenerPreviewStaticsImpl, const OFFSET: isize>() -> IInputActivationListenerPreviewStaticsVtbl {
+        unsafe extern "system" fn CreateForApplicationWindow<Impl: IInputActivationListenerPreviewStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, window: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateForApplicationWindow(&*(&window as *const <super::super::WindowManagement::AppWindow as ::windows::core::Abi>::Abi as *const <super::super::WindowManagement::AppWindow as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -20,6 +20,6 @@ impl IInputActivationListenerPreviewStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IInputActivationListenerPreviewStatics>, base.5, CreateForApplicationWindow::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IInputActivationListenerPreviewStatics>, ::windows::core::GetTrustLevel, CreateForApplicationWindow::<Impl, OFFSET>)
     }
 }

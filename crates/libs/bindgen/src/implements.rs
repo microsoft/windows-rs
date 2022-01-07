@@ -59,8 +59,8 @@ fn gen_interface(def: &TypeDef, cfg: &Cfg, gen: &Gen) -> TokenStream {
         let invoke_upcall = gen_winrt_upcall(&signature, quote! { (*this).#name }, gen);
 
         quote! {
-            unsafe extern "system" fn #name<#(#constraints)* Impl: #impl_ident<#(#generics)*>, const OFFSET: usize> #vtbl_signature {
-                let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+            unsafe extern "system" fn #name<#(#constraints)* Impl: #impl_ident<#(#generics)*>, const OFFSET: isize> #vtbl_signature {
+                let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
                 #invoke_upcall
             }
         }
@@ -68,8 +68,7 @@ fn gen_interface(def: &TypeDef, cfg: &Cfg, gen: &Gen) -> TokenStream {
 
     let method_ptrs = def.methods().map(|method| {
         let name = gen_ident(&method.rust_name());
-        let signature = gen_impl_signature(def, &method, gen);
-        quote! { #name::<#(#generics)* Impl, OFFSET>, }
+        quote! { #name::<#(#generics)* Impl, IMPL_OFFSET>, }
     });
 
     quote!{
@@ -81,17 +80,16 @@ fn gen_interface(def: &TypeDef, cfg: &Cfg, gen: &Gen) -> TokenStream {
         #runtime_name
         #cfg
         impl<#(#constraints)*> #vtbl_ident<#(#generics)*> {
-            // TODO: adjust `base` type
-            pub const fn new<Impl: #impl_ident<#(#generics)*>, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> #vtbl_ident<#(#generics)*> {
+            
+            pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: #impl_ident<#(#generics)*>, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> #vtbl_ident<#(#generics)*> {
                 #(#method_impls)*
                 Self(
-                    // TODO: reformat vtable types to refer to base type rather than duplicating
-                    base.0,
-                    base.1,
-                    base.2,
-                    base.3,
+                    ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+                    ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+                    ::windows::core::Release::<Identity, BASE_OFFSET>,
+                    ::windows::core::GetIids,
                     ::windows::core::GetRuntimeClassName::<#type_ident<#(#generics)*>>,
-                    base.5,
+                    ::windows::core::GetTrustLevel,
                     #(#method_ptrs)*
                     #(#phantoms)*
                 )

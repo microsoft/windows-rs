@@ -23,7 +23,7 @@ impl IInspectable {
 }
 
 #[repr(C)]
-pub struct IInspectableVtbl(pub unsafe extern "system" fn(this: RawPtr, iid: &GUID, interface: *mut RawPtr) -> HRESULT, pub unsafe extern "system" fn(this: RawPtr) -> u32, pub unsafe extern "system" fn(this: RawPtr) -> u32, pub unsafe extern "system" fn(this: RawPtr, count: *mut u32, values: *mut *mut GUID) -> HRESULT, pub unsafe extern "system" fn(this: RawPtr, value: *mut RawPtr) -> HRESULT, pub unsafe extern "system" fn(this: RawPtr, value: *mut i32) -> HRESULT);
+pub struct IInspectableVtbl(pub unsafe extern "system" fn(this: RawPtr, iid: *const GUID, interface: *mut RawPtr) -> HRESULT, pub unsafe extern "system" fn(this: RawPtr) -> u32, pub unsafe extern "system" fn(this: RawPtr) -> u32, pub unsafe extern "system" fn(this: RawPtr, count: *mut u32, values: *mut *mut GUID) -> HRESULT, pub unsafe extern "system" fn(this: RawPtr, value: *mut RawPtr) -> HRESULT, pub unsafe extern "system" fn(this: RawPtr, value: *mut i32) -> HRESULT);
 
 unsafe impl Interface for IInspectable {
     type Vtable = IInspectableVtbl;

@@ -9,9 +9,9 @@ impl ::windows::core::RuntimeName for IBluetoothLEAdvertisementPublisherTriggerD
 }
 #[cfg(feature = "implement_exclusive")]
 impl IBluetoothLEAdvertisementPublisherTriggerDetailsVtbl {
-    pub const fn new<Impl: IBluetoothLEAdvertisementPublisherTriggerDetailsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IBluetoothLEAdvertisementPublisherTriggerDetailsVtbl {
-        unsafe extern "system" fn Status<Impl: IBluetoothLEAdvertisementPublisherTriggerDetailsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut super::Advertisement::BluetoothLEAdvertisementPublisherStatus) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBluetoothLEAdvertisementPublisherTriggerDetailsImpl, const OFFSET: isize>() -> IBluetoothLEAdvertisementPublisherTriggerDetailsVtbl {
+        unsafe extern "system" fn Status<Impl: IBluetoothLEAdvertisementPublisherTriggerDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::Advertisement::BluetoothLEAdvertisementPublisherStatus) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Status() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -21,8 +21,8 @@ impl IBluetoothLEAdvertisementPublisherTriggerDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Error<Impl: IBluetoothLEAdvertisementPublisherTriggerDetailsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut super::BluetoothError) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn Error<Impl: IBluetoothLEAdvertisementPublisherTriggerDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::BluetoothError) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Error() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -32,7 +32,7 @@ impl IBluetoothLEAdvertisementPublisherTriggerDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IBluetoothLEAdvertisementPublisherTriggerDetails>, base.5, Status::<Impl, OFFSET>, Error::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBluetoothLEAdvertisementPublisherTriggerDetails>, ::windows::core::GetTrustLevel, Status::<Impl, OFFSET>, Error::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -45,9 +45,9 @@ impl ::windows::core::RuntimeName for IBluetoothLEAdvertisementPublisherTriggerD
 }
 #[cfg(feature = "implement_exclusive")]
 impl IBluetoothLEAdvertisementPublisherTriggerDetails2Vtbl {
-    pub const fn new<Impl: IBluetoothLEAdvertisementPublisherTriggerDetails2Impl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IBluetoothLEAdvertisementPublisherTriggerDetails2Vtbl {
-        unsafe extern "system" fn SelectedTransmitPowerLevelInDBm<Impl: IBluetoothLEAdvertisementPublisherTriggerDetails2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBluetoothLEAdvertisementPublisherTriggerDetails2Impl, const OFFSET: isize>() -> IBluetoothLEAdvertisementPublisherTriggerDetails2Vtbl {
+        unsafe extern "system" fn SelectedTransmitPowerLevelInDBm<Impl: IBluetoothLEAdvertisementPublisherTriggerDetails2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SelectedTransmitPowerLevelInDBm() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -57,7 +57,7 @@ impl IBluetoothLEAdvertisementPublisherTriggerDetails2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IBluetoothLEAdvertisementPublisherTriggerDetails2>, base.5, SelectedTransmitPowerLevelInDBm::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBluetoothLEAdvertisementPublisherTriggerDetails2>, ::windows::core::GetTrustLevel, SelectedTransmitPowerLevelInDBm::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -72,9 +72,9 @@ impl ::windows::core::RuntimeName for IBluetoothLEAdvertisementWatcherTriggerDet
 }
 #[cfg(feature = "implement_exclusive")]
 impl IBluetoothLEAdvertisementWatcherTriggerDetailsVtbl {
-    pub const fn new<Impl: IBluetoothLEAdvertisementWatcherTriggerDetailsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IBluetoothLEAdvertisementWatcherTriggerDetailsVtbl {
-        unsafe extern "system" fn Error<Impl: IBluetoothLEAdvertisementWatcherTriggerDetailsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut super::BluetoothError) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBluetoothLEAdvertisementWatcherTriggerDetailsImpl, const OFFSET: isize>() -> IBluetoothLEAdvertisementWatcherTriggerDetailsVtbl {
+        unsafe extern "system" fn Error<Impl: IBluetoothLEAdvertisementWatcherTriggerDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::BluetoothError) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Error() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -84,8 +84,8 @@ impl IBluetoothLEAdvertisementWatcherTriggerDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Advertisements<Impl: IBluetoothLEAdvertisementWatcherTriggerDetailsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn Advertisements<Impl: IBluetoothLEAdvertisementWatcherTriggerDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Advertisements() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -95,8 +95,8 @@ impl IBluetoothLEAdvertisementWatcherTriggerDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SignalStrengthFilter<Impl: IBluetoothLEAdvertisementWatcherTriggerDetailsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn SignalStrengthFilter<Impl: IBluetoothLEAdvertisementWatcherTriggerDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SignalStrengthFilter() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -106,7 +106,7 @@ impl IBluetoothLEAdvertisementWatcherTriggerDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IBluetoothLEAdvertisementWatcherTriggerDetails>, base.5, Error::<Impl, OFFSET>, Advertisements::<Impl, OFFSET>, SignalStrengthFilter::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBluetoothLEAdvertisementWatcherTriggerDetails>, ::windows::core::GetTrustLevel, Error::<Impl, OFFSET>, Advertisements::<Impl, OFFSET>, SignalStrengthFilter::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -120,9 +120,9 @@ impl ::windows::core::RuntimeName for IGattCharacteristicNotificationTriggerDeta
 }
 #[cfg(feature = "implement_exclusive")]
 impl IGattCharacteristicNotificationTriggerDetailsVtbl {
-    pub const fn new<Impl: IGattCharacteristicNotificationTriggerDetailsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IGattCharacteristicNotificationTriggerDetailsVtbl {
-        unsafe extern "system" fn Characteristic<Impl: IGattCharacteristicNotificationTriggerDetailsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGattCharacteristicNotificationTriggerDetailsImpl, const OFFSET: isize>() -> IGattCharacteristicNotificationTriggerDetailsVtbl {
+        unsafe extern "system" fn Characteristic<Impl: IGattCharacteristicNotificationTriggerDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Characteristic() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -132,8 +132,8 @@ impl IGattCharacteristicNotificationTriggerDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Value<Impl: IGattCharacteristicNotificationTriggerDetailsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn Value<Impl: IGattCharacteristicNotificationTriggerDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Value() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -143,7 +143,7 @@ impl IGattCharacteristicNotificationTriggerDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IGattCharacteristicNotificationTriggerDetails>, base.5, Characteristic::<Impl, OFFSET>, Value::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGattCharacteristicNotificationTriggerDetails>, ::windows::core::GetTrustLevel, Characteristic::<Impl, OFFSET>, Value::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -158,9 +158,9 @@ impl ::windows::core::RuntimeName for IGattCharacteristicNotificationTriggerDeta
 }
 #[cfg(feature = "implement_exclusive")]
 impl IGattCharacteristicNotificationTriggerDetails2Vtbl {
-    pub const fn new<Impl: IGattCharacteristicNotificationTriggerDetails2Impl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IGattCharacteristicNotificationTriggerDetails2Vtbl {
-        unsafe extern "system" fn Error<Impl: IGattCharacteristicNotificationTriggerDetails2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut super::BluetoothError) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGattCharacteristicNotificationTriggerDetails2Impl, const OFFSET: isize>() -> IGattCharacteristicNotificationTriggerDetails2Vtbl {
+        unsafe extern "system" fn Error<Impl: IGattCharacteristicNotificationTriggerDetails2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::BluetoothError) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Error() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -170,8 +170,8 @@ impl IGattCharacteristicNotificationTriggerDetails2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn EventTriggeringMode<Impl: IGattCharacteristicNotificationTriggerDetails2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut BluetoothEventTriggeringMode) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn EventTriggeringMode<Impl: IGattCharacteristicNotificationTriggerDetails2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut BluetoothEventTriggeringMode) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EventTriggeringMode() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -181,8 +181,8 @@ impl IGattCharacteristicNotificationTriggerDetails2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ValueChangedEvents<Impl: IGattCharacteristicNotificationTriggerDetails2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn ValueChangedEvents<Impl: IGattCharacteristicNotificationTriggerDetails2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ValueChangedEvents() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -192,7 +192,7 @@ impl IGattCharacteristicNotificationTriggerDetails2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IGattCharacteristicNotificationTriggerDetails2>, base.5, Error::<Impl, OFFSET>, EventTriggeringMode::<Impl, OFFSET>, ValueChangedEvents::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGattCharacteristicNotificationTriggerDetails2>, ::windows::core::GetTrustLevel, Error::<Impl, OFFSET>, EventTriggeringMode::<Impl, OFFSET>, ValueChangedEvents::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -207,9 +207,9 @@ impl ::windows::core::RuntimeName for IGattServiceProviderConnection {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IGattServiceProviderConnectionVtbl {
-    pub const fn new<Impl: IGattServiceProviderConnectionImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IGattServiceProviderConnectionVtbl {
-        unsafe extern "system" fn TriggerId<Impl: IGattServiceProviderConnectionImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGattServiceProviderConnectionImpl, const OFFSET: isize>() -> IGattServiceProviderConnectionVtbl {
+        unsafe extern "system" fn TriggerId<Impl: IGattServiceProviderConnectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TriggerId() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -219,8 +219,8 @@ impl IGattServiceProviderConnectionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Service<Impl: IGattServiceProviderConnectionImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn Service<Impl: IGattServiceProviderConnectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Service() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -230,11 +230,11 @@ impl IGattServiceProviderConnectionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Start<Impl: IGattServiceProviderConnectionImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn Start<Impl: IGattServiceProviderConnectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Start().into()
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IGattServiceProviderConnection>, base.5, TriggerId::<Impl, OFFSET>, Service::<Impl, OFFSET>, Start::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGattServiceProviderConnection>, ::windows::core::GetTrustLevel, TriggerId::<Impl, OFFSET>, Service::<Impl, OFFSET>, Start::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -247,9 +247,9 @@ impl ::windows::core::RuntimeName for IGattServiceProviderConnectionStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IGattServiceProviderConnectionStaticsVtbl {
-    pub const fn new<Impl: IGattServiceProviderConnectionStaticsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IGattServiceProviderConnectionStaticsVtbl {
-        unsafe extern "system" fn AllServices<Impl: IGattServiceProviderConnectionStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGattServiceProviderConnectionStaticsImpl, const OFFSET: isize>() -> IGattServiceProviderConnectionStaticsVtbl {
+        unsafe extern "system" fn AllServices<Impl: IGattServiceProviderConnectionStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AllServices() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -259,7 +259,7 @@ impl IGattServiceProviderConnectionStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IGattServiceProviderConnectionStatics>, base.5, AllServices::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGattServiceProviderConnectionStatics>, ::windows::core::GetTrustLevel, AllServices::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -272,9 +272,9 @@ impl ::windows::core::RuntimeName for IGattServiceProviderTriggerDetails {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IGattServiceProviderTriggerDetailsVtbl {
-    pub const fn new<Impl: IGattServiceProviderTriggerDetailsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IGattServiceProviderTriggerDetailsVtbl {
-        unsafe extern "system" fn Connection<Impl: IGattServiceProviderTriggerDetailsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGattServiceProviderTriggerDetailsImpl, const OFFSET: isize>() -> IGattServiceProviderTriggerDetailsVtbl {
+        unsafe extern "system" fn Connection<Impl: IGattServiceProviderTriggerDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Connection() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -284,7 +284,7 @@ impl IGattServiceProviderTriggerDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IGattServiceProviderTriggerDetails>, base.5, Connection::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGattServiceProviderTriggerDetails>, ::windows::core::GetTrustLevel, Connection::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -299,9 +299,9 @@ impl ::windows::core::RuntimeName for IRfcommConnectionTriggerDetails {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IRfcommConnectionTriggerDetailsVtbl {
-    pub const fn new<Impl: IRfcommConnectionTriggerDetailsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IRfcommConnectionTriggerDetailsVtbl {
-        unsafe extern "system" fn Socket<Impl: IRfcommConnectionTriggerDetailsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRfcommConnectionTriggerDetailsImpl, const OFFSET: isize>() -> IRfcommConnectionTriggerDetailsVtbl {
+        unsafe extern "system" fn Socket<Impl: IRfcommConnectionTriggerDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Socket() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -311,8 +311,8 @@ impl IRfcommConnectionTriggerDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Incoming<Impl: IRfcommConnectionTriggerDetailsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn Incoming<Impl: IRfcommConnectionTriggerDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Incoming() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -322,8 +322,8 @@ impl IRfcommConnectionTriggerDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoteDevice<Impl: IRfcommConnectionTriggerDetailsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn RemoteDevice<Impl: IRfcommConnectionTriggerDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RemoteDevice() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -333,7 +333,7 @@ impl IRfcommConnectionTriggerDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IRfcommConnectionTriggerDetails>, base.5, Socket::<Impl, OFFSET>, Incoming::<Impl, OFFSET>, RemoteDevice::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRfcommConnectionTriggerDetails>, ::windows::core::GetTrustLevel, Socket::<Impl, OFFSET>, Incoming::<Impl, OFFSET>, RemoteDevice::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -351,9 +351,9 @@ impl ::windows::core::RuntimeName for IRfcommInboundConnectionInformation {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IRfcommInboundConnectionInformationVtbl {
-    pub const fn new<Impl: IRfcommInboundConnectionInformationImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IRfcommInboundConnectionInformationVtbl {
-        unsafe extern "system" fn SdpRecord<Impl: IRfcommInboundConnectionInformationImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRfcommInboundConnectionInformationImpl, const OFFSET: isize>() -> IRfcommInboundConnectionInformationVtbl {
+        unsafe extern "system" fn SdpRecord<Impl: IRfcommInboundConnectionInformationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SdpRecord() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -363,12 +363,12 @@ impl IRfcommInboundConnectionInformationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetSdpRecord<Impl: IRfcommInboundConnectionInformationImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn SetSdpRecord<Impl: IRfcommInboundConnectionInformationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetSdpRecord(&*(&value as *const <super::super::super::Storage::Streams::IBuffer as ::windows::core::Abi>::Abi as *const <super::super::super::Storage::Streams::IBuffer as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn LocalServiceId<Impl: IRfcommInboundConnectionInformationImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn LocalServiceId<Impl: IRfcommInboundConnectionInformationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).LocalServiceId() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -378,12 +378,12 @@ impl IRfcommInboundConnectionInformationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetLocalServiceId<Impl: IRfcommInboundConnectionInformationImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn SetLocalServiceId<Impl: IRfcommInboundConnectionInformationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetLocalServiceId(&*(&value as *const <super::Rfcomm::RfcommServiceId as ::windows::core::Abi>::Abi as *const <super::Rfcomm::RfcommServiceId as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn ServiceCapabilities<Impl: IRfcommInboundConnectionInformationImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut super::BluetoothServiceCapabilities) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn ServiceCapabilities<Impl: IRfcommInboundConnectionInformationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::BluetoothServiceCapabilities) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ServiceCapabilities() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -393,11 +393,11 @@ impl IRfcommInboundConnectionInformationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetServiceCapabilities<Impl: IRfcommInboundConnectionInformationImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: super::BluetoothServiceCapabilities) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn SetServiceCapabilities<Impl: IRfcommInboundConnectionInformationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::BluetoothServiceCapabilities) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetServiceCapabilities(value).into()
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IRfcommInboundConnectionInformation>, base.5, SdpRecord::<Impl, OFFSET>, SetSdpRecord::<Impl, OFFSET>, LocalServiceId::<Impl, OFFSET>, SetLocalServiceId::<Impl, OFFSET>, ServiceCapabilities::<Impl, OFFSET>, SetServiceCapabilities::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRfcommInboundConnectionInformation>, ::windows::core::GetTrustLevel, SdpRecord::<Impl, OFFSET>, SetSdpRecord::<Impl, OFFSET>, LocalServiceId::<Impl, OFFSET>, SetLocalServiceId::<Impl, OFFSET>, ServiceCapabilities::<Impl, OFFSET>, SetServiceCapabilities::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -411,9 +411,9 @@ impl ::windows::core::RuntimeName for IRfcommOutboundConnectionInformation {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IRfcommOutboundConnectionInformationVtbl {
-    pub const fn new<Impl: IRfcommOutboundConnectionInformationImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IRfcommOutboundConnectionInformationVtbl {
-        unsafe extern "system" fn RemoteServiceId<Impl: IRfcommOutboundConnectionInformationImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRfcommOutboundConnectionInformationImpl, const OFFSET: isize>() -> IRfcommOutboundConnectionInformationVtbl {
+        unsafe extern "system" fn RemoteServiceId<Impl: IRfcommOutboundConnectionInformationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RemoteServiceId() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -423,10 +423,10 @@ impl IRfcommOutboundConnectionInformationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetRemoteServiceId<Impl: IRfcommOutboundConnectionInformationImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn SetRemoteServiceId<Impl: IRfcommOutboundConnectionInformationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetRemoteServiceId(&*(&value as *const <super::Rfcomm::RfcommServiceId as ::windows::core::Abi>::Abi as *const <super::Rfcomm::RfcommServiceId as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IRfcommOutboundConnectionInformation>, base.5, RemoteServiceId::<Impl, OFFSET>, SetRemoteServiceId::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRfcommOutboundConnectionInformation>, ::windows::core::GetTrustLevel, RemoteServiceId::<Impl, OFFSET>, SetRemoteServiceId::<Impl, OFFSET>)
     }
 }

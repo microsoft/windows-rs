@@ -13,9 +13,9 @@ impl ::windows::core::RuntimeName for IPhoneCallOrigin {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IPhoneCallOriginVtbl {
-    pub const fn new<Impl: IPhoneCallOriginImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IPhoneCallOriginVtbl {
-        unsafe extern "system" fn Category<Impl: IPhoneCallOriginImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhoneCallOriginImpl, const OFFSET: isize>() -> IPhoneCallOriginVtbl {
+        unsafe extern "system" fn Category<Impl: IPhoneCallOriginImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Category() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -25,12 +25,12 @@ impl IPhoneCallOriginVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetCategory<Impl: IPhoneCallOriginImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn SetCategory<Impl: IPhoneCallOriginImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetCategory(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn CategoryDescription<Impl: IPhoneCallOriginImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn CategoryDescription<Impl: IPhoneCallOriginImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CategoryDescription() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -40,12 +40,12 @@ impl IPhoneCallOriginVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetCategoryDescription<Impl: IPhoneCallOriginImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn SetCategoryDescription<Impl: IPhoneCallOriginImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetCategoryDescription(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn Location<Impl: IPhoneCallOriginImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn Location<Impl: IPhoneCallOriginImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Location() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -55,11 +55,11 @@ impl IPhoneCallOriginVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetLocation<Impl: IPhoneCallOriginImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn SetLocation<Impl: IPhoneCallOriginImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetLocation(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IPhoneCallOrigin>, base.5, Category::<Impl, OFFSET>, SetCategory::<Impl, OFFSET>, CategoryDescription::<Impl, OFFSET>, SetCategoryDescription::<Impl, OFFSET>, Location::<Impl, OFFSET>, SetLocation::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPhoneCallOrigin>, ::windows::core::GetTrustLevel, Category::<Impl, OFFSET>, SetCategory::<Impl, OFFSET>, CategoryDescription::<Impl, OFFSET>, SetCategoryDescription::<Impl, OFFSET>, Location::<Impl, OFFSET>, SetLocation::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -73,9 +73,9 @@ impl ::windows::core::RuntimeName for IPhoneCallOrigin2 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IPhoneCallOrigin2Vtbl {
-    pub const fn new<Impl: IPhoneCallOrigin2Impl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IPhoneCallOrigin2Vtbl {
-        unsafe extern "system" fn DisplayName<Impl: IPhoneCallOrigin2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhoneCallOrigin2Impl, const OFFSET: isize>() -> IPhoneCallOrigin2Vtbl {
+        unsafe extern "system" fn DisplayName<Impl: IPhoneCallOrigin2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DisplayName() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -85,11 +85,11 @@ impl IPhoneCallOrigin2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetDisplayName<Impl: IPhoneCallOrigin2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn SetDisplayName<Impl: IPhoneCallOrigin2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetDisplayName(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IPhoneCallOrigin2>, base.5, DisplayName::<Impl, OFFSET>, SetDisplayName::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPhoneCallOrigin2>, ::windows::core::GetTrustLevel, DisplayName::<Impl, OFFSET>, SetDisplayName::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -103,9 +103,9 @@ impl ::windows::core::RuntimeName for IPhoneCallOrigin3 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IPhoneCallOrigin3Vtbl {
-    pub const fn new<Impl: IPhoneCallOrigin3Impl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IPhoneCallOrigin3Vtbl {
-        unsafe extern "system" fn DisplayPicture<Impl: IPhoneCallOrigin3Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhoneCallOrigin3Impl, const OFFSET: isize>() -> IPhoneCallOrigin3Vtbl {
+        unsafe extern "system" fn DisplayPicture<Impl: IPhoneCallOrigin3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DisplayPicture() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -115,11 +115,11 @@ impl IPhoneCallOrigin3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetDisplayPicture<Impl: IPhoneCallOrigin3Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn SetDisplayPicture<Impl: IPhoneCallOrigin3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetDisplayPicture(&*(&value as *const <super::super::super::Storage::StorageFile as ::windows::core::Abi>::Abi as *const <super::super::super::Storage::StorageFile as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IPhoneCallOrigin3>, base.5, DisplayPicture::<Impl, OFFSET>, SetDisplayPicture::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPhoneCallOrigin3>, ::windows::core::GetTrustLevel, DisplayPicture::<Impl, OFFSET>, SetDisplayPicture::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -134,9 +134,9 @@ impl ::windows::core::RuntimeName for IPhoneCallOriginManagerStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IPhoneCallOriginManagerStaticsVtbl {
-    pub const fn new<Impl: IPhoneCallOriginManagerStaticsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IPhoneCallOriginManagerStaticsVtbl {
-        unsafe extern "system" fn IsCurrentAppActiveCallOriginApp<Impl: IPhoneCallOriginManagerStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhoneCallOriginManagerStaticsImpl, const OFFSET: isize>() -> IPhoneCallOriginManagerStaticsVtbl {
+        unsafe extern "system" fn IsCurrentAppActiveCallOriginApp<Impl: IPhoneCallOriginManagerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsCurrentAppActiveCallOriginApp() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -146,15 +146,15 @@ impl IPhoneCallOriginManagerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ShowPhoneCallOriginSettingsUI<Impl: IPhoneCallOriginManagerStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn ShowPhoneCallOriginSettingsUI<Impl: IPhoneCallOriginManagerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ShowPhoneCallOriginSettingsUI().into()
         }
-        unsafe extern "system" fn SetCallOrigin<Impl: IPhoneCallOriginManagerStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, requestid: ::windows::core::GUID, callorigin: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn SetCallOrigin<Impl: IPhoneCallOriginManagerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, requestid: ::windows::core::GUID, callorigin: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetCallOrigin(&*(&requestid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), &*(&callorigin as *const <PhoneCallOrigin as ::windows::core::Abi>::Abi as *const <PhoneCallOrigin as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IPhoneCallOriginManagerStatics>, base.5, IsCurrentAppActiveCallOriginApp::<Impl, OFFSET>, ShowPhoneCallOriginSettingsUI::<Impl, OFFSET>, SetCallOrigin::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPhoneCallOriginManagerStatics>, ::windows::core::GetTrustLevel, IsCurrentAppActiveCallOriginApp::<Impl, OFFSET>, ShowPhoneCallOriginSettingsUI::<Impl, OFFSET>, SetCallOrigin::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -167,9 +167,9 @@ impl ::windows::core::RuntimeName for IPhoneCallOriginManagerStatics2 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IPhoneCallOriginManagerStatics2Vtbl {
-    pub const fn new<Impl: IPhoneCallOriginManagerStatics2Impl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IPhoneCallOriginManagerStatics2Vtbl {
-        unsafe extern "system" fn RequestSetAsActiveCallOriginAppAsync<Impl: IPhoneCallOriginManagerStatics2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhoneCallOriginManagerStatics2Impl, const OFFSET: isize>() -> IPhoneCallOriginManagerStatics2Vtbl {
+        unsafe extern "system" fn RequestSetAsActiveCallOriginAppAsync<Impl: IPhoneCallOriginManagerStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RequestSetAsActiveCallOriginAppAsync() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -179,7 +179,7 @@ impl IPhoneCallOriginManagerStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IPhoneCallOriginManagerStatics2>, base.5, RequestSetAsActiveCallOriginAppAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPhoneCallOriginManagerStatics2>, ::windows::core::GetTrustLevel, RequestSetAsActiveCallOriginAppAsync::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -192,9 +192,9 @@ impl ::windows::core::RuntimeName for IPhoneCallOriginManagerStatics3 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IPhoneCallOriginManagerStatics3Vtbl {
-    pub const fn new<Impl: IPhoneCallOriginManagerStatics3Impl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IPhoneCallOriginManagerStatics3Vtbl {
-        unsafe extern "system" fn IsSupported<Impl: IPhoneCallOriginManagerStatics3Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhoneCallOriginManagerStatics3Impl, const OFFSET: isize>() -> IPhoneCallOriginManagerStatics3Vtbl {
+        unsafe extern "system" fn IsSupported<Impl: IPhoneCallOriginManagerStatics3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsSupported() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -204,6 +204,6 @@ impl IPhoneCallOriginManagerStatics3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IPhoneCallOriginManagerStatics3>, base.5, IsSupported::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPhoneCallOriginManagerStatics3>, ::windows::core::GetTrustLevel, IsSupported::<Impl, OFFSET>)
     }
 }

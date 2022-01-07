@@ -8,9 +8,9 @@ impl ::windows::core::RuntimeName for ISystemProtectionStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ISystemProtectionStaticsVtbl {
-    pub const fn new<Impl: ISystemProtectionStaticsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> ISystemProtectionStaticsVtbl {
-        unsafe extern "system" fn ScreenLocked<Impl: ISystemProtectionStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISystemProtectionStaticsImpl, const OFFSET: isize>() -> ISystemProtectionStaticsVtbl {
+        unsafe extern "system" fn ScreenLocked<Impl: ISystemProtectionStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ScreenLocked() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -20,7 +20,7 @@ impl ISystemProtectionStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<ISystemProtectionStatics>, base.5, ScreenLocked::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISystemProtectionStatics>, ::windows::core::GetTrustLevel, ScreenLocked::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -33,11 +33,11 @@ impl ::windows::core::RuntimeName for ISystemProtectionUnlockStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ISystemProtectionUnlockStaticsVtbl {
-    pub const fn new<Impl: ISystemProtectionUnlockStaticsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> ISystemProtectionUnlockStaticsVtbl {
-        unsafe extern "system" fn RequestScreenUnlock<Impl: ISystemProtectionUnlockStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISystemProtectionUnlockStaticsImpl, const OFFSET: isize>() -> ISystemProtectionUnlockStaticsVtbl {
+        unsafe extern "system" fn RequestScreenUnlock<Impl: ISystemProtectionUnlockStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RequestScreenUnlock().into()
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<ISystemProtectionUnlockStatics>, base.5, RequestScreenUnlock::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISystemProtectionUnlockStatics>, ::windows::core::GetTrustLevel, RequestScreenUnlock::<Impl, OFFSET>)
     }
 }

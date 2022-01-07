@@ -10,9 +10,9 @@ impl ::windows::core::RuntimeName for IDirect3D11CaptureFrame {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IDirect3D11CaptureFrameVtbl {
-    pub const fn new<Impl: IDirect3D11CaptureFrameImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IDirect3D11CaptureFrameVtbl {
-        unsafe extern "system" fn Surface<Impl: IDirect3D11CaptureFrameImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDirect3D11CaptureFrameImpl, const OFFSET: isize>() -> IDirect3D11CaptureFrameVtbl {
+        unsafe extern "system" fn Surface<Impl: IDirect3D11CaptureFrameImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Surface() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -22,8 +22,8 @@ impl IDirect3D11CaptureFrameVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SystemRelativeTime<Impl: IDirect3D11CaptureFrameImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn SystemRelativeTime<Impl: IDirect3D11CaptureFrameImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SystemRelativeTime() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -33,8 +33,8 @@ impl IDirect3D11CaptureFrameVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ContentSize<Impl: IDirect3D11CaptureFrameImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut super::SizeInt32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn ContentSize<Impl: IDirect3D11CaptureFrameImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::SizeInt32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ContentSize() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -44,7 +44,7 @@ impl IDirect3D11CaptureFrameVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IDirect3D11CaptureFrame>, base.5, Surface::<Impl, OFFSET>, SystemRelativeTime::<Impl, OFFSET>, ContentSize::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDirect3D11CaptureFrame>, ::windows::core::GetTrustLevel, Surface::<Impl, OFFSET>, SystemRelativeTime::<Impl, OFFSET>, ContentSize::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -62,13 +62,13 @@ impl ::windows::core::RuntimeName for IDirect3D11CaptureFramePool {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IDirect3D11CaptureFramePoolVtbl {
-    pub const fn new<Impl: IDirect3D11CaptureFramePoolImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IDirect3D11CaptureFramePoolVtbl {
-        unsafe extern "system" fn Recreate<Impl: IDirect3D11CaptureFramePoolImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, device: ::windows::core::RawPtr, pixelformat: super::DirectX::DirectXPixelFormat, numberofbuffers: i32, size: super::SizeInt32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDirect3D11CaptureFramePoolImpl, const OFFSET: isize>() -> IDirect3D11CaptureFramePoolVtbl {
+        unsafe extern "system" fn Recreate<Impl: IDirect3D11CaptureFramePoolImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, device: ::windows::core::RawPtr, pixelformat: super::DirectX::DirectXPixelFormat, numberofbuffers: i32, size: super::SizeInt32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Recreate(&*(&device as *const <super::DirectX::Direct3D11::IDirect3DDevice as ::windows::core::Abi>::Abi as *const <super::DirectX::Direct3D11::IDirect3DDevice as ::windows::core::DefaultType>::DefaultType), pixelformat, numberofbuffers, &*(&size as *const <super::SizeInt32 as ::windows::core::Abi>::Abi as *const <super::SizeInt32 as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn TryGetNextFrame<Impl: IDirect3D11CaptureFramePoolImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn TryGetNextFrame<Impl: IDirect3D11CaptureFramePoolImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TryGetNextFrame() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -78,8 +78,8 @@ impl IDirect3D11CaptureFramePoolVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn FrameArrived<Impl: IDirect3D11CaptureFramePoolImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn FrameArrived<Impl: IDirect3D11CaptureFramePoolImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FrameArrived(&*(&handler as *const <super::super::Foundation::TypedEventHandler<Direct3D11CaptureFramePool, ::windows::core::IInspectable> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<Direct3D11CaptureFramePool, ::windows::core::IInspectable> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -89,12 +89,12 @@ impl IDirect3D11CaptureFramePoolVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveFrameArrived<Impl: IDirect3D11CaptureFramePoolImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn RemoveFrameArrived<Impl: IDirect3D11CaptureFramePoolImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveFrameArrived(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn CreateCaptureSession<Impl: IDirect3D11CaptureFramePoolImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, item: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn CreateCaptureSession<Impl: IDirect3D11CaptureFramePoolImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, item: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateCaptureSession(&*(&item as *const <GraphicsCaptureItem as ::windows::core::Abi>::Abi as *const <GraphicsCaptureItem as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -104,8 +104,8 @@ impl IDirect3D11CaptureFramePoolVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DispatcherQueue<Impl: IDirect3D11CaptureFramePoolImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn DispatcherQueue<Impl: IDirect3D11CaptureFramePoolImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DispatcherQueue() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -115,7 +115,7 @@ impl IDirect3D11CaptureFramePoolVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IDirect3D11CaptureFramePool>, base.5, Recreate::<Impl, OFFSET>, TryGetNextFrame::<Impl, OFFSET>, FrameArrived::<Impl, OFFSET>, RemoveFrameArrived::<Impl, OFFSET>, CreateCaptureSession::<Impl, OFFSET>, DispatcherQueue::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDirect3D11CaptureFramePool>, ::windows::core::GetTrustLevel, Recreate::<Impl, OFFSET>, TryGetNextFrame::<Impl, OFFSET>, FrameArrived::<Impl, OFFSET>, RemoveFrameArrived::<Impl, OFFSET>, CreateCaptureSession::<Impl, OFFSET>, DispatcherQueue::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -128,9 +128,9 @@ impl ::windows::core::RuntimeName for IDirect3D11CaptureFramePoolStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IDirect3D11CaptureFramePoolStaticsVtbl {
-    pub const fn new<Impl: IDirect3D11CaptureFramePoolStaticsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IDirect3D11CaptureFramePoolStaticsVtbl {
-        unsafe extern "system" fn Create<Impl: IDirect3D11CaptureFramePoolStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, device: ::windows::core::RawPtr, pixelformat: super::DirectX::DirectXPixelFormat, numberofbuffers: i32, size: super::SizeInt32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDirect3D11CaptureFramePoolStaticsImpl, const OFFSET: isize>() -> IDirect3D11CaptureFramePoolStaticsVtbl {
+        unsafe extern "system" fn Create<Impl: IDirect3D11CaptureFramePoolStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, device: ::windows::core::RawPtr, pixelformat: super::DirectX::DirectXPixelFormat, numberofbuffers: i32, size: super::SizeInt32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(&*(&device as *const <super::DirectX::Direct3D11::IDirect3DDevice as ::windows::core::Abi>::Abi as *const <super::DirectX::Direct3D11::IDirect3DDevice as ::windows::core::DefaultType>::DefaultType), pixelformat, numberofbuffers, &*(&size as *const <super::SizeInt32 as ::windows::core::Abi>::Abi as *const <super::SizeInt32 as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -140,7 +140,7 @@ impl IDirect3D11CaptureFramePoolStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IDirect3D11CaptureFramePoolStatics>, base.5, Create::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDirect3D11CaptureFramePoolStatics>, ::windows::core::GetTrustLevel, Create::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -153,9 +153,9 @@ impl ::windows::core::RuntimeName for IDirect3D11CaptureFramePoolStatics2 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IDirect3D11CaptureFramePoolStatics2Vtbl {
-    pub const fn new<Impl: IDirect3D11CaptureFramePoolStatics2Impl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IDirect3D11CaptureFramePoolStatics2Vtbl {
-        unsafe extern "system" fn CreateFreeThreaded<Impl: IDirect3D11CaptureFramePoolStatics2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, device: ::windows::core::RawPtr, pixelformat: super::DirectX::DirectXPixelFormat, numberofbuffers: i32, size: super::SizeInt32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDirect3D11CaptureFramePoolStatics2Impl, const OFFSET: isize>() -> IDirect3D11CaptureFramePoolStatics2Vtbl {
+        unsafe extern "system" fn CreateFreeThreaded<Impl: IDirect3D11CaptureFramePoolStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, device: ::windows::core::RawPtr, pixelformat: super::DirectX::DirectXPixelFormat, numberofbuffers: i32, size: super::SizeInt32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateFreeThreaded(&*(&device as *const <super::DirectX::Direct3D11::IDirect3DDevice as ::windows::core::Abi>::Abi as *const <super::DirectX::Direct3D11::IDirect3DDevice as ::windows::core::DefaultType>::DefaultType), pixelformat, numberofbuffers, &*(&size as *const <super::SizeInt32 as ::windows::core::Abi>::Abi as *const <super::SizeInt32 as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -165,7 +165,7 @@ impl IDirect3D11CaptureFramePoolStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IDirect3D11CaptureFramePoolStatics2>, base.5, CreateFreeThreaded::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDirect3D11CaptureFramePoolStatics2>, ::windows::core::GetTrustLevel, CreateFreeThreaded::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -178,9 +178,9 @@ impl ::windows::core::RuntimeName for IGraphicsCaptureAccessStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IGraphicsCaptureAccessStaticsVtbl {
-    pub const fn new<Impl: IGraphicsCaptureAccessStaticsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IGraphicsCaptureAccessStaticsVtbl {
-        unsafe extern "system" fn RequestAccessAsync<Impl: IGraphicsCaptureAccessStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, request: GraphicsCaptureAccessKind, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGraphicsCaptureAccessStaticsImpl, const OFFSET: isize>() -> IGraphicsCaptureAccessStaticsVtbl {
+        unsafe extern "system" fn RequestAccessAsync<Impl: IGraphicsCaptureAccessStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, request: GraphicsCaptureAccessKind, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RequestAccessAsync(request) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -190,7 +190,7 @@ impl IGraphicsCaptureAccessStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IGraphicsCaptureAccessStatics>, base.5, RequestAccessAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGraphicsCaptureAccessStatics>, ::windows::core::GetTrustLevel, RequestAccessAsync::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -206,9 +206,9 @@ impl ::windows::core::RuntimeName for IGraphicsCaptureItem {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IGraphicsCaptureItemVtbl {
-    pub const fn new<Impl: IGraphicsCaptureItemImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IGraphicsCaptureItemVtbl {
-        unsafe extern "system" fn DisplayName<Impl: IGraphicsCaptureItemImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGraphicsCaptureItemImpl, const OFFSET: isize>() -> IGraphicsCaptureItemVtbl {
+        unsafe extern "system" fn DisplayName<Impl: IGraphicsCaptureItemImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DisplayName() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -218,8 +218,8 @@ impl IGraphicsCaptureItemVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Size<Impl: IGraphicsCaptureItemImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut super::SizeInt32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn Size<Impl: IGraphicsCaptureItemImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::SizeInt32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Size() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -229,8 +229,8 @@ impl IGraphicsCaptureItemVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Closed<Impl: IGraphicsCaptureItemImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn Closed<Impl: IGraphicsCaptureItemImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Closed(&*(&handler as *const <super::super::Foundation::TypedEventHandler<GraphicsCaptureItem, ::windows::core::IInspectable> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<GraphicsCaptureItem, ::windows::core::IInspectable> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -240,11 +240,11 @@ impl IGraphicsCaptureItemVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveClosed<Impl: IGraphicsCaptureItemImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn RemoveClosed<Impl: IGraphicsCaptureItemImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveClosed(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IGraphicsCaptureItem>, base.5, DisplayName::<Impl, OFFSET>, Size::<Impl, OFFSET>, Closed::<Impl, OFFSET>, RemoveClosed::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGraphicsCaptureItem>, ::windows::core::GetTrustLevel, DisplayName::<Impl, OFFSET>, Size::<Impl, OFFSET>, Closed::<Impl, OFFSET>, RemoveClosed::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -257,9 +257,9 @@ impl ::windows::core::RuntimeName for IGraphicsCaptureItemStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IGraphicsCaptureItemStaticsVtbl {
-    pub const fn new<Impl: IGraphicsCaptureItemStaticsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IGraphicsCaptureItemStaticsVtbl {
-        unsafe extern "system" fn CreateFromVisual<Impl: IGraphicsCaptureItemStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, visual: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGraphicsCaptureItemStaticsImpl, const OFFSET: isize>() -> IGraphicsCaptureItemStaticsVtbl {
+        unsafe extern "system" fn CreateFromVisual<Impl: IGraphicsCaptureItemStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, visual: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateFromVisual(&*(&visual as *const <super::super::UI::Composition::Visual as ::windows::core::Abi>::Abi as *const <super::super::UI::Composition::Visual as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -269,7 +269,7 @@ impl IGraphicsCaptureItemStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IGraphicsCaptureItemStatics>, base.5, CreateFromVisual::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGraphicsCaptureItemStatics>, ::windows::core::GetTrustLevel, CreateFromVisual::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -283,9 +283,9 @@ impl ::windows::core::RuntimeName for IGraphicsCaptureItemStatics2 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IGraphicsCaptureItemStatics2Vtbl {
-    pub const fn new<Impl: IGraphicsCaptureItemStatics2Impl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IGraphicsCaptureItemStatics2Vtbl {
-        unsafe extern "system" fn TryCreateFromWindowId<Impl: IGraphicsCaptureItemStatics2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, windowid: super::super::UI::WindowId, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGraphicsCaptureItemStatics2Impl, const OFFSET: isize>() -> IGraphicsCaptureItemStatics2Vtbl {
+        unsafe extern "system" fn TryCreateFromWindowId<Impl: IGraphicsCaptureItemStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, windowid: super::super::UI::WindowId, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TryCreateFromWindowId(&*(&windowid as *const <super::super::UI::WindowId as ::windows::core::Abi>::Abi as *const <super::super::UI::WindowId as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -295,8 +295,8 @@ impl IGraphicsCaptureItemStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TryCreateFromDisplayId<Impl: IGraphicsCaptureItemStatics2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, displayid: super::DisplayId, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn TryCreateFromDisplayId<Impl: IGraphicsCaptureItemStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, displayid: super::DisplayId, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TryCreateFromDisplayId(&*(&displayid as *const <super::DisplayId as ::windows::core::Abi>::Abi as *const <super::DisplayId as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -306,7 +306,7 @@ impl IGraphicsCaptureItemStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IGraphicsCaptureItemStatics2>, base.5, TryCreateFromWindowId::<Impl, OFFSET>, TryCreateFromDisplayId::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGraphicsCaptureItemStatics2>, ::windows::core::GetTrustLevel, TryCreateFromWindowId::<Impl, OFFSET>, TryCreateFromDisplayId::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -319,9 +319,9 @@ impl ::windows::core::RuntimeName for IGraphicsCapturePicker {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IGraphicsCapturePickerVtbl {
-    pub const fn new<Impl: IGraphicsCapturePickerImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IGraphicsCapturePickerVtbl {
-        unsafe extern "system" fn PickSingleItemAsync<Impl: IGraphicsCapturePickerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGraphicsCapturePickerImpl, const OFFSET: isize>() -> IGraphicsCapturePickerVtbl {
+        unsafe extern "system" fn PickSingleItemAsync<Impl: IGraphicsCapturePickerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PickSingleItemAsync() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -331,7 +331,7 @@ impl IGraphicsCapturePickerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IGraphicsCapturePicker>, base.5, PickSingleItemAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGraphicsCapturePicker>, ::windows::core::GetTrustLevel, PickSingleItemAsync::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -344,12 +344,12 @@ impl ::windows::core::RuntimeName for IGraphicsCaptureSession {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IGraphicsCaptureSessionVtbl {
-    pub const fn new<Impl: IGraphicsCaptureSessionImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IGraphicsCaptureSessionVtbl {
-        unsafe extern "system" fn StartCapture<Impl: IGraphicsCaptureSessionImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGraphicsCaptureSessionImpl, const OFFSET: isize>() -> IGraphicsCaptureSessionVtbl {
+        unsafe extern "system" fn StartCapture<Impl: IGraphicsCaptureSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).StartCapture().into()
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IGraphicsCaptureSession>, base.5, StartCapture::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGraphicsCaptureSession>, ::windows::core::GetTrustLevel, StartCapture::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -363,9 +363,9 @@ impl ::windows::core::RuntimeName for IGraphicsCaptureSession2 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IGraphicsCaptureSession2Vtbl {
-    pub const fn new<Impl: IGraphicsCaptureSession2Impl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IGraphicsCaptureSession2Vtbl {
-        unsafe extern "system" fn IsCursorCaptureEnabled<Impl: IGraphicsCaptureSession2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGraphicsCaptureSession2Impl, const OFFSET: isize>() -> IGraphicsCaptureSession2Vtbl {
+        unsafe extern "system" fn IsCursorCaptureEnabled<Impl: IGraphicsCaptureSession2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsCursorCaptureEnabled() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -375,11 +375,11 @@ impl IGraphicsCaptureSession2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetIsCursorCaptureEnabled<Impl: IGraphicsCaptureSession2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn SetIsCursorCaptureEnabled<Impl: IGraphicsCaptureSession2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetIsCursorCaptureEnabled(value).into()
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IGraphicsCaptureSession2>, base.5, IsCursorCaptureEnabled::<Impl, OFFSET>, SetIsCursorCaptureEnabled::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGraphicsCaptureSession2>, ::windows::core::GetTrustLevel, IsCursorCaptureEnabled::<Impl, OFFSET>, SetIsCursorCaptureEnabled::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -393,9 +393,9 @@ impl ::windows::core::RuntimeName for IGraphicsCaptureSession3 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IGraphicsCaptureSession3Vtbl {
-    pub const fn new<Impl: IGraphicsCaptureSession3Impl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IGraphicsCaptureSession3Vtbl {
-        unsafe extern "system" fn IsBorderRequired<Impl: IGraphicsCaptureSession3Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGraphicsCaptureSession3Impl, const OFFSET: isize>() -> IGraphicsCaptureSession3Vtbl {
+        unsafe extern "system" fn IsBorderRequired<Impl: IGraphicsCaptureSession3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsBorderRequired() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -405,11 +405,11 @@ impl IGraphicsCaptureSession3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetIsBorderRequired<Impl: IGraphicsCaptureSession3Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn SetIsBorderRequired<Impl: IGraphicsCaptureSession3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetIsBorderRequired(value).into()
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IGraphicsCaptureSession3>, base.5, IsBorderRequired::<Impl, OFFSET>, SetIsBorderRequired::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGraphicsCaptureSession3>, ::windows::core::GetTrustLevel, IsBorderRequired::<Impl, OFFSET>, SetIsBorderRequired::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -422,9 +422,9 @@ impl ::windows::core::RuntimeName for IGraphicsCaptureSessionStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IGraphicsCaptureSessionStaticsVtbl {
-    pub const fn new<Impl: IGraphicsCaptureSessionStaticsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IGraphicsCaptureSessionStaticsVtbl {
-        unsafe extern "system" fn IsSupported<Impl: IGraphicsCaptureSessionStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGraphicsCaptureSessionStaticsImpl, const OFFSET: isize>() -> IGraphicsCaptureSessionStaticsVtbl {
+        unsafe extern "system" fn IsSupported<Impl: IGraphicsCaptureSessionStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsSupported() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -434,6 +434,6 @@ impl IGraphicsCaptureSessionStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IGraphicsCaptureSessionStatics>, base.5, IsSupported::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGraphicsCaptureSessionStatics>, ::windows::core::GetTrustLevel, IsSupported::<Impl, OFFSET>)
     }
 }

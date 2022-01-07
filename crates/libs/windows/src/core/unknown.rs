@@ -1,3 +1,5 @@
+#![allow(non_snake_case)]
+
 use super::*;
 
 /// All COM interfaces (and thus WinRT classes and interfaces) implement
@@ -51,4 +53,25 @@ impl core::fmt::Debug for IUnknown {
     fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_tuple("IUnknown").field(&self.0).finish()
     }
+}
+
+pub trait IUnknownImpl {
+    fn QueryInterface(&mut self,  iid: *const GUID, interface: *mut RawPtr) -> HRESULT;
+    fn AddRef(&mut self) -> u32;
+    fn Release(&mut self) -> u32;
+}
+
+pub unsafe extern "system" fn QueryInterface<T: IUnknownImpl, const OFFSET: isize>(this: RawPtr, iid: *const GUID, interface: *mut RawPtr) -> HRESULT {
+    let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut T;
+    (*this).QueryInterface(iid, interface)
+}
+
+pub unsafe extern "system" fn AddRef<T: IUnknownImpl, const OFFSET: isize>(this: RawPtr) -> u32 {
+    let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut T;
+    (*this).AddRef()
+}
+
+pub unsafe extern "system" fn Release<T: IUnknownImpl, const OFFSET: isize>(this: RawPtr) -> u32 {
+    let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut T;
+    (*this).Release()
 }

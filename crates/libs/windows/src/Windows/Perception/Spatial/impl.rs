@@ -11,9 +11,9 @@ impl ::windows::core::RuntimeName for ISpatialAnchor {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ISpatialAnchorVtbl {
-    pub const fn new<Impl: ISpatialAnchorImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> ISpatialAnchorVtbl {
-        unsafe extern "system" fn CoordinateSystem<Impl: ISpatialAnchorImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpatialAnchorImpl, const OFFSET: isize>() -> ISpatialAnchorVtbl {
+        unsafe extern "system" fn CoordinateSystem<Impl: ISpatialAnchorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CoordinateSystem() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -23,8 +23,8 @@ impl ISpatialAnchorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RawCoordinateSystem<Impl: ISpatialAnchorImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn RawCoordinateSystem<Impl: ISpatialAnchorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RawCoordinateSystem() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -34,8 +34,8 @@ impl ISpatialAnchorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RawCoordinateSystemAdjusted<Impl: ISpatialAnchorImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn RawCoordinateSystemAdjusted<Impl: ISpatialAnchorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RawCoordinateSystemAdjusted(&*(&handler as *const <super::super::Foundation::TypedEventHandler<SpatialAnchor, SpatialAnchorRawCoordinateSystemAdjustedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<SpatialAnchor, SpatialAnchorRawCoordinateSystemAdjustedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -45,11 +45,11 @@ impl ISpatialAnchorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveRawCoordinateSystemAdjusted<Impl: ISpatialAnchorImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, cookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn RemoveRawCoordinateSystemAdjusted<Impl: ISpatialAnchorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveRawCoordinateSystemAdjusted(&*(&cookie as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<ISpatialAnchor>, base.5, CoordinateSystem::<Impl, OFFSET>, RawCoordinateSystem::<Impl, OFFSET>, RawCoordinateSystemAdjusted::<Impl, OFFSET>, RemoveRawCoordinateSystemAdjusted::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpatialAnchor>, ::windows::core::GetTrustLevel, CoordinateSystem::<Impl, OFFSET>, RawCoordinateSystem::<Impl, OFFSET>, RawCoordinateSystemAdjusted::<Impl, OFFSET>, RemoveRawCoordinateSystemAdjusted::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -62,9 +62,9 @@ impl ::windows::core::RuntimeName for ISpatialAnchor2 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ISpatialAnchor2Vtbl {
-    pub const fn new<Impl: ISpatialAnchor2Impl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> ISpatialAnchor2Vtbl {
-        unsafe extern "system" fn RemovedByUser<Impl: ISpatialAnchor2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpatialAnchor2Impl, const OFFSET: isize>() -> ISpatialAnchor2Vtbl {
+        unsafe extern "system" fn RemovedByUser<Impl: ISpatialAnchor2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RemovedByUser() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -74,7 +74,7 @@ impl ISpatialAnchor2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<ISpatialAnchor2>, base.5, RemovedByUser::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpatialAnchor2>, ::windows::core::GetTrustLevel, RemovedByUser::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -89,9 +89,9 @@ impl ::windows::core::RuntimeName for ISpatialAnchorExportSufficiency {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ISpatialAnchorExportSufficiencyVtbl {
-    pub const fn new<Impl: ISpatialAnchorExportSufficiencyImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> ISpatialAnchorExportSufficiencyVtbl {
-        unsafe extern "system" fn IsMinimallySufficient<Impl: ISpatialAnchorExportSufficiencyImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpatialAnchorExportSufficiencyImpl, const OFFSET: isize>() -> ISpatialAnchorExportSufficiencyVtbl {
+        unsafe extern "system" fn IsMinimallySufficient<Impl: ISpatialAnchorExportSufficiencyImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsMinimallySufficient() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -101,8 +101,8 @@ impl ISpatialAnchorExportSufficiencyVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SufficiencyLevel<Impl: ISpatialAnchorExportSufficiencyImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn SufficiencyLevel<Impl: ISpatialAnchorExportSufficiencyImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SufficiencyLevel() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -112,8 +112,8 @@ impl ISpatialAnchorExportSufficiencyVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RecommendedSufficiencyLevel<Impl: ISpatialAnchorExportSufficiencyImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn RecommendedSufficiencyLevel<Impl: ISpatialAnchorExportSufficiencyImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RecommendedSufficiencyLevel() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -123,7 +123,7 @@ impl ISpatialAnchorExportSufficiencyVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<ISpatialAnchorExportSufficiency>, base.5, IsMinimallySufficient::<Impl, OFFSET>, SufficiencyLevel::<Impl, OFFSET>, RecommendedSufficiencyLevel::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpatialAnchorExportSufficiency>, ::windows::core::GetTrustLevel, IsMinimallySufficient::<Impl, OFFSET>, SufficiencyLevel::<Impl, OFFSET>, RecommendedSufficiencyLevel::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -137,9 +137,9 @@ impl ::windows::core::RuntimeName for ISpatialAnchorExporter {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ISpatialAnchorExporterVtbl {
-    pub const fn new<Impl: ISpatialAnchorExporterImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> ISpatialAnchorExporterVtbl {
-        unsafe extern "system" fn GetAnchorExportSufficiencyAsync<Impl: ISpatialAnchorExporterImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, anchor: ::windows::core::RawPtr, purpose: SpatialAnchorExportPurpose, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpatialAnchorExporterImpl, const OFFSET: isize>() -> ISpatialAnchorExporterVtbl {
+        unsafe extern "system" fn GetAnchorExportSufficiencyAsync<Impl: ISpatialAnchorExporterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, anchor: ::windows::core::RawPtr, purpose: SpatialAnchorExportPurpose, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetAnchorExportSufficiencyAsync(&*(&anchor as *const <SpatialAnchor as ::windows::core::Abi>::Abi as *const <SpatialAnchor as ::windows::core::DefaultType>::DefaultType), purpose) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -149,8 +149,8 @@ impl ISpatialAnchorExporterVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TryExportAnchorAsync<Impl: ISpatialAnchorExporterImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, anchor: ::windows::core::RawPtr, purpose: SpatialAnchorExportPurpose, stream: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn TryExportAnchorAsync<Impl: ISpatialAnchorExporterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, anchor: ::windows::core::RawPtr, purpose: SpatialAnchorExportPurpose, stream: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TryExportAnchorAsync(&*(&anchor as *const <SpatialAnchor as ::windows::core::Abi>::Abi as *const <SpatialAnchor as ::windows::core::DefaultType>::DefaultType), purpose, &*(&stream as *const <super::super::Storage::Streams::IOutputStream as ::windows::core::Abi>::Abi as *const <super::super::Storage::Streams::IOutputStream as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -160,7 +160,7 @@ impl ISpatialAnchorExporterVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<ISpatialAnchorExporter>, base.5, GetAnchorExportSufficiencyAsync::<Impl, OFFSET>, TryExportAnchorAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpatialAnchorExporter>, ::windows::core::GetTrustLevel, GetAnchorExportSufficiencyAsync::<Impl, OFFSET>, TryExportAnchorAsync::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -174,9 +174,9 @@ impl ::windows::core::RuntimeName for ISpatialAnchorExporterStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ISpatialAnchorExporterStaticsVtbl {
-    pub const fn new<Impl: ISpatialAnchorExporterStaticsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> ISpatialAnchorExporterStaticsVtbl {
-        unsafe extern "system" fn GetDefault<Impl: ISpatialAnchorExporterStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpatialAnchorExporterStaticsImpl, const OFFSET: isize>() -> ISpatialAnchorExporterStaticsVtbl {
+        unsafe extern "system" fn GetDefault<Impl: ISpatialAnchorExporterStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDefault() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -186,8 +186,8 @@ impl ISpatialAnchorExporterStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RequestAccessAsync<Impl: ISpatialAnchorExporterStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn RequestAccessAsync<Impl: ISpatialAnchorExporterStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RequestAccessAsync() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -197,7 +197,7 @@ impl ISpatialAnchorExporterStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<ISpatialAnchorExporterStatics>, base.5, GetDefault::<Impl, OFFSET>, RequestAccessAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpatialAnchorExporterStatics>, ::windows::core::GetTrustLevel, GetDefault::<Impl, OFFSET>, RequestAccessAsync::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -210,9 +210,9 @@ impl ::windows::core::RuntimeName for ISpatialAnchorManagerStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ISpatialAnchorManagerStaticsVtbl {
-    pub const fn new<Impl: ISpatialAnchorManagerStaticsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> ISpatialAnchorManagerStaticsVtbl {
-        unsafe extern "system" fn RequestStoreAsync<Impl: ISpatialAnchorManagerStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpatialAnchorManagerStaticsImpl, const OFFSET: isize>() -> ISpatialAnchorManagerStaticsVtbl {
+        unsafe extern "system" fn RequestStoreAsync<Impl: ISpatialAnchorManagerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RequestStoreAsync() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -222,7 +222,7 @@ impl ISpatialAnchorManagerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<ISpatialAnchorManagerStatics>, base.5, RequestStoreAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpatialAnchorManagerStatics>, ::windows::core::GetTrustLevel, RequestStoreAsync::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -235,9 +235,9 @@ impl ::windows::core::RuntimeName for ISpatialAnchorRawCoordinateSystemAdjustedE
 }
 #[cfg(feature = "implement_exclusive")]
 impl ISpatialAnchorRawCoordinateSystemAdjustedEventArgsVtbl {
-    pub const fn new<Impl: ISpatialAnchorRawCoordinateSystemAdjustedEventArgsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> ISpatialAnchorRawCoordinateSystemAdjustedEventArgsVtbl {
-        unsafe extern "system" fn OldRawCoordinateSystemToNewRawCoordinateSystemTransform<Impl: ISpatialAnchorRawCoordinateSystemAdjustedEventArgsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Numerics::Matrix4x4) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpatialAnchorRawCoordinateSystemAdjustedEventArgsImpl, const OFFSET: isize>() -> ISpatialAnchorRawCoordinateSystemAdjustedEventArgsVtbl {
+        unsafe extern "system" fn OldRawCoordinateSystemToNewRawCoordinateSystemTransform<Impl: ISpatialAnchorRawCoordinateSystemAdjustedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Numerics::Matrix4x4) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OldRawCoordinateSystemToNewRawCoordinateSystemTransform() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -247,7 +247,7 @@ impl ISpatialAnchorRawCoordinateSystemAdjustedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<ISpatialAnchorRawCoordinateSystemAdjustedEventArgs>, base.5, OldRawCoordinateSystemToNewRawCoordinateSystemTransform::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpatialAnchorRawCoordinateSystemAdjustedEventArgs>, ::windows::core::GetTrustLevel, OldRawCoordinateSystemToNewRawCoordinateSystemTransform::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -262,9 +262,9 @@ impl ::windows::core::RuntimeName for ISpatialAnchorStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ISpatialAnchorStaticsVtbl {
-    pub const fn new<Impl: ISpatialAnchorStaticsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> ISpatialAnchorStaticsVtbl {
-        unsafe extern "system" fn TryCreateRelativeTo<Impl: ISpatialAnchorStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, coordinatesystem: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpatialAnchorStaticsImpl, const OFFSET: isize>() -> ISpatialAnchorStaticsVtbl {
+        unsafe extern "system" fn TryCreateRelativeTo<Impl: ISpatialAnchorStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, coordinatesystem: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TryCreateRelativeTo(&*(&coordinatesystem as *const <SpatialCoordinateSystem as ::windows::core::Abi>::Abi as *const <SpatialCoordinateSystem as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -274,8 +274,8 @@ impl ISpatialAnchorStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TryCreateWithPositionRelativeTo<Impl: ISpatialAnchorStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, coordinatesystem: ::windows::core::RawPtr, position: super::super::Foundation::Numerics::Vector3, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn TryCreateWithPositionRelativeTo<Impl: ISpatialAnchorStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, coordinatesystem: ::windows::core::RawPtr, position: super::super::Foundation::Numerics::Vector3, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TryCreateWithPositionRelativeTo(&*(&coordinatesystem as *const <SpatialCoordinateSystem as ::windows::core::Abi>::Abi as *const <SpatialCoordinateSystem as ::windows::core::DefaultType>::DefaultType), &*(&position as *const <super::super::Foundation::Numerics::Vector3 as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Numerics::Vector3 as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -285,8 +285,8 @@ impl ISpatialAnchorStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TryCreateWithPositionAndOrientationRelativeTo<Impl: ISpatialAnchorStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, coordinatesystem: ::windows::core::RawPtr, position: super::super::Foundation::Numerics::Vector3, orientation: super::super::Foundation::Numerics::Quaternion, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn TryCreateWithPositionAndOrientationRelativeTo<Impl: ISpatialAnchorStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, coordinatesystem: ::windows::core::RawPtr, position: super::super::Foundation::Numerics::Vector3, orientation: super::super::Foundation::Numerics::Quaternion, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TryCreateWithPositionAndOrientationRelativeTo(
                 &*(&coordinatesystem as *const <SpatialCoordinateSystem as ::windows::core::Abi>::Abi as *const <SpatialCoordinateSystem as ::windows::core::DefaultType>::DefaultType),
                 &*(&position as *const <super::super::Foundation::Numerics::Vector3 as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Numerics::Vector3 as ::windows::core::DefaultType>::DefaultType),
@@ -300,7 +300,7 @@ impl ISpatialAnchorStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<ISpatialAnchorStatics>, base.5, TryCreateRelativeTo::<Impl, OFFSET>, TryCreateWithPositionRelativeTo::<Impl, OFFSET>, TryCreateWithPositionAndOrientationRelativeTo::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpatialAnchorStatics>, ::windows::core::GetTrustLevel, TryCreateRelativeTo::<Impl, OFFSET>, TryCreateWithPositionRelativeTo::<Impl, OFFSET>, TryCreateWithPositionAndOrientationRelativeTo::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -316,9 +316,9 @@ impl ::windows::core::RuntimeName for ISpatialAnchorStore {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ISpatialAnchorStoreVtbl {
-    pub const fn new<Impl: ISpatialAnchorStoreImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> ISpatialAnchorStoreVtbl {
-        unsafe extern "system" fn GetAllSavedAnchors<Impl: ISpatialAnchorStoreImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpatialAnchorStoreImpl, const OFFSET: isize>() -> ISpatialAnchorStoreVtbl {
+        unsafe extern "system" fn GetAllSavedAnchors<Impl: ISpatialAnchorStoreImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetAllSavedAnchors() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -328,8 +328,8 @@ impl ISpatialAnchorStoreVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TrySave<Impl: ISpatialAnchorStoreImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, id: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, anchor: ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn TrySave<Impl: ISpatialAnchorStoreImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, id: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, anchor: ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TrySave(&*(&id as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&anchor as *const <SpatialAnchor as ::windows::core::Abi>::Abi as *const <SpatialAnchor as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -339,15 +339,15 @@ impl ISpatialAnchorStoreVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Remove<Impl: ISpatialAnchorStoreImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, id: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn Remove<Impl: ISpatialAnchorStoreImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, id: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Remove(&*(&id as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn Clear<Impl: ISpatialAnchorStoreImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn Clear<Impl: ISpatialAnchorStoreImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Clear().into()
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<ISpatialAnchorStore>, base.5, GetAllSavedAnchors::<Impl, OFFSET>, TrySave::<Impl, OFFSET>, Remove::<Impl, OFFSET>, Clear::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpatialAnchorStore>, ::windows::core::GetTrustLevel, GetAllSavedAnchors::<Impl, OFFSET>, TrySave::<Impl, OFFSET>, Remove::<Impl, OFFSET>, Clear::<Impl, OFFSET>)
     }
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
@@ -362,9 +362,9 @@ impl ::windows::core::RuntimeName for ISpatialAnchorTransferManagerStatics {
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
 impl ISpatialAnchorTransferManagerStaticsVtbl {
-    pub const fn new<Impl: ISpatialAnchorTransferManagerStaticsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> ISpatialAnchorTransferManagerStaticsVtbl {
-        unsafe extern "system" fn TryImportAnchorsAsync<Impl: ISpatialAnchorTransferManagerStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, stream: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpatialAnchorTransferManagerStaticsImpl, const OFFSET: isize>() -> ISpatialAnchorTransferManagerStaticsVtbl {
+        unsafe extern "system" fn TryImportAnchorsAsync<Impl: ISpatialAnchorTransferManagerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, stream: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TryImportAnchorsAsync(&*(&stream as *const <super::super::Storage::Streams::IInputStream as ::windows::core::Abi>::Abi as *const <super::super::Storage::Streams::IInputStream as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -374,8 +374,8 @@ impl ISpatialAnchorTransferManagerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TryExportAnchorsAsync<Impl: ISpatialAnchorTransferManagerStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, anchors: ::windows::core::RawPtr, stream: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn TryExportAnchorsAsync<Impl: ISpatialAnchorTransferManagerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, anchors: ::windows::core::RawPtr, stream: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TryExportAnchorsAsync(
                 &*(&anchors as *const <super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, SpatialAnchor>> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, SpatialAnchor>> as ::windows::core::DefaultType>::DefaultType),
                 &*(&stream as *const <super::super::Storage::Streams::IOutputStream as ::windows::core::Abi>::Abi as *const <super::super::Storage::Streams::IOutputStream as ::windows::core::DefaultType>::DefaultType),
@@ -388,8 +388,8 @@ impl ISpatialAnchorTransferManagerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RequestAccessAsync<Impl: ISpatialAnchorTransferManagerStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn RequestAccessAsync<Impl: ISpatialAnchorTransferManagerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RequestAccessAsync() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -399,7 +399,7 @@ impl ISpatialAnchorTransferManagerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<ISpatialAnchorTransferManagerStatics>, base.5, TryImportAnchorsAsync::<Impl, OFFSET>, TryExportAnchorsAsync::<Impl, OFFSET>, RequestAccessAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpatialAnchorTransferManagerStatics>, ::windows::core::GetTrustLevel, TryImportAnchorsAsync::<Impl, OFFSET>, TryExportAnchorsAsync::<Impl, OFFSET>, RequestAccessAsync::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -410,8 +410,8 @@ impl ::windows::core::RuntimeName for ISpatialBoundingVolume {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ISpatialBoundingVolumeVtbl {
-    pub const fn new<Impl: ISpatialBoundingVolumeImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> ISpatialBoundingVolumeVtbl {
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<ISpatialBoundingVolume>, base.5)
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpatialBoundingVolumeImpl, const OFFSET: isize>() -> ISpatialBoundingVolumeVtbl {
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpatialBoundingVolume>, ::windows::core::GetTrustLevel)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -427,9 +427,9 @@ impl ::windows::core::RuntimeName for ISpatialBoundingVolumeStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ISpatialBoundingVolumeStaticsVtbl {
-    pub const fn new<Impl: ISpatialBoundingVolumeStaticsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> ISpatialBoundingVolumeStaticsVtbl {
-        unsafe extern "system" fn FromBox<Impl: ISpatialBoundingVolumeStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, coordinatesystem: ::windows::core::RawPtr, r#box: SpatialBoundingBox, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpatialBoundingVolumeStaticsImpl, const OFFSET: isize>() -> ISpatialBoundingVolumeStaticsVtbl {
+        unsafe extern "system" fn FromBox<Impl: ISpatialBoundingVolumeStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, coordinatesystem: ::windows::core::RawPtr, r#box: SpatialBoundingBox, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FromBox(&*(&coordinatesystem as *const <SpatialCoordinateSystem as ::windows::core::Abi>::Abi as *const <SpatialCoordinateSystem as ::windows::core::DefaultType>::DefaultType), &*(&r#box as *const <SpatialBoundingBox as ::windows::core::Abi>::Abi as *const <SpatialBoundingBox as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -439,8 +439,8 @@ impl ISpatialBoundingVolumeStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn FromOrientedBox<Impl: ISpatialBoundingVolumeStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, coordinatesystem: ::windows::core::RawPtr, r#box: SpatialBoundingOrientedBox, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn FromOrientedBox<Impl: ISpatialBoundingVolumeStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, coordinatesystem: ::windows::core::RawPtr, r#box: SpatialBoundingOrientedBox, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FromOrientedBox(&*(&coordinatesystem as *const <SpatialCoordinateSystem as ::windows::core::Abi>::Abi as *const <SpatialCoordinateSystem as ::windows::core::DefaultType>::DefaultType), &*(&r#box as *const <SpatialBoundingOrientedBox as ::windows::core::Abi>::Abi as *const <SpatialBoundingOrientedBox as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -450,8 +450,8 @@ impl ISpatialBoundingVolumeStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn FromSphere<Impl: ISpatialBoundingVolumeStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, coordinatesystem: ::windows::core::RawPtr, sphere: SpatialBoundingSphere, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn FromSphere<Impl: ISpatialBoundingVolumeStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, coordinatesystem: ::windows::core::RawPtr, sphere: SpatialBoundingSphere, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FromSphere(&*(&coordinatesystem as *const <SpatialCoordinateSystem as ::windows::core::Abi>::Abi as *const <SpatialCoordinateSystem as ::windows::core::DefaultType>::DefaultType), &*(&sphere as *const <SpatialBoundingSphere as ::windows::core::Abi>::Abi as *const <SpatialBoundingSphere as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -461,8 +461,8 @@ impl ISpatialBoundingVolumeStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn FromFrustum<Impl: ISpatialBoundingVolumeStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, coordinatesystem: ::windows::core::RawPtr, frustum: SpatialBoundingFrustum, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn FromFrustum<Impl: ISpatialBoundingVolumeStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, coordinatesystem: ::windows::core::RawPtr, frustum: SpatialBoundingFrustum, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FromFrustum(&*(&coordinatesystem as *const <SpatialCoordinateSystem as ::windows::core::Abi>::Abi as *const <SpatialCoordinateSystem as ::windows::core::DefaultType>::DefaultType), &*(&frustum as *const <SpatialBoundingFrustum as ::windows::core::Abi>::Abi as *const <SpatialBoundingFrustum as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -472,7 +472,7 @@ impl ISpatialBoundingVolumeStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<ISpatialBoundingVolumeStatics>, base.5, FromBox::<Impl, OFFSET>, FromOrientedBox::<Impl, OFFSET>, FromSphere::<Impl, OFFSET>, FromFrustum::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpatialBoundingVolumeStatics>, ::windows::core::GetTrustLevel, FromBox::<Impl, OFFSET>, FromOrientedBox::<Impl, OFFSET>, FromSphere::<Impl, OFFSET>, FromFrustum::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -485,9 +485,9 @@ impl ::windows::core::RuntimeName for ISpatialCoordinateSystem {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ISpatialCoordinateSystemVtbl {
-    pub const fn new<Impl: ISpatialCoordinateSystemImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> ISpatialCoordinateSystemVtbl {
-        unsafe extern "system" fn TryGetTransformTo<Impl: ISpatialCoordinateSystemImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, target: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpatialCoordinateSystemImpl, const OFFSET: isize>() -> ISpatialCoordinateSystemVtbl {
+        unsafe extern "system" fn TryGetTransformTo<Impl: ISpatialCoordinateSystemImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, target: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TryGetTransformTo(&*(&target as *const <SpatialCoordinateSystem as ::windows::core::Abi>::Abi as *const <SpatialCoordinateSystem as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -497,7 +497,7 @@ impl ISpatialCoordinateSystemVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<ISpatialCoordinateSystem>, base.5, TryGetTransformTo::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpatialCoordinateSystem>, ::windows::core::GetTrustLevel, TryGetTransformTo::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -512,9 +512,9 @@ impl ::windows::core::RuntimeName for ISpatialEntity {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ISpatialEntityVtbl {
-    pub const fn new<Impl: ISpatialEntityImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> ISpatialEntityVtbl {
-        unsafe extern "system" fn Id<Impl: ISpatialEntityImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpatialEntityImpl, const OFFSET: isize>() -> ISpatialEntityVtbl {
+        unsafe extern "system" fn Id<Impl: ISpatialEntityImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Id() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -524,8 +524,8 @@ impl ISpatialEntityVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Anchor<Impl: ISpatialEntityImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn Anchor<Impl: ISpatialEntityImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Anchor() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -535,8 +535,8 @@ impl ISpatialEntityVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Properties<Impl: ISpatialEntityImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn Properties<Impl: ISpatialEntityImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Properties() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -546,7 +546,7 @@ impl ISpatialEntityVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<ISpatialEntity>, base.5, Id::<Impl, OFFSET>, Anchor::<Impl, OFFSET>, Properties::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpatialEntity>, ::windows::core::GetTrustLevel, Id::<Impl, OFFSET>, Anchor::<Impl, OFFSET>, Properties::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -559,9 +559,9 @@ impl ::windows::core::RuntimeName for ISpatialEntityAddedEventArgs {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ISpatialEntityAddedEventArgsVtbl {
-    pub const fn new<Impl: ISpatialEntityAddedEventArgsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> ISpatialEntityAddedEventArgsVtbl {
-        unsafe extern "system" fn Entity<Impl: ISpatialEntityAddedEventArgsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpatialEntityAddedEventArgsImpl, const OFFSET: isize>() -> ISpatialEntityAddedEventArgsVtbl {
+        unsafe extern "system" fn Entity<Impl: ISpatialEntityAddedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Entity() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -571,7 +571,7 @@ impl ISpatialEntityAddedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<ISpatialEntityAddedEventArgs>, base.5, Entity::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpatialEntityAddedEventArgs>, ::windows::core::GetTrustLevel, Entity::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -585,9 +585,9 @@ impl ::windows::core::RuntimeName for ISpatialEntityFactory {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ISpatialEntityFactoryVtbl {
-    pub const fn new<Impl: ISpatialEntityFactoryImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> ISpatialEntityFactoryVtbl {
-        unsafe extern "system" fn CreateWithSpatialAnchor<Impl: ISpatialEntityFactoryImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, spatialanchor: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpatialEntityFactoryImpl, const OFFSET: isize>() -> ISpatialEntityFactoryVtbl {
+        unsafe extern "system" fn CreateWithSpatialAnchor<Impl: ISpatialEntityFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, spatialanchor: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateWithSpatialAnchor(&*(&spatialanchor as *const <SpatialAnchor as ::windows::core::Abi>::Abi as *const <SpatialAnchor as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -597,8 +597,8 @@ impl ISpatialEntityFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateWithSpatialAnchorAndProperties<Impl: ISpatialEntityFactoryImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, spatialanchor: ::windows::core::RawPtr, propertyset: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn CreateWithSpatialAnchorAndProperties<Impl: ISpatialEntityFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, spatialanchor: ::windows::core::RawPtr, propertyset: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateWithSpatialAnchorAndProperties(&*(&spatialanchor as *const <SpatialAnchor as ::windows::core::Abi>::Abi as *const <SpatialAnchor as ::windows::core::DefaultType>::DefaultType), &*(&propertyset as *const <super::super::Foundation::Collections::ValueSet as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::ValueSet as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -608,7 +608,7 @@ impl ISpatialEntityFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<ISpatialEntityFactory>, base.5, CreateWithSpatialAnchor::<Impl, OFFSET>, CreateWithSpatialAnchorAndProperties::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpatialEntityFactory>, ::windows::core::GetTrustLevel, CreateWithSpatialAnchor::<Impl, OFFSET>, CreateWithSpatialAnchorAndProperties::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -621,9 +621,9 @@ impl ::windows::core::RuntimeName for ISpatialEntityRemovedEventArgs {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ISpatialEntityRemovedEventArgsVtbl {
-    pub const fn new<Impl: ISpatialEntityRemovedEventArgsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> ISpatialEntityRemovedEventArgsVtbl {
-        unsafe extern "system" fn Entity<Impl: ISpatialEntityRemovedEventArgsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpatialEntityRemovedEventArgsImpl, const OFFSET: isize>() -> ISpatialEntityRemovedEventArgsVtbl {
+        unsafe extern "system" fn Entity<Impl: ISpatialEntityRemovedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Entity() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -633,7 +633,7 @@ impl ISpatialEntityRemovedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<ISpatialEntityRemovedEventArgs>, base.5, Entity::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpatialEntityRemovedEventArgs>, ::windows::core::GetTrustLevel, Entity::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -648,9 +648,9 @@ impl ::windows::core::RuntimeName for ISpatialEntityStore {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ISpatialEntityStoreVtbl {
-    pub const fn new<Impl: ISpatialEntityStoreImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> ISpatialEntityStoreVtbl {
-        unsafe extern "system" fn SaveAsync<Impl: ISpatialEntityStoreImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, entity: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpatialEntityStoreImpl, const OFFSET: isize>() -> ISpatialEntityStoreVtbl {
+        unsafe extern "system" fn SaveAsync<Impl: ISpatialEntityStoreImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, entity: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SaveAsync(&*(&entity as *const <SpatialEntity as ::windows::core::Abi>::Abi as *const <SpatialEntity as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -660,8 +660,8 @@ impl ISpatialEntityStoreVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveAsync<Impl: ISpatialEntityStoreImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, entity: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn RemoveAsync<Impl: ISpatialEntityStoreImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, entity: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RemoveAsync(&*(&entity as *const <SpatialEntity as ::windows::core::Abi>::Abi as *const <SpatialEntity as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -671,8 +671,8 @@ impl ISpatialEntityStoreVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateEntityWatcher<Impl: ISpatialEntityStoreImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn CreateEntityWatcher<Impl: ISpatialEntityStoreImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateEntityWatcher() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -682,7 +682,7 @@ impl ISpatialEntityStoreVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<ISpatialEntityStore>, base.5, SaveAsync::<Impl, OFFSET>, RemoveAsync::<Impl, OFFSET>, CreateEntityWatcher::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpatialEntityStore>, ::windows::core::GetTrustLevel, SaveAsync::<Impl, OFFSET>, RemoveAsync::<Impl, OFFSET>, CreateEntityWatcher::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -696,9 +696,9 @@ impl ::windows::core::RuntimeName for ISpatialEntityStoreStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ISpatialEntityStoreStaticsVtbl {
-    pub const fn new<Impl: ISpatialEntityStoreStaticsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> ISpatialEntityStoreStaticsVtbl {
-        unsafe extern "system" fn IsSupported<Impl: ISpatialEntityStoreStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpatialEntityStoreStaticsImpl, const OFFSET: isize>() -> ISpatialEntityStoreStaticsVtbl {
+        unsafe extern "system" fn IsSupported<Impl: ISpatialEntityStoreStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsSupported() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -708,8 +708,8 @@ impl ISpatialEntityStoreStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TryGetForRemoteSystemSession<Impl: ISpatialEntityStoreStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, session: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn TryGetForRemoteSystemSession<Impl: ISpatialEntityStoreStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, session: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TryGetForRemoteSystemSession(&*(&session as *const <super::super::System::RemoteSystems::RemoteSystemSession as ::windows::core::Abi>::Abi as *const <super::super::System::RemoteSystems::RemoteSystemSession as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -719,7 +719,7 @@ impl ISpatialEntityStoreStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<ISpatialEntityStoreStatics>, base.5, IsSupported::<Impl, OFFSET>, TryGetForRemoteSystemSession::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpatialEntityStoreStatics>, ::windows::core::GetTrustLevel, IsSupported::<Impl, OFFSET>, TryGetForRemoteSystemSession::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -732,9 +732,9 @@ impl ::windows::core::RuntimeName for ISpatialEntityUpdatedEventArgs {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ISpatialEntityUpdatedEventArgsVtbl {
-    pub const fn new<Impl: ISpatialEntityUpdatedEventArgsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> ISpatialEntityUpdatedEventArgsVtbl {
-        unsafe extern "system" fn Entity<Impl: ISpatialEntityUpdatedEventArgsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpatialEntityUpdatedEventArgsImpl, const OFFSET: isize>() -> ISpatialEntityUpdatedEventArgsVtbl {
+        unsafe extern "system" fn Entity<Impl: ISpatialEntityUpdatedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Entity() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -744,7 +744,7 @@ impl ISpatialEntityUpdatedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<ISpatialEntityUpdatedEventArgs>, base.5, Entity::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpatialEntityUpdatedEventArgs>, ::windows::core::GetTrustLevel, Entity::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -767,9 +767,9 @@ impl ::windows::core::RuntimeName for ISpatialEntityWatcher {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ISpatialEntityWatcherVtbl {
-    pub const fn new<Impl: ISpatialEntityWatcherImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> ISpatialEntityWatcherVtbl {
-        unsafe extern "system" fn Status<Impl: ISpatialEntityWatcherImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut SpatialEntityWatcherStatus) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpatialEntityWatcherImpl, const OFFSET: isize>() -> ISpatialEntityWatcherVtbl {
+        unsafe extern "system" fn Status<Impl: ISpatialEntityWatcherImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut SpatialEntityWatcherStatus) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Status() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -779,8 +779,8 @@ impl ISpatialEntityWatcherVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Added<Impl: ISpatialEntityWatcherImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn Added<Impl: ISpatialEntityWatcherImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Added(&*(&handler as *const <super::super::Foundation::TypedEventHandler<SpatialEntityWatcher, SpatialEntityAddedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<SpatialEntityWatcher, SpatialEntityAddedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -790,12 +790,12 @@ impl ISpatialEntityWatcherVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveAdded<Impl: ISpatialEntityWatcherImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn RemoveAdded<Impl: ISpatialEntityWatcherImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveAdded(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn Updated<Impl: ISpatialEntityWatcherImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn Updated<Impl: ISpatialEntityWatcherImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Updated(&*(&handler as *const <super::super::Foundation::TypedEventHandler<SpatialEntityWatcher, SpatialEntityUpdatedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<SpatialEntityWatcher, SpatialEntityUpdatedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -805,12 +805,12 @@ impl ISpatialEntityWatcherVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveUpdated<Impl: ISpatialEntityWatcherImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn RemoveUpdated<Impl: ISpatialEntityWatcherImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveUpdated(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn Removed<Impl: ISpatialEntityWatcherImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn Removed<Impl: ISpatialEntityWatcherImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Removed(&*(&handler as *const <super::super::Foundation::TypedEventHandler<SpatialEntityWatcher, SpatialEntityRemovedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<SpatialEntityWatcher, SpatialEntityRemovedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -820,12 +820,12 @@ impl ISpatialEntityWatcherVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveRemoved<Impl: ISpatialEntityWatcherImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn RemoveRemoved<Impl: ISpatialEntityWatcherImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveRemoved(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn EnumerationCompleted<Impl: ISpatialEntityWatcherImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn EnumerationCompleted<Impl: ISpatialEntityWatcherImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EnumerationCompleted(&*(&handler as *const <super::super::Foundation::TypedEventHandler<SpatialEntityWatcher, ::windows::core::IInspectable> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<SpatialEntityWatcher, ::windows::core::IInspectable> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -835,19 +835,37 @@ impl ISpatialEntityWatcherVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveEnumerationCompleted<Impl: ISpatialEntityWatcherImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn RemoveEnumerationCompleted<Impl: ISpatialEntityWatcherImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveEnumerationCompleted(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn Start<Impl: ISpatialEntityWatcherImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn Start<Impl: ISpatialEntityWatcherImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Start().into()
         }
-        unsafe extern "system" fn Stop<Impl: ISpatialEntityWatcherImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn Stop<Impl: ISpatialEntityWatcherImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Stop().into()
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<ISpatialEntityWatcher>, base.5, Status::<Impl, OFFSET>, Added::<Impl, OFFSET>, RemoveAdded::<Impl, OFFSET>, Updated::<Impl, OFFSET>, RemoveUpdated::<Impl, OFFSET>, Removed::<Impl, OFFSET>, RemoveRemoved::<Impl, OFFSET>, EnumerationCompleted::<Impl, OFFSET>, RemoveEnumerationCompleted::<Impl, OFFSET>, Start::<Impl, OFFSET>, Stop::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, OFFSET>,
+            ::windows::core::AddRef::<Identity, OFFSET>,
+            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<ISpatialEntityWatcher>,
+            ::windows::core::GetTrustLevel,
+            Status::<Impl, OFFSET>,
+            Added::<Impl, OFFSET>,
+            RemoveAdded::<Impl, OFFSET>,
+            Updated::<Impl, OFFSET>,
+            RemoveUpdated::<Impl, OFFSET>,
+            Removed::<Impl, OFFSET>,
+            RemoveRemoved::<Impl, OFFSET>,
+            EnumerationCompleted::<Impl, OFFSET>,
+            RemoveEnumerationCompleted::<Impl, OFFSET>,
+            Start::<Impl, OFFSET>,
+            Stop::<Impl, OFFSET>,
+        )
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -865,9 +883,9 @@ impl ::windows::core::RuntimeName for ISpatialLocation {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ISpatialLocationVtbl {
-    pub const fn new<Impl: ISpatialLocationImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> ISpatialLocationVtbl {
-        unsafe extern "system" fn Position<Impl: ISpatialLocationImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Numerics::Vector3) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpatialLocationImpl, const OFFSET: isize>() -> ISpatialLocationVtbl {
+        unsafe extern "system" fn Position<Impl: ISpatialLocationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Numerics::Vector3) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Position() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -877,8 +895,8 @@ impl ISpatialLocationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Orientation<Impl: ISpatialLocationImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Numerics::Quaternion) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn Orientation<Impl: ISpatialLocationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Numerics::Quaternion) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Orientation() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -888,8 +906,8 @@ impl ISpatialLocationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AbsoluteLinearVelocity<Impl: ISpatialLocationImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Numerics::Vector3) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn AbsoluteLinearVelocity<Impl: ISpatialLocationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Numerics::Vector3) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AbsoluteLinearVelocity() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -899,8 +917,8 @@ impl ISpatialLocationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AbsoluteLinearAcceleration<Impl: ISpatialLocationImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Numerics::Vector3) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn AbsoluteLinearAcceleration<Impl: ISpatialLocationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Numerics::Vector3) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AbsoluteLinearAcceleration() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -910,8 +928,8 @@ impl ISpatialLocationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AbsoluteAngularVelocity<Impl: ISpatialLocationImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Numerics::Quaternion) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn AbsoluteAngularVelocity<Impl: ISpatialLocationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Numerics::Quaternion) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AbsoluteAngularVelocity() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -921,8 +939,8 @@ impl ISpatialLocationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AbsoluteAngularAcceleration<Impl: ISpatialLocationImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Numerics::Quaternion) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn AbsoluteAngularAcceleration<Impl: ISpatialLocationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Numerics::Quaternion) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AbsoluteAngularAcceleration() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -932,7 +950,20 @@ impl ISpatialLocationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<ISpatialLocation>, base.5, Position::<Impl, OFFSET>, Orientation::<Impl, OFFSET>, AbsoluteLinearVelocity::<Impl, OFFSET>, AbsoluteLinearAcceleration::<Impl, OFFSET>, AbsoluteAngularVelocity::<Impl, OFFSET>, AbsoluteAngularAcceleration::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, OFFSET>,
+            ::windows::core::AddRef::<Identity, OFFSET>,
+            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<ISpatialLocation>,
+            ::windows::core::GetTrustLevel,
+            Position::<Impl, OFFSET>,
+            Orientation::<Impl, OFFSET>,
+            AbsoluteLinearVelocity::<Impl, OFFSET>,
+            AbsoluteLinearAcceleration::<Impl, OFFSET>,
+            AbsoluteAngularVelocity::<Impl, OFFSET>,
+            AbsoluteAngularAcceleration::<Impl, OFFSET>,
+        )
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -946,9 +977,9 @@ impl ::windows::core::RuntimeName for ISpatialLocation2 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ISpatialLocation2Vtbl {
-    pub const fn new<Impl: ISpatialLocation2Impl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> ISpatialLocation2Vtbl {
-        unsafe extern "system" fn AbsoluteAngularVelocityAxisAngle<Impl: ISpatialLocation2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Numerics::Vector3) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpatialLocation2Impl, const OFFSET: isize>() -> ISpatialLocation2Vtbl {
+        unsafe extern "system" fn AbsoluteAngularVelocityAxisAngle<Impl: ISpatialLocation2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Numerics::Vector3) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AbsoluteAngularVelocityAxisAngle() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -958,8 +989,8 @@ impl ISpatialLocation2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AbsoluteAngularAccelerationAxisAngle<Impl: ISpatialLocation2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Numerics::Vector3) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn AbsoluteAngularAccelerationAxisAngle<Impl: ISpatialLocation2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Numerics::Vector3) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AbsoluteAngularAccelerationAxisAngle() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -969,7 +1000,7 @@ impl ISpatialLocation2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<ISpatialLocation2>, base.5, AbsoluteAngularVelocityAxisAngle::<Impl, OFFSET>, AbsoluteAngularAccelerationAxisAngle::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpatialLocation2>, ::windows::core::GetTrustLevel, AbsoluteAngularVelocityAxisAngle::<Impl, OFFSET>, AbsoluteAngularAccelerationAxisAngle::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -995,9 +1026,9 @@ impl ::windows::core::RuntimeName for ISpatialLocator {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ISpatialLocatorVtbl {
-    pub const fn new<Impl: ISpatialLocatorImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> ISpatialLocatorVtbl {
-        unsafe extern "system" fn Locatability<Impl: ISpatialLocatorImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut SpatialLocatability) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpatialLocatorImpl, const OFFSET: isize>() -> ISpatialLocatorVtbl {
+        unsafe extern "system" fn Locatability<Impl: ISpatialLocatorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut SpatialLocatability) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Locatability() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1007,8 +1038,8 @@ impl ISpatialLocatorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn LocatabilityChanged<Impl: ISpatialLocatorImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn LocatabilityChanged<Impl: ISpatialLocatorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).LocatabilityChanged(&*(&handler as *const <super::super::Foundation::TypedEventHandler<SpatialLocator, ::windows::core::IInspectable> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<SpatialLocator, ::windows::core::IInspectable> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1018,12 +1049,12 @@ impl ISpatialLocatorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveLocatabilityChanged<Impl: ISpatialLocatorImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, cookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn RemoveLocatabilityChanged<Impl: ISpatialLocatorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveLocatabilityChanged(&*(&cookie as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn PositionalTrackingDeactivating<Impl: ISpatialLocatorImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn PositionalTrackingDeactivating<Impl: ISpatialLocatorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PositionalTrackingDeactivating(&*(&handler as *const <super::super::Foundation::TypedEventHandler<SpatialLocator, SpatialLocatorPositionalTrackingDeactivatingEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<SpatialLocator, SpatialLocatorPositionalTrackingDeactivatingEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1033,12 +1064,12 @@ impl ISpatialLocatorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemovePositionalTrackingDeactivating<Impl: ISpatialLocatorImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, cookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn RemovePositionalTrackingDeactivating<Impl: ISpatialLocatorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemovePositionalTrackingDeactivating(&*(&cookie as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn TryLocateAtTimestamp<Impl: ISpatialLocatorImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, timestamp: ::windows::core::RawPtr, coordinatesystem: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn TryLocateAtTimestamp<Impl: ISpatialLocatorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, timestamp: ::windows::core::RawPtr, coordinatesystem: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TryLocateAtTimestamp(&*(&timestamp as *const <super::PerceptionTimestamp as ::windows::core::Abi>::Abi as *const <super::PerceptionTimestamp as ::windows::core::DefaultType>::DefaultType), &*(&coordinatesystem as *const <SpatialCoordinateSystem as ::windows::core::Abi>::Abi as *const <SpatialCoordinateSystem as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1048,8 +1079,8 @@ impl ISpatialLocatorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateAttachedFrameOfReferenceAtCurrentHeading<Impl: ISpatialLocatorImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn CreateAttachedFrameOfReferenceAtCurrentHeading<Impl: ISpatialLocatorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateAttachedFrameOfReferenceAtCurrentHeading() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1059,8 +1090,8 @@ impl ISpatialLocatorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateAttachedFrameOfReferenceAtCurrentHeadingWithPosition<Impl: ISpatialLocatorImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, relativeposition: super::super::Foundation::Numerics::Vector3, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn CreateAttachedFrameOfReferenceAtCurrentHeadingWithPosition<Impl: ISpatialLocatorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, relativeposition: super::super::Foundation::Numerics::Vector3, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateAttachedFrameOfReferenceAtCurrentHeadingWithPosition(&*(&relativeposition as *const <super::super::Foundation::Numerics::Vector3 as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Numerics::Vector3 as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1070,8 +1101,8 @@ impl ISpatialLocatorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateAttachedFrameOfReferenceAtCurrentHeadingWithPositionAndOrientation<Impl: ISpatialLocatorImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, relativeposition: super::super::Foundation::Numerics::Vector3, relativeorientation: super::super::Foundation::Numerics::Quaternion, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn CreateAttachedFrameOfReferenceAtCurrentHeadingWithPositionAndOrientation<Impl: ISpatialLocatorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, relativeposition: super::super::Foundation::Numerics::Vector3, relativeorientation: super::super::Foundation::Numerics::Quaternion, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateAttachedFrameOfReferenceAtCurrentHeadingWithPositionAndOrientation(&*(&relativeposition as *const <super::super::Foundation::Numerics::Vector3 as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Numerics::Vector3 as ::windows::core::DefaultType>::DefaultType), &*(&relativeorientation as *const <super::super::Foundation::Numerics::Quaternion as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Numerics::Quaternion as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1081,8 +1112,8 @@ impl ISpatialLocatorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateAttachedFrameOfReferenceAtCurrentHeadingWithPositionAndOrientationAndRelativeHeading<Impl: ISpatialLocatorImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, relativeposition: super::super::Foundation::Numerics::Vector3, relativeorientation: super::super::Foundation::Numerics::Quaternion, relativeheadinginradians: f64, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn CreateAttachedFrameOfReferenceAtCurrentHeadingWithPositionAndOrientationAndRelativeHeading<Impl: ISpatialLocatorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, relativeposition: super::super::Foundation::Numerics::Vector3, relativeorientation: super::super::Foundation::Numerics::Quaternion, relativeheadinginradians: f64, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateAttachedFrameOfReferenceAtCurrentHeadingWithPositionAndOrientationAndRelativeHeading(&*(&relativeposition as *const <super::super::Foundation::Numerics::Vector3 as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Numerics::Vector3 as ::windows::core::DefaultType>::DefaultType), &*(&relativeorientation as *const <super::super::Foundation::Numerics::Quaternion as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Numerics::Quaternion as ::windows::core::DefaultType>::DefaultType), relativeheadinginradians) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1092,8 +1123,8 @@ impl ISpatialLocatorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateStationaryFrameOfReferenceAtCurrentLocation<Impl: ISpatialLocatorImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn CreateStationaryFrameOfReferenceAtCurrentLocation<Impl: ISpatialLocatorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateStationaryFrameOfReferenceAtCurrentLocation() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1103,8 +1134,8 @@ impl ISpatialLocatorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateStationaryFrameOfReferenceAtCurrentLocationWithPosition<Impl: ISpatialLocatorImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, relativeposition: super::super::Foundation::Numerics::Vector3, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn CreateStationaryFrameOfReferenceAtCurrentLocationWithPosition<Impl: ISpatialLocatorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, relativeposition: super::super::Foundation::Numerics::Vector3, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateStationaryFrameOfReferenceAtCurrentLocationWithPosition(&*(&relativeposition as *const <super::super::Foundation::Numerics::Vector3 as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Numerics::Vector3 as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1114,8 +1145,8 @@ impl ISpatialLocatorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateStationaryFrameOfReferenceAtCurrentLocationWithPositionAndOrientation<Impl: ISpatialLocatorImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, relativeposition: super::super::Foundation::Numerics::Vector3, relativeorientation: super::super::Foundation::Numerics::Quaternion, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn CreateStationaryFrameOfReferenceAtCurrentLocationWithPositionAndOrientation<Impl: ISpatialLocatorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, relativeposition: super::super::Foundation::Numerics::Vector3, relativeorientation: super::super::Foundation::Numerics::Quaternion, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateStationaryFrameOfReferenceAtCurrentLocationWithPositionAndOrientation(&*(&relativeposition as *const <super::super::Foundation::Numerics::Vector3 as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Numerics::Vector3 as ::windows::core::DefaultType>::DefaultType), &*(&relativeorientation as *const <super::super::Foundation::Numerics::Quaternion as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Numerics::Quaternion as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1125,8 +1156,8 @@ impl ISpatialLocatorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateStationaryFrameOfReferenceAtCurrentLocationWithPositionAndOrientationAndRelativeHeading<Impl: ISpatialLocatorImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, relativeposition: super::super::Foundation::Numerics::Vector3, relativeorientation: super::super::Foundation::Numerics::Quaternion, relativeheadinginradians: f64, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn CreateStationaryFrameOfReferenceAtCurrentLocationWithPositionAndOrientationAndRelativeHeading<Impl: ISpatialLocatorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, relativeposition: super::super::Foundation::Numerics::Vector3, relativeorientation: super::super::Foundation::Numerics::Quaternion, relativeheadinginradians: f64, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateStationaryFrameOfReferenceAtCurrentLocationWithPositionAndOrientationAndRelativeHeading(&*(&relativeposition as *const <super::super::Foundation::Numerics::Vector3 as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Numerics::Vector3 as ::windows::core::DefaultType>::DefaultType), &*(&relativeorientation as *const <super::super::Foundation::Numerics::Quaternion as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Numerics::Quaternion as ::windows::core::DefaultType>::DefaultType), relativeheadinginradians) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1137,12 +1168,12 @@ impl ISpatialLocatorVtbl {
             }
         }
         Self(
-            base.0,
-            base.1,
-            base.2,
-            base.3,
+            ::windows::core::QueryInterface::<Identity, OFFSET>,
+            ::windows::core::AddRef::<Identity, OFFSET>,
+            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<ISpatialLocator>,
-            base.5,
+            ::windows::core::GetTrustLevel,
             Locatability::<Impl, OFFSET>,
             LocatabilityChanged::<Impl, OFFSET>,
             RemoveLocatabilityChanged::<Impl, OFFSET>,
@@ -1176,9 +1207,9 @@ impl ::windows::core::RuntimeName for ISpatialLocatorAttachedFrameOfReference {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ISpatialLocatorAttachedFrameOfReferenceVtbl {
-    pub const fn new<Impl: ISpatialLocatorAttachedFrameOfReferenceImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> ISpatialLocatorAttachedFrameOfReferenceVtbl {
-        unsafe extern "system" fn RelativePosition<Impl: ISpatialLocatorAttachedFrameOfReferenceImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Numerics::Vector3) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpatialLocatorAttachedFrameOfReferenceImpl, const OFFSET: isize>() -> ISpatialLocatorAttachedFrameOfReferenceVtbl {
+        unsafe extern "system" fn RelativePosition<Impl: ISpatialLocatorAttachedFrameOfReferenceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Numerics::Vector3) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RelativePosition() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1188,12 +1219,12 @@ impl ISpatialLocatorAttachedFrameOfReferenceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetRelativePosition<Impl: ISpatialLocatorAttachedFrameOfReferenceImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::Numerics::Vector3) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn SetRelativePosition<Impl: ISpatialLocatorAttachedFrameOfReferenceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::Numerics::Vector3) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetRelativePosition(&*(&value as *const <super::super::Foundation::Numerics::Vector3 as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Numerics::Vector3 as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn RelativeOrientation<Impl: ISpatialLocatorAttachedFrameOfReferenceImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Numerics::Quaternion) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn RelativeOrientation<Impl: ISpatialLocatorAttachedFrameOfReferenceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Numerics::Quaternion) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RelativeOrientation() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1203,16 +1234,16 @@ impl ISpatialLocatorAttachedFrameOfReferenceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetRelativeOrientation<Impl: ISpatialLocatorAttachedFrameOfReferenceImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::Numerics::Quaternion) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn SetRelativeOrientation<Impl: ISpatialLocatorAttachedFrameOfReferenceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::Numerics::Quaternion) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetRelativeOrientation(&*(&value as *const <super::super::Foundation::Numerics::Quaternion as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Numerics::Quaternion as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn AdjustHeading<Impl: ISpatialLocatorAttachedFrameOfReferenceImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, headingoffsetinradians: f64) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn AdjustHeading<Impl: ISpatialLocatorAttachedFrameOfReferenceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, headingoffsetinradians: f64) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AdjustHeading(headingoffsetinradians).into()
         }
-        unsafe extern "system" fn GetStationaryCoordinateSystemAtTimestamp<Impl: ISpatialLocatorAttachedFrameOfReferenceImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, timestamp: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn GetStationaryCoordinateSystemAtTimestamp<Impl: ISpatialLocatorAttachedFrameOfReferenceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, timestamp: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetStationaryCoordinateSystemAtTimestamp(&*(&timestamp as *const <super::PerceptionTimestamp as ::windows::core::Abi>::Abi as *const <super::PerceptionTimestamp as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1222,8 +1253,8 @@ impl ISpatialLocatorAttachedFrameOfReferenceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TryGetRelativeHeadingAtTimestamp<Impl: ISpatialLocatorAttachedFrameOfReferenceImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, timestamp: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn TryGetRelativeHeadingAtTimestamp<Impl: ISpatialLocatorAttachedFrameOfReferenceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, timestamp: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TryGetRelativeHeadingAtTimestamp(&*(&timestamp as *const <super::PerceptionTimestamp as ::windows::core::Abi>::Abi as *const <super::PerceptionTimestamp as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1233,7 +1264,21 @@ impl ISpatialLocatorAttachedFrameOfReferenceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<ISpatialLocatorAttachedFrameOfReference>, base.5, RelativePosition::<Impl, OFFSET>, SetRelativePosition::<Impl, OFFSET>, RelativeOrientation::<Impl, OFFSET>, SetRelativeOrientation::<Impl, OFFSET>, AdjustHeading::<Impl, OFFSET>, GetStationaryCoordinateSystemAtTimestamp::<Impl, OFFSET>, TryGetRelativeHeadingAtTimestamp::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, OFFSET>,
+            ::windows::core::AddRef::<Identity, OFFSET>,
+            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<ISpatialLocatorAttachedFrameOfReference>,
+            ::windows::core::GetTrustLevel,
+            RelativePosition::<Impl, OFFSET>,
+            SetRelativePosition::<Impl, OFFSET>,
+            RelativeOrientation::<Impl, OFFSET>,
+            SetRelativeOrientation::<Impl, OFFSET>,
+            AdjustHeading::<Impl, OFFSET>,
+            GetStationaryCoordinateSystemAtTimestamp::<Impl, OFFSET>,
+            TryGetRelativeHeadingAtTimestamp::<Impl, OFFSET>,
+        )
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1247,9 +1292,9 @@ impl ::windows::core::RuntimeName for ISpatialLocatorPositionalTrackingDeactivat
 }
 #[cfg(feature = "implement_exclusive")]
 impl ISpatialLocatorPositionalTrackingDeactivatingEventArgsVtbl {
-    pub const fn new<Impl: ISpatialLocatorPositionalTrackingDeactivatingEventArgsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> ISpatialLocatorPositionalTrackingDeactivatingEventArgsVtbl {
-        unsafe extern "system" fn Canceled<Impl: ISpatialLocatorPositionalTrackingDeactivatingEventArgsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpatialLocatorPositionalTrackingDeactivatingEventArgsImpl, const OFFSET: isize>() -> ISpatialLocatorPositionalTrackingDeactivatingEventArgsVtbl {
+        unsafe extern "system" fn Canceled<Impl: ISpatialLocatorPositionalTrackingDeactivatingEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Canceled() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1259,11 +1304,11 @@ impl ISpatialLocatorPositionalTrackingDeactivatingEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetCanceled<Impl: ISpatialLocatorPositionalTrackingDeactivatingEventArgsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn SetCanceled<Impl: ISpatialLocatorPositionalTrackingDeactivatingEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetCanceled(value).into()
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<ISpatialLocatorPositionalTrackingDeactivatingEventArgs>, base.5, Canceled::<Impl, OFFSET>, SetCanceled::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpatialLocatorPositionalTrackingDeactivatingEventArgs>, ::windows::core::GetTrustLevel, Canceled::<Impl, OFFSET>, SetCanceled::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1276,9 +1321,9 @@ impl ::windows::core::RuntimeName for ISpatialLocatorStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ISpatialLocatorStaticsVtbl {
-    pub const fn new<Impl: ISpatialLocatorStaticsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> ISpatialLocatorStaticsVtbl {
-        unsafe extern "system" fn GetDefault<Impl: ISpatialLocatorStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpatialLocatorStaticsImpl, const OFFSET: isize>() -> ISpatialLocatorStaticsVtbl {
+        unsafe extern "system" fn GetDefault<Impl: ISpatialLocatorStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDefault() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1288,7 +1333,7 @@ impl ISpatialLocatorStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<ISpatialLocatorStatics>, base.5, GetDefault::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpatialLocatorStatics>, ::windows::core::GetTrustLevel, GetDefault::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1305,9 +1350,9 @@ impl ::windows::core::RuntimeName for ISpatialStageFrameOfReference {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ISpatialStageFrameOfReferenceVtbl {
-    pub const fn new<Impl: ISpatialStageFrameOfReferenceImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> ISpatialStageFrameOfReferenceVtbl {
-        unsafe extern "system" fn CoordinateSystem<Impl: ISpatialStageFrameOfReferenceImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpatialStageFrameOfReferenceImpl, const OFFSET: isize>() -> ISpatialStageFrameOfReferenceVtbl {
+        unsafe extern "system" fn CoordinateSystem<Impl: ISpatialStageFrameOfReferenceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CoordinateSystem() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1317,8 +1362,8 @@ impl ISpatialStageFrameOfReferenceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn MovementRange<Impl: ISpatialStageFrameOfReferenceImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut SpatialMovementRange) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn MovementRange<Impl: ISpatialStageFrameOfReferenceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut SpatialMovementRange) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MovementRange() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1328,8 +1373,8 @@ impl ISpatialStageFrameOfReferenceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn LookDirectionRange<Impl: ISpatialStageFrameOfReferenceImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut SpatialLookDirectionRange) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn LookDirectionRange<Impl: ISpatialStageFrameOfReferenceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut SpatialLookDirectionRange) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).LookDirectionRange() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1339,8 +1384,8 @@ impl ISpatialStageFrameOfReferenceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetCoordinateSystemAtCurrentLocation<Impl: ISpatialStageFrameOfReferenceImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, locator: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn GetCoordinateSystemAtCurrentLocation<Impl: ISpatialStageFrameOfReferenceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, locator: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetCoordinateSystemAtCurrentLocation(&*(&locator as *const <SpatialLocator as ::windows::core::Abi>::Abi as *const <SpatialLocator as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1350,8 +1395,8 @@ impl ISpatialStageFrameOfReferenceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TryGetMovementBounds<Impl: ISpatialStageFrameOfReferenceImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, coordinatesystem: ::windows::core::RawPtr, result_size__: *mut u32, result__: *mut *mut super::super::Foundation::Numerics::Vector3) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn TryGetMovementBounds<Impl: ISpatialStageFrameOfReferenceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, coordinatesystem: ::windows::core::RawPtr, result_size__: *mut u32, result__: *mut *mut super::super::Foundation::Numerics::Vector3) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TryGetMovementBounds(&*(&coordinatesystem as *const <SpatialCoordinateSystem as ::windows::core::Abi>::Abi as *const <SpatialCoordinateSystem as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     let (ok_data__, ok_data_len__) = ok__.into_abi();
@@ -1362,7 +1407,7 @@ impl ISpatialStageFrameOfReferenceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<ISpatialStageFrameOfReference>, base.5, CoordinateSystem::<Impl, OFFSET>, MovementRange::<Impl, OFFSET>, LookDirectionRange::<Impl, OFFSET>, GetCoordinateSystemAtCurrentLocation::<Impl, OFFSET>, TryGetMovementBounds::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpatialStageFrameOfReference>, ::windows::core::GetTrustLevel, CoordinateSystem::<Impl, OFFSET>, MovementRange::<Impl, OFFSET>, LookDirectionRange::<Impl, OFFSET>, GetCoordinateSystemAtCurrentLocation::<Impl, OFFSET>, TryGetMovementBounds::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1378,9 +1423,9 @@ impl ::windows::core::RuntimeName for ISpatialStageFrameOfReferenceStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ISpatialStageFrameOfReferenceStaticsVtbl {
-    pub const fn new<Impl: ISpatialStageFrameOfReferenceStaticsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> ISpatialStageFrameOfReferenceStaticsVtbl {
-        unsafe extern "system" fn Current<Impl: ISpatialStageFrameOfReferenceStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpatialStageFrameOfReferenceStaticsImpl, const OFFSET: isize>() -> ISpatialStageFrameOfReferenceStaticsVtbl {
+        unsafe extern "system" fn Current<Impl: ISpatialStageFrameOfReferenceStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Current() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1390,8 +1435,8 @@ impl ISpatialStageFrameOfReferenceStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CurrentChanged<Impl: ISpatialStageFrameOfReferenceStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn CurrentChanged<Impl: ISpatialStageFrameOfReferenceStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CurrentChanged(&*(&handler as *const <super::super::Foundation::EventHandler<::windows::core::IInspectable> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventHandler<::windows::core::IInspectable> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1401,12 +1446,12 @@ impl ISpatialStageFrameOfReferenceStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveCurrentChanged<Impl: ISpatialStageFrameOfReferenceStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, cookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn RemoveCurrentChanged<Impl: ISpatialStageFrameOfReferenceStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveCurrentChanged(&*(&cookie as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn RequestNewStageAsync<Impl: ISpatialStageFrameOfReferenceStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn RequestNewStageAsync<Impl: ISpatialStageFrameOfReferenceStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RequestNewStageAsync() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1416,7 +1461,7 @@ impl ISpatialStageFrameOfReferenceStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<ISpatialStageFrameOfReferenceStatics>, base.5, Current::<Impl, OFFSET>, CurrentChanged::<Impl, OFFSET>, RemoveCurrentChanged::<Impl, OFFSET>, RequestNewStageAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpatialStageFrameOfReferenceStatics>, ::windows::core::GetTrustLevel, Current::<Impl, OFFSET>, CurrentChanged::<Impl, OFFSET>, RemoveCurrentChanged::<Impl, OFFSET>, RequestNewStageAsync::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1429,9 +1474,9 @@ impl ::windows::core::RuntimeName for ISpatialStationaryFrameOfReference {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ISpatialStationaryFrameOfReferenceVtbl {
-    pub const fn new<Impl: ISpatialStationaryFrameOfReferenceImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> ISpatialStationaryFrameOfReferenceVtbl {
-        unsafe extern "system" fn CoordinateSystem<Impl: ISpatialStationaryFrameOfReferenceImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpatialStationaryFrameOfReferenceImpl, const OFFSET: isize>() -> ISpatialStationaryFrameOfReferenceVtbl {
+        unsafe extern "system" fn CoordinateSystem<Impl: ISpatialStationaryFrameOfReferenceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CoordinateSystem() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1441,6 +1486,6 @@ impl ISpatialStationaryFrameOfReferenceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<ISpatialStationaryFrameOfReference>, base.5, CoordinateSystem::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISpatialStationaryFrameOfReference>, ::windows::core::GetTrustLevel, CoordinateSystem::<Impl, OFFSET>)
     }
 }

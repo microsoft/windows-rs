@@ -10,9 +10,9 @@ impl ::windows::core::RuntimeName for IKnownPerceptionFrameKindStatics {
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
 impl IKnownPerceptionFrameKindStaticsVtbl {
-    pub const fn new<Impl: IKnownPerceptionFrameKindStaticsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IKnownPerceptionFrameKindStaticsVtbl {
-        unsafe extern "system" fn Color<Impl: IKnownPerceptionFrameKindStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IKnownPerceptionFrameKindStaticsImpl, const OFFSET: isize>() -> IKnownPerceptionFrameKindStaticsVtbl {
+        unsafe extern "system" fn Color<Impl: IKnownPerceptionFrameKindStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Color() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -22,8 +22,8 @@ impl IKnownPerceptionFrameKindStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Depth<Impl: IKnownPerceptionFrameKindStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn Depth<Impl: IKnownPerceptionFrameKindStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Depth() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -33,8 +33,8 @@ impl IKnownPerceptionFrameKindStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Infrared<Impl: IKnownPerceptionFrameKindStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn Infrared<Impl: IKnownPerceptionFrameKindStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Infrared() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -44,7 +44,7 @@ impl IKnownPerceptionFrameKindStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IKnownPerceptionFrameKindStatics>, base.5, Color::<Impl, OFFSET>, Depth::<Impl, OFFSET>, Infrared::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IKnownPerceptionFrameKindStatics>, ::windows::core::GetTrustLevel, Color::<Impl, OFFSET>, Depth::<Impl, OFFSET>, Infrared::<Impl, OFFSET>)
     }
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
@@ -57,9 +57,9 @@ impl ::windows::core::RuntimeName for IPerceptionControlGroup {
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
 impl IPerceptionControlGroupVtbl {
-    pub const fn new<Impl: IPerceptionControlGroupImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IPerceptionControlGroupVtbl {
-        unsafe extern "system" fn FrameProviderIds<Impl: IPerceptionControlGroupImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPerceptionControlGroupImpl, const OFFSET: isize>() -> IPerceptionControlGroupVtbl {
+        unsafe extern "system" fn FrameProviderIds<Impl: IPerceptionControlGroupImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FrameProviderIds() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -69,7 +69,7 @@ impl IPerceptionControlGroupVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IPerceptionControlGroup>, base.5, FrameProviderIds::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPerceptionControlGroup>, ::windows::core::GetTrustLevel, FrameProviderIds::<Impl, OFFSET>)
     }
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
@@ -82,9 +82,9 @@ impl ::windows::core::RuntimeName for IPerceptionControlGroupFactory {
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
 impl IPerceptionControlGroupFactoryVtbl {
-    pub const fn new<Impl: IPerceptionControlGroupFactoryImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IPerceptionControlGroupFactoryVtbl {
-        unsafe extern "system" fn Create<Impl: IPerceptionControlGroupFactoryImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, ids: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPerceptionControlGroupFactoryImpl, const OFFSET: isize>() -> IPerceptionControlGroupFactoryVtbl {
+        unsafe extern "system" fn Create<Impl: IPerceptionControlGroupFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ids: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(&*(&ids as *const <super::super::super::Foundation::Collections::IIterable<::windows::core::HSTRING> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::Collections::IIterable<::windows::core::HSTRING> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -94,7 +94,7 @@ impl IPerceptionControlGroupFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IPerceptionControlGroupFactory>, base.5, Create::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPerceptionControlGroupFactory>, ::windows::core::GetTrustLevel, Create::<Impl, OFFSET>)
     }
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
@@ -109,9 +109,9 @@ impl ::windows::core::RuntimeName for IPerceptionCorrelation {
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
 impl IPerceptionCorrelationVtbl {
-    pub const fn new<Impl: IPerceptionCorrelationImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IPerceptionCorrelationVtbl {
-        unsafe extern "system" fn TargetId<Impl: IPerceptionCorrelationImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPerceptionCorrelationImpl, const OFFSET: isize>() -> IPerceptionCorrelationVtbl {
+        unsafe extern "system" fn TargetId<Impl: IPerceptionCorrelationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TargetId() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -121,8 +121,8 @@ impl IPerceptionCorrelationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Position<Impl: IPerceptionCorrelationImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::Numerics::Vector3) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn Position<Impl: IPerceptionCorrelationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::Numerics::Vector3) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Position() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -132,8 +132,8 @@ impl IPerceptionCorrelationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Orientation<Impl: IPerceptionCorrelationImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::Numerics::Quaternion) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn Orientation<Impl: IPerceptionCorrelationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::Numerics::Quaternion) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Orientation() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -143,7 +143,7 @@ impl IPerceptionCorrelationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IPerceptionCorrelation>, base.5, TargetId::<Impl, OFFSET>, Position::<Impl, OFFSET>, Orientation::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPerceptionCorrelation>, ::windows::core::GetTrustLevel, TargetId::<Impl, OFFSET>, Position::<Impl, OFFSET>, Orientation::<Impl, OFFSET>)
     }
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
@@ -156,9 +156,9 @@ impl ::windows::core::RuntimeName for IPerceptionCorrelationFactory {
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
 impl IPerceptionCorrelationFactoryVtbl {
-    pub const fn new<Impl: IPerceptionCorrelationFactoryImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IPerceptionCorrelationFactoryVtbl {
-        unsafe extern "system" fn Create<Impl: IPerceptionCorrelationFactoryImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, targetid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, position: super::super::super::Foundation::Numerics::Vector3, orientation: super::super::super::Foundation::Numerics::Quaternion, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPerceptionCorrelationFactoryImpl, const OFFSET: isize>() -> IPerceptionCorrelationFactoryVtbl {
+        unsafe extern "system" fn Create<Impl: IPerceptionCorrelationFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, targetid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, position: super::super::super::Foundation::Numerics::Vector3, orientation: super::super::super::Foundation::Numerics::Quaternion, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(
                 &*(&targetid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType),
                 &*(&position as *const <super::super::super::Foundation::Numerics::Vector3 as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::Numerics::Vector3 as ::windows::core::DefaultType>::DefaultType),
@@ -172,7 +172,7 @@ impl IPerceptionCorrelationFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IPerceptionCorrelationFactory>, base.5, Create::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPerceptionCorrelationFactory>, ::windows::core::GetTrustLevel, Create::<Impl, OFFSET>)
     }
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
@@ -185,9 +185,9 @@ impl ::windows::core::RuntimeName for IPerceptionCorrelationGroup {
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
 impl IPerceptionCorrelationGroupVtbl {
-    pub const fn new<Impl: IPerceptionCorrelationGroupImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IPerceptionCorrelationGroupVtbl {
-        unsafe extern "system" fn RelativeLocations<Impl: IPerceptionCorrelationGroupImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPerceptionCorrelationGroupImpl, const OFFSET: isize>() -> IPerceptionCorrelationGroupVtbl {
+        unsafe extern "system" fn RelativeLocations<Impl: IPerceptionCorrelationGroupImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RelativeLocations() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -197,7 +197,7 @@ impl IPerceptionCorrelationGroupVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IPerceptionCorrelationGroup>, base.5, RelativeLocations::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPerceptionCorrelationGroup>, ::windows::core::GetTrustLevel, RelativeLocations::<Impl, OFFSET>)
     }
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
@@ -210,9 +210,9 @@ impl ::windows::core::RuntimeName for IPerceptionCorrelationGroupFactory {
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
 impl IPerceptionCorrelationGroupFactoryVtbl {
-    pub const fn new<Impl: IPerceptionCorrelationGroupFactoryImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IPerceptionCorrelationGroupFactoryVtbl {
-        unsafe extern "system" fn Create<Impl: IPerceptionCorrelationGroupFactoryImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, relativelocations: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPerceptionCorrelationGroupFactoryImpl, const OFFSET: isize>() -> IPerceptionCorrelationGroupFactoryVtbl {
+        unsafe extern "system" fn Create<Impl: IPerceptionCorrelationGroupFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, relativelocations: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(&*(&relativelocations as *const <super::super::super::Foundation::Collections::IIterable<PerceptionCorrelation> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::Collections::IIterable<PerceptionCorrelation> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -222,7 +222,7 @@ impl IPerceptionCorrelationGroupFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IPerceptionCorrelationGroupFactory>, base.5, Create::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPerceptionCorrelationGroupFactory>, ::windows::core::GetTrustLevel, Create::<Impl, OFFSET>)
     }
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
@@ -235,9 +235,9 @@ impl ::windows::core::RuntimeName for IPerceptionFaceAuthenticationGroup {
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
 impl IPerceptionFaceAuthenticationGroupVtbl {
-    pub const fn new<Impl: IPerceptionFaceAuthenticationGroupImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IPerceptionFaceAuthenticationGroupVtbl {
-        unsafe extern "system" fn FrameProviderIds<Impl: IPerceptionFaceAuthenticationGroupImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPerceptionFaceAuthenticationGroupImpl, const OFFSET: isize>() -> IPerceptionFaceAuthenticationGroupVtbl {
+        unsafe extern "system" fn FrameProviderIds<Impl: IPerceptionFaceAuthenticationGroupImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FrameProviderIds() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -247,7 +247,7 @@ impl IPerceptionFaceAuthenticationGroupVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IPerceptionFaceAuthenticationGroup>, base.5, FrameProviderIds::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPerceptionFaceAuthenticationGroup>, ::windows::core::GetTrustLevel, FrameProviderIds::<Impl, OFFSET>)
     }
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
@@ -260,9 +260,9 @@ impl ::windows::core::RuntimeName for IPerceptionFaceAuthenticationGroupFactory 
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
 impl IPerceptionFaceAuthenticationGroupFactoryVtbl {
-    pub const fn new<Impl: IPerceptionFaceAuthenticationGroupFactoryImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IPerceptionFaceAuthenticationGroupFactoryVtbl {
-        unsafe extern "system" fn Create<Impl: IPerceptionFaceAuthenticationGroupFactoryImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, ids: ::windows::core::RawPtr, starthandler: ::windows::core::RawPtr, stophandler: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPerceptionFaceAuthenticationGroupFactoryImpl, const OFFSET: isize>() -> IPerceptionFaceAuthenticationGroupFactoryVtbl {
+        unsafe extern "system" fn Create<Impl: IPerceptionFaceAuthenticationGroupFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ids: ::windows::core::RawPtr, starthandler: ::windows::core::RawPtr, stophandler: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(
                 &*(&ids as *const <super::super::super::Foundation::Collections::IIterable<::windows::core::HSTRING> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::Collections::IIterable<::windows::core::HSTRING> as ::windows::core::DefaultType>::DefaultType),
                 &*(&starthandler as *const <PerceptionStartFaceAuthenticationHandler as ::windows::core::Abi>::Abi as *const <PerceptionStartFaceAuthenticationHandler as ::windows::core::DefaultType>::DefaultType),
@@ -276,7 +276,7 @@ impl IPerceptionFaceAuthenticationGroupFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IPerceptionFaceAuthenticationGroupFactory>, base.5, Create::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPerceptionFaceAuthenticationGroupFactory>, ::windows::core::GetTrustLevel, Create::<Impl, OFFSET>)
     }
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
@@ -292,9 +292,9 @@ impl ::windows::core::RuntimeName for IPerceptionFrame {
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
 impl IPerceptionFrameVtbl {
-    pub const fn new<Impl: IPerceptionFrameImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IPerceptionFrameVtbl {
-        unsafe extern "system" fn RelativeTime<Impl: IPerceptionFrameImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPerceptionFrameImpl, const OFFSET: isize>() -> IPerceptionFrameVtbl {
+        unsafe extern "system" fn RelativeTime<Impl: IPerceptionFrameImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RelativeTime() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -304,12 +304,12 @@ impl IPerceptionFrameVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetRelativeTime<Impl: IPerceptionFrameImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: super::super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn SetRelativeTime<Impl: IPerceptionFrameImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetRelativeTime(&*(&value as *const <super::super::super::Foundation::TimeSpan as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::TimeSpan as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn Properties<Impl: IPerceptionFrameImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn Properties<Impl: IPerceptionFrameImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Properties() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -319,8 +319,8 @@ impl IPerceptionFrameVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn FrameData<Impl: IPerceptionFrameImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn FrameData<Impl: IPerceptionFrameImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FrameData() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -330,7 +330,7 @@ impl IPerceptionFrameVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IPerceptionFrame>, base.5, RelativeTime::<Impl, OFFSET>, SetRelativeTime::<Impl, OFFSET>, Properties::<Impl, OFFSET>, FrameData::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPerceptionFrame>, ::windows::core::GetTrustLevel, RelativeTime::<Impl, OFFSET>, SetRelativeTime::<Impl, OFFSET>, Properties::<Impl, OFFSET>, FrameData::<Impl, OFFSET>)
     }
 }
 #[cfg(all(feature = "Foundation", feature = "deprecated"))]
@@ -348,9 +348,9 @@ impl ::windows::core::RuntimeName for IPerceptionFrameProvider {
 }
 #[cfg(all(feature = "Foundation", feature = "deprecated"))]
 impl IPerceptionFrameProviderVtbl {
-    pub const fn new<Impl: IPerceptionFrameProviderImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IPerceptionFrameProviderVtbl {
-        unsafe extern "system" fn FrameProviderInfo<Impl: IPerceptionFrameProviderImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPerceptionFrameProviderImpl, const OFFSET: isize>() -> IPerceptionFrameProviderVtbl {
+        unsafe extern "system" fn FrameProviderInfo<Impl: IPerceptionFrameProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FrameProviderInfo() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -360,8 +360,8 @@ impl IPerceptionFrameProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Available<Impl: IPerceptionFrameProviderImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn Available<Impl: IPerceptionFrameProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Available() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -371,8 +371,8 @@ impl IPerceptionFrameProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Properties<Impl: IPerceptionFrameProviderImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn Properties<Impl: IPerceptionFrameProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Properties() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -382,19 +382,19 @@ impl IPerceptionFrameProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Start<Impl: IPerceptionFrameProviderImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn Start<Impl: IPerceptionFrameProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Start().into()
         }
-        unsafe extern "system" fn Stop<Impl: IPerceptionFrameProviderImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn Stop<Impl: IPerceptionFrameProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Stop().into()
         }
-        unsafe extern "system" fn SetProperty<Impl: IPerceptionFrameProviderImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn SetProperty<Impl: IPerceptionFrameProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetProperty(&*(&value as *const <PerceptionPropertyChangeRequest as ::windows::core::Abi>::Abi as *const <PerceptionPropertyChangeRequest as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IPerceptionFrameProvider>, base.5, FrameProviderInfo::<Impl, OFFSET>, Available::<Impl, OFFSET>, Properties::<Impl, OFFSET>, Start::<Impl, OFFSET>, Stop::<Impl, OFFSET>, SetProperty::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPerceptionFrameProvider>, ::windows::core::GetTrustLevel, FrameProviderInfo::<Impl, OFFSET>, Available::<Impl, OFFSET>, Properties::<Impl, OFFSET>, Start::<Impl, OFFSET>, Stop::<Impl, OFFSET>, SetProperty::<Impl, OFFSET>)
     }
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
@@ -416,9 +416,9 @@ impl ::windows::core::RuntimeName for IPerceptionFrameProviderInfo {
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
 impl IPerceptionFrameProviderInfoVtbl {
-    pub const fn new<Impl: IPerceptionFrameProviderInfoImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IPerceptionFrameProviderInfoVtbl {
-        unsafe extern "system" fn Id<Impl: IPerceptionFrameProviderInfoImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPerceptionFrameProviderInfoImpl, const OFFSET: isize>() -> IPerceptionFrameProviderInfoVtbl {
+        unsafe extern "system" fn Id<Impl: IPerceptionFrameProviderInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Id() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -428,12 +428,12 @@ impl IPerceptionFrameProviderInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetId<Impl: IPerceptionFrameProviderInfoImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn SetId<Impl: IPerceptionFrameProviderInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetId(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn DisplayName<Impl: IPerceptionFrameProviderInfoImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn DisplayName<Impl: IPerceptionFrameProviderInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DisplayName() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -443,12 +443,12 @@ impl IPerceptionFrameProviderInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetDisplayName<Impl: IPerceptionFrameProviderInfoImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn SetDisplayName<Impl: IPerceptionFrameProviderInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetDisplayName(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn DeviceKind<Impl: IPerceptionFrameProviderInfoImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn DeviceKind<Impl: IPerceptionFrameProviderInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DeviceKind() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -458,12 +458,12 @@ impl IPerceptionFrameProviderInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetDeviceKind<Impl: IPerceptionFrameProviderInfoImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn SetDeviceKind<Impl: IPerceptionFrameProviderInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetDeviceKind(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn FrameKind<Impl: IPerceptionFrameProviderInfoImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn FrameKind<Impl: IPerceptionFrameProviderInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FrameKind() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -473,12 +473,12 @@ impl IPerceptionFrameProviderInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetFrameKind<Impl: IPerceptionFrameProviderInfoImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn SetFrameKind<Impl: IPerceptionFrameProviderInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetFrameKind(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn Hidden<Impl: IPerceptionFrameProviderInfoImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn Hidden<Impl: IPerceptionFrameProviderInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Hidden() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -488,11 +488,28 @@ impl IPerceptionFrameProviderInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetHidden<Impl: IPerceptionFrameProviderInfoImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn SetHidden<Impl: IPerceptionFrameProviderInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetHidden(value).into()
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IPerceptionFrameProviderInfo>, base.5, Id::<Impl, OFFSET>, SetId::<Impl, OFFSET>, DisplayName::<Impl, OFFSET>, SetDisplayName::<Impl, OFFSET>, DeviceKind::<Impl, OFFSET>, SetDeviceKind::<Impl, OFFSET>, FrameKind::<Impl, OFFSET>, SetFrameKind::<Impl, OFFSET>, Hidden::<Impl, OFFSET>, SetHidden::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, OFFSET>,
+            ::windows::core::AddRef::<Identity, OFFSET>,
+            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<IPerceptionFrameProviderInfo>,
+            ::windows::core::GetTrustLevel,
+            Id::<Impl, OFFSET>,
+            SetId::<Impl, OFFSET>,
+            DisplayName::<Impl, OFFSET>,
+            SetDisplayName::<Impl, OFFSET>,
+            DeviceKind::<Impl, OFFSET>,
+            SetDeviceKind::<Impl, OFFSET>,
+            FrameKind::<Impl, OFFSET>,
+            SetFrameKind::<Impl, OFFSET>,
+            Hidden::<Impl, OFFSET>,
+            SetHidden::<Impl, OFFSET>,
+        )
     }
 }
 #[cfg(all(feature = "Foundation", feature = "deprecated"))]
@@ -505,9 +522,9 @@ impl ::windows::core::RuntimeName for IPerceptionFrameProviderManager {
 }
 #[cfg(all(feature = "Foundation", feature = "deprecated"))]
 impl IPerceptionFrameProviderManagerVtbl {
-    pub const fn new<Impl: IPerceptionFrameProviderManagerImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IPerceptionFrameProviderManagerVtbl {
-        unsafe extern "system" fn GetFrameProvider<Impl: IPerceptionFrameProviderManagerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, frameproviderinfo: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPerceptionFrameProviderManagerImpl, const OFFSET: isize>() -> IPerceptionFrameProviderManagerVtbl {
+        unsafe extern "system" fn GetFrameProvider<Impl: IPerceptionFrameProviderManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, frameproviderinfo: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetFrameProvider(&*(&frameproviderinfo as *const <PerceptionFrameProviderInfo as ::windows::core::Abi>::Abi as *const <PerceptionFrameProviderInfo as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -517,7 +534,7 @@ impl IPerceptionFrameProviderManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IPerceptionFrameProviderManager>, base.5, GetFrameProvider::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPerceptionFrameProviderManager>, ::windows::core::GetTrustLevel, GetFrameProvider::<Impl, OFFSET>)
     }
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
@@ -539,54 +556,54 @@ impl ::windows::core::RuntimeName for IPerceptionFrameProviderManagerServiceStat
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
 impl IPerceptionFrameProviderManagerServiceStaticsVtbl {
-    pub const fn new<Impl: IPerceptionFrameProviderManagerServiceStaticsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IPerceptionFrameProviderManagerServiceStaticsVtbl {
-        unsafe extern "system" fn RegisterFrameProviderInfo<Impl: IPerceptionFrameProviderManagerServiceStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, manager: ::windows::core::RawPtr, frameproviderinfo: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPerceptionFrameProviderManagerServiceStaticsImpl, const OFFSET: isize>() -> IPerceptionFrameProviderManagerServiceStaticsVtbl {
+        unsafe extern "system" fn RegisterFrameProviderInfo<Impl: IPerceptionFrameProviderManagerServiceStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, manager: ::windows::core::RawPtr, frameproviderinfo: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RegisterFrameProviderInfo(&*(&manager as *const <IPerceptionFrameProviderManager as ::windows::core::Abi>::Abi as *const <IPerceptionFrameProviderManager as ::windows::core::DefaultType>::DefaultType), &*(&frameproviderinfo as *const <PerceptionFrameProviderInfo as ::windows::core::Abi>::Abi as *const <PerceptionFrameProviderInfo as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn UnregisterFrameProviderInfo<Impl: IPerceptionFrameProviderManagerServiceStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, manager: ::windows::core::RawPtr, frameproviderinfo: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn UnregisterFrameProviderInfo<Impl: IPerceptionFrameProviderManagerServiceStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, manager: ::windows::core::RawPtr, frameproviderinfo: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).UnregisterFrameProviderInfo(&*(&manager as *const <IPerceptionFrameProviderManager as ::windows::core::Abi>::Abi as *const <IPerceptionFrameProviderManager as ::windows::core::DefaultType>::DefaultType), &*(&frameproviderinfo as *const <PerceptionFrameProviderInfo as ::windows::core::Abi>::Abi as *const <PerceptionFrameProviderInfo as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn RegisterFaceAuthenticationGroup<Impl: IPerceptionFrameProviderManagerServiceStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, manager: ::windows::core::RawPtr, faceauthenticationgroup: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn RegisterFaceAuthenticationGroup<Impl: IPerceptionFrameProviderManagerServiceStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, manager: ::windows::core::RawPtr, faceauthenticationgroup: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RegisterFaceAuthenticationGroup(&*(&manager as *const <IPerceptionFrameProviderManager as ::windows::core::Abi>::Abi as *const <IPerceptionFrameProviderManager as ::windows::core::DefaultType>::DefaultType), &*(&faceauthenticationgroup as *const <PerceptionFaceAuthenticationGroup as ::windows::core::Abi>::Abi as *const <PerceptionFaceAuthenticationGroup as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn UnregisterFaceAuthenticationGroup<Impl: IPerceptionFrameProviderManagerServiceStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, manager: ::windows::core::RawPtr, faceauthenticationgroup: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn UnregisterFaceAuthenticationGroup<Impl: IPerceptionFrameProviderManagerServiceStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, manager: ::windows::core::RawPtr, faceauthenticationgroup: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).UnregisterFaceAuthenticationGroup(&*(&manager as *const <IPerceptionFrameProviderManager as ::windows::core::Abi>::Abi as *const <IPerceptionFrameProviderManager as ::windows::core::DefaultType>::DefaultType), &*(&faceauthenticationgroup as *const <PerceptionFaceAuthenticationGroup as ::windows::core::Abi>::Abi as *const <PerceptionFaceAuthenticationGroup as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn RegisterControlGroup<Impl: IPerceptionFrameProviderManagerServiceStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, manager: ::windows::core::RawPtr, controlgroup: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn RegisterControlGroup<Impl: IPerceptionFrameProviderManagerServiceStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, manager: ::windows::core::RawPtr, controlgroup: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RegisterControlGroup(&*(&manager as *const <IPerceptionFrameProviderManager as ::windows::core::Abi>::Abi as *const <IPerceptionFrameProviderManager as ::windows::core::DefaultType>::DefaultType), &*(&controlgroup as *const <PerceptionControlGroup as ::windows::core::Abi>::Abi as *const <PerceptionControlGroup as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn UnregisterControlGroup<Impl: IPerceptionFrameProviderManagerServiceStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, manager: ::windows::core::RawPtr, controlgroup: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn UnregisterControlGroup<Impl: IPerceptionFrameProviderManagerServiceStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, manager: ::windows::core::RawPtr, controlgroup: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).UnregisterControlGroup(&*(&manager as *const <IPerceptionFrameProviderManager as ::windows::core::Abi>::Abi as *const <IPerceptionFrameProviderManager as ::windows::core::DefaultType>::DefaultType), &*(&controlgroup as *const <PerceptionControlGroup as ::windows::core::Abi>::Abi as *const <PerceptionControlGroup as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn RegisterCorrelationGroup<Impl: IPerceptionFrameProviderManagerServiceStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, manager: ::windows::core::RawPtr, correlationgroup: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn RegisterCorrelationGroup<Impl: IPerceptionFrameProviderManagerServiceStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, manager: ::windows::core::RawPtr, correlationgroup: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RegisterCorrelationGroup(&*(&manager as *const <IPerceptionFrameProviderManager as ::windows::core::Abi>::Abi as *const <IPerceptionFrameProviderManager as ::windows::core::DefaultType>::DefaultType), &*(&correlationgroup as *const <PerceptionCorrelationGroup as ::windows::core::Abi>::Abi as *const <PerceptionCorrelationGroup as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn UnregisterCorrelationGroup<Impl: IPerceptionFrameProviderManagerServiceStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, manager: ::windows::core::RawPtr, correlationgroup: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn UnregisterCorrelationGroup<Impl: IPerceptionFrameProviderManagerServiceStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, manager: ::windows::core::RawPtr, correlationgroup: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).UnregisterCorrelationGroup(&*(&manager as *const <IPerceptionFrameProviderManager as ::windows::core::Abi>::Abi as *const <IPerceptionFrameProviderManager as ::windows::core::DefaultType>::DefaultType), &*(&correlationgroup as *const <PerceptionCorrelationGroup as ::windows::core::Abi>::Abi as *const <PerceptionCorrelationGroup as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn UpdateAvailabilityForProvider<Impl: IPerceptionFrameProviderManagerServiceStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, provider: ::windows::core::RawPtr, available: bool) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn UpdateAvailabilityForProvider<Impl: IPerceptionFrameProviderManagerServiceStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, provider: ::windows::core::RawPtr, available: bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).UpdateAvailabilityForProvider(&*(&provider as *const <IPerceptionFrameProvider as ::windows::core::Abi>::Abi as *const <IPerceptionFrameProvider as ::windows::core::DefaultType>::DefaultType), available).into()
         }
-        unsafe extern "system" fn PublishFrameForProvider<Impl: IPerceptionFrameProviderManagerServiceStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, provider: ::windows::core::RawPtr, frame: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn PublishFrameForProvider<Impl: IPerceptionFrameProviderManagerServiceStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, provider: ::windows::core::RawPtr, frame: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).PublishFrameForProvider(&*(&provider as *const <IPerceptionFrameProvider as ::windows::core::Abi>::Abi as *const <IPerceptionFrameProvider as ::windows::core::DefaultType>::DefaultType), &*(&frame as *const <PerceptionFrame as ::windows::core::Abi>::Abi as *const <PerceptionFrame as ::windows::core::DefaultType>::DefaultType)).into()
         }
         Self(
-            base.0,
-            base.1,
-            base.2,
-            base.3,
+            ::windows::core::QueryInterface::<Identity, OFFSET>,
+            ::windows::core::AddRef::<Identity, OFFSET>,
+            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IPerceptionFrameProviderManagerServiceStatics>,
-            base.5,
+            ::windows::core::GetTrustLevel,
             RegisterFrameProviderInfo::<Impl, OFFSET>,
             UnregisterFrameProviderInfo::<Impl, OFFSET>,
             RegisterFaceAuthenticationGroup::<Impl, OFFSET>,
@@ -614,9 +631,9 @@ impl ::windows::core::RuntimeName for IPerceptionPropertyChangeRequest {
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
 impl IPerceptionPropertyChangeRequestVtbl {
-    pub const fn new<Impl: IPerceptionPropertyChangeRequestImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IPerceptionPropertyChangeRequestVtbl {
-        unsafe extern "system" fn Name<Impl: IPerceptionPropertyChangeRequestImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPerceptionPropertyChangeRequestImpl, const OFFSET: isize>() -> IPerceptionPropertyChangeRequestVtbl {
+        unsafe extern "system" fn Name<Impl: IPerceptionPropertyChangeRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Name() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -626,8 +643,8 @@ impl IPerceptionPropertyChangeRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Value<Impl: IPerceptionPropertyChangeRequestImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn Value<Impl: IPerceptionPropertyChangeRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Value() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -637,8 +654,8 @@ impl IPerceptionPropertyChangeRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Status<Impl: IPerceptionPropertyChangeRequestImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut super::PerceptionFrameSourcePropertyChangeStatus) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn Status<Impl: IPerceptionPropertyChangeRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::PerceptionFrameSourcePropertyChangeStatus) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Status() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -648,12 +665,12 @@ impl IPerceptionPropertyChangeRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetStatus<Impl: IPerceptionPropertyChangeRequestImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: super::PerceptionFrameSourcePropertyChangeStatus) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn SetStatus<Impl: IPerceptionPropertyChangeRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::PerceptionFrameSourcePropertyChangeStatus) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetStatus(value).into()
         }
-        unsafe extern "system" fn GetDeferral<Impl: IPerceptionPropertyChangeRequestImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn GetDeferral<Impl: IPerceptionPropertyChangeRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDeferral() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -663,7 +680,7 @@ impl IPerceptionPropertyChangeRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IPerceptionPropertyChangeRequest>, base.5, Name::<Impl, OFFSET>, Value::<Impl, OFFSET>, Status::<Impl, OFFSET>, SetStatus::<Impl, OFFSET>, GetDeferral::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPerceptionPropertyChangeRequest>, ::windows::core::GetTrustLevel, Name::<Impl, OFFSET>, Value::<Impl, OFFSET>, Status::<Impl, OFFSET>, SetStatus::<Impl, OFFSET>, GetDeferral::<Impl, OFFSET>)
     }
 }
 #[cfg(all(feature = "Foundation", feature = "deprecated", feature = "implement_exclusive"))]
@@ -677,9 +694,9 @@ impl ::windows::core::RuntimeName for IPerceptionVideoFrameAllocator {
 }
 #[cfg(all(feature = "Foundation", feature = "deprecated", feature = "implement_exclusive"))]
 impl IPerceptionVideoFrameAllocatorVtbl {
-    pub const fn new<Impl: IPerceptionVideoFrameAllocatorImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IPerceptionVideoFrameAllocatorVtbl {
-        unsafe extern "system" fn AllocateFrame<Impl: IPerceptionVideoFrameAllocatorImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPerceptionVideoFrameAllocatorImpl, const OFFSET: isize>() -> IPerceptionVideoFrameAllocatorVtbl {
+        unsafe extern "system" fn AllocateFrame<Impl: IPerceptionVideoFrameAllocatorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AllocateFrame() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -689,8 +706,8 @@ impl IPerceptionVideoFrameAllocatorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CopyFromVideoFrame<Impl: IPerceptionVideoFrameAllocatorImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, frame: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn CopyFromVideoFrame<Impl: IPerceptionVideoFrameAllocatorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, frame: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CopyFromVideoFrame(&*(&frame as *const <super::super::super::Media::VideoFrame as ::windows::core::Abi>::Abi as *const <super::super::super::Media::VideoFrame as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -700,7 +717,7 @@ impl IPerceptionVideoFrameAllocatorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IPerceptionVideoFrameAllocator>, base.5, AllocateFrame::<Impl, OFFSET>, CopyFromVideoFrame::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPerceptionVideoFrameAllocator>, ::windows::core::GetTrustLevel, AllocateFrame::<Impl, OFFSET>, CopyFromVideoFrame::<Impl, OFFSET>)
     }
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
@@ -713,9 +730,9 @@ impl ::windows::core::RuntimeName for IPerceptionVideoFrameAllocatorFactory {
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
 impl IPerceptionVideoFrameAllocatorFactoryVtbl {
-    pub const fn new<Impl: IPerceptionVideoFrameAllocatorFactoryImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IPerceptionVideoFrameAllocatorFactoryVtbl {
-        unsafe extern "system" fn Create<Impl: IPerceptionVideoFrameAllocatorFactoryImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, maxoutstandingframecountforwrite: u32, format: super::super::super::Graphics::Imaging::BitmapPixelFormat, resolution: super::super::super::Foundation::Size, alpha: super::super::super::Graphics::Imaging::BitmapAlphaMode, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPerceptionVideoFrameAllocatorFactoryImpl, const OFFSET: isize>() -> IPerceptionVideoFrameAllocatorFactoryVtbl {
+        unsafe extern "system" fn Create<Impl: IPerceptionVideoFrameAllocatorFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, maxoutstandingframecountforwrite: u32, format: super::super::super::Graphics::Imaging::BitmapPixelFormat, resolution: super::super::super::Foundation::Size, alpha: super::super::super::Graphics::Imaging::BitmapAlphaMode, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(maxoutstandingframecountforwrite, format, &*(&resolution as *const <super::super::super::Foundation::Size as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::Size as ::windows::core::DefaultType>::DefaultType), alpha) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -725,6 +742,6 @@ impl IPerceptionVideoFrameAllocatorFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IPerceptionVideoFrameAllocatorFactory>, base.5, Create::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPerceptionVideoFrameAllocatorFactory>, ::windows::core::GetTrustLevel, Create::<Impl, OFFSET>)
     }
 }

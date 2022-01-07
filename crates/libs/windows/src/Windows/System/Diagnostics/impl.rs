@@ -9,9 +9,9 @@ impl ::windows::core::RuntimeName for IDiagnosticActionResult {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IDiagnosticActionResultVtbl {
-    pub const fn new<Impl: IDiagnosticActionResultImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IDiagnosticActionResultVtbl {
-        unsafe extern "system" fn ExtendedError<Impl: IDiagnosticActionResultImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::HRESULT) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDiagnosticActionResultImpl, const OFFSET: isize>() -> IDiagnosticActionResultVtbl {
+        unsafe extern "system" fn ExtendedError<Impl: IDiagnosticActionResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::HRESULT) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ExtendedError() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -21,8 +21,8 @@ impl IDiagnosticActionResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Results<Impl: IDiagnosticActionResultImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn Results<Impl: IDiagnosticActionResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Results() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -32,7 +32,7 @@ impl IDiagnosticActionResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IDiagnosticActionResult>, base.5, ExtendedError::<Impl, OFFSET>, Results::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDiagnosticActionResult>, ::windows::core::GetTrustLevel, ExtendedError::<Impl, OFFSET>, Results::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -45,9 +45,9 @@ impl ::windows::core::RuntimeName for IDiagnosticInvoker {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IDiagnosticInvokerVtbl {
-    pub const fn new<Impl: IDiagnosticInvokerImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IDiagnosticInvokerVtbl {
-        unsafe extern "system" fn RunDiagnosticActionAsync<Impl: IDiagnosticInvokerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, context: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDiagnosticInvokerImpl, const OFFSET: isize>() -> IDiagnosticInvokerVtbl {
+        unsafe extern "system" fn RunDiagnosticActionAsync<Impl: IDiagnosticInvokerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, context: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RunDiagnosticActionAsync(&*(&context as *const <super::super::Data::Json::JsonObject as ::windows::core::Abi>::Abi as *const <super::super::Data::Json::JsonObject as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -57,7 +57,7 @@ impl IDiagnosticInvokerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IDiagnosticInvoker>, base.5, RunDiagnosticActionAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDiagnosticInvoker>, ::windows::core::GetTrustLevel, RunDiagnosticActionAsync::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -70,9 +70,9 @@ impl ::windows::core::RuntimeName for IDiagnosticInvoker2 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IDiagnosticInvoker2Vtbl {
-    pub const fn new<Impl: IDiagnosticInvoker2Impl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IDiagnosticInvoker2Vtbl {
-        unsafe extern "system" fn RunDiagnosticActionFromStringAsync<Impl: IDiagnosticInvoker2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, context: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDiagnosticInvoker2Impl, const OFFSET: isize>() -> IDiagnosticInvoker2Vtbl {
+        unsafe extern "system" fn RunDiagnosticActionFromStringAsync<Impl: IDiagnosticInvoker2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, context: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RunDiagnosticActionFromStringAsync(&*(&context as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -82,7 +82,7 @@ impl IDiagnosticInvoker2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IDiagnosticInvoker2>, base.5, RunDiagnosticActionFromStringAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDiagnosticInvoker2>, ::windows::core::GetTrustLevel, RunDiagnosticActionFromStringAsync::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -97,9 +97,9 @@ impl ::windows::core::RuntimeName for IDiagnosticInvokerStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IDiagnosticInvokerStaticsVtbl {
-    pub const fn new<Impl: IDiagnosticInvokerStaticsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IDiagnosticInvokerStaticsVtbl {
-        unsafe extern "system" fn GetDefault<Impl: IDiagnosticInvokerStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDiagnosticInvokerStaticsImpl, const OFFSET: isize>() -> IDiagnosticInvokerStaticsVtbl {
+        unsafe extern "system" fn GetDefault<Impl: IDiagnosticInvokerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDefault() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -109,8 +109,8 @@ impl IDiagnosticInvokerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetForUser<Impl: IDiagnosticInvokerStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, user: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn GetForUser<Impl: IDiagnosticInvokerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, user: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetForUser(&*(&user as *const <super::User as ::windows::core::Abi>::Abi as *const <super::User as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -120,8 +120,8 @@ impl IDiagnosticInvokerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsSupported<Impl: IDiagnosticInvokerStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn IsSupported<Impl: IDiagnosticInvokerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsSupported() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -131,7 +131,7 @@ impl IDiagnosticInvokerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IDiagnosticInvokerStatics>, base.5, GetDefault::<Impl, OFFSET>, GetForUser::<Impl, OFFSET>, IsSupported::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDiagnosticInvokerStatics>, ::windows::core::GetTrustLevel, GetDefault::<Impl, OFFSET>, GetForUser::<Impl, OFFSET>, IsSupported::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -144,9 +144,9 @@ impl ::windows::core::RuntimeName for IProcessCpuUsage {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IProcessCpuUsageVtbl {
-    pub const fn new<Impl: IProcessCpuUsageImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IProcessCpuUsageVtbl {
-        unsafe extern "system" fn GetReport<Impl: IProcessCpuUsageImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IProcessCpuUsageImpl, const OFFSET: isize>() -> IProcessCpuUsageVtbl {
+        unsafe extern "system" fn GetReport<Impl: IProcessCpuUsageImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetReport() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -156,7 +156,7 @@ impl IProcessCpuUsageVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IProcessCpuUsage>, base.5, GetReport::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IProcessCpuUsage>, ::windows::core::GetTrustLevel, GetReport::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -170,9 +170,9 @@ impl ::windows::core::RuntimeName for IProcessCpuUsageReport {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IProcessCpuUsageReportVtbl {
-    pub const fn new<Impl: IProcessCpuUsageReportImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IProcessCpuUsageReportVtbl {
-        unsafe extern "system" fn KernelTime<Impl: IProcessCpuUsageReportImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IProcessCpuUsageReportImpl, const OFFSET: isize>() -> IProcessCpuUsageReportVtbl {
+        unsafe extern "system" fn KernelTime<Impl: IProcessCpuUsageReportImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).KernelTime() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -182,8 +182,8 @@ impl IProcessCpuUsageReportVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn UserTime<Impl: IProcessCpuUsageReportImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn UserTime<Impl: IProcessCpuUsageReportImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).UserTime() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -193,7 +193,7 @@ impl IProcessCpuUsageReportVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IProcessCpuUsageReport>, base.5, KernelTime::<Impl, OFFSET>, UserTime::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IProcessCpuUsageReport>, ::windows::core::GetTrustLevel, KernelTime::<Impl, OFFSET>, UserTime::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -212,9 +212,9 @@ impl ::windows::core::RuntimeName for IProcessDiagnosticInfo {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IProcessDiagnosticInfoVtbl {
-    pub const fn new<Impl: IProcessDiagnosticInfoImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IProcessDiagnosticInfoVtbl {
-        unsafe extern "system" fn ProcessId<Impl: IProcessDiagnosticInfoImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IProcessDiagnosticInfoImpl, const OFFSET: isize>() -> IProcessDiagnosticInfoVtbl {
+        unsafe extern "system" fn ProcessId<Impl: IProcessDiagnosticInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ProcessId() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -224,8 +224,8 @@ impl IProcessDiagnosticInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ExecutableFileName<Impl: IProcessDiagnosticInfoImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn ExecutableFileName<Impl: IProcessDiagnosticInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ExecutableFileName() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -235,8 +235,8 @@ impl IProcessDiagnosticInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Parent<Impl: IProcessDiagnosticInfoImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn Parent<Impl: IProcessDiagnosticInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Parent() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -246,8 +246,8 @@ impl IProcessDiagnosticInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ProcessStartTime<Impl: IProcessDiagnosticInfoImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::DateTime) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn ProcessStartTime<Impl: IProcessDiagnosticInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::DateTime) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ProcessStartTime() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -257,8 +257,8 @@ impl IProcessDiagnosticInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DiskUsage<Impl: IProcessDiagnosticInfoImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn DiskUsage<Impl: IProcessDiagnosticInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DiskUsage() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -268,8 +268,8 @@ impl IProcessDiagnosticInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn MemoryUsage<Impl: IProcessDiagnosticInfoImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn MemoryUsage<Impl: IProcessDiagnosticInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MemoryUsage() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -279,8 +279,8 @@ impl IProcessDiagnosticInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CpuUsage<Impl: IProcessDiagnosticInfoImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn CpuUsage<Impl: IProcessDiagnosticInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CpuUsage() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -290,7 +290,7 @@ impl IProcessDiagnosticInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IProcessDiagnosticInfo>, base.5, ProcessId::<Impl, OFFSET>, ExecutableFileName::<Impl, OFFSET>, Parent::<Impl, OFFSET>, ProcessStartTime::<Impl, OFFSET>, DiskUsage::<Impl, OFFSET>, MemoryUsage::<Impl, OFFSET>, CpuUsage::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IProcessDiagnosticInfo>, ::windows::core::GetTrustLevel, ProcessId::<Impl, OFFSET>, ExecutableFileName::<Impl, OFFSET>, Parent::<Impl, OFFSET>, ProcessStartTime::<Impl, OFFSET>, DiskUsage::<Impl, OFFSET>, MemoryUsage::<Impl, OFFSET>, CpuUsage::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -304,9 +304,9 @@ impl ::windows::core::RuntimeName for IProcessDiagnosticInfo2 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IProcessDiagnosticInfo2Vtbl {
-    pub const fn new<Impl: IProcessDiagnosticInfo2Impl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IProcessDiagnosticInfo2Vtbl {
-        unsafe extern "system" fn GetAppDiagnosticInfos<Impl: IProcessDiagnosticInfo2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IProcessDiagnosticInfo2Impl, const OFFSET: isize>() -> IProcessDiagnosticInfo2Vtbl {
+        unsafe extern "system" fn GetAppDiagnosticInfos<Impl: IProcessDiagnosticInfo2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetAppDiagnosticInfos() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -316,8 +316,8 @@ impl IProcessDiagnosticInfo2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsPackaged<Impl: IProcessDiagnosticInfo2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn IsPackaged<Impl: IProcessDiagnosticInfo2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsPackaged() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -327,7 +327,7 @@ impl IProcessDiagnosticInfo2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IProcessDiagnosticInfo2>, base.5, GetAppDiagnosticInfos::<Impl, OFFSET>, IsPackaged::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IProcessDiagnosticInfo2>, ::windows::core::GetTrustLevel, GetAppDiagnosticInfos::<Impl, OFFSET>, IsPackaged::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -341,9 +341,9 @@ impl ::windows::core::RuntimeName for IProcessDiagnosticInfoStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IProcessDiagnosticInfoStaticsVtbl {
-    pub const fn new<Impl: IProcessDiagnosticInfoStaticsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IProcessDiagnosticInfoStaticsVtbl {
-        unsafe extern "system" fn GetForProcesses<Impl: IProcessDiagnosticInfoStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IProcessDiagnosticInfoStaticsImpl, const OFFSET: isize>() -> IProcessDiagnosticInfoStaticsVtbl {
+        unsafe extern "system" fn GetForProcesses<Impl: IProcessDiagnosticInfoStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetForProcesses() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -353,8 +353,8 @@ impl IProcessDiagnosticInfoStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetForCurrentProcess<Impl: IProcessDiagnosticInfoStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn GetForCurrentProcess<Impl: IProcessDiagnosticInfoStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetForCurrentProcess() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -364,7 +364,7 @@ impl IProcessDiagnosticInfoStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IProcessDiagnosticInfoStatics>, base.5, GetForProcesses::<Impl, OFFSET>, GetForCurrentProcess::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IProcessDiagnosticInfoStatics>, ::windows::core::GetTrustLevel, GetForProcesses::<Impl, OFFSET>, GetForCurrentProcess::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -377,9 +377,9 @@ impl ::windows::core::RuntimeName for IProcessDiagnosticInfoStatics2 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IProcessDiagnosticInfoStatics2Vtbl {
-    pub const fn new<Impl: IProcessDiagnosticInfoStatics2Impl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IProcessDiagnosticInfoStatics2Vtbl {
-        unsafe extern "system" fn TryGetForProcessId<Impl: IProcessDiagnosticInfoStatics2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, processid: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IProcessDiagnosticInfoStatics2Impl, const OFFSET: isize>() -> IProcessDiagnosticInfoStatics2Vtbl {
+        unsafe extern "system" fn TryGetForProcessId<Impl: IProcessDiagnosticInfoStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, processid: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TryGetForProcessId(processid) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -389,7 +389,7 @@ impl IProcessDiagnosticInfoStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IProcessDiagnosticInfoStatics2>, base.5, TryGetForProcessId::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IProcessDiagnosticInfoStatics2>, ::windows::core::GetTrustLevel, TryGetForProcessId::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -402,9 +402,9 @@ impl ::windows::core::RuntimeName for IProcessDiskUsage {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IProcessDiskUsageVtbl {
-    pub const fn new<Impl: IProcessDiskUsageImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IProcessDiskUsageVtbl {
-        unsafe extern "system" fn GetReport<Impl: IProcessDiskUsageImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IProcessDiskUsageImpl, const OFFSET: isize>() -> IProcessDiskUsageVtbl {
+        unsafe extern "system" fn GetReport<Impl: IProcessDiskUsageImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetReport() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -414,7 +414,7 @@ impl IProcessDiskUsageVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IProcessDiskUsage>, base.5, GetReport::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IProcessDiskUsage>, ::windows::core::GetTrustLevel, GetReport::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -432,9 +432,9 @@ impl ::windows::core::RuntimeName for IProcessDiskUsageReport {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IProcessDiskUsageReportVtbl {
-    pub const fn new<Impl: IProcessDiskUsageReportImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IProcessDiskUsageReportVtbl {
-        unsafe extern "system" fn ReadOperationCount<Impl: IProcessDiskUsageReportImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut i64) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IProcessDiskUsageReportImpl, const OFFSET: isize>() -> IProcessDiskUsageReportVtbl {
+        unsafe extern "system" fn ReadOperationCount<Impl: IProcessDiskUsageReportImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i64) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ReadOperationCount() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -444,8 +444,8 @@ impl IProcessDiskUsageReportVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn WriteOperationCount<Impl: IProcessDiskUsageReportImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut i64) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn WriteOperationCount<Impl: IProcessDiskUsageReportImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i64) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).WriteOperationCount() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -455,8 +455,8 @@ impl IProcessDiskUsageReportVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn OtherOperationCount<Impl: IProcessDiskUsageReportImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut i64) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn OtherOperationCount<Impl: IProcessDiskUsageReportImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i64) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OtherOperationCount() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -466,8 +466,8 @@ impl IProcessDiskUsageReportVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn BytesReadCount<Impl: IProcessDiskUsageReportImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut i64) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn BytesReadCount<Impl: IProcessDiskUsageReportImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i64) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BytesReadCount() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -477,8 +477,8 @@ impl IProcessDiskUsageReportVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn BytesWrittenCount<Impl: IProcessDiskUsageReportImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut i64) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn BytesWrittenCount<Impl: IProcessDiskUsageReportImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i64) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BytesWrittenCount() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -488,8 +488,8 @@ impl IProcessDiskUsageReportVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn OtherBytesCount<Impl: IProcessDiskUsageReportImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut i64) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn OtherBytesCount<Impl: IProcessDiskUsageReportImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i64) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OtherBytesCount() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -499,7 +499,7 @@ impl IProcessDiskUsageReportVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IProcessDiskUsageReport>, base.5, ReadOperationCount::<Impl, OFFSET>, WriteOperationCount::<Impl, OFFSET>, OtherOperationCount::<Impl, OFFSET>, BytesReadCount::<Impl, OFFSET>, BytesWrittenCount::<Impl, OFFSET>, OtherBytesCount::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IProcessDiskUsageReport>, ::windows::core::GetTrustLevel, ReadOperationCount::<Impl, OFFSET>, WriteOperationCount::<Impl, OFFSET>, OtherOperationCount::<Impl, OFFSET>, BytesReadCount::<Impl, OFFSET>, BytesWrittenCount::<Impl, OFFSET>, OtherBytesCount::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -512,9 +512,9 @@ impl ::windows::core::RuntimeName for IProcessMemoryUsage {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IProcessMemoryUsageVtbl {
-    pub const fn new<Impl: IProcessMemoryUsageImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IProcessMemoryUsageVtbl {
-        unsafe extern "system" fn GetReport<Impl: IProcessMemoryUsageImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IProcessMemoryUsageImpl, const OFFSET: isize>() -> IProcessMemoryUsageVtbl {
+        unsafe extern "system" fn GetReport<Impl: IProcessMemoryUsageImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetReport() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -524,7 +524,7 @@ impl IProcessMemoryUsageVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IProcessMemoryUsage>, base.5, GetReport::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IProcessMemoryUsage>, ::windows::core::GetTrustLevel, GetReport::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -548,9 +548,9 @@ impl ::windows::core::RuntimeName for IProcessMemoryUsageReport {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IProcessMemoryUsageReportVtbl {
-    pub const fn new<Impl: IProcessMemoryUsageReportImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IProcessMemoryUsageReportVtbl {
-        unsafe extern "system" fn NonPagedPoolSizeInBytes<Impl: IProcessMemoryUsageReportImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IProcessMemoryUsageReportImpl, const OFFSET: isize>() -> IProcessMemoryUsageReportVtbl {
+        unsafe extern "system" fn NonPagedPoolSizeInBytes<Impl: IProcessMemoryUsageReportImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).NonPagedPoolSizeInBytes() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -560,8 +560,8 @@ impl IProcessMemoryUsageReportVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PageFaultCount<Impl: IProcessMemoryUsageReportImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn PageFaultCount<Impl: IProcessMemoryUsageReportImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PageFaultCount() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -571,8 +571,8 @@ impl IProcessMemoryUsageReportVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PageFileSizeInBytes<Impl: IProcessMemoryUsageReportImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn PageFileSizeInBytes<Impl: IProcessMemoryUsageReportImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PageFileSizeInBytes() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -582,8 +582,8 @@ impl IProcessMemoryUsageReportVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PagedPoolSizeInBytes<Impl: IProcessMemoryUsageReportImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn PagedPoolSizeInBytes<Impl: IProcessMemoryUsageReportImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PagedPoolSizeInBytes() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -593,8 +593,8 @@ impl IProcessMemoryUsageReportVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PeakNonPagedPoolSizeInBytes<Impl: IProcessMemoryUsageReportImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn PeakNonPagedPoolSizeInBytes<Impl: IProcessMemoryUsageReportImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PeakNonPagedPoolSizeInBytes() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -604,8 +604,8 @@ impl IProcessMemoryUsageReportVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PeakPageFileSizeInBytes<Impl: IProcessMemoryUsageReportImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn PeakPageFileSizeInBytes<Impl: IProcessMemoryUsageReportImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PeakPageFileSizeInBytes() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -615,8 +615,8 @@ impl IProcessMemoryUsageReportVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PeakPagedPoolSizeInBytes<Impl: IProcessMemoryUsageReportImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn PeakPagedPoolSizeInBytes<Impl: IProcessMemoryUsageReportImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PeakPagedPoolSizeInBytes() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -626,8 +626,8 @@ impl IProcessMemoryUsageReportVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PeakVirtualMemorySizeInBytes<Impl: IProcessMemoryUsageReportImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn PeakVirtualMemorySizeInBytes<Impl: IProcessMemoryUsageReportImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PeakVirtualMemorySizeInBytes() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -637,8 +637,8 @@ impl IProcessMemoryUsageReportVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PeakWorkingSetSizeInBytes<Impl: IProcessMemoryUsageReportImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn PeakWorkingSetSizeInBytes<Impl: IProcessMemoryUsageReportImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PeakWorkingSetSizeInBytes() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -648,8 +648,8 @@ impl IProcessMemoryUsageReportVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PrivatePageCount<Impl: IProcessMemoryUsageReportImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn PrivatePageCount<Impl: IProcessMemoryUsageReportImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PrivatePageCount() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -659,8 +659,8 @@ impl IProcessMemoryUsageReportVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn VirtualMemorySizeInBytes<Impl: IProcessMemoryUsageReportImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn VirtualMemorySizeInBytes<Impl: IProcessMemoryUsageReportImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).VirtualMemorySizeInBytes() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -670,8 +670,8 @@ impl IProcessMemoryUsageReportVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn WorkingSetSizeInBytes<Impl: IProcessMemoryUsageReportImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn WorkingSetSizeInBytes<Impl: IProcessMemoryUsageReportImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).WorkingSetSizeInBytes() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -682,12 +682,12 @@ impl IProcessMemoryUsageReportVtbl {
             }
         }
         Self(
-            base.0,
-            base.1,
-            base.2,
-            base.3,
+            ::windows::core::QueryInterface::<Identity, OFFSET>,
+            ::windows::core::AddRef::<Identity, OFFSET>,
+            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IProcessMemoryUsageReport>,
-            base.5,
+            ::windows::core::GetTrustLevel,
             NonPagedPoolSizeInBytes::<Impl, OFFSET>,
             PageFaultCount::<Impl, OFFSET>,
             PageFileSizeInBytes::<Impl, OFFSET>,
@@ -713,9 +713,9 @@ impl ::windows::core::RuntimeName for ISystemCpuUsage {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ISystemCpuUsageVtbl {
-    pub const fn new<Impl: ISystemCpuUsageImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> ISystemCpuUsageVtbl {
-        unsafe extern "system" fn GetReport<Impl: ISystemCpuUsageImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISystemCpuUsageImpl, const OFFSET: isize>() -> ISystemCpuUsageVtbl {
+        unsafe extern "system" fn GetReport<Impl: ISystemCpuUsageImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetReport() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -725,7 +725,7 @@ impl ISystemCpuUsageVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<ISystemCpuUsage>, base.5, GetReport::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISystemCpuUsage>, ::windows::core::GetTrustLevel, GetReport::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -740,9 +740,9 @@ impl ::windows::core::RuntimeName for ISystemCpuUsageReport {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ISystemCpuUsageReportVtbl {
-    pub const fn new<Impl: ISystemCpuUsageReportImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> ISystemCpuUsageReportVtbl {
-        unsafe extern "system" fn KernelTime<Impl: ISystemCpuUsageReportImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISystemCpuUsageReportImpl, const OFFSET: isize>() -> ISystemCpuUsageReportVtbl {
+        unsafe extern "system" fn KernelTime<Impl: ISystemCpuUsageReportImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).KernelTime() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -752,8 +752,8 @@ impl ISystemCpuUsageReportVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn UserTime<Impl: ISystemCpuUsageReportImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn UserTime<Impl: ISystemCpuUsageReportImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).UserTime() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -763,8 +763,8 @@ impl ISystemCpuUsageReportVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IdleTime<Impl: ISystemCpuUsageReportImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn IdleTime<Impl: ISystemCpuUsageReportImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IdleTime() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -774,7 +774,7 @@ impl ISystemCpuUsageReportVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<ISystemCpuUsageReport>, base.5, KernelTime::<Impl, OFFSET>, UserTime::<Impl, OFFSET>, IdleTime::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISystemCpuUsageReport>, ::windows::core::GetTrustLevel, KernelTime::<Impl, OFFSET>, UserTime::<Impl, OFFSET>, IdleTime::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -788,9 +788,9 @@ impl ::windows::core::RuntimeName for ISystemDiagnosticInfo {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ISystemDiagnosticInfoVtbl {
-    pub const fn new<Impl: ISystemDiagnosticInfoImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> ISystemDiagnosticInfoVtbl {
-        unsafe extern "system" fn MemoryUsage<Impl: ISystemDiagnosticInfoImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISystemDiagnosticInfoImpl, const OFFSET: isize>() -> ISystemDiagnosticInfoVtbl {
+        unsafe extern "system" fn MemoryUsage<Impl: ISystemDiagnosticInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MemoryUsage() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -800,8 +800,8 @@ impl ISystemDiagnosticInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CpuUsage<Impl: ISystemDiagnosticInfoImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn CpuUsage<Impl: ISystemDiagnosticInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CpuUsage() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -811,7 +811,7 @@ impl ISystemDiagnosticInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<ISystemDiagnosticInfo>, base.5, MemoryUsage::<Impl, OFFSET>, CpuUsage::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISystemDiagnosticInfo>, ::windows::core::GetTrustLevel, MemoryUsage::<Impl, OFFSET>, CpuUsage::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -824,9 +824,9 @@ impl ::windows::core::RuntimeName for ISystemDiagnosticInfoStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ISystemDiagnosticInfoStaticsVtbl {
-    pub const fn new<Impl: ISystemDiagnosticInfoStaticsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> ISystemDiagnosticInfoStaticsVtbl {
-        unsafe extern "system" fn GetForCurrentSystem<Impl: ISystemDiagnosticInfoStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISystemDiagnosticInfoStaticsImpl, const OFFSET: isize>() -> ISystemDiagnosticInfoStaticsVtbl {
+        unsafe extern "system" fn GetForCurrentSystem<Impl: ISystemDiagnosticInfoStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetForCurrentSystem() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -836,7 +836,7 @@ impl ISystemDiagnosticInfoStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<ISystemDiagnosticInfoStatics>, base.5, GetForCurrentSystem::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISystemDiagnosticInfoStatics>, ::windows::core::GetTrustLevel, GetForCurrentSystem::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -850,9 +850,9 @@ impl ::windows::core::RuntimeName for ISystemDiagnosticInfoStatics2 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ISystemDiagnosticInfoStatics2Vtbl {
-    pub const fn new<Impl: ISystemDiagnosticInfoStatics2Impl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> ISystemDiagnosticInfoStatics2Vtbl {
-        unsafe extern "system" fn IsArchitectureSupported<Impl: ISystemDiagnosticInfoStatics2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, r#type: super::ProcessorArchitecture, result__: *mut bool) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISystemDiagnosticInfoStatics2Impl, const OFFSET: isize>() -> ISystemDiagnosticInfoStatics2Vtbl {
+        unsafe extern "system" fn IsArchitectureSupported<Impl: ISystemDiagnosticInfoStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, r#type: super::ProcessorArchitecture, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsArchitectureSupported(r#type) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -862,8 +862,8 @@ impl ISystemDiagnosticInfoStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PreferredArchitecture<Impl: ISystemDiagnosticInfoStatics2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut super::ProcessorArchitecture) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn PreferredArchitecture<Impl: ISystemDiagnosticInfoStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::ProcessorArchitecture) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PreferredArchitecture() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -873,7 +873,7 @@ impl ISystemDiagnosticInfoStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<ISystemDiagnosticInfoStatics2>, base.5, IsArchitectureSupported::<Impl, OFFSET>, PreferredArchitecture::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISystemDiagnosticInfoStatics2>, ::windows::core::GetTrustLevel, IsArchitectureSupported::<Impl, OFFSET>, PreferredArchitecture::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -886,9 +886,9 @@ impl ::windows::core::RuntimeName for ISystemMemoryUsage {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ISystemMemoryUsageVtbl {
-    pub const fn new<Impl: ISystemMemoryUsageImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> ISystemMemoryUsageVtbl {
-        unsafe extern "system" fn GetReport<Impl: ISystemMemoryUsageImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISystemMemoryUsageImpl, const OFFSET: isize>() -> ISystemMemoryUsageVtbl {
+        unsafe extern "system" fn GetReport<Impl: ISystemMemoryUsageImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetReport() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -898,7 +898,7 @@ impl ISystemMemoryUsageVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<ISystemMemoryUsage>, base.5, GetReport::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISystemMemoryUsage>, ::windows::core::GetTrustLevel, GetReport::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -913,9 +913,9 @@ impl ::windows::core::RuntimeName for ISystemMemoryUsageReport {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ISystemMemoryUsageReportVtbl {
-    pub const fn new<Impl: ISystemMemoryUsageReportImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> ISystemMemoryUsageReportVtbl {
-        unsafe extern "system" fn TotalPhysicalSizeInBytes<Impl: ISystemMemoryUsageReportImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISystemMemoryUsageReportImpl, const OFFSET: isize>() -> ISystemMemoryUsageReportVtbl {
+        unsafe extern "system" fn TotalPhysicalSizeInBytes<Impl: ISystemMemoryUsageReportImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TotalPhysicalSizeInBytes() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -925,8 +925,8 @@ impl ISystemMemoryUsageReportVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AvailableSizeInBytes<Impl: ISystemMemoryUsageReportImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn AvailableSizeInBytes<Impl: ISystemMemoryUsageReportImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AvailableSizeInBytes() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -936,8 +936,8 @@ impl ISystemMemoryUsageReportVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CommittedSizeInBytes<Impl: ISystemMemoryUsageReportImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn CommittedSizeInBytes<Impl: ISystemMemoryUsageReportImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CommittedSizeInBytes() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -947,6 +947,6 @@ impl ISystemMemoryUsageReportVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<ISystemMemoryUsageReport>, base.5, TotalPhysicalSizeInBytes::<Impl, OFFSET>, AvailableSizeInBytes::<Impl, OFFSET>, CommittedSizeInBytes::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISystemMemoryUsageReport>, ::windows::core::GetTrustLevel, TotalPhysicalSizeInBytes::<Impl, OFFSET>, AvailableSizeInBytes::<Impl, OFFSET>, CommittedSizeInBytes::<Impl, OFFSET>)
     }
 }

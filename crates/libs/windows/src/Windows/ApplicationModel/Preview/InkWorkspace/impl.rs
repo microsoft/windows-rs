@@ -8,9 +8,9 @@ impl ::windows::core::RuntimeName for IInkWorkspaceHostedAppManager {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IInkWorkspaceHostedAppManagerVtbl {
-    pub const fn new<Impl: IInkWorkspaceHostedAppManagerImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IInkWorkspaceHostedAppManagerVtbl {
-        unsafe extern "system" fn SetThumbnailAsync<Impl: IInkWorkspaceHostedAppManagerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, bitmap: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInkWorkspaceHostedAppManagerImpl, const OFFSET: isize>() -> IInkWorkspaceHostedAppManagerVtbl {
+        unsafe extern "system" fn SetThumbnailAsync<Impl: IInkWorkspaceHostedAppManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bitmap: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SetThumbnailAsync(&*(&bitmap as *const <super::super::super::Graphics::Imaging::SoftwareBitmap as ::windows::core::Abi>::Abi as *const <super::super::super::Graphics::Imaging::SoftwareBitmap as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -20,7 +20,7 @@ impl IInkWorkspaceHostedAppManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IInkWorkspaceHostedAppManager>, base.5, SetThumbnailAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IInkWorkspaceHostedAppManager>, ::windows::core::GetTrustLevel, SetThumbnailAsync::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -33,9 +33,9 @@ impl ::windows::core::RuntimeName for IInkWorkspaceHostedAppManagerStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IInkWorkspaceHostedAppManagerStaticsVtbl {
-    pub const fn new<Impl: IInkWorkspaceHostedAppManagerStaticsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IInkWorkspaceHostedAppManagerStaticsVtbl {
-        unsafe extern "system" fn GetForCurrentApp<Impl: IInkWorkspaceHostedAppManagerStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInkWorkspaceHostedAppManagerStaticsImpl, const OFFSET: isize>() -> IInkWorkspaceHostedAppManagerStaticsVtbl {
+        unsafe extern "system" fn GetForCurrentApp<Impl: IInkWorkspaceHostedAppManagerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetForCurrentApp() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -45,6 +45,6 @@ impl IInkWorkspaceHostedAppManagerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IInkWorkspaceHostedAppManagerStatics>, base.5, GetForCurrentApp::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IInkWorkspaceHostedAppManagerStatics>, ::windows::core::GetTrustLevel, GetForCurrentApp::<Impl, OFFSET>)
     }
 }

@@ -23,8 +23,9 @@ pub fn gen(attributes: proc_macro::TokenStream, original_type: proc_macro::Token
 
     let vtable_news = attributes.implement.iter().enumerate().map(|(enumerate, implement)| {
         let vtbl_ident = implement.to_vtbl_ident();
-        let offset: TokenStream = format!("{}", 1 + attributes.implement.len() - enumerate).into();
-        quote! { #vtbl_ident::new::<#original_ident, #offset>(&Self::IDENTITY) }
+        let base_offset: TokenStream = format!("{}", -2 - enumerate as isize).into();
+        let impl_offset: TokenStream = format!("{}", 1 + attributes.implement.len() - enumerate).into();
+        quote! { #vtbl_ident::new::<Self, #original_ident, #base_offset, #impl_offset>() }
     });
 
     let vtbl_count = attributes.implement.iter().enumerate().map(|(count,_)| {
@@ -61,9 +62,9 @@ pub fn gen(attributes: proc_macro::TokenStream, original_type: proc_macro::Token
         impl #impl_ident {
             const VTABLES: (#(#vtbl_idents2),*) = (#(#vtable_news),*);
             const IDENTITY: ::windows::core::IInspectableVtbl = ::windows::core::IInspectableVtbl(
-                Self::QueryInterface,
-                Self::AddRef,
-                Self::Release,
+                ::windows::core::QueryInterface::<Self, 0>,
+                ::windows::core::AddRef::<Self, 0>,
+                ::windows::core::Release::<Self, 0>,
                 ::windows::core::GetIids,
                 ::windows::core::GetRuntimeClassName::<::windows::core::IInspectable>,
                 ::windows::core::GetTrustLevel,
@@ -77,21 +78,25 @@ pub fn gen(attributes: proc_macro::TokenStream, original_type: proc_macro::Token
                     count: ::windows::core::WeakRefCount::new(),
                 }
             }
-            unsafe extern "system" fn QueryInterface(
-                this: ::windows::core::RawPtr,
-                iid: &::windows::core::GUID,
-                interface: *mut ::windows::core::RawPtr,
-            ) -> ::windows::core::HRESULT {
+        }
+        impl ::windows::core::IUnknownImpl for #impl_ident {
+            fn QueryInterface(&mut self, iid: *const ::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
                 println!("QueryInterface");
                 ::windows::core::HRESULT(0)
             }
-            unsafe extern "system" fn AddRef(this: ::windows::core::RawPtr) -> u32 {
+            fn AddRef(&mut self) -> u32 {
                 println!("AddRef");
-                0
+                self.count.add_ref()
             }
-            unsafe extern "system" fn Release(this: ::windows::core::RawPtr) -> u32 {
+            fn Release(&mut self) -> u32 {
                 println!("Release");
-                0
+                let remaining = self.count.release();
+                if remaining == 0 {
+                    unsafe {
+                        ::std::boxed::Box::from_raw(self);
+                    }
+                }
+                remaining
             }
         }
         #(#froms)*

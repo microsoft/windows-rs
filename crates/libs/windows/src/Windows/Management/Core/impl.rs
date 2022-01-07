@@ -6,8 +6,8 @@ impl ::windows::core::RuntimeName for IApplicationDataManager {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IApplicationDataManagerVtbl {
-    pub const fn new<Impl: IApplicationDataManagerImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IApplicationDataManagerVtbl {
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IApplicationDataManager>, base.5)
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IApplicationDataManagerImpl, const OFFSET: isize>() -> IApplicationDataManagerVtbl {
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IApplicationDataManager>, ::windows::core::GetTrustLevel)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -20,9 +20,9 @@ impl ::windows::core::RuntimeName for IApplicationDataManagerStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IApplicationDataManagerStaticsVtbl {
-    pub const fn new<Impl: IApplicationDataManagerStaticsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IApplicationDataManagerStaticsVtbl {
-        unsafe extern "system" fn CreateForPackageFamily<Impl: IApplicationDataManagerStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, packagefamilyname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IApplicationDataManagerStaticsImpl, const OFFSET: isize>() -> IApplicationDataManagerStaticsVtbl {
+        unsafe extern "system" fn CreateForPackageFamily<Impl: IApplicationDataManagerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, packagefamilyname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateForPackageFamily(&*(&packagefamilyname as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -32,6 +32,6 @@ impl IApplicationDataManagerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IApplicationDataManagerStatics>, base.5, CreateForPackageFamily::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IApplicationDataManagerStatics>, ::windows::core::GetTrustLevel, CreateForPackageFamily::<Impl, OFFSET>)
     }
 }

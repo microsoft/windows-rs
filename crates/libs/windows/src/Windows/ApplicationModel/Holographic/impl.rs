@@ -10,9 +10,9 @@ impl ::windows::core::RuntimeName for IHolographicKeyboard {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IHolographicKeyboardVtbl {
-    pub const fn new<Impl: IHolographicKeyboardImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IHolographicKeyboardVtbl {
-        unsafe extern "system" fn SetPlacementOverride<Impl: IHolographicKeyboardImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, coordinatesystem: ::windows::core::RawPtr, topcenterposition: super::super::Foundation::Numerics::Vector3, orientation: super::super::Foundation::Numerics::Quaternion) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHolographicKeyboardImpl, const OFFSET: isize>() -> IHolographicKeyboardVtbl {
+        unsafe extern "system" fn SetPlacementOverride<Impl: IHolographicKeyboardImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, coordinatesystem: ::windows::core::RawPtr, topcenterposition: super::super::Foundation::Numerics::Vector3, orientation: super::super::Foundation::Numerics::Quaternion) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this)
                 .SetPlacementOverride(
                     &*(&coordinatesystem as *const <super::super::Perception::Spatial::SpatialCoordinateSystem as ::windows::core::Abi>::Abi as *const <super::super::Perception::Spatial::SpatialCoordinateSystem as ::windows::core::DefaultType>::DefaultType),
@@ -21,8 +21,8 @@ impl IHolographicKeyboardVtbl {
                 )
                 .into()
         }
-        unsafe extern "system" fn SetPlacementOverrideWithMaxSize<Impl: IHolographicKeyboardImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, coordinatesystem: ::windows::core::RawPtr, topcenterposition: super::super::Foundation::Numerics::Vector3, orientation: super::super::Foundation::Numerics::Quaternion, maxsize: super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn SetPlacementOverrideWithMaxSize<Impl: IHolographicKeyboardImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, coordinatesystem: ::windows::core::RawPtr, topcenterposition: super::super::Foundation::Numerics::Vector3, orientation: super::super::Foundation::Numerics::Quaternion, maxsize: super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this)
                 .SetPlacementOverrideWithMaxSize(
                     &*(&coordinatesystem as *const <super::super::Perception::Spatial::SpatialCoordinateSystem as ::windows::core::Abi>::Abi as *const <super::super::Perception::Spatial::SpatialCoordinateSystem as ::windows::core::DefaultType>::DefaultType),
@@ -32,11 +32,11 @@ impl IHolographicKeyboardVtbl {
                 )
                 .into()
         }
-        unsafe extern "system" fn ResetPlacementOverride<Impl: IHolographicKeyboardImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn ResetPlacementOverride<Impl: IHolographicKeyboardImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ResetPlacementOverride().into()
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IHolographicKeyboard>, base.5, SetPlacementOverride::<Impl, OFFSET>, SetPlacementOverrideWithMaxSize::<Impl, OFFSET>, ResetPlacementOverride::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHolographicKeyboard>, ::windows::core::GetTrustLevel, SetPlacementOverride::<Impl, OFFSET>, SetPlacementOverrideWithMaxSize::<Impl, OFFSET>, ResetPlacementOverride::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -49,9 +49,9 @@ impl ::windows::core::RuntimeName for IHolographicKeyboardStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IHolographicKeyboardStaticsVtbl {
-    pub const fn new<Impl: IHolographicKeyboardStaticsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IHolographicKeyboardStaticsVtbl {
-        unsafe extern "system" fn GetDefault<Impl: IHolographicKeyboardStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHolographicKeyboardStaticsImpl, const OFFSET: isize>() -> IHolographicKeyboardStaticsVtbl {
+        unsafe extern "system" fn GetDefault<Impl: IHolographicKeyboardStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDefault() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -61,6 +61,6 @@ impl IHolographicKeyboardStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IHolographicKeyboardStatics>, base.5, GetDefault::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHolographicKeyboardStatics>, ::windows::core::GetTrustLevel, GetDefault::<Impl, OFFSET>)
     }
 }

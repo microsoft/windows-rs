@@ -6,8 +6,8 @@ impl ::windows::core::RuntimeName for ICoreAppWindowPreview {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ICoreAppWindowPreviewVtbl {
-    pub const fn new<Impl: ICoreAppWindowPreviewImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> ICoreAppWindowPreviewVtbl {
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<ICoreAppWindowPreview>, base.5)
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICoreAppWindowPreviewImpl, const OFFSET: isize>() -> ICoreAppWindowPreviewVtbl {
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICoreAppWindowPreview>, ::windows::core::GetTrustLevel)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -20,9 +20,9 @@ impl ::windows::core::RuntimeName for ICoreAppWindowPreviewStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ICoreAppWindowPreviewStaticsVtbl {
-    pub const fn new<Impl: ICoreAppWindowPreviewStaticsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> ICoreAppWindowPreviewStaticsVtbl {
-        unsafe extern "system" fn GetIdFromWindow<Impl: ICoreAppWindowPreviewStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, window: ::windows::core::RawPtr, result__: *mut i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICoreAppWindowPreviewStaticsImpl, const OFFSET: isize>() -> ICoreAppWindowPreviewStaticsVtbl {
+        unsafe extern "system" fn GetIdFromWindow<Impl: ICoreAppWindowPreviewStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, window: ::windows::core::RawPtr, result__: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetIdFromWindow(&*(&window as *const <super::super::WindowManagement::AppWindow as ::windows::core::Abi>::Abi as *const <super::super::WindowManagement::AppWindow as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -32,7 +32,7 @@ impl ICoreAppWindowPreviewStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<ICoreAppWindowPreviewStatics>, base.5, GetIdFromWindow::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICoreAppWindowPreviewStatics>, ::windows::core::GetTrustLevel, GetIdFromWindow::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -47,9 +47,9 @@ impl ::windows::core::RuntimeName for ISystemNavigationCloseRequestedPreviewEven
 }
 #[cfg(feature = "implement_exclusive")]
 impl ISystemNavigationCloseRequestedPreviewEventArgsVtbl {
-    pub const fn new<Impl: ISystemNavigationCloseRequestedPreviewEventArgsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> ISystemNavigationCloseRequestedPreviewEventArgsVtbl {
-        unsafe extern "system" fn Handled<Impl: ISystemNavigationCloseRequestedPreviewEventArgsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISystemNavigationCloseRequestedPreviewEventArgsImpl, const OFFSET: isize>() -> ISystemNavigationCloseRequestedPreviewEventArgsVtbl {
+        unsafe extern "system" fn Handled<Impl: ISystemNavigationCloseRequestedPreviewEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Handled() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -59,12 +59,12 @@ impl ISystemNavigationCloseRequestedPreviewEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetHandled<Impl: ISystemNavigationCloseRequestedPreviewEventArgsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn SetHandled<Impl: ISystemNavigationCloseRequestedPreviewEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetHandled(value).into()
         }
-        unsafe extern "system" fn GetDeferral<Impl: ISystemNavigationCloseRequestedPreviewEventArgsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn GetDeferral<Impl: ISystemNavigationCloseRequestedPreviewEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDeferral() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -74,7 +74,7 @@ impl ISystemNavigationCloseRequestedPreviewEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<ISystemNavigationCloseRequestedPreviewEventArgs>, base.5, Handled::<Impl, OFFSET>, SetHandled::<Impl, OFFSET>, GetDeferral::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISystemNavigationCloseRequestedPreviewEventArgs>, ::windows::core::GetTrustLevel, Handled::<Impl, OFFSET>, SetHandled::<Impl, OFFSET>, GetDeferral::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -88,9 +88,9 @@ impl ::windows::core::RuntimeName for ISystemNavigationManagerPreview {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ISystemNavigationManagerPreviewVtbl {
-    pub const fn new<Impl: ISystemNavigationManagerPreviewImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> ISystemNavigationManagerPreviewVtbl {
-        unsafe extern "system" fn CloseRequested<Impl: ISystemNavigationManagerPreviewImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISystemNavigationManagerPreviewImpl, const OFFSET: isize>() -> ISystemNavigationManagerPreviewVtbl {
+        unsafe extern "system" fn CloseRequested<Impl: ISystemNavigationManagerPreviewImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CloseRequested(&*(&handler as *const <super::super::super::Foundation::EventHandler<SystemNavigationCloseRequestedPreviewEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventHandler<SystemNavigationCloseRequestedPreviewEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -100,11 +100,11 @@ impl ISystemNavigationManagerPreviewVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveCloseRequested<Impl: ISystemNavigationManagerPreviewImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn RemoveCloseRequested<Impl: ISystemNavigationManagerPreviewImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveCloseRequested(&*(&token as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<ISystemNavigationManagerPreview>, base.5, CloseRequested::<Impl, OFFSET>, RemoveCloseRequested::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISystemNavigationManagerPreview>, ::windows::core::GetTrustLevel, CloseRequested::<Impl, OFFSET>, RemoveCloseRequested::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -117,9 +117,9 @@ impl ::windows::core::RuntimeName for ISystemNavigationManagerPreviewStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ISystemNavigationManagerPreviewStaticsVtbl {
-    pub const fn new<Impl: ISystemNavigationManagerPreviewStaticsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> ISystemNavigationManagerPreviewStaticsVtbl {
-        unsafe extern "system" fn GetForCurrentView<Impl: ISystemNavigationManagerPreviewStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISystemNavigationManagerPreviewStaticsImpl, const OFFSET: isize>() -> ISystemNavigationManagerPreviewStaticsVtbl {
+        unsafe extern "system" fn GetForCurrentView<Impl: ISystemNavigationManagerPreviewStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetForCurrentView() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -129,6 +129,6 @@ impl ISystemNavigationManagerPreviewStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<ISystemNavigationManagerPreviewStatics>, base.5, GetForCurrentView::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISystemNavigationManagerPreviewStatics>, ::windows::core::GetTrustLevel, GetForCurrentView::<Impl, OFFSET>)
     }
 }

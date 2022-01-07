@@ -10,9 +10,9 @@ impl ::windows::core::RuntimeName for IAlternateWordForm {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IAlternateWordFormVtbl {
-    pub const fn new<Impl: IAlternateWordFormImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IAlternateWordFormVtbl {
-        unsafe extern "system" fn SourceTextSegment<Impl: IAlternateWordFormImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut TextSegment) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAlternateWordFormImpl, const OFFSET: isize>() -> IAlternateWordFormVtbl {
+        unsafe extern "system" fn SourceTextSegment<Impl: IAlternateWordFormImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut TextSegment) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SourceTextSegment() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -22,8 +22,8 @@ impl IAlternateWordFormVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AlternateText<Impl: IAlternateWordFormImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn AlternateText<Impl: IAlternateWordFormImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AlternateText() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -33,8 +33,8 @@ impl IAlternateWordFormVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn NormalizationFormat<Impl: IAlternateWordFormImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut AlternateNormalizationFormat) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn NormalizationFormat<Impl: IAlternateWordFormImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut AlternateNormalizationFormat) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).NormalizationFormat() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -44,7 +44,7 @@ impl IAlternateWordFormVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IAlternateWordForm>, base.5, SourceTextSegment::<Impl, OFFSET>, AlternateText::<Impl, OFFSET>, NormalizationFormat::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAlternateWordForm>, ::windows::core::GetTrustLevel, SourceTextSegment::<Impl, OFFSET>, AlternateText::<Impl, OFFSET>, NormalizationFormat::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -58,9 +58,9 @@ impl ::windows::core::RuntimeName for ISelectableWordSegment {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ISelectableWordSegmentVtbl {
-    pub const fn new<Impl: ISelectableWordSegmentImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> ISelectableWordSegmentVtbl {
-        unsafe extern "system" fn Text<Impl: ISelectableWordSegmentImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISelectableWordSegmentImpl, const OFFSET: isize>() -> ISelectableWordSegmentVtbl {
+        unsafe extern "system" fn Text<Impl: ISelectableWordSegmentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Text() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -70,8 +70,8 @@ impl ISelectableWordSegmentVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SourceTextSegment<Impl: ISelectableWordSegmentImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut TextSegment) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn SourceTextSegment<Impl: ISelectableWordSegmentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut TextSegment) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SourceTextSegment() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -81,7 +81,7 @@ impl ISelectableWordSegmentVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<ISelectableWordSegment>, base.5, Text::<Impl, OFFSET>, SourceTextSegment::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISelectableWordSegment>, ::windows::core::GetTrustLevel, Text::<Impl, OFFSET>, SourceTextSegment::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -97,9 +97,9 @@ impl ::windows::core::RuntimeName for ISelectableWordsSegmenter {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ISelectableWordsSegmenterVtbl {
-    pub const fn new<Impl: ISelectableWordsSegmenterImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> ISelectableWordsSegmenterVtbl {
-        unsafe extern "system" fn ResolvedLanguage<Impl: ISelectableWordsSegmenterImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISelectableWordsSegmenterImpl, const OFFSET: isize>() -> ISelectableWordsSegmenterVtbl {
+        unsafe extern "system" fn ResolvedLanguage<Impl: ISelectableWordsSegmenterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ResolvedLanguage() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -109,8 +109,8 @@ impl ISelectableWordsSegmenterVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetTokenAt<Impl: ISelectableWordsSegmenterImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, text: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, startindex: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn GetTokenAt<Impl: ISelectableWordsSegmenterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, text: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, startindex: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetTokenAt(&*(&text as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), startindex) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -120,8 +120,8 @@ impl ISelectableWordsSegmenterVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetTokens<Impl: ISelectableWordsSegmenterImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, text: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn GetTokens<Impl: ISelectableWordsSegmenterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, text: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetTokens(&*(&text as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -131,11 +131,11 @@ impl ISelectableWordsSegmenterVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Tokenize<Impl: ISelectableWordsSegmenterImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, text: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, startindex: u32, handler: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn Tokenize<Impl: ISelectableWordsSegmenterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, text: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, startindex: u32, handler: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Tokenize(&*(&text as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), startindex, &*(&handler as *const <SelectableWordSegmentsTokenizingHandler as ::windows::core::Abi>::Abi as *const <SelectableWordSegmentsTokenizingHandler as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<ISelectableWordsSegmenter>, base.5, ResolvedLanguage::<Impl, OFFSET>, GetTokenAt::<Impl, OFFSET>, GetTokens::<Impl, OFFSET>, Tokenize::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISelectableWordsSegmenter>, ::windows::core::GetTrustLevel, ResolvedLanguage::<Impl, OFFSET>, GetTokenAt::<Impl, OFFSET>, GetTokens::<Impl, OFFSET>, Tokenize::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -148,9 +148,9 @@ impl ::windows::core::RuntimeName for ISelectableWordsSegmenterFactory {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ISelectableWordsSegmenterFactoryVtbl {
-    pub const fn new<Impl: ISelectableWordsSegmenterFactoryImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> ISelectableWordsSegmenterFactoryVtbl {
-        unsafe extern "system" fn CreateWithLanguage<Impl: ISelectableWordsSegmenterFactoryImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, language: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISelectableWordsSegmenterFactoryImpl, const OFFSET: isize>() -> ISelectableWordsSegmenterFactoryVtbl {
+        unsafe extern "system" fn CreateWithLanguage<Impl: ISelectableWordsSegmenterFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, language: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateWithLanguage(&*(&language as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -160,7 +160,7 @@ impl ISelectableWordsSegmenterFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<ISelectableWordsSegmenterFactory>, base.5, CreateWithLanguage::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISelectableWordsSegmenterFactory>, ::windows::core::GetTrustLevel, CreateWithLanguage::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -174,9 +174,9 @@ impl ::windows::core::RuntimeName for ISemanticTextQuery {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ISemanticTextQueryVtbl {
-    pub const fn new<Impl: ISemanticTextQueryImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> ISemanticTextQueryVtbl {
-        unsafe extern "system" fn Find<Impl: ISemanticTextQueryImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, content: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISemanticTextQueryImpl, const OFFSET: isize>() -> ISemanticTextQueryVtbl {
+        unsafe extern "system" fn Find<Impl: ISemanticTextQueryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, content: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Find(&*(&content as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -186,8 +186,8 @@ impl ISemanticTextQueryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn FindInProperty<Impl: ISemanticTextQueryImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, propertycontent: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, propertyname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn FindInProperty<Impl: ISemanticTextQueryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propertycontent: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, propertyname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FindInProperty(&*(&propertycontent as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&propertyname as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -197,7 +197,7 @@ impl ISemanticTextQueryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<ISemanticTextQuery>, base.5, Find::<Impl, OFFSET>, FindInProperty::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISemanticTextQuery>, ::windows::core::GetTrustLevel, Find::<Impl, OFFSET>, FindInProperty::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -211,9 +211,9 @@ impl ::windows::core::RuntimeName for ISemanticTextQueryFactory {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ISemanticTextQueryFactoryVtbl {
-    pub const fn new<Impl: ISemanticTextQueryFactoryImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> ISemanticTextQueryFactoryVtbl {
-        unsafe extern "system" fn Create<Impl: ISemanticTextQueryFactoryImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, aqsfilter: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISemanticTextQueryFactoryImpl, const OFFSET: isize>() -> ISemanticTextQueryFactoryVtbl {
+        unsafe extern "system" fn Create<Impl: ISemanticTextQueryFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, aqsfilter: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(&*(&aqsfilter as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -223,8 +223,8 @@ impl ISemanticTextQueryFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateWithLanguage<Impl: ISemanticTextQueryFactoryImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, aqsfilter: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, filterlanguage: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn CreateWithLanguage<Impl: ISemanticTextQueryFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, aqsfilter: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, filterlanguage: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateWithLanguage(&*(&aqsfilter as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&filterlanguage as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -234,7 +234,7 @@ impl ISemanticTextQueryFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<ISemanticTextQueryFactory>, base.5, Create::<Impl, OFFSET>, CreateWithLanguage::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ISemanticTextQueryFactory>, ::windows::core::GetTrustLevel, Create::<Impl, OFFSET>, CreateWithLanguage::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -250,9 +250,9 @@ impl ::windows::core::RuntimeName for ITextConversionGenerator {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ITextConversionGeneratorVtbl {
-    pub const fn new<Impl: ITextConversionGeneratorImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> ITextConversionGeneratorVtbl {
-        unsafe extern "system" fn ResolvedLanguage<Impl: ITextConversionGeneratorImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITextConversionGeneratorImpl, const OFFSET: isize>() -> ITextConversionGeneratorVtbl {
+        unsafe extern "system" fn ResolvedLanguage<Impl: ITextConversionGeneratorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ResolvedLanguage() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -262,8 +262,8 @@ impl ITextConversionGeneratorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn LanguageAvailableButNotInstalled<Impl: ITextConversionGeneratorImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn LanguageAvailableButNotInstalled<Impl: ITextConversionGeneratorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).LanguageAvailableButNotInstalled() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -273,8 +273,8 @@ impl ITextConversionGeneratorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetCandidatesAsync<Impl: ITextConversionGeneratorImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, input: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn GetCandidatesAsync<Impl: ITextConversionGeneratorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, input: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetCandidatesAsync(&*(&input as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -284,8 +284,8 @@ impl ITextConversionGeneratorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetCandidatesWithMaxCountAsync<Impl: ITextConversionGeneratorImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, input: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, maxcandidates: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn GetCandidatesWithMaxCountAsync<Impl: ITextConversionGeneratorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, input: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, maxcandidates: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetCandidatesWithMaxCountAsync(&*(&input as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), maxcandidates) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -295,7 +295,7 @@ impl ITextConversionGeneratorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<ITextConversionGenerator>, base.5, ResolvedLanguage::<Impl, OFFSET>, LanguageAvailableButNotInstalled::<Impl, OFFSET>, GetCandidatesAsync::<Impl, OFFSET>, GetCandidatesWithMaxCountAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITextConversionGenerator>, ::windows::core::GetTrustLevel, ResolvedLanguage::<Impl, OFFSET>, LanguageAvailableButNotInstalled::<Impl, OFFSET>, GetCandidatesAsync::<Impl, OFFSET>, GetCandidatesWithMaxCountAsync::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -308,9 +308,9 @@ impl ::windows::core::RuntimeName for ITextConversionGeneratorFactory {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ITextConversionGeneratorFactoryVtbl {
-    pub const fn new<Impl: ITextConversionGeneratorFactoryImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> ITextConversionGeneratorFactoryVtbl {
-        unsafe extern "system" fn Create<Impl: ITextConversionGeneratorFactoryImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, languagetag: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITextConversionGeneratorFactoryImpl, const OFFSET: isize>() -> ITextConversionGeneratorFactoryVtbl {
+        unsafe extern "system" fn Create<Impl: ITextConversionGeneratorFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, languagetag: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(&*(&languagetag as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -320,7 +320,7 @@ impl ITextConversionGeneratorFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<ITextConversionGeneratorFactory>, base.5, Create::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITextConversionGeneratorFactory>, ::windows::core::GetTrustLevel, Create::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -334,9 +334,9 @@ impl ::windows::core::RuntimeName for ITextPhoneme {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ITextPhonemeVtbl {
-    pub const fn new<Impl: ITextPhonemeImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> ITextPhonemeVtbl {
-        unsafe extern "system" fn DisplayText<Impl: ITextPhonemeImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITextPhonemeImpl, const OFFSET: isize>() -> ITextPhonemeVtbl {
+        unsafe extern "system" fn DisplayText<Impl: ITextPhonemeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DisplayText() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -346,8 +346,8 @@ impl ITextPhonemeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ReadingText<Impl: ITextPhonemeImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn ReadingText<Impl: ITextPhonemeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ReadingText() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -357,7 +357,7 @@ impl ITextPhonemeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<ITextPhoneme>, base.5, DisplayText::<Impl, OFFSET>, ReadingText::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITextPhoneme>, ::windows::core::GetTrustLevel, DisplayText::<Impl, OFFSET>, ReadingText::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -373,9 +373,9 @@ impl ::windows::core::RuntimeName for ITextPredictionGenerator {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ITextPredictionGeneratorVtbl {
-    pub const fn new<Impl: ITextPredictionGeneratorImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> ITextPredictionGeneratorVtbl {
-        unsafe extern "system" fn ResolvedLanguage<Impl: ITextPredictionGeneratorImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITextPredictionGeneratorImpl, const OFFSET: isize>() -> ITextPredictionGeneratorVtbl {
+        unsafe extern "system" fn ResolvedLanguage<Impl: ITextPredictionGeneratorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ResolvedLanguage() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -385,8 +385,8 @@ impl ITextPredictionGeneratorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn LanguageAvailableButNotInstalled<Impl: ITextPredictionGeneratorImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn LanguageAvailableButNotInstalled<Impl: ITextPredictionGeneratorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).LanguageAvailableButNotInstalled() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -396,8 +396,8 @@ impl ITextPredictionGeneratorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetCandidatesAsync<Impl: ITextPredictionGeneratorImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, input: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn GetCandidatesAsync<Impl: ITextPredictionGeneratorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, input: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetCandidatesAsync(&*(&input as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -407,8 +407,8 @@ impl ITextPredictionGeneratorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetCandidatesWithMaxCountAsync<Impl: ITextPredictionGeneratorImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, input: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, maxcandidates: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn GetCandidatesWithMaxCountAsync<Impl: ITextPredictionGeneratorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, input: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, maxcandidates: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetCandidatesWithMaxCountAsync(&*(&input as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), maxcandidates) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -418,7 +418,7 @@ impl ITextPredictionGeneratorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<ITextPredictionGenerator>, base.5, ResolvedLanguage::<Impl, OFFSET>, LanguageAvailableButNotInstalled::<Impl, OFFSET>, GetCandidatesAsync::<Impl, OFFSET>, GetCandidatesWithMaxCountAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITextPredictionGenerator>, ::windows::core::GetTrustLevel, ResolvedLanguage::<Impl, OFFSET>, LanguageAvailableButNotInstalled::<Impl, OFFSET>, GetCandidatesAsync::<Impl, OFFSET>, GetCandidatesWithMaxCountAsync::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -434,9 +434,9 @@ impl ::windows::core::RuntimeName for ITextPredictionGenerator2 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ITextPredictionGenerator2Vtbl {
-    pub const fn new<Impl: ITextPredictionGenerator2Impl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> ITextPredictionGenerator2Vtbl {
-        unsafe extern "system" fn GetCandidatesWithParametersAsync<Impl: ITextPredictionGenerator2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, input: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, maxcandidates: u32, predictionoptions: TextPredictionOptions, previousstrings: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITextPredictionGenerator2Impl, const OFFSET: isize>() -> ITextPredictionGenerator2Vtbl {
+        unsafe extern "system" fn GetCandidatesWithParametersAsync<Impl: ITextPredictionGenerator2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, input: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, maxcandidates: u32, predictionoptions: TextPredictionOptions, previousstrings: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetCandidatesWithParametersAsync(&*(&input as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), maxcandidates, predictionoptions, &*(&previousstrings as *const <super::super::Foundation::Collections::IIterable<::windows::core::HSTRING> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::IIterable<::windows::core::HSTRING> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -446,8 +446,8 @@ impl ITextPredictionGenerator2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetNextWordCandidatesAsync<Impl: ITextPredictionGenerator2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, maxcandidates: u32, previousstrings: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn GetNextWordCandidatesAsync<Impl: ITextPredictionGenerator2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, maxcandidates: u32, previousstrings: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetNextWordCandidatesAsync(maxcandidates, &*(&previousstrings as *const <super::super::Foundation::Collections::IIterable<::windows::core::HSTRING> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::IIterable<::windows::core::HSTRING> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -457,8 +457,8 @@ impl ITextPredictionGenerator2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn InputScope<Impl: ITextPredictionGenerator2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::UI::Text::Core::CoreTextInputScope) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn InputScope<Impl: ITextPredictionGenerator2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::UI::Text::Core::CoreTextInputScope) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).InputScope() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -468,11 +468,11 @@ impl ITextPredictionGenerator2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetInputScope<Impl: ITextPredictionGenerator2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: super::super::UI::Text::Core::CoreTextInputScope) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn SetInputScope<Impl: ITextPredictionGenerator2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::UI::Text::Core::CoreTextInputScope) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetInputScope(value).into()
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<ITextPredictionGenerator2>, base.5, GetCandidatesWithParametersAsync::<Impl, OFFSET>, GetNextWordCandidatesAsync::<Impl, OFFSET>, InputScope::<Impl, OFFSET>, SetInputScope::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITextPredictionGenerator2>, ::windows::core::GetTrustLevel, GetCandidatesWithParametersAsync::<Impl, OFFSET>, GetNextWordCandidatesAsync::<Impl, OFFSET>, InputScope::<Impl, OFFSET>, SetInputScope::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -485,9 +485,9 @@ impl ::windows::core::RuntimeName for ITextPredictionGeneratorFactory {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ITextPredictionGeneratorFactoryVtbl {
-    pub const fn new<Impl: ITextPredictionGeneratorFactoryImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> ITextPredictionGeneratorFactoryVtbl {
-        unsafe extern "system" fn Create<Impl: ITextPredictionGeneratorFactoryImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, languagetag: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITextPredictionGeneratorFactoryImpl, const OFFSET: isize>() -> ITextPredictionGeneratorFactoryVtbl {
+        unsafe extern "system" fn Create<Impl: ITextPredictionGeneratorFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, languagetag: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(&*(&languagetag as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -497,7 +497,7 @@ impl ITextPredictionGeneratorFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<ITextPredictionGeneratorFactory>, base.5, Create::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITextPredictionGeneratorFactory>, ::windows::core::GetTrustLevel, Create::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -512,9 +512,9 @@ impl ::windows::core::RuntimeName for ITextReverseConversionGenerator {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ITextReverseConversionGeneratorVtbl {
-    pub const fn new<Impl: ITextReverseConversionGeneratorImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> ITextReverseConversionGeneratorVtbl {
-        unsafe extern "system" fn ResolvedLanguage<Impl: ITextReverseConversionGeneratorImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITextReverseConversionGeneratorImpl, const OFFSET: isize>() -> ITextReverseConversionGeneratorVtbl {
+        unsafe extern "system" fn ResolvedLanguage<Impl: ITextReverseConversionGeneratorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ResolvedLanguage() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -524,8 +524,8 @@ impl ITextReverseConversionGeneratorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn LanguageAvailableButNotInstalled<Impl: ITextReverseConversionGeneratorImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn LanguageAvailableButNotInstalled<Impl: ITextReverseConversionGeneratorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).LanguageAvailableButNotInstalled() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -535,8 +535,8 @@ impl ITextReverseConversionGeneratorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ConvertBackAsync<Impl: ITextReverseConversionGeneratorImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, input: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn ConvertBackAsync<Impl: ITextReverseConversionGeneratorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, input: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ConvertBackAsync(&*(&input as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -546,7 +546,7 @@ impl ITextReverseConversionGeneratorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<ITextReverseConversionGenerator>, base.5, ResolvedLanguage::<Impl, OFFSET>, LanguageAvailableButNotInstalled::<Impl, OFFSET>, ConvertBackAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITextReverseConversionGenerator>, ::windows::core::GetTrustLevel, ResolvedLanguage::<Impl, OFFSET>, LanguageAvailableButNotInstalled::<Impl, OFFSET>, ConvertBackAsync::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -559,9 +559,9 @@ impl ::windows::core::RuntimeName for ITextReverseConversionGenerator2 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ITextReverseConversionGenerator2Vtbl {
-    pub const fn new<Impl: ITextReverseConversionGenerator2Impl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> ITextReverseConversionGenerator2Vtbl {
-        unsafe extern "system" fn GetPhonemesAsync<Impl: ITextReverseConversionGenerator2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, input: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITextReverseConversionGenerator2Impl, const OFFSET: isize>() -> ITextReverseConversionGenerator2Vtbl {
+        unsafe extern "system" fn GetPhonemesAsync<Impl: ITextReverseConversionGenerator2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, input: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetPhonemesAsync(&*(&input as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -571,7 +571,7 @@ impl ITextReverseConversionGenerator2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<ITextReverseConversionGenerator2>, base.5, GetPhonemesAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITextReverseConversionGenerator2>, ::windows::core::GetTrustLevel, GetPhonemesAsync::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -584,9 +584,9 @@ impl ::windows::core::RuntimeName for ITextReverseConversionGeneratorFactory {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ITextReverseConversionGeneratorFactoryVtbl {
-    pub const fn new<Impl: ITextReverseConversionGeneratorFactoryImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> ITextReverseConversionGeneratorFactoryVtbl {
-        unsafe extern "system" fn Create<Impl: ITextReverseConversionGeneratorFactoryImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, languagetag: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITextReverseConversionGeneratorFactoryImpl, const OFFSET: isize>() -> ITextReverseConversionGeneratorFactoryVtbl {
+        unsafe extern "system" fn Create<Impl: ITextReverseConversionGeneratorFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, languagetag: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(&*(&languagetag as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -596,7 +596,7 @@ impl ITextReverseConversionGeneratorFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<ITextReverseConversionGeneratorFactory>, base.5, Create::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITextReverseConversionGeneratorFactory>, ::windows::core::GetTrustLevel, Create::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -625,9 +625,9 @@ impl ::windows::core::RuntimeName for IUnicodeCharactersStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IUnicodeCharactersStaticsVtbl {
-    pub const fn new<Impl: IUnicodeCharactersStaticsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IUnicodeCharactersStaticsVtbl {
-        unsafe extern "system" fn GetCodepointFromSurrogatePair<Impl: IUnicodeCharactersStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, highsurrogate: u32, lowsurrogate: u32, result__: *mut u32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUnicodeCharactersStaticsImpl, const OFFSET: isize>() -> IUnicodeCharactersStaticsVtbl {
+        unsafe extern "system" fn GetCodepointFromSurrogatePair<Impl: IUnicodeCharactersStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, highsurrogate: u32, lowsurrogate: u32, result__: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetCodepointFromSurrogatePair(highsurrogate, lowsurrogate) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -637,12 +637,12 @@ impl IUnicodeCharactersStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetSurrogatePairFromCodepoint<Impl: IUnicodeCharactersStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, codepoint: u32, highsurrogate: *mut u16, lowsurrogate: *mut u16) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn GetSurrogatePairFromCodepoint<Impl: IUnicodeCharactersStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, codepoint: u32, highsurrogate: *mut u16, lowsurrogate: *mut u16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).GetSurrogatePairFromCodepoint(codepoint, ::core::mem::transmute_copy(&highsurrogate), ::core::mem::transmute_copy(&lowsurrogate)).into()
         }
-        unsafe extern "system" fn IsHighSurrogate<Impl: IUnicodeCharactersStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, codepoint: u32, result__: *mut bool) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn IsHighSurrogate<Impl: IUnicodeCharactersStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, codepoint: u32, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsHighSurrogate(codepoint) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -652,8 +652,8 @@ impl IUnicodeCharactersStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsLowSurrogate<Impl: IUnicodeCharactersStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, codepoint: u32, result__: *mut bool) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn IsLowSurrogate<Impl: IUnicodeCharactersStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, codepoint: u32, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsLowSurrogate(codepoint) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -663,8 +663,8 @@ impl IUnicodeCharactersStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsSupplementary<Impl: IUnicodeCharactersStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, codepoint: u32, result__: *mut bool) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn IsSupplementary<Impl: IUnicodeCharactersStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, codepoint: u32, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsSupplementary(codepoint) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -674,8 +674,8 @@ impl IUnicodeCharactersStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsNoncharacter<Impl: IUnicodeCharactersStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, codepoint: u32, result__: *mut bool) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn IsNoncharacter<Impl: IUnicodeCharactersStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, codepoint: u32, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsNoncharacter(codepoint) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -685,8 +685,8 @@ impl IUnicodeCharactersStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsWhitespace<Impl: IUnicodeCharactersStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, codepoint: u32, result__: *mut bool) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn IsWhitespace<Impl: IUnicodeCharactersStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, codepoint: u32, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsWhitespace(codepoint) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -696,8 +696,8 @@ impl IUnicodeCharactersStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsAlphabetic<Impl: IUnicodeCharactersStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, codepoint: u32, result__: *mut bool) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn IsAlphabetic<Impl: IUnicodeCharactersStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, codepoint: u32, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsAlphabetic(codepoint) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -707,8 +707,8 @@ impl IUnicodeCharactersStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsCased<Impl: IUnicodeCharactersStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, codepoint: u32, result__: *mut bool) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn IsCased<Impl: IUnicodeCharactersStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, codepoint: u32, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsCased(codepoint) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -718,8 +718,8 @@ impl IUnicodeCharactersStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsUppercase<Impl: IUnicodeCharactersStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, codepoint: u32, result__: *mut bool) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn IsUppercase<Impl: IUnicodeCharactersStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, codepoint: u32, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsUppercase(codepoint) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -729,8 +729,8 @@ impl IUnicodeCharactersStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsLowercase<Impl: IUnicodeCharactersStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, codepoint: u32, result__: *mut bool) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn IsLowercase<Impl: IUnicodeCharactersStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, codepoint: u32, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsLowercase(codepoint) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -740,8 +740,8 @@ impl IUnicodeCharactersStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsIdStart<Impl: IUnicodeCharactersStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, codepoint: u32, result__: *mut bool) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn IsIdStart<Impl: IUnicodeCharactersStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, codepoint: u32, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsIdStart(codepoint) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -751,8 +751,8 @@ impl IUnicodeCharactersStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsIdContinue<Impl: IUnicodeCharactersStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, codepoint: u32, result__: *mut bool) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn IsIdContinue<Impl: IUnicodeCharactersStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, codepoint: u32, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsIdContinue(codepoint) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -762,8 +762,8 @@ impl IUnicodeCharactersStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsGraphemeBase<Impl: IUnicodeCharactersStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, codepoint: u32, result__: *mut bool) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn IsGraphemeBase<Impl: IUnicodeCharactersStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, codepoint: u32, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsGraphemeBase(codepoint) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -773,8 +773,8 @@ impl IUnicodeCharactersStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsGraphemeExtend<Impl: IUnicodeCharactersStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, codepoint: u32, result__: *mut bool) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn IsGraphemeExtend<Impl: IUnicodeCharactersStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, codepoint: u32, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsGraphemeExtend(codepoint) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -784,8 +784,8 @@ impl IUnicodeCharactersStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetNumericType<Impl: IUnicodeCharactersStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, codepoint: u32, result__: *mut UnicodeNumericType) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn GetNumericType<Impl: IUnicodeCharactersStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, codepoint: u32, result__: *mut UnicodeNumericType) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetNumericType(codepoint) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -795,8 +795,8 @@ impl IUnicodeCharactersStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetGeneralCategory<Impl: IUnicodeCharactersStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, codepoint: u32, result__: *mut UnicodeGeneralCategory) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn GetGeneralCategory<Impl: IUnicodeCharactersStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, codepoint: u32, result__: *mut UnicodeGeneralCategory) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetGeneralCategory(codepoint) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -807,12 +807,12 @@ impl IUnicodeCharactersStaticsVtbl {
             }
         }
         Self(
-            base.0,
-            base.1,
-            base.2,
-            base.3,
+            ::windows::core::QueryInterface::<Identity, OFFSET>,
+            ::windows::core::AddRef::<Identity, OFFSET>,
+            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IUnicodeCharactersStatics>,
-            base.5,
+            ::windows::core::GetTrustLevel,
             GetCodepointFromSurrogatePair::<Impl, OFFSET>,
             GetSurrogatePairFromCodepoint::<Impl, OFFSET>,
             IsHighSurrogate::<Impl, OFFSET>,
@@ -845,9 +845,9 @@ impl ::windows::core::RuntimeName for IWordSegment {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IWordSegmentVtbl {
-    pub const fn new<Impl: IWordSegmentImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IWordSegmentVtbl {
-        unsafe extern "system" fn Text<Impl: IWordSegmentImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWordSegmentImpl, const OFFSET: isize>() -> IWordSegmentVtbl {
+        unsafe extern "system" fn Text<Impl: IWordSegmentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Text() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -857,8 +857,8 @@ impl IWordSegmentVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SourceTextSegment<Impl: IWordSegmentImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut TextSegment) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn SourceTextSegment<Impl: IWordSegmentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut TextSegment) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SourceTextSegment() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -868,8 +868,8 @@ impl IWordSegmentVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AlternateForms<Impl: IWordSegmentImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn AlternateForms<Impl: IWordSegmentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AlternateForms() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -879,7 +879,7 @@ impl IWordSegmentVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IWordSegment>, base.5, Text::<Impl, OFFSET>, SourceTextSegment::<Impl, OFFSET>, AlternateForms::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWordSegment>, ::windows::core::GetTrustLevel, Text::<Impl, OFFSET>, SourceTextSegment::<Impl, OFFSET>, AlternateForms::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -895,9 +895,9 @@ impl ::windows::core::RuntimeName for IWordsSegmenter {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IWordsSegmenterVtbl {
-    pub const fn new<Impl: IWordsSegmenterImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IWordsSegmenterVtbl {
-        unsafe extern "system" fn ResolvedLanguage<Impl: IWordsSegmenterImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWordsSegmenterImpl, const OFFSET: isize>() -> IWordsSegmenterVtbl {
+        unsafe extern "system" fn ResolvedLanguage<Impl: IWordsSegmenterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ResolvedLanguage() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -907,8 +907,8 @@ impl IWordsSegmenterVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetTokenAt<Impl: IWordsSegmenterImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, text: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, startindex: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn GetTokenAt<Impl: IWordsSegmenterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, text: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, startindex: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetTokenAt(&*(&text as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), startindex) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -918,8 +918,8 @@ impl IWordsSegmenterVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetTokens<Impl: IWordsSegmenterImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, text: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn GetTokens<Impl: IWordsSegmenterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, text: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetTokens(&*(&text as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -929,11 +929,11 @@ impl IWordsSegmenterVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Tokenize<Impl: IWordsSegmenterImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, text: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, startindex: u32, handler: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn Tokenize<Impl: IWordsSegmenterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, text: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, startindex: u32, handler: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Tokenize(&*(&text as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), startindex, &*(&handler as *const <WordSegmentsTokenizingHandler as ::windows::core::Abi>::Abi as *const <WordSegmentsTokenizingHandler as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IWordsSegmenter>, base.5, ResolvedLanguage::<Impl, OFFSET>, GetTokenAt::<Impl, OFFSET>, GetTokens::<Impl, OFFSET>, Tokenize::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWordsSegmenter>, ::windows::core::GetTrustLevel, ResolvedLanguage::<Impl, OFFSET>, GetTokenAt::<Impl, OFFSET>, GetTokens::<Impl, OFFSET>, Tokenize::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -946,9 +946,9 @@ impl ::windows::core::RuntimeName for IWordsSegmenterFactory {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IWordsSegmenterFactoryVtbl {
-    pub const fn new<Impl: IWordsSegmenterFactoryImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IWordsSegmenterFactoryVtbl {
-        unsafe extern "system" fn CreateWithLanguage<Impl: IWordsSegmenterFactoryImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, language: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWordsSegmenterFactoryImpl, const OFFSET: isize>() -> IWordsSegmenterFactoryVtbl {
+        unsafe extern "system" fn CreateWithLanguage<Impl: IWordsSegmenterFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, language: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateWithLanguage(&*(&language as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -958,6 +958,6 @@ impl IWordsSegmenterFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IWordsSegmenterFactory>, base.5, CreateWithLanguage::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWordsSegmenterFactory>, ::windows::core::GetTrustLevel, CreateWithLanguage::<Impl, OFFSET>)
     }
 }

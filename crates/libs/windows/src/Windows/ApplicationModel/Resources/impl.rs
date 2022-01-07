@@ -8,9 +8,9 @@ impl ::windows::core::RuntimeName for IResourceLoader {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IResourceLoaderVtbl {
-    pub const fn new<Impl: IResourceLoaderImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IResourceLoaderVtbl {
-        unsafe extern "system" fn GetString<Impl: IResourceLoaderImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, resource: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IResourceLoaderImpl, const OFFSET: isize>() -> IResourceLoaderVtbl {
+        unsafe extern "system" fn GetString<Impl: IResourceLoaderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, resource: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetString(&*(&resource as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -20,7 +20,7 @@ impl IResourceLoaderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IResourceLoader>, base.5, GetString::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IResourceLoader>, ::windows::core::GetTrustLevel, GetString::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -33,9 +33,9 @@ impl ::windows::core::RuntimeName for IResourceLoader2 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IResourceLoader2Vtbl {
-    pub const fn new<Impl: IResourceLoader2Impl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IResourceLoader2Vtbl {
-        unsafe extern "system" fn GetStringForUri<Impl: IResourceLoader2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, uri: ::windows::core::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IResourceLoader2Impl, const OFFSET: isize>() -> IResourceLoader2Vtbl {
+        unsafe extern "system" fn GetStringForUri<Impl: IResourceLoader2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, uri: ::windows::core::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetStringForUri(&*(&uri as *const <super::super::Foundation::Uri as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Uri as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -45,7 +45,7 @@ impl IResourceLoader2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IResourceLoader2>, base.5, GetStringForUri::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IResourceLoader2>, ::windows::core::GetTrustLevel, GetStringForUri::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -58,9 +58,9 @@ impl ::windows::core::RuntimeName for IResourceLoaderFactory {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IResourceLoaderFactoryVtbl {
-    pub const fn new<Impl: IResourceLoaderFactoryImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IResourceLoaderFactoryVtbl {
-        unsafe extern "system" fn CreateResourceLoaderByName<Impl: IResourceLoaderFactoryImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IResourceLoaderFactoryImpl, const OFFSET: isize>() -> IResourceLoaderFactoryVtbl {
+        unsafe extern "system" fn CreateResourceLoaderByName<Impl: IResourceLoaderFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateResourceLoaderByName(&*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -70,7 +70,7 @@ impl IResourceLoaderFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IResourceLoaderFactory>, base.5, CreateResourceLoaderByName::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IResourceLoaderFactory>, ::windows::core::GetTrustLevel, CreateResourceLoaderByName::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -83,9 +83,9 @@ impl ::windows::core::RuntimeName for IResourceLoaderStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IResourceLoaderStaticsVtbl {
-    pub const fn new<Impl: IResourceLoaderStaticsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IResourceLoaderStaticsVtbl {
-        unsafe extern "system" fn GetStringForReference<Impl: IResourceLoaderStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, uri: ::windows::core::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IResourceLoaderStaticsImpl, const OFFSET: isize>() -> IResourceLoaderStaticsVtbl {
+        unsafe extern "system" fn GetStringForReference<Impl: IResourceLoaderStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, uri: ::windows::core::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetStringForReference(&*(&uri as *const <super::super::Foundation::Uri as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Uri as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -95,7 +95,7 @@ impl IResourceLoaderStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IResourceLoaderStatics>, base.5, GetStringForReference::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IResourceLoaderStatics>, ::windows::core::GetTrustLevel, GetStringForReference::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -111,9 +111,9 @@ impl ::windows::core::RuntimeName for IResourceLoaderStatics2 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IResourceLoaderStatics2Vtbl {
-    pub const fn new<Impl: IResourceLoaderStatics2Impl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IResourceLoaderStatics2Vtbl {
-        unsafe extern "system" fn GetForCurrentView<Impl: IResourceLoaderStatics2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IResourceLoaderStatics2Impl, const OFFSET: isize>() -> IResourceLoaderStatics2Vtbl {
+        unsafe extern "system" fn GetForCurrentView<Impl: IResourceLoaderStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetForCurrentView() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -123,8 +123,8 @@ impl IResourceLoaderStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetForCurrentViewWithName<Impl: IResourceLoaderStatics2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn GetForCurrentViewWithName<Impl: IResourceLoaderStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetForCurrentViewWithName(&*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -134,8 +134,8 @@ impl IResourceLoaderStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetForViewIndependentUse<Impl: IResourceLoaderStatics2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn GetForViewIndependentUse<Impl: IResourceLoaderStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetForViewIndependentUse() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -145,8 +145,8 @@ impl IResourceLoaderStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetForViewIndependentUseWithName<Impl: IResourceLoaderStatics2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn GetForViewIndependentUseWithName<Impl: IResourceLoaderStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetForViewIndependentUseWithName(&*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -156,7 +156,7 @@ impl IResourceLoaderStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IResourceLoaderStatics2>, base.5, GetForCurrentView::<Impl, OFFSET>, GetForCurrentViewWithName::<Impl, OFFSET>, GetForViewIndependentUse::<Impl, OFFSET>, GetForViewIndependentUseWithName::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IResourceLoaderStatics2>, ::windows::core::GetTrustLevel, GetForCurrentView::<Impl, OFFSET>, GetForCurrentViewWithName::<Impl, OFFSET>, GetForViewIndependentUse::<Impl, OFFSET>, GetForViewIndependentUseWithName::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -169,9 +169,9 @@ impl ::windows::core::RuntimeName for IResourceLoaderStatics3 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IResourceLoaderStatics3Vtbl {
-    pub const fn new<Impl: IResourceLoaderStatics3Impl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IResourceLoaderStatics3Vtbl {
-        unsafe extern "system" fn GetForUIContext<Impl: IResourceLoaderStatics3Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, context: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IResourceLoaderStatics3Impl, const OFFSET: isize>() -> IResourceLoaderStatics3Vtbl {
+        unsafe extern "system" fn GetForUIContext<Impl: IResourceLoaderStatics3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, context: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetForUIContext(&*(&context as *const <super::super::UI::UIContext as ::windows::core::Abi>::Abi as *const <super::super::UI::UIContext as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -181,7 +181,7 @@ impl IResourceLoaderStatics3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IResourceLoaderStatics3>, base.5, GetForUIContext::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IResourceLoaderStatics3>, ::windows::core::GetTrustLevel, GetForUIContext::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -194,9 +194,9 @@ impl ::windows::core::RuntimeName for IResourceLoaderStatics4 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IResourceLoaderStatics4Vtbl {
-    pub const fn new<Impl: IResourceLoaderStatics4Impl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IResourceLoaderStatics4Vtbl {
-        unsafe extern "system" fn GetDefaultPriPath<Impl: IResourceLoaderStatics4Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, packagefullname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IResourceLoaderStatics4Impl, const OFFSET: isize>() -> IResourceLoaderStatics4Vtbl {
+        unsafe extern "system" fn GetDefaultPriPath<Impl: IResourceLoaderStatics4Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, packagefullname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDefaultPriPath(&*(&packagefullname as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -206,6 +206,6 @@ impl IResourceLoaderStatics4Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IResourceLoaderStatics4>, base.5, GetDefaultPriPath::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IResourceLoaderStatics4>, ::windows::core::GetTrustLevel, GetDefaultPriPath::<Impl, OFFSET>)
     }
 }

@@ -12,9 +12,9 @@ impl ::windows::core::RuntimeName for IEnterpriseKeyCredentialRegistrationInfo {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IEnterpriseKeyCredentialRegistrationInfoVtbl {
-    pub const fn new<Impl: IEnterpriseKeyCredentialRegistrationInfoImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IEnterpriseKeyCredentialRegistrationInfoVtbl {
-        unsafe extern "system" fn TenantId<Impl: IEnterpriseKeyCredentialRegistrationInfoImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEnterpriseKeyCredentialRegistrationInfoImpl, const OFFSET: isize>() -> IEnterpriseKeyCredentialRegistrationInfoVtbl {
+        unsafe extern "system" fn TenantId<Impl: IEnterpriseKeyCredentialRegistrationInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TenantId() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -24,8 +24,8 @@ impl IEnterpriseKeyCredentialRegistrationInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TenantName<Impl: IEnterpriseKeyCredentialRegistrationInfoImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn TenantName<Impl: IEnterpriseKeyCredentialRegistrationInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TenantName() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -35,8 +35,8 @@ impl IEnterpriseKeyCredentialRegistrationInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Subject<Impl: IEnterpriseKeyCredentialRegistrationInfoImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn Subject<Impl: IEnterpriseKeyCredentialRegistrationInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Subject() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -46,8 +46,8 @@ impl IEnterpriseKeyCredentialRegistrationInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn KeyId<Impl: IEnterpriseKeyCredentialRegistrationInfoImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn KeyId<Impl: IEnterpriseKeyCredentialRegistrationInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).KeyId() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -57,8 +57,8 @@ impl IEnterpriseKeyCredentialRegistrationInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn KeyName<Impl: IEnterpriseKeyCredentialRegistrationInfoImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn KeyName<Impl: IEnterpriseKeyCredentialRegistrationInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).KeyName() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -68,7 +68,7 @@ impl IEnterpriseKeyCredentialRegistrationInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IEnterpriseKeyCredentialRegistrationInfo>, base.5, TenantId::<Impl, OFFSET>, TenantName::<Impl, OFFSET>, Subject::<Impl, OFFSET>, KeyId::<Impl, OFFSET>, KeyName::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEnterpriseKeyCredentialRegistrationInfo>, ::windows::core::GetTrustLevel, TenantId::<Impl, OFFSET>, TenantName::<Impl, OFFSET>, Subject::<Impl, OFFSET>, KeyId::<Impl, OFFSET>, KeyName::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -81,9 +81,9 @@ impl ::windows::core::RuntimeName for IEnterpriseKeyCredentialRegistrationManage
 }
 #[cfg(feature = "implement_exclusive")]
 impl IEnterpriseKeyCredentialRegistrationManagerVtbl {
-    pub const fn new<Impl: IEnterpriseKeyCredentialRegistrationManagerImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IEnterpriseKeyCredentialRegistrationManagerVtbl {
-        unsafe extern "system" fn GetRegistrationsAsync<Impl: IEnterpriseKeyCredentialRegistrationManagerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEnterpriseKeyCredentialRegistrationManagerImpl, const OFFSET: isize>() -> IEnterpriseKeyCredentialRegistrationManagerVtbl {
+        unsafe extern "system" fn GetRegistrationsAsync<Impl: IEnterpriseKeyCredentialRegistrationManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetRegistrationsAsync() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -93,7 +93,7 @@ impl IEnterpriseKeyCredentialRegistrationManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IEnterpriseKeyCredentialRegistrationManager>, base.5, GetRegistrationsAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEnterpriseKeyCredentialRegistrationManager>, ::windows::core::GetTrustLevel, GetRegistrationsAsync::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -106,9 +106,9 @@ impl ::windows::core::RuntimeName for IEnterpriseKeyCredentialRegistrationManage
 }
 #[cfg(feature = "implement_exclusive")]
 impl IEnterpriseKeyCredentialRegistrationManagerStaticsVtbl {
-    pub const fn new<Impl: IEnterpriseKeyCredentialRegistrationManagerStaticsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IEnterpriseKeyCredentialRegistrationManagerStaticsVtbl {
-        unsafe extern "system" fn Current<Impl: IEnterpriseKeyCredentialRegistrationManagerStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEnterpriseKeyCredentialRegistrationManagerStaticsImpl, const OFFSET: isize>() -> IEnterpriseKeyCredentialRegistrationManagerStaticsVtbl {
+        unsafe extern "system" fn Current<Impl: IEnterpriseKeyCredentialRegistrationManagerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Current() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -118,6 +118,6 @@ impl IEnterpriseKeyCredentialRegistrationManagerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IEnterpriseKeyCredentialRegistrationManagerStatics>, base.5, Current::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IEnterpriseKeyCredentialRegistrationManagerStatics>, ::windows::core::GetTrustLevel, Current::<Impl, OFFSET>)
     }
 }

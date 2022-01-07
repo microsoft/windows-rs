@@ -1503,7 +1503,7 @@ unsafe impl ::windows::core::Interface for ID3DBlob {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ID3DBlobVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> *mut ::core::ffi::c_void, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> usize);
+pub struct ID3DBlobVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: *const ::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> *mut ::core::ffi::c_void, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> usize);
 #[doc = "*Required features: 'Win32_Graphics_Direct3D'*"]
 #[repr(transparent)]
 pub struct ID3DDestructionNotifier(::windows::core::IUnknown);
@@ -1561,7 +1561,7 @@ unsafe impl ::windows::core::Interface for ID3DDestructionNotifier {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3DDestructionNotifierVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: *const ::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, callbackfn: ::windows::core::RawPtr, pdata: *const ::core::ffi::c_void, pcallbackid: *mut u32) -> ::windows::core::HRESULT,

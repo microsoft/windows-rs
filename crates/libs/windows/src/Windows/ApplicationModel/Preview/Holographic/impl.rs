@@ -9,9 +9,9 @@ impl ::windows::core::RuntimeName for IHolographicApplicationPreviewStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IHolographicApplicationPreviewStaticsVtbl {
-    pub const fn new<Impl: IHolographicApplicationPreviewStaticsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IHolographicApplicationPreviewStaticsVtbl {
-        unsafe extern "system" fn IsCurrentViewPresentedOnHolographicDisplay<Impl: IHolographicApplicationPreviewStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHolographicApplicationPreviewStaticsImpl, const OFFSET: isize>() -> IHolographicApplicationPreviewStaticsVtbl {
+        unsafe extern "system" fn IsCurrentViewPresentedOnHolographicDisplay<Impl: IHolographicApplicationPreviewStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsCurrentViewPresentedOnHolographicDisplay() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -21,8 +21,8 @@ impl IHolographicApplicationPreviewStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsHolographicActivation<Impl: IHolographicApplicationPreviewStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, activatedeventargs: ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn IsHolographicActivation<Impl: IHolographicApplicationPreviewStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, activatedeventargs: ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsHolographicActivation(&*(&activatedeventargs as *const <super::super::Activation::IActivatedEventArgs as ::windows::core::Abi>::Abi as *const <super::super::Activation::IActivatedEventArgs as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -32,7 +32,7 @@ impl IHolographicApplicationPreviewStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IHolographicApplicationPreviewStatics>, base.5, IsCurrentViewPresentedOnHolographicDisplay::<Impl, OFFSET>, IsHolographicActivation::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHolographicApplicationPreviewStatics>, ::windows::core::GetTrustLevel, IsCurrentViewPresentedOnHolographicDisplay::<Impl, OFFSET>, IsHolographicActivation::<Impl, OFFSET>)
     }
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
@@ -47,9 +47,9 @@ impl ::windows::core::RuntimeName for IHolographicKeyboardPlacementOverridePrevi
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
 impl IHolographicKeyboardPlacementOverridePreviewVtbl {
-    pub const fn new<Impl: IHolographicKeyboardPlacementOverridePreviewImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IHolographicKeyboardPlacementOverridePreviewVtbl {
-        unsafe extern "system" fn SetPlacementOverride<Impl: IHolographicKeyboardPlacementOverridePreviewImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, coordinatesystem: ::windows::core::RawPtr, topcenterposition: super::super::super::Foundation::Numerics::Vector3, normal: super::super::super::Foundation::Numerics::Vector3) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHolographicKeyboardPlacementOverridePreviewImpl, const OFFSET: isize>() -> IHolographicKeyboardPlacementOverridePreviewVtbl {
+        unsafe extern "system" fn SetPlacementOverride<Impl: IHolographicKeyboardPlacementOverridePreviewImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, coordinatesystem: ::windows::core::RawPtr, topcenterposition: super::super::super::Foundation::Numerics::Vector3, normal: super::super::super::Foundation::Numerics::Vector3) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this)
                 .SetPlacementOverride(
                     &*(&coordinatesystem as *const <super::super::super::Perception::Spatial::SpatialCoordinateSystem as ::windows::core::Abi>::Abi as *const <super::super::super::Perception::Spatial::SpatialCoordinateSystem as ::windows::core::DefaultType>::DefaultType),
@@ -58,8 +58,8 @@ impl IHolographicKeyboardPlacementOverridePreviewVtbl {
                 )
                 .into()
         }
-        unsafe extern "system" fn SetPlacementOverrideWithMaxSize<Impl: IHolographicKeyboardPlacementOverridePreviewImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, coordinatesystem: ::windows::core::RawPtr, topcenterposition: super::super::super::Foundation::Numerics::Vector3, normal: super::super::super::Foundation::Numerics::Vector3, maxsize: super::super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn SetPlacementOverrideWithMaxSize<Impl: IHolographicKeyboardPlacementOverridePreviewImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, coordinatesystem: ::windows::core::RawPtr, topcenterposition: super::super::super::Foundation::Numerics::Vector3, normal: super::super::super::Foundation::Numerics::Vector3, maxsize: super::super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this)
                 .SetPlacementOverrideWithMaxSize(
                     &*(&coordinatesystem as *const <super::super::super::Perception::Spatial::SpatialCoordinateSystem as ::windows::core::Abi>::Abi as *const <super::super::super::Perception::Spatial::SpatialCoordinateSystem as ::windows::core::DefaultType>::DefaultType),
@@ -69,11 +69,11 @@ impl IHolographicKeyboardPlacementOverridePreviewVtbl {
                 )
                 .into()
         }
-        unsafe extern "system" fn ResetPlacementOverride<Impl: IHolographicKeyboardPlacementOverridePreviewImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn ResetPlacementOverride<Impl: IHolographicKeyboardPlacementOverridePreviewImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ResetPlacementOverride().into()
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IHolographicKeyboardPlacementOverridePreview>, base.5, SetPlacementOverride::<Impl, OFFSET>, SetPlacementOverrideWithMaxSize::<Impl, OFFSET>, ResetPlacementOverride::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHolographicKeyboardPlacementOverridePreview>, ::windows::core::GetTrustLevel, SetPlacementOverride::<Impl, OFFSET>, SetPlacementOverrideWithMaxSize::<Impl, OFFSET>, ResetPlacementOverride::<Impl, OFFSET>)
     }
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
@@ -86,9 +86,9 @@ impl ::windows::core::RuntimeName for IHolographicKeyboardPlacementOverridePrevi
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
 impl IHolographicKeyboardPlacementOverridePreviewStaticsVtbl {
-    pub const fn new<Impl: IHolographicKeyboardPlacementOverridePreviewStaticsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IHolographicKeyboardPlacementOverridePreviewStaticsVtbl {
-        unsafe extern "system" fn GetForCurrentView<Impl: IHolographicKeyboardPlacementOverridePreviewStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHolographicKeyboardPlacementOverridePreviewStaticsImpl, const OFFSET: isize>() -> IHolographicKeyboardPlacementOverridePreviewStaticsVtbl {
+        unsafe extern "system" fn GetForCurrentView<Impl: IHolographicKeyboardPlacementOverridePreviewStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetForCurrentView() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -98,6 +98,6 @@ impl IHolographicKeyboardPlacementOverridePreviewStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IHolographicKeyboardPlacementOverridePreviewStatics>, base.5, GetForCurrentView::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHolographicKeyboardPlacementOverridePreviewStatics>, ::windows::core::GetTrustLevel, GetForCurrentView::<Impl, OFFSET>)
     }
 }

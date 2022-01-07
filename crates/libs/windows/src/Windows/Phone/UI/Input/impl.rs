@@ -9,9 +9,9 @@ impl ::windows::core::RuntimeName for IBackPressedEventArgs {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IBackPressedEventArgsVtbl {
-    pub const fn new<Impl: IBackPressedEventArgsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IBackPressedEventArgsVtbl {
-        unsafe extern "system" fn Handled<Impl: IBackPressedEventArgsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBackPressedEventArgsImpl, const OFFSET: isize>() -> IBackPressedEventArgsVtbl {
+        unsafe extern "system" fn Handled<Impl: IBackPressedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Handled() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -21,11 +21,11 @@ impl IBackPressedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetHandled<Impl: IBackPressedEventArgsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn SetHandled<Impl: IBackPressedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetHandled(value).into()
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IBackPressedEventArgs>, base.5, Handled::<Impl, OFFSET>, SetHandled::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IBackPressedEventArgs>, ::windows::core::GetTrustLevel, Handled::<Impl, OFFSET>, SetHandled::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -36,8 +36,8 @@ impl ::windows::core::RuntimeName for ICameraEventArgs {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ICameraEventArgsVtbl {
-    pub const fn new<Impl: ICameraEventArgsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> ICameraEventArgsVtbl {
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<ICameraEventArgs>, base.5)
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICameraEventArgsImpl, const OFFSET: isize>() -> ICameraEventArgsVtbl {
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ICameraEventArgs>, ::windows::core::GetTrustLevel)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -51,9 +51,9 @@ impl ::windows::core::RuntimeName for IHardwareButtonsStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IHardwareButtonsStaticsVtbl {
-    pub const fn new<Impl: IHardwareButtonsStaticsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IHardwareButtonsStaticsVtbl {
-        unsafe extern "system" fn BackPressed<Impl: IHardwareButtonsStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHardwareButtonsStaticsImpl, const OFFSET: isize>() -> IHardwareButtonsStaticsVtbl {
+        unsafe extern "system" fn BackPressed<Impl: IHardwareButtonsStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BackPressed(&*(&handler as *const <super::super::super::Foundation::EventHandler<BackPressedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventHandler<BackPressedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -63,11 +63,11 @@ impl IHardwareButtonsStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveBackPressed<Impl: IHardwareButtonsStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn RemoveBackPressed<Impl: IHardwareButtonsStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveBackPressed(&*(&token as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IHardwareButtonsStatics>, base.5, BackPressed::<Impl, OFFSET>, RemoveBackPressed::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHardwareButtonsStatics>, ::windows::core::GetTrustLevel, BackPressed::<Impl, OFFSET>, RemoveBackPressed::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -85,9 +85,9 @@ impl ::windows::core::RuntimeName for IHardwareButtonsStatics2 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IHardwareButtonsStatics2Vtbl {
-    pub const fn new<Impl: IHardwareButtonsStatics2Impl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IHardwareButtonsStatics2Vtbl {
-        unsafe extern "system" fn CameraHalfPressed<Impl: IHardwareButtonsStatics2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHardwareButtonsStatics2Impl, const OFFSET: isize>() -> IHardwareButtonsStatics2Vtbl {
+        unsafe extern "system" fn CameraHalfPressed<Impl: IHardwareButtonsStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CameraHalfPressed(&*(&handler as *const <super::super::super::Foundation::EventHandler<CameraEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventHandler<CameraEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -97,12 +97,12 @@ impl IHardwareButtonsStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveCameraHalfPressed<Impl: IHardwareButtonsStatics2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn RemoveCameraHalfPressed<Impl: IHardwareButtonsStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveCameraHalfPressed(&*(&token as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn CameraPressed<Impl: IHardwareButtonsStatics2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn CameraPressed<Impl: IHardwareButtonsStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CameraPressed(&*(&handler as *const <super::super::super::Foundation::EventHandler<CameraEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventHandler<CameraEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -112,12 +112,12 @@ impl IHardwareButtonsStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveCameraPressed<Impl: IHardwareButtonsStatics2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn RemoveCameraPressed<Impl: IHardwareButtonsStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveCameraPressed(&*(&token as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn CameraReleased<Impl: IHardwareButtonsStatics2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn CameraReleased<Impl: IHardwareButtonsStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CameraReleased(&*(&handler as *const <super::super::super::Foundation::EventHandler<CameraEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventHandler<CameraEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -127,10 +127,10 @@ impl IHardwareButtonsStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveCameraReleased<Impl: IHardwareButtonsStatics2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn RemoveCameraReleased<Impl: IHardwareButtonsStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveCameraReleased(&*(&token as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IHardwareButtonsStatics2>, base.5, CameraHalfPressed::<Impl, OFFSET>, RemoveCameraHalfPressed::<Impl, OFFSET>, CameraPressed::<Impl, OFFSET>, RemoveCameraPressed::<Impl, OFFSET>, CameraReleased::<Impl, OFFSET>, RemoveCameraReleased::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHardwareButtonsStatics2>, ::windows::core::GetTrustLevel, CameraHalfPressed::<Impl, OFFSET>, RemoveCameraHalfPressed::<Impl, OFFSET>, CameraPressed::<Impl, OFFSET>, RemoveCameraPressed::<Impl, OFFSET>, CameraReleased::<Impl, OFFSET>, RemoveCameraReleased::<Impl, OFFSET>)
     }
 }

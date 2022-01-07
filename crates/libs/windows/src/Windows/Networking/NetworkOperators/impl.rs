@@ -19,9 +19,9 @@ impl ::windows::core::RuntimeName for IESim {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IESimVtbl {
-    pub const fn new<Impl: IESimImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IESimVtbl {
-        unsafe extern "system" fn AvailableMemoryInBytes<Impl: IESimImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IESimImpl, const OFFSET: isize>() -> IESimVtbl {
+        unsafe extern "system" fn AvailableMemoryInBytes<Impl: IESimImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AvailableMemoryInBytes() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -31,8 +31,8 @@ impl IESimVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Eid<Impl: IESimImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn Eid<Impl: IESimImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Eid() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -42,8 +42,8 @@ impl IESimVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn FirmwareVersion<Impl: IESimImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn FirmwareVersion<Impl: IESimImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FirmwareVersion() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -53,8 +53,8 @@ impl IESimVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn MobileBroadbandModemDeviceId<Impl: IESimImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn MobileBroadbandModemDeviceId<Impl: IESimImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MobileBroadbandModemDeviceId() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -64,8 +64,8 @@ impl IESimVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Policy<Impl: IESimImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn Policy<Impl: IESimImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Policy() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -75,8 +75,8 @@ impl IESimVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn State<Impl: IESimImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ESimState) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn State<Impl: IESimImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ESimState) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).State() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -86,8 +86,8 @@ impl IESimVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetProfiles<Impl: IESimImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn GetProfiles<Impl: IESimImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetProfiles() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -97,8 +97,8 @@ impl IESimVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DeleteProfileAsync<Impl: IESimImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, profileid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn DeleteProfileAsync<Impl: IESimImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, profileid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DeleteProfileAsync(&*(&profileid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -108,8 +108,8 @@ impl IESimVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DownloadProfileMetadataAsync<Impl: IESimImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, activationcode: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn DownloadProfileMetadataAsync<Impl: IESimImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, activationcode: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DownloadProfileMetadataAsync(&*(&activationcode as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -119,8 +119,8 @@ impl IESimVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ResetAsync<Impl: IESimImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn ResetAsync<Impl: IESimImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ResetAsync() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -130,8 +130,8 @@ impl IESimVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ProfileChanged<Impl: IESimImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn ProfileChanged<Impl: IESimImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ProfileChanged(&*(&handler as *const <super::super::Foundation::TypedEventHandler<ESim, ::windows::core::IInspectable> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<ESim, ::windows::core::IInspectable> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -141,17 +141,17 @@ impl IESimVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveProfileChanged<Impl: IESimImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn RemoveProfileChanged<Impl: IESimImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveProfileChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
         Self(
-            base.0,
-            base.1,
-            base.2,
-            base.3,
+            ::windows::core::QueryInterface::<Identity, OFFSET>,
+            ::windows::core::AddRef::<Identity, OFFSET>,
+            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IESim>,
-            base.5,
+            ::windows::core::GetTrustLevel,
             AvailableMemoryInBytes::<Impl, OFFSET>,
             Eid::<Impl, OFFSET>,
             FirmwareVersion::<Impl, OFFSET>,
@@ -180,9 +180,9 @@ impl ::windows::core::RuntimeName for IESim2 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IESim2Vtbl {
-    pub const fn new<Impl: IESim2Impl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IESim2Vtbl {
-        unsafe extern "system" fn Discover<Impl: IESim2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IESim2Impl, const OFFSET: isize>() -> IESim2Vtbl {
+        unsafe extern "system" fn Discover<Impl: IESim2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Discover() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -192,8 +192,8 @@ impl IESim2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DiscoverWithServerAddressAndMatchingId<Impl: IESim2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, serveraddress: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, matchingid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn DiscoverWithServerAddressAndMatchingId<Impl: IESim2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, serveraddress: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, matchingid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DiscoverWithServerAddressAndMatchingId(&*(&serveraddress as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&matchingid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -203,8 +203,8 @@ impl IESim2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DiscoverAsync<Impl: IESim2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn DiscoverAsync<Impl: IESim2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DiscoverAsync() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -214,8 +214,8 @@ impl IESim2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DiscoverWithServerAddressAndMatchingIdAsync<Impl: IESim2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, serveraddress: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, matchingid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn DiscoverWithServerAddressAndMatchingIdAsync<Impl: IESim2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, serveraddress: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, matchingid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DiscoverWithServerAddressAndMatchingIdAsync(&*(&serveraddress as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&matchingid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -225,7 +225,7 @@ impl IESim2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IESim2>, base.5, Discover::<Impl, OFFSET>, DiscoverWithServerAddressAndMatchingId::<Impl, OFFSET>, DiscoverAsync::<Impl, OFFSET>, DiscoverWithServerAddressAndMatchingIdAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IESim2>, ::windows::core::GetTrustLevel, Discover::<Impl, OFFSET>, DiscoverWithServerAddressAndMatchingId::<Impl, OFFSET>, DiscoverAsync::<Impl, OFFSET>, DiscoverWithServerAddressAndMatchingIdAsync::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -238,9 +238,9 @@ impl ::windows::core::RuntimeName for IESimAddedEventArgs {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IESimAddedEventArgsVtbl {
-    pub const fn new<Impl: IESimAddedEventArgsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IESimAddedEventArgsVtbl {
-        unsafe extern "system" fn ESim<Impl: IESimAddedEventArgsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IESimAddedEventArgsImpl, const OFFSET: isize>() -> IESimAddedEventArgsVtbl {
+        unsafe extern "system" fn ESim<Impl: IESimAddedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ESim() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -250,7 +250,7 @@ impl IESimAddedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IESimAddedEventArgs>, base.5, ESim::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IESimAddedEventArgs>, ::windows::core::GetTrustLevel, ESim::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -264,9 +264,9 @@ impl ::windows::core::RuntimeName for IESimDiscoverEvent {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IESimDiscoverEventVtbl {
-    pub const fn new<Impl: IESimDiscoverEventImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IESimDiscoverEventVtbl {
-        unsafe extern "system" fn MatchingId<Impl: IESimDiscoverEventImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IESimDiscoverEventImpl, const OFFSET: isize>() -> IESimDiscoverEventVtbl {
+        unsafe extern "system" fn MatchingId<Impl: IESimDiscoverEventImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MatchingId() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -276,8 +276,8 @@ impl IESimDiscoverEventVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RspServerAddress<Impl: IESimDiscoverEventImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn RspServerAddress<Impl: IESimDiscoverEventImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RspServerAddress() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -287,7 +287,7 @@ impl IESimDiscoverEventVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IESimDiscoverEvent>, base.5, MatchingId::<Impl, OFFSET>, RspServerAddress::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IESimDiscoverEvent>, ::windows::core::GetTrustLevel, MatchingId::<Impl, OFFSET>, RspServerAddress::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -303,9 +303,9 @@ impl ::windows::core::RuntimeName for IESimDiscoverResult {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IESimDiscoverResultVtbl {
-    pub const fn new<Impl: IESimDiscoverResultImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IESimDiscoverResultVtbl {
-        unsafe extern "system" fn Events<Impl: IESimDiscoverResultImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IESimDiscoverResultImpl, const OFFSET: isize>() -> IESimDiscoverResultVtbl {
+        unsafe extern "system" fn Events<Impl: IESimDiscoverResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Events() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -315,8 +315,8 @@ impl IESimDiscoverResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Kind<Impl: IESimDiscoverResultImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ESimDiscoverResultKind) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn Kind<Impl: IESimDiscoverResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ESimDiscoverResultKind) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Kind() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -326,8 +326,8 @@ impl IESimDiscoverResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ProfileMetadata<Impl: IESimDiscoverResultImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn ProfileMetadata<Impl: IESimDiscoverResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ProfileMetadata() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -337,8 +337,8 @@ impl IESimDiscoverResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Result<Impl: IESimDiscoverResultImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn Result<Impl: IESimDiscoverResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Result() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -348,7 +348,7 @@ impl IESimDiscoverResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IESimDiscoverResult>, base.5, Events::<Impl, OFFSET>, Kind::<Impl, OFFSET>, ProfileMetadata::<Impl, OFFSET>, Result::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IESimDiscoverResult>, ::windows::core::GetTrustLevel, Events::<Impl, OFFSET>, Kind::<Impl, OFFSET>, ProfileMetadata::<Impl, OFFSET>, Result::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -362,9 +362,9 @@ impl ::windows::core::RuntimeName for IESimDownloadProfileMetadataResult {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IESimDownloadProfileMetadataResultVtbl {
-    pub const fn new<Impl: IESimDownloadProfileMetadataResultImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IESimDownloadProfileMetadataResultVtbl {
-        unsafe extern "system" fn Result<Impl: IESimDownloadProfileMetadataResultImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IESimDownloadProfileMetadataResultImpl, const OFFSET: isize>() -> IESimDownloadProfileMetadataResultVtbl {
+        unsafe extern "system" fn Result<Impl: IESimDownloadProfileMetadataResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Result() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -374,8 +374,8 @@ impl IESimDownloadProfileMetadataResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ProfileMetadata<Impl: IESimDownloadProfileMetadataResultImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn ProfileMetadata<Impl: IESimDownloadProfileMetadataResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ProfileMetadata() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -385,7 +385,7 @@ impl IESimDownloadProfileMetadataResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IESimDownloadProfileMetadataResult>, base.5, Result::<Impl, OFFSET>, ProfileMetadata::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IESimDownloadProfileMetadataResult>, ::windows::core::GetTrustLevel, Result::<Impl, OFFSET>, ProfileMetadata::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -401,9 +401,9 @@ impl ::windows::core::RuntimeName for IESimManagerStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IESimManagerStaticsVtbl {
-    pub const fn new<Impl: IESimManagerStaticsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IESimManagerStaticsVtbl {
-        unsafe extern "system" fn ServiceInfo<Impl: IESimManagerStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IESimManagerStaticsImpl, const OFFSET: isize>() -> IESimManagerStaticsVtbl {
+        unsafe extern "system" fn ServiceInfo<Impl: IESimManagerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ServiceInfo() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -413,8 +413,8 @@ impl IESimManagerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TryCreateESimWatcher<Impl: IESimManagerStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn TryCreateESimWatcher<Impl: IESimManagerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TryCreateESimWatcher() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -424,8 +424,8 @@ impl IESimManagerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ServiceInfoChanged<Impl: IESimManagerStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn ServiceInfoChanged<Impl: IESimManagerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ServiceInfoChanged(&*(&handler as *const <super::super::Foundation::EventHandler<::windows::core::IInspectable> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventHandler<::windows::core::IInspectable> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -435,11 +435,11 @@ impl IESimManagerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveServiceInfoChanged<Impl: IESimManagerStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn RemoveServiceInfoChanged<Impl: IESimManagerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveServiceInfoChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IESimManagerStatics>, base.5, ServiceInfo::<Impl, OFFSET>, TryCreateESimWatcher::<Impl, OFFSET>, ServiceInfoChanged::<Impl, OFFSET>, RemoveServiceInfoChanged::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IESimManagerStatics>, ::windows::core::GetTrustLevel, ServiceInfo::<Impl, OFFSET>, TryCreateESimWatcher::<Impl, OFFSET>, ServiceInfoChanged::<Impl, OFFSET>, RemoveServiceInfoChanged::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -452,9 +452,9 @@ impl ::windows::core::RuntimeName for IESimOperationResult {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IESimOperationResultVtbl {
-    pub const fn new<Impl: IESimOperationResultImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IESimOperationResultVtbl {
-        unsafe extern "system" fn Status<Impl: IESimOperationResultImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ESimOperationStatus) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IESimOperationResultImpl, const OFFSET: isize>() -> IESimOperationResultVtbl {
+        unsafe extern "system" fn Status<Impl: IESimOperationResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ESimOperationStatus) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Status() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -464,7 +464,7 @@ impl IESimOperationResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IESimOperationResult>, base.5, Status::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IESimOperationResult>, ::windows::core::GetTrustLevel, Status::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -477,9 +477,9 @@ impl ::windows::core::RuntimeName for IESimPolicy {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IESimPolicyVtbl {
-    pub const fn new<Impl: IESimPolicyImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IESimPolicyVtbl {
-        unsafe extern "system" fn ShouldEnableManagingUi<Impl: IESimPolicyImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IESimPolicyImpl, const OFFSET: isize>() -> IESimPolicyVtbl {
+        unsafe extern "system" fn ShouldEnableManagingUi<Impl: IESimPolicyImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ShouldEnableManagingUi() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -489,7 +489,7 @@ impl IESimPolicyVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IESimPolicy>, base.5, ShouldEnableManagingUi::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IESimPolicy>, ::windows::core::GetTrustLevel, ShouldEnableManagingUi::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -512,9 +512,9 @@ impl ::windows::core::RuntimeName for IESimProfile {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IESimProfileVtbl {
-    pub const fn new<Impl: IESimProfileImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IESimProfileVtbl {
-        unsafe extern "system" fn Class<Impl: IESimProfileImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ESimProfileClass) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IESimProfileImpl, const OFFSET: isize>() -> IESimProfileVtbl {
+        unsafe extern "system" fn Class<Impl: IESimProfileImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ESimProfileClass) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Class() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -524,8 +524,8 @@ impl IESimProfileVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Nickname<Impl: IESimProfileImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn Nickname<Impl: IESimProfileImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Nickname() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -535,8 +535,8 @@ impl IESimProfileVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Policy<Impl: IESimProfileImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn Policy<Impl: IESimProfileImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Policy() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -546,8 +546,8 @@ impl IESimProfileVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Id<Impl: IESimProfileImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn Id<Impl: IESimProfileImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Id() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -557,8 +557,8 @@ impl IESimProfileVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ProviderIcon<Impl: IESimProfileImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn ProviderIcon<Impl: IESimProfileImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ProviderIcon() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -568,8 +568,8 @@ impl IESimProfileVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ProviderId<Impl: IESimProfileImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn ProviderId<Impl: IESimProfileImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ProviderId() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -579,8 +579,8 @@ impl IESimProfileVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ProviderName<Impl: IESimProfileImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn ProviderName<Impl: IESimProfileImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ProviderName() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -590,8 +590,8 @@ impl IESimProfileVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn State<Impl: IESimProfileImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ESimProfileState) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn State<Impl: IESimProfileImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ESimProfileState) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).State() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -601,8 +601,8 @@ impl IESimProfileVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DisableAsync<Impl: IESimProfileImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn DisableAsync<Impl: IESimProfileImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DisableAsync() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -612,8 +612,8 @@ impl IESimProfileVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn EnableAsync<Impl: IESimProfileImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn EnableAsync<Impl: IESimProfileImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EnableAsync() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -623,8 +623,8 @@ impl IESimProfileVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetNicknameAsync<Impl: IESimProfileImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, newnickname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn SetNicknameAsync<Impl: IESimProfileImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, newnickname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SetNicknameAsync(&*(&newnickname as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -634,7 +634,25 @@ impl IESimProfileVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IESimProfile>, base.5, Class::<Impl, OFFSET>, Nickname::<Impl, OFFSET>, Policy::<Impl, OFFSET>, Id::<Impl, OFFSET>, ProviderIcon::<Impl, OFFSET>, ProviderId::<Impl, OFFSET>, ProviderName::<Impl, OFFSET>, State::<Impl, OFFSET>, DisableAsync::<Impl, OFFSET>, EnableAsync::<Impl, OFFSET>, SetNicknameAsync::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, OFFSET>,
+            ::windows::core::AddRef::<Identity, OFFSET>,
+            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<IESimProfile>,
+            ::windows::core::GetTrustLevel,
+            Class::<Impl, OFFSET>,
+            Nickname::<Impl, OFFSET>,
+            Policy::<Impl, OFFSET>,
+            Id::<Impl, OFFSET>,
+            ProviderIcon::<Impl, OFFSET>,
+            ProviderId::<Impl, OFFSET>,
+            ProviderName::<Impl, OFFSET>,
+            State::<Impl, OFFSET>,
+            DisableAsync::<Impl, OFFSET>,
+            EnableAsync::<Impl, OFFSET>,
+            SetNicknameAsync::<Impl, OFFSET>,
+        )
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -659,9 +677,9 @@ impl ::windows::core::RuntimeName for IESimProfileMetadata {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IESimProfileMetadataVtbl {
-    pub const fn new<Impl: IESimProfileMetadataImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IESimProfileMetadataVtbl {
-        unsafe extern "system" fn IsConfirmationCodeRequired<Impl: IESimProfileMetadataImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IESimProfileMetadataImpl, const OFFSET: isize>() -> IESimProfileMetadataVtbl {
+        unsafe extern "system" fn IsConfirmationCodeRequired<Impl: IESimProfileMetadataImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsConfirmationCodeRequired() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -671,8 +689,8 @@ impl IESimProfileMetadataVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Policy<Impl: IESimProfileMetadataImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn Policy<Impl: IESimProfileMetadataImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Policy() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -682,8 +700,8 @@ impl IESimProfileMetadataVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Id<Impl: IESimProfileMetadataImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn Id<Impl: IESimProfileMetadataImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Id() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -693,8 +711,8 @@ impl IESimProfileMetadataVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ProviderIcon<Impl: IESimProfileMetadataImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn ProviderIcon<Impl: IESimProfileMetadataImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ProviderIcon() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -704,8 +722,8 @@ impl IESimProfileMetadataVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ProviderId<Impl: IESimProfileMetadataImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn ProviderId<Impl: IESimProfileMetadataImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ProviderId() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -715,8 +733,8 @@ impl IESimProfileMetadataVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ProviderName<Impl: IESimProfileMetadataImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn ProviderName<Impl: IESimProfileMetadataImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ProviderName() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -726,8 +744,8 @@ impl IESimProfileMetadataVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn State<Impl: IESimProfileMetadataImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ESimProfileMetadataState) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn State<Impl: IESimProfileMetadataImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ESimProfileMetadataState) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).State() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -737,8 +755,8 @@ impl IESimProfileMetadataVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DenyInstallAsync<Impl: IESimProfileMetadataImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn DenyInstallAsync<Impl: IESimProfileMetadataImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DenyInstallAsync() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -748,8 +766,8 @@ impl IESimProfileMetadataVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ConfirmInstallAsync<Impl: IESimProfileMetadataImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn ConfirmInstallAsync<Impl: IESimProfileMetadataImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ConfirmInstallAsync() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -759,8 +777,8 @@ impl IESimProfileMetadataVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ConfirmInstallWithConfirmationCodeAsync<Impl: IESimProfileMetadataImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, confirmationcode: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn ConfirmInstallWithConfirmationCodeAsync<Impl: IESimProfileMetadataImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, confirmationcode: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ConfirmInstallWithConfirmationCodeAsync(&*(&confirmationcode as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -770,8 +788,8 @@ impl IESimProfileMetadataVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PostponeInstallAsync<Impl: IESimProfileMetadataImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn PostponeInstallAsync<Impl: IESimProfileMetadataImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PostponeInstallAsync() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -781,8 +799,8 @@ impl IESimProfileMetadataVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn StateChanged<Impl: IESimProfileMetadataImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn StateChanged<Impl: IESimProfileMetadataImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).StateChanged(&*(&handler as *const <super::super::Foundation::TypedEventHandler<ESimProfileMetadata, ::windows::core::IInspectable> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<ESimProfileMetadata, ::windows::core::IInspectable> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -792,17 +810,17 @@ impl IESimProfileMetadataVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveStateChanged<Impl: IESimProfileMetadataImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn RemoveStateChanged<Impl: IESimProfileMetadataImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveStateChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
         Self(
-            base.0,
-            base.1,
-            base.2,
-            base.3,
+            ::windows::core::QueryInterface::<Identity, OFFSET>,
+            ::windows::core::AddRef::<Identity, OFFSET>,
+            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IESimProfileMetadata>,
-            base.5,
+            ::windows::core::GetTrustLevel,
             IsConfirmationCodeRequired::<Impl, OFFSET>,
             Policy::<Impl, OFFSET>,
             Id::<Impl, OFFSET>,
@@ -831,9 +849,9 @@ impl ::windows::core::RuntimeName for IESimProfilePolicy {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IESimProfilePolicyVtbl {
-    pub const fn new<Impl: IESimProfilePolicyImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IESimProfilePolicyVtbl {
-        unsafe extern "system" fn CanDelete<Impl: IESimProfilePolicyImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IESimProfilePolicyImpl, const OFFSET: isize>() -> IESimProfilePolicyVtbl {
+        unsafe extern "system" fn CanDelete<Impl: IESimProfilePolicyImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CanDelete() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -843,8 +861,8 @@ impl IESimProfilePolicyVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CanDisable<Impl: IESimProfilePolicyImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn CanDisable<Impl: IESimProfilePolicyImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CanDisable() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -854,8 +872,8 @@ impl IESimProfilePolicyVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsManagedByEnterprise<Impl: IESimProfilePolicyImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn IsManagedByEnterprise<Impl: IESimProfilePolicyImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsManagedByEnterprise() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -865,7 +883,7 @@ impl IESimProfilePolicyVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IESimProfilePolicy>, base.5, CanDelete::<Impl, OFFSET>, CanDisable::<Impl, OFFSET>, IsManagedByEnterprise::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IESimProfilePolicy>, ::windows::core::GetTrustLevel, CanDelete::<Impl, OFFSET>, CanDisable::<Impl, OFFSET>, IsManagedByEnterprise::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -878,9 +896,9 @@ impl ::windows::core::RuntimeName for IESimRemovedEventArgs {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IESimRemovedEventArgsVtbl {
-    pub const fn new<Impl: IESimRemovedEventArgsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IESimRemovedEventArgsVtbl {
-        unsafe extern "system" fn ESim<Impl: IESimRemovedEventArgsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IESimRemovedEventArgsImpl, const OFFSET: isize>() -> IESimRemovedEventArgsVtbl {
+        unsafe extern "system" fn ESim<Impl: IESimRemovedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ESim() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -890,7 +908,7 @@ impl IESimRemovedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IESimRemovedEventArgs>, base.5, ESim::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IESimRemovedEventArgs>, ::windows::core::GetTrustLevel, ESim::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -904,9 +922,9 @@ impl ::windows::core::RuntimeName for IESimServiceInfo {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IESimServiceInfoVtbl {
-    pub const fn new<Impl: IESimServiceInfoImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IESimServiceInfoVtbl {
-        unsafe extern "system" fn AuthenticationPreference<Impl: IESimServiceInfoImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ESimAuthenticationPreference) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IESimServiceInfoImpl, const OFFSET: isize>() -> IESimServiceInfoVtbl {
+        unsafe extern "system" fn AuthenticationPreference<Impl: IESimServiceInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ESimAuthenticationPreference) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AuthenticationPreference() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -916,8 +934,8 @@ impl IESimServiceInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsESimUiEnabled<Impl: IESimServiceInfoImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn IsESimUiEnabled<Impl: IESimServiceInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsESimUiEnabled() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -927,7 +945,7 @@ impl IESimServiceInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IESimServiceInfo>, base.5, AuthenticationPreference::<Impl, OFFSET>, IsESimUiEnabled::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IESimServiceInfo>, ::windows::core::GetTrustLevel, AuthenticationPreference::<Impl, OFFSET>, IsESimUiEnabled::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -940,9 +958,9 @@ impl ::windows::core::RuntimeName for IESimUpdatedEventArgs {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IESimUpdatedEventArgsVtbl {
-    pub const fn new<Impl: IESimUpdatedEventArgsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IESimUpdatedEventArgsVtbl {
-        unsafe extern "system" fn ESim<Impl: IESimUpdatedEventArgsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IESimUpdatedEventArgsImpl, const OFFSET: isize>() -> IESimUpdatedEventArgsVtbl {
+        unsafe extern "system" fn ESim<Impl: IESimUpdatedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ESim() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -952,7 +970,7 @@ impl IESimUpdatedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IESimUpdatedEventArgs>, base.5, ESim::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IESimUpdatedEventArgs>, ::windows::core::GetTrustLevel, ESim::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -977,9 +995,9 @@ impl ::windows::core::RuntimeName for IESimWatcher {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IESimWatcherVtbl {
-    pub const fn new<Impl: IESimWatcherImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IESimWatcherVtbl {
-        unsafe extern "system" fn Status<Impl: IESimWatcherImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ESimWatcherStatus) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IESimWatcherImpl, const OFFSET: isize>() -> IESimWatcherVtbl {
+        unsafe extern "system" fn Status<Impl: IESimWatcherImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ESimWatcherStatus) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Status() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -989,16 +1007,16 @@ impl IESimWatcherVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Start<Impl: IESimWatcherImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn Start<Impl: IESimWatcherImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Start().into()
         }
-        unsafe extern "system" fn Stop<Impl: IESimWatcherImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn Stop<Impl: IESimWatcherImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Stop().into()
         }
-        unsafe extern "system" fn Added<Impl: IESimWatcherImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn Added<Impl: IESimWatcherImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Added(&*(&handler as *const <super::super::Foundation::TypedEventHandler<ESimWatcher, ESimAddedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<ESimWatcher, ESimAddedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1008,12 +1026,12 @@ impl IESimWatcherVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveAdded<Impl: IESimWatcherImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn RemoveAdded<Impl: IESimWatcherImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveAdded(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn EnumerationCompleted<Impl: IESimWatcherImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn EnumerationCompleted<Impl: IESimWatcherImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EnumerationCompleted(&*(&handler as *const <super::super::Foundation::TypedEventHandler<ESimWatcher, ::windows::core::IInspectable> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<ESimWatcher, ::windows::core::IInspectable> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1023,12 +1041,12 @@ impl IESimWatcherVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveEnumerationCompleted<Impl: IESimWatcherImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn RemoveEnumerationCompleted<Impl: IESimWatcherImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveEnumerationCompleted(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn Removed<Impl: IESimWatcherImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn Removed<Impl: IESimWatcherImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Removed(&*(&handler as *const <super::super::Foundation::TypedEventHandler<ESimWatcher, ESimRemovedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<ESimWatcher, ESimRemovedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1038,12 +1056,12 @@ impl IESimWatcherVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveRemoved<Impl: IESimWatcherImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn RemoveRemoved<Impl: IESimWatcherImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveRemoved(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn Stopped<Impl: IESimWatcherImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn Stopped<Impl: IESimWatcherImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Stopped(&*(&handler as *const <super::super::Foundation::TypedEventHandler<ESimWatcher, ::windows::core::IInspectable> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<ESimWatcher, ::windows::core::IInspectable> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1053,12 +1071,12 @@ impl IESimWatcherVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveStopped<Impl: IESimWatcherImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn RemoveStopped<Impl: IESimWatcherImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveStopped(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn Updated<Impl: IESimWatcherImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn Updated<Impl: IESimWatcherImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Updated(&*(&handler as *const <super::super::Foundation::TypedEventHandler<ESimWatcher, ESimUpdatedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<ESimWatcher, ESimUpdatedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1068,11 +1086,31 @@ impl IESimWatcherVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveUpdated<Impl: IESimWatcherImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn RemoveUpdated<Impl: IESimWatcherImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveUpdated(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IESimWatcher>, base.5, Status::<Impl, OFFSET>, Start::<Impl, OFFSET>, Stop::<Impl, OFFSET>, Added::<Impl, OFFSET>, RemoveAdded::<Impl, OFFSET>, EnumerationCompleted::<Impl, OFFSET>, RemoveEnumerationCompleted::<Impl, OFFSET>, Removed::<Impl, OFFSET>, RemoveRemoved::<Impl, OFFSET>, Stopped::<Impl, OFFSET>, RemoveStopped::<Impl, OFFSET>, Updated::<Impl, OFFSET>, RemoveUpdated::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, OFFSET>,
+            ::windows::core::AddRef::<Identity, OFFSET>,
+            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<IESimWatcher>,
+            ::windows::core::GetTrustLevel,
+            Status::<Impl, OFFSET>,
+            Start::<Impl, OFFSET>,
+            Stop::<Impl, OFFSET>,
+            Added::<Impl, OFFSET>,
+            RemoveAdded::<Impl, OFFSET>,
+            EnumerationCompleted::<Impl, OFFSET>,
+            RemoveEnumerationCompleted::<Impl, OFFSET>,
+            Removed::<Impl, OFFSET>,
+            RemoveRemoved::<Impl, OFFSET>,
+            Stopped::<Impl, OFFSET>,
+            RemoveStopped::<Impl, OFFSET>,
+            Updated::<Impl, OFFSET>,
+            RemoveUpdated::<Impl, OFFSET>,
+        )
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1085,9 +1123,9 @@ impl ::windows::core::RuntimeName for IFdnAccessManagerStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IFdnAccessManagerStaticsVtbl {
-    pub const fn new<Impl: IFdnAccessManagerStaticsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IFdnAccessManagerStaticsVtbl {
-        unsafe extern "system" fn RequestUnlockAsync<Impl: IFdnAccessManagerStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, contactlistid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFdnAccessManagerStaticsImpl, const OFFSET: isize>() -> IFdnAccessManagerStaticsVtbl {
+        unsafe extern "system" fn RequestUnlockAsync<Impl: IFdnAccessManagerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, contactlistid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RequestUnlockAsync(&*(&contactlistid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1097,7 +1135,7 @@ impl IFdnAccessManagerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IFdnAccessManagerStatics>, base.5, RequestUnlockAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IFdnAccessManagerStatics>, ::windows::core::GetTrustLevel, RequestUnlockAsync::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1118,9 +1156,9 @@ impl ::windows::core::RuntimeName for IHotspotAuthenticationContext {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IHotspotAuthenticationContextVtbl {
-    pub const fn new<Impl: IHotspotAuthenticationContextImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IHotspotAuthenticationContextVtbl {
-        unsafe extern "system" fn WirelessNetworkId<Impl: IHotspotAuthenticationContextImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result_size__: *mut u32, result__: *mut *mut u8) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHotspotAuthenticationContextImpl, const OFFSET: isize>() -> IHotspotAuthenticationContextVtbl {
+        unsafe extern "system" fn WirelessNetworkId<Impl: IHotspotAuthenticationContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result_size__: *mut u32, result__: *mut *mut u8) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).WirelessNetworkId() {
                 ::core::result::Result::Ok(ok__) => {
                     let (ok_data__, ok_data_len__) = ok__.into_abi();
@@ -1131,8 +1169,8 @@ impl IHotspotAuthenticationContextVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn NetworkAdapter<Impl: IHotspotAuthenticationContextImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn NetworkAdapter<Impl: IHotspotAuthenticationContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).NetworkAdapter() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1142,8 +1180,8 @@ impl IHotspotAuthenticationContextVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RedirectMessageUrl<Impl: IHotspotAuthenticationContextImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn RedirectMessageUrl<Impl: IHotspotAuthenticationContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RedirectMessageUrl() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1153,8 +1191,8 @@ impl IHotspotAuthenticationContextVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RedirectMessageXml<Impl: IHotspotAuthenticationContextImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn RedirectMessageXml<Impl: IHotspotAuthenticationContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RedirectMessageXml() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1164,8 +1202,8 @@ impl IHotspotAuthenticationContextVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AuthenticationUrl<Impl: IHotspotAuthenticationContextImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn AuthenticationUrl<Impl: IHotspotAuthenticationContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AuthenticationUrl() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1175,8 +1213,8 @@ impl IHotspotAuthenticationContextVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IssueCredentials<Impl: IHotspotAuthenticationContextImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, username: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, password: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, extraparameters: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, markasmanualconnectonfailure: bool) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn IssueCredentials<Impl: IHotspotAuthenticationContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, username: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, password: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, extraparameters: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, markasmanualconnectonfailure: bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this)
                 .IssueCredentials(
                     &*(&username as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType),
@@ -1186,19 +1224,35 @@ impl IHotspotAuthenticationContextVtbl {
                 )
                 .into()
         }
-        unsafe extern "system" fn AbortAuthentication<Impl: IHotspotAuthenticationContextImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, markasmanual: bool) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn AbortAuthentication<Impl: IHotspotAuthenticationContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, markasmanual: bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AbortAuthentication(markasmanual).into()
         }
-        unsafe extern "system" fn SkipAuthentication<Impl: IHotspotAuthenticationContextImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn SkipAuthentication<Impl: IHotspotAuthenticationContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SkipAuthentication().into()
         }
-        unsafe extern "system" fn TriggerAttentionRequired<Impl: IHotspotAuthenticationContextImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, packagerelativeapplicationid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, applicationparameters: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn TriggerAttentionRequired<Impl: IHotspotAuthenticationContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, packagerelativeapplicationid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, applicationparameters: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).TriggerAttentionRequired(&*(&packagerelativeapplicationid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&applicationparameters as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IHotspotAuthenticationContext>, base.5, WirelessNetworkId::<Impl, OFFSET>, NetworkAdapter::<Impl, OFFSET>, RedirectMessageUrl::<Impl, OFFSET>, RedirectMessageXml::<Impl, OFFSET>, AuthenticationUrl::<Impl, OFFSET>, IssueCredentials::<Impl, OFFSET>, AbortAuthentication::<Impl, OFFSET>, SkipAuthentication::<Impl, OFFSET>, TriggerAttentionRequired::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, OFFSET>,
+            ::windows::core::AddRef::<Identity, OFFSET>,
+            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<IHotspotAuthenticationContext>,
+            ::windows::core::GetTrustLevel,
+            WirelessNetworkId::<Impl, OFFSET>,
+            NetworkAdapter::<Impl, OFFSET>,
+            RedirectMessageUrl::<Impl, OFFSET>,
+            RedirectMessageXml::<Impl, OFFSET>,
+            AuthenticationUrl::<Impl, OFFSET>,
+            IssueCredentials::<Impl, OFFSET>,
+            AbortAuthentication::<Impl, OFFSET>,
+            SkipAuthentication::<Impl, OFFSET>,
+            TriggerAttentionRequired::<Impl, OFFSET>,
+        )
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1211,9 +1265,9 @@ impl ::windows::core::RuntimeName for IHotspotAuthenticationContext2 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IHotspotAuthenticationContext2Vtbl {
-    pub const fn new<Impl: IHotspotAuthenticationContext2Impl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IHotspotAuthenticationContext2Vtbl {
-        unsafe extern "system" fn IssueCredentialsAsync<Impl: IHotspotAuthenticationContext2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, username: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, password: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, extraparameters: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, markasmanualconnectonfailure: bool, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHotspotAuthenticationContext2Impl, const OFFSET: isize>() -> IHotspotAuthenticationContext2Vtbl {
+        unsafe extern "system" fn IssueCredentialsAsync<Impl: IHotspotAuthenticationContext2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, username: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, password: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, extraparameters: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, markasmanualconnectonfailure: bool, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IssueCredentialsAsync(
                 &*(&username as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType),
                 &*(&password as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType),
@@ -1228,7 +1282,7 @@ impl IHotspotAuthenticationContext2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IHotspotAuthenticationContext2>, base.5, IssueCredentialsAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHotspotAuthenticationContext2>, ::windows::core::GetTrustLevel, IssueCredentialsAsync::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1241,9 +1295,9 @@ impl ::windows::core::RuntimeName for IHotspotAuthenticationContextStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IHotspotAuthenticationContextStaticsVtbl {
-    pub const fn new<Impl: IHotspotAuthenticationContextStaticsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IHotspotAuthenticationContextStaticsVtbl {
-        unsafe extern "system" fn TryGetAuthenticationContext<Impl: IHotspotAuthenticationContextStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, eventoken: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, context: *mut ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHotspotAuthenticationContextStaticsImpl, const OFFSET: isize>() -> IHotspotAuthenticationContextStaticsVtbl {
+        unsafe extern "system" fn TryGetAuthenticationContext<Impl: IHotspotAuthenticationContextStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, eventoken: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, context: *mut ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TryGetAuthenticationContext(&*(&eventoken as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&context)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1253,7 +1307,7 @@ impl IHotspotAuthenticationContextStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IHotspotAuthenticationContextStatics>, base.5, TryGetAuthenticationContext::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHotspotAuthenticationContextStatics>, ::windows::core::GetTrustLevel, TryGetAuthenticationContext::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1266,9 +1320,9 @@ impl ::windows::core::RuntimeName for IHotspotAuthenticationEventDetails {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IHotspotAuthenticationEventDetailsVtbl {
-    pub const fn new<Impl: IHotspotAuthenticationEventDetailsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IHotspotAuthenticationEventDetailsVtbl {
-        unsafe extern "system" fn EventToken<Impl: IHotspotAuthenticationEventDetailsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHotspotAuthenticationEventDetailsImpl, const OFFSET: isize>() -> IHotspotAuthenticationEventDetailsVtbl {
+        unsafe extern "system" fn EventToken<Impl: IHotspotAuthenticationEventDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EventToken() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1278,7 +1332,7 @@ impl IHotspotAuthenticationEventDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IHotspotAuthenticationEventDetails>, base.5, EventToken::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHotspotAuthenticationEventDetails>, ::windows::core::GetTrustLevel, EventToken::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1294,9 +1348,9 @@ impl ::windows::core::RuntimeName for IHotspotCredentialsAuthenticationResult {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IHotspotCredentialsAuthenticationResultVtbl {
-    pub const fn new<Impl: IHotspotCredentialsAuthenticationResultImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IHotspotCredentialsAuthenticationResultVtbl {
-        unsafe extern "system" fn HasNetworkErrorOccurred<Impl: IHotspotCredentialsAuthenticationResultImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHotspotCredentialsAuthenticationResultImpl, const OFFSET: isize>() -> IHotspotCredentialsAuthenticationResultVtbl {
+        unsafe extern "system" fn HasNetworkErrorOccurred<Impl: IHotspotCredentialsAuthenticationResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).HasNetworkErrorOccurred() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1306,8 +1360,8 @@ impl IHotspotCredentialsAuthenticationResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ResponseCode<Impl: IHotspotCredentialsAuthenticationResultImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut HotspotAuthenticationResponseCode) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn ResponseCode<Impl: IHotspotCredentialsAuthenticationResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut HotspotAuthenticationResponseCode) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ResponseCode() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1317,8 +1371,8 @@ impl IHotspotCredentialsAuthenticationResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn LogoffUrl<Impl: IHotspotCredentialsAuthenticationResultImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn LogoffUrl<Impl: IHotspotCredentialsAuthenticationResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).LogoffUrl() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1328,8 +1382,8 @@ impl IHotspotCredentialsAuthenticationResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AuthenticationReplyXml<Impl: IHotspotCredentialsAuthenticationResultImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn AuthenticationReplyXml<Impl: IHotspotCredentialsAuthenticationResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AuthenticationReplyXml() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1339,7 +1393,7 @@ impl IHotspotCredentialsAuthenticationResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IHotspotCredentialsAuthenticationResult>, base.5, HasNetworkErrorOccurred::<Impl, OFFSET>, ResponseCode::<Impl, OFFSET>, LogoffUrl::<Impl, OFFSET>, AuthenticationReplyXml::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHotspotCredentialsAuthenticationResult>, ::windows::core::GetTrustLevel, HasNetworkErrorOccurred::<Impl, OFFSET>, ResponseCode::<Impl, OFFSET>, LogoffUrl::<Impl, OFFSET>, AuthenticationReplyXml::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1354,9 +1408,9 @@ impl ::windows::core::RuntimeName for IKnownCSimFilePathsStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IKnownCSimFilePathsStaticsVtbl {
-    pub const fn new<Impl: IKnownCSimFilePathsStaticsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IKnownCSimFilePathsStaticsVtbl {
-        unsafe extern "system" fn EFSpn<Impl: IKnownCSimFilePathsStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IKnownCSimFilePathsStaticsImpl, const OFFSET: isize>() -> IKnownCSimFilePathsStaticsVtbl {
+        unsafe extern "system" fn EFSpn<Impl: IKnownCSimFilePathsStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EFSpn() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1366,8 +1420,8 @@ impl IKnownCSimFilePathsStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Gid1<Impl: IKnownCSimFilePathsStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn Gid1<Impl: IKnownCSimFilePathsStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Gid1() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1377,8 +1431,8 @@ impl IKnownCSimFilePathsStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Gid2<Impl: IKnownCSimFilePathsStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn Gid2<Impl: IKnownCSimFilePathsStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Gid2() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1388,7 +1442,7 @@ impl IKnownCSimFilePathsStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IKnownCSimFilePathsStatics>, base.5, EFSpn::<Impl, OFFSET>, Gid1::<Impl, OFFSET>, Gid2::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IKnownCSimFilePathsStatics>, ::windows::core::GetTrustLevel, EFSpn::<Impl, OFFSET>, Gid1::<Impl, OFFSET>, Gid2::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1403,9 +1457,9 @@ impl ::windows::core::RuntimeName for IKnownRuimFilePathsStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IKnownRuimFilePathsStaticsVtbl {
-    pub const fn new<Impl: IKnownRuimFilePathsStaticsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IKnownRuimFilePathsStaticsVtbl {
-        unsafe extern "system" fn EFSpn<Impl: IKnownRuimFilePathsStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IKnownRuimFilePathsStaticsImpl, const OFFSET: isize>() -> IKnownRuimFilePathsStaticsVtbl {
+        unsafe extern "system" fn EFSpn<Impl: IKnownRuimFilePathsStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EFSpn() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1415,8 +1469,8 @@ impl IKnownRuimFilePathsStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Gid1<Impl: IKnownRuimFilePathsStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn Gid1<Impl: IKnownRuimFilePathsStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Gid1() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1426,8 +1480,8 @@ impl IKnownRuimFilePathsStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Gid2<Impl: IKnownRuimFilePathsStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn Gid2<Impl: IKnownRuimFilePathsStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Gid2() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1437,7 +1491,7 @@ impl IKnownRuimFilePathsStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IKnownRuimFilePathsStatics>, base.5, EFSpn::<Impl, OFFSET>, Gid1::<Impl, OFFSET>, Gid2::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IKnownRuimFilePathsStatics>, ::windows::core::GetTrustLevel, EFSpn::<Impl, OFFSET>, Gid1::<Impl, OFFSET>, Gid2::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1453,9 +1507,9 @@ impl ::windows::core::RuntimeName for IKnownSimFilePathsStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IKnownSimFilePathsStaticsVtbl {
-    pub const fn new<Impl: IKnownSimFilePathsStaticsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IKnownSimFilePathsStaticsVtbl {
-        unsafe extern "system" fn EFOns<Impl: IKnownSimFilePathsStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IKnownSimFilePathsStaticsImpl, const OFFSET: isize>() -> IKnownSimFilePathsStaticsVtbl {
+        unsafe extern "system" fn EFOns<Impl: IKnownSimFilePathsStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EFOns() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1465,8 +1519,8 @@ impl IKnownSimFilePathsStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn EFSpn<Impl: IKnownSimFilePathsStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn EFSpn<Impl: IKnownSimFilePathsStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EFSpn() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1476,8 +1530,8 @@ impl IKnownSimFilePathsStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Gid1<Impl: IKnownSimFilePathsStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn Gid1<Impl: IKnownSimFilePathsStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Gid1() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1487,8 +1541,8 @@ impl IKnownSimFilePathsStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Gid2<Impl: IKnownSimFilePathsStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn Gid2<Impl: IKnownSimFilePathsStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Gid2() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1498,7 +1552,7 @@ impl IKnownSimFilePathsStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IKnownSimFilePathsStatics>, base.5, EFOns::<Impl, OFFSET>, EFSpn::<Impl, OFFSET>, Gid1::<Impl, OFFSET>, Gid2::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IKnownSimFilePathsStatics>, ::windows::core::GetTrustLevel, EFOns::<Impl, OFFSET>, EFSpn::<Impl, OFFSET>, Gid1::<Impl, OFFSET>, Gid2::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1515,9 +1569,9 @@ impl ::windows::core::RuntimeName for IKnownUSimFilePathsStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IKnownUSimFilePathsStaticsVtbl {
-    pub const fn new<Impl: IKnownUSimFilePathsStaticsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IKnownUSimFilePathsStaticsVtbl {
-        unsafe extern "system" fn EFSpn<Impl: IKnownUSimFilePathsStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IKnownUSimFilePathsStaticsImpl, const OFFSET: isize>() -> IKnownUSimFilePathsStaticsVtbl {
+        unsafe extern "system" fn EFSpn<Impl: IKnownUSimFilePathsStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EFSpn() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1527,8 +1581,8 @@ impl IKnownUSimFilePathsStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn EFOpl<Impl: IKnownUSimFilePathsStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn EFOpl<Impl: IKnownUSimFilePathsStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EFOpl() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1538,8 +1592,8 @@ impl IKnownUSimFilePathsStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn EFPnn<Impl: IKnownUSimFilePathsStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn EFPnn<Impl: IKnownUSimFilePathsStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EFPnn() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1549,8 +1603,8 @@ impl IKnownUSimFilePathsStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Gid1<Impl: IKnownUSimFilePathsStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn Gid1<Impl: IKnownUSimFilePathsStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Gid1() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1560,8 +1614,8 @@ impl IKnownUSimFilePathsStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Gid2<Impl: IKnownUSimFilePathsStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn Gid2<Impl: IKnownUSimFilePathsStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Gid2() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1571,7 +1625,7 @@ impl IKnownUSimFilePathsStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IKnownUSimFilePathsStatics>, base.5, EFSpn::<Impl, OFFSET>, EFOpl::<Impl, OFFSET>, EFPnn::<Impl, OFFSET>, Gid1::<Impl, OFFSET>, Gid2::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IKnownUSimFilePathsStatics>, ::windows::core::GetTrustLevel, EFSpn::<Impl, OFFSET>, EFOpl::<Impl, OFFSET>, EFPnn::<Impl, OFFSET>, Gid1::<Impl, OFFSET>, Gid2::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1588,9 +1642,9 @@ impl ::windows::core::RuntimeName for IMobileBroadbandAccount {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IMobileBroadbandAccountVtbl {
-    pub const fn new<Impl: IMobileBroadbandAccountImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IMobileBroadbandAccountVtbl {
-        unsafe extern "system" fn NetworkAccountId<Impl: IMobileBroadbandAccountImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMobileBroadbandAccountImpl, const OFFSET: isize>() -> IMobileBroadbandAccountVtbl {
+        unsafe extern "system" fn NetworkAccountId<Impl: IMobileBroadbandAccountImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).NetworkAccountId() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1600,8 +1654,8 @@ impl IMobileBroadbandAccountVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ServiceProviderGuid<Impl: IMobileBroadbandAccountImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn ServiceProviderGuid<Impl: IMobileBroadbandAccountImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ServiceProviderGuid() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1611,8 +1665,8 @@ impl IMobileBroadbandAccountVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ServiceProviderName<Impl: IMobileBroadbandAccountImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn ServiceProviderName<Impl: IMobileBroadbandAccountImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ServiceProviderName() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1622,8 +1676,8 @@ impl IMobileBroadbandAccountVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CurrentNetwork<Impl: IMobileBroadbandAccountImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn CurrentNetwork<Impl: IMobileBroadbandAccountImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CurrentNetwork() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1633,8 +1687,8 @@ impl IMobileBroadbandAccountVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CurrentDeviceInformation<Impl: IMobileBroadbandAccountImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn CurrentDeviceInformation<Impl: IMobileBroadbandAccountImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CurrentDeviceInformation() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1644,7 +1698,7 @@ impl IMobileBroadbandAccountVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IMobileBroadbandAccount>, base.5, NetworkAccountId::<Impl, OFFSET>, ServiceProviderGuid::<Impl, OFFSET>, ServiceProviderName::<Impl, OFFSET>, CurrentNetwork::<Impl, OFFSET>, CurrentDeviceInformation::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMobileBroadbandAccount>, ::windows::core::GetTrustLevel, NetworkAccountId::<Impl, OFFSET>, ServiceProviderGuid::<Impl, OFFSET>, ServiceProviderName::<Impl, OFFSET>, CurrentNetwork::<Impl, OFFSET>, CurrentDeviceInformation::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1657,9 +1711,9 @@ impl ::windows::core::RuntimeName for IMobileBroadbandAccount2 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IMobileBroadbandAccount2Vtbl {
-    pub const fn new<Impl: IMobileBroadbandAccount2Impl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IMobileBroadbandAccount2Vtbl {
-        unsafe extern "system" fn GetConnectionProfiles<Impl: IMobileBroadbandAccount2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMobileBroadbandAccount2Impl, const OFFSET: isize>() -> IMobileBroadbandAccount2Vtbl {
+        unsafe extern "system" fn GetConnectionProfiles<Impl: IMobileBroadbandAccount2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetConnectionProfiles() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1669,7 +1723,7 @@ impl IMobileBroadbandAccount2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IMobileBroadbandAccount2>, base.5, GetConnectionProfiles::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMobileBroadbandAccount2>, ::windows::core::GetTrustLevel, GetConnectionProfiles::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1682,9 +1736,9 @@ impl ::windows::core::RuntimeName for IMobileBroadbandAccount3 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IMobileBroadbandAccount3Vtbl {
-    pub const fn new<Impl: IMobileBroadbandAccount3Impl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IMobileBroadbandAccount3Vtbl {
-        unsafe extern "system" fn AccountExperienceUrl<Impl: IMobileBroadbandAccount3Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMobileBroadbandAccount3Impl, const OFFSET: isize>() -> IMobileBroadbandAccount3Vtbl {
+        unsafe extern "system" fn AccountExperienceUrl<Impl: IMobileBroadbandAccount3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AccountExperienceUrl() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1694,7 +1748,7 @@ impl IMobileBroadbandAccount3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IMobileBroadbandAccount3>, base.5, AccountExperienceUrl::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMobileBroadbandAccount3>, ::windows::core::GetTrustLevel, AccountExperienceUrl::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1707,9 +1761,9 @@ impl ::windows::core::RuntimeName for IMobileBroadbandAccountEventArgs {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IMobileBroadbandAccountEventArgsVtbl {
-    pub const fn new<Impl: IMobileBroadbandAccountEventArgsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IMobileBroadbandAccountEventArgsVtbl {
-        unsafe extern "system" fn NetworkAccountId<Impl: IMobileBroadbandAccountEventArgsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMobileBroadbandAccountEventArgsImpl, const OFFSET: isize>() -> IMobileBroadbandAccountEventArgsVtbl {
+        unsafe extern "system" fn NetworkAccountId<Impl: IMobileBroadbandAccountEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).NetworkAccountId() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1719,7 +1773,7 @@ impl IMobileBroadbandAccountEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IMobileBroadbandAccountEventArgs>, base.5, NetworkAccountId::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMobileBroadbandAccountEventArgs>, ::windows::core::GetTrustLevel, NetworkAccountId::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1733,9 +1787,9 @@ impl ::windows::core::RuntimeName for IMobileBroadbandAccountStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IMobileBroadbandAccountStaticsVtbl {
-    pub const fn new<Impl: IMobileBroadbandAccountStaticsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IMobileBroadbandAccountStaticsVtbl {
-        unsafe extern "system" fn AvailableNetworkAccountIds<Impl: IMobileBroadbandAccountStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMobileBroadbandAccountStaticsImpl, const OFFSET: isize>() -> IMobileBroadbandAccountStaticsVtbl {
+        unsafe extern "system" fn AvailableNetworkAccountIds<Impl: IMobileBroadbandAccountStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AvailableNetworkAccountIds() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1745,8 +1799,8 @@ impl IMobileBroadbandAccountStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateFromNetworkAccountId<Impl: IMobileBroadbandAccountStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, networkaccountid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn CreateFromNetworkAccountId<Impl: IMobileBroadbandAccountStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, networkaccountid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateFromNetworkAccountId(&*(&networkaccountid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1756,7 +1810,7 @@ impl IMobileBroadbandAccountStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IMobileBroadbandAccountStatics>, base.5, AvailableNetworkAccountIds::<Impl, OFFSET>, CreateFromNetworkAccountId::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMobileBroadbandAccountStatics>, ::windows::core::GetTrustLevel, AvailableNetworkAccountIds::<Impl, OFFSET>, CreateFromNetworkAccountId::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1771,9 +1825,9 @@ impl ::windows::core::RuntimeName for IMobileBroadbandAccountUpdatedEventArgs {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IMobileBroadbandAccountUpdatedEventArgsVtbl {
-    pub const fn new<Impl: IMobileBroadbandAccountUpdatedEventArgsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IMobileBroadbandAccountUpdatedEventArgsVtbl {
-        unsafe extern "system" fn NetworkAccountId<Impl: IMobileBroadbandAccountUpdatedEventArgsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMobileBroadbandAccountUpdatedEventArgsImpl, const OFFSET: isize>() -> IMobileBroadbandAccountUpdatedEventArgsVtbl {
+        unsafe extern "system" fn NetworkAccountId<Impl: IMobileBroadbandAccountUpdatedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).NetworkAccountId() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1783,8 +1837,8 @@ impl IMobileBroadbandAccountUpdatedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn HasDeviceInformationChanged<Impl: IMobileBroadbandAccountUpdatedEventArgsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn HasDeviceInformationChanged<Impl: IMobileBroadbandAccountUpdatedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).HasDeviceInformationChanged() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1794,8 +1848,8 @@ impl IMobileBroadbandAccountUpdatedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn HasNetworkChanged<Impl: IMobileBroadbandAccountUpdatedEventArgsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn HasNetworkChanged<Impl: IMobileBroadbandAccountUpdatedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).HasNetworkChanged() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1805,7 +1859,7 @@ impl IMobileBroadbandAccountUpdatedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IMobileBroadbandAccountUpdatedEventArgs>, base.5, NetworkAccountId::<Impl, OFFSET>, HasDeviceInformationChanged::<Impl, OFFSET>, HasNetworkChanged::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMobileBroadbandAccountUpdatedEventArgs>, ::windows::core::GetTrustLevel, NetworkAccountId::<Impl, OFFSET>, HasDeviceInformationChanged::<Impl, OFFSET>, HasNetworkChanged::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1830,9 +1884,9 @@ impl ::windows::core::RuntimeName for IMobileBroadbandAccountWatcher {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IMobileBroadbandAccountWatcherVtbl {
-    pub const fn new<Impl: IMobileBroadbandAccountWatcherImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IMobileBroadbandAccountWatcherVtbl {
-        unsafe extern "system" fn AccountAdded<Impl: IMobileBroadbandAccountWatcherImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMobileBroadbandAccountWatcherImpl, const OFFSET: isize>() -> IMobileBroadbandAccountWatcherVtbl {
+        unsafe extern "system" fn AccountAdded<Impl: IMobileBroadbandAccountWatcherImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AccountAdded(&*(&handler as *const <super::super::Foundation::TypedEventHandler<MobileBroadbandAccountWatcher, MobileBroadbandAccountEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<MobileBroadbandAccountWatcher, MobileBroadbandAccountEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1842,12 +1896,12 @@ impl IMobileBroadbandAccountWatcherVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveAccountAdded<Impl: IMobileBroadbandAccountWatcherImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, cookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn RemoveAccountAdded<Impl: IMobileBroadbandAccountWatcherImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveAccountAdded(&*(&cookie as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn AccountUpdated<Impl: IMobileBroadbandAccountWatcherImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn AccountUpdated<Impl: IMobileBroadbandAccountWatcherImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AccountUpdated(&*(&handler as *const <super::super::Foundation::TypedEventHandler<MobileBroadbandAccountWatcher, MobileBroadbandAccountUpdatedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<MobileBroadbandAccountWatcher, MobileBroadbandAccountUpdatedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1857,12 +1911,12 @@ impl IMobileBroadbandAccountWatcherVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveAccountUpdated<Impl: IMobileBroadbandAccountWatcherImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, cookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn RemoveAccountUpdated<Impl: IMobileBroadbandAccountWatcherImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveAccountUpdated(&*(&cookie as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn AccountRemoved<Impl: IMobileBroadbandAccountWatcherImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn AccountRemoved<Impl: IMobileBroadbandAccountWatcherImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AccountRemoved(&*(&handler as *const <super::super::Foundation::TypedEventHandler<MobileBroadbandAccountWatcher, MobileBroadbandAccountEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<MobileBroadbandAccountWatcher, MobileBroadbandAccountEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1872,12 +1926,12 @@ impl IMobileBroadbandAccountWatcherVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveAccountRemoved<Impl: IMobileBroadbandAccountWatcherImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, cookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn RemoveAccountRemoved<Impl: IMobileBroadbandAccountWatcherImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveAccountRemoved(&*(&cookie as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn EnumerationCompleted<Impl: IMobileBroadbandAccountWatcherImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn EnumerationCompleted<Impl: IMobileBroadbandAccountWatcherImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EnumerationCompleted(&*(&handler as *const <super::super::Foundation::TypedEventHandler<MobileBroadbandAccountWatcher, ::windows::core::IInspectable> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<MobileBroadbandAccountWatcher, ::windows::core::IInspectable> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1887,12 +1941,12 @@ impl IMobileBroadbandAccountWatcherVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveEnumerationCompleted<Impl: IMobileBroadbandAccountWatcherImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, cookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn RemoveEnumerationCompleted<Impl: IMobileBroadbandAccountWatcherImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveEnumerationCompleted(&*(&cookie as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn Stopped<Impl: IMobileBroadbandAccountWatcherImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn Stopped<Impl: IMobileBroadbandAccountWatcherImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Stopped(&*(&handler as *const <super::super::Foundation::TypedEventHandler<MobileBroadbandAccountWatcher, ::windows::core::IInspectable> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<MobileBroadbandAccountWatcher, ::windows::core::IInspectable> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1902,12 +1956,12 @@ impl IMobileBroadbandAccountWatcherVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveStopped<Impl: IMobileBroadbandAccountWatcherImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, cookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn RemoveStopped<Impl: IMobileBroadbandAccountWatcherImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveStopped(&*(&cookie as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn Status<Impl: IMobileBroadbandAccountWatcherImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut MobileBroadbandAccountWatcherStatus) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn Status<Impl: IMobileBroadbandAccountWatcherImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut MobileBroadbandAccountWatcherStatus) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Status() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1917,21 +1971,21 @@ impl IMobileBroadbandAccountWatcherVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Start<Impl: IMobileBroadbandAccountWatcherImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn Start<Impl: IMobileBroadbandAccountWatcherImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Start().into()
         }
-        unsafe extern "system" fn Stop<Impl: IMobileBroadbandAccountWatcherImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn Stop<Impl: IMobileBroadbandAccountWatcherImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Stop().into()
         }
         Self(
-            base.0,
-            base.1,
-            base.2,
-            base.3,
+            ::windows::core::QueryInterface::<Identity, OFFSET>,
+            ::windows::core::AddRef::<Identity, OFFSET>,
+            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IMobileBroadbandAccountWatcher>,
-            base.5,
+            ::windows::core::GetTrustLevel,
             AccountAdded::<Impl, OFFSET>,
             RemoveAccountAdded::<Impl, OFFSET>,
             AccountUpdated::<Impl, OFFSET>,
@@ -1959,9 +2013,9 @@ impl ::windows::core::RuntimeName for IMobileBroadbandAntennaSar {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IMobileBroadbandAntennaSarVtbl {
-    pub const fn new<Impl: IMobileBroadbandAntennaSarImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IMobileBroadbandAntennaSarVtbl {
-        unsafe extern "system" fn AntennaIndex<Impl: IMobileBroadbandAntennaSarImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMobileBroadbandAntennaSarImpl, const OFFSET: isize>() -> IMobileBroadbandAntennaSarVtbl {
+        unsafe extern "system" fn AntennaIndex<Impl: IMobileBroadbandAntennaSarImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AntennaIndex() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1971,8 +2025,8 @@ impl IMobileBroadbandAntennaSarVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SarBackoffIndex<Impl: IMobileBroadbandAntennaSarImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn SarBackoffIndex<Impl: IMobileBroadbandAntennaSarImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SarBackoffIndex() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1982,7 +2036,7 @@ impl IMobileBroadbandAntennaSarVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IMobileBroadbandAntennaSar>, base.5, AntennaIndex::<Impl, OFFSET>, SarBackoffIndex::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMobileBroadbandAntennaSar>, ::windows::core::GetTrustLevel, AntennaIndex::<Impl, OFFSET>, SarBackoffIndex::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1995,9 +2049,9 @@ impl ::windows::core::RuntimeName for IMobileBroadbandAntennaSarFactory {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IMobileBroadbandAntennaSarFactoryVtbl {
-    pub const fn new<Impl: IMobileBroadbandAntennaSarFactoryImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IMobileBroadbandAntennaSarFactoryVtbl {
-        unsafe extern "system" fn CreateWithIndex<Impl: IMobileBroadbandAntennaSarFactoryImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, antennaindex: i32, sarbackoffindex: i32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMobileBroadbandAntennaSarFactoryImpl, const OFFSET: isize>() -> IMobileBroadbandAntennaSarFactoryVtbl {
+        unsafe extern "system" fn CreateWithIndex<Impl: IMobileBroadbandAntennaSarFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, antennaindex: i32, sarbackoffindex: i32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateWithIndex(antennaindex, sarbackoffindex) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -2007,7 +2061,7 @@ impl IMobileBroadbandAntennaSarFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IMobileBroadbandAntennaSarFactory>, base.5, CreateWithIndex::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMobileBroadbandAntennaSarFactory>, ::windows::core::GetTrustLevel, CreateWithIndex::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2027,9 +2081,9 @@ impl ::windows::core::RuntimeName for IMobileBroadbandCellCdma {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IMobileBroadbandCellCdmaVtbl {
-    pub const fn new<Impl: IMobileBroadbandCellCdmaImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IMobileBroadbandCellCdmaVtbl {
-        unsafe extern "system" fn BaseStationId<Impl: IMobileBroadbandCellCdmaImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMobileBroadbandCellCdmaImpl, const OFFSET: isize>() -> IMobileBroadbandCellCdmaVtbl {
+        unsafe extern "system" fn BaseStationId<Impl: IMobileBroadbandCellCdmaImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BaseStationId() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -2039,8 +2093,8 @@ impl IMobileBroadbandCellCdmaVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn BaseStationPNCode<Impl: IMobileBroadbandCellCdmaImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn BaseStationPNCode<Impl: IMobileBroadbandCellCdmaImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BaseStationPNCode() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -2050,8 +2104,8 @@ impl IMobileBroadbandCellCdmaVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn BaseStationLatitude<Impl: IMobileBroadbandCellCdmaImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn BaseStationLatitude<Impl: IMobileBroadbandCellCdmaImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BaseStationLatitude() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -2061,8 +2115,8 @@ impl IMobileBroadbandCellCdmaVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn BaseStationLongitude<Impl: IMobileBroadbandCellCdmaImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn BaseStationLongitude<Impl: IMobileBroadbandCellCdmaImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BaseStationLongitude() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -2072,8 +2126,8 @@ impl IMobileBroadbandCellCdmaVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn BaseStationLastBroadcastGpsTime<Impl: IMobileBroadbandCellCdmaImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn BaseStationLastBroadcastGpsTime<Impl: IMobileBroadbandCellCdmaImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BaseStationLastBroadcastGpsTime() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -2083,8 +2137,8 @@ impl IMobileBroadbandCellCdmaVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn NetworkId<Impl: IMobileBroadbandCellCdmaImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn NetworkId<Impl: IMobileBroadbandCellCdmaImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).NetworkId() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -2094,8 +2148,8 @@ impl IMobileBroadbandCellCdmaVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PilotSignalStrengthInDB<Impl: IMobileBroadbandCellCdmaImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn PilotSignalStrengthInDB<Impl: IMobileBroadbandCellCdmaImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PilotSignalStrengthInDB() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -2105,8 +2159,8 @@ impl IMobileBroadbandCellCdmaVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SystemId<Impl: IMobileBroadbandCellCdmaImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn SystemId<Impl: IMobileBroadbandCellCdmaImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SystemId() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -2116,7 +2170,22 @@ impl IMobileBroadbandCellCdmaVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IMobileBroadbandCellCdma>, base.5, BaseStationId::<Impl, OFFSET>, BaseStationPNCode::<Impl, OFFSET>, BaseStationLatitude::<Impl, OFFSET>, BaseStationLongitude::<Impl, OFFSET>, BaseStationLastBroadcastGpsTime::<Impl, OFFSET>, NetworkId::<Impl, OFFSET>, PilotSignalStrengthInDB::<Impl, OFFSET>, SystemId::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, OFFSET>,
+            ::windows::core::AddRef::<Identity, OFFSET>,
+            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<IMobileBroadbandCellCdma>,
+            ::windows::core::GetTrustLevel,
+            BaseStationId::<Impl, OFFSET>,
+            BaseStationPNCode::<Impl, OFFSET>,
+            BaseStationLatitude::<Impl, OFFSET>,
+            BaseStationLongitude::<Impl, OFFSET>,
+            BaseStationLastBroadcastGpsTime::<Impl, OFFSET>,
+            NetworkId::<Impl, OFFSET>,
+            PilotSignalStrengthInDB::<Impl, OFFSET>,
+            SystemId::<Impl, OFFSET>,
+        )
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2135,9 +2204,9 @@ impl ::windows::core::RuntimeName for IMobileBroadbandCellGsm {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IMobileBroadbandCellGsmVtbl {
-    pub const fn new<Impl: IMobileBroadbandCellGsmImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IMobileBroadbandCellGsmVtbl {
-        unsafe extern "system" fn BaseStationId<Impl: IMobileBroadbandCellGsmImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMobileBroadbandCellGsmImpl, const OFFSET: isize>() -> IMobileBroadbandCellGsmVtbl {
+        unsafe extern "system" fn BaseStationId<Impl: IMobileBroadbandCellGsmImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BaseStationId() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -2147,8 +2216,8 @@ impl IMobileBroadbandCellGsmVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CellId<Impl: IMobileBroadbandCellGsmImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn CellId<Impl: IMobileBroadbandCellGsmImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CellId() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -2158,8 +2227,8 @@ impl IMobileBroadbandCellGsmVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ChannelNumber<Impl: IMobileBroadbandCellGsmImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn ChannelNumber<Impl: IMobileBroadbandCellGsmImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ChannelNumber() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -2169,8 +2238,8 @@ impl IMobileBroadbandCellGsmVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn LocationAreaCode<Impl: IMobileBroadbandCellGsmImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn LocationAreaCode<Impl: IMobileBroadbandCellGsmImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).LocationAreaCode() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -2180,8 +2249,8 @@ impl IMobileBroadbandCellGsmVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ProviderId<Impl: IMobileBroadbandCellGsmImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn ProviderId<Impl: IMobileBroadbandCellGsmImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ProviderId() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -2191,8 +2260,8 @@ impl IMobileBroadbandCellGsmVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ReceivedSignalStrengthInDBm<Impl: IMobileBroadbandCellGsmImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn ReceivedSignalStrengthInDBm<Impl: IMobileBroadbandCellGsmImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ReceivedSignalStrengthInDBm() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -2202,8 +2271,8 @@ impl IMobileBroadbandCellGsmVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TimingAdvanceInBitPeriods<Impl: IMobileBroadbandCellGsmImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn TimingAdvanceInBitPeriods<Impl: IMobileBroadbandCellGsmImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TimingAdvanceInBitPeriods() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -2213,7 +2282,21 @@ impl IMobileBroadbandCellGsmVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IMobileBroadbandCellGsm>, base.5, BaseStationId::<Impl, OFFSET>, CellId::<Impl, OFFSET>, ChannelNumber::<Impl, OFFSET>, LocationAreaCode::<Impl, OFFSET>, ProviderId::<Impl, OFFSET>, ReceivedSignalStrengthInDBm::<Impl, OFFSET>, TimingAdvanceInBitPeriods::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, OFFSET>,
+            ::windows::core::AddRef::<Identity, OFFSET>,
+            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<IMobileBroadbandCellGsm>,
+            ::windows::core::GetTrustLevel,
+            BaseStationId::<Impl, OFFSET>,
+            CellId::<Impl, OFFSET>,
+            ChannelNumber::<Impl, OFFSET>,
+            LocationAreaCode::<Impl, OFFSET>,
+            ProviderId::<Impl, OFFSET>,
+            ReceivedSignalStrengthInDBm::<Impl, OFFSET>,
+            TimingAdvanceInBitPeriods::<Impl, OFFSET>,
+        )
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2233,9 +2316,9 @@ impl ::windows::core::RuntimeName for IMobileBroadbandCellLte {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IMobileBroadbandCellLteVtbl {
-    pub const fn new<Impl: IMobileBroadbandCellLteImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IMobileBroadbandCellLteVtbl {
-        unsafe extern "system" fn CellId<Impl: IMobileBroadbandCellLteImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMobileBroadbandCellLteImpl, const OFFSET: isize>() -> IMobileBroadbandCellLteVtbl {
+        unsafe extern "system" fn CellId<Impl: IMobileBroadbandCellLteImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CellId() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -2245,8 +2328,8 @@ impl IMobileBroadbandCellLteVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ChannelNumber<Impl: IMobileBroadbandCellLteImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn ChannelNumber<Impl: IMobileBroadbandCellLteImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ChannelNumber() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -2256,8 +2339,8 @@ impl IMobileBroadbandCellLteVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PhysicalCellId<Impl: IMobileBroadbandCellLteImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn PhysicalCellId<Impl: IMobileBroadbandCellLteImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PhysicalCellId() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -2267,8 +2350,8 @@ impl IMobileBroadbandCellLteVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ProviderId<Impl: IMobileBroadbandCellLteImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn ProviderId<Impl: IMobileBroadbandCellLteImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ProviderId() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -2278,8 +2361,8 @@ impl IMobileBroadbandCellLteVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ReferenceSignalReceivedPowerInDBm<Impl: IMobileBroadbandCellLteImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn ReferenceSignalReceivedPowerInDBm<Impl: IMobileBroadbandCellLteImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ReferenceSignalReceivedPowerInDBm() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -2289,8 +2372,8 @@ impl IMobileBroadbandCellLteVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ReferenceSignalReceivedQualityInDBm<Impl: IMobileBroadbandCellLteImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn ReferenceSignalReceivedQualityInDBm<Impl: IMobileBroadbandCellLteImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ReferenceSignalReceivedQualityInDBm() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -2300,8 +2383,8 @@ impl IMobileBroadbandCellLteVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TimingAdvanceInBitPeriods<Impl: IMobileBroadbandCellLteImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn TimingAdvanceInBitPeriods<Impl: IMobileBroadbandCellLteImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TimingAdvanceInBitPeriods() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -2311,8 +2394,8 @@ impl IMobileBroadbandCellLteVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TrackingAreaCode<Impl: IMobileBroadbandCellLteImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn TrackingAreaCode<Impl: IMobileBroadbandCellLteImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TrackingAreaCode() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -2322,7 +2405,22 @@ impl IMobileBroadbandCellLteVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IMobileBroadbandCellLte>, base.5, CellId::<Impl, OFFSET>, ChannelNumber::<Impl, OFFSET>, PhysicalCellId::<Impl, OFFSET>, ProviderId::<Impl, OFFSET>, ReferenceSignalReceivedPowerInDBm::<Impl, OFFSET>, ReferenceSignalReceivedQualityInDBm::<Impl, OFFSET>, TimingAdvanceInBitPeriods::<Impl, OFFSET>, TrackingAreaCode::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, OFFSET>,
+            ::windows::core::AddRef::<Identity, OFFSET>,
+            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<IMobileBroadbandCellLte>,
+            ::windows::core::GetTrustLevel,
+            CellId::<Impl, OFFSET>,
+            ChannelNumber::<Impl, OFFSET>,
+            PhysicalCellId::<Impl, OFFSET>,
+            ProviderId::<Impl, OFFSET>,
+            ReferenceSignalReceivedPowerInDBm::<Impl, OFFSET>,
+            ReferenceSignalReceivedQualityInDBm::<Impl, OFFSET>,
+            TimingAdvanceInBitPeriods::<Impl, OFFSET>,
+            TrackingAreaCode::<Impl, OFFSET>,
+        )
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2343,9 +2441,9 @@ impl ::windows::core::RuntimeName for IMobileBroadbandCellNR {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IMobileBroadbandCellNRVtbl {
-    pub const fn new<Impl: IMobileBroadbandCellNRImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IMobileBroadbandCellNRVtbl {
-        unsafe extern "system" fn CellId<Impl: IMobileBroadbandCellNRImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMobileBroadbandCellNRImpl, const OFFSET: isize>() -> IMobileBroadbandCellNRVtbl {
+        unsafe extern "system" fn CellId<Impl: IMobileBroadbandCellNRImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CellId() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -2355,8 +2453,8 @@ impl IMobileBroadbandCellNRVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ChannelNumber<Impl: IMobileBroadbandCellNRImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn ChannelNumber<Impl: IMobileBroadbandCellNRImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ChannelNumber() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -2366,8 +2464,8 @@ impl IMobileBroadbandCellNRVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PhysicalCellId<Impl: IMobileBroadbandCellNRImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn PhysicalCellId<Impl: IMobileBroadbandCellNRImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PhysicalCellId() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -2377,8 +2475,8 @@ impl IMobileBroadbandCellNRVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ProviderId<Impl: IMobileBroadbandCellNRImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn ProviderId<Impl: IMobileBroadbandCellNRImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ProviderId() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -2388,8 +2486,8 @@ impl IMobileBroadbandCellNRVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ReferenceSignalReceivedPowerInDBm<Impl: IMobileBroadbandCellNRImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn ReferenceSignalReceivedPowerInDBm<Impl: IMobileBroadbandCellNRImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ReferenceSignalReceivedPowerInDBm() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -2399,8 +2497,8 @@ impl IMobileBroadbandCellNRVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ReferenceSignalReceivedQualityInDBm<Impl: IMobileBroadbandCellNRImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn ReferenceSignalReceivedQualityInDBm<Impl: IMobileBroadbandCellNRImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ReferenceSignalReceivedQualityInDBm() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -2410,8 +2508,8 @@ impl IMobileBroadbandCellNRVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TimingAdvanceInNanoseconds<Impl: IMobileBroadbandCellNRImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn TimingAdvanceInNanoseconds<Impl: IMobileBroadbandCellNRImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TimingAdvanceInNanoseconds() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -2421,8 +2519,8 @@ impl IMobileBroadbandCellNRVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TrackingAreaCode<Impl: IMobileBroadbandCellNRImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn TrackingAreaCode<Impl: IMobileBroadbandCellNRImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TrackingAreaCode() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -2432,8 +2530,8 @@ impl IMobileBroadbandCellNRVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SignalToNoiseRatioInDB<Impl: IMobileBroadbandCellNRImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn SignalToNoiseRatioInDB<Impl: IMobileBroadbandCellNRImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SignalToNoiseRatioInDB() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -2443,7 +2541,23 @@ impl IMobileBroadbandCellNRVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IMobileBroadbandCellNR>, base.5, CellId::<Impl, OFFSET>, ChannelNumber::<Impl, OFFSET>, PhysicalCellId::<Impl, OFFSET>, ProviderId::<Impl, OFFSET>, ReferenceSignalReceivedPowerInDBm::<Impl, OFFSET>, ReferenceSignalReceivedQualityInDBm::<Impl, OFFSET>, TimingAdvanceInNanoseconds::<Impl, OFFSET>, TrackingAreaCode::<Impl, OFFSET>, SignalToNoiseRatioInDB::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, OFFSET>,
+            ::windows::core::AddRef::<Identity, OFFSET>,
+            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<IMobileBroadbandCellNR>,
+            ::windows::core::GetTrustLevel,
+            CellId::<Impl, OFFSET>,
+            ChannelNumber::<Impl, OFFSET>,
+            PhysicalCellId::<Impl, OFFSET>,
+            ProviderId::<Impl, OFFSET>,
+            ReferenceSignalReceivedPowerInDBm::<Impl, OFFSET>,
+            ReferenceSignalReceivedQualityInDBm::<Impl, OFFSET>,
+            TimingAdvanceInNanoseconds::<Impl, OFFSET>,
+            TrackingAreaCode::<Impl, OFFSET>,
+            SignalToNoiseRatioInDB::<Impl, OFFSET>,
+        )
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2463,9 +2577,9 @@ impl ::windows::core::RuntimeName for IMobileBroadbandCellTdscdma {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IMobileBroadbandCellTdscdmaVtbl {
-    pub const fn new<Impl: IMobileBroadbandCellTdscdmaImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IMobileBroadbandCellTdscdmaVtbl {
-        unsafe extern "system" fn CellId<Impl: IMobileBroadbandCellTdscdmaImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMobileBroadbandCellTdscdmaImpl, const OFFSET: isize>() -> IMobileBroadbandCellTdscdmaVtbl {
+        unsafe extern "system" fn CellId<Impl: IMobileBroadbandCellTdscdmaImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CellId() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -2475,8 +2589,8 @@ impl IMobileBroadbandCellTdscdmaVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CellParameterId<Impl: IMobileBroadbandCellTdscdmaImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn CellParameterId<Impl: IMobileBroadbandCellTdscdmaImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CellParameterId() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -2486,8 +2600,8 @@ impl IMobileBroadbandCellTdscdmaVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ChannelNumber<Impl: IMobileBroadbandCellTdscdmaImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn ChannelNumber<Impl: IMobileBroadbandCellTdscdmaImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ChannelNumber() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -2497,8 +2611,8 @@ impl IMobileBroadbandCellTdscdmaVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn LocationAreaCode<Impl: IMobileBroadbandCellTdscdmaImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn LocationAreaCode<Impl: IMobileBroadbandCellTdscdmaImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).LocationAreaCode() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -2508,8 +2622,8 @@ impl IMobileBroadbandCellTdscdmaVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PathLossInDB<Impl: IMobileBroadbandCellTdscdmaImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn PathLossInDB<Impl: IMobileBroadbandCellTdscdmaImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PathLossInDB() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -2519,8 +2633,8 @@ impl IMobileBroadbandCellTdscdmaVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ProviderId<Impl: IMobileBroadbandCellTdscdmaImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn ProviderId<Impl: IMobileBroadbandCellTdscdmaImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ProviderId() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -2530,8 +2644,8 @@ impl IMobileBroadbandCellTdscdmaVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ReceivedSignalCodePowerInDBm<Impl: IMobileBroadbandCellTdscdmaImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn ReceivedSignalCodePowerInDBm<Impl: IMobileBroadbandCellTdscdmaImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ReceivedSignalCodePowerInDBm() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -2541,8 +2655,8 @@ impl IMobileBroadbandCellTdscdmaVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TimingAdvanceInBitPeriods<Impl: IMobileBroadbandCellTdscdmaImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn TimingAdvanceInBitPeriods<Impl: IMobileBroadbandCellTdscdmaImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TimingAdvanceInBitPeriods() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -2552,7 +2666,22 @@ impl IMobileBroadbandCellTdscdmaVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IMobileBroadbandCellTdscdma>, base.5, CellId::<Impl, OFFSET>, CellParameterId::<Impl, OFFSET>, ChannelNumber::<Impl, OFFSET>, LocationAreaCode::<Impl, OFFSET>, PathLossInDB::<Impl, OFFSET>, ProviderId::<Impl, OFFSET>, ReceivedSignalCodePowerInDBm::<Impl, OFFSET>, TimingAdvanceInBitPeriods::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, OFFSET>,
+            ::windows::core::AddRef::<Identity, OFFSET>,
+            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<IMobileBroadbandCellTdscdma>,
+            ::windows::core::GetTrustLevel,
+            CellId::<Impl, OFFSET>,
+            CellParameterId::<Impl, OFFSET>,
+            ChannelNumber::<Impl, OFFSET>,
+            LocationAreaCode::<Impl, OFFSET>,
+            PathLossInDB::<Impl, OFFSET>,
+            ProviderId::<Impl, OFFSET>,
+            ReceivedSignalCodePowerInDBm::<Impl, OFFSET>,
+            TimingAdvanceInBitPeriods::<Impl, OFFSET>,
+        )
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2572,9 +2701,9 @@ impl ::windows::core::RuntimeName for IMobileBroadbandCellUmts {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IMobileBroadbandCellUmtsVtbl {
-    pub const fn new<Impl: IMobileBroadbandCellUmtsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IMobileBroadbandCellUmtsVtbl {
-        unsafe extern "system" fn CellId<Impl: IMobileBroadbandCellUmtsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMobileBroadbandCellUmtsImpl, const OFFSET: isize>() -> IMobileBroadbandCellUmtsVtbl {
+        unsafe extern "system" fn CellId<Impl: IMobileBroadbandCellUmtsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CellId() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -2584,8 +2713,8 @@ impl IMobileBroadbandCellUmtsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ChannelNumber<Impl: IMobileBroadbandCellUmtsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn ChannelNumber<Impl: IMobileBroadbandCellUmtsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ChannelNumber() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -2595,8 +2724,8 @@ impl IMobileBroadbandCellUmtsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn LocationAreaCode<Impl: IMobileBroadbandCellUmtsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn LocationAreaCode<Impl: IMobileBroadbandCellUmtsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).LocationAreaCode() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -2606,8 +2735,8 @@ impl IMobileBroadbandCellUmtsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PathLossInDB<Impl: IMobileBroadbandCellUmtsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn PathLossInDB<Impl: IMobileBroadbandCellUmtsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PathLossInDB() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -2617,8 +2746,8 @@ impl IMobileBroadbandCellUmtsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PrimaryScramblingCode<Impl: IMobileBroadbandCellUmtsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn PrimaryScramblingCode<Impl: IMobileBroadbandCellUmtsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PrimaryScramblingCode() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -2628,8 +2757,8 @@ impl IMobileBroadbandCellUmtsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ProviderId<Impl: IMobileBroadbandCellUmtsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn ProviderId<Impl: IMobileBroadbandCellUmtsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ProviderId() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -2639,8 +2768,8 @@ impl IMobileBroadbandCellUmtsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ReceivedSignalCodePowerInDBm<Impl: IMobileBroadbandCellUmtsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn ReceivedSignalCodePowerInDBm<Impl: IMobileBroadbandCellUmtsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ReceivedSignalCodePowerInDBm() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -2650,8 +2779,8 @@ impl IMobileBroadbandCellUmtsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SignalToNoiseRatioInDB<Impl: IMobileBroadbandCellUmtsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn SignalToNoiseRatioInDB<Impl: IMobileBroadbandCellUmtsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SignalToNoiseRatioInDB() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -2661,7 +2790,22 @@ impl IMobileBroadbandCellUmtsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IMobileBroadbandCellUmts>, base.5, CellId::<Impl, OFFSET>, ChannelNumber::<Impl, OFFSET>, LocationAreaCode::<Impl, OFFSET>, PathLossInDB::<Impl, OFFSET>, PrimaryScramblingCode::<Impl, OFFSET>, ProviderId::<Impl, OFFSET>, ReceivedSignalCodePowerInDBm::<Impl, OFFSET>, SignalToNoiseRatioInDB::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, OFFSET>,
+            ::windows::core::AddRef::<Identity, OFFSET>,
+            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<IMobileBroadbandCellUmts>,
+            ::windows::core::GetTrustLevel,
+            CellId::<Impl, OFFSET>,
+            ChannelNumber::<Impl, OFFSET>,
+            LocationAreaCode::<Impl, OFFSET>,
+            PathLossInDB::<Impl, OFFSET>,
+            PrimaryScramblingCode::<Impl, OFFSET>,
+            ProviderId::<Impl, OFFSET>,
+            ReceivedSignalCodePowerInDBm::<Impl, OFFSET>,
+            SignalToNoiseRatioInDB::<Impl, OFFSET>,
+        )
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2683,9 +2827,9 @@ impl ::windows::core::RuntimeName for IMobileBroadbandCellsInfo {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IMobileBroadbandCellsInfoVtbl {
-    pub const fn new<Impl: IMobileBroadbandCellsInfoImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IMobileBroadbandCellsInfoVtbl {
-        unsafe extern "system" fn NeighboringCellsCdma<Impl: IMobileBroadbandCellsInfoImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMobileBroadbandCellsInfoImpl, const OFFSET: isize>() -> IMobileBroadbandCellsInfoVtbl {
+        unsafe extern "system" fn NeighboringCellsCdma<Impl: IMobileBroadbandCellsInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).NeighboringCellsCdma() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -2695,8 +2839,8 @@ impl IMobileBroadbandCellsInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn NeighboringCellsGsm<Impl: IMobileBroadbandCellsInfoImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn NeighboringCellsGsm<Impl: IMobileBroadbandCellsInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).NeighboringCellsGsm() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -2706,8 +2850,8 @@ impl IMobileBroadbandCellsInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn NeighboringCellsLte<Impl: IMobileBroadbandCellsInfoImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn NeighboringCellsLte<Impl: IMobileBroadbandCellsInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).NeighboringCellsLte() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -2717,8 +2861,8 @@ impl IMobileBroadbandCellsInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn NeighboringCellsTdscdma<Impl: IMobileBroadbandCellsInfoImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn NeighboringCellsTdscdma<Impl: IMobileBroadbandCellsInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).NeighboringCellsTdscdma() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -2728,8 +2872,8 @@ impl IMobileBroadbandCellsInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn NeighboringCellsUmts<Impl: IMobileBroadbandCellsInfoImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn NeighboringCellsUmts<Impl: IMobileBroadbandCellsInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).NeighboringCellsUmts() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -2739,8 +2883,8 @@ impl IMobileBroadbandCellsInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ServingCellsCdma<Impl: IMobileBroadbandCellsInfoImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn ServingCellsCdma<Impl: IMobileBroadbandCellsInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ServingCellsCdma() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -2750,8 +2894,8 @@ impl IMobileBroadbandCellsInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ServingCellsGsm<Impl: IMobileBroadbandCellsInfoImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn ServingCellsGsm<Impl: IMobileBroadbandCellsInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ServingCellsGsm() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -2761,8 +2905,8 @@ impl IMobileBroadbandCellsInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ServingCellsLte<Impl: IMobileBroadbandCellsInfoImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn ServingCellsLte<Impl: IMobileBroadbandCellsInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ServingCellsLte() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -2772,8 +2916,8 @@ impl IMobileBroadbandCellsInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ServingCellsTdscdma<Impl: IMobileBroadbandCellsInfoImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn ServingCellsTdscdma<Impl: IMobileBroadbandCellsInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ServingCellsTdscdma() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -2783,8 +2927,8 @@ impl IMobileBroadbandCellsInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ServingCellsUmts<Impl: IMobileBroadbandCellsInfoImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn ServingCellsUmts<Impl: IMobileBroadbandCellsInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ServingCellsUmts() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -2794,7 +2938,24 @@ impl IMobileBroadbandCellsInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IMobileBroadbandCellsInfo>, base.5, NeighboringCellsCdma::<Impl, OFFSET>, NeighboringCellsGsm::<Impl, OFFSET>, NeighboringCellsLte::<Impl, OFFSET>, NeighboringCellsTdscdma::<Impl, OFFSET>, NeighboringCellsUmts::<Impl, OFFSET>, ServingCellsCdma::<Impl, OFFSET>, ServingCellsGsm::<Impl, OFFSET>, ServingCellsLte::<Impl, OFFSET>, ServingCellsTdscdma::<Impl, OFFSET>, ServingCellsUmts::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, OFFSET>,
+            ::windows::core::AddRef::<Identity, OFFSET>,
+            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<IMobileBroadbandCellsInfo>,
+            ::windows::core::GetTrustLevel,
+            NeighboringCellsCdma::<Impl, OFFSET>,
+            NeighboringCellsGsm::<Impl, OFFSET>,
+            NeighboringCellsLte::<Impl, OFFSET>,
+            NeighboringCellsTdscdma::<Impl, OFFSET>,
+            NeighboringCellsUmts::<Impl, OFFSET>,
+            ServingCellsCdma::<Impl, OFFSET>,
+            ServingCellsGsm::<Impl, OFFSET>,
+            ServingCellsLte::<Impl, OFFSET>,
+            ServingCellsTdscdma::<Impl, OFFSET>,
+            ServingCellsUmts::<Impl, OFFSET>,
+        )
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2808,9 +2969,9 @@ impl ::windows::core::RuntimeName for IMobileBroadbandCellsInfo2 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IMobileBroadbandCellsInfo2Vtbl {
-    pub const fn new<Impl: IMobileBroadbandCellsInfo2Impl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IMobileBroadbandCellsInfo2Vtbl {
-        unsafe extern "system" fn NeighboringCellsNR<Impl: IMobileBroadbandCellsInfo2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMobileBroadbandCellsInfo2Impl, const OFFSET: isize>() -> IMobileBroadbandCellsInfo2Vtbl {
+        unsafe extern "system" fn NeighboringCellsNR<Impl: IMobileBroadbandCellsInfo2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).NeighboringCellsNR() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -2820,8 +2981,8 @@ impl IMobileBroadbandCellsInfo2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ServingCellsNR<Impl: IMobileBroadbandCellsInfo2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn ServingCellsNR<Impl: IMobileBroadbandCellsInfo2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ServingCellsNR() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -2831,7 +2992,7 @@ impl IMobileBroadbandCellsInfo2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IMobileBroadbandCellsInfo2>, base.5, NeighboringCellsNR::<Impl, OFFSET>, ServingCellsNR::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMobileBroadbandCellsInfo2>, ::windows::core::GetTrustLevel, NeighboringCellsNR::<Impl, OFFSET>, ServingCellsNR::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2844,9 +3005,9 @@ impl ::windows::core::RuntimeName for IMobileBroadbandCurrentSlotIndexChangedEve
 }
 #[cfg(feature = "implement_exclusive")]
 impl IMobileBroadbandCurrentSlotIndexChangedEventArgsVtbl {
-    pub const fn new<Impl: IMobileBroadbandCurrentSlotIndexChangedEventArgsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IMobileBroadbandCurrentSlotIndexChangedEventArgsVtbl {
-        unsafe extern "system" fn CurrentSlotIndex<Impl: IMobileBroadbandCurrentSlotIndexChangedEventArgsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMobileBroadbandCurrentSlotIndexChangedEventArgsImpl, const OFFSET: isize>() -> IMobileBroadbandCurrentSlotIndexChangedEventArgsVtbl {
+        unsafe extern "system" fn CurrentSlotIndex<Impl: IMobileBroadbandCurrentSlotIndexChangedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CurrentSlotIndex() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -2856,7 +3017,7 @@ impl IMobileBroadbandCurrentSlotIndexChangedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IMobileBroadbandCurrentSlotIndexChangedEventArgs>, base.5, CurrentSlotIndex::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMobileBroadbandCurrentSlotIndexChangedEventArgs>, ::windows::core::GetTrustLevel, CurrentSlotIndex::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2882,9 +3043,9 @@ impl ::windows::core::RuntimeName for IMobileBroadbandDeviceInformation {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IMobileBroadbandDeviceInformationVtbl {
-    pub const fn new<Impl: IMobileBroadbandDeviceInformationImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IMobileBroadbandDeviceInformationVtbl {
-        unsafe extern "system" fn NetworkDeviceStatus<Impl: IMobileBroadbandDeviceInformationImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut NetworkDeviceStatus) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMobileBroadbandDeviceInformationImpl, const OFFSET: isize>() -> IMobileBroadbandDeviceInformationVtbl {
+        unsafe extern "system" fn NetworkDeviceStatus<Impl: IMobileBroadbandDeviceInformationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut NetworkDeviceStatus) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).NetworkDeviceStatus() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -2894,8 +3055,8 @@ impl IMobileBroadbandDeviceInformationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Manufacturer<Impl: IMobileBroadbandDeviceInformationImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn Manufacturer<Impl: IMobileBroadbandDeviceInformationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Manufacturer() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -2905,8 +3066,8 @@ impl IMobileBroadbandDeviceInformationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Model<Impl: IMobileBroadbandDeviceInformationImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn Model<Impl: IMobileBroadbandDeviceInformationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Model() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -2916,8 +3077,8 @@ impl IMobileBroadbandDeviceInformationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn FirmwareInformation<Impl: IMobileBroadbandDeviceInformationImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn FirmwareInformation<Impl: IMobileBroadbandDeviceInformationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FirmwareInformation() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -2927,8 +3088,8 @@ impl IMobileBroadbandDeviceInformationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CellularClass<Impl: IMobileBroadbandDeviceInformationImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Devices::Sms::CellularClass) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn CellularClass<Impl: IMobileBroadbandDeviceInformationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Devices::Sms::CellularClass) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CellularClass() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -2938,8 +3099,8 @@ impl IMobileBroadbandDeviceInformationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DataClasses<Impl: IMobileBroadbandDeviceInformationImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut DataClasses) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn DataClasses<Impl: IMobileBroadbandDeviceInformationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut DataClasses) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DataClasses() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -2949,8 +3110,8 @@ impl IMobileBroadbandDeviceInformationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CustomDataClass<Impl: IMobileBroadbandDeviceInformationImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn CustomDataClass<Impl: IMobileBroadbandDeviceInformationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CustomDataClass() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -2960,8 +3121,8 @@ impl IMobileBroadbandDeviceInformationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn MobileEquipmentId<Impl: IMobileBroadbandDeviceInformationImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn MobileEquipmentId<Impl: IMobileBroadbandDeviceInformationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MobileEquipmentId() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -2971,8 +3132,8 @@ impl IMobileBroadbandDeviceInformationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TelephoneNumbers<Impl: IMobileBroadbandDeviceInformationImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn TelephoneNumbers<Impl: IMobileBroadbandDeviceInformationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TelephoneNumbers() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -2982,8 +3143,8 @@ impl IMobileBroadbandDeviceInformationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SubscriberId<Impl: IMobileBroadbandDeviceInformationImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn SubscriberId<Impl: IMobileBroadbandDeviceInformationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SubscriberId() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -2993,8 +3154,8 @@ impl IMobileBroadbandDeviceInformationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SimIccId<Impl: IMobileBroadbandDeviceInformationImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn SimIccId<Impl: IMobileBroadbandDeviceInformationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SimIccId() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -3004,8 +3165,8 @@ impl IMobileBroadbandDeviceInformationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DeviceType<Impl: IMobileBroadbandDeviceInformationImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut MobileBroadbandDeviceType) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn DeviceType<Impl: IMobileBroadbandDeviceInformationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut MobileBroadbandDeviceType) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DeviceType() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -3015,8 +3176,8 @@ impl IMobileBroadbandDeviceInformationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DeviceId<Impl: IMobileBroadbandDeviceInformationImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn DeviceId<Impl: IMobileBroadbandDeviceInformationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DeviceId() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -3026,8 +3187,8 @@ impl IMobileBroadbandDeviceInformationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CurrentRadioState<Impl: IMobileBroadbandDeviceInformationImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut MobileBroadbandRadioState) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn CurrentRadioState<Impl: IMobileBroadbandDeviceInformationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut MobileBroadbandRadioState) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CurrentRadioState() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -3038,12 +3199,12 @@ impl IMobileBroadbandDeviceInformationVtbl {
             }
         }
         Self(
-            base.0,
-            base.1,
-            base.2,
-            base.3,
+            ::windows::core::QueryInterface::<Identity, OFFSET>,
+            ::windows::core::AddRef::<Identity, OFFSET>,
+            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IMobileBroadbandDeviceInformation>,
-            base.5,
+            ::windows::core::GetTrustLevel,
             NetworkDeviceStatus::<Impl, OFFSET>,
             Manufacturer::<Impl, OFFSET>,
             Model::<Impl, OFFSET>,
@@ -3073,9 +3234,9 @@ impl ::windows::core::RuntimeName for IMobileBroadbandDeviceInformation2 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IMobileBroadbandDeviceInformation2Vtbl {
-    pub const fn new<Impl: IMobileBroadbandDeviceInformation2Impl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IMobileBroadbandDeviceInformation2Vtbl {
-        unsafe extern "system" fn PinManager<Impl: IMobileBroadbandDeviceInformation2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMobileBroadbandDeviceInformation2Impl, const OFFSET: isize>() -> IMobileBroadbandDeviceInformation2Vtbl {
+        unsafe extern "system" fn PinManager<Impl: IMobileBroadbandDeviceInformation2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PinManager() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -3085,8 +3246,8 @@ impl IMobileBroadbandDeviceInformation2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Revision<Impl: IMobileBroadbandDeviceInformation2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn Revision<Impl: IMobileBroadbandDeviceInformation2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Revision() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -3096,8 +3257,8 @@ impl IMobileBroadbandDeviceInformation2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SerialNumber<Impl: IMobileBroadbandDeviceInformation2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn SerialNumber<Impl: IMobileBroadbandDeviceInformation2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SerialNumber() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -3107,7 +3268,7 @@ impl IMobileBroadbandDeviceInformation2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IMobileBroadbandDeviceInformation2>, base.5, PinManager::<Impl, OFFSET>, Revision::<Impl, OFFSET>, SerialNumber::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMobileBroadbandDeviceInformation2>, ::windows::core::GetTrustLevel, PinManager::<Impl, OFFSET>, Revision::<Impl, OFFSET>, SerialNumber::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -3122,9 +3283,9 @@ impl ::windows::core::RuntimeName for IMobileBroadbandDeviceInformation3 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IMobileBroadbandDeviceInformation3Vtbl {
-    pub const fn new<Impl: IMobileBroadbandDeviceInformation3Impl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IMobileBroadbandDeviceInformation3Vtbl {
-        unsafe extern "system" fn SimSpn<Impl: IMobileBroadbandDeviceInformation3Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMobileBroadbandDeviceInformation3Impl, const OFFSET: isize>() -> IMobileBroadbandDeviceInformation3Vtbl {
+        unsafe extern "system" fn SimSpn<Impl: IMobileBroadbandDeviceInformation3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SimSpn() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -3134,8 +3295,8 @@ impl IMobileBroadbandDeviceInformation3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SimPnn<Impl: IMobileBroadbandDeviceInformation3Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn SimPnn<Impl: IMobileBroadbandDeviceInformation3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SimPnn() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -3145,8 +3306,8 @@ impl IMobileBroadbandDeviceInformation3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SimGid1<Impl: IMobileBroadbandDeviceInformation3Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn SimGid1<Impl: IMobileBroadbandDeviceInformation3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SimGid1() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -3156,7 +3317,7 @@ impl IMobileBroadbandDeviceInformation3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IMobileBroadbandDeviceInformation3>, base.5, SimSpn::<Impl, OFFSET>, SimPnn::<Impl, OFFSET>, SimGid1::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMobileBroadbandDeviceInformation3>, ::windows::core::GetTrustLevel, SimSpn::<Impl, OFFSET>, SimPnn::<Impl, OFFSET>, SimGid1::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -3169,9 +3330,9 @@ impl ::windows::core::RuntimeName for IMobileBroadbandDeviceInformation4 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IMobileBroadbandDeviceInformation4Vtbl {
-    pub const fn new<Impl: IMobileBroadbandDeviceInformation4Impl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IMobileBroadbandDeviceInformation4Vtbl {
-        unsafe extern "system" fn SlotManager<Impl: IMobileBroadbandDeviceInformation4Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMobileBroadbandDeviceInformation4Impl, const OFFSET: isize>() -> IMobileBroadbandDeviceInformation4Vtbl {
+        unsafe extern "system" fn SlotManager<Impl: IMobileBroadbandDeviceInformation4Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SlotManager() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -3181,7 +3342,7 @@ impl IMobileBroadbandDeviceInformation4Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IMobileBroadbandDeviceInformation4>, base.5, SlotManager::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMobileBroadbandDeviceInformation4>, ::windows::core::GetTrustLevel, SlotManager::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -3197,9 +3358,9 @@ impl ::windows::core::RuntimeName for IMobileBroadbandDeviceService {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IMobileBroadbandDeviceServiceVtbl {
-    pub const fn new<Impl: IMobileBroadbandDeviceServiceImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IMobileBroadbandDeviceServiceVtbl {
-        unsafe extern "system" fn DeviceServiceId<Impl: IMobileBroadbandDeviceServiceImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMobileBroadbandDeviceServiceImpl, const OFFSET: isize>() -> IMobileBroadbandDeviceServiceVtbl {
+        unsafe extern "system" fn DeviceServiceId<Impl: IMobileBroadbandDeviceServiceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DeviceServiceId() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -3209,8 +3370,8 @@ impl IMobileBroadbandDeviceServiceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SupportedCommands<Impl: IMobileBroadbandDeviceServiceImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn SupportedCommands<Impl: IMobileBroadbandDeviceServiceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SupportedCommands() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -3220,8 +3381,8 @@ impl IMobileBroadbandDeviceServiceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn OpenDataSession<Impl: IMobileBroadbandDeviceServiceImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn OpenDataSession<Impl: IMobileBroadbandDeviceServiceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OpenDataSession() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -3231,8 +3392,8 @@ impl IMobileBroadbandDeviceServiceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn OpenCommandSession<Impl: IMobileBroadbandDeviceServiceImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn OpenCommandSession<Impl: IMobileBroadbandDeviceServiceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OpenCommandSession() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -3242,7 +3403,7 @@ impl IMobileBroadbandDeviceServiceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IMobileBroadbandDeviceService>, base.5, DeviceServiceId::<Impl, OFFSET>, SupportedCommands::<Impl, OFFSET>, OpenDataSession::<Impl, OFFSET>, OpenCommandSession::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMobileBroadbandDeviceService>, ::windows::core::GetTrustLevel, DeviceServiceId::<Impl, OFFSET>, SupportedCommands::<Impl, OFFSET>, OpenDataSession::<Impl, OFFSET>, OpenCommandSession::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -3256,9 +3417,9 @@ impl ::windows::core::RuntimeName for IMobileBroadbandDeviceServiceCommandResult
 }
 #[cfg(feature = "implement_exclusive")]
 impl IMobileBroadbandDeviceServiceCommandResultVtbl {
-    pub const fn new<Impl: IMobileBroadbandDeviceServiceCommandResultImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IMobileBroadbandDeviceServiceCommandResultVtbl {
-        unsafe extern "system" fn StatusCode<Impl: IMobileBroadbandDeviceServiceCommandResultImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMobileBroadbandDeviceServiceCommandResultImpl, const OFFSET: isize>() -> IMobileBroadbandDeviceServiceCommandResultVtbl {
+        unsafe extern "system" fn StatusCode<Impl: IMobileBroadbandDeviceServiceCommandResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).StatusCode() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -3268,8 +3429,8 @@ impl IMobileBroadbandDeviceServiceCommandResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ResponseData<Impl: IMobileBroadbandDeviceServiceCommandResultImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn ResponseData<Impl: IMobileBroadbandDeviceServiceCommandResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ResponseData() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -3279,7 +3440,7 @@ impl IMobileBroadbandDeviceServiceCommandResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IMobileBroadbandDeviceServiceCommandResult>, base.5, StatusCode::<Impl, OFFSET>, ResponseData::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMobileBroadbandDeviceServiceCommandResult>, ::windows::core::GetTrustLevel, StatusCode::<Impl, OFFSET>, ResponseData::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -3294,9 +3455,9 @@ impl ::windows::core::RuntimeName for IMobileBroadbandDeviceServiceCommandSessio
 }
 #[cfg(feature = "implement_exclusive")]
 impl IMobileBroadbandDeviceServiceCommandSessionVtbl {
-    pub const fn new<Impl: IMobileBroadbandDeviceServiceCommandSessionImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IMobileBroadbandDeviceServiceCommandSessionVtbl {
-        unsafe extern "system" fn SendQueryCommandAsync<Impl: IMobileBroadbandDeviceServiceCommandSessionImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, commandid: u32, data: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMobileBroadbandDeviceServiceCommandSessionImpl, const OFFSET: isize>() -> IMobileBroadbandDeviceServiceCommandSessionVtbl {
+        unsafe extern "system" fn SendQueryCommandAsync<Impl: IMobileBroadbandDeviceServiceCommandSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, commandid: u32, data: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SendQueryCommandAsync(commandid, &*(&data as *const <super::super::Storage::Streams::IBuffer as ::windows::core::Abi>::Abi as *const <super::super::Storage::Streams::IBuffer as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -3306,8 +3467,8 @@ impl IMobileBroadbandDeviceServiceCommandSessionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SendSetCommandAsync<Impl: IMobileBroadbandDeviceServiceCommandSessionImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, commandid: u32, data: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn SendSetCommandAsync<Impl: IMobileBroadbandDeviceServiceCommandSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, commandid: u32, data: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SendSetCommandAsync(commandid, &*(&data as *const <super::super::Storage::Streams::IBuffer as ::windows::core::Abi>::Abi as *const <super::super::Storage::Streams::IBuffer as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -3317,11 +3478,11 @@ impl IMobileBroadbandDeviceServiceCommandSessionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CloseSession<Impl: IMobileBroadbandDeviceServiceCommandSessionImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn CloseSession<Impl: IMobileBroadbandDeviceServiceCommandSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).CloseSession().into()
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IMobileBroadbandDeviceServiceCommandSession>, base.5, SendQueryCommandAsync::<Impl, OFFSET>, SendSetCommandAsync::<Impl, OFFSET>, CloseSession::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMobileBroadbandDeviceServiceCommandSession>, ::windows::core::GetTrustLevel, SendQueryCommandAsync::<Impl, OFFSET>, SendSetCommandAsync::<Impl, OFFSET>, CloseSession::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -3334,9 +3495,9 @@ impl ::windows::core::RuntimeName for IMobileBroadbandDeviceServiceDataReceivedE
 }
 #[cfg(feature = "implement_exclusive")]
 impl IMobileBroadbandDeviceServiceDataReceivedEventArgsVtbl {
-    pub const fn new<Impl: IMobileBroadbandDeviceServiceDataReceivedEventArgsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IMobileBroadbandDeviceServiceDataReceivedEventArgsVtbl {
-        unsafe extern "system" fn ReceivedData<Impl: IMobileBroadbandDeviceServiceDataReceivedEventArgsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMobileBroadbandDeviceServiceDataReceivedEventArgsImpl, const OFFSET: isize>() -> IMobileBroadbandDeviceServiceDataReceivedEventArgsVtbl {
+        unsafe extern "system" fn ReceivedData<Impl: IMobileBroadbandDeviceServiceDataReceivedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ReceivedData() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -3346,7 +3507,7 @@ impl IMobileBroadbandDeviceServiceDataReceivedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IMobileBroadbandDeviceServiceDataReceivedEventArgs>, base.5, ReceivedData::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMobileBroadbandDeviceServiceDataReceivedEventArgs>, ::windows::core::GetTrustLevel, ReceivedData::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -3362,9 +3523,9 @@ impl ::windows::core::RuntimeName for IMobileBroadbandDeviceServiceDataSession {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IMobileBroadbandDeviceServiceDataSessionVtbl {
-    pub const fn new<Impl: IMobileBroadbandDeviceServiceDataSessionImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IMobileBroadbandDeviceServiceDataSessionVtbl {
-        unsafe extern "system" fn WriteDataAsync<Impl: IMobileBroadbandDeviceServiceDataSessionImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMobileBroadbandDeviceServiceDataSessionImpl, const OFFSET: isize>() -> IMobileBroadbandDeviceServiceDataSessionVtbl {
+        unsafe extern "system" fn WriteDataAsync<Impl: IMobileBroadbandDeviceServiceDataSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).WriteDataAsync(&*(&value as *const <super::super::Storage::Streams::IBuffer as ::windows::core::Abi>::Abi as *const <super::super::Storage::Streams::IBuffer as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -3374,12 +3535,12 @@ impl IMobileBroadbandDeviceServiceDataSessionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CloseSession<Impl: IMobileBroadbandDeviceServiceDataSessionImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn CloseSession<Impl: IMobileBroadbandDeviceServiceDataSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).CloseSession().into()
         }
-        unsafe extern "system" fn DataReceived<Impl: IMobileBroadbandDeviceServiceDataSessionImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, eventhandler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn DataReceived<Impl: IMobileBroadbandDeviceServiceDataSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, eventhandler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DataReceived(&*(&eventhandler as *const <super::super::Foundation::TypedEventHandler<MobileBroadbandDeviceServiceDataSession, MobileBroadbandDeviceServiceDataReceivedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<MobileBroadbandDeviceServiceDataSession, MobileBroadbandDeviceServiceDataReceivedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -3389,11 +3550,11 @@ impl IMobileBroadbandDeviceServiceDataSessionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveDataReceived<Impl: IMobileBroadbandDeviceServiceDataSessionImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, eventcookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn RemoveDataReceived<Impl: IMobileBroadbandDeviceServiceDataSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, eventcookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveDataReceived(&*(&eventcookie as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IMobileBroadbandDeviceServiceDataSession>, base.5, WriteDataAsync::<Impl, OFFSET>, CloseSession::<Impl, OFFSET>, DataReceived::<Impl, OFFSET>, RemoveDataReceived::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMobileBroadbandDeviceServiceDataSession>, ::windows::core::GetTrustLevel, WriteDataAsync::<Impl, OFFSET>, CloseSession::<Impl, OFFSET>, DataReceived::<Impl, OFFSET>, RemoveDataReceived::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -3408,9 +3569,9 @@ impl ::windows::core::RuntimeName for IMobileBroadbandDeviceServiceInformation {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IMobileBroadbandDeviceServiceInformationVtbl {
-    pub const fn new<Impl: IMobileBroadbandDeviceServiceInformationImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IMobileBroadbandDeviceServiceInformationVtbl {
-        unsafe extern "system" fn DeviceServiceId<Impl: IMobileBroadbandDeviceServiceInformationImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMobileBroadbandDeviceServiceInformationImpl, const OFFSET: isize>() -> IMobileBroadbandDeviceServiceInformationVtbl {
+        unsafe extern "system" fn DeviceServiceId<Impl: IMobileBroadbandDeviceServiceInformationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DeviceServiceId() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -3420,8 +3581,8 @@ impl IMobileBroadbandDeviceServiceInformationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsDataReadSupported<Impl: IMobileBroadbandDeviceServiceInformationImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn IsDataReadSupported<Impl: IMobileBroadbandDeviceServiceInformationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsDataReadSupported() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -3431,8 +3592,8 @@ impl IMobileBroadbandDeviceServiceInformationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsDataWriteSupported<Impl: IMobileBroadbandDeviceServiceInformationImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn IsDataWriteSupported<Impl: IMobileBroadbandDeviceServiceInformationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsDataWriteSupported() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -3442,7 +3603,7 @@ impl IMobileBroadbandDeviceServiceInformationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IMobileBroadbandDeviceServiceInformation>, base.5, DeviceServiceId::<Impl, OFFSET>, IsDataReadSupported::<Impl, OFFSET>, IsDataWriteSupported::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMobileBroadbandDeviceServiceInformation>, ::windows::core::GetTrustLevel, DeviceServiceId::<Impl, OFFSET>, IsDataReadSupported::<Impl, OFFSET>, IsDataWriteSupported::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -3457,9 +3618,9 @@ impl ::windows::core::RuntimeName for IMobileBroadbandDeviceServiceTriggerDetail
 }
 #[cfg(feature = "implement_exclusive")]
 impl IMobileBroadbandDeviceServiceTriggerDetailsVtbl {
-    pub const fn new<Impl: IMobileBroadbandDeviceServiceTriggerDetailsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IMobileBroadbandDeviceServiceTriggerDetailsVtbl {
-        unsafe extern "system" fn DeviceId<Impl: IMobileBroadbandDeviceServiceTriggerDetailsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMobileBroadbandDeviceServiceTriggerDetailsImpl, const OFFSET: isize>() -> IMobileBroadbandDeviceServiceTriggerDetailsVtbl {
+        unsafe extern "system" fn DeviceId<Impl: IMobileBroadbandDeviceServiceTriggerDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DeviceId() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -3469,8 +3630,8 @@ impl IMobileBroadbandDeviceServiceTriggerDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DeviceServiceId<Impl: IMobileBroadbandDeviceServiceTriggerDetailsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn DeviceServiceId<Impl: IMobileBroadbandDeviceServiceTriggerDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DeviceServiceId() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -3480,8 +3641,8 @@ impl IMobileBroadbandDeviceServiceTriggerDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ReceivedData<Impl: IMobileBroadbandDeviceServiceTriggerDetailsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn ReceivedData<Impl: IMobileBroadbandDeviceServiceTriggerDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ReceivedData() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -3491,7 +3652,7 @@ impl IMobileBroadbandDeviceServiceTriggerDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IMobileBroadbandDeviceServiceTriggerDetails>, base.5, DeviceId::<Impl, OFFSET>, DeviceServiceId::<Impl, OFFSET>, ReceivedData::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMobileBroadbandDeviceServiceTriggerDetails>, ::windows::core::GetTrustLevel, DeviceId::<Impl, OFFSET>, DeviceServiceId::<Impl, OFFSET>, ReceivedData::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -3513,9 +3674,9 @@ impl ::windows::core::RuntimeName for IMobileBroadbandModem {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IMobileBroadbandModemVtbl {
-    pub const fn new<Impl: IMobileBroadbandModemImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IMobileBroadbandModemVtbl {
-        unsafe extern "system" fn CurrentAccount<Impl: IMobileBroadbandModemImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMobileBroadbandModemImpl, const OFFSET: isize>() -> IMobileBroadbandModemVtbl {
+        unsafe extern "system" fn CurrentAccount<Impl: IMobileBroadbandModemImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CurrentAccount() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -3525,8 +3686,8 @@ impl IMobileBroadbandModemVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DeviceInformation<Impl: IMobileBroadbandModemImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn DeviceInformation<Impl: IMobileBroadbandModemImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DeviceInformation() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -3536,8 +3697,8 @@ impl IMobileBroadbandModemVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn MaxDeviceServiceCommandSizeInBytes<Impl: IMobileBroadbandModemImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn MaxDeviceServiceCommandSizeInBytes<Impl: IMobileBroadbandModemImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MaxDeviceServiceCommandSizeInBytes() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -3547,8 +3708,8 @@ impl IMobileBroadbandModemVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn MaxDeviceServiceDataSizeInBytes<Impl: IMobileBroadbandModemImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn MaxDeviceServiceDataSizeInBytes<Impl: IMobileBroadbandModemImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MaxDeviceServiceDataSizeInBytes() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -3558,8 +3719,8 @@ impl IMobileBroadbandModemVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DeviceServices<Impl: IMobileBroadbandModemImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn DeviceServices<Impl: IMobileBroadbandModemImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DeviceServices() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -3569,8 +3730,8 @@ impl IMobileBroadbandModemVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetDeviceService<Impl: IMobileBroadbandModemImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, deviceserviceid: ::windows::core::GUID, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn GetDeviceService<Impl: IMobileBroadbandModemImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, deviceserviceid: ::windows::core::GUID, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDeviceService(&*(&deviceserviceid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -3580,8 +3741,8 @@ impl IMobileBroadbandModemVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsResetSupported<Impl: IMobileBroadbandModemImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn IsResetSupported<Impl: IMobileBroadbandModemImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsResetSupported() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -3591,8 +3752,8 @@ impl IMobileBroadbandModemVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ResetAsync<Impl: IMobileBroadbandModemImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn ResetAsync<Impl: IMobileBroadbandModemImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ResetAsync() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -3602,8 +3763,8 @@ impl IMobileBroadbandModemVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetCurrentConfigurationAsync<Impl: IMobileBroadbandModemImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn GetCurrentConfigurationAsync<Impl: IMobileBroadbandModemImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetCurrentConfigurationAsync() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -3613,8 +3774,8 @@ impl IMobileBroadbandModemVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CurrentNetwork<Impl: IMobileBroadbandModemImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn CurrentNetwork<Impl: IMobileBroadbandModemImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CurrentNetwork() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -3624,7 +3785,24 @@ impl IMobileBroadbandModemVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IMobileBroadbandModem>, base.5, CurrentAccount::<Impl, OFFSET>, DeviceInformation::<Impl, OFFSET>, MaxDeviceServiceCommandSizeInBytes::<Impl, OFFSET>, MaxDeviceServiceDataSizeInBytes::<Impl, OFFSET>, DeviceServices::<Impl, OFFSET>, GetDeviceService::<Impl, OFFSET>, IsResetSupported::<Impl, OFFSET>, ResetAsync::<Impl, OFFSET>, GetCurrentConfigurationAsync::<Impl, OFFSET>, CurrentNetwork::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, OFFSET>,
+            ::windows::core::AddRef::<Identity, OFFSET>,
+            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<IMobileBroadbandModem>,
+            ::windows::core::GetTrustLevel,
+            CurrentAccount::<Impl, OFFSET>,
+            DeviceInformation::<Impl, OFFSET>,
+            MaxDeviceServiceCommandSizeInBytes::<Impl, OFFSET>,
+            MaxDeviceServiceDataSizeInBytes::<Impl, OFFSET>,
+            DeviceServices::<Impl, OFFSET>,
+            GetDeviceService::<Impl, OFFSET>,
+            IsResetSupported::<Impl, OFFSET>,
+            ResetAsync::<Impl, OFFSET>,
+            GetCurrentConfigurationAsync::<Impl, OFFSET>,
+            CurrentNetwork::<Impl, OFFSET>,
+        )
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -3638,9 +3816,9 @@ impl ::windows::core::RuntimeName for IMobileBroadbandModem2 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IMobileBroadbandModem2Vtbl {
-    pub const fn new<Impl: IMobileBroadbandModem2Impl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IMobileBroadbandModem2Vtbl {
-        unsafe extern "system" fn GetIsPassthroughEnabledAsync<Impl: IMobileBroadbandModem2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMobileBroadbandModem2Impl, const OFFSET: isize>() -> IMobileBroadbandModem2Vtbl {
+        unsafe extern "system" fn GetIsPassthroughEnabledAsync<Impl: IMobileBroadbandModem2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetIsPassthroughEnabledAsync() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -3650,8 +3828,8 @@ impl IMobileBroadbandModem2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetIsPassthroughEnabledAsync<Impl: IMobileBroadbandModem2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: bool, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn SetIsPassthroughEnabledAsync<Impl: IMobileBroadbandModem2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SetIsPassthroughEnabledAsync(value) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -3661,7 +3839,7 @@ impl IMobileBroadbandModem2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IMobileBroadbandModem2>, base.5, GetIsPassthroughEnabledAsync::<Impl, OFFSET>, SetIsPassthroughEnabledAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMobileBroadbandModem2>, ::windows::core::GetTrustLevel, GetIsPassthroughEnabledAsync::<Impl, OFFSET>, SetIsPassthroughEnabledAsync::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -3677,9 +3855,9 @@ impl ::windows::core::RuntimeName for IMobileBroadbandModem3 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IMobileBroadbandModem3Vtbl {
-    pub const fn new<Impl: IMobileBroadbandModem3Impl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IMobileBroadbandModem3Vtbl {
-        unsafe extern "system" fn TryGetPcoAsync<Impl: IMobileBroadbandModem3Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMobileBroadbandModem3Impl, const OFFSET: isize>() -> IMobileBroadbandModem3Vtbl {
+        unsafe extern "system" fn TryGetPcoAsync<Impl: IMobileBroadbandModem3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TryGetPcoAsync() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -3689,8 +3867,8 @@ impl IMobileBroadbandModem3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsInEmergencyCallMode<Impl: IMobileBroadbandModem3Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn IsInEmergencyCallMode<Impl: IMobileBroadbandModem3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsInEmergencyCallMode() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -3700,8 +3878,8 @@ impl IMobileBroadbandModem3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsInEmergencyCallModeChanged<Impl: IMobileBroadbandModem3Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn IsInEmergencyCallModeChanged<Impl: IMobileBroadbandModem3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsInEmergencyCallModeChanged(&*(&handler as *const <super::super::Foundation::TypedEventHandler<MobileBroadbandModem, ::windows::core::IInspectable> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<MobileBroadbandModem, ::windows::core::IInspectable> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -3711,11 +3889,11 @@ impl IMobileBroadbandModem3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveIsInEmergencyCallModeChanged<Impl: IMobileBroadbandModem3Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn RemoveIsInEmergencyCallModeChanged<Impl: IMobileBroadbandModem3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveIsInEmergencyCallModeChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IMobileBroadbandModem3>, base.5, TryGetPcoAsync::<Impl, OFFSET>, IsInEmergencyCallMode::<Impl, OFFSET>, IsInEmergencyCallModeChanged::<Impl, OFFSET>, RemoveIsInEmergencyCallModeChanged::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMobileBroadbandModem3>, ::windows::core::GetTrustLevel, TryGetPcoAsync::<Impl, OFFSET>, IsInEmergencyCallMode::<Impl, OFFSET>, IsInEmergencyCallModeChanged::<Impl, OFFSET>, RemoveIsInEmergencyCallModeChanged::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -3730,9 +3908,9 @@ impl ::windows::core::RuntimeName for IMobileBroadbandModemConfiguration {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IMobileBroadbandModemConfigurationVtbl {
-    pub const fn new<Impl: IMobileBroadbandModemConfigurationImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IMobileBroadbandModemConfigurationVtbl {
-        unsafe extern "system" fn Uicc<Impl: IMobileBroadbandModemConfigurationImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMobileBroadbandModemConfigurationImpl, const OFFSET: isize>() -> IMobileBroadbandModemConfigurationVtbl {
+        unsafe extern "system" fn Uicc<Impl: IMobileBroadbandModemConfigurationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Uicc() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -3742,8 +3920,8 @@ impl IMobileBroadbandModemConfigurationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn HomeProviderId<Impl: IMobileBroadbandModemConfigurationImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn HomeProviderId<Impl: IMobileBroadbandModemConfigurationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).HomeProviderId() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -3753,8 +3931,8 @@ impl IMobileBroadbandModemConfigurationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn HomeProviderName<Impl: IMobileBroadbandModemConfigurationImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn HomeProviderName<Impl: IMobileBroadbandModemConfigurationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).HomeProviderName() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -3764,7 +3942,7 @@ impl IMobileBroadbandModemConfigurationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IMobileBroadbandModemConfiguration>, base.5, Uicc::<Impl, OFFSET>, HomeProviderId::<Impl, OFFSET>, HomeProviderName::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMobileBroadbandModemConfiguration>, ::windows::core::GetTrustLevel, Uicc::<Impl, OFFSET>, HomeProviderId::<Impl, OFFSET>, HomeProviderName::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -3777,9 +3955,9 @@ impl ::windows::core::RuntimeName for IMobileBroadbandModemConfiguration2 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IMobileBroadbandModemConfiguration2Vtbl {
-    pub const fn new<Impl: IMobileBroadbandModemConfiguration2Impl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IMobileBroadbandModemConfiguration2Vtbl {
-        unsafe extern "system" fn SarManager<Impl: IMobileBroadbandModemConfiguration2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMobileBroadbandModemConfiguration2Impl, const OFFSET: isize>() -> IMobileBroadbandModemConfiguration2Vtbl {
+        unsafe extern "system" fn SarManager<Impl: IMobileBroadbandModemConfiguration2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SarManager() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -3789,7 +3967,7 @@ impl IMobileBroadbandModemConfiguration2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IMobileBroadbandModemConfiguration2>, base.5, SarManager::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMobileBroadbandModemConfiguration2>, ::windows::core::GetTrustLevel, SarManager::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -3805,17 +3983,17 @@ impl ::windows::core::RuntimeName for IMobileBroadbandModemIsolation {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IMobileBroadbandModemIsolationVtbl {
-    pub const fn new<Impl: IMobileBroadbandModemIsolationImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IMobileBroadbandModemIsolationVtbl {
-        unsafe extern "system" fn AddAllowedHost<Impl: IMobileBroadbandModemIsolationImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, host: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMobileBroadbandModemIsolationImpl, const OFFSET: isize>() -> IMobileBroadbandModemIsolationVtbl {
+        unsafe extern "system" fn AddAllowedHost<Impl: IMobileBroadbandModemIsolationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, host: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AddAllowedHost(&*(&host as *const <super::HostName as ::windows::core::Abi>::Abi as *const <super::HostName as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn AddAllowedHostRange<Impl: IMobileBroadbandModemIsolationImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, first: ::windows::core::RawPtr, last: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn AddAllowedHostRange<Impl: IMobileBroadbandModemIsolationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, first: ::windows::core::RawPtr, last: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AddAllowedHostRange(&*(&first as *const <super::HostName as ::windows::core::Abi>::Abi as *const <super::HostName as ::windows::core::DefaultType>::DefaultType), &*(&last as *const <super::HostName as ::windows::core::Abi>::Abi as *const <super::HostName as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn ApplyConfigurationAsync<Impl: IMobileBroadbandModemIsolationImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn ApplyConfigurationAsync<Impl: IMobileBroadbandModemIsolationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ApplyConfigurationAsync() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -3825,8 +4003,8 @@ impl IMobileBroadbandModemIsolationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ClearConfigurationAsync<Impl: IMobileBroadbandModemIsolationImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn ClearConfigurationAsync<Impl: IMobileBroadbandModemIsolationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ClearConfigurationAsync() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -3836,7 +4014,7 @@ impl IMobileBroadbandModemIsolationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IMobileBroadbandModemIsolation>, base.5, AddAllowedHost::<Impl, OFFSET>, AddAllowedHostRange::<Impl, OFFSET>, ApplyConfigurationAsync::<Impl, OFFSET>, ClearConfigurationAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMobileBroadbandModemIsolation>, ::windows::core::GetTrustLevel, AddAllowedHost::<Impl, OFFSET>, AddAllowedHostRange::<Impl, OFFSET>, ApplyConfigurationAsync::<Impl, OFFSET>, ClearConfigurationAsync::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -3849,9 +4027,9 @@ impl ::windows::core::RuntimeName for IMobileBroadbandModemIsolationFactory {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IMobileBroadbandModemIsolationFactoryVtbl {
-    pub const fn new<Impl: IMobileBroadbandModemIsolationFactoryImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IMobileBroadbandModemIsolationFactoryVtbl {
-        unsafe extern "system" fn Create<Impl: IMobileBroadbandModemIsolationFactoryImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, modemdeviceid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, rulegroupid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMobileBroadbandModemIsolationFactoryImpl, const OFFSET: isize>() -> IMobileBroadbandModemIsolationFactoryVtbl {
+        unsafe extern "system" fn Create<Impl: IMobileBroadbandModemIsolationFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, modemdeviceid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, rulegroupid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(&*(&modemdeviceid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&rulegroupid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -3861,7 +4039,7 @@ impl IMobileBroadbandModemIsolationFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IMobileBroadbandModemIsolationFactory>, base.5, Create::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMobileBroadbandModemIsolationFactory>, ::windows::core::GetTrustLevel, Create::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -3876,9 +4054,9 @@ impl ::windows::core::RuntimeName for IMobileBroadbandModemStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IMobileBroadbandModemStaticsVtbl {
-    pub const fn new<Impl: IMobileBroadbandModemStaticsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IMobileBroadbandModemStaticsVtbl {
-        unsafe extern "system" fn GetDeviceSelector<Impl: IMobileBroadbandModemStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMobileBroadbandModemStaticsImpl, const OFFSET: isize>() -> IMobileBroadbandModemStaticsVtbl {
+        unsafe extern "system" fn GetDeviceSelector<Impl: IMobileBroadbandModemStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDeviceSelector() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -3888,8 +4066,8 @@ impl IMobileBroadbandModemStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn FromId<Impl: IMobileBroadbandModemStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, deviceid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn FromId<Impl: IMobileBroadbandModemStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, deviceid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FromId(&*(&deviceid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -3899,8 +4077,8 @@ impl IMobileBroadbandModemStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetDefault<Impl: IMobileBroadbandModemStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn GetDefault<Impl: IMobileBroadbandModemStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDefault() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -3910,7 +4088,7 @@ impl IMobileBroadbandModemStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IMobileBroadbandModemStatics>, base.5, GetDeviceSelector::<Impl, OFFSET>, FromId::<Impl, OFFSET>, GetDefault::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMobileBroadbandModemStatics>, ::windows::core::GetTrustLevel, GetDeviceSelector::<Impl, OFFSET>, FromId::<Impl, OFFSET>, GetDefault::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -3932,9 +4110,9 @@ impl ::windows::core::RuntimeName for IMobileBroadbandNetwork {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IMobileBroadbandNetworkVtbl {
-    pub const fn new<Impl: IMobileBroadbandNetworkImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IMobileBroadbandNetworkVtbl {
-        unsafe extern "system" fn NetworkAdapter<Impl: IMobileBroadbandNetworkImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMobileBroadbandNetworkImpl, const OFFSET: isize>() -> IMobileBroadbandNetworkVtbl {
+        unsafe extern "system" fn NetworkAdapter<Impl: IMobileBroadbandNetworkImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).NetworkAdapter() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -3944,8 +4122,8 @@ impl IMobileBroadbandNetworkVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn NetworkRegistrationState<Impl: IMobileBroadbandNetworkImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut NetworkRegistrationState) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn NetworkRegistrationState<Impl: IMobileBroadbandNetworkImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut NetworkRegistrationState) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).NetworkRegistrationState() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -3955,8 +4133,8 @@ impl IMobileBroadbandNetworkVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RegistrationNetworkError<Impl: IMobileBroadbandNetworkImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn RegistrationNetworkError<Impl: IMobileBroadbandNetworkImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RegistrationNetworkError() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -3966,8 +4144,8 @@ impl IMobileBroadbandNetworkVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PacketAttachNetworkError<Impl: IMobileBroadbandNetworkImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn PacketAttachNetworkError<Impl: IMobileBroadbandNetworkImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PacketAttachNetworkError() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -3977,8 +4155,8 @@ impl IMobileBroadbandNetworkVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ActivationNetworkError<Impl: IMobileBroadbandNetworkImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn ActivationNetworkError<Impl: IMobileBroadbandNetworkImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ActivationNetworkError() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -3988,8 +4166,8 @@ impl IMobileBroadbandNetworkVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AccessPointName<Impl: IMobileBroadbandNetworkImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn AccessPointName<Impl: IMobileBroadbandNetworkImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AccessPointName() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -3999,8 +4177,8 @@ impl IMobileBroadbandNetworkVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RegisteredDataClass<Impl: IMobileBroadbandNetworkImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut DataClasses) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn RegisteredDataClass<Impl: IMobileBroadbandNetworkImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut DataClasses) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RegisteredDataClass() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -4010,8 +4188,8 @@ impl IMobileBroadbandNetworkVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RegisteredProviderId<Impl: IMobileBroadbandNetworkImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn RegisteredProviderId<Impl: IMobileBroadbandNetworkImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RegisteredProviderId() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -4021,8 +4199,8 @@ impl IMobileBroadbandNetworkVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RegisteredProviderName<Impl: IMobileBroadbandNetworkImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn RegisteredProviderName<Impl: IMobileBroadbandNetworkImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RegisteredProviderName() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -4032,17 +4210,17 @@ impl IMobileBroadbandNetworkVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ShowConnectionUI<Impl: IMobileBroadbandNetworkImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn ShowConnectionUI<Impl: IMobileBroadbandNetworkImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ShowConnectionUI().into()
         }
         Self(
-            base.0,
-            base.1,
-            base.2,
-            base.3,
+            ::windows::core::QueryInterface::<Identity, OFFSET>,
+            ::windows::core::AddRef::<Identity, OFFSET>,
+            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IMobileBroadbandNetwork>,
-            base.5,
+            ::windows::core::GetTrustLevel,
             NetworkAdapter::<Impl, OFFSET>,
             NetworkRegistrationState::<Impl, OFFSET>,
             RegistrationNetworkError::<Impl, OFFSET>,
@@ -4067,9 +4245,9 @@ impl ::windows::core::RuntimeName for IMobileBroadbandNetwork2 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IMobileBroadbandNetwork2Vtbl {
-    pub const fn new<Impl: IMobileBroadbandNetwork2Impl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IMobileBroadbandNetwork2Vtbl {
-        unsafe extern "system" fn GetVoiceCallSupportAsync<Impl: IMobileBroadbandNetwork2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMobileBroadbandNetwork2Impl, const OFFSET: isize>() -> IMobileBroadbandNetwork2Vtbl {
+        unsafe extern "system" fn GetVoiceCallSupportAsync<Impl: IMobileBroadbandNetwork2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetVoiceCallSupportAsync() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -4079,8 +4257,8 @@ impl IMobileBroadbandNetwork2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RegistrationUiccApps<Impl: IMobileBroadbandNetwork2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn RegistrationUiccApps<Impl: IMobileBroadbandNetwork2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RegistrationUiccApps() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -4090,7 +4268,7 @@ impl IMobileBroadbandNetwork2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IMobileBroadbandNetwork2>, base.5, GetVoiceCallSupportAsync::<Impl, OFFSET>, RegistrationUiccApps::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMobileBroadbandNetwork2>, ::windows::core::GetTrustLevel, GetVoiceCallSupportAsync::<Impl, OFFSET>, RegistrationUiccApps::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -4103,9 +4281,9 @@ impl ::windows::core::RuntimeName for IMobileBroadbandNetwork3 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IMobileBroadbandNetwork3Vtbl {
-    pub const fn new<Impl: IMobileBroadbandNetwork3Impl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IMobileBroadbandNetwork3Vtbl {
-        unsafe extern "system" fn GetCellsInfoAsync<Impl: IMobileBroadbandNetwork3Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMobileBroadbandNetwork3Impl, const OFFSET: isize>() -> IMobileBroadbandNetwork3Vtbl {
+        unsafe extern "system" fn GetCellsInfoAsync<Impl: IMobileBroadbandNetwork3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetCellsInfoAsync() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -4115,7 +4293,7 @@ impl IMobileBroadbandNetwork3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IMobileBroadbandNetwork3>, base.5, GetCellsInfoAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMobileBroadbandNetwork3>, ::windows::core::GetTrustLevel, GetCellsInfoAsync::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -4129,9 +4307,9 @@ impl ::windows::core::RuntimeName for IMobileBroadbandNetworkRegistrationStateCh
 }
 #[cfg(feature = "implement_exclusive")]
 impl IMobileBroadbandNetworkRegistrationStateChangeVtbl {
-    pub const fn new<Impl: IMobileBroadbandNetworkRegistrationStateChangeImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IMobileBroadbandNetworkRegistrationStateChangeVtbl {
-        unsafe extern "system" fn DeviceId<Impl: IMobileBroadbandNetworkRegistrationStateChangeImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMobileBroadbandNetworkRegistrationStateChangeImpl, const OFFSET: isize>() -> IMobileBroadbandNetworkRegistrationStateChangeVtbl {
+        unsafe extern "system" fn DeviceId<Impl: IMobileBroadbandNetworkRegistrationStateChangeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DeviceId() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -4141,8 +4319,8 @@ impl IMobileBroadbandNetworkRegistrationStateChangeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Network<Impl: IMobileBroadbandNetworkRegistrationStateChangeImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn Network<Impl: IMobileBroadbandNetworkRegistrationStateChangeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Network() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -4152,7 +4330,7 @@ impl IMobileBroadbandNetworkRegistrationStateChangeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IMobileBroadbandNetworkRegistrationStateChange>, base.5, DeviceId::<Impl, OFFSET>, Network::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMobileBroadbandNetworkRegistrationStateChange>, ::windows::core::GetTrustLevel, DeviceId::<Impl, OFFSET>, Network::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -4165,9 +4343,9 @@ impl ::windows::core::RuntimeName for IMobileBroadbandNetworkRegistrationStateCh
 }
 #[cfg(feature = "implement_exclusive")]
 impl IMobileBroadbandNetworkRegistrationStateChangeTriggerDetailsVtbl {
-    pub const fn new<Impl: IMobileBroadbandNetworkRegistrationStateChangeTriggerDetailsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IMobileBroadbandNetworkRegistrationStateChangeTriggerDetailsVtbl {
-        unsafe extern "system" fn NetworkRegistrationStateChanges<Impl: IMobileBroadbandNetworkRegistrationStateChangeTriggerDetailsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMobileBroadbandNetworkRegistrationStateChangeTriggerDetailsImpl, const OFFSET: isize>() -> IMobileBroadbandNetworkRegistrationStateChangeTriggerDetailsVtbl {
+        unsafe extern "system" fn NetworkRegistrationStateChanges<Impl: IMobileBroadbandNetworkRegistrationStateChangeTriggerDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).NetworkRegistrationStateChanges() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -4177,7 +4355,7 @@ impl IMobileBroadbandNetworkRegistrationStateChangeTriggerDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IMobileBroadbandNetworkRegistrationStateChangeTriggerDetails>, base.5, NetworkRegistrationStateChanges::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMobileBroadbandNetworkRegistrationStateChangeTriggerDetails>, ::windows::core::GetTrustLevel, NetworkRegistrationStateChanges::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -4192,9 +4370,9 @@ impl ::windows::core::RuntimeName for IMobileBroadbandPco {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IMobileBroadbandPcoVtbl {
-    pub const fn new<Impl: IMobileBroadbandPcoImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IMobileBroadbandPcoVtbl {
-        unsafe extern "system" fn Data<Impl: IMobileBroadbandPcoImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMobileBroadbandPcoImpl, const OFFSET: isize>() -> IMobileBroadbandPcoVtbl {
+        unsafe extern "system" fn Data<Impl: IMobileBroadbandPcoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Data() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -4204,8 +4382,8 @@ impl IMobileBroadbandPcoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsComplete<Impl: IMobileBroadbandPcoImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn IsComplete<Impl: IMobileBroadbandPcoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsComplete() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -4215,8 +4393,8 @@ impl IMobileBroadbandPcoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DeviceId<Impl: IMobileBroadbandPcoImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn DeviceId<Impl: IMobileBroadbandPcoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DeviceId() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -4226,7 +4404,7 @@ impl IMobileBroadbandPcoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IMobileBroadbandPco>, base.5, Data::<Impl, OFFSET>, IsComplete::<Impl, OFFSET>, DeviceId::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMobileBroadbandPco>, ::windows::core::GetTrustLevel, Data::<Impl, OFFSET>, IsComplete::<Impl, OFFSET>, DeviceId::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -4239,9 +4417,9 @@ impl ::windows::core::RuntimeName for IMobileBroadbandPcoDataChangeTriggerDetail
 }
 #[cfg(feature = "implement_exclusive")]
 impl IMobileBroadbandPcoDataChangeTriggerDetailsVtbl {
-    pub const fn new<Impl: IMobileBroadbandPcoDataChangeTriggerDetailsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IMobileBroadbandPcoDataChangeTriggerDetailsVtbl {
-        unsafe extern "system" fn UpdatedData<Impl: IMobileBroadbandPcoDataChangeTriggerDetailsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMobileBroadbandPcoDataChangeTriggerDetailsImpl, const OFFSET: isize>() -> IMobileBroadbandPcoDataChangeTriggerDetailsVtbl {
+        unsafe extern "system" fn UpdatedData<Impl: IMobileBroadbandPcoDataChangeTriggerDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).UpdatedData() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -4251,7 +4429,7 @@ impl IMobileBroadbandPcoDataChangeTriggerDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IMobileBroadbandPcoDataChangeTriggerDetails>, base.5, UpdatedData::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMobileBroadbandPcoDataChangeTriggerDetails>, ::windows::core::GetTrustLevel, UpdatedData::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -4275,9 +4453,9 @@ impl ::windows::core::RuntimeName for IMobileBroadbandPin {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IMobileBroadbandPinVtbl {
-    pub const fn new<Impl: IMobileBroadbandPinImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IMobileBroadbandPinVtbl {
-        unsafe extern "system" fn Type<Impl: IMobileBroadbandPinImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut MobileBroadbandPinType) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMobileBroadbandPinImpl, const OFFSET: isize>() -> IMobileBroadbandPinVtbl {
+        unsafe extern "system" fn Type<Impl: IMobileBroadbandPinImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut MobileBroadbandPinType) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Type() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -4287,8 +4465,8 @@ impl IMobileBroadbandPinVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn LockState<Impl: IMobileBroadbandPinImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut MobileBroadbandPinLockState) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn LockState<Impl: IMobileBroadbandPinImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut MobileBroadbandPinLockState) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).LockState() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -4298,8 +4476,8 @@ impl IMobileBroadbandPinVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Format<Impl: IMobileBroadbandPinImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut MobileBroadbandPinFormat) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn Format<Impl: IMobileBroadbandPinImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut MobileBroadbandPinFormat) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Format() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -4309,8 +4487,8 @@ impl IMobileBroadbandPinVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Enabled<Impl: IMobileBroadbandPinImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn Enabled<Impl: IMobileBroadbandPinImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Enabled() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -4320,8 +4498,8 @@ impl IMobileBroadbandPinVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn MaxLength<Impl: IMobileBroadbandPinImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn MaxLength<Impl: IMobileBroadbandPinImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MaxLength() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -4331,8 +4509,8 @@ impl IMobileBroadbandPinVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn MinLength<Impl: IMobileBroadbandPinImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn MinLength<Impl: IMobileBroadbandPinImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MinLength() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -4342,8 +4520,8 @@ impl IMobileBroadbandPinVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AttemptsRemaining<Impl: IMobileBroadbandPinImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn AttemptsRemaining<Impl: IMobileBroadbandPinImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AttemptsRemaining() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -4353,8 +4531,8 @@ impl IMobileBroadbandPinVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn EnableAsync<Impl: IMobileBroadbandPinImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, currentpin: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn EnableAsync<Impl: IMobileBroadbandPinImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, currentpin: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EnableAsync(&*(&currentpin as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -4364,8 +4542,8 @@ impl IMobileBroadbandPinVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DisableAsync<Impl: IMobileBroadbandPinImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, currentpin: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn DisableAsync<Impl: IMobileBroadbandPinImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, currentpin: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DisableAsync(&*(&currentpin as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -4375,8 +4553,8 @@ impl IMobileBroadbandPinVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn EnterAsync<Impl: IMobileBroadbandPinImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, currentpin: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn EnterAsync<Impl: IMobileBroadbandPinImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, currentpin: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EnterAsync(&*(&currentpin as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -4386,8 +4564,8 @@ impl IMobileBroadbandPinVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ChangeAsync<Impl: IMobileBroadbandPinImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, currentpin: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, newpin: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn ChangeAsync<Impl: IMobileBroadbandPinImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, currentpin: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, newpin: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ChangeAsync(&*(&currentpin as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&newpin as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -4397,8 +4575,8 @@ impl IMobileBroadbandPinVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn UnblockAsync<Impl: IMobileBroadbandPinImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, pinunblockkey: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, newpin: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn UnblockAsync<Impl: IMobileBroadbandPinImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinunblockkey: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, newpin: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).UnblockAsync(&*(&pinunblockkey as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&newpin as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -4408,7 +4586,26 @@ impl IMobileBroadbandPinVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IMobileBroadbandPin>, base.5, Type::<Impl, OFFSET>, LockState::<Impl, OFFSET>, Format::<Impl, OFFSET>, Enabled::<Impl, OFFSET>, MaxLength::<Impl, OFFSET>, MinLength::<Impl, OFFSET>, AttemptsRemaining::<Impl, OFFSET>, EnableAsync::<Impl, OFFSET>, DisableAsync::<Impl, OFFSET>, EnterAsync::<Impl, OFFSET>, ChangeAsync::<Impl, OFFSET>, UnblockAsync::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, OFFSET>,
+            ::windows::core::AddRef::<Identity, OFFSET>,
+            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<IMobileBroadbandPin>,
+            ::windows::core::GetTrustLevel,
+            Type::<Impl, OFFSET>,
+            LockState::<Impl, OFFSET>,
+            Format::<Impl, OFFSET>,
+            Enabled::<Impl, OFFSET>,
+            MaxLength::<Impl, OFFSET>,
+            MinLength::<Impl, OFFSET>,
+            AttemptsRemaining::<Impl, OFFSET>,
+            EnableAsync::<Impl, OFFSET>,
+            DisableAsync::<Impl, OFFSET>,
+            EnterAsync::<Impl, OFFSET>,
+            ChangeAsync::<Impl, OFFSET>,
+            UnblockAsync::<Impl, OFFSET>,
+        )
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -4423,9 +4620,9 @@ impl ::windows::core::RuntimeName for IMobileBroadbandPinLockStateChange {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IMobileBroadbandPinLockStateChangeVtbl {
-    pub const fn new<Impl: IMobileBroadbandPinLockStateChangeImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IMobileBroadbandPinLockStateChangeVtbl {
-        unsafe extern "system" fn DeviceId<Impl: IMobileBroadbandPinLockStateChangeImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMobileBroadbandPinLockStateChangeImpl, const OFFSET: isize>() -> IMobileBroadbandPinLockStateChangeVtbl {
+        unsafe extern "system" fn DeviceId<Impl: IMobileBroadbandPinLockStateChangeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DeviceId() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -4435,8 +4632,8 @@ impl IMobileBroadbandPinLockStateChangeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PinType<Impl: IMobileBroadbandPinLockStateChangeImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut MobileBroadbandPinType) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn PinType<Impl: IMobileBroadbandPinLockStateChangeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut MobileBroadbandPinType) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PinType() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -4446,8 +4643,8 @@ impl IMobileBroadbandPinLockStateChangeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PinLockState<Impl: IMobileBroadbandPinLockStateChangeImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut MobileBroadbandPinLockState) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn PinLockState<Impl: IMobileBroadbandPinLockStateChangeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut MobileBroadbandPinLockState) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PinLockState() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -4457,7 +4654,7 @@ impl IMobileBroadbandPinLockStateChangeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IMobileBroadbandPinLockStateChange>, base.5, DeviceId::<Impl, OFFSET>, PinType::<Impl, OFFSET>, PinLockState::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMobileBroadbandPinLockStateChange>, ::windows::core::GetTrustLevel, DeviceId::<Impl, OFFSET>, PinType::<Impl, OFFSET>, PinLockState::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -4470,9 +4667,9 @@ impl ::windows::core::RuntimeName for IMobileBroadbandPinLockStateChangeTriggerD
 }
 #[cfg(feature = "implement_exclusive")]
 impl IMobileBroadbandPinLockStateChangeTriggerDetailsVtbl {
-    pub const fn new<Impl: IMobileBroadbandPinLockStateChangeTriggerDetailsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IMobileBroadbandPinLockStateChangeTriggerDetailsVtbl {
-        unsafe extern "system" fn PinLockStateChanges<Impl: IMobileBroadbandPinLockStateChangeTriggerDetailsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMobileBroadbandPinLockStateChangeTriggerDetailsImpl, const OFFSET: isize>() -> IMobileBroadbandPinLockStateChangeTriggerDetailsVtbl {
+        unsafe extern "system" fn PinLockStateChanges<Impl: IMobileBroadbandPinLockStateChangeTriggerDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PinLockStateChanges() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -4482,7 +4679,7 @@ impl IMobileBroadbandPinLockStateChangeTriggerDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IMobileBroadbandPinLockStateChangeTriggerDetails>, base.5, PinLockStateChanges::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMobileBroadbandPinLockStateChangeTriggerDetails>, ::windows::core::GetTrustLevel, PinLockStateChanges::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -4496,9 +4693,9 @@ impl ::windows::core::RuntimeName for IMobileBroadbandPinManager {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IMobileBroadbandPinManagerVtbl {
-    pub const fn new<Impl: IMobileBroadbandPinManagerImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IMobileBroadbandPinManagerVtbl {
-        unsafe extern "system" fn SupportedPins<Impl: IMobileBroadbandPinManagerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMobileBroadbandPinManagerImpl, const OFFSET: isize>() -> IMobileBroadbandPinManagerVtbl {
+        unsafe extern "system" fn SupportedPins<Impl: IMobileBroadbandPinManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SupportedPins() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -4508,8 +4705,8 @@ impl IMobileBroadbandPinManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetPin<Impl: IMobileBroadbandPinManagerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, pintype: MobileBroadbandPinType, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn GetPin<Impl: IMobileBroadbandPinManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pintype: MobileBroadbandPinType, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetPin(pintype) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -4519,7 +4716,7 @@ impl IMobileBroadbandPinManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IMobileBroadbandPinManager>, base.5, SupportedPins::<Impl, OFFSET>, GetPin::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMobileBroadbandPinManager>, ::windows::core::GetTrustLevel, SupportedPins::<Impl, OFFSET>, GetPin::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -4533,9 +4730,9 @@ impl ::windows::core::RuntimeName for IMobileBroadbandPinOperationResult {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IMobileBroadbandPinOperationResultVtbl {
-    pub const fn new<Impl: IMobileBroadbandPinOperationResultImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IMobileBroadbandPinOperationResultVtbl {
-        unsafe extern "system" fn IsSuccessful<Impl: IMobileBroadbandPinOperationResultImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMobileBroadbandPinOperationResultImpl, const OFFSET: isize>() -> IMobileBroadbandPinOperationResultVtbl {
+        unsafe extern "system" fn IsSuccessful<Impl: IMobileBroadbandPinOperationResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsSuccessful() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -4545,8 +4742,8 @@ impl IMobileBroadbandPinOperationResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AttemptsRemaining<Impl: IMobileBroadbandPinOperationResultImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn AttemptsRemaining<Impl: IMobileBroadbandPinOperationResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AttemptsRemaining() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -4556,7 +4753,7 @@ impl IMobileBroadbandPinOperationResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IMobileBroadbandPinOperationResult>, base.5, IsSuccessful::<Impl, OFFSET>, AttemptsRemaining::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMobileBroadbandPinOperationResult>, ::windows::core::GetTrustLevel, IsSuccessful::<Impl, OFFSET>, AttemptsRemaining::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -4570,9 +4767,9 @@ impl ::windows::core::RuntimeName for IMobileBroadbandRadioStateChange {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IMobileBroadbandRadioStateChangeVtbl {
-    pub const fn new<Impl: IMobileBroadbandRadioStateChangeImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IMobileBroadbandRadioStateChangeVtbl {
-        unsafe extern "system" fn DeviceId<Impl: IMobileBroadbandRadioStateChangeImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMobileBroadbandRadioStateChangeImpl, const OFFSET: isize>() -> IMobileBroadbandRadioStateChangeVtbl {
+        unsafe extern "system" fn DeviceId<Impl: IMobileBroadbandRadioStateChangeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DeviceId() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -4582,8 +4779,8 @@ impl IMobileBroadbandRadioStateChangeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RadioState<Impl: IMobileBroadbandRadioStateChangeImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut MobileBroadbandRadioState) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn RadioState<Impl: IMobileBroadbandRadioStateChangeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut MobileBroadbandRadioState) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RadioState() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -4593,7 +4790,7 @@ impl IMobileBroadbandRadioStateChangeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IMobileBroadbandRadioStateChange>, base.5, DeviceId::<Impl, OFFSET>, RadioState::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMobileBroadbandRadioStateChange>, ::windows::core::GetTrustLevel, DeviceId::<Impl, OFFSET>, RadioState::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -4606,9 +4803,9 @@ impl ::windows::core::RuntimeName for IMobileBroadbandRadioStateChangeTriggerDet
 }
 #[cfg(feature = "implement_exclusive")]
 impl IMobileBroadbandRadioStateChangeTriggerDetailsVtbl {
-    pub const fn new<Impl: IMobileBroadbandRadioStateChangeTriggerDetailsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IMobileBroadbandRadioStateChangeTriggerDetailsVtbl {
-        unsafe extern "system" fn RadioStateChanges<Impl: IMobileBroadbandRadioStateChangeTriggerDetailsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMobileBroadbandRadioStateChangeTriggerDetailsImpl, const OFFSET: isize>() -> IMobileBroadbandRadioStateChangeTriggerDetailsVtbl {
+        unsafe extern "system" fn RadioStateChanges<Impl: IMobileBroadbandRadioStateChangeTriggerDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RadioStateChanges() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -4618,7 +4815,7 @@ impl IMobileBroadbandRadioStateChangeTriggerDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IMobileBroadbandRadioStateChangeTriggerDetails>, base.5, RadioStateChanges::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMobileBroadbandRadioStateChangeTriggerDetails>, ::windows::core::GetTrustLevel, RadioStateChanges::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -4645,9 +4842,9 @@ impl ::windows::core::RuntimeName for IMobileBroadbandSarManager {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IMobileBroadbandSarManagerVtbl {
-    pub const fn new<Impl: IMobileBroadbandSarManagerImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IMobileBroadbandSarManagerVtbl {
-        unsafe extern "system" fn IsBackoffEnabled<Impl: IMobileBroadbandSarManagerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMobileBroadbandSarManagerImpl, const OFFSET: isize>() -> IMobileBroadbandSarManagerVtbl {
+        unsafe extern "system" fn IsBackoffEnabled<Impl: IMobileBroadbandSarManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsBackoffEnabled() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -4657,8 +4854,8 @@ impl IMobileBroadbandSarManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsWiFiHardwareIntegrated<Impl: IMobileBroadbandSarManagerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn IsWiFiHardwareIntegrated<Impl: IMobileBroadbandSarManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsWiFiHardwareIntegrated() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -4668,8 +4865,8 @@ impl IMobileBroadbandSarManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsSarControlledByHardware<Impl: IMobileBroadbandSarManagerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn IsSarControlledByHardware<Impl: IMobileBroadbandSarManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsSarControlledByHardware() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -4679,8 +4876,8 @@ impl IMobileBroadbandSarManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Antennas<Impl: IMobileBroadbandSarManagerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn Antennas<Impl: IMobileBroadbandSarManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Antennas() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -4690,8 +4887,8 @@ impl IMobileBroadbandSarManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn HysteresisTimerPeriod<Impl: IMobileBroadbandSarManagerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn HysteresisTimerPeriod<Impl: IMobileBroadbandSarManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).HysteresisTimerPeriod() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -4701,8 +4898,8 @@ impl IMobileBroadbandSarManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TransmissionStateChanged<Impl: IMobileBroadbandSarManagerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn TransmissionStateChanged<Impl: IMobileBroadbandSarManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TransmissionStateChanged(&*(&handler as *const <super::super::Foundation::TypedEventHandler<MobileBroadbandSarManager, MobileBroadbandTransmissionStateChangedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<MobileBroadbandSarManager, MobileBroadbandTransmissionStateChangedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -4712,12 +4909,12 @@ impl IMobileBroadbandSarManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveTransmissionStateChanged<Impl: IMobileBroadbandSarManagerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn RemoveTransmissionStateChanged<Impl: IMobileBroadbandSarManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveTransmissionStateChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn EnableBackoffAsync<Impl: IMobileBroadbandSarManagerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn EnableBackoffAsync<Impl: IMobileBroadbandSarManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EnableBackoffAsync() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -4727,8 +4924,8 @@ impl IMobileBroadbandSarManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DisableBackoffAsync<Impl: IMobileBroadbandSarManagerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn DisableBackoffAsync<Impl: IMobileBroadbandSarManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DisableBackoffAsync() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -4738,8 +4935,8 @@ impl IMobileBroadbandSarManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetConfigurationAsync<Impl: IMobileBroadbandSarManagerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, antennas: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn SetConfigurationAsync<Impl: IMobileBroadbandSarManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, antennas: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SetConfigurationAsync(&*(&antennas as *const <super::super::Foundation::Collections::IIterable<MobileBroadbandAntennaSar> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::IIterable<MobileBroadbandAntennaSar> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -4749,8 +4946,8 @@ impl IMobileBroadbandSarManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RevertSarToHardwareControlAsync<Impl: IMobileBroadbandSarManagerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn RevertSarToHardwareControlAsync<Impl: IMobileBroadbandSarManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RevertSarToHardwareControlAsync() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -4760,8 +4957,8 @@ impl IMobileBroadbandSarManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetTransmissionStateChangedHysteresisAsync<Impl: IMobileBroadbandSarManagerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, timerperiod: super::super::Foundation::TimeSpan, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn SetTransmissionStateChangedHysteresisAsync<Impl: IMobileBroadbandSarManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, timerperiod: super::super::Foundation::TimeSpan, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SetTransmissionStateChangedHysteresisAsync(&*(&timerperiod as *const <super::super::Foundation::TimeSpan as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TimeSpan as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -4771,8 +4968,8 @@ impl IMobileBroadbandSarManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetIsTransmittingAsync<Impl: IMobileBroadbandSarManagerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn GetIsTransmittingAsync<Impl: IMobileBroadbandSarManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetIsTransmittingAsync() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -4782,21 +4979,21 @@ impl IMobileBroadbandSarManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn StartTransmissionStateMonitoring<Impl: IMobileBroadbandSarManagerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn StartTransmissionStateMonitoring<Impl: IMobileBroadbandSarManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).StartTransmissionStateMonitoring().into()
         }
-        unsafe extern "system" fn StopTransmissionStateMonitoring<Impl: IMobileBroadbandSarManagerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn StopTransmissionStateMonitoring<Impl: IMobileBroadbandSarManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).StopTransmissionStateMonitoring().into()
         }
         Self(
-            base.0,
-            base.1,
-            base.2,
-            base.3,
+            ::windows::core::QueryInterface::<Identity, OFFSET>,
+            ::windows::core::AddRef::<Identity, OFFSET>,
+            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::GetIids,
             ::windows::core::GetRuntimeClassName::<IMobileBroadbandSarManager>,
-            base.5,
+            ::windows::core::GetTrustLevel,
             IsBackoffEnabled::<Impl, OFFSET>,
             IsWiFiHardwareIntegrated::<Impl, OFFSET>,
             IsSarControlledByHardware::<Impl, OFFSET>,
@@ -4826,9 +5023,9 @@ impl ::windows::core::RuntimeName for IMobileBroadbandSlotInfo {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IMobileBroadbandSlotInfoVtbl {
-    pub const fn new<Impl: IMobileBroadbandSlotInfoImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IMobileBroadbandSlotInfoVtbl {
-        unsafe extern "system" fn Index<Impl: IMobileBroadbandSlotInfoImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMobileBroadbandSlotInfoImpl, const OFFSET: isize>() -> IMobileBroadbandSlotInfoVtbl {
+        unsafe extern "system" fn Index<Impl: IMobileBroadbandSlotInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Index() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -4838,8 +5035,8 @@ impl IMobileBroadbandSlotInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn State<Impl: IMobileBroadbandSlotInfoImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut MobileBroadbandSlotState) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn State<Impl: IMobileBroadbandSlotInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut MobileBroadbandSlotState) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).State() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -4849,7 +5046,7 @@ impl IMobileBroadbandSlotInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IMobileBroadbandSlotInfo>, base.5, Index::<Impl, OFFSET>, State::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMobileBroadbandSlotInfo>, ::windows::core::GetTrustLevel, Index::<Impl, OFFSET>, State::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -4862,9 +5059,9 @@ impl ::windows::core::RuntimeName for IMobileBroadbandSlotInfoChangedEventArgs {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IMobileBroadbandSlotInfoChangedEventArgsVtbl {
-    pub const fn new<Impl: IMobileBroadbandSlotInfoChangedEventArgsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IMobileBroadbandSlotInfoChangedEventArgsVtbl {
-        unsafe extern "system" fn SlotInfo<Impl: IMobileBroadbandSlotInfoChangedEventArgsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMobileBroadbandSlotInfoChangedEventArgsImpl, const OFFSET: isize>() -> IMobileBroadbandSlotInfoChangedEventArgsVtbl {
+        unsafe extern "system" fn SlotInfo<Impl: IMobileBroadbandSlotInfoChangedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SlotInfo() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -4874,7 +5071,7 @@ impl IMobileBroadbandSlotInfoChangedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IMobileBroadbandSlotInfoChangedEventArgs>, base.5, SlotInfo::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMobileBroadbandSlotInfoChangedEventArgs>, ::windows::core::GetTrustLevel, SlotInfo::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -4894,9 +5091,9 @@ impl ::windows::core::RuntimeName for IMobileBroadbandSlotManager {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IMobileBroadbandSlotManagerVtbl {
-    pub const fn new<Impl: IMobileBroadbandSlotManagerImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IMobileBroadbandSlotManagerVtbl {
-        unsafe extern "system" fn SlotInfos<Impl: IMobileBroadbandSlotManagerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMobileBroadbandSlotManagerImpl, const OFFSET: isize>() -> IMobileBroadbandSlotManagerVtbl {
+        unsafe extern "system" fn SlotInfos<Impl: IMobileBroadbandSlotManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SlotInfos() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -4906,8 +5103,8 @@ impl IMobileBroadbandSlotManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CurrentSlotIndex<Impl: IMobileBroadbandSlotManagerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn CurrentSlotIndex<Impl: IMobileBroadbandSlotManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CurrentSlotIndex() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -4917,8 +5114,8 @@ impl IMobileBroadbandSlotManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetCurrentSlot<Impl: IMobileBroadbandSlotManagerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, slotindex: i32, result__: *mut MobileBroadbandModemStatus) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn SetCurrentSlot<Impl: IMobileBroadbandSlotManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, slotindex: i32, result__: *mut MobileBroadbandModemStatus) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SetCurrentSlot(slotindex) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -4928,8 +5125,8 @@ impl IMobileBroadbandSlotManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetCurrentSlotAsync<Impl: IMobileBroadbandSlotManagerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, slotindex: i32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn SetCurrentSlotAsync<Impl: IMobileBroadbandSlotManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, slotindex: i32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SetCurrentSlotAsync(slotindex) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -4939,8 +5136,8 @@ impl IMobileBroadbandSlotManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SlotInfoChanged<Impl: IMobileBroadbandSlotManagerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn SlotInfoChanged<Impl: IMobileBroadbandSlotManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SlotInfoChanged(&*(&handler as *const <super::super::Foundation::TypedEventHandler<MobileBroadbandSlotManager, MobileBroadbandSlotInfoChangedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<MobileBroadbandSlotManager, MobileBroadbandSlotInfoChangedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -4950,12 +5147,12 @@ impl IMobileBroadbandSlotManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveSlotInfoChanged<Impl: IMobileBroadbandSlotManagerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn RemoveSlotInfoChanged<Impl: IMobileBroadbandSlotManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveSlotInfoChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn CurrentSlotIndexChanged<Impl: IMobileBroadbandSlotManagerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn CurrentSlotIndexChanged<Impl: IMobileBroadbandSlotManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CurrentSlotIndexChanged(&*(&handler as *const <super::super::Foundation::TypedEventHandler<MobileBroadbandSlotManager, MobileBroadbandCurrentSlotIndexChangedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<MobileBroadbandSlotManager, MobileBroadbandCurrentSlotIndexChangedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -4965,11 +5162,26 @@ impl IMobileBroadbandSlotManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveCurrentSlotIndexChanged<Impl: IMobileBroadbandSlotManagerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn RemoveCurrentSlotIndexChanged<Impl: IMobileBroadbandSlotManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveCurrentSlotIndexChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IMobileBroadbandSlotManager>, base.5, SlotInfos::<Impl, OFFSET>, CurrentSlotIndex::<Impl, OFFSET>, SetCurrentSlot::<Impl, OFFSET>, SetCurrentSlotAsync::<Impl, OFFSET>, SlotInfoChanged::<Impl, OFFSET>, RemoveSlotInfoChanged::<Impl, OFFSET>, CurrentSlotIndexChanged::<Impl, OFFSET>, RemoveCurrentSlotIndexChanged::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, OFFSET>,
+            ::windows::core::AddRef::<Identity, OFFSET>,
+            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<IMobileBroadbandSlotManager>,
+            ::windows::core::GetTrustLevel,
+            SlotInfos::<Impl, OFFSET>,
+            CurrentSlotIndex::<Impl, OFFSET>,
+            SetCurrentSlot::<Impl, OFFSET>,
+            SetCurrentSlotAsync::<Impl, OFFSET>,
+            SlotInfoChanged::<Impl, OFFSET>,
+            RemoveSlotInfoChanged::<Impl, OFFSET>,
+            CurrentSlotIndexChanged::<Impl, OFFSET>,
+            RemoveCurrentSlotIndexChanged::<Impl, OFFSET>,
+        )
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -4982,9 +5194,9 @@ impl ::windows::core::RuntimeName for IMobileBroadbandTransmissionStateChangedEv
 }
 #[cfg(feature = "implement_exclusive")]
 impl IMobileBroadbandTransmissionStateChangedEventArgsVtbl {
-    pub const fn new<Impl: IMobileBroadbandTransmissionStateChangedEventArgsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IMobileBroadbandTransmissionStateChangedEventArgsVtbl {
-        unsafe extern "system" fn IsTransmitting<Impl: IMobileBroadbandTransmissionStateChangedEventArgsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMobileBroadbandTransmissionStateChangedEventArgsImpl, const OFFSET: isize>() -> IMobileBroadbandTransmissionStateChangedEventArgsVtbl {
+        unsafe extern "system" fn IsTransmitting<Impl: IMobileBroadbandTransmissionStateChangedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsTransmitting() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -4994,7 +5206,7 @@ impl IMobileBroadbandTransmissionStateChangedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IMobileBroadbandTransmissionStateChangedEventArgs>, base.5, IsTransmitting::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMobileBroadbandTransmissionStateChangedEventArgs>, ::windows::core::GetTrustLevel, IsTransmitting::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -5008,9 +5220,9 @@ impl ::windows::core::RuntimeName for IMobileBroadbandUicc {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IMobileBroadbandUiccVtbl {
-    pub const fn new<Impl: IMobileBroadbandUiccImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IMobileBroadbandUiccVtbl {
-        unsafe extern "system" fn SimIccId<Impl: IMobileBroadbandUiccImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMobileBroadbandUiccImpl, const OFFSET: isize>() -> IMobileBroadbandUiccVtbl {
+        unsafe extern "system" fn SimIccId<Impl: IMobileBroadbandUiccImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SimIccId() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -5020,8 +5232,8 @@ impl IMobileBroadbandUiccVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetUiccAppsAsync<Impl: IMobileBroadbandUiccImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn GetUiccAppsAsync<Impl: IMobileBroadbandUiccImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetUiccAppsAsync() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -5031,7 +5243,7 @@ impl IMobileBroadbandUiccVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IMobileBroadbandUicc>, base.5, SimIccId::<Impl, OFFSET>, GetUiccAppsAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMobileBroadbandUicc>, ::windows::core::GetTrustLevel, SimIccId::<Impl, OFFSET>, GetUiccAppsAsync::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -5047,9 +5259,9 @@ impl ::windows::core::RuntimeName for IMobileBroadbandUiccApp {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IMobileBroadbandUiccAppVtbl {
-    pub const fn new<Impl: IMobileBroadbandUiccAppImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IMobileBroadbandUiccAppVtbl {
-        unsafe extern "system" fn Id<Impl: IMobileBroadbandUiccAppImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMobileBroadbandUiccAppImpl, const OFFSET: isize>() -> IMobileBroadbandUiccAppVtbl {
+        unsafe extern "system" fn Id<Impl: IMobileBroadbandUiccAppImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Id() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -5059,8 +5271,8 @@ impl IMobileBroadbandUiccAppVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Kind<Impl: IMobileBroadbandUiccAppImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut UiccAppKind) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn Kind<Impl: IMobileBroadbandUiccAppImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut UiccAppKind) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Kind() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -5070,8 +5282,8 @@ impl IMobileBroadbandUiccAppVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetRecordDetailsAsync<Impl: IMobileBroadbandUiccAppImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, uiccfilepath: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn GetRecordDetailsAsync<Impl: IMobileBroadbandUiccAppImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, uiccfilepath: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetRecordDetailsAsync(&*(&uiccfilepath as *const <super::super::Foundation::Collections::IIterable<u32> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::IIterable<u32> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -5081,8 +5293,8 @@ impl IMobileBroadbandUiccAppVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ReadRecordAsync<Impl: IMobileBroadbandUiccAppImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, uiccfilepath: ::windows::core::RawPtr, recordindex: i32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn ReadRecordAsync<Impl: IMobileBroadbandUiccAppImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, uiccfilepath: ::windows::core::RawPtr, recordindex: i32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ReadRecordAsync(&*(&uiccfilepath as *const <super::super::Foundation::Collections::IIterable<u32> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::IIterable<u32> as ::windows::core::DefaultType>::DefaultType), recordindex) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -5092,7 +5304,7 @@ impl IMobileBroadbandUiccAppVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IMobileBroadbandUiccApp>, base.5, Id::<Impl, OFFSET>, Kind::<Impl, OFFSET>, GetRecordDetailsAsync::<Impl, OFFSET>, ReadRecordAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMobileBroadbandUiccApp>, ::windows::core::GetTrustLevel, Id::<Impl, OFFSET>, Kind::<Impl, OFFSET>, GetRecordDetailsAsync::<Impl, OFFSET>, ReadRecordAsync::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -5106,9 +5318,9 @@ impl ::windows::core::RuntimeName for IMobileBroadbandUiccAppReadRecordResult {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IMobileBroadbandUiccAppReadRecordResultVtbl {
-    pub const fn new<Impl: IMobileBroadbandUiccAppReadRecordResultImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IMobileBroadbandUiccAppReadRecordResultVtbl {
-        unsafe extern "system" fn Status<Impl: IMobileBroadbandUiccAppReadRecordResultImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut MobileBroadbandUiccAppOperationStatus) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMobileBroadbandUiccAppReadRecordResultImpl, const OFFSET: isize>() -> IMobileBroadbandUiccAppReadRecordResultVtbl {
+        unsafe extern "system" fn Status<Impl: IMobileBroadbandUiccAppReadRecordResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut MobileBroadbandUiccAppOperationStatus) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Status() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -5118,8 +5330,8 @@ impl IMobileBroadbandUiccAppReadRecordResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Data<Impl: IMobileBroadbandUiccAppReadRecordResultImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn Data<Impl: IMobileBroadbandUiccAppReadRecordResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Data() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -5129,7 +5341,7 @@ impl IMobileBroadbandUiccAppReadRecordResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IMobileBroadbandUiccAppReadRecordResult>, base.5, Status::<Impl, OFFSET>, Data::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMobileBroadbandUiccAppReadRecordResult>, ::windows::core::GetTrustLevel, Status::<Impl, OFFSET>, Data::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -5147,9 +5359,9 @@ impl ::windows::core::RuntimeName for IMobileBroadbandUiccAppRecordDetailsResult
 }
 #[cfg(feature = "implement_exclusive")]
 impl IMobileBroadbandUiccAppRecordDetailsResultVtbl {
-    pub const fn new<Impl: IMobileBroadbandUiccAppRecordDetailsResultImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IMobileBroadbandUiccAppRecordDetailsResultVtbl {
-        unsafe extern "system" fn Status<Impl: IMobileBroadbandUiccAppRecordDetailsResultImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut MobileBroadbandUiccAppOperationStatus) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMobileBroadbandUiccAppRecordDetailsResultImpl, const OFFSET: isize>() -> IMobileBroadbandUiccAppRecordDetailsResultVtbl {
+        unsafe extern "system" fn Status<Impl: IMobileBroadbandUiccAppRecordDetailsResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut MobileBroadbandUiccAppOperationStatus) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Status() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -5159,8 +5371,8 @@ impl IMobileBroadbandUiccAppRecordDetailsResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Kind<Impl: IMobileBroadbandUiccAppRecordDetailsResultImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut UiccAppRecordKind) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn Kind<Impl: IMobileBroadbandUiccAppRecordDetailsResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut UiccAppRecordKind) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Kind() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -5170,8 +5382,8 @@ impl IMobileBroadbandUiccAppRecordDetailsResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RecordCount<Impl: IMobileBroadbandUiccAppRecordDetailsResultImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn RecordCount<Impl: IMobileBroadbandUiccAppRecordDetailsResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RecordCount() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -5181,8 +5393,8 @@ impl IMobileBroadbandUiccAppRecordDetailsResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RecordSize<Impl: IMobileBroadbandUiccAppRecordDetailsResultImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn RecordSize<Impl: IMobileBroadbandUiccAppRecordDetailsResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RecordSize() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -5192,8 +5404,8 @@ impl IMobileBroadbandUiccAppRecordDetailsResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ReadAccessCondition<Impl: IMobileBroadbandUiccAppRecordDetailsResultImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut UiccAccessCondition) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn ReadAccessCondition<Impl: IMobileBroadbandUiccAppRecordDetailsResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut UiccAccessCondition) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ReadAccessCondition() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -5203,8 +5415,8 @@ impl IMobileBroadbandUiccAppRecordDetailsResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn WriteAccessCondition<Impl: IMobileBroadbandUiccAppRecordDetailsResultImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut UiccAccessCondition) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn WriteAccessCondition<Impl: IMobileBroadbandUiccAppRecordDetailsResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut UiccAccessCondition) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).WriteAccessCondition() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -5214,7 +5426,7 @@ impl IMobileBroadbandUiccAppRecordDetailsResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IMobileBroadbandUiccAppRecordDetailsResult>, base.5, Status::<Impl, OFFSET>, Kind::<Impl, OFFSET>, RecordCount::<Impl, OFFSET>, RecordSize::<Impl, OFFSET>, ReadAccessCondition::<Impl, OFFSET>, WriteAccessCondition::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMobileBroadbandUiccAppRecordDetailsResult>, ::windows::core::GetTrustLevel, Status::<Impl, OFFSET>, Kind::<Impl, OFFSET>, RecordCount::<Impl, OFFSET>, RecordSize::<Impl, OFFSET>, ReadAccessCondition::<Impl, OFFSET>, WriteAccessCondition::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -5228,9 +5440,9 @@ impl ::windows::core::RuntimeName for IMobileBroadbandUiccAppsResult {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IMobileBroadbandUiccAppsResultVtbl {
-    pub const fn new<Impl: IMobileBroadbandUiccAppsResultImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IMobileBroadbandUiccAppsResultVtbl {
-        unsafe extern "system" fn Status<Impl: IMobileBroadbandUiccAppsResultImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut MobileBroadbandUiccAppOperationStatus) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMobileBroadbandUiccAppsResultImpl, const OFFSET: isize>() -> IMobileBroadbandUiccAppsResultVtbl {
+        unsafe extern "system" fn Status<Impl: IMobileBroadbandUiccAppsResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut MobileBroadbandUiccAppOperationStatus) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Status() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -5240,8 +5452,8 @@ impl IMobileBroadbandUiccAppsResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn UiccApps<Impl: IMobileBroadbandUiccAppsResultImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn UiccApps<Impl: IMobileBroadbandUiccAppsResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).UiccApps() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -5251,7 +5463,7 @@ impl IMobileBroadbandUiccAppsResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IMobileBroadbandUiccAppsResult>, base.5, Status::<Impl, OFFSET>, UiccApps::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMobileBroadbandUiccAppsResult>, ::windows::core::GetTrustLevel, Status::<Impl, OFFSET>, UiccApps::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -5264,9 +5476,9 @@ impl ::windows::core::RuntimeName for INetworkOperatorDataUsageTriggerDetails {
 }
 #[cfg(feature = "implement_exclusive")]
 impl INetworkOperatorDataUsageTriggerDetailsVtbl {
-    pub const fn new<Impl: INetworkOperatorDataUsageTriggerDetailsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> INetworkOperatorDataUsageTriggerDetailsVtbl {
-        unsafe extern "system" fn NotificationKind<Impl: INetworkOperatorDataUsageTriggerDetailsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut NetworkOperatorDataUsageNotificationKind) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INetworkOperatorDataUsageTriggerDetailsImpl, const OFFSET: isize>() -> INetworkOperatorDataUsageTriggerDetailsVtbl {
+        unsafe extern "system" fn NotificationKind<Impl: INetworkOperatorDataUsageTriggerDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut NetworkOperatorDataUsageNotificationKind) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).NotificationKind() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -5276,7 +5488,7 @@ impl INetworkOperatorDataUsageTriggerDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<INetworkOperatorDataUsageTriggerDetails>, base.5, NotificationKind::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<INetworkOperatorDataUsageTriggerDetails>, ::windows::core::GetTrustLevel, NotificationKind::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -5294,9 +5506,9 @@ impl ::windows::core::RuntimeName for INetworkOperatorNotificationEventDetails {
 }
 #[cfg(feature = "implement_exclusive")]
 impl INetworkOperatorNotificationEventDetailsVtbl {
-    pub const fn new<Impl: INetworkOperatorNotificationEventDetailsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> INetworkOperatorNotificationEventDetailsVtbl {
-        unsafe extern "system" fn NotificationType<Impl: INetworkOperatorNotificationEventDetailsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut NetworkOperatorEventMessageType) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INetworkOperatorNotificationEventDetailsImpl, const OFFSET: isize>() -> INetworkOperatorNotificationEventDetailsVtbl {
+        unsafe extern "system" fn NotificationType<Impl: INetworkOperatorNotificationEventDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut NetworkOperatorEventMessageType) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).NotificationType() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -5306,8 +5518,8 @@ impl INetworkOperatorNotificationEventDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn NetworkAccountId<Impl: INetworkOperatorNotificationEventDetailsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn NetworkAccountId<Impl: INetworkOperatorNotificationEventDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).NetworkAccountId() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -5317,8 +5529,8 @@ impl INetworkOperatorNotificationEventDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn EncodingType<Impl: INetworkOperatorNotificationEventDetailsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn EncodingType<Impl: INetworkOperatorNotificationEventDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EncodingType() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -5328,8 +5540,8 @@ impl INetworkOperatorNotificationEventDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Message<Impl: INetworkOperatorNotificationEventDetailsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn Message<Impl: INetworkOperatorNotificationEventDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Message() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -5339,8 +5551,8 @@ impl INetworkOperatorNotificationEventDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RuleId<Impl: INetworkOperatorNotificationEventDetailsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn RuleId<Impl: INetworkOperatorNotificationEventDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RuleId() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -5350,8 +5562,8 @@ impl INetworkOperatorNotificationEventDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SmsMessage<Impl: INetworkOperatorNotificationEventDetailsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn SmsMessage<Impl: INetworkOperatorNotificationEventDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SmsMessage() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -5361,7 +5573,7 @@ impl INetworkOperatorNotificationEventDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<INetworkOperatorNotificationEventDetails>, base.5, NotificationType::<Impl, OFFSET>, NetworkAccountId::<Impl, OFFSET>, EncodingType::<Impl, OFFSET>, Message::<Impl, OFFSET>, RuleId::<Impl, OFFSET>, SmsMessage::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<INetworkOperatorNotificationEventDetails>, ::windows::core::GetTrustLevel, NotificationType::<Impl, OFFSET>, NetworkAccountId::<Impl, OFFSET>, EncodingType::<Impl, OFFSET>, Message::<Impl, OFFSET>, RuleId::<Impl, OFFSET>, SmsMessage::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -5377,9 +5589,9 @@ impl ::windows::core::RuntimeName for INetworkOperatorTetheringAccessPointConfig
 }
 #[cfg(feature = "implement_exclusive")]
 impl INetworkOperatorTetheringAccessPointConfigurationVtbl {
-    pub const fn new<Impl: INetworkOperatorTetheringAccessPointConfigurationImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> INetworkOperatorTetheringAccessPointConfigurationVtbl {
-        unsafe extern "system" fn Ssid<Impl: INetworkOperatorTetheringAccessPointConfigurationImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INetworkOperatorTetheringAccessPointConfigurationImpl, const OFFSET: isize>() -> INetworkOperatorTetheringAccessPointConfigurationVtbl {
+        unsafe extern "system" fn Ssid<Impl: INetworkOperatorTetheringAccessPointConfigurationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Ssid() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -5389,12 +5601,12 @@ impl INetworkOperatorTetheringAccessPointConfigurationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetSsid<Impl: INetworkOperatorTetheringAccessPointConfigurationImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn SetSsid<Impl: INetworkOperatorTetheringAccessPointConfigurationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetSsid(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn Passphrase<Impl: INetworkOperatorTetheringAccessPointConfigurationImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn Passphrase<Impl: INetworkOperatorTetheringAccessPointConfigurationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Passphrase() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -5404,11 +5616,11 @@ impl INetworkOperatorTetheringAccessPointConfigurationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetPassphrase<Impl: INetworkOperatorTetheringAccessPointConfigurationImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn SetPassphrase<Impl: INetworkOperatorTetheringAccessPointConfigurationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetPassphrase(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<INetworkOperatorTetheringAccessPointConfiguration>, base.5, Ssid::<Impl, OFFSET>, SetSsid::<Impl, OFFSET>, Passphrase::<Impl, OFFSET>, SetPassphrase::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<INetworkOperatorTetheringAccessPointConfiguration>, ::windows::core::GetTrustLevel, Ssid::<Impl, OFFSET>, SetSsid::<Impl, OFFSET>, Passphrase::<Impl, OFFSET>, SetPassphrase::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -5424,9 +5636,9 @@ impl ::windows::core::RuntimeName for INetworkOperatorTetheringAccessPointConfig
 }
 #[cfg(feature = "implement_exclusive")]
 impl INetworkOperatorTetheringAccessPointConfiguration2Vtbl {
-    pub const fn new<Impl: INetworkOperatorTetheringAccessPointConfiguration2Impl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> INetworkOperatorTetheringAccessPointConfiguration2Vtbl {
-        unsafe extern "system" fn IsBandSupported<Impl: INetworkOperatorTetheringAccessPointConfiguration2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, band: TetheringWiFiBand, result__: *mut bool) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INetworkOperatorTetheringAccessPointConfiguration2Impl, const OFFSET: isize>() -> INetworkOperatorTetheringAccessPointConfiguration2Vtbl {
+        unsafe extern "system" fn IsBandSupported<Impl: INetworkOperatorTetheringAccessPointConfiguration2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, band: TetheringWiFiBand, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsBandSupported(band) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -5436,8 +5648,8 @@ impl INetworkOperatorTetheringAccessPointConfiguration2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsBandSupportedAsync<Impl: INetworkOperatorTetheringAccessPointConfiguration2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, band: TetheringWiFiBand, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn IsBandSupportedAsync<Impl: INetworkOperatorTetheringAccessPointConfiguration2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, band: TetheringWiFiBand, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsBandSupportedAsync(band) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -5447,8 +5659,8 @@ impl INetworkOperatorTetheringAccessPointConfiguration2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Band<Impl: INetworkOperatorTetheringAccessPointConfiguration2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut TetheringWiFiBand) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn Band<Impl: INetworkOperatorTetheringAccessPointConfiguration2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut TetheringWiFiBand) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Band() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -5458,11 +5670,11 @@ impl INetworkOperatorTetheringAccessPointConfiguration2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetBand<Impl: INetworkOperatorTetheringAccessPointConfiguration2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: TetheringWiFiBand) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn SetBand<Impl: INetworkOperatorTetheringAccessPointConfiguration2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: TetheringWiFiBand) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetBand(value).into()
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<INetworkOperatorTetheringAccessPointConfiguration2>, base.5, IsBandSupported::<Impl, OFFSET>, IsBandSupportedAsync::<Impl, OFFSET>, Band::<Impl, OFFSET>, SetBand::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<INetworkOperatorTetheringAccessPointConfiguration2>, ::windows::core::GetTrustLevel, IsBandSupported::<Impl, OFFSET>, IsBandSupportedAsync::<Impl, OFFSET>, Band::<Impl, OFFSET>, SetBand::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -5476,9 +5688,9 @@ impl ::windows::core::RuntimeName for INetworkOperatorTetheringClient {
 }
 #[cfg(feature = "implement_exclusive")]
 impl INetworkOperatorTetheringClientVtbl {
-    pub const fn new<Impl: INetworkOperatorTetheringClientImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> INetworkOperatorTetheringClientVtbl {
-        unsafe extern "system" fn MacAddress<Impl: INetworkOperatorTetheringClientImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INetworkOperatorTetheringClientImpl, const OFFSET: isize>() -> INetworkOperatorTetheringClientVtbl {
+        unsafe extern "system" fn MacAddress<Impl: INetworkOperatorTetheringClientImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MacAddress() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -5488,8 +5700,8 @@ impl INetworkOperatorTetheringClientVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn HostNames<Impl: INetworkOperatorTetheringClientImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn HostNames<Impl: INetworkOperatorTetheringClientImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).HostNames() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -5499,7 +5711,7 @@ impl INetworkOperatorTetheringClientVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<INetworkOperatorTetheringClient>, base.5, MacAddress::<Impl, OFFSET>, HostNames::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<INetworkOperatorTetheringClient>, ::windows::core::GetTrustLevel, MacAddress::<Impl, OFFSET>, HostNames::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -5512,9 +5724,9 @@ impl ::windows::core::RuntimeName for INetworkOperatorTetheringClientManager {
 }
 #[cfg(feature = "implement_exclusive")]
 impl INetworkOperatorTetheringClientManagerVtbl {
-    pub const fn new<Impl: INetworkOperatorTetheringClientManagerImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> INetworkOperatorTetheringClientManagerVtbl {
-        unsafe extern "system" fn GetTetheringClients<Impl: INetworkOperatorTetheringClientManagerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INetworkOperatorTetheringClientManagerImpl, const OFFSET: isize>() -> INetworkOperatorTetheringClientManagerVtbl {
+        unsafe extern "system" fn GetTetheringClients<Impl: INetworkOperatorTetheringClientManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetTetheringClients() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -5524,7 +5736,7 @@ impl INetworkOperatorTetheringClientManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<INetworkOperatorTetheringClientManager>, base.5, GetTetheringClients::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<INetworkOperatorTetheringClientManager>, ::windows::core::GetTrustLevel, GetTetheringClients::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -5537,12 +5749,12 @@ impl ::windows::core::RuntimeName for INetworkOperatorTetheringEntitlementCheck 
 }
 #[cfg(feature = "implement_exclusive")]
 impl INetworkOperatorTetheringEntitlementCheckVtbl {
-    pub const fn new<Impl: INetworkOperatorTetheringEntitlementCheckImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> INetworkOperatorTetheringEntitlementCheckVtbl {
-        unsafe extern "system" fn AuthorizeTethering<Impl: INetworkOperatorTetheringEntitlementCheckImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, allow: bool, entitlementfailurereason: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INetworkOperatorTetheringEntitlementCheckImpl, const OFFSET: isize>() -> INetworkOperatorTetheringEntitlementCheckVtbl {
+        unsafe extern "system" fn AuthorizeTethering<Impl: INetworkOperatorTetheringEntitlementCheckImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, allow: bool, entitlementfailurereason: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AuthorizeTethering(allow, &*(&entitlementfailurereason as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<INetworkOperatorTetheringEntitlementCheck>, base.5, AuthorizeTethering::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<INetworkOperatorTetheringEntitlementCheck>, ::windows::core::GetTrustLevel, AuthorizeTethering::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -5561,9 +5773,9 @@ impl ::windows::core::RuntimeName for INetworkOperatorTetheringManager {
 }
 #[cfg(feature = "implement_exclusive")]
 impl INetworkOperatorTetheringManagerVtbl {
-    pub const fn new<Impl: INetworkOperatorTetheringManagerImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> INetworkOperatorTetheringManagerVtbl {
-        unsafe extern "system" fn MaxClientCount<Impl: INetworkOperatorTetheringManagerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INetworkOperatorTetheringManagerImpl, const OFFSET: isize>() -> INetworkOperatorTetheringManagerVtbl {
+        unsafe extern "system" fn MaxClientCount<Impl: INetworkOperatorTetheringManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MaxClientCount() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -5573,8 +5785,8 @@ impl INetworkOperatorTetheringManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ClientCount<Impl: INetworkOperatorTetheringManagerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn ClientCount<Impl: INetworkOperatorTetheringManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ClientCount() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -5584,8 +5796,8 @@ impl INetworkOperatorTetheringManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TetheringOperationalState<Impl: INetworkOperatorTetheringManagerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut TetheringOperationalState) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn TetheringOperationalState<Impl: INetworkOperatorTetheringManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut TetheringOperationalState) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TetheringOperationalState() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -5595,8 +5807,8 @@ impl INetworkOperatorTetheringManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetCurrentAccessPointConfiguration<Impl: INetworkOperatorTetheringManagerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn GetCurrentAccessPointConfiguration<Impl: INetworkOperatorTetheringManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetCurrentAccessPointConfiguration() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -5606,8 +5818,8 @@ impl INetworkOperatorTetheringManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ConfigureAccessPointAsync<Impl: INetworkOperatorTetheringManagerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, configuration: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn ConfigureAccessPointAsync<Impl: INetworkOperatorTetheringManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, configuration: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ConfigureAccessPointAsync(&*(&configuration as *const <NetworkOperatorTetheringAccessPointConfiguration as ::windows::core::Abi>::Abi as *const <NetworkOperatorTetheringAccessPointConfiguration as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -5617,8 +5829,8 @@ impl INetworkOperatorTetheringManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn StartTetheringAsync<Impl: INetworkOperatorTetheringManagerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn StartTetheringAsync<Impl: INetworkOperatorTetheringManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).StartTetheringAsync() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -5628,8 +5840,8 @@ impl INetworkOperatorTetheringManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn StopTetheringAsync<Impl: INetworkOperatorTetheringManagerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn StopTetheringAsync<Impl: INetworkOperatorTetheringManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).StopTetheringAsync() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -5639,7 +5851,21 @@ impl INetworkOperatorTetheringManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<INetworkOperatorTetheringManager>, base.5, MaxClientCount::<Impl, OFFSET>, ClientCount::<Impl, OFFSET>, TetheringOperationalState::<Impl, OFFSET>, GetCurrentAccessPointConfiguration::<Impl, OFFSET>, ConfigureAccessPointAsync::<Impl, OFFSET>, StartTetheringAsync::<Impl, OFFSET>, StopTetheringAsync::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, OFFSET>,
+            ::windows::core::AddRef::<Identity, OFFSET>,
+            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<INetworkOperatorTetheringManager>,
+            ::windows::core::GetTrustLevel,
+            MaxClientCount::<Impl, OFFSET>,
+            ClientCount::<Impl, OFFSET>,
+            TetheringOperationalState::<Impl, OFFSET>,
+            GetCurrentAccessPointConfiguration::<Impl, OFFSET>,
+            ConfigureAccessPointAsync::<Impl, OFFSET>,
+            StartTetheringAsync::<Impl, OFFSET>,
+            StopTetheringAsync::<Impl, OFFSET>,
+        )
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -5653,9 +5879,9 @@ impl ::windows::core::RuntimeName for INetworkOperatorTetheringManagerStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl INetworkOperatorTetheringManagerStaticsVtbl {
-    pub const fn new<Impl: INetworkOperatorTetheringManagerStaticsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> INetworkOperatorTetheringManagerStaticsVtbl {
-        unsafe extern "system" fn GetTetheringCapability<Impl: INetworkOperatorTetheringManagerStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, networkaccountid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut TetheringCapability) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INetworkOperatorTetheringManagerStaticsImpl, const OFFSET: isize>() -> INetworkOperatorTetheringManagerStaticsVtbl {
+        unsafe extern "system" fn GetTetheringCapability<Impl: INetworkOperatorTetheringManagerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, networkaccountid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut TetheringCapability) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetTetheringCapability(&*(&networkaccountid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -5665,8 +5891,8 @@ impl INetworkOperatorTetheringManagerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateFromNetworkAccountId<Impl: INetworkOperatorTetheringManagerStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, networkaccountid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn CreateFromNetworkAccountId<Impl: INetworkOperatorTetheringManagerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, networkaccountid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateFromNetworkAccountId(&*(&networkaccountid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -5676,7 +5902,7 @@ impl INetworkOperatorTetheringManagerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<INetworkOperatorTetheringManagerStatics>, base.5, GetTetheringCapability::<Impl, OFFSET>, CreateFromNetworkAccountId::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<INetworkOperatorTetheringManagerStatics>, ::windows::core::GetTrustLevel, GetTetheringCapability::<Impl, OFFSET>, CreateFromNetworkAccountId::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -5690,9 +5916,9 @@ impl ::windows::core::RuntimeName for INetworkOperatorTetheringManagerStatics2 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl INetworkOperatorTetheringManagerStatics2Vtbl {
-    pub const fn new<Impl: INetworkOperatorTetheringManagerStatics2Impl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> INetworkOperatorTetheringManagerStatics2Vtbl {
-        unsafe extern "system" fn GetTetheringCapabilityFromConnectionProfile<Impl: INetworkOperatorTetheringManagerStatics2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, profile: ::windows::core::RawPtr, result__: *mut TetheringCapability) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INetworkOperatorTetheringManagerStatics2Impl, const OFFSET: isize>() -> INetworkOperatorTetheringManagerStatics2Vtbl {
+        unsafe extern "system" fn GetTetheringCapabilityFromConnectionProfile<Impl: INetworkOperatorTetheringManagerStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, profile: ::windows::core::RawPtr, result__: *mut TetheringCapability) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetTetheringCapabilityFromConnectionProfile(&*(&profile as *const <super::Connectivity::ConnectionProfile as ::windows::core::Abi>::Abi as *const <super::Connectivity::ConnectionProfile as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -5702,8 +5928,8 @@ impl INetworkOperatorTetheringManagerStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateFromConnectionProfile<Impl: INetworkOperatorTetheringManagerStatics2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, profile: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn CreateFromConnectionProfile<Impl: INetworkOperatorTetheringManagerStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, profile: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateFromConnectionProfile(&*(&profile as *const <super::Connectivity::ConnectionProfile as ::windows::core::Abi>::Abi as *const <super::Connectivity::ConnectionProfile as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -5713,7 +5939,7 @@ impl INetworkOperatorTetheringManagerStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<INetworkOperatorTetheringManagerStatics2>, base.5, GetTetheringCapabilityFromConnectionProfile::<Impl, OFFSET>, CreateFromConnectionProfile::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<INetworkOperatorTetheringManagerStatics2>, ::windows::core::GetTrustLevel, GetTetheringCapabilityFromConnectionProfile::<Impl, OFFSET>, CreateFromConnectionProfile::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -5726,9 +5952,9 @@ impl ::windows::core::RuntimeName for INetworkOperatorTetheringManagerStatics3 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl INetworkOperatorTetheringManagerStatics3Vtbl {
-    pub const fn new<Impl: INetworkOperatorTetheringManagerStatics3Impl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> INetworkOperatorTetheringManagerStatics3Vtbl {
-        unsafe extern "system" fn CreateFromConnectionProfileWithTargetAdapter<Impl: INetworkOperatorTetheringManagerStatics3Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, profile: ::windows::core::RawPtr, adapter: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INetworkOperatorTetheringManagerStatics3Impl, const OFFSET: isize>() -> INetworkOperatorTetheringManagerStatics3Vtbl {
+        unsafe extern "system" fn CreateFromConnectionProfileWithTargetAdapter<Impl: INetworkOperatorTetheringManagerStatics3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, profile: ::windows::core::RawPtr, adapter: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateFromConnectionProfileWithTargetAdapter(&*(&profile as *const <super::Connectivity::ConnectionProfile as ::windows::core::Abi>::Abi as *const <super::Connectivity::ConnectionProfile as ::windows::core::DefaultType>::DefaultType), &*(&adapter as *const <super::Connectivity::NetworkAdapter as ::windows::core::Abi>::Abi as *const <super::Connectivity::NetworkAdapter as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -5738,7 +5964,7 @@ impl INetworkOperatorTetheringManagerStatics3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<INetworkOperatorTetheringManagerStatics3>, base.5, CreateFromConnectionProfileWithTargetAdapter::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<INetworkOperatorTetheringManagerStatics3>, ::windows::core::GetTrustLevel, CreateFromConnectionProfileWithTargetAdapter::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -5755,9 +5981,9 @@ impl ::windows::core::RuntimeName for INetworkOperatorTetheringManagerStatics4 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl INetworkOperatorTetheringManagerStatics4Vtbl {
-    pub const fn new<Impl: INetworkOperatorTetheringManagerStatics4Impl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> INetworkOperatorTetheringManagerStatics4Vtbl {
-        unsafe extern "system" fn IsNoConnectionsTimeoutEnabled<Impl: INetworkOperatorTetheringManagerStatics4Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INetworkOperatorTetheringManagerStatics4Impl, const OFFSET: isize>() -> INetworkOperatorTetheringManagerStatics4Vtbl {
+        unsafe extern "system" fn IsNoConnectionsTimeoutEnabled<Impl: INetworkOperatorTetheringManagerStatics4Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsNoConnectionsTimeoutEnabled() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -5767,12 +5993,12 @@ impl INetworkOperatorTetheringManagerStatics4Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn EnableNoConnectionsTimeout<Impl: INetworkOperatorTetheringManagerStatics4Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn EnableNoConnectionsTimeout<Impl: INetworkOperatorTetheringManagerStatics4Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).EnableNoConnectionsTimeout().into()
         }
-        unsafe extern "system" fn EnableNoConnectionsTimeoutAsync<Impl: INetworkOperatorTetheringManagerStatics4Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn EnableNoConnectionsTimeoutAsync<Impl: INetworkOperatorTetheringManagerStatics4Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EnableNoConnectionsTimeoutAsync() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -5782,12 +6008,12 @@ impl INetworkOperatorTetheringManagerStatics4Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DisableNoConnectionsTimeout<Impl: INetworkOperatorTetheringManagerStatics4Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn DisableNoConnectionsTimeout<Impl: INetworkOperatorTetheringManagerStatics4Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).DisableNoConnectionsTimeout().into()
         }
-        unsafe extern "system" fn DisableNoConnectionsTimeoutAsync<Impl: INetworkOperatorTetheringManagerStatics4Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn DisableNoConnectionsTimeoutAsync<Impl: INetworkOperatorTetheringManagerStatics4Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DisableNoConnectionsTimeoutAsync() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -5797,7 +6023,19 @@ impl INetworkOperatorTetheringManagerStatics4Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<INetworkOperatorTetheringManagerStatics4>, base.5, IsNoConnectionsTimeoutEnabled::<Impl, OFFSET>, EnableNoConnectionsTimeout::<Impl, OFFSET>, EnableNoConnectionsTimeoutAsync::<Impl, OFFSET>, DisableNoConnectionsTimeout::<Impl, OFFSET>, DisableNoConnectionsTimeoutAsync::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, OFFSET>,
+            ::windows::core::AddRef::<Identity, OFFSET>,
+            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<INetworkOperatorTetheringManagerStatics4>,
+            ::windows::core::GetTrustLevel,
+            IsNoConnectionsTimeoutEnabled::<Impl, OFFSET>,
+            EnableNoConnectionsTimeout::<Impl, OFFSET>,
+            EnableNoConnectionsTimeoutAsync::<Impl, OFFSET>,
+            DisableNoConnectionsTimeout::<Impl, OFFSET>,
+            DisableNoConnectionsTimeoutAsync::<Impl, OFFSET>,
+        )
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -5811,9 +6049,9 @@ impl ::windows::core::RuntimeName for INetworkOperatorTetheringOperationResult {
 }
 #[cfg(feature = "implement_exclusive")]
 impl INetworkOperatorTetheringOperationResultVtbl {
-    pub const fn new<Impl: INetworkOperatorTetheringOperationResultImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> INetworkOperatorTetheringOperationResultVtbl {
-        unsafe extern "system" fn Status<Impl: INetworkOperatorTetheringOperationResultImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut TetheringOperationStatus) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INetworkOperatorTetheringOperationResultImpl, const OFFSET: isize>() -> INetworkOperatorTetheringOperationResultVtbl {
+        unsafe extern "system" fn Status<Impl: INetworkOperatorTetheringOperationResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut TetheringOperationStatus) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Status() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -5823,8 +6061,8 @@ impl INetworkOperatorTetheringOperationResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AdditionalErrorMessage<Impl: INetworkOperatorTetheringOperationResultImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn AdditionalErrorMessage<Impl: INetworkOperatorTetheringOperationResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AdditionalErrorMessage() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -5834,7 +6072,7 @@ impl INetworkOperatorTetheringOperationResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<INetworkOperatorTetheringOperationResult>, base.5, Status::<Impl, OFFSET>, AdditionalErrorMessage::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<INetworkOperatorTetheringOperationResult>, ::windows::core::GetTrustLevel, Status::<Impl, OFFSET>, AdditionalErrorMessage::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -5848,9 +6086,9 @@ impl ::windows::core::RuntimeName for IProvisionFromXmlDocumentResults {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IProvisionFromXmlDocumentResultsVtbl {
-    pub const fn new<Impl: IProvisionFromXmlDocumentResultsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IProvisionFromXmlDocumentResultsVtbl {
-        unsafe extern "system" fn AllElementsProvisioned<Impl: IProvisionFromXmlDocumentResultsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IProvisionFromXmlDocumentResultsImpl, const OFFSET: isize>() -> IProvisionFromXmlDocumentResultsVtbl {
+        unsafe extern "system" fn AllElementsProvisioned<Impl: IProvisionFromXmlDocumentResultsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AllElementsProvisioned() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -5860,8 +6098,8 @@ impl IProvisionFromXmlDocumentResultsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ProvisionResultsXml<Impl: IProvisionFromXmlDocumentResultsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn ProvisionResultsXml<Impl: IProvisionFromXmlDocumentResultsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ProvisionResultsXml() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -5871,7 +6109,7 @@ impl IProvisionFromXmlDocumentResultsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IProvisionFromXmlDocumentResults>, base.5, AllElementsProvisioned::<Impl, OFFSET>, ProvisionResultsXml::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IProvisionFromXmlDocumentResults>, ::windows::core::GetTrustLevel, AllElementsProvisioned::<Impl, OFFSET>, ProvisionResultsXml::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -5885,16 +6123,16 @@ impl ::windows::core::RuntimeName for IProvisionedProfile {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IProvisionedProfileVtbl {
-    pub const fn new<Impl: IProvisionedProfileImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IProvisionedProfileVtbl {
-        unsafe extern "system" fn UpdateCost<Impl: IProvisionedProfileImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: super::Connectivity::NetworkCostType) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IProvisionedProfileImpl, const OFFSET: isize>() -> IProvisionedProfileVtbl {
+        unsafe extern "system" fn UpdateCost<Impl: IProvisionedProfileImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::Connectivity::NetworkCostType) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).UpdateCost(value).into()
         }
-        unsafe extern "system" fn UpdateUsage<Impl: IProvisionedProfileImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: ProfileUsage) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn UpdateUsage<Impl: IProvisionedProfileImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ProfileUsage) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).UpdateUsage(&*(&value as *const <ProfileUsage as ::windows::core::Abi>::Abi as *const <ProfileUsage as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IProvisionedProfile>, base.5, UpdateCost::<Impl, OFFSET>, UpdateUsage::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IProvisionedProfile>, ::windows::core::GetTrustLevel, UpdateCost::<Impl, OFFSET>, UpdateUsage::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -5908,9 +6146,9 @@ impl ::windows::core::RuntimeName for IProvisioningAgent {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IProvisioningAgentVtbl {
-    pub const fn new<Impl: IProvisioningAgentImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IProvisioningAgentVtbl {
-        unsafe extern "system" fn ProvisionFromXmlDocumentAsync<Impl: IProvisioningAgentImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, provisioningxmldocument: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IProvisioningAgentImpl, const OFFSET: isize>() -> IProvisioningAgentVtbl {
+        unsafe extern "system" fn ProvisionFromXmlDocumentAsync<Impl: IProvisioningAgentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, provisioningxmldocument: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ProvisionFromXmlDocumentAsync(&*(&provisioningxmldocument as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -5920,8 +6158,8 @@ impl IProvisioningAgentVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetProvisionedProfile<Impl: IProvisioningAgentImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, mediatype: ProfileMediaType, profilename: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn GetProvisionedProfile<Impl: IProvisioningAgentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, mediatype: ProfileMediaType, profilename: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetProvisionedProfile(mediatype, &*(&profilename as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -5931,7 +6169,7 @@ impl IProvisioningAgentVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IProvisioningAgent>, base.5, ProvisionFromXmlDocumentAsync::<Impl, OFFSET>, GetProvisionedProfile::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IProvisioningAgent>, ::windows::core::GetTrustLevel, ProvisionFromXmlDocumentAsync::<Impl, OFFSET>, GetProvisionedProfile::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -5944,9 +6182,9 @@ impl ::windows::core::RuntimeName for IProvisioningAgentStaticMethods {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IProvisioningAgentStaticMethodsVtbl {
-    pub const fn new<Impl: IProvisioningAgentStaticMethodsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IProvisioningAgentStaticMethodsVtbl {
-        unsafe extern "system" fn CreateFromNetworkAccountId<Impl: IProvisioningAgentStaticMethodsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, networkaccountid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IProvisioningAgentStaticMethodsImpl, const OFFSET: isize>() -> IProvisioningAgentStaticMethodsVtbl {
+        unsafe extern "system" fn CreateFromNetworkAccountId<Impl: IProvisioningAgentStaticMethodsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, networkaccountid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateFromNetworkAccountId(&*(&networkaccountid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -5956,7 +6194,7 @@ impl IProvisioningAgentStaticMethodsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IProvisioningAgentStaticMethods>, base.5, CreateFromNetworkAccountId::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IProvisioningAgentStaticMethods>, ::windows::core::GetTrustLevel, CreateFromNetworkAccountId::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -5971,9 +6209,9 @@ impl ::windows::core::RuntimeName for ITetheringEntitlementCheckTriggerDetails {
 }
 #[cfg(feature = "implement_exclusive")]
 impl ITetheringEntitlementCheckTriggerDetailsVtbl {
-    pub const fn new<Impl: ITetheringEntitlementCheckTriggerDetailsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> ITetheringEntitlementCheckTriggerDetailsVtbl {
-        unsafe extern "system" fn NetworkAccountId<Impl: ITetheringEntitlementCheckTriggerDetailsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITetheringEntitlementCheckTriggerDetailsImpl, const OFFSET: isize>() -> ITetheringEntitlementCheckTriggerDetailsVtbl {
+        unsafe extern "system" fn NetworkAccountId<Impl: ITetheringEntitlementCheckTriggerDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).NetworkAccountId() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -5983,15 +6221,15 @@ impl ITetheringEntitlementCheckTriggerDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AllowTethering<Impl: ITetheringEntitlementCheckTriggerDetailsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn AllowTethering<Impl: ITetheringEntitlementCheckTriggerDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AllowTethering().into()
         }
-        unsafe extern "system" fn DenyTethering<Impl: ITetheringEntitlementCheckTriggerDetailsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, entitlementfailurereason: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn DenyTethering<Impl: ITetheringEntitlementCheckTriggerDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, entitlementfailurereason: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).DenyTethering(&*(&entitlementfailurereason as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<ITetheringEntitlementCheckTriggerDetails>, base.5, NetworkAccountId::<Impl, OFFSET>, AllowTethering::<Impl, OFFSET>, DenyTethering::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITetheringEntitlementCheckTriggerDetails>, ::windows::core::GetTrustLevel, NetworkAccountId::<Impl, OFFSET>, AllowTethering::<Impl, OFFSET>, DenyTethering::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -6009,9 +6247,9 @@ impl ::windows::core::RuntimeName for IUssdMessage {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IUssdMessageVtbl {
-    pub const fn new<Impl: IUssdMessageImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IUssdMessageVtbl {
-        unsafe extern "system" fn DataCodingScheme<Impl: IUssdMessageImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUssdMessageImpl, const OFFSET: isize>() -> IUssdMessageVtbl {
+        unsafe extern "system" fn DataCodingScheme<Impl: IUssdMessageImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DataCodingScheme() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -6021,12 +6259,12 @@ impl IUssdMessageVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetDataCodingScheme<Impl: IUssdMessageImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: u8) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn SetDataCodingScheme<Impl: IUssdMessageImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: u8) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetDataCodingScheme(value).into()
         }
-        unsafe extern "system" fn GetPayload<Impl: IUssdMessageImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result_size__: *mut u32, result__: *mut *mut u8) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn GetPayload<Impl: IUssdMessageImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result_size__: *mut u32, result__: *mut *mut u8) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetPayload() {
                 ::core::result::Result::Ok(ok__) => {
                     let (ok_data__, ok_data_len__) = ok__.into_abi();
@@ -6037,12 +6275,12 @@ impl IUssdMessageVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetPayload<Impl: IUssdMessageImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value_array_size: u32, value: *const u8) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn SetPayload<Impl: IUssdMessageImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value_array_size: u32, value: *const u8) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetPayload(::core::slice::from_raw_parts(::core::mem::transmute_copy(&value), value_array_size as _)).into()
         }
-        unsafe extern "system" fn PayloadAsText<Impl: IUssdMessageImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn PayloadAsText<Impl: IUssdMessageImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PayloadAsText() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -6052,11 +6290,11 @@ impl IUssdMessageVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetPayloadAsText<Impl: IUssdMessageImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn SetPayloadAsText<Impl: IUssdMessageImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetPayloadAsText(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IUssdMessage>, base.5, DataCodingScheme::<Impl, OFFSET>, SetDataCodingScheme::<Impl, OFFSET>, GetPayload::<Impl, OFFSET>, SetPayload::<Impl, OFFSET>, PayloadAsText::<Impl, OFFSET>, SetPayloadAsText::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUssdMessage>, ::windows::core::GetTrustLevel, DataCodingScheme::<Impl, OFFSET>, SetDataCodingScheme::<Impl, OFFSET>, GetPayload::<Impl, OFFSET>, SetPayload::<Impl, OFFSET>, PayloadAsText::<Impl, OFFSET>, SetPayloadAsText::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -6069,9 +6307,9 @@ impl ::windows::core::RuntimeName for IUssdMessageFactory {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IUssdMessageFactoryVtbl {
-    pub const fn new<Impl: IUssdMessageFactoryImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IUssdMessageFactoryVtbl {
-        unsafe extern "system" fn CreateMessage<Impl: IUssdMessageFactoryImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, messagetext: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUssdMessageFactoryImpl, const OFFSET: isize>() -> IUssdMessageFactoryVtbl {
+        unsafe extern "system" fn CreateMessage<Impl: IUssdMessageFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, messagetext: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateMessage(&*(&messagetext as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -6081,7 +6319,7 @@ impl IUssdMessageFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IUssdMessageFactory>, base.5, CreateMessage::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUssdMessageFactory>, ::windows::core::GetTrustLevel, CreateMessage::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -6095,9 +6333,9 @@ impl ::windows::core::RuntimeName for IUssdReply {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IUssdReplyVtbl {
-    pub const fn new<Impl: IUssdReplyImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IUssdReplyVtbl {
-        unsafe extern "system" fn ResultCode<Impl: IUssdReplyImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut UssdResultCode) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUssdReplyImpl, const OFFSET: isize>() -> IUssdReplyVtbl {
+        unsafe extern "system" fn ResultCode<Impl: IUssdReplyImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut UssdResultCode) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ResultCode() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -6107,8 +6345,8 @@ impl IUssdReplyVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Message<Impl: IUssdReplyImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn Message<Impl: IUssdReplyImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Message() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -6118,7 +6356,7 @@ impl IUssdReplyVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IUssdReply>, base.5, ResultCode::<Impl, OFFSET>, Message::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUssdReply>, ::windows::core::GetTrustLevel, ResultCode::<Impl, OFFSET>, Message::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -6132,9 +6370,9 @@ impl ::windows::core::RuntimeName for IUssdSession {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IUssdSessionVtbl {
-    pub const fn new<Impl: IUssdSessionImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IUssdSessionVtbl {
-        unsafe extern "system" fn SendMessageAndGetReplyAsync<Impl: IUssdSessionImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, message: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUssdSessionImpl, const OFFSET: isize>() -> IUssdSessionVtbl {
+        unsafe extern "system" fn SendMessageAndGetReplyAsync<Impl: IUssdSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, message: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SendMessageAndGetReplyAsync(&*(&message as *const <UssdMessage as ::windows::core::Abi>::Abi as *const <UssdMessage as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -6144,11 +6382,11 @@ impl IUssdSessionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Close<Impl: IUssdSessionImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn Close<Impl: IUssdSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Close().into()
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IUssdSession>, base.5, SendMessageAndGetReplyAsync::<Impl, OFFSET>, Close::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUssdSession>, ::windows::core::GetTrustLevel, SendMessageAndGetReplyAsync::<Impl, OFFSET>, Close::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -6162,9 +6400,9 @@ impl ::windows::core::RuntimeName for IUssdSessionStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IUssdSessionStaticsVtbl {
-    pub const fn new<Impl: IUssdSessionStaticsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IUssdSessionStaticsVtbl {
-        unsafe extern "system" fn CreateFromNetworkAccountId<Impl: IUssdSessionStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, networkaccountid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUssdSessionStaticsImpl, const OFFSET: isize>() -> IUssdSessionStaticsVtbl {
+        unsafe extern "system" fn CreateFromNetworkAccountId<Impl: IUssdSessionStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, networkaccountid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateFromNetworkAccountId(&*(&networkaccountid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -6174,8 +6412,8 @@ impl IUssdSessionStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateFromNetworkInterfaceId<Impl: IUssdSessionStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, networkinterfaceid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn CreateFromNetworkInterfaceId<Impl: IUssdSessionStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, networkinterfaceid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateFromNetworkInterfaceId(&*(&networkinterfaceid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -6185,6 +6423,6 @@ impl IUssdSessionStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IUssdSessionStatics>, base.5, CreateFromNetworkAccountId::<Impl, OFFSET>, CreateFromNetworkInterfaceId::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUssdSessionStatics>, ::windows::core::GetTrustLevel, CreateFromNetworkAccountId::<Impl, OFFSET>, CreateFromNetworkInterfaceId::<Impl, OFFSET>)
     }
 }

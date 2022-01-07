@@ -8,9 +8,9 @@ impl ::windows::core::RuntimeName for IXsltProcessor {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IXsltProcessorVtbl {
-    pub const fn new<Impl: IXsltProcessorImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IXsltProcessorVtbl {
-        unsafe extern "system" fn TransformToString<Impl: IXsltProcessorImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, inputnode: ::windows::core::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXsltProcessorImpl, const OFFSET: isize>() -> IXsltProcessorVtbl {
+        unsafe extern "system" fn TransformToString<Impl: IXsltProcessorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, inputnode: ::windows::core::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TransformToString(&*(&inputnode as *const <super::Dom::IXmlNode as ::windows::core::Abi>::Abi as *const <super::Dom::IXmlNode as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -20,7 +20,7 @@ impl IXsltProcessorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IXsltProcessor>, base.5, TransformToString::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IXsltProcessor>, ::windows::core::GetTrustLevel, TransformToString::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -33,9 +33,9 @@ impl ::windows::core::RuntimeName for IXsltProcessor2 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IXsltProcessor2Vtbl {
-    pub const fn new<Impl: IXsltProcessor2Impl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IXsltProcessor2Vtbl {
-        unsafe extern "system" fn TransformToDocument<Impl: IXsltProcessor2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, inputnode: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXsltProcessor2Impl, const OFFSET: isize>() -> IXsltProcessor2Vtbl {
+        unsafe extern "system" fn TransformToDocument<Impl: IXsltProcessor2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, inputnode: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TransformToDocument(&*(&inputnode as *const <super::Dom::IXmlNode as ::windows::core::Abi>::Abi as *const <super::Dom::IXmlNode as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -45,7 +45,7 @@ impl IXsltProcessor2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IXsltProcessor2>, base.5, TransformToDocument::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IXsltProcessor2>, ::windows::core::GetTrustLevel, TransformToDocument::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -58,9 +58,9 @@ impl ::windows::core::RuntimeName for IXsltProcessorFactory {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IXsltProcessorFactoryVtbl {
-    pub const fn new<Impl: IXsltProcessorFactoryImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IXsltProcessorFactoryVtbl {
-        unsafe extern "system" fn CreateInstance<Impl: IXsltProcessorFactoryImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, document: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXsltProcessorFactoryImpl, const OFFSET: isize>() -> IXsltProcessorFactoryVtbl {
+        unsafe extern "system" fn CreateInstance<Impl: IXsltProcessorFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, document: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateInstance(&*(&document as *const <super::Dom::XmlDocument as ::windows::core::Abi>::Abi as *const <super::Dom::XmlDocument as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -70,6 +70,6 @@ impl IXsltProcessorFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IXsltProcessorFactory>, base.5, CreateInstance::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IXsltProcessorFactory>, ::windows::core::GetTrustLevel, CreateInstance::<Impl, OFFSET>)
     }
 }

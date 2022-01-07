@@ -9,9 +9,9 @@ impl ::windows::core::RuntimeName for IContactPartnerProvisioningManagerStatics 
 }
 #[cfg(feature = "implement_exclusive")]
 impl IContactPartnerProvisioningManagerStaticsVtbl {
-    pub const fn new<Impl: IContactPartnerProvisioningManagerStaticsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IContactPartnerProvisioningManagerStaticsVtbl {
-        unsafe extern "system" fn AssociateNetworkAccountAsync<Impl: IContactPartnerProvisioningManagerStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, store: ::windows::core::RawPtr, networkname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, networkaccountid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactPartnerProvisioningManagerStaticsImpl, const OFFSET: isize>() -> IContactPartnerProvisioningManagerStaticsVtbl {
+        unsafe extern "system" fn AssociateNetworkAccountAsync<Impl: IContactPartnerProvisioningManagerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, store: ::windows::core::RawPtr, networkname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, networkaccountid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AssociateNetworkAccountAsync(
                 &*(&store as *const <super::ContactStore as ::windows::core::Abi>::Abi as *const <super::ContactStore as ::windows::core::DefaultType>::DefaultType),
                 &*(&networkname as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType),
@@ -25,8 +25,8 @@ impl IContactPartnerProvisioningManagerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ImportVcardToSystemAsync<Impl: IContactPartnerProvisioningManagerStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, stream: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn ImportVcardToSystemAsync<Impl: IContactPartnerProvisioningManagerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, stream: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ImportVcardToSystemAsync(&*(&stream as *const <super::super::super::Storage::Streams::IInputStream as ::windows::core::Abi>::Abi as *const <super::super::super::Storage::Streams::IInputStream as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -36,7 +36,7 @@ impl IContactPartnerProvisioningManagerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IContactPartnerProvisioningManagerStatics>, base.5, AssociateNetworkAccountAsync::<Impl, OFFSET>, ImportVcardToSystemAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IContactPartnerProvisioningManagerStatics>, ::windows::core::GetTrustLevel, AssociateNetworkAccountAsync::<Impl, OFFSET>, ImportVcardToSystemAsync::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -49,9 +49,9 @@ impl ::windows::core::RuntimeName for IContactPartnerProvisioningManagerStatics2
 }
 #[cfg(feature = "implement_exclusive")]
 impl IContactPartnerProvisioningManagerStatics2Vtbl {
-    pub const fn new<Impl: IContactPartnerProvisioningManagerStatics2Impl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IContactPartnerProvisioningManagerStatics2Vtbl {
-        unsafe extern "system" fn AssociateSocialNetworkAccountAsync<Impl: IContactPartnerProvisioningManagerStatics2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, store: ::windows::core::RawPtr, networkname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, networkaccountid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactPartnerProvisioningManagerStatics2Impl, const OFFSET: isize>() -> IContactPartnerProvisioningManagerStatics2Vtbl {
+        unsafe extern "system" fn AssociateSocialNetworkAccountAsync<Impl: IContactPartnerProvisioningManagerStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, store: ::windows::core::RawPtr, networkname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, networkaccountid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AssociateSocialNetworkAccountAsync(
                 &*(&store as *const <super::ContactStore as ::windows::core::Abi>::Abi as *const <super::ContactStore as ::windows::core::DefaultType>::DefaultType),
                 &*(&networkname as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType),
@@ -65,7 +65,7 @@ impl IContactPartnerProvisioningManagerStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IContactPartnerProvisioningManagerStatics2>, base.5, AssociateSocialNetworkAccountAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IContactPartnerProvisioningManagerStatics2>, ::windows::core::GetTrustLevel, AssociateSocialNetworkAccountAsync::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -79,9 +79,9 @@ impl ::windows::core::RuntimeName for IMessagePartnerProvisioningManagerStatics 
 }
 #[cfg(feature = "implement_exclusive")]
 impl IMessagePartnerProvisioningManagerStaticsVtbl {
-    pub const fn new<Impl: IMessagePartnerProvisioningManagerStaticsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IMessagePartnerProvisioningManagerStaticsVtbl {
-        unsafe extern "system" fn ImportSmsToSystemAsync<Impl: IMessagePartnerProvisioningManagerStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, incoming: bool, read: bool, body: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, sender: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, recipients: ::windows::core::RawPtr, deliverytime: super::super::super::Foundation::DateTime, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMessagePartnerProvisioningManagerStaticsImpl, const OFFSET: isize>() -> IMessagePartnerProvisioningManagerStaticsVtbl {
+        unsafe extern "system" fn ImportSmsToSystemAsync<Impl: IMessagePartnerProvisioningManagerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, incoming: bool, read: bool, body: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, sender: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, recipients: ::windows::core::RawPtr, deliverytime: super::super::super::Foundation::DateTime, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ImportSmsToSystemAsync(
                 incoming,
                 read,
@@ -98,8 +98,8 @@ impl IMessagePartnerProvisioningManagerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ImportMmsToSystemAsync<Impl: IMessagePartnerProvisioningManagerStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, incoming: bool, read: bool, subject: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, sender: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, recipients: ::windows::core::RawPtr, deliverytime: super::super::super::Foundation::DateTime, attachments: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn ImportMmsToSystemAsync<Impl: IMessagePartnerProvisioningManagerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, incoming: bool, read: bool, subject: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, sender: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, recipients: ::windows::core::RawPtr, deliverytime: super::super::super::Foundation::DateTime, attachments: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ImportMmsToSystemAsync(
                 incoming,
                 read,
@@ -117,6 +117,6 @@ impl IMessagePartnerProvisioningManagerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IMessagePartnerProvisioningManagerStatics>, base.5, ImportSmsToSystemAsync::<Impl, OFFSET>, ImportMmsToSystemAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMessagePartnerProvisioningManagerStatics>, ::windows::core::GetTrustLevel, ImportSmsToSystemAsync::<Impl, OFFSET>, ImportMmsToSystemAsync::<Impl, OFFSET>)
     }
 }

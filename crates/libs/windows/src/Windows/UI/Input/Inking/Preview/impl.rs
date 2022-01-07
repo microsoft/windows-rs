@@ -6,8 +6,8 @@ impl ::windows::core::RuntimeName for IPalmRejectionDelayZonePreview {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IPalmRejectionDelayZonePreviewVtbl {
-    pub const fn new<Impl: IPalmRejectionDelayZonePreviewImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IPalmRejectionDelayZonePreviewVtbl {
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IPalmRejectionDelayZonePreview>, base.5)
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPalmRejectionDelayZonePreviewImpl, const OFFSET: isize>() -> IPalmRejectionDelayZonePreviewVtbl {
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPalmRejectionDelayZonePreview>, ::windows::core::GetTrustLevel)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -21,9 +21,9 @@ impl ::windows::core::RuntimeName for IPalmRejectionDelayZonePreviewStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IPalmRejectionDelayZonePreviewStaticsVtbl {
-    pub const fn new<Impl: IPalmRejectionDelayZonePreviewStaticsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IPalmRejectionDelayZonePreviewStaticsVtbl {
-        unsafe extern "system" fn CreateForVisual<Impl: IPalmRejectionDelayZonePreviewStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, inputpanelvisual: ::windows::core::RawPtr, inputpanelrect: super::super::super::super::Foundation::Rect, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPalmRejectionDelayZonePreviewStaticsImpl, const OFFSET: isize>() -> IPalmRejectionDelayZonePreviewStaticsVtbl {
+        unsafe extern "system" fn CreateForVisual<Impl: IPalmRejectionDelayZonePreviewStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, inputpanelvisual: ::windows::core::RawPtr, inputpanelrect: super::super::super::super::Foundation::Rect, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateForVisual(&*(&inputpanelvisual as *const <super::super::super::Composition::Visual as ::windows::core::Abi>::Abi as *const <super::super::super::Composition::Visual as ::windows::core::DefaultType>::DefaultType), &*(&inputpanelrect as *const <super::super::super::super::Foundation::Rect as ::windows::core::Abi>::Abi as *const <super::super::super::super::Foundation::Rect as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -33,8 +33,8 @@ impl IPalmRejectionDelayZonePreviewStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateForVisualWithViewportClip<Impl: IPalmRejectionDelayZonePreviewStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, inputpanelvisual: ::windows::core::RawPtr, inputpanelrect: super::super::super::super::Foundation::Rect, viewportvisual: ::windows::core::RawPtr, viewportrect: super::super::super::super::Foundation::Rect, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn CreateForVisualWithViewportClip<Impl: IPalmRejectionDelayZonePreviewStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, inputpanelvisual: ::windows::core::RawPtr, inputpanelrect: super::super::super::super::Foundation::Rect, viewportvisual: ::windows::core::RawPtr, viewportrect: super::super::super::super::Foundation::Rect, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateForVisualWithViewportClip(
                 &*(&inputpanelvisual as *const <super::super::super::Composition::Visual as ::windows::core::Abi>::Abi as *const <super::super::super::Composition::Visual as ::windows::core::DefaultType>::DefaultType),
                 &*(&inputpanelrect as *const <super::super::super::super::Foundation::Rect as ::windows::core::Abi>::Abi as *const <super::super::super::super::Foundation::Rect as ::windows::core::DefaultType>::DefaultType),
@@ -49,6 +49,6 @@ impl IPalmRejectionDelayZonePreviewStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IPalmRejectionDelayZonePreviewStatics>, base.5, CreateForVisual::<Impl, OFFSET>, CreateForVisualWithViewportClip::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPalmRejectionDelayZonePreviewStatics>, ::windows::core::GetTrustLevel, CreateForVisual::<Impl, OFFSET>, CreateForVisualWithViewportClip::<Impl, OFFSET>)
     }
 }

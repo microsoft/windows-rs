@@ -9,9 +9,9 @@ impl ::windows::core::RuntimeName for IRadialControllerIndependentInputSource {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IRadialControllerIndependentInputSourceVtbl {
-    pub const fn new<Impl: IRadialControllerIndependentInputSourceImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IRadialControllerIndependentInputSourceVtbl {
-        unsafe extern "system" fn Controller<Impl: IRadialControllerIndependentInputSourceImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRadialControllerIndependentInputSourceImpl, const OFFSET: isize>() -> IRadialControllerIndependentInputSourceVtbl {
+        unsafe extern "system" fn Controller<Impl: IRadialControllerIndependentInputSourceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Controller() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -21,8 +21,8 @@ impl IRadialControllerIndependentInputSourceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Dispatcher<Impl: IRadialControllerIndependentInputSourceImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn Dispatcher<Impl: IRadialControllerIndependentInputSourceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Dispatcher() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -32,7 +32,7 @@ impl IRadialControllerIndependentInputSourceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IRadialControllerIndependentInputSource>, base.5, Controller::<Impl, OFFSET>, Dispatcher::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRadialControllerIndependentInputSource>, ::windows::core::GetTrustLevel, Controller::<Impl, OFFSET>, Dispatcher::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -45,9 +45,9 @@ impl ::windows::core::RuntimeName for IRadialControllerIndependentInputSource2 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IRadialControllerIndependentInputSource2Vtbl {
-    pub const fn new<Impl: IRadialControllerIndependentInputSource2Impl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IRadialControllerIndependentInputSource2Vtbl {
-        unsafe extern "system" fn DispatcherQueue<Impl: IRadialControllerIndependentInputSource2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRadialControllerIndependentInputSource2Impl, const OFFSET: isize>() -> IRadialControllerIndependentInputSource2Vtbl {
+        unsafe extern "system" fn DispatcherQueue<Impl: IRadialControllerIndependentInputSource2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DispatcherQueue() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -57,7 +57,7 @@ impl IRadialControllerIndependentInputSource2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IRadialControllerIndependentInputSource2>, base.5, DispatcherQueue::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRadialControllerIndependentInputSource2>, ::windows::core::GetTrustLevel, DispatcherQueue::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -70,9 +70,9 @@ impl ::windows::core::RuntimeName for IRadialControllerIndependentInputSourceSta
 }
 #[cfg(feature = "implement_exclusive")]
 impl IRadialControllerIndependentInputSourceStaticsVtbl {
-    pub const fn new<Impl: IRadialControllerIndependentInputSourceStaticsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IRadialControllerIndependentInputSourceStaticsVtbl {
-        unsafe extern "system" fn CreateForView<Impl: IRadialControllerIndependentInputSourceStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, view: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRadialControllerIndependentInputSourceStaticsImpl, const OFFSET: isize>() -> IRadialControllerIndependentInputSourceStaticsVtbl {
+        unsafe extern "system" fn CreateForView<Impl: IRadialControllerIndependentInputSourceStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, view: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateForView(&*(&view as *const <super::super::super::ApplicationModel::Core::CoreApplicationView as ::windows::core::Abi>::Abi as *const <super::super::super::ApplicationModel::Core::CoreApplicationView as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -82,6 +82,6 @@ impl IRadialControllerIndependentInputSourceStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IRadialControllerIndependentInputSourceStatics>, base.5, CreateForView::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRadialControllerIndependentInputSourceStatics>, ::windows::core::GetTrustLevel, CreateForView::<Impl, OFFSET>)
     }
 }

@@ -9,15 +9,15 @@ impl ::windows::core::RuntimeName for IDisplayRequest {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IDisplayRequestVtbl {
-    pub const fn new<Impl: IDisplayRequestImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IDisplayRequestVtbl {
-        unsafe extern "system" fn RequestActive<Impl: IDisplayRequestImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDisplayRequestImpl, const OFFSET: isize>() -> IDisplayRequestVtbl {
+        unsafe extern "system" fn RequestActive<Impl: IDisplayRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RequestActive().into()
         }
-        unsafe extern "system" fn RequestRelease<Impl: IDisplayRequestImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn RequestRelease<Impl: IDisplayRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RequestRelease().into()
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IDisplayRequest>, base.5, RequestActive::<Impl, OFFSET>, RequestRelease::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDisplayRequest>, ::windows::core::GetTrustLevel, RequestActive::<Impl, OFFSET>, RequestRelease::<Impl, OFFSET>)
     }
 }

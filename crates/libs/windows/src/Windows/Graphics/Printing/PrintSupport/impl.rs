@@ -13,9 +13,9 @@ impl ::windows::core::RuntimeName for IPrintSupportExtensionSession {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IPrintSupportExtensionSessionVtbl {
-    pub const fn new<Impl: IPrintSupportExtensionSessionImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IPrintSupportExtensionSessionVtbl {
-        unsafe extern "system" fn Printer<Impl: IPrintSupportExtensionSessionImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintSupportExtensionSessionImpl, const OFFSET: isize>() -> IPrintSupportExtensionSessionVtbl {
+        unsafe extern "system" fn Printer<Impl: IPrintSupportExtensionSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Printer() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -25,8 +25,8 @@ impl IPrintSupportExtensionSessionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PrintTicketValidationRequested<Impl: IPrintSupportExtensionSessionImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn PrintTicketValidationRequested<Impl: IPrintSupportExtensionSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PrintTicketValidationRequested(&*(&handler as *const <super::super::super::Foundation::TypedEventHandler<PrintSupportExtensionSession, PrintSupportPrintTicketValidationRequestedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::TypedEventHandler<PrintSupportExtensionSession, PrintSupportPrintTicketValidationRequestedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -36,12 +36,12 @@ impl IPrintSupportExtensionSessionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemovePrintTicketValidationRequested<Impl: IPrintSupportExtensionSessionImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn RemovePrintTicketValidationRequested<Impl: IPrintSupportExtensionSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemovePrintTicketValidationRequested(&*(&token as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn PrintDeviceCapabilitiesChanged<Impl: IPrintSupportExtensionSessionImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn PrintDeviceCapabilitiesChanged<Impl: IPrintSupportExtensionSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PrintDeviceCapabilitiesChanged(&*(&handler as *const <super::super::super::Foundation::TypedEventHandler<PrintSupportExtensionSession, PrintSupportPrintDeviceCapabilitiesChangedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::TypedEventHandler<PrintSupportExtensionSession, PrintSupportPrintDeviceCapabilitiesChangedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -51,15 +51,28 @@ impl IPrintSupportExtensionSessionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemovePrintDeviceCapabilitiesChanged<Impl: IPrintSupportExtensionSessionImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn RemovePrintDeviceCapabilitiesChanged<Impl: IPrintSupportExtensionSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemovePrintDeviceCapabilitiesChanged(&*(&token as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn Start<Impl: IPrintSupportExtensionSessionImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn Start<Impl: IPrintSupportExtensionSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Start().into()
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IPrintSupportExtensionSession>, base.5, Printer::<Impl, OFFSET>, PrintTicketValidationRequested::<Impl, OFFSET>, RemovePrintTicketValidationRequested::<Impl, OFFSET>, PrintDeviceCapabilitiesChanged::<Impl, OFFSET>, RemovePrintDeviceCapabilitiesChanged::<Impl, OFFSET>, Start::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, OFFSET>,
+            ::windows::core::AddRef::<Identity, OFFSET>,
+            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<IPrintSupportExtensionSession>,
+            ::windows::core::GetTrustLevel,
+            Printer::<Impl, OFFSET>,
+            PrintTicketValidationRequested::<Impl, OFFSET>,
+            RemovePrintTicketValidationRequested::<Impl, OFFSET>,
+            PrintDeviceCapabilitiesChanged::<Impl, OFFSET>,
+            RemovePrintDeviceCapabilitiesChanged::<Impl, OFFSET>,
+            Start::<Impl, OFFSET>,
+        )
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -72,9 +85,9 @@ impl ::windows::core::RuntimeName for IPrintSupportExtensionTriggerDetails {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IPrintSupportExtensionTriggerDetailsVtbl {
-    pub const fn new<Impl: IPrintSupportExtensionTriggerDetailsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IPrintSupportExtensionTriggerDetailsVtbl {
-        unsafe extern "system" fn Session<Impl: IPrintSupportExtensionTriggerDetailsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintSupportExtensionTriggerDetailsImpl, const OFFSET: isize>() -> IPrintSupportExtensionTriggerDetailsVtbl {
+        unsafe extern "system" fn Session<Impl: IPrintSupportExtensionTriggerDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Session() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -84,7 +97,7 @@ impl IPrintSupportExtensionTriggerDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IPrintSupportExtensionTriggerDetails>, base.5, Session::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintSupportExtensionTriggerDetails>, ::windows::core::GetTrustLevel, Session::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -99,9 +112,9 @@ impl ::windows::core::RuntimeName for IPrintSupportPrintDeviceCapabilitiesChange
 }
 #[cfg(feature = "implement_exclusive")]
 impl IPrintSupportPrintDeviceCapabilitiesChangedEventArgsVtbl {
-    pub const fn new<Impl: IPrintSupportPrintDeviceCapabilitiesChangedEventArgsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IPrintSupportPrintDeviceCapabilitiesChangedEventArgsVtbl {
-        unsafe extern "system" fn GetCurrentPrintDeviceCapabilities<Impl: IPrintSupportPrintDeviceCapabilitiesChangedEventArgsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintSupportPrintDeviceCapabilitiesChangedEventArgsImpl, const OFFSET: isize>() -> IPrintSupportPrintDeviceCapabilitiesChangedEventArgsVtbl {
+        unsafe extern "system" fn GetCurrentPrintDeviceCapabilities<Impl: IPrintSupportPrintDeviceCapabilitiesChangedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetCurrentPrintDeviceCapabilities() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -111,12 +124,12 @@ impl IPrintSupportPrintDeviceCapabilitiesChangedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn UpdatePrintDeviceCapabilities<Impl: IPrintSupportPrintDeviceCapabilitiesChangedEventArgsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, updatedpdc: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn UpdatePrintDeviceCapabilities<Impl: IPrintSupportPrintDeviceCapabilitiesChangedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, updatedpdc: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).UpdatePrintDeviceCapabilities(&*(&updatedpdc as *const <super::super::super::Data::Xml::Dom::XmlDocument as ::windows::core::Abi>::Abi as *const <super::super::super::Data::Xml::Dom::XmlDocument as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn GetDeferral<Impl: IPrintSupportPrintDeviceCapabilitiesChangedEventArgsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn GetDeferral<Impl: IPrintSupportPrintDeviceCapabilitiesChangedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDeferral() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -126,7 +139,7 @@ impl IPrintSupportPrintDeviceCapabilitiesChangedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IPrintSupportPrintDeviceCapabilitiesChangedEventArgs>, base.5, GetCurrentPrintDeviceCapabilities::<Impl, OFFSET>, UpdatePrintDeviceCapabilities::<Impl, OFFSET>, GetDeferral::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintSupportPrintDeviceCapabilitiesChangedEventArgs>, ::windows::core::GetTrustLevel, GetCurrentPrintDeviceCapabilities::<Impl, OFFSET>, UpdatePrintDeviceCapabilities::<Impl, OFFSET>, GetDeferral::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -141,9 +154,9 @@ impl ::windows::core::RuntimeName for IPrintSupportPrintTicketValidationRequeste
 }
 #[cfg(feature = "implement_exclusive")]
 impl IPrintSupportPrintTicketValidationRequestedEventArgsVtbl {
-    pub const fn new<Impl: IPrintSupportPrintTicketValidationRequestedEventArgsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IPrintSupportPrintTicketValidationRequestedEventArgsVtbl {
-        unsafe extern "system" fn PrintTicket<Impl: IPrintSupportPrintTicketValidationRequestedEventArgsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintSupportPrintTicketValidationRequestedEventArgsImpl, const OFFSET: isize>() -> IPrintSupportPrintTicketValidationRequestedEventArgsVtbl {
+        unsafe extern "system" fn PrintTicket<Impl: IPrintSupportPrintTicketValidationRequestedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PrintTicket() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -153,12 +166,12 @@ impl IPrintSupportPrintTicketValidationRequestedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetPrintTicketValidationStatus<Impl: IPrintSupportPrintTicketValidationRequestedEventArgsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, status: WorkflowPrintTicketValidationStatus) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn SetPrintTicketValidationStatus<Impl: IPrintSupportPrintTicketValidationRequestedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, status: WorkflowPrintTicketValidationStatus) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetPrintTicketValidationStatus(status).into()
         }
-        unsafe extern "system" fn GetDeferral<Impl: IPrintSupportPrintTicketValidationRequestedEventArgsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn GetDeferral<Impl: IPrintSupportPrintTicketValidationRequestedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDeferral() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -168,7 +181,7 @@ impl IPrintSupportPrintTicketValidationRequestedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IPrintSupportPrintTicketValidationRequestedEventArgs>, base.5, PrintTicket::<Impl, OFFSET>, SetPrintTicketValidationStatus::<Impl, OFFSET>, GetDeferral::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintSupportPrintTicketValidationRequestedEventArgs>, ::windows::core::GetTrustLevel, PrintTicket::<Impl, OFFSET>, SetPrintTicketValidationStatus::<Impl, OFFSET>, GetDeferral::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -182,9 +195,9 @@ impl ::windows::core::RuntimeName for IPrintSupportSessionInfo {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IPrintSupportSessionInfoVtbl {
-    pub const fn new<Impl: IPrintSupportSessionInfoImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IPrintSupportSessionInfoVtbl {
-        unsafe extern "system" fn SourceAppInfo<Impl: IPrintSupportSessionInfoImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintSupportSessionInfoImpl, const OFFSET: isize>() -> IPrintSupportSessionInfoVtbl {
+        unsafe extern "system" fn SourceAppInfo<Impl: IPrintSupportSessionInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SourceAppInfo() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -194,8 +207,8 @@ impl IPrintSupportSessionInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Printer<Impl: IPrintSupportSessionInfoImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn Printer<Impl: IPrintSupportSessionInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Printer() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -205,7 +218,7 @@ impl IPrintSupportSessionInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IPrintSupportSessionInfo>, base.5, SourceAppInfo::<Impl, OFFSET>, Printer::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintSupportSessionInfo>, ::windows::core::GetTrustLevel, SourceAppInfo::<Impl, OFFSET>, Printer::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -219,9 +232,9 @@ impl ::windows::core::RuntimeName for IPrintSupportSettingsActivatedEventArgs {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IPrintSupportSettingsActivatedEventArgsVtbl {
-    pub const fn new<Impl: IPrintSupportSettingsActivatedEventArgsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IPrintSupportSettingsActivatedEventArgsVtbl {
-        unsafe extern "system" fn Session<Impl: IPrintSupportSettingsActivatedEventArgsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintSupportSettingsActivatedEventArgsImpl, const OFFSET: isize>() -> IPrintSupportSettingsActivatedEventArgsVtbl {
+        unsafe extern "system" fn Session<Impl: IPrintSupportSettingsActivatedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Session() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -231,8 +244,8 @@ impl IPrintSupportSettingsActivatedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetDeferral<Impl: IPrintSupportSettingsActivatedEventArgsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn GetDeferral<Impl: IPrintSupportSettingsActivatedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDeferral() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -242,7 +255,7 @@ impl IPrintSupportSettingsActivatedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IPrintSupportSettingsActivatedEventArgs>, base.5, Session::<Impl, OFFSET>, GetDeferral::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintSupportSettingsActivatedEventArgs>, ::windows::core::GetTrustLevel, Session::<Impl, OFFSET>, GetDeferral::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -259,9 +272,9 @@ impl ::windows::core::RuntimeName for IPrintSupportSettingsUISession {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IPrintSupportSettingsUISessionVtbl {
-    pub const fn new<Impl: IPrintSupportSettingsUISessionImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IPrintSupportSettingsUISessionVtbl {
-        unsafe extern "system" fn SessionPrintTicket<Impl: IPrintSupportSettingsUISessionImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintSupportSettingsUISessionImpl, const OFFSET: isize>() -> IPrintSupportSettingsUISessionVtbl {
+        unsafe extern "system" fn SessionPrintTicket<Impl: IPrintSupportSettingsUISessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SessionPrintTicket() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -271,8 +284,8 @@ impl IPrintSupportSettingsUISessionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DocumentTitle<Impl: IPrintSupportSettingsUISessionImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn DocumentTitle<Impl: IPrintSupportSettingsUISessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DocumentTitle() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -282,8 +295,8 @@ impl IPrintSupportSettingsUISessionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn LaunchKind<Impl: IPrintSupportSettingsUISessionImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut SettingsLaunchKind) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn LaunchKind<Impl: IPrintSupportSettingsUISessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut SettingsLaunchKind) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).LaunchKind() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -293,12 +306,12 @@ impl IPrintSupportSettingsUISessionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn UpdatePrintTicket<Impl: IPrintSupportSettingsUISessionImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, printticket: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn UpdatePrintTicket<Impl: IPrintSupportSettingsUISessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, printticket: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).UpdatePrintTicket(&*(&printticket as *const <super::PrintTicket::WorkflowPrintTicket as ::windows::core::Abi>::Abi as *const <super::PrintTicket::WorkflowPrintTicket as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn SessionInfo<Impl: IPrintSupportSettingsUISessionImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn SessionInfo<Impl: IPrintSupportSettingsUISessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SessionInfo() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -308,6 +321,6 @@ impl IPrintSupportSettingsUISessionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IPrintSupportSettingsUISession>, base.5, SessionPrintTicket::<Impl, OFFSET>, DocumentTitle::<Impl, OFFSET>, LaunchKind::<Impl, OFFSET>, UpdatePrintTicket::<Impl, OFFSET>, SessionInfo::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPrintSupportSettingsUISession>, ::windows::core::GetTrustLevel, SessionPrintTicket::<Impl, OFFSET>, DocumentTitle::<Impl, OFFSET>, LaunchKind::<Impl, OFFSET>, UpdatePrintTicket::<Impl, OFFSET>, SessionInfo::<Impl, OFFSET>)
     }
 }

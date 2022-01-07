@@ -9,9 +9,9 @@ impl ::windows::core::RuntimeName for IComponentLoadFailedEventArgs {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IComponentLoadFailedEventArgsVtbl {
-    pub const fn new<Impl: IComponentLoadFailedEventArgsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IComponentLoadFailedEventArgsVtbl {
-        unsafe extern "system" fn Information<Impl: IComponentLoadFailedEventArgsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IComponentLoadFailedEventArgsImpl, const OFFSET: isize>() -> IComponentLoadFailedEventArgsVtbl {
+        unsafe extern "system" fn Information<Impl: IComponentLoadFailedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Information() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -21,8 +21,8 @@ impl IComponentLoadFailedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Completion<Impl: IComponentLoadFailedEventArgsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn Completion<Impl: IComponentLoadFailedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Completion() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -32,7 +32,7 @@ impl IComponentLoadFailedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IComponentLoadFailedEventArgs>, base.5, Information::<Impl, OFFSET>, Completion::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IComponentLoadFailedEventArgs>, ::windows::core::GetTrustLevel, Information::<Impl, OFFSET>, Completion::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -45,9 +45,9 @@ impl ::windows::core::RuntimeName for IComponentRenewalStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IComponentRenewalStaticsVtbl {
-    pub const fn new<Impl: IComponentRenewalStaticsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IComponentRenewalStaticsVtbl {
-        unsafe extern "system" fn RenewSystemComponentsAsync<Impl: IComponentRenewalStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, information: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IComponentRenewalStaticsImpl, const OFFSET: isize>() -> IComponentRenewalStaticsVtbl {
+        unsafe extern "system" fn RenewSystemComponentsAsync<Impl: IComponentRenewalStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, information: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RenewSystemComponentsAsync(&*(&information as *const <RevocationAndRenewalInformation as ::windows::core::Abi>::Abi as *const <RevocationAndRenewalInformation as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -57,7 +57,7 @@ impl IComponentRenewalStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IComponentRenewalStatics>, base.5, RenewSystemComponentsAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IComponentRenewalStatics>, ::windows::core::GetTrustLevel, RenewSystemComponentsAsync::<Impl, OFFSET>)
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
@@ -74,9 +74,9 @@ impl ::windows::core::RuntimeName for IHdcpSession {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl IHdcpSessionVtbl {
-    pub const fn new<Impl: IHdcpSessionImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IHdcpSessionVtbl {
-        unsafe extern "system" fn IsEffectiveProtectionAtLeast<Impl: IHdcpSessionImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, protection: HdcpProtection, result__: *mut bool) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHdcpSessionImpl, const OFFSET: isize>() -> IHdcpSessionVtbl {
+        unsafe extern "system" fn IsEffectiveProtectionAtLeast<Impl: IHdcpSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, protection: HdcpProtection, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsEffectiveProtectionAtLeast(protection) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -86,8 +86,8 @@ impl IHdcpSessionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetEffectiveProtection<Impl: IHdcpSessionImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn GetEffectiveProtection<Impl: IHdcpSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetEffectiveProtection() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -97,8 +97,8 @@ impl IHdcpSessionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetDesiredMinProtectionAsync<Impl: IHdcpSessionImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, protection: HdcpProtection, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn SetDesiredMinProtectionAsync<Impl: IHdcpSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, protection: HdcpProtection, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SetDesiredMinProtectionAsync(protection) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -108,8 +108,8 @@ impl IHdcpSessionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ProtectionChanged<Impl: IHdcpSessionImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn ProtectionChanged<Impl: IHdcpSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ProtectionChanged(&*(&handler as *const <super::super::Foundation::TypedEventHandler<HdcpSession, ::windows::core::IInspectable> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<HdcpSession, ::windows::core::IInspectable> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -119,11 +119,11 @@ impl IHdcpSessionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveProtectionChanged<Impl: IHdcpSessionImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn RemoveProtectionChanged<Impl: IHdcpSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveProtectionChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IHdcpSession>, base.5, IsEffectiveProtectionAtLeast::<Impl, OFFSET>, GetEffectiveProtection::<Impl, OFFSET>, SetDesiredMinProtectionAsync::<Impl, OFFSET>, ProtectionChanged::<Impl, OFFSET>, RemoveProtectionChanged::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IHdcpSession>, ::windows::core::GetTrustLevel, IsEffectiveProtectionAtLeast::<Impl, OFFSET>, GetEffectiveProtection::<Impl, OFFSET>, SetDesiredMinProtectionAsync::<Impl, OFFSET>, ProtectionChanged::<Impl, OFFSET>, RemoveProtectionChanged::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -142,9 +142,9 @@ impl ::windows::core::RuntimeName for IMediaProtectionManager {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IMediaProtectionManagerVtbl {
-    pub const fn new<Impl: IMediaProtectionManagerImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IMediaProtectionManagerVtbl {
-        unsafe extern "system" fn ServiceRequested<Impl: IMediaProtectionManagerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaProtectionManagerImpl, const OFFSET: isize>() -> IMediaProtectionManagerVtbl {
+        unsafe extern "system" fn ServiceRequested<Impl: IMediaProtectionManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ServiceRequested(&*(&handler as *const <ServiceRequestedEventHandler as ::windows::core::Abi>::Abi as *const <ServiceRequestedEventHandler as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -154,12 +154,12 @@ impl IMediaProtectionManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveServiceRequested<Impl: IMediaProtectionManagerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, cookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn RemoveServiceRequested<Impl: IMediaProtectionManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveServiceRequested(&*(&cookie as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn RebootNeeded<Impl: IMediaProtectionManagerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn RebootNeeded<Impl: IMediaProtectionManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RebootNeeded(&*(&handler as *const <RebootNeededEventHandler as ::windows::core::Abi>::Abi as *const <RebootNeededEventHandler as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -169,12 +169,12 @@ impl IMediaProtectionManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveRebootNeeded<Impl: IMediaProtectionManagerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, cookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn RemoveRebootNeeded<Impl: IMediaProtectionManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveRebootNeeded(&*(&cookie as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn ComponentLoadFailed<Impl: IMediaProtectionManagerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn ComponentLoadFailed<Impl: IMediaProtectionManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ComponentLoadFailed(&*(&handler as *const <ComponentLoadFailedEventHandler as ::windows::core::Abi>::Abi as *const <ComponentLoadFailedEventHandler as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -184,12 +184,12 @@ impl IMediaProtectionManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveComponentLoadFailed<Impl: IMediaProtectionManagerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, cookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn RemoveComponentLoadFailed<Impl: IMediaProtectionManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveComponentLoadFailed(&*(&cookie as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn Properties<Impl: IMediaProtectionManagerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn Properties<Impl: IMediaProtectionManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Properties() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -199,7 +199,21 @@ impl IMediaProtectionManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IMediaProtectionManager>, base.5, ServiceRequested::<Impl, OFFSET>, RemoveServiceRequested::<Impl, OFFSET>, RebootNeeded::<Impl, OFFSET>, RemoveRebootNeeded::<Impl, OFFSET>, ComponentLoadFailed::<Impl, OFFSET>, RemoveComponentLoadFailed::<Impl, OFFSET>, Properties::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, OFFSET>,
+            ::windows::core::AddRef::<Identity, OFFSET>,
+            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<IMediaProtectionManager>,
+            ::windows::core::GetTrustLevel,
+            ServiceRequested::<Impl, OFFSET>,
+            RemoveServiceRequested::<Impl, OFFSET>,
+            RebootNeeded::<Impl, OFFSET>,
+            RemoveRebootNeeded::<Impl, OFFSET>,
+            ComponentLoadFailed::<Impl, OFFSET>,
+            RemoveComponentLoadFailed::<Impl, OFFSET>,
+            Properties::<Impl, OFFSET>,
+        )
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -212,9 +226,9 @@ impl ::windows::core::RuntimeName for IMediaProtectionPMPServer {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IMediaProtectionPMPServerVtbl {
-    pub const fn new<Impl: IMediaProtectionPMPServerImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IMediaProtectionPMPServerVtbl {
-        unsafe extern "system" fn Properties<Impl: IMediaProtectionPMPServerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaProtectionPMPServerImpl, const OFFSET: isize>() -> IMediaProtectionPMPServerVtbl {
+        unsafe extern "system" fn Properties<Impl: IMediaProtectionPMPServerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Properties() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -224,7 +238,7 @@ impl IMediaProtectionPMPServerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IMediaProtectionPMPServer>, base.5, Properties::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMediaProtectionPMPServer>, ::windows::core::GetTrustLevel, Properties::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -237,9 +251,9 @@ impl ::windows::core::RuntimeName for IMediaProtectionPMPServerFactory {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IMediaProtectionPMPServerFactoryVtbl {
-    pub const fn new<Impl: IMediaProtectionPMPServerFactoryImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IMediaProtectionPMPServerFactoryVtbl {
-        unsafe extern "system" fn CreatePMPServer<Impl: IMediaProtectionPMPServerFactoryImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, pproperties: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaProtectionPMPServerFactoryImpl, const OFFSET: isize>() -> IMediaProtectionPMPServerFactoryVtbl {
+        unsafe extern "system" fn CreatePMPServer<Impl: IMediaProtectionPMPServerFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pproperties: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreatePMPServer(&*(&pproperties as *const <super::super::Foundation::Collections::IPropertySet as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::IPropertySet as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -249,7 +263,7 @@ impl IMediaProtectionPMPServerFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IMediaProtectionPMPServerFactory>, base.5, CreatePMPServer::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMediaProtectionPMPServerFactory>, ::windows::core::GetTrustLevel, CreatePMPServer::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -262,12 +276,12 @@ impl ::windows::core::RuntimeName for IMediaProtectionServiceCompletion {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IMediaProtectionServiceCompletionVtbl {
-    pub const fn new<Impl: IMediaProtectionServiceCompletionImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IMediaProtectionServiceCompletionVtbl {
-        unsafe extern "system" fn Complete<Impl: IMediaProtectionServiceCompletionImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, success: bool) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaProtectionServiceCompletionImpl, const OFFSET: isize>() -> IMediaProtectionServiceCompletionVtbl {
+        unsafe extern "system" fn Complete<Impl: IMediaProtectionServiceCompletionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, success: bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Complete(success).into()
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IMediaProtectionServiceCompletion>, base.5, Complete::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMediaProtectionServiceCompletion>, ::windows::core::GetTrustLevel, Complete::<Impl, OFFSET>)
     }
 }
 pub trait IMediaProtectionServiceRequestImpl: Sized {
@@ -278,9 +292,9 @@ impl ::windows::core::RuntimeName for IMediaProtectionServiceRequest {
     const NAME: &'static str = "Windows.Media.Protection.IMediaProtectionServiceRequest";
 }
 impl IMediaProtectionServiceRequestVtbl {
-    pub const fn new<Impl: IMediaProtectionServiceRequestImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IMediaProtectionServiceRequestVtbl {
-        unsafe extern "system" fn ProtectionSystem<Impl: IMediaProtectionServiceRequestImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaProtectionServiceRequestImpl, const OFFSET: isize>() -> IMediaProtectionServiceRequestVtbl {
+        unsafe extern "system" fn ProtectionSystem<Impl: IMediaProtectionServiceRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ProtectionSystem() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -290,8 +304,8 @@ impl IMediaProtectionServiceRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Type<Impl: IMediaProtectionServiceRequestImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn Type<Impl: IMediaProtectionServiceRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Type() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -301,7 +315,7 @@ impl IMediaProtectionServiceRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IMediaProtectionServiceRequest>, base.5, ProtectionSystem::<Impl, OFFSET>, Type::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMediaProtectionServiceRequest>, ::windows::core::GetTrustLevel, ProtectionSystem::<Impl, OFFSET>, Type::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -314,9 +328,9 @@ impl ::windows::core::RuntimeName for IProtectionCapabilities {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IProtectionCapabilitiesVtbl {
-    pub const fn new<Impl: IProtectionCapabilitiesImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IProtectionCapabilitiesVtbl {
-        unsafe extern "system" fn IsTypeSupported<Impl: IProtectionCapabilitiesImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, r#type: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, keysystem: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ProtectionCapabilityResult) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IProtectionCapabilitiesImpl, const OFFSET: isize>() -> IProtectionCapabilitiesVtbl {
+        unsafe extern "system" fn IsTypeSupported<Impl: IProtectionCapabilitiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, r#type: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, keysystem: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ProtectionCapabilityResult) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsTypeSupported(&*(&r#type as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&keysystem as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -326,7 +340,7 @@ impl IProtectionCapabilitiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IProtectionCapabilities>, base.5, IsTypeSupported::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IProtectionCapabilities>, ::windows::core::GetTrustLevel, IsTypeSupported::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -339,9 +353,9 @@ impl ::windows::core::RuntimeName for IRevocationAndRenewalInformation {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IRevocationAndRenewalInformationVtbl {
-    pub const fn new<Impl: IRevocationAndRenewalInformationImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IRevocationAndRenewalInformationVtbl {
-        unsafe extern "system" fn Items<Impl: IRevocationAndRenewalInformationImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRevocationAndRenewalInformationImpl, const OFFSET: isize>() -> IRevocationAndRenewalInformationVtbl {
+        unsafe extern "system" fn Items<Impl: IRevocationAndRenewalInformationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Items() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -351,7 +365,7 @@ impl IRevocationAndRenewalInformationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IRevocationAndRenewalInformation>, base.5, Items::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRevocationAndRenewalInformation>, ::windows::core::GetTrustLevel, Items::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -368,9 +382,9 @@ impl ::windows::core::RuntimeName for IRevocationAndRenewalItem {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IRevocationAndRenewalItemVtbl {
-    pub const fn new<Impl: IRevocationAndRenewalItemImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IRevocationAndRenewalItemVtbl {
-        unsafe extern "system" fn Reasons<Impl: IRevocationAndRenewalItemImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut RevocationAndRenewalReasons) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRevocationAndRenewalItemImpl, const OFFSET: isize>() -> IRevocationAndRenewalItemVtbl {
+        unsafe extern "system" fn Reasons<Impl: IRevocationAndRenewalItemImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut RevocationAndRenewalReasons) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Reasons() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -380,8 +394,8 @@ impl IRevocationAndRenewalItemVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn HeaderHash<Impl: IRevocationAndRenewalItemImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn HeaderHash<Impl: IRevocationAndRenewalItemImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).HeaderHash() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -391,8 +405,8 @@ impl IRevocationAndRenewalItemVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PublicKeyHash<Impl: IRevocationAndRenewalItemImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn PublicKeyHash<Impl: IRevocationAndRenewalItemImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PublicKeyHash() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -402,8 +416,8 @@ impl IRevocationAndRenewalItemVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Name<Impl: IRevocationAndRenewalItemImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn Name<Impl: IRevocationAndRenewalItemImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Name() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -413,8 +427,8 @@ impl IRevocationAndRenewalItemVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RenewalId<Impl: IRevocationAndRenewalItemImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn RenewalId<Impl: IRevocationAndRenewalItemImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RenewalId() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -424,7 +438,7 @@ impl IRevocationAndRenewalItemVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IRevocationAndRenewalItem>, base.5, Reasons::<Impl, OFFSET>, HeaderHash::<Impl, OFFSET>, PublicKeyHash::<Impl, OFFSET>, Name::<Impl, OFFSET>, RenewalId::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRevocationAndRenewalItem>, ::windows::core::GetTrustLevel, Reasons::<Impl, OFFSET>, HeaderHash::<Impl, OFFSET>, PublicKeyHash::<Impl, OFFSET>, Name::<Impl, OFFSET>, RenewalId::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -438,9 +452,9 @@ impl ::windows::core::RuntimeName for IServiceRequestedEventArgs {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IServiceRequestedEventArgsVtbl {
-    pub const fn new<Impl: IServiceRequestedEventArgsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IServiceRequestedEventArgsVtbl {
-        unsafe extern "system" fn Request<Impl: IServiceRequestedEventArgsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IServiceRequestedEventArgsImpl, const OFFSET: isize>() -> IServiceRequestedEventArgsVtbl {
+        unsafe extern "system" fn Request<Impl: IServiceRequestedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Request() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -450,8 +464,8 @@ impl IServiceRequestedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Completion<Impl: IServiceRequestedEventArgsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn Completion<Impl: IServiceRequestedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Completion() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -461,7 +475,7 @@ impl IServiceRequestedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IServiceRequestedEventArgs>, base.5, Request::<Impl, OFFSET>, Completion::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IServiceRequestedEventArgs>, ::windows::core::GetTrustLevel, Request::<Impl, OFFSET>, Completion::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -474,9 +488,9 @@ impl ::windows::core::RuntimeName for IServiceRequestedEventArgs2 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IServiceRequestedEventArgs2Vtbl {
-    pub const fn new<Impl: IServiceRequestedEventArgs2Impl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IServiceRequestedEventArgs2Vtbl {
-        unsafe extern "system" fn MediaPlaybackItem<Impl: IServiceRequestedEventArgs2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IServiceRequestedEventArgs2Impl, const OFFSET: isize>() -> IServiceRequestedEventArgs2Vtbl {
+        unsafe extern "system" fn MediaPlaybackItem<Impl: IServiceRequestedEventArgs2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MediaPlaybackItem() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -486,6 +500,6 @@ impl IServiceRequestedEventArgs2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IServiceRequestedEventArgs2>, base.5, MediaPlaybackItem::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IServiceRequestedEventArgs2>, ::windows::core::GetTrustLevel, MediaPlaybackItem::<Impl, OFFSET>)
     }
 }

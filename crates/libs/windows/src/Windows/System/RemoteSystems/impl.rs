@@ -11,9 +11,9 @@ impl ::windows::core::RuntimeName for IKnownRemoteSystemCapabilitiesStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IKnownRemoteSystemCapabilitiesStaticsVtbl {
-    pub const fn new<Impl: IKnownRemoteSystemCapabilitiesStaticsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IKnownRemoteSystemCapabilitiesStaticsVtbl {
-        unsafe extern "system" fn AppService<Impl: IKnownRemoteSystemCapabilitiesStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IKnownRemoteSystemCapabilitiesStaticsImpl, const OFFSET: isize>() -> IKnownRemoteSystemCapabilitiesStaticsVtbl {
+        unsafe extern "system" fn AppService<Impl: IKnownRemoteSystemCapabilitiesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AppService() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -23,8 +23,8 @@ impl IKnownRemoteSystemCapabilitiesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn LaunchUri<Impl: IKnownRemoteSystemCapabilitiesStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn LaunchUri<Impl: IKnownRemoteSystemCapabilitiesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).LaunchUri() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -34,8 +34,8 @@ impl IKnownRemoteSystemCapabilitiesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoteSession<Impl: IKnownRemoteSystemCapabilitiesStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn RemoteSession<Impl: IKnownRemoteSystemCapabilitiesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RemoteSession() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -45,8 +45,8 @@ impl IKnownRemoteSystemCapabilitiesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SpatialEntity<Impl: IKnownRemoteSystemCapabilitiesStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn SpatialEntity<Impl: IKnownRemoteSystemCapabilitiesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SpatialEntity() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -56,7 +56,7 @@ impl IKnownRemoteSystemCapabilitiesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IKnownRemoteSystemCapabilitiesStatics>, base.5, AppService::<Impl, OFFSET>, LaunchUri::<Impl, OFFSET>, RemoteSession::<Impl, OFFSET>, SpatialEntity::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IKnownRemoteSystemCapabilitiesStatics>, ::windows::core::GetTrustLevel, AppService::<Impl, OFFSET>, LaunchUri::<Impl, OFFSET>, RemoteSession::<Impl, OFFSET>, SpatialEntity::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -73,9 +73,9 @@ impl ::windows::core::RuntimeName for IRemoteSystem {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IRemoteSystemVtbl {
-    pub const fn new<Impl: IRemoteSystemImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IRemoteSystemVtbl {
-        unsafe extern "system" fn DisplayName<Impl: IRemoteSystemImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystemImpl, const OFFSET: isize>() -> IRemoteSystemVtbl {
+        unsafe extern "system" fn DisplayName<Impl: IRemoteSystemImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DisplayName() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -85,8 +85,8 @@ impl IRemoteSystemVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Id<Impl: IRemoteSystemImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn Id<Impl: IRemoteSystemImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Id() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -96,8 +96,8 @@ impl IRemoteSystemVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Kind<Impl: IRemoteSystemImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn Kind<Impl: IRemoteSystemImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Kind() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -107,8 +107,8 @@ impl IRemoteSystemVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Status<Impl: IRemoteSystemImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut RemoteSystemStatus) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn Status<Impl: IRemoteSystemImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut RemoteSystemStatus) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Status() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -118,8 +118,8 @@ impl IRemoteSystemVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsAvailableByProximity<Impl: IRemoteSystemImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn IsAvailableByProximity<Impl: IRemoteSystemImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsAvailableByProximity() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -129,7 +129,7 @@ impl IRemoteSystemVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IRemoteSystem>, base.5, DisplayName::<Impl, OFFSET>, Id::<Impl, OFFSET>, Kind::<Impl, OFFSET>, Status::<Impl, OFFSET>, IsAvailableByProximity::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystem>, ::windows::core::GetTrustLevel, DisplayName::<Impl, OFFSET>, Id::<Impl, OFFSET>, Kind::<Impl, OFFSET>, Status::<Impl, OFFSET>, IsAvailableByProximity::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -143,9 +143,9 @@ impl ::windows::core::RuntimeName for IRemoteSystem2 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IRemoteSystem2Vtbl {
-    pub const fn new<Impl: IRemoteSystem2Impl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IRemoteSystem2Vtbl {
-        unsafe extern "system" fn IsAvailableBySpatialProximity<Impl: IRemoteSystem2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystem2Impl, const OFFSET: isize>() -> IRemoteSystem2Vtbl {
+        unsafe extern "system" fn IsAvailableBySpatialProximity<Impl: IRemoteSystem2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsAvailableBySpatialProximity() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -155,8 +155,8 @@ impl IRemoteSystem2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetCapabilitySupportedAsync<Impl: IRemoteSystem2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, capabilityname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn GetCapabilitySupportedAsync<Impl: IRemoteSystem2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, capabilityname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetCapabilitySupportedAsync(&*(&capabilityname as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -166,7 +166,7 @@ impl IRemoteSystem2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IRemoteSystem2>, base.5, IsAvailableBySpatialProximity::<Impl, OFFSET>, GetCapabilitySupportedAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystem2>, ::windows::core::GetTrustLevel, IsAvailableBySpatialProximity::<Impl, OFFSET>, GetCapabilitySupportedAsync::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -180,9 +180,9 @@ impl ::windows::core::RuntimeName for IRemoteSystem3 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IRemoteSystem3Vtbl {
-    pub const fn new<Impl: IRemoteSystem3Impl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IRemoteSystem3Vtbl {
-        unsafe extern "system" fn ManufacturerDisplayName<Impl: IRemoteSystem3Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystem3Impl, const OFFSET: isize>() -> IRemoteSystem3Vtbl {
+        unsafe extern "system" fn ManufacturerDisplayName<Impl: IRemoteSystem3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ManufacturerDisplayName() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -192,8 +192,8 @@ impl IRemoteSystem3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ModelDisplayName<Impl: IRemoteSystem3Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn ModelDisplayName<Impl: IRemoteSystem3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ModelDisplayName() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -203,7 +203,7 @@ impl IRemoteSystem3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IRemoteSystem3>, base.5, ManufacturerDisplayName::<Impl, OFFSET>, ModelDisplayName::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystem3>, ::windows::core::GetTrustLevel, ManufacturerDisplayName::<Impl, OFFSET>, ModelDisplayName::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -216,9 +216,9 @@ impl ::windows::core::RuntimeName for IRemoteSystem4 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IRemoteSystem4Vtbl {
-    pub const fn new<Impl: IRemoteSystem4Impl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IRemoteSystem4Vtbl {
-        unsafe extern "system" fn Platform<Impl: IRemoteSystem4Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut RemoteSystemPlatform) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystem4Impl, const OFFSET: isize>() -> IRemoteSystem4Vtbl {
+        unsafe extern "system" fn Platform<Impl: IRemoteSystem4Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut RemoteSystemPlatform) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Platform() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -228,7 +228,7 @@ impl IRemoteSystem4Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IRemoteSystem4>, base.5, Platform::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystem4>, ::windows::core::GetTrustLevel, Platform::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -241,9 +241,9 @@ impl ::windows::core::RuntimeName for IRemoteSystem5 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IRemoteSystem5Vtbl {
-    pub const fn new<Impl: IRemoteSystem5Impl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IRemoteSystem5Vtbl {
-        unsafe extern "system" fn Apps<Impl: IRemoteSystem5Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystem5Impl, const OFFSET: isize>() -> IRemoteSystem5Vtbl {
+        unsafe extern "system" fn Apps<Impl: IRemoteSystem5Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Apps() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -253,7 +253,7 @@ impl IRemoteSystem5Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IRemoteSystem5>, base.5, Apps::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystem5>, ::windows::core::GetTrustLevel, Apps::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -266,9 +266,9 @@ impl ::windows::core::RuntimeName for IRemoteSystem6 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IRemoteSystem6Vtbl {
-    pub const fn new<Impl: IRemoteSystem6Impl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IRemoteSystem6Vtbl {
-        unsafe extern "system" fn User<Impl: IRemoteSystem6Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystem6Impl, const OFFSET: isize>() -> IRemoteSystem6Vtbl {
+        unsafe extern "system" fn User<Impl: IRemoteSystem6Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).User() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -278,7 +278,7 @@ impl IRemoteSystem6Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IRemoteSystem6>, base.5, User::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystem6>, ::windows::core::GetTrustLevel, User::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -291,9 +291,9 @@ impl ::windows::core::RuntimeName for IRemoteSystemAddedEventArgs {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IRemoteSystemAddedEventArgsVtbl {
-    pub const fn new<Impl: IRemoteSystemAddedEventArgsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IRemoteSystemAddedEventArgsVtbl {
-        unsafe extern "system" fn RemoteSystem<Impl: IRemoteSystemAddedEventArgsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystemAddedEventArgsImpl, const OFFSET: isize>() -> IRemoteSystemAddedEventArgsVtbl {
+        unsafe extern "system" fn RemoteSystem<Impl: IRemoteSystemAddedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RemoteSystem() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -303,7 +303,7 @@ impl IRemoteSystemAddedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IRemoteSystemAddedEventArgs>, base.5, RemoteSystem::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemAddedEventArgs>, ::windows::core::GetTrustLevel, RemoteSystem::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -320,9 +320,9 @@ impl ::windows::core::RuntimeName for IRemoteSystemApp {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IRemoteSystemAppVtbl {
-    pub const fn new<Impl: IRemoteSystemAppImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IRemoteSystemAppVtbl {
-        unsafe extern "system" fn Id<Impl: IRemoteSystemAppImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystemAppImpl, const OFFSET: isize>() -> IRemoteSystemAppVtbl {
+        unsafe extern "system" fn Id<Impl: IRemoteSystemAppImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Id() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -332,8 +332,8 @@ impl IRemoteSystemAppVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DisplayName<Impl: IRemoteSystemAppImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn DisplayName<Impl: IRemoteSystemAppImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DisplayName() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -343,8 +343,8 @@ impl IRemoteSystemAppVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsAvailableByProximity<Impl: IRemoteSystemAppImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn IsAvailableByProximity<Impl: IRemoteSystemAppImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsAvailableByProximity() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -354,8 +354,8 @@ impl IRemoteSystemAppVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsAvailableBySpatialProximity<Impl: IRemoteSystemAppImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn IsAvailableBySpatialProximity<Impl: IRemoteSystemAppImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsAvailableBySpatialProximity() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -365,8 +365,8 @@ impl IRemoteSystemAppVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Attributes<Impl: IRemoteSystemAppImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn Attributes<Impl: IRemoteSystemAppImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Attributes() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -376,7 +376,7 @@ impl IRemoteSystemAppVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IRemoteSystemApp>, base.5, Id::<Impl, OFFSET>, DisplayName::<Impl, OFFSET>, IsAvailableByProximity::<Impl, OFFSET>, IsAvailableBySpatialProximity::<Impl, OFFSET>, Attributes::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemApp>, ::windows::core::GetTrustLevel, Id::<Impl, OFFSET>, DisplayName::<Impl, OFFSET>, IsAvailableByProximity::<Impl, OFFSET>, IsAvailableBySpatialProximity::<Impl, OFFSET>, Attributes::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -390,9 +390,9 @@ impl ::windows::core::RuntimeName for IRemoteSystemApp2 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IRemoteSystemApp2Vtbl {
-    pub const fn new<Impl: IRemoteSystemApp2Impl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IRemoteSystemApp2Vtbl {
-        unsafe extern "system" fn User<Impl: IRemoteSystemApp2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystemApp2Impl, const OFFSET: isize>() -> IRemoteSystemApp2Vtbl {
+        unsafe extern "system" fn User<Impl: IRemoteSystemApp2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).User() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -402,8 +402,8 @@ impl IRemoteSystemApp2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ConnectionToken<Impl: IRemoteSystemApp2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn ConnectionToken<Impl: IRemoteSystemApp2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ConnectionToken() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -413,7 +413,7 @@ impl IRemoteSystemApp2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IRemoteSystemApp2>, base.5, User::<Impl, OFFSET>, ConnectionToken::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemApp2>, ::windows::core::GetTrustLevel, User::<Impl, OFFSET>, ConnectionToken::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -428,9 +428,9 @@ impl ::windows::core::RuntimeName for IRemoteSystemAppRegistration {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IRemoteSystemAppRegistrationVtbl {
-    pub const fn new<Impl: IRemoteSystemAppRegistrationImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IRemoteSystemAppRegistrationVtbl {
-        unsafe extern "system" fn User<Impl: IRemoteSystemAppRegistrationImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystemAppRegistrationImpl, const OFFSET: isize>() -> IRemoteSystemAppRegistrationVtbl {
+        unsafe extern "system" fn User<Impl: IRemoteSystemAppRegistrationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).User() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -440,8 +440,8 @@ impl IRemoteSystemAppRegistrationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Attributes<Impl: IRemoteSystemAppRegistrationImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn Attributes<Impl: IRemoteSystemAppRegistrationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Attributes() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -451,8 +451,8 @@ impl IRemoteSystemAppRegistrationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SaveAsync<Impl: IRemoteSystemAppRegistrationImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn SaveAsync<Impl: IRemoteSystemAppRegistrationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SaveAsync() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -462,7 +462,7 @@ impl IRemoteSystemAppRegistrationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IRemoteSystemAppRegistration>, base.5, User::<Impl, OFFSET>, Attributes::<Impl, OFFSET>, SaveAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemAppRegistration>, ::windows::core::GetTrustLevel, User::<Impl, OFFSET>, Attributes::<Impl, OFFSET>, SaveAsync::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -476,9 +476,9 @@ impl ::windows::core::RuntimeName for IRemoteSystemAppRegistrationStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IRemoteSystemAppRegistrationStaticsVtbl {
-    pub const fn new<Impl: IRemoteSystemAppRegistrationStaticsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IRemoteSystemAppRegistrationStaticsVtbl {
-        unsafe extern "system" fn GetDefault<Impl: IRemoteSystemAppRegistrationStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystemAppRegistrationStaticsImpl, const OFFSET: isize>() -> IRemoteSystemAppRegistrationStaticsVtbl {
+        unsafe extern "system" fn GetDefault<Impl: IRemoteSystemAppRegistrationStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDefault() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -488,8 +488,8 @@ impl IRemoteSystemAppRegistrationStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetForUser<Impl: IRemoteSystemAppRegistrationStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, user: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn GetForUser<Impl: IRemoteSystemAppRegistrationStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, user: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetForUser(&*(&user as *const <super::User as ::windows::core::Abi>::Abi as *const <super::User as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -499,7 +499,7 @@ impl IRemoteSystemAppRegistrationStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IRemoteSystemAppRegistrationStatics>, base.5, GetDefault::<Impl, OFFSET>, GetForUser::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemAppRegistrationStatics>, ::windows::core::GetTrustLevel, GetDefault::<Impl, OFFSET>, GetForUser::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -512,9 +512,9 @@ impl ::windows::core::RuntimeName for IRemoteSystemAuthorizationKindFilter {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IRemoteSystemAuthorizationKindFilterVtbl {
-    pub const fn new<Impl: IRemoteSystemAuthorizationKindFilterImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IRemoteSystemAuthorizationKindFilterVtbl {
-        unsafe extern "system" fn RemoteSystemAuthorizationKind<Impl: IRemoteSystemAuthorizationKindFilterImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut RemoteSystemAuthorizationKind) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystemAuthorizationKindFilterImpl, const OFFSET: isize>() -> IRemoteSystemAuthorizationKindFilterVtbl {
+        unsafe extern "system" fn RemoteSystemAuthorizationKind<Impl: IRemoteSystemAuthorizationKindFilterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut RemoteSystemAuthorizationKind) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RemoteSystemAuthorizationKind() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -524,7 +524,7 @@ impl IRemoteSystemAuthorizationKindFilterVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IRemoteSystemAuthorizationKindFilter>, base.5, RemoteSystemAuthorizationKind::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemAuthorizationKindFilter>, ::windows::core::GetTrustLevel, RemoteSystemAuthorizationKind::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -537,9 +537,9 @@ impl ::windows::core::RuntimeName for IRemoteSystemAuthorizationKindFilterFactor
 }
 #[cfg(feature = "implement_exclusive")]
 impl IRemoteSystemAuthorizationKindFilterFactoryVtbl {
-    pub const fn new<Impl: IRemoteSystemAuthorizationKindFilterFactoryImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IRemoteSystemAuthorizationKindFilterFactoryVtbl {
-        unsafe extern "system" fn Create<Impl: IRemoteSystemAuthorizationKindFilterFactoryImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, remotesystemauthorizationkind: RemoteSystemAuthorizationKind, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystemAuthorizationKindFilterFactoryImpl, const OFFSET: isize>() -> IRemoteSystemAuthorizationKindFilterFactoryVtbl {
+        unsafe extern "system" fn Create<Impl: IRemoteSystemAuthorizationKindFilterFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, remotesystemauthorizationkind: RemoteSystemAuthorizationKind, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(remotesystemauthorizationkind) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -549,7 +549,7 @@ impl IRemoteSystemAuthorizationKindFilterFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IRemoteSystemAuthorizationKindFilterFactory>, base.5, Create::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemAuthorizationKindFilterFactory>, ::windows::core::GetTrustLevel, Create::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -562,9 +562,9 @@ impl ::windows::core::RuntimeName for IRemoteSystemConnectionInfo {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IRemoteSystemConnectionInfoVtbl {
-    pub const fn new<Impl: IRemoteSystemConnectionInfoImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IRemoteSystemConnectionInfoVtbl {
-        unsafe extern "system" fn IsProximal<Impl: IRemoteSystemConnectionInfoImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystemConnectionInfoImpl, const OFFSET: isize>() -> IRemoteSystemConnectionInfoVtbl {
+        unsafe extern "system" fn IsProximal<Impl: IRemoteSystemConnectionInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsProximal() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -574,7 +574,7 @@ impl IRemoteSystemConnectionInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IRemoteSystemConnectionInfo>, base.5, IsProximal::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemConnectionInfo>, ::windows::core::GetTrustLevel, IsProximal::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -587,9 +587,9 @@ impl ::windows::core::RuntimeName for IRemoteSystemConnectionInfoStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IRemoteSystemConnectionInfoStaticsVtbl {
-    pub const fn new<Impl: IRemoteSystemConnectionInfoStaticsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IRemoteSystemConnectionInfoStaticsVtbl {
-        unsafe extern "system" fn TryCreateFromAppServiceConnection<Impl: IRemoteSystemConnectionInfoStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, connection: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystemConnectionInfoStaticsImpl, const OFFSET: isize>() -> IRemoteSystemConnectionInfoStaticsVtbl {
+        unsafe extern "system" fn TryCreateFromAppServiceConnection<Impl: IRemoteSystemConnectionInfoStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, connection: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TryCreateFromAppServiceConnection(&*(&connection as *const <super::super::ApplicationModel::AppService::AppServiceConnection as ::windows::core::Abi>::Abi as *const <super::super::ApplicationModel::AppService::AppServiceConnection as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -599,7 +599,7 @@ impl IRemoteSystemConnectionInfoStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IRemoteSystemConnectionInfoStatics>, base.5, TryCreateFromAppServiceConnection::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemConnectionInfoStatics>, ::windows::core::GetTrustLevel, TryCreateFromAppServiceConnection::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -612,9 +612,9 @@ impl ::windows::core::RuntimeName for IRemoteSystemConnectionRequest {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IRemoteSystemConnectionRequestVtbl {
-    pub const fn new<Impl: IRemoteSystemConnectionRequestImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IRemoteSystemConnectionRequestVtbl {
-        unsafe extern "system" fn RemoteSystem<Impl: IRemoteSystemConnectionRequestImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystemConnectionRequestImpl, const OFFSET: isize>() -> IRemoteSystemConnectionRequestVtbl {
+        unsafe extern "system" fn RemoteSystem<Impl: IRemoteSystemConnectionRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RemoteSystem() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -624,7 +624,7 @@ impl IRemoteSystemConnectionRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IRemoteSystemConnectionRequest>, base.5, RemoteSystem::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemConnectionRequest>, ::windows::core::GetTrustLevel, RemoteSystem::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -637,9 +637,9 @@ impl ::windows::core::RuntimeName for IRemoteSystemConnectionRequest2 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IRemoteSystemConnectionRequest2Vtbl {
-    pub const fn new<Impl: IRemoteSystemConnectionRequest2Impl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IRemoteSystemConnectionRequest2Vtbl {
-        unsafe extern "system" fn RemoteSystemApp<Impl: IRemoteSystemConnectionRequest2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystemConnectionRequest2Impl, const OFFSET: isize>() -> IRemoteSystemConnectionRequest2Vtbl {
+        unsafe extern "system" fn RemoteSystemApp<Impl: IRemoteSystemConnectionRequest2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RemoteSystemApp() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -649,7 +649,7 @@ impl IRemoteSystemConnectionRequest2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IRemoteSystemConnectionRequest2>, base.5, RemoteSystemApp::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemConnectionRequest2>, ::windows::core::GetTrustLevel, RemoteSystemApp::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -662,9 +662,9 @@ impl ::windows::core::RuntimeName for IRemoteSystemConnectionRequest3 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IRemoteSystemConnectionRequest3Vtbl {
-    pub const fn new<Impl: IRemoteSystemConnectionRequest3Impl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IRemoteSystemConnectionRequest3Vtbl {
-        unsafe extern "system" fn ConnectionToken<Impl: IRemoteSystemConnectionRequest3Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystemConnectionRequest3Impl, const OFFSET: isize>() -> IRemoteSystemConnectionRequest3Vtbl {
+        unsafe extern "system" fn ConnectionToken<Impl: IRemoteSystemConnectionRequest3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ConnectionToken() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -674,7 +674,7 @@ impl IRemoteSystemConnectionRequest3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IRemoteSystemConnectionRequest3>, base.5, ConnectionToken::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemConnectionRequest3>, ::windows::core::GetTrustLevel, ConnectionToken::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -687,9 +687,9 @@ impl ::windows::core::RuntimeName for IRemoteSystemConnectionRequestFactory {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IRemoteSystemConnectionRequestFactoryVtbl {
-    pub const fn new<Impl: IRemoteSystemConnectionRequestFactoryImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IRemoteSystemConnectionRequestFactoryVtbl {
-        unsafe extern "system" fn Create<Impl: IRemoteSystemConnectionRequestFactoryImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, remotesystem: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystemConnectionRequestFactoryImpl, const OFFSET: isize>() -> IRemoteSystemConnectionRequestFactoryVtbl {
+        unsafe extern "system" fn Create<Impl: IRemoteSystemConnectionRequestFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, remotesystem: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(&*(&remotesystem as *const <RemoteSystem as ::windows::core::Abi>::Abi as *const <RemoteSystem as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -699,7 +699,7 @@ impl IRemoteSystemConnectionRequestFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IRemoteSystemConnectionRequestFactory>, base.5, Create::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemConnectionRequestFactory>, ::windows::core::GetTrustLevel, Create::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -712,9 +712,9 @@ impl ::windows::core::RuntimeName for IRemoteSystemConnectionRequestStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IRemoteSystemConnectionRequestStaticsVtbl {
-    pub const fn new<Impl: IRemoteSystemConnectionRequestStaticsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IRemoteSystemConnectionRequestStaticsVtbl {
-        unsafe extern "system" fn CreateForApp<Impl: IRemoteSystemConnectionRequestStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, remotesystemapp: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystemConnectionRequestStaticsImpl, const OFFSET: isize>() -> IRemoteSystemConnectionRequestStaticsVtbl {
+        unsafe extern "system" fn CreateForApp<Impl: IRemoteSystemConnectionRequestStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, remotesystemapp: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateForApp(&*(&remotesystemapp as *const <RemoteSystemApp as ::windows::core::Abi>::Abi as *const <RemoteSystemApp as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -724,7 +724,7 @@ impl IRemoteSystemConnectionRequestStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IRemoteSystemConnectionRequestStatics>, base.5, CreateForApp::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemConnectionRequestStatics>, ::windows::core::GetTrustLevel, CreateForApp::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -738,9 +738,9 @@ impl ::windows::core::RuntimeName for IRemoteSystemConnectionRequestStatics2 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IRemoteSystemConnectionRequestStatics2Vtbl {
-    pub const fn new<Impl: IRemoteSystemConnectionRequestStatics2Impl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IRemoteSystemConnectionRequestStatics2Vtbl {
-        unsafe extern "system" fn CreateFromConnectionToken<Impl: IRemoteSystemConnectionRequestStatics2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, connectiontoken: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystemConnectionRequestStatics2Impl, const OFFSET: isize>() -> IRemoteSystemConnectionRequestStatics2Vtbl {
+        unsafe extern "system" fn CreateFromConnectionToken<Impl: IRemoteSystemConnectionRequestStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, connectiontoken: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateFromConnectionToken(&*(&connectiontoken as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -750,8 +750,8 @@ impl IRemoteSystemConnectionRequestStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateFromConnectionTokenForUser<Impl: IRemoteSystemConnectionRequestStatics2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, user: ::windows::core::RawPtr, connectiontoken: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn CreateFromConnectionTokenForUser<Impl: IRemoteSystemConnectionRequestStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, user: ::windows::core::RawPtr, connectiontoken: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateFromConnectionTokenForUser(&*(&user as *const <super::User as ::windows::core::Abi>::Abi as *const <super::User as ::windows::core::DefaultType>::DefaultType), &*(&connectiontoken as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -761,7 +761,7 @@ impl IRemoteSystemConnectionRequestStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IRemoteSystemConnectionRequestStatics2>, base.5, CreateFromConnectionToken::<Impl, OFFSET>, CreateFromConnectionTokenForUser::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemConnectionRequestStatics2>, ::windows::core::GetTrustLevel, CreateFromConnectionToken::<Impl, OFFSET>, CreateFromConnectionTokenForUser::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -774,9 +774,9 @@ impl ::windows::core::RuntimeName for IRemoteSystemDiscoveryTypeFilter {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IRemoteSystemDiscoveryTypeFilterVtbl {
-    pub const fn new<Impl: IRemoteSystemDiscoveryTypeFilterImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IRemoteSystemDiscoveryTypeFilterVtbl {
-        unsafe extern "system" fn RemoteSystemDiscoveryType<Impl: IRemoteSystemDiscoveryTypeFilterImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut RemoteSystemDiscoveryType) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystemDiscoveryTypeFilterImpl, const OFFSET: isize>() -> IRemoteSystemDiscoveryTypeFilterVtbl {
+        unsafe extern "system" fn RemoteSystemDiscoveryType<Impl: IRemoteSystemDiscoveryTypeFilterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut RemoteSystemDiscoveryType) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RemoteSystemDiscoveryType() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -786,7 +786,7 @@ impl IRemoteSystemDiscoveryTypeFilterVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IRemoteSystemDiscoveryTypeFilter>, base.5, RemoteSystemDiscoveryType::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemDiscoveryTypeFilter>, ::windows::core::GetTrustLevel, RemoteSystemDiscoveryType::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -799,9 +799,9 @@ impl ::windows::core::RuntimeName for IRemoteSystemDiscoveryTypeFilterFactory {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IRemoteSystemDiscoveryTypeFilterFactoryVtbl {
-    pub const fn new<Impl: IRemoteSystemDiscoveryTypeFilterFactoryImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IRemoteSystemDiscoveryTypeFilterFactoryVtbl {
-        unsafe extern "system" fn Create<Impl: IRemoteSystemDiscoveryTypeFilterFactoryImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, discoverytype: RemoteSystemDiscoveryType, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystemDiscoveryTypeFilterFactoryImpl, const OFFSET: isize>() -> IRemoteSystemDiscoveryTypeFilterFactoryVtbl {
+        unsafe extern "system" fn Create<Impl: IRemoteSystemDiscoveryTypeFilterFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, discoverytype: RemoteSystemDiscoveryType, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(discoverytype) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -811,7 +811,7 @@ impl IRemoteSystemDiscoveryTypeFilterFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IRemoteSystemDiscoveryTypeFilterFactory>, base.5, Create::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemDiscoveryTypeFilterFactory>, ::windows::core::GetTrustLevel, Create::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -822,8 +822,8 @@ impl ::windows::core::RuntimeName for IRemoteSystemEnumerationCompletedEventArgs
 }
 #[cfg(feature = "implement_exclusive")]
 impl IRemoteSystemEnumerationCompletedEventArgsVtbl {
-    pub const fn new<Impl: IRemoteSystemEnumerationCompletedEventArgsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IRemoteSystemEnumerationCompletedEventArgsVtbl {
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IRemoteSystemEnumerationCompletedEventArgs>, base.5)
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystemEnumerationCompletedEventArgsImpl, const OFFSET: isize>() -> IRemoteSystemEnumerationCompletedEventArgsVtbl {
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemEnumerationCompletedEventArgs>, ::windows::core::GetTrustLevel)
     }
 }
 pub trait IRemoteSystemFilterImpl: Sized {}
@@ -831,8 +831,8 @@ impl ::windows::core::RuntimeName for IRemoteSystemFilter {
     const NAME: &'static str = "Windows.System.RemoteSystems.IRemoteSystemFilter";
 }
 impl IRemoteSystemFilterVtbl {
-    pub const fn new<Impl: IRemoteSystemFilterImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IRemoteSystemFilterVtbl {
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IRemoteSystemFilter>, base.5)
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystemFilterImpl, const OFFSET: isize>() -> IRemoteSystemFilterVtbl {
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemFilter>, ::windows::core::GetTrustLevel)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -845,9 +845,9 @@ impl ::windows::core::RuntimeName for IRemoteSystemKindFilter {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IRemoteSystemKindFilterVtbl {
-    pub const fn new<Impl: IRemoteSystemKindFilterImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IRemoteSystemKindFilterVtbl {
-        unsafe extern "system" fn RemoteSystemKinds<Impl: IRemoteSystemKindFilterImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystemKindFilterImpl, const OFFSET: isize>() -> IRemoteSystemKindFilterVtbl {
+        unsafe extern "system" fn RemoteSystemKinds<Impl: IRemoteSystemKindFilterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RemoteSystemKinds() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -857,7 +857,7 @@ impl IRemoteSystemKindFilterVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IRemoteSystemKindFilter>, base.5, RemoteSystemKinds::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemKindFilter>, ::windows::core::GetTrustLevel, RemoteSystemKinds::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -870,9 +870,9 @@ impl ::windows::core::RuntimeName for IRemoteSystemKindFilterFactory {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IRemoteSystemKindFilterFactoryVtbl {
-    pub const fn new<Impl: IRemoteSystemKindFilterFactoryImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IRemoteSystemKindFilterFactoryVtbl {
-        unsafe extern "system" fn Create<Impl: IRemoteSystemKindFilterFactoryImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, remotesystemkinds: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystemKindFilterFactoryImpl, const OFFSET: isize>() -> IRemoteSystemKindFilterFactoryVtbl {
+        unsafe extern "system" fn Create<Impl: IRemoteSystemKindFilterFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, remotesystemkinds: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(&*(&remotesystemkinds as *const <super::super::Foundation::Collections::IIterable<::windows::core::HSTRING> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::IIterable<::windows::core::HSTRING> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -882,7 +882,7 @@ impl IRemoteSystemKindFilterFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IRemoteSystemKindFilterFactory>, base.5, Create::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemKindFilterFactory>, ::windows::core::GetTrustLevel, Create::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -899,9 +899,9 @@ impl ::windows::core::RuntimeName for IRemoteSystemKindStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IRemoteSystemKindStaticsVtbl {
-    pub const fn new<Impl: IRemoteSystemKindStaticsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IRemoteSystemKindStaticsVtbl {
-        unsafe extern "system" fn Phone<Impl: IRemoteSystemKindStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystemKindStaticsImpl, const OFFSET: isize>() -> IRemoteSystemKindStaticsVtbl {
+        unsafe extern "system" fn Phone<Impl: IRemoteSystemKindStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Phone() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -911,8 +911,8 @@ impl IRemoteSystemKindStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Hub<Impl: IRemoteSystemKindStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn Hub<Impl: IRemoteSystemKindStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Hub() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -922,8 +922,8 @@ impl IRemoteSystemKindStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Holographic<Impl: IRemoteSystemKindStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn Holographic<Impl: IRemoteSystemKindStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Holographic() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -933,8 +933,8 @@ impl IRemoteSystemKindStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Desktop<Impl: IRemoteSystemKindStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn Desktop<Impl: IRemoteSystemKindStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Desktop() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -944,8 +944,8 @@ impl IRemoteSystemKindStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Xbox<Impl: IRemoteSystemKindStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn Xbox<Impl: IRemoteSystemKindStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Xbox() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -955,7 +955,7 @@ impl IRemoteSystemKindStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IRemoteSystemKindStatics>, base.5, Phone::<Impl, OFFSET>, Hub::<Impl, OFFSET>, Holographic::<Impl, OFFSET>, Desktop::<Impl, OFFSET>, Xbox::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemKindStatics>, ::windows::core::GetTrustLevel, Phone::<Impl, OFFSET>, Hub::<Impl, OFFSET>, Holographic::<Impl, OFFSET>, Desktop::<Impl, OFFSET>, Xbox::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -970,9 +970,9 @@ impl ::windows::core::RuntimeName for IRemoteSystemKindStatics2 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IRemoteSystemKindStatics2Vtbl {
-    pub const fn new<Impl: IRemoteSystemKindStatics2Impl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IRemoteSystemKindStatics2Vtbl {
-        unsafe extern "system" fn Iot<Impl: IRemoteSystemKindStatics2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystemKindStatics2Impl, const OFFSET: isize>() -> IRemoteSystemKindStatics2Vtbl {
+        unsafe extern "system" fn Iot<Impl: IRemoteSystemKindStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Iot() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -982,8 +982,8 @@ impl IRemoteSystemKindStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Tablet<Impl: IRemoteSystemKindStatics2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn Tablet<Impl: IRemoteSystemKindStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Tablet() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -993,8 +993,8 @@ impl IRemoteSystemKindStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Laptop<Impl: IRemoteSystemKindStatics2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn Laptop<Impl: IRemoteSystemKindStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Laptop() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1004,7 +1004,7 @@ impl IRemoteSystemKindStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IRemoteSystemKindStatics2>, base.5, Iot::<Impl, OFFSET>, Tablet::<Impl, OFFSET>, Laptop::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemKindStatics2>, ::windows::core::GetTrustLevel, Iot::<Impl, OFFSET>, Tablet::<Impl, OFFSET>, Laptop::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1017,9 +1017,9 @@ impl ::windows::core::RuntimeName for IRemoteSystemRemovedEventArgs {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IRemoteSystemRemovedEventArgsVtbl {
-    pub const fn new<Impl: IRemoteSystemRemovedEventArgsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IRemoteSystemRemovedEventArgsVtbl {
-        unsafe extern "system" fn RemoteSystemId<Impl: IRemoteSystemRemovedEventArgsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystemRemovedEventArgsImpl, const OFFSET: isize>() -> IRemoteSystemRemovedEventArgsVtbl {
+        unsafe extern "system" fn RemoteSystemId<Impl: IRemoteSystemRemovedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RemoteSystemId() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1029,7 +1029,7 @@ impl IRemoteSystemRemovedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IRemoteSystemRemovedEventArgs>, base.5, RemoteSystemId::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemRemovedEventArgs>, ::windows::core::GetTrustLevel, RemoteSystemId::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1048,9 +1048,9 @@ impl ::windows::core::RuntimeName for IRemoteSystemSession {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IRemoteSystemSessionVtbl {
-    pub const fn new<Impl: IRemoteSystemSessionImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IRemoteSystemSessionVtbl {
-        unsafe extern "system" fn Id<Impl: IRemoteSystemSessionImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystemSessionImpl, const OFFSET: isize>() -> IRemoteSystemSessionVtbl {
+        unsafe extern "system" fn Id<Impl: IRemoteSystemSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Id() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1060,8 +1060,8 @@ impl IRemoteSystemSessionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DisplayName<Impl: IRemoteSystemSessionImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn DisplayName<Impl: IRemoteSystemSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DisplayName() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1071,8 +1071,8 @@ impl IRemoteSystemSessionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ControllerDisplayName<Impl: IRemoteSystemSessionImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn ControllerDisplayName<Impl: IRemoteSystemSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ControllerDisplayName() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1082,8 +1082,8 @@ impl IRemoteSystemSessionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Disconnected<Impl: IRemoteSystemSessionImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn Disconnected<Impl: IRemoteSystemSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Disconnected(&*(&handler as *const <super::super::Foundation::TypedEventHandler<RemoteSystemSession, RemoteSystemSessionDisconnectedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<RemoteSystemSession, RemoteSystemSessionDisconnectedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1093,12 +1093,12 @@ impl IRemoteSystemSessionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveDisconnected<Impl: IRemoteSystemSessionImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn RemoveDisconnected<Impl: IRemoteSystemSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveDisconnected(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn CreateParticipantWatcher<Impl: IRemoteSystemSessionImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn CreateParticipantWatcher<Impl: IRemoteSystemSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateParticipantWatcher() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1108,8 +1108,8 @@ impl IRemoteSystemSessionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SendInvitationAsync<Impl: IRemoteSystemSessionImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, invitee: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn SendInvitationAsync<Impl: IRemoteSystemSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, invitee: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SendInvitationAsync(&*(&invitee as *const <RemoteSystem as ::windows::core::Abi>::Abi as *const <RemoteSystem as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1119,7 +1119,21 @@ impl IRemoteSystemSessionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IRemoteSystemSession>, base.5, Id::<Impl, OFFSET>, DisplayName::<Impl, OFFSET>, ControllerDisplayName::<Impl, OFFSET>, Disconnected::<Impl, OFFSET>, RemoveDisconnected::<Impl, OFFSET>, CreateParticipantWatcher::<Impl, OFFSET>, SendInvitationAsync::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, OFFSET>,
+            ::windows::core::AddRef::<Identity, OFFSET>,
+            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<IRemoteSystemSession>,
+            ::windows::core::GetTrustLevel,
+            Id::<Impl, OFFSET>,
+            DisplayName::<Impl, OFFSET>,
+            ControllerDisplayName::<Impl, OFFSET>,
+            Disconnected::<Impl, OFFSET>,
+            RemoveDisconnected::<Impl, OFFSET>,
+            CreateParticipantWatcher::<Impl, OFFSET>,
+            SendInvitationAsync::<Impl, OFFSET>,
+        )
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1132,9 +1146,9 @@ impl ::windows::core::RuntimeName for IRemoteSystemSessionAddedEventArgs {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IRemoteSystemSessionAddedEventArgsVtbl {
-    pub const fn new<Impl: IRemoteSystemSessionAddedEventArgsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IRemoteSystemSessionAddedEventArgsVtbl {
-        unsafe extern "system" fn SessionInfo<Impl: IRemoteSystemSessionAddedEventArgsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystemSessionAddedEventArgsImpl, const OFFSET: isize>() -> IRemoteSystemSessionAddedEventArgsVtbl {
+        unsafe extern "system" fn SessionInfo<Impl: IRemoteSystemSessionAddedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SessionInfo() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1144,7 +1158,7 @@ impl IRemoteSystemSessionAddedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IRemoteSystemSessionAddedEventArgs>, base.5, SessionInfo::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemSessionAddedEventArgs>, ::windows::core::GetTrustLevel, SessionInfo::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1160,9 +1174,9 @@ impl ::windows::core::RuntimeName for IRemoteSystemSessionController {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IRemoteSystemSessionControllerVtbl {
-    pub const fn new<Impl: IRemoteSystemSessionControllerImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IRemoteSystemSessionControllerVtbl {
-        unsafe extern "system" fn JoinRequested<Impl: IRemoteSystemSessionControllerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystemSessionControllerImpl, const OFFSET: isize>() -> IRemoteSystemSessionControllerVtbl {
+        unsafe extern "system" fn JoinRequested<Impl: IRemoteSystemSessionControllerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).JoinRequested(&*(&handler as *const <super::super::Foundation::TypedEventHandler<RemoteSystemSessionController, RemoteSystemSessionJoinRequestedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<RemoteSystemSessionController, RemoteSystemSessionJoinRequestedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1172,12 +1186,12 @@ impl IRemoteSystemSessionControllerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveJoinRequested<Impl: IRemoteSystemSessionControllerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn RemoveJoinRequested<Impl: IRemoteSystemSessionControllerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveJoinRequested(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn RemoveParticipantAsync<Impl: IRemoteSystemSessionControllerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, pparticipant: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn RemoveParticipantAsync<Impl: IRemoteSystemSessionControllerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pparticipant: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RemoveParticipantAsync(&*(&pparticipant as *const <RemoteSystemSessionParticipant as ::windows::core::Abi>::Abi as *const <RemoteSystemSessionParticipant as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1187,8 +1201,8 @@ impl IRemoteSystemSessionControllerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateSessionAsync<Impl: IRemoteSystemSessionControllerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn CreateSessionAsync<Impl: IRemoteSystemSessionControllerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateSessionAsync() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1198,7 +1212,7 @@ impl IRemoteSystemSessionControllerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IRemoteSystemSessionController>, base.5, JoinRequested::<Impl, OFFSET>, RemoveJoinRequested::<Impl, OFFSET>, RemoveParticipantAsync::<Impl, OFFSET>, CreateSessionAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemSessionController>, ::windows::core::GetTrustLevel, JoinRequested::<Impl, OFFSET>, RemoveJoinRequested::<Impl, OFFSET>, RemoveParticipantAsync::<Impl, OFFSET>, CreateSessionAsync::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1212,9 +1226,9 @@ impl ::windows::core::RuntimeName for IRemoteSystemSessionControllerFactory {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IRemoteSystemSessionControllerFactoryVtbl {
-    pub const fn new<Impl: IRemoteSystemSessionControllerFactoryImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IRemoteSystemSessionControllerFactoryVtbl {
-        unsafe extern "system" fn CreateController<Impl: IRemoteSystemSessionControllerFactoryImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, displayname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystemSessionControllerFactoryImpl, const OFFSET: isize>() -> IRemoteSystemSessionControllerFactoryVtbl {
+        unsafe extern "system" fn CreateController<Impl: IRemoteSystemSessionControllerFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, displayname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateController(&*(&displayname as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1224,8 +1238,8 @@ impl IRemoteSystemSessionControllerFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateControllerWithSessionOptions<Impl: IRemoteSystemSessionControllerFactoryImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, displayname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, options: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn CreateControllerWithSessionOptions<Impl: IRemoteSystemSessionControllerFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, displayname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, options: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateControllerWithSessionOptions(&*(&displayname as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&options as *const <RemoteSystemSessionOptions as ::windows::core::Abi>::Abi as *const <RemoteSystemSessionOptions as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1235,7 +1249,7 @@ impl IRemoteSystemSessionControllerFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IRemoteSystemSessionControllerFactory>, base.5, CreateController::<Impl, OFFSET>, CreateControllerWithSessionOptions::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemSessionControllerFactory>, ::windows::core::GetTrustLevel, CreateController::<Impl, OFFSET>, CreateControllerWithSessionOptions::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1249,9 +1263,9 @@ impl ::windows::core::RuntimeName for IRemoteSystemSessionCreationResult {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IRemoteSystemSessionCreationResultVtbl {
-    pub const fn new<Impl: IRemoteSystemSessionCreationResultImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IRemoteSystemSessionCreationResultVtbl {
-        unsafe extern "system" fn Status<Impl: IRemoteSystemSessionCreationResultImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut RemoteSystemSessionCreationStatus) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystemSessionCreationResultImpl, const OFFSET: isize>() -> IRemoteSystemSessionCreationResultVtbl {
+        unsafe extern "system" fn Status<Impl: IRemoteSystemSessionCreationResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut RemoteSystemSessionCreationStatus) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Status() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1261,8 +1275,8 @@ impl IRemoteSystemSessionCreationResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Session<Impl: IRemoteSystemSessionCreationResultImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn Session<Impl: IRemoteSystemSessionCreationResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Session() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1272,7 +1286,7 @@ impl IRemoteSystemSessionCreationResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IRemoteSystemSessionCreationResult>, base.5, Status::<Impl, OFFSET>, Session::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemSessionCreationResult>, ::windows::core::GetTrustLevel, Status::<Impl, OFFSET>, Session::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1285,9 +1299,9 @@ impl ::windows::core::RuntimeName for IRemoteSystemSessionDisconnectedEventArgs 
 }
 #[cfg(feature = "implement_exclusive")]
 impl IRemoteSystemSessionDisconnectedEventArgsVtbl {
-    pub const fn new<Impl: IRemoteSystemSessionDisconnectedEventArgsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IRemoteSystemSessionDisconnectedEventArgsVtbl {
-        unsafe extern "system" fn Reason<Impl: IRemoteSystemSessionDisconnectedEventArgsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut RemoteSystemSessionDisconnectedReason) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystemSessionDisconnectedEventArgsImpl, const OFFSET: isize>() -> IRemoteSystemSessionDisconnectedEventArgsVtbl {
+        unsafe extern "system" fn Reason<Impl: IRemoteSystemSessionDisconnectedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut RemoteSystemSessionDisconnectedReason) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Reason() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1297,7 +1311,7 @@ impl IRemoteSystemSessionDisconnectedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IRemoteSystemSessionDisconnectedEventArgs>, base.5, Reason::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemSessionDisconnectedEventArgs>, ::windows::core::GetTrustLevel, Reason::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1312,9 +1326,9 @@ impl ::windows::core::RuntimeName for IRemoteSystemSessionInfo {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IRemoteSystemSessionInfoVtbl {
-    pub const fn new<Impl: IRemoteSystemSessionInfoImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IRemoteSystemSessionInfoVtbl {
-        unsafe extern "system" fn DisplayName<Impl: IRemoteSystemSessionInfoImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystemSessionInfoImpl, const OFFSET: isize>() -> IRemoteSystemSessionInfoVtbl {
+        unsafe extern "system" fn DisplayName<Impl: IRemoteSystemSessionInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DisplayName() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1324,8 +1338,8 @@ impl IRemoteSystemSessionInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ControllerDisplayName<Impl: IRemoteSystemSessionInfoImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn ControllerDisplayName<Impl: IRemoteSystemSessionInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ControllerDisplayName() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1335,8 +1349,8 @@ impl IRemoteSystemSessionInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn JoinAsync<Impl: IRemoteSystemSessionInfoImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn JoinAsync<Impl: IRemoteSystemSessionInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).JoinAsync() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1346,7 +1360,7 @@ impl IRemoteSystemSessionInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IRemoteSystemSessionInfo>, base.5, DisplayName::<Impl, OFFSET>, ControllerDisplayName::<Impl, OFFSET>, JoinAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemSessionInfo>, ::windows::core::GetTrustLevel, DisplayName::<Impl, OFFSET>, ControllerDisplayName::<Impl, OFFSET>, JoinAsync::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1360,9 +1374,9 @@ impl ::windows::core::RuntimeName for IRemoteSystemSessionInvitation {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IRemoteSystemSessionInvitationVtbl {
-    pub const fn new<Impl: IRemoteSystemSessionInvitationImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IRemoteSystemSessionInvitationVtbl {
-        unsafe extern "system" fn Sender<Impl: IRemoteSystemSessionInvitationImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystemSessionInvitationImpl, const OFFSET: isize>() -> IRemoteSystemSessionInvitationVtbl {
+        unsafe extern "system" fn Sender<Impl: IRemoteSystemSessionInvitationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Sender() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1372,8 +1386,8 @@ impl IRemoteSystemSessionInvitationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SessionInfo<Impl: IRemoteSystemSessionInvitationImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn SessionInfo<Impl: IRemoteSystemSessionInvitationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SessionInfo() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1383,7 +1397,7 @@ impl IRemoteSystemSessionInvitationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IRemoteSystemSessionInvitation>, base.5, Sender::<Impl, OFFSET>, SessionInfo::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemSessionInvitation>, ::windows::core::GetTrustLevel, Sender::<Impl, OFFSET>, SessionInfo::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1397,9 +1411,9 @@ impl ::windows::core::RuntimeName for IRemoteSystemSessionInvitationListener {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IRemoteSystemSessionInvitationListenerVtbl {
-    pub const fn new<Impl: IRemoteSystemSessionInvitationListenerImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IRemoteSystemSessionInvitationListenerVtbl {
-        unsafe extern "system" fn InvitationReceived<Impl: IRemoteSystemSessionInvitationListenerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystemSessionInvitationListenerImpl, const OFFSET: isize>() -> IRemoteSystemSessionInvitationListenerVtbl {
+        unsafe extern "system" fn InvitationReceived<Impl: IRemoteSystemSessionInvitationListenerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).InvitationReceived(&*(&handler as *const <super::super::Foundation::TypedEventHandler<RemoteSystemSessionInvitationListener, RemoteSystemSessionInvitationReceivedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<RemoteSystemSessionInvitationListener, RemoteSystemSessionInvitationReceivedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1409,11 +1423,11 @@ impl IRemoteSystemSessionInvitationListenerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveInvitationReceived<Impl: IRemoteSystemSessionInvitationListenerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn RemoveInvitationReceived<Impl: IRemoteSystemSessionInvitationListenerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveInvitationReceived(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IRemoteSystemSessionInvitationListener>, base.5, InvitationReceived::<Impl, OFFSET>, RemoveInvitationReceived::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemSessionInvitationListener>, ::windows::core::GetTrustLevel, InvitationReceived::<Impl, OFFSET>, RemoveInvitationReceived::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1426,9 +1440,9 @@ impl ::windows::core::RuntimeName for IRemoteSystemSessionInvitationReceivedEven
 }
 #[cfg(feature = "implement_exclusive")]
 impl IRemoteSystemSessionInvitationReceivedEventArgsVtbl {
-    pub const fn new<Impl: IRemoteSystemSessionInvitationReceivedEventArgsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IRemoteSystemSessionInvitationReceivedEventArgsVtbl {
-        unsafe extern "system" fn Invitation<Impl: IRemoteSystemSessionInvitationReceivedEventArgsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystemSessionInvitationReceivedEventArgsImpl, const OFFSET: isize>() -> IRemoteSystemSessionInvitationReceivedEventArgsVtbl {
+        unsafe extern "system" fn Invitation<Impl: IRemoteSystemSessionInvitationReceivedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Invitation() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1438,7 +1452,7 @@ impl IRemoteSystemSessionInvitationReceivedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IRemoteSystemSessionInvitationReceivedEventArgs>, base.5, Invitation::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemSessionInvitationReceivedEventArgs>, ::windows::core::GetTrustLevel, Invitation::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1452,9 +1466,9 @@ impl ::windows::core::RuntimeName for IRemoteSystemSessionJoinRequest {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IRemoteSystemSessionJoinRequestVtbl {
-    pub const fn new<Impl: IRemoteSystemSessionJoinRequestImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IRemoteSystemSessionJoinRequestVtbl {
-        unsafe extern "system" fn Participant<Impl: IRemoteSystemSessionJoinRequestImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystemSessionJoinRequestImpl, const OFFSET: isize>() -> IRemoteSystemSessionJoinRequestVtbl {
+        unsafe extern "system" fn Participant<Impl: IRemoteSystemSessionJoinRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Participant() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1464,11 +1478,11 @@ impl IRemoteSystemSessionJoinRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Accept<Impl: IRemoteSystemSessionJoinRequestImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn Accept<Impl: IRemoteSystemSessionJoinRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Accept().into()
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IRemoteSystemSessionJoinRequest>, base.5, Participant::<Impl, OFFSET>, Accept::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemSessionJoinRequest>, ::windows::core::GetTrustLevel, Participant::<Impl, OFFSET>, Accept::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1482,9 +1496,9 @@ impl ::windows::core::RuntimeName for IRemoteSystemSessionJoinRequestedEventArgs
 }
 #[cfg(feature = "implement_exclusive")]
 impl IRemoteSystemSessionJoinRequestedEventArgsVtbl {
-    pub const fn new<Impl: IRemoteSystemSessionJoinRequestedEventArgsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IRemoteSystemSessionJoinRequestedEventArgsVtbl {
-        unsafe extern "system" fn JoinRequest<Impl: IRemoteSystemSessionJoinRequestedEventArgsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystemSessionJoinRequestedEventArgsImpl, const OFFSET: isize>() -> IRemoteSystemSessionJoinRequestedEventArgsVtbl {
+        unsafe extern "system" fn JoinRequest<Impl: IRemoteSystemSessionJoinRequestedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).JoinRequest() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1494,8 +1508,8 @@ impl IRemoteSystemSessionJoinRequestedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetDeferral<Impl: IRemoteSystemSessionJoinRequestedEventArgsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn GetDeferral<Impl: IRemoteSystemSessionJoinRequestedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDeferral() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1505,7 +1519,7 @@ impl IRemoteSystemSessionJoinRequestedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IRemoteSystemSessionJoinRequestedEventArgs>, base.5, JoinRequest::<Impl, OFFSET>, GetDeferral::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemSessionJoinRequestedEventArgs>, ::windows::core::GetTrustLevel, JoinRequest::<Impl, OFFSET>, GetDeferral::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1519,9 +1533,9 @@ impl ::windows::core::RuntimeName for IRemoteSystemSessionJoinResult {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IRemoteSystemSessionJoinResultVtbl {
-    pub const fn new<Impl: IRemoteSystemSessionJoinResultImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IRemoteSystemSessionJoinResultVtbl {
-        unsafe extern "system" fn Status<Impl: IRemoteSystemSessionJoinResultImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut RemoteSystemSessionJoinStatus) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystemSessionJoinResultImpl, const OFFSET: isize>() -> IRemoteSystemSessionJoinResultVtbl {
+        unsafe extern "system" fn Status<Impl: IRemoteSystemSessionJoinResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut RemoteSystemSessionJoinStatus) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Status() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1531,8 +1545,8 @@ impl IRemoteSystemSessionJoinResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Session<Impl: IRemoteSystemSessionJoinResultImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn Session<Impl: IRemoteSystemSessionJoinResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Session() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1542,7 +1556,7 @@ impl IRemoteSystemSessionJoinResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IRemoteSystemSessionJoinResult>, base.5, Status::<Impl, OFFSET>, Session::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemSessionJoinResult>, ::windows::core::GetTrustLevel, Status::<Impl, OFFSET>, Session::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1560,9 +1574,9 @@ impl ::windows::core::RuntimeName for IRemoteSystemSessionMessageChannel {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IRemoteSystemSessionMessageChannelVtbl {
-    pub const fn new<Impl: IRemoteSystemSessionMessageChannelImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IRemoteSystemSessionMessageChannelVtbl {
-        unsafe extern "system" fn Session<Impl: IRemoteSystemSessionMessageChannelImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystemSessionMessageChannelImpl, const OFFSET: isize>() -> IRemoteSystemSessionMessageChannelVtbl {
+        unsafe extern "system" fn Session<Impl: IRemoteSystemSessionMessageChannelImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Session() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1572,8 +1586,8 @@ impl IRemoteSystemSessionMessageChannelVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn BroadcastValueSetAsync<Impl: IRemoteSystemSessionMessageChannelImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, messagedata: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn BroadcastValueSetAsync<Impl: IRemoteSystemSessionMessageChannelImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, messagedata: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BroadcastValueSetAsync(&*(&messagedata as *const <super::super::Foundation::Collections::ValueSet as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::ValueSet as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1583,8 +1597,8 @@ impl IRemoteSystemSessionMessageChannelVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SendValueSetAsync<Impl: IRemoteSystemSessionMessageChannelImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, messagedata: ::windows::core::RawPtr, participant: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn SendValueSetAsync<Impl: IRemoteSystemSessionMessageChannelImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, messagedata: ::windows::core::RawPtr, participant: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SendValueSetAsync(&*(&messagedata as *const <super::super::Foundation::Collections::ValueSet as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::ValueSet as ::windows::core::DefaultType>::DefaultType), &*(&participant as *const <RemoteSystemSessionParticipant as ::windows::core::Abi>::Abi as *const <RemoteSystemSessionParticipant as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1594,8 +1608,8 @@ impl IRemoteSystemSessionMessageChannelVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SendValueSetToParticipantsAsync<Impl: IRemoteSystemSessionMessageChannelImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, messagedata: ::windows::core::RawPtr, participants: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn SendValueSetToParticipantsAsync<Impl: IRemoteSystemSessionMessageChannelImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, messagedata: ::windows::core::RawPtr, participants: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SendValueSetToParticipantsAsync(
                 &*(&messagedata as *const <super::super::Foundation::Collections::ValueSet as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::ValueSet as ::windows::core::DefaultType>::DefaultType),
                 &*(&participants as *const <super::super::Foundation::Collections::IIterable<RemoteSystemSessionParticipant> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::IIterable<RemoteSystemSessionParticipant> as ::windows::core::DefaultType>::DefaultType),
@@ -1608,8 +1622,8 @@ impl IRemoteSystemSessionMessageChannelVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ValueSetReceived<Impl: IRemoteSystemSessionMessageChannelImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn ValueSetReceived<Impl: IRemoteSystemSessionMessageChannelImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ValueSetReceived(&*(&handler as *const <super::super::Foundation::TypedEventHandler<RemoteSystemSessionMessageChannel, RemoteSystemSessionValueSetReceivedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<RemoteSystemSessionMessageChannel, RemoteSystemSessionValueSetReceivedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1619,11 +1633,24 @@ impl IRemoteSystemSessionMessageChannelVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveValueSetReceived<Impl: IRemoteSystemSessionMessageChannelImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn RemoveValueSetReceived<Impl: IRemoteSystemSessionMessageChannelImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveValueSetReceived(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IRemoteSystemSessionMessageChannel>, base.5, Session::<Impl, OFFSET>, BroadcastValueSetAsync::<Impl, OFFSET>, SendValueSetAsync::<Impl, OFFSET>, SendValueSetToParticipantsAsync::<Impl, OFFSET>, ValueSetReceived::<Impl, OFFSET>, RemoveValueSetReceived::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, OFFSET>,
+            ::windows::core::AddRef::<Identity, OFFSET>,
+            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<IRemoteSystemSessionMessageChannel>,
+            ::windows::core::GetTrustLevel,
+            Session::<Impl, OFFSET>,
+            BroadcastValueSetAsync::<Impl, OFFSET>,
+            SendValueSetAsync::<Impl, OFFSET>,
+            SendValueSetToParticipantsAsync::<Impl, OFFSET>,
+            ValueSetReceived::<Impl, OFFSET>,
+            RemoveValueSetReceived::<Impl, OFFSET>,
+        )
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1637,9 +1664,9 @@ impl ::windows::core::RuntimeName for IRemoteSystemSessionMessageChannelFactory 
 }
 #[cfg(feature = "implement_exclusive")]
 impl IRemoteSystemSessionMessageChannelFactoryVtbl {
-    pub const fn new<Impl: IRemoteSystemSessionMessageChannelFactoryImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IRemoteSystemSessionMessageChannelFactoryVtbl {
-        unsafe extern "system" fn Create<Impl: IRemoteSystemSessionMessageChannelFactoryImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, session: ::windows::core::RawPtr, channelname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystemSessionMessageChannelFactoryImpl, const OFFSET: isize>() -> IRemoteSystemSessionMessageChannelFactoryVtbl {
+        unsafe extern "system" fn Create<Impl: IRemoteSystemSessionMessageChannelFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, session: ::windows::core::RawPtr, channelname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(&*(&session as *const <RemoteSystemSession as ::windows::core::Abi>::Abi as *const <RemoteSystemSession as ::windows::core::DefaultType>::DefaultType), &*(&channelname as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1649,8 +1676,8 @@ impl IRemoteSystemSessionMessageChannelFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateWithReliability<Impl: IRemoteSystemSessionMessageChannelFactoryImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, session: ::windows::core::RawPtr, channelname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, reliability: RemoteSystemSessionMessageChannelReliability, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn CreateWithReliability<Impl: IRemoteSystemSessionMessageChannelFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, session: ::windows::core::RawPtr, channelname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, reliability: RemoteSystemSessionMessageChannelReliability, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateWithReliability(&*(&session as *const <RemoteSystemSession as ::windows::core::Abi>::Abi as *const <RemoteSystemSession as ::windows::core::DefaultType>::DefaultType), &*(&channelname as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), reliability) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1660,7 +1687,7 @@ impl IRemoteSystemSessionMessageChannelFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IRemoteSystemSessionMessageChannelFactory>, base.5, Create::<Impl, OFFSET>, CreateWithReliability::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemSessionMessageChannelFactory>, ::windows::core::GetTrustLevel, Create::<Impl, OFFSET>, CreateWithReliability::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1674,9 +1701,9 @@ impl ::windows::core::RuntimeName for IRemoteSystemSessionOptions {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IRemoteSystemSessionOptionsVtbl {
-    pub const fn new<Impl: IRemoteSystemSessionOptionsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IRemoteSystemSessionOptionsVtbl {
-        unsafe extern "system" fn IsInviteOnly<Impl: IRemoteSystemSessionOptionsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystemSessionOptionsImpl, const OFFSET: isize>() -> IRemoteSystemSessionOptionsVtbl {
+        unsafe extern "system" fn IsInviteOnly<Impl: IRemoteSystemSessionOptionsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsInviteOnly() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1686,11 +1713,11 @@ impl IRemoteSystemSessionOptionsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetIsInviteOnly<Impl: IRemoteSystemSessionOptionsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn SetIsInviteOnly<Impl: IRemoteSystemSessionOptionsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetIsInviteOnly(value).into()
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IRemoteSystemSessionOptions>, base.5, IsInviteOnly::<Impl, OFFSET>, SetIsInviteOnly::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemSessionOptions>, ::windows::core::GetTrustLevel, IsInviteOnly::<Impl, OFFSET>, SetIsInviteOnly::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1704,9 +1731,9 @@ impl ::windows::core::RuntimeName for IRemoteSystemSessionParticipant {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IRemoteSystemSessionParticipantVtbl {
-    pub const fn new<Impl: IRemoteSystemSessionParticipantImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IRemoteSystemSessionParticipantVtbl {
-        unsafe extern "system" fn RemoteSystem<Impl: IRemoteSystemSessionParticipantImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystemSessionParticipantImpl, const OFFSET: isize>() -> IRemoteSystemSessionParticipantVtbl {
+        unsafe extern "system" fn RemoteSystem<Impl: IRemoteSystemSessionParticipantImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RemoteSystem() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1716,8 +1743,8 @@ impl IRemoteSystemSessionParticipantVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetHostNames<Impl: IRemoteSystemSessionParticipantImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn GetHostNames<Impl: IRemoteSystemSessionParticipantImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetHostNames() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1727,7 +1754,7 @@ impl IRemoteSystemSessionParticipantVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IRemoteSystemSessionParticipant>, base.5, RemoteSystem::<Impl, OFFSET>, GetHostNames::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemSessionParticipant>, ::windows::core::GetTrustLevel, RemoteSystem::<Impl, OFFSET>, GetHostNames::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1740,9 +1767,9 @@ impl ::windows::core::RuntimeName for IRemoteSystemSessionParticipantAddedEventA
 }
 #[cfg(feature = "implement_exclusive")]
 impl IRemoteSystemSessionParticipantAddedEventArgsVtbl {
-    pub const fn new<Impl: IRemoteSystemSessionParticipantAddedEventArgsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IRemoteSystemSessionParticipantAddedEventArgsVtbl {
-        unsafe extern "system" fn Participant<Impl: IRemoteSystemSessionParticipantAddedEventArgsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystemSessionParticipantAddedEventArgsImpl, const OFFSET: isize>() -> IRemoteSystemSessionParticipantAddedEventArgsVtbl {
+        unsafe extern "system" fn Participant<Impl: IRemoteSystemSessionParticipantAddedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Participant() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1752,7 +1779,7 @@ impl IRemoteSystemSessionParticipantAddedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IRemoteSystemSessionParticipantAddedEventArgs>, base.5, Participant::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemSessionParticipantAddedEventArgs>, ::windows::core::GetTrustLevel, Participant::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1765,9 +1792,9 @@ impl ::windows::core::RuntimeName for IRemoteSystemSessionParticipantRemovedEven
 }
 #[cfg(feature = "implement_exclusive")]
 impl IRemoteSystemSessionParticipantRemovedEventArgsVtbl {
-    pub const fn new<Impl: IRemoteSystemSessionParticipantRemovedEventArgsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IRemoteSystemSessionParticipantRemovedEventArgsVtbl {
-        unsafe extern "system" fn Participant<Impl: IRemoteSystemSessionParticipantRemovedEventArgsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystemSessionParticipantRemovedEventArgsImpl, const OFFSET: isize>() -> IRemoteSystemSessionParticipantRemovedEventArgsVtbl {
+        unsafe extern "system" fn Participant<Impl: IRemoteSystemSessionParticipantRemovedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Participant() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1777,7 +1804,7 @@ impl IRemoteSystemSessionParticipantRemovedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IRemoteSystemSessionParticipantRemovedEventArgs>, base.5, Participant::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemSessionParticipantRemovedEventArgs>, ::windows::core::GetTrustLevel, Participant::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1798,17 +1825,17 @@ impl ::windows::core::RuntimeName for IRemoteSystemSessionParticipantWatcher {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IRemoteSystemSessionParticipantWatcherVtbl {
-    pub const fn new<Impl: IRemoteSystemSessionParticipantWatcherImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IRemoteSystemSessionParticipantWatcherVtbl {
-        unsafe extern "system" fn Start<Impl: IRemoteSystemSessionParticipantWatcherImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystemSessionParticipantWatcherImpl, const OFFSET: isize>() -> IRemoteSystemSessionParticipantWatcherVtbl {
+        unsafe extern "system" fn Start<Impl: IRemoteSystemSessionParticipantWatcherImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Start().into()
         }
-        unsafe extern "system" fn Stop<Impl: IRemoteSystemSessionParticipantWatcherImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn Stop<Impl: IRemoteSystemSessionParticipantWatcherImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Stop().into()
         }
-        unsafe extern "system" fn Status<Impl: IRemoteSystemSessionParticipantWatcherImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut RemoteSystemSessionParticipantWatcherStatus) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn Status<Impl: IRemoteSystemSessionParticipantWatcherImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut RemoteSystemSessionParticipantWatcherStatus) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Status() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1818,8 +1845,8 @@ impl IRemoteSystemSessionParticipantWatcherVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Added<Impl: IRemoteSystemSessionParticipantWatcherImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn Added<Impl: IRemoteSystemSessionParticipantWatcherImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Added(&*(&handler as *const <super::super::Foundation::TypedEventHandler<RemoteSystemSessionParticipantWatcher, RemoteSystemSessionParticipantAddedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<RemoteSystemSessionParticipantWatcher, RemoteSystemSessionParticipantAddedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1829,12 +1856,12 @@ impl IRemoteSystemSessionParticipantWatcherVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveAdded<Impl: IRemoteSystemSessionParticipantWatcherImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn RemoveAdded<Impl: IRemoteSystemSessionParticipantWatcherImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveAdded(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn Removed<Impl: IRemoteSystemSessionParticipantWatcherImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn Removed<Impl: IRemoteSystemSessionParticipantWatcherImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Removed(&*(&handler as *const <super::super::Foundation::TypedEventHandler<RemoteSystemSessionParticipantWatcher, RemoteSystemSessionParticipantRemovedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<RemoteSystemSessionParticipantWatcher, RemoteSystemSessionParticipantRemovedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1844,12 +1871,12 @@ impl IRemoteSystemSessionParticipantWatcherVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveRemoved<Impl: IRemoteSystemSessionParticipantWatcherImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn RemoveRemoved<Impl: IRemoteSystemSessionParticipantWatcherImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveRemoved(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn EnumerationCompleted<Impl: IRemoteSystemSessionParticipantWatcherImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn EnumerationCompleted<Impl: IRemoteSystemSessionParticipantWatcherImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EnumerationCompleted(&*(&handler as *const <super::super::Foundation::TypedEventHandler<RemoteSystemSessionParticipantWatcher, ::windows::core::IInspectable> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<RemoteSystemSessionParticipantWatcher, ::windows::core::IInspectable> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1859,11 +1886,27 @@ impl IRemoteSystemSessionParticipantWatcherVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveEnumerationCompleted<Impl: IRemoteSystemSessionParticipantWatcherImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn RemoveEnumerationCompleted<Impl: IRemoteSystemSessionParticipantWatcherImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveEnumerationCompleted(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IRemoteSystemSessionParticipantWatcher>, base.5, Start::<Impl, OFFSET>, Stop::<Impl, OFFSET>, Status::<Impl, OFFSET>, Added::<Impl, OFFSET>, RemoveAdded::<Impl, OFFSET>, Removed::<Impl, OFFSET>, RemoveRemoved::<Impl, OFFSET>, EnumerationCompleted::<Impl, OFFSET>, RemoveEnumerationCompleted::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, OFFSET>,
+            ::windows::core::AddRef::<Identity, OFFSET>,
+            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<IRemoteSystemSessionParticipantWatcher>,
+            ::windows::core::GetTrustLevel,
+            Start::<Impl, OFFSET>,
+            Stop::<Impl, OFFSET>,
+            Status::<Impl, OFFSET>,
+            Added::<Impl, OFFSET>,
+            RemoveAdded::<Impl, OFFSET>,
+            Removed::<Impl, OFFSET>,
+            RemoveRemoved::<Impl, OFFSET>,
+            EnumerationCompleted::<Impl, OFFSET>,
+            RemoveEnumerationCompleted::<Impl, OFFSET>,
+        )
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1876,9 +1919,9 @@ impl ::windows::core::RuntimeName for IRemoteSystemSessionRemovedEventArgs {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IRemoteSystemSessionRemovedEventArgsVtbl {
-    pub const fn new<Impl: IRemoteSystemSessionRemovedEventArgsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IRemoteSystemSessionRemovedEventArgsVtbl {
-        unsafe extern "system" fn SessionInfo<Impl: IRemoteSystemSessionRemovedEventArgsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystemSessionRemovedEventArgsImpl, const OFFSET: isize>() -> IRemoteSystemSessionRemovedEventArgsVtbl {
+        unsafe extern "system" fn SessionInfo<Impl: IRemoteSystemSessionRemovedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SessionInfo() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1888,7 +1931,7 @@ impl IRemoteSystemSessionRemovedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IRemoteSystemSessionRemovedEventArgs>, base.5, SessionInfo::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemSessionRemovedEventArgs>, ::windows::core::GetTrustLevel, SessionInfo::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1901,9 +1944,9 @@ impl ::windows::core::RuntimeName for IRemoteSystemSessionStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IRemoteSystemSessionStaticsVtbl {
-    pub const fn new<Impl: IRemoteSystemSessionStaticsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IRemoteSystemSessionStaticsVtbl {
-        unsafe extern "system" fn CreateWatcher<Impl: IRemoteSystemSessionStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystemSessionStaticsImpl, const OFFSET: isize>() -> IRemoteSystemSessionStaticsVtbl {
+        unsafe extern "system" fn CreateWatcher<Impl: IRemoteSystemSessionStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateWatcher() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1913,7 +1956,7 @@ impl IRemoteSystemSessionStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IRemoteSystemSessionStatics>, base.5, CreateWatcher::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemSessionStatics>, ::windows::core::GetTrustLevel, CreateWatcher::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1926,9 +1969,9 @@ impl ::windows::core::RuntimeName for IRemoteSystemSessionUpdatedEventArgs {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IRemoteSystemSessionUpdatedEventArgsVtbl {
-    pub const fn new<Impl: IRemoteSystemSessionUpdatedEventArgsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IRemoteSystemSessionUpdatedEventArgsVtbl {
-        unsafe extern "system" fn SessionInfo<Impl: IRemoteSystemSessionUpdatedEventArgsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystemSessionUpdatedEventArgsImpl, const OFFSET: isize>() -> IRemoteSystemSessionUpdatedEventArgsVtbl {
+        unsafe extern "system" fn SessionInfo<Impl: IRemoteSystemSessionUpdatedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SessionInfo() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1938,7 +1981,7 @@ impl IRemoteSystemSessionUpdatedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IRemoteSystemSessionUpdatedEventArgs>, base.5, SessionInfo::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemSessionUpdatedEventArgs>, ::windows::core::GetTrustLevel, SessionInfo::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1952,9 +1995,9 @@ impl ::windows::core::RuntimeName for IRemoteSystemSessionValueSetReceivedEventA
 }
 #[cfg(feature = "implement_exclusive")]
 impl IRemoteSystemSessionValueSetReceivedEventArgsVtbl {
-    pub const fn new<Impl: IRemoteSystemSessionValueSetReceivedEventArgsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IRemoteSystemSessionValueSetReceivedEventArgsVtbl {
-        unsafe extern "system" fn Sender<Impl: IRemoteSystemSessionValueSetReceivedEventArgsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystemSessionValueSetReceivedEventArgsImpl, const OFFSET: isize>() -> IRemoteSystemSessionValueSetReceivedEventArgsVtbl {
+        unsafe extern "system" fn Sender<Impl: IRemoteSystemSessionValueSetReceivedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Sender() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1964,8 +2007,8 @@ impl IRemoteSystemSessionValueSetReceivedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Message<Impl: IRemoteSystemSessionValueSetReceivedEventArgsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn Message<Impl: IRemoteSystemSessionValueSetReceivedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Message() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -1975,7 +2018,7 @@ impl IRemoteSystemSessionValueSetReceivedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IRemoteSystemSessionValueSetReceivedEventArgs>, base.5, Sender::<Impl, OFFSET>, Message::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemSessionValueSetReceivedEventArgs>, ::windows::core::GetTrustLevel, Sender::<Impl, OFFSET>, Message::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1996,17 +2039,17 @@ impl ::windows::core::RuntimeName for IRemoteSystemSessionWatcher {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IRemoteSystemSessionWatcherVtbl {
-    pub const fn new<Impl: IRemoteSystemSessionWatcherImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IRemoteSystemSessionWatcherVtbl {
-        unsafe extern "system" fn Start<Impl: IRemoteSystemSessionWatcherImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystemSessionWatcherImpl, const OFFSET: isize>() -> IRemoteSystemSessionWatcherVtbl {
+        unsafe extern "system" fn Start<Impl: IRemoteSystemSessionWatcherImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Start().into()
         }
-        unsafe extern "system" fn Stop<Impl: IRemoteSystemSessionWatcherImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn Stop<Impl: IRemoteSystemSessionWatcherImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Stop().into()
         }
-        unsafe extern "system" fn Status<Impl: IRemoteSystemSessionWatcherImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut RemoteSystemSessionWatcherStatus) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn Status<Impl: IRemoteSystemSessionWatcherImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut RemoteSystemSessionWatcherStatus) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Status() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -2016,8 +2059,8 @@ impl IRemoteSystemSessionWatcherVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Added<Impl: IRemoteSystemSessionWatcherImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn Added<Impl: IRemoteSystemSessionWatcherImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Added(&*(&handler as *const <super::super::Foundation::TypedEventHandler<RemoteSystemSessionWatcher, RemoteSystemSessionAddedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<RemoteSystemSessionWatcher, RemoteSystemSessionAddedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -2027,12 +2070,12 @@ impl IRemoteSystemSessionWatcherVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveAdded<Impl: IRemoteSystemSessionWatcherImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn RemoveAdded<Impl: IRemoteSystemSessionWatcherImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveAdded(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn Updated<Impl: IRemoteSystemSessionWatcherImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn Updated<Impl: IRemoteSystemSessionWatcherImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Updated(&*(&handler as *const <super::super::Foundation::TypedEventHandler<RemoteSystemSessionWatcher, RemoteSystemSessionUpdatedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<RemoteSystemSessionWatcher, RemoteSystemSessionUpdatedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -2042,12 +2085,12 @@ impl IRemoteSystemSessionWatcherVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveUpdated<Impl: IRemoteSystemSessionWatcherImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn RemoveUpdated<Impl: IRemoteSystemSessionWatcherImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveUpdated(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn Removed<Impl: IRemoteSystemSessionWatcherImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn Removed<Impl: IRemoteSystemSessionWatcherImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Removed(&*(&handler as *const <super::super::Foundation::TypedEventHandler<RemoteSystemSessionWatcher, RemoteSystemSessionRemovedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<RemoteSystemSessionWatcher, RemoteSystemSessionRemovedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -2057,11 +2100,27 @@ impl IRemoteSystemSessionWatcherVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveRemoved<Impl: IRemoteSystemSessionWatcherImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn RemoveRemoved<Impl: IRemoteSystemSessionWatcherImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveRemoved(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IRemoteSystemSessionWatcher>, base.5, Start::<Impl, OFFSET>, Stop::<Impl, OFFSET>, Status::<Impl, OFFSET>, Added::<Impl, OFFSET>, RemoveAdded::<Impl, OFFSET>, Updated::<Impl, OFFSET>, RemoveUpdated::<Impl, OFFSET>, Removed::<Impl, OFFSET>, RemoveRemoved::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, OFFSET>,
+            ::windows::core::AddRef::<Identity, OFFSET>,
+            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<IRemoteSystemSessionWatcher>,
+            ::windows::core::GetTrustLevel,
+            Start::<Impl, OFFSET>,
+            Stop::<Impl, OFFSET>,
+            Status::<Impl, OFFSET>,
+            Added::<Impl, OFFSET>,
+            RemoveAdded::<Impl, OFFSET>,
+            Updated::<Impl, OFFSET>,
+            RemoveUpdated::<Impl, OFFSET>,
+            Removed::<Impl, OFFSET>,
+            RemoveRemoved::<Impl, OFFSET>,
+        )
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2077,9 +2136,9 @@ impl ::windows::core::RuntimeName for IRemoteSystemStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IRemoteSystemStaticsVtbl {
-    pub const fn new<Impl: IRemoteSystemStaticsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IRemoteSystemStaticsVtbl {
-        unsafe extern "system" fn FindByHostNameAsync<Impl: IRemoteSystemStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, hostname: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystemStaticsImpl, const OFFSET: isize>() -> IRemoteSystemStaticsVtbl {
+        unsafe extern "system" fn FindByHostNameAsync<Impl: IRemoteSystemStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hostname: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FindByHostNameAsync(&*(&hostname as *const <super::super::Networking::HostName as ::windows::core::Abi>::Abi as *const <super::super::Networking::HostName as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -2089,8 +2148,8 @@ impl IRemoteSystemStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateWatcher<Impl: IRemoteSystemStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn CreateWatcher<Impl: IRemoteSystemStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateWatcher() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -2100,8 +2159,8 @@ impl IRemoteSystemStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateWatcherWithFilters<Impl: IRemoteSystemStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, filters: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn CreateWatcherWithFilters<Impl: IRemoteSystemStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, filters: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateWatcherWithFilters(&*(&filters as *const <super::super::Foundation::Collections::IIterable<IRemoteSystemFilter> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::IIterable<IRemoteSystemFilter> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -2111,8 +2170,8 @@ impl IRemoteSystemStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RequestAccessAsync<Impl: IRemoteSystemStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn RequestAccessAsync<Impl: IRemoteSystemStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RequestAccessAsync() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -2122,7 +2181,7 @@ impl IRemoteSystemStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IRemoteSystemStatics>, base.5, FindByHostNameAsync::<Impl, OFFSET>, CreateWatcher::<Impl, OFFSET>, CreateWatcherWithFilters::<Impl, OFFSET>, RequestAccessAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemStatics>, ::windows::core::GetTrustLevel, FindByHostNameAsync::<Impl, OFFSET>, CreateWatcher::<Impl, OFFSET>, CreateWatcherWithFilters::<Impl, OFFSET>, RequestAccessAsync::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2135,9 +2194,9 @@ impl ::windows::core::RuntimeName for IRemoteSystemStatics2 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IRemoteSystemStatics2Vtbl {
-    pub const fn new<Impl: IRemoteSystemStatics2Impl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IRemoteSystemStatics2Vtbl {
-        unsafe extern "system" fn IsAuthorizationKindEnabled<Impl: IRemoteSystemStatics2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, kind: RemoteSystemAuthorizationKind, result__: *mut bool) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystemStatics2Impl, const OFFSET: isize>() -> IRemoteSystemStatics2Vtbl {
+        unsafe extern "system" fn IsAuthorizationKindEnabled<Impl: IRemoteSystemStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, kind: RemoteSystemAuthorizationKind, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsAuthorizationKindEnabled(kind) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -2147,7 +2206,7 @@ impl IRemoteSystemStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IRemoteSystemStatics2>, base.5, IsAuthorizationKindEnabled::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemStatics2>, ::windows::core::GetTrustLevel, IsAuthorizationKindEnabled::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2161,9 +2220,9 @@ impl ::windows::core::RuntimeName for IRemoteSystemStatics3 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IRemoteSystemStatics3Vtbl {
-    pub const fn new<Impl: IRemoteSystemStatics3Impl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IRemoteSystemStatics3Vtbl {
-        unsafe extern "system" fn CreateWatcherForUser<Impl: IRemoteSystemStatics3Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, user: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystemStatics3Impl, const OFFSET: isize>() -> IRemoteSystemStatics3Vtbl {
+        unsafe extern "system" fn CreateWatcherForUser<Impl: IRemoteSystemStatics3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, user: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateWatcherForUser(&*(&user as *const <super::User as ::windows::core::Abi>::Abi as *const <super::User as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -2173,8 +2232,8 @@ impl IRemoteSystemStatics3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateWatcherWithFiltersForUser<Impl: IRemoteSystemStatics3Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, user: ::windows::core::RawPtr, filters: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn CreateWatcherWithFiltersForUser<Impl: IRemoteSystemStatics3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, user: ::windows::core::RawPtr, filters: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateWatcherWithFiltersForUser(&*(&user as *const <super::User as ::windows::core::Abi>::Abi as *const <super::User as ::windows::core::DefaultType>::DefaultType), &*(&filters as *const <super::super::Foundation::Collections::IIterable<IRemoteSystemFilter> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::IIterable<IRemoteSystemFilter> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -2184,7 +2243,7 @@ impl IRemoteSystemStatics3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IRemoteSystemStatics3>, base.5, CreateWatcherForUser::<Impl, OFFSET>, CreateWatcherWithFiltersForUser::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemStatics3>, ::windows::core::GetTrustLevel, CreateWatcherForUser::<Impl, OFFSET>, CreateWatcherWithFiltersForUser::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2197,9 +2256,9 @@ impl ::windows::core::RuntimeName for IRemoteSystemStatusTypeFilter {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IRemoteSystemStatusTypeFilterVtbl {
-    pub const fn new<Impl: IRemoteSystemStatusTypeFilterImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IRemoteSystemStatusTypeFilterVtbl {
-        unsafe extern "system" fn RemoteSystemStatusType<Impl: IRemoteSystemStatusTypeFilterImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut RemoteSystemStatusType) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystemStatusTypeFilterImpl, const OFFSET: isize>() -> IRemoteSystemStatusTypeFilterVtbl {
+        unsafe extern "system" fn RemoteSystemStatusType<Impl: IRemoteSystemStatusTypeFilterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut RemoteSystemStatusType) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RemoteSystemStatusType() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -2209,7 +2268,7 @@ impl IRemoteSystemStatusTypeFilterVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IRemoteSystemStatusTypeFilter>, base.5, RemoteSystemStatusType::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemStatusTypeFilter>, ::windows::core::GetTrustLevel, RemoteSystemStatusType::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2222,9 +2281,9 @@ impl ::windows::core::RuntimeName for IRemoteSystemStatusTypeFilterFactory {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IRemoteSystemStatusTypeFilterFactoryVtbl {
-    pub const fn new<Impl: IRemoteSystemStatusTypeFilterFactoryImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IRemoteSystemStatusTypeFilterFactoryVtbl {
-        unsafe extern "system" fn Create<Impl: IRemoteSystemStatusTypeFilterFactoryImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, remotesystemstatustype: RemoteSystemStatusType, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystemStatusTypeFilterFactoryImpl, const OFFSET: isize>() -> IRemoteSystemStatusTypeFilterFactoryVtbl {
+        unsafe extern "system" fn Create<Impl: IRemoteSystemStatusTypeFilterFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, remotesystemstatustype: RemoteSystemStatusType, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(remotesystemstatustype) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -2234,7 +2293,7 @@ impl IRemoteSystemStatusTypeFilterFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IRemoteSystemStatusTypeFilterFactory>, base.5, Create::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemStatusTypeFilterFactory>, ::windows::core::GetTrustLevel, Create::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2247,9 +2306,9 @@ impl ::windows::core::RuntimeName for IRemoteSystemUpdatedEventArgs {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IRemoteSystemUpdatedEventArgsVtbl {
-    pub const fn new<Impl: IRemoteSystemUpdatedEventArgsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IRemoteSystemUpdatedEventArgsVtbl {
-        unsafe extern "system" fn RemoteSystem<Impl: IRemoteSystemUpdatedEventArgsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystemUpdatedEventArgsImpl, const OFFSET: isize>() -> IRemoteSystemUpdatedEventArgsVtbl {
+        unsafe extern "system" fn RemoteSystem<Impl: IRemoteSystemUpdatedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RemoteSystem() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -2259,7 +2318,7 @@ impl IRemoteSystemUpdatedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IRemoteSystemUpdatedEventArgs>, base.5, RemoteSystem::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemUpdatedEventArgs>, ::windows::core::GetTrustLevel, RemoteSystem::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2279,17 +2338,17 @@ impl ::windows::core::RuntimeName for IRemoteSystemWatcher {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IRemoteSystemWatcherVtbl {
-    pub const fn new<Impl: IRemoteSystemWatcherImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IRemoteSystemWatcherVtbl {
-        unsafe extern "system" fn Start<Impl: IRemoteSystemWatcherImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystemWatcherImpl, const OFFSET: isize>() -> IRemoteSystemWatcherVtbl {
+        unsafe extern "system" fn Start<Impl: IRemoteSystemWatcherImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Start().into()
         }
-        unsafe extern "system" fn Stop<Impl: IRemoteSystemWatcherImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn Stop<Impl: IRemoteSystemWatcherImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Stop().into()
         }
-        unsafe extern "system" fn RemoteSystemAdded<Impl: IRemoteSystemWatcherImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn RemoteSystemAdded<Impl: IRemoteSystemWatcherImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RemoteSystemAdded(&*(&handler as *const <super::super::Foundation::TypedEventHandler<RemoteSystemWatcher, RemoteSystemAddedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<RemoteSystemWatcher, RemoteSystemAddedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -2299,12 +2358,12 @@ impl IRemoteSystemWatcherVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveRemoteSystemAdded<Impl: IRemoteSystemWatcherImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn RemoveRemoteSystemAdded<Impl: IRemoteSystemWatcherImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveRemoteSystemAdded(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn RemoteSystemUpdated<Impl: IRemoteSystemWatcherImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn RemoteSystemUpdated<Impl: IRemoteSystemWatcherImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RemoteSystemUpdated(&*(&handler as *const <super::super::Foundation::TypedEventHandler<RemoteSystemWatcher, RemoteSystemUpdatedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<RemoteSystemWatcher, RemoteSystemUpdatedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -2314,12 +2373,12 @@ impl IRemoteSystemWatcherVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveRemoteSystemUpdated<Impl: IRemoteSystemWatcherImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn RemoveRemoteSystemUpdated<Impl: IRemoteSystemWatcherImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveRemoteSystemUpdated(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn RemoteSystemRemoved<Impl: IRemoteSystemWatcherImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn RemoteSystemRemoved<Impl: IRemoteSystemWatcherImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RemoteSystemRemoved(&*(&handler as *const <super::super::Foundation::TypedEventHandler<RemoteSystemWatcher, RemoteSystemRemovedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<RemoteSystemWatcher, RemoteSystemRemovedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -2329,11 +2388,26 @@ impl IRemoteSystemWatcherVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveRemoteSystemRemoved<Impl: IRemoteSystemWatcherImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn RemoveRemoteSystemRemoved<Impl: IRemoteSystemWatcherImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveRemoteSystemRemoved(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IRemoteSystemWatcher>, base.5, Start::<Impl, OFFSET>, Stop::<Impl, OFFSET>, RemoteSystemAdded::<Impl, OFFSET>, RemoveRemoteSystemAdded::<Impl, OFFSET>, RemoteSystemUpdated::<Impl, OFFSET>, RemoveRemoteSystemUpdated::<Impl, OFFSET>, RemoteSystemRemoved::<Impl, OFFSET>, RemoveRemoteSystemRemoved::<Impl, OFFSET>)
+        Self(
+            ::windows::core::QueryInterface::<Identity, OFFSET>,
+            ::windows::core::AddRef::<Identity, OFFSET>,
+            ::windows::core::Release::<Identity, OFFSET>,
+            ::windows::core::GetIids,
+            ::windows::core::GetRuntimeClassName::<IRemoteSystemWatcher>,
+            ::windows::core::GetTrustLevel,
+            Start::<Impl, OFFSET>,
+            Stop::<Impl, OFFSET>,
+            RemoteSystemAdded::<Impl, OFFSET>,
+            RemoveRemoteSystemAdded::<Impl, OFFSET>,
+            RemoteSystemUpdated::<Impl, OFFSET>,
+            RemoveRemoteSystemUpdated::<Impl, OFFSET>,
+            RemoteSystemRemoved::<Impl, OFFSET>,
+            RemoveRemoteSystemRemoved::<Impl, OFFSET>,
+        )
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2349,9 +2423,9 @@ impl ::windows::core::RuntimeName for IRemoteSystemWatcher2 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IRemoteSystemWatcher2Vtbl {
-    pub const fn new<Impl: IRemoteSystemWatcher2Impl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IRemoteSystemWatcher2Vtbl {
-        unsafe extern "system" fn EnumerationCompleted<Impl: IRemoteSystemWatcher2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystemWatcher2Impl, const OFFSET: isize>() -> IRemoteSystemWatcher2Vtbl {
+        unsafe extern "system" fn EnumerationCompleted<Impl: IRemoteSystemWatcher2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EnumerationCompleted(&*(&handler as *const <super::super::Foundation::TypedEventHandler<RemoteSystemWatcher, RemoteSystemEnumerationCompletedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<RemoteSystemWatcher, RemoteSystemEnumerationCompletedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -2361,12 +2435,12 @@ impl IRemoteSystemWatcher2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveEnumerationCompleted<Impl: IRemoteSystemWatcher2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn RemoveEnumerationCompleted<Impl: IRemoteSystemWatcher2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveEnumerationCompleted(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn ErrorOccurred<Impl: IRemoteSystemWatcher2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn ErrorOccurred<Impl: IRemoteSystemWatcher2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ErrorOccurred(&*(&handler as *const <super::super::Foundation::TypedEventHandler<RemoteSystemWatcher, RemoteSystemWatcherErrorOccurredEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<RemoteSystemWatcher, RemoteSystemWatcherErrorOccurredEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -2376,11 +2450,11 @@ impl IRemoteSystemWatcher2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveErrorOccurred<Impl: IRemoteSystemWatcher2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn RemoveErrorOccurred<Impl: IRemoteSystemWatcher2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveErrorOccurred(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IRemoteSystemWatcher2>, base.5, EnumerationCompleted::<Impl, OFFSET>, RemoveEnumerationCompleted::<Impl, OFFSET>, ErrorOccurred::<Impl, OFFSET>, RemoveErrorOccurred::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemWatcher2>, ::windows::core::GetTrustLevel, EnumerationCompleted::<Impl, OFFSET>, RemoveEnumerationCompleted::<Impl, OFFSET>, ErrorOccurred::<Impl, OFFSET>, RemoveErrorOccurred::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2393,9 +2467,9 @@ impl ::windows::core::RuntimeName for IRemoteSystemWatcher3 {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IRemoteSystemWatcher3Vtbl {
-    pub const fn new<Impl: IRemoteSystemWatcher3Impl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IRemoteSystemWatcher3Vtbl {
-        unsafe extern "system" fn User<Impl: IRemoteSystemWatcher3Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystemWatcher3Impl, const OFFSET: isize>() -> IRemoteSystemWatcher3Vtbl {
+        unsafe extern "system" fn User<Impl: IRemoteSystemWatcher3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).User() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -2405,7 +2479,7 @@ impl IRemoteSystemWatcher3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IRemoteSystemWatcher3>, base.5, User::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemWatcher3>, ::windows::core::GetTrustLevel, User::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2418,9 +2492,9 @@ impl ::windows::core::RuntimeName for IRemoteSystemWatcherErrorOccurredEventArgs
 }
 #[cfg(feature = "implement_exclusive")]
 impl IRemoteSystemWatcherErrorOccurredEventArgsVtbl {
-    pub const fn new<Impl: IRemoteSystemWatcherErrorOccurredEventArgsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IRemoteSystemWatcherErrorOccurredEventArgsVtbl {
-        unsafe extern "system" fn Error<Impl: IRemoteSystemWatcherErrorOccurredEventArgsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut RemoteSystemWatcherError) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystemWatcherErrorOccurredEventArgsImpl, const OFFSET: isize>() -> IRemoteSystemWatcherErrorOccurredEventArgsVtbl {
+        unsafe extern "system" fn Error<Impl: IRemoteSystemWatcherErrorOccurredEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut RemoteSystemWatcherError) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Error() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -2430,7 +2504,7 @@ impl IRemoteSystemWatcherErrorOccurredEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IRemoteSystemWatcherErrorOccurredEventArgs>, base.5, Error::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemWatcherErrorOccurredEventArgs>, ::windows::core::GetTrustLevel, Error::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2443,9 +2517,9 @@ impl ::windows::core::RuntimeName for IRemoteSystemWebAccountFilter {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IRemoteSystemWebAccountFilterVtbl {
-    pub const fn new<Impl: IRemoteSystemWebAccountFilterImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IRemoteSystemWebAccountFilterVtbl {
-        unsafe extern "system" fn Account<Impl: IRemoteSystemWebAccountFilterImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystemWebAccountFilterImpl, const OFFSET: isize>() -> IRemoteSystemWebAccountFilterVtbl {
+        unsafe extern "system" fn Account<Impl: IRemoteSystemWebAccountFilterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Account() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -2455,7 +2529,7 @@ impl IRemoteSystemWebAccountFilterVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IRemoteSystemWebAccountFilter>, base.5, Account::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemWebAccountFilter>, ::windows::core::GetTrustLevel, Account::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2468,9 +2542,9 @@ impl ::windows::core::RuntimeName for IRemoteSystemWebAccountFilterFactory {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IRemoteSystemWebAccountFilterFactoryVtbl {
-    pub const fn new<Impl: IRemoteSystemWebAccountFilterFactoryImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IRemoteSystemWebAccountFilterFactoryVtbl {
-        unsafe extern "system" fn Create<Impl: IRemoteSystemWebAccountFilterFactoryImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, account: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystemWebAccountFilterFactoryImpl, const OFFSET: isize>() -> IRemoteSystemWebAccountFilterFactoryVtbl {
+        unsafe extern "system" fn Create<Impl: IRemoteSystemWebAccountFilterFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, account: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(&*(&account as *const <super::super::Security::Credentials::WebAccount as ::windows::core::Abi>::Abi as *const <super::super::Security::Credentials::WebAccount as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -2480,6 +2554,6 @@ impl IRemoteSystemWebAccountFilterFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IRemoteSystemWebAccountFilterFactory>, base.5, Create::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IRemoteSystemWebAccountFilterFactory>, ::windows::core::GetTrustLevel, Create::<Impl, OFFSET>)
     }
 }

@@ -13,9 +13,9 @@ impl ::windows::core::RuntimeName for IIndexedResourceCandidate {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IIndexedResourceCandidateVtbl {
-    pub const fn new<Impl: IIndexedResourceCandidateImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IIndexedResourceCandidateVtbl {
-        unsafe extern "system" fn Type<Impl: IIndexedResourceCandidateImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut IndexedResourceType) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IIndexedResourceCandidateImpl, const OFFSET: isize>() -> IIndexedResourceCandidateVtbl {
+        unsafe extern "system" fn Type<Impl: IIndexedResourceCandidateImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut IndexedResourceType) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Type() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -25,8 +25,8 @@ impl IIndexedResourceCandidateVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Uri<Impl: IIndexedResourceCandidateImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn Uri<Impl: IIndexedResourceCandidateImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Uri() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -36,8 +36,8 @@ impl IIndexedResourceCandidateVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Metadata<Impl: IIndexedResourceCandidateImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn Metadata<Impl: IIndexedResourceCandidateImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Metadata() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -47,8 +47,8 @@ impl IIndexedResourceCandidateVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Qualifiers<Impl: IIndexedResourceCandidateImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn Qualifiers<Impl: IIndexedResourceCandidateImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Qualifiers() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -58,8 +58,8 @@ impl IIndexedResourceCandidateVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ValueAsString<Impl: IIndexedResourceCandidateImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn ValueAsString<Impl: IIndexedResourceCandidateImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ValueAsString() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -69,8 +69,8 @@ impl IIndexedResourceCandidateVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetQualifierValue<Impl: IIndexedResourceCandidateImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, qualifiername: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn GetQualifierValue<Impl: IIndexedResourceCandidateImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, qualifiername: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetQualifierValue(&*(&qualifiername as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -80,7 +80,7 @@ impl IIndexedResourceCandidateVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IIndexedResourceCandidate>, base.5, Type::<Impl, OFFSET>, Uri::<Impl, OFFSET>, Metadata::<Impl, OFFSET>, Qualifiers::<Impl, OFFSET>, ValueAsString::<Impl, OFFSET>, GetQualifierValue::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IIndexedResourceCandidate>, ::windows::core::GetTrustLevel, Type::<Impl, OFFSET>, Uri::<Impl, OFFSET>, Metadata::<Impl, OFFSET>, Qualifiers::<Impl, OFFSET>, ValueAsString::<Impl, OFFSET>, GetQualifierValue::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -94,9 +94,9 @@ impl ::windows::core::RuntimeName for IIndexedResourceQualifier {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IIndexedResourceQualifierVtbl {
-    pub const fn new<Impl: IIndexedResourceQualifierImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IIndexedResourceQualifierVtbl {
-        unsafe extern "system" fn QualifierName<Impl: IIndexedResourceQualifierImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IIndexedResourceQualifierImpl, const OFFSET: isize>() -> IIndexedResourceQualifierVtbl {
+        unsafe extern "system" fn QualifierName<Impl: IIndexedResourceQualifierImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).QualifierName() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -106,8 +106,8 @@ impl IIndexedResourceQualifierVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn QualifierValue<Impl: IIndexedResourceQualifierImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn QualifierValue<Impl: IIndexedResourceQualifierImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).QualifierValue() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -117,7 +117,7 @@ impl IIndexedResourceQualifierVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IIndexedResourceQualifier>, base.5, QualifierName::<Impl, OFFSET>, QualifierValue::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IIndexedResourceQualifier>, ::windows::core::GetTrustLevel, QualifierName::<Impl, OFFSET>, QualifierValue::<Impl, OFFSET>)
     }
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
@@ -131,9 +131,9 @@ impl ::windows::core::RuntimeName for IResourceIndexer {
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
 impl IResourceIndexerVtbl {
-    pub const fn new<Impl: IResourceIndexerImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IResourceIndexerVtbl {
-        unsafe extern "system" fn IndexFilePath<Impl: IResourceIndexerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, filepath: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IResourceIndexerImpl, const OFFSET: isize>() -> IResourceIndexerVtbl {
+        unsafe extern "system" fn IndexFilePath<Impl: IResourceIndexerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, filepath: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IndexFilePath(&*(&filepath as *const <super::super::super::Foundation::Uri as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::Uri as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -143,8 +143,8 @@ impl IResourceIndexerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IndexFileContentsAsync<Impl: IResourceIndexerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, file: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn IndexFileContentsAsync<Impl: IResourceIndexerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, file: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IndexFileContentsAsync(&*(&file as *const <super::super::super::Foundation::Uri as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::Uri as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -154,7 +154,7 @@ impl IResourceIndexerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IResourceIndexer>, base.5, IndexFilePath::<Impl, OFFSET>, IndexFileContentsAsync::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IResourceIndexer>, ::windows::core::GetTrustLevel, IndexFilePath::<Impl, OFFSET>, IndexFileContentsAsync::<Impl, OFFSET>)
     }
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
@@ -167,9 +167,9 @@ impl ::windows::core::RuntimeName for IResourceIndexerFactory {
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
 impl IResourceIndexerFactoryVtbl {
-    pub const fn new<Impl: IResourceIndexerFactoryImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IResourceIndexerFactoryVtbl {
-        unsafe extern "system" fn CreateResourceIndexer<Impl: IResourceIndexerFactoryImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, projectroot: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IResourceIndexerFactoryImpl, const OFFSET: isize>() -> IResourceIndexerFactoryVtbl {
+        unsafe extern "system" fn CreateResourceIndexer<Impl: IResourceIndexerFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, projectroot: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateResourceIndexer(&*(&projectroot as *const <super::super::super::Foundation::Uri as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::Uri as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -179,7 +179,7 @@ impl IResourceIndexerFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IResourceIndexerFactory>, base.5, CreateResourceIndexer::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IResourceIndexerFactory>, ::windows::core::GetTrustLevel, CreateResourceIndexer::<Impl, OFFSET>)
     }
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
@@ -192,9 +192,9 @@ impl ::windows::core::RuntimeName for IResourceIndexerFactory2 {
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
 impl IResourceIndexerFactory2Vtbl {
-    pub const fn new<Impl: IResourceIndexerFactory2Impl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IResourceIndexerFactory2Vtbl {
-        unsafe extern "system" fn CreateResourceIndexerWithExtension<Impl: IResourceIndexerFactory2Impl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, projectroot: ::windows::core::RawPtr, extensiondllpath: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IResourceIndexerFactory2Impl, const OFFSET: isize>() -> IResourceIndexerFactory2Vtbl {
+        unsafe extern "system" fn CreateResourceIndexerWithExtension<Impl: IResourceIndexerFactory2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, projectroot: ::windows::core::RawPtr, extensiondllpath: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateResourceIndexerWithExtension(&*(&projectroot as *const <super::super::super::Foundation::Uri as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::Uri as ::windows::core::DefaultType>::DefaultType), &*(&extensiondllpath as *const <super::super::super::Foundation::Uri as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::Uri as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -204,6 +204,6 @@ impl IResourceIndexerFactory2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IResourceIndexerFactory2>, base.5, CreateResourceIndexerWithExtension::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IResourceIndexerFactory2>, ::windows::core::GetTrustLevel, CreateResourceIndexerWithExtension::<Impl, OFFSET>)
     }
 }

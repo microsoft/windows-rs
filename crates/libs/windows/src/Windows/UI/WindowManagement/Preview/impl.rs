@@ -6,8 +6,8 @@ impl ::windows::core::RuntimeName for IWindowManagementPreview {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IWindowManagementPreviewVtbl {
-    pub const fn new<Impl: IWindowManagementPreviewImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IWindowManagementPreviewVtbl {
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IWindowManagementPreview>, base.5)
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWindowManagementPreviewImpl, const OFFSET: isize>() -> IWindowManagementPreviewVtbl {
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWindowManagementPreview>, ::windows::core::GetTrustLevel)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -20,11 +20,11 @@ impl ::windows::core::RuntimeName for IWindowManagementPreviewStatics {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IWindowManagementPreviewStaticsVtbl {
-    pub const fn new<Impl: IWindowManagementPreviewStaticsImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IWindowManagementPreviewStaticsVtbl {
-        unsafe extern "system" fn SetPreferredMinSize<Impl: IWindowManagementPreviewStaticsImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, window: ::windows::core::RawPtr, preferredframeminsize: super::super::super::Foundation::Size) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWindowManagementPreviewStaticsImpl, const OFFSET: isize>() -> IWindowManagementPreviewStaticsVtbl {
+        unsafe extern "system" fn SetPreferredMinSize<Impl: IWindowManagementPreviewStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, window: ::windows::core::RawPtr, preferredframeminsize: super::super::super::Foundation::Size) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetPreferredMinSize(&*(&window as *const <super::AppWindow as ::windows::core::Abi>::Abi as *const <super::AppWindow as ::windows::core::DefaultType>::DefaultType), &*(&preferredframeminsize as *const <super::super::super::Foundation::Size as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::Size as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IWindowManagementPreviewStatics>, base.5, SetPreferredMinSize::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWindowManagementPreviewStatics>, ::windows::core::GetTrustLevel, SetPreferredMinSize::<Impl, OFFSET>)
     }
 }

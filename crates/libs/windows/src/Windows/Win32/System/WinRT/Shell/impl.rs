@@ -5,9 +5,9 @@ impl ::windows::core::RuntimeName for IDDEInitializer {
     const NAME: &'static str = "Windows.Win32.System.WinRT.Shell.IDDEInitializer";
 }
 impl IDDEInitializerVtbl {
-    pub const fn new<Impl: IDDEInitializerImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IDDEInitializerVtbl {
-        unsafe extern "system" fn Initialize<Impl: IDDEInitializerImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, fileextensionorprotocol: super::super::super::Foundation::PWSTR, method: CreateProcessMethod, currentdirectory: super::super::super::Foundation::PWSTR, exectarget: ::windows::core::RawPtr, site: *mut ::core::ffi::c_void, application: super::super::super::Foundation::PWSTR, targetfile: super::super::super::Foundation::PWSTR, arguments: super::super::super::Foundation::PWSTR, verb: super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDDEInitializerImpl, const OFFSET: isize>() -> IDDEInitializerVtbl {
+        unsafe extern "system" fn Initialize<Impl: IDDEInitializerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fileextensionorprotocol: super::super::super::Foundation::PWSTR, method: CreateProcessMethod, currentdirectory: super::super::super::Foundation::PWSTR, exectarget: ::windows::core::RawPtr, site: *mut ::core::ffi::c_void, application: super::super::super::Foundation::PWSTR, targetfile: super::super::super::Foundation::PWSTR, arguments: super::super::super::Foundation::PWSTR, verb: super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Initialize(
                 &*(&fileextensionorprotocol as *const <super::super::super::Foundation::PWSTR as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::PWSTR as ::windows::core::DefaultType>::DefaultType),
                 method,
@@ -27,6 +27,6 @@ impl IDDEInitializerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IDDEInitializer>, base.5, Initialize::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDDEInitializer>, ::windows::core::GetTrustLevel, Initialize::<Impl, OFFSET>)
     }
 }

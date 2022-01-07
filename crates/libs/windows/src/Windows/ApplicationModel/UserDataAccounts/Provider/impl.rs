@@ -10,9 +10,9 @@ impl ::windows::core::RuntimeName for IUserDataAccountPartnerAccountInfo {
 }
 #[cfg(feature = "implement_exclusive")]
 impl IUserDataAccountPartnerAccountInfoVtbl {
-    pub const fn new<Impl: IUserDataAccountPartnerAccountInfoImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IUserDataAccountPartnerAccountInfoVtbl {
-        unsafe extern "system" fn DisplayName<Impl: IUserDataAccountPartnerAccountInfoImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUserDataAccountPartnerAccountInfoImpl, const OFFSET: isize>() -> IUserDataAccountPartnerAccountInfoVtbl {
+        unsafe extern "system" fn DisplayName<Impl: IUserDataAccountPartnerAccountInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DisplayName() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -22,8 +22,8 @@ impl IUserDataAccountPartnerAccountInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Priority<Impl: IUserDataAccountPartnerAccountInfoImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn Priority<Impl: IUserDataAccountPartnerAccountInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Priority() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -33,8 +33,8 @@ impl IUserDataAccountPartnerAccountInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AccountKind<Impl: IUserDataAccountPartnerAccountInfoImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut UserDataAccountProviderPartnerAccountKind) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn AccountKind<Impl: IUserDataAccountPartnerAccountInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut UserDataAccountProviderPartnerAccountKind) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AccountKind() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -44,7 +44,7 @@ impl IUserDataAccountPartnerAccountInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IUserDataAccountPartnerAccountInfo>, base.5, DisplayName::<Impl, OFFSET>, Priority::<Impl, OFFSET>, AccountKind::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUserDataAccountPartnerAccountInfo>, ::windows::core::GetTrustLevel, DisplayName::<Impl, OFFSET>, Priority::<Impl, OFFSET>, AccountKind::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -59,9 +59,9 @@ impl ::windows::core::RuntimeName for IUserDataAccountProviderAddAccountOperatio
 }
 #[cfg(feature = "implement_exclusive")]
 impl IUserDataAccountProviderAddAccountOperationVtbl {
-    pub const fn new<Impl: IUserDataAccountProviderAddAccountOperationImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IUserDataAccountProviderAddAccountOperationVtbl {
-        unsafe extern "system" fn ContentKinds<Impl: IUserDataAccountProviderAddAccountOperationImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut super::UserDataAccountContentKinds) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUserDataAccountProviderAddAccountOperationImpl, const OFFSET: isize>() -> IUserDataAccountProviderAddAccountOperationVtbl {
+        unsafe extern "system" fn ContentKinds<Impl: IUserDataAccountProviderAddAccountOperationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::UserDataAccountContentKinds) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ContentKinds() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -71,8 +71,8 @@ impl IUserDataAccountProviderAddAccountOperationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PartnerAccountInfos<Impl: IUserDataAccountProviderAddAccountOperationImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn PartnerAccountInfos<Impl: IUserDataAccountProviderAddAccountOperationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PartnerAccountInfos() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -82,11 +82,11 @@ impl IUserDataAccountProviderAddAccountOperationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ReportCompleted<Impl: IUserDataAccountProviderAddAccountOperationImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, userdataaccountid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn ReportCompleted<Impl: IUserDataAccountProviderAddAccountOperationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, userdataaccountid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ReportCompleted(&*(&userdataaccountid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IUserDataAccountProviderAddAccountOperation>, base.5, ContentKinds::<Impl, OFFSET>, PartnerAccountInfos::<Impl, OFFSET>, ReportCompleted::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUserDataAccountProviderAddAccountOperation>, ::windows::core::GetTrustLevel, ContentKinds::<Impl, OFFSET>, PartnerAccountInfos::<Impl, OFFSET>, ReportCompleted::<Impl, OFFSET>)
     }
 }
 pub trait IUserDataAccountProviderOperationImpl: Sized {
@@ -96,9 +96,9 @@ impl ::windows::core::RuntimeName for IUserDataAccountProviderOperation {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataAccounts.Provider.IUserDataAccountProviderOperation";
 }
 impl IUserDataAccountProviderOperationVtbl {
-    pub const fn new<Impl: IUserDataAccountProviderOperationImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IUserDataAccountProviderOperationVtbl {
-        unsafe extern "system" fn Kind<Impl: IUserDataAccountProviderOperationImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut UserDataAccountProviderOperationKind) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUserDataAccountProviderOperationImpl, const OFFSET: isize>() -> IUserDataAccountProviderOperationVtbl {
+        unsafe extern "system" fn Kind<Impl: IUserDataAccountProviderOperationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut UserDataAccountProviderOperationKind) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Kind() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -108,7 +108,7 @@ impl IUserDataAccountProviderOperationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IUserDataAccountProviderOperation>, base.5, Kind::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUserDataAccountProviderOperation>, ::windows::core::GetTrustLevel, Kind::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -122,9 +122,9 @@ impl ::windows::core::RuntimeName for IUserDataAccountProviderResolveErrorsOpera
 }
 #[cfg(feature = "implement_exclusive")]
 impl IUserDataAccountProviderResolveErrorsOperationVtbl {
-    pub const fn new<Impl: IUserDataAccountProviderResolveErrorsOperationImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IUserDataAccountProviderResolveErrorsOperationVtbl {
-        unsafe extern "system" fn UserDataAccountId<Impl: IUserDataAccountProviderResolveErrorsOperationImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUserDataAccountProviderResolveErrorsOperationImpl, const OFFSET: isize>() -> IUserDataAccountProviderResolveErrorsOperationVtbl {
+        unsafe extern "system" fn UserDataAccountId<Impl: IUserDataAccountProviderResolveErrorsOperationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).UserDataAccountId() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -134,11 +134,11 @@ impl IUserDataAccountProviderResolveErrorsOperationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ReportCompleted<Impl: IUserDataAccountProviderResolveErrorsOperationImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn ReportCompleted<Impl: IUserDataAccountProviderResolveErrorsOperationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ReportCompleted().into()
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IUserDataAccountProviderResolveErrorsOperation>, base.5, UserDataAccountId::<Impl, OFFSET>, ReportCompleted::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUserDataAccountProviderResolveErrorsOperation>, ::windows::core::GetTrustLevel, UserDataAccountId::<Impl, OFFSET>, ReportCompleted::<Impl, OFFSET>)
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -152,9 +152,9 @@ impl ::windows::core::RuntimeName for IUserDataAccountProviderSettingsOperation 
 }
 #[cfg(feature = "implement_exclusive")]
 impl IUserDataAccountProviderSettingsOperationVtbl {
-    pub const fn new<Impl: IUserDataAccountProviderSettingsOperationImpl, const OFFSET: usize>(base: &::windows::core::IInspectableVtbl) -> IUserDataAccountProviderSettingsOperationVtbl {
-        unsafe extern "system" fn UserDataAccountId<Impl: IUserDataAccountProviderSettingsOperationImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUserDataAccountProviderSettingsOperationImpl, const OFFSET: isize>() -> IUserDataAccountProviderSettingsOperationVtbl {
+        unsafe extern "system" fn UserDataAccountId<Impl: IUserDataAccountProviderSettingsOperationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).UserDataAccountId() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -164,10 +164,10 @@ impl IUserDataAccountProviderSettingsOperationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ReportCompleted<Impl: IUserDataAccountProviderSettingsOperationImpl, const OFFSET: usize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).add(OFFSET) as *mut Impl;
+        unsafe extern "system" fn ReportCompleted<Impl: IUserDataAccountProviderSettingsOperationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ReportCompleted().into()
         }
-        Self(base.0, base.1, base.2, base.3, ::windows::core::GetRuntimeClassName::<IUserDataAccountProviderSettingsOperation>, base.5, UserDataAccountId::<Impl, OFFSET>, ReportCompleted::<Impl, OFFSET>)
+        Self(::windows::core::QueryInterface::<Identity, OFFSET>, ::windows::core::AddRef::<Identity, OFFSET>, ::windows::core::Release::<Identity, OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUserDataAccountProviderSettingsOperation>, ::windows::core::GetTrustLevel, UserDataAccountId::<Impl, OFFSET>, ReportCompleted::<Impl, OFFSET>)
     }
 }
