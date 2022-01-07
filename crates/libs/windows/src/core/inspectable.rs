@@ -13,7 +13,7 @@ pub struct IInspectable(pub IUnknown);
 
 impl IInspectable {
     /// Returns the canonical type name for the underlying object.
-    pub fn type_name(&self) -> Result<HSTRING> {
+    pub fn GetRuntimeClassName(&self) -> Result<HSTRING> {
         unsafe {
             let mut abi = core::ptr::null_mut();
             (self.vtable().4)(core::mem::transmute_copy(self), &mut abi).ok()?;
@@ -47,7 +47,7 @@ impl core::fmt::Debug for IInspectable {
         // is used by all of the generated `Debug` implementations for WinRT
         // classes and interfaces.
 
-        let name = self.cast::<IStringable>().and_then(|s| s.ToString()).or_else(|_| self.type_name()).unwrap_or_default();
+        let name = self.cast::<IStringable>().and_then(|s| s.ToString()).or_else(|_| self.GetRuntimeClassName()).unwrap_or_default();
 
         write!(f, "{:?} {}", self.0, name)
     }
