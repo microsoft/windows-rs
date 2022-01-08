@@ -193,7 +193,7 @@ pub fn gen_vtbl(def: &TypeDef, cfg: &Cfg, gen: &Gen) -> TokenStream {
                 pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> #hresult,
             }),
             ElementType::IUnknown => methods.combine(&quote! {
-                pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: *const #guid, interface: *mut *mut ::core::ffi::c_void) -> #hresult,
+                pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &#guid, interface: *mut *mut ::core::ffi::c_void) -> #hresult,
                 pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
                 pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
             }),

@@ -1285,7 +1285,7 @@ impl IPropertyValueStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateGuidArray<Impl: IPropertyValueStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value_array_size: u32, value: &::windows::core::GUID, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateGuidArray<Impl: IPropertyValueStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value_array_size: u32, value: *const ::windows::core::GUID, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateGuidArray(::core::slice::from_raw_parts(::core::mem::transmute_copy(&value), value_array_size as _)) {
                 ::core::result::Result::Ok(ok__) => {
