@@ -4499,7 +4499,7 @@ impl IDWriteRemoteFontFileStreamVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn BeginDownload<Impl: IDWriteRemoteFontFileStreamImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, downloadoperationid: *const ::windows::core::GUID, filefragments: *const DWRITE_FILE_FRAGMENT, fragmentcount: u32, asyncresult: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn BeginDownload<Impl: IDWriteRemoteFontFileStreamImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, downloadoperationid: &::windows::core::GUID, filefragments: *const DWRITE_FILE_FRAGMENT, fragmentcount: u32, asyncresult: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BeginDownload(&*(&downloadoperationid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), &*(&filefragments as *const <DWRITE_FILE_FRAGMENT as ::windows::core::Abi>::Abi as *const <DWRITE_FILE_FRAGMENT as ::windows::core::DefaultType>::DefaultType), fragmentcount, ::core::mem::transmute_copy(&asyncresult)) {
                 ::core::result::Result::Ok(ok__) => {

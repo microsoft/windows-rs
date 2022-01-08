@@ -1073,7 +1073,7 @@ impl ID2D1ComputeInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetComputeShader<Impl: ID2D1ComputeInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, shaderid: *const ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetComputeShader<Impl: ID2D1ComputeInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, shaderid: &::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SetComputeShader(&*(&shaderid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1539,7 +1539,7 @@ impl ID2D1DeviceContextVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateEffect<Impl: ID2D1DeviceContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, effectid: *const ::windows::core::GUID, effect: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateEffect<Impl: ID2D1DeviceContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, effectid: &::windows::core::GUID, effect: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateEffect(&*(&effectid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&effect)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2308,7 +2308,7 @@ impl ID2D1DrawInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetPixelShader<Impl: ID2D1DrawInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, shaderid: *const ::windows::core::GUID, pixeloptions: D2D1_PIXEL_OPTIONS) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetPixelShader<Impl: ID2D1DrawInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, shaderid: &::windows::core::GUID, pixeloptions: D2D1_PIXEL_OPTIONS) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SetPixelShader(&*(&shaderid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), pixeloptions) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2319,7 +2319,7 @@ impl ID2D1DrawInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetVertexProcessing<Impl: ID2D1DrawInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vertexbuffer: ::windows::core::RawPtr, vertexoptions: D2D1_VERTEX_OPTIONS, blenddescription: *const D2D1_BLEND_DESCRIPTION, vertexrange: *const D2D1_VERTEX_RANGE, vertexshader: *const ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetVertexProcessing<Impl: ID2D1DrawInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vertexbuffer: ::windows::core::RawPtr, vertexoptions: D2D1_VERTEX_OPTIONS, blenddescription: *const D2D1_BLEND_DESCRIPTION, vertexrange: *const D2D1_VERTEX_RANGE, vertexshader: &::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SetVertexProcessing(
                 &*(&vertexbuffer as *const <ID2D1VertexBuffer as ::windows::core::Abi>::Abi as *const <ID2D1VertexBuffer as ::windows::core::DefaultType>::DefaultType),
@@ -2492,7 +2492,7 @@ impl ID2D1EffectContextVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).GetDpi(::core::mem::transmute_copy(&dpix), ::core::mem::transmute_copy(&dpiy)).into()
         }
-        unsafe extern "system" fn CreateEffect<Impl: ID2D1EffectContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, effectid: *const ::windows::core::GUID, effect: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateEffect<Impl: ID2D1EffectContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, effectid: &::windows::core::GUID, effect: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateEffect(&*(&effectid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&effect)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2569,7 +2569,7 @@ impl ID2D1EffectContextVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn LoadPixelShader<Impl: ID2D1EffectContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, shaderid: *const ::windows::core::GUID, shaderbuffer: *const u8, shaderbuffercount: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn LoadPixelShader<Impl: ID2D1EffectContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, shaderid: &::windows::core::GUID, shaderbuffer: *const u8, shaderbuffercount: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).LoadPixelShader(&*(&shaderid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), shaderbuffer, shaderbuffercount) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2580,7 +2580,7 @@ impl ID2D1EffectContextVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn LoadVertexShader<Impl: ID2D1EffectContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, resourceid: *const ::windows::core::GUID, shaderbuffer: *const u8, shaderbuffercount: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn LoadVertexShader<Impl: ID2D1EffectContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, resourceid: &::windows::core::GUID, shaderbuffer: *const u8, shaderbuffercount: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).LoadVertexShader(&*(&resourceid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), shaderbuffer, shaderbuffercount) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2591,7 +2591,7 @@ impl ID2D1EffectContextVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn LoadComputeShader<Impl: ID2D1EffectContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, resourceid: *const ::windows::core::GUID, shaderbuffer: *const u8, shaderbuffercount: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn LoadComputeShader<Impl: ID2D1EffectContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, resourceid: &::windows::core::GUID, shaderbuffer: *const u8, shaderbuffercount: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).LoadComputeShader(&*(&resourceid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), shaderbuffer, shaderbuffercount) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2602,7 +2602,7 @@ impl ID2D1EffectContextVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsShaderLoaded<Impl: ID2D1EffectContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, shaderid: *const ::windows::core::GUID) -> super::super::Foundation::BOOL {
+        unsafe extern "system" fn IsShaderLoaded<Impl: ID2D1EffectContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, shaderid: &::windows::core::GUID) -> super::super::Foundation::BOOL {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsShaderLoaded(&*(&shaderid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2613,7 +2613,7 @@ impl ID2D1EffectContextVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateResourceTexture<Impl: ID2D1EffectContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, resourceid: *const ::windows::core::GUID, resourcetextureproperties: *const D2D1_RESOURCE_TEXTURE_PROPERTIES, data: *const u8, strides: *const u32, datasize: u32, resourcetexture: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateResourceTexture<Impl: ID2D1EffectContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, resourceid: &::windows::core::GUID, resourcetextureproperties: *const D2D1_RESOURCE_TEXTURE_PROPERTIES, data: *const u8, strides: *const u32, datasize: u32, resourcetexture: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateResourceTexture(&*(&resourceid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), &*(&resourcetextureproperties as *const <D2D1_RESOURCE_TEXTURE_PROPERTIES as ::windows::core::Abi>::Abi as *const <D2D1_RESOURCE_TEXTURE_PROPERTIES as ::windows::core::DefaultType>::DefaultType), data, strides, datasize, ::core::mem::transmute_copy(&resourcetexture)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2624,7 +2624,7 @@ impl ID2D1EffectContextVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn FindResourceTexture<Impl: ID2D1EffectContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, resourceid: *const ::windows::core::GUID, resourcetexture: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FindResourceTexture<Impl: ID2D1EffectContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, resourceid: &::windows::core::GUID, resourcetexture: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FindResourceTexture(&*(&resourceid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&resourcetexture)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2635,7 +2635,7 @@ impl ID2D1EffectContextVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateVertexBuffer<Impl: ID2D1EffectContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vertexbufferproperties: *const D2D1_VERTEX_BUFFER_PROPERTIES, resourceid: *const ::windows::core::GUID, customvertexbufferproperties: *const D2D1_CUSTOM_VERTEX_BUFFER_PROPERTIES, buffer: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateVertexBuffer<Impl: ID2D1EffectContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vertexbufferproperties: *const D2D1_VERTEX_BUFFER_PROPERTIES, resourceid: &::windows::core::GUID, customvertexbufferproperties: *const D2D1_CUSTOM_VERTEX_BUFFER_PROPERTIES, buffer: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateVertexBuffer(
                 &*(&vertexbufferproperties as *const <D2D1_VERTEX_BUFFER_PROPERTIES as ::windows::core::Abi>::Abi as *const <D2D1_VERTEX_BUFFER_PROPERTIES as ::windows::core::DefaultType>::DefaultType),
@@ -2651,7 +2651,7 @@ impl ID2D1EffectContextVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn FindVertexBuffer<Impl: ID2D1EffectContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, resourceid: *const ::windows::core::GUID, buffer: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FindVertexBuffer<Impl: ID2D1EffectContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, resourceid: &::windows::core::GUID, buffer: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FindVertexBuffer(&*(&resourceid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&buffer)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -3129,7 +3129,7 @@ impl ID2D1Factory1Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RegisterEffectFromStream<Impl: ID2D1Factory1Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, classid: *const ::windows::core::GUID, propertyxml: ::windows::core::RawPtr, bindings: *const D2D1_PROPERTY_BINDING, bindingscount: u32, effectfactory: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RegisterEffectFromStream<Impl: ID2D1Factory1Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, classid: &::windows::core::GUID, propertyxml: ::windows::core::RawPtr, bindings: *const D2D1_PROPERTY_BINDING, bindingscount: u32, effectfactory: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RegisterEffectFromStream(
                 &*(&classid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType),
@@ -3146,7 +3146,7 @@ impl ID2D1Factory1Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RegisterEffectFromString<Impl: ID2D1Factory1Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, classid: *const ::windows::core::GUID, propertyxml: super::super::Foundation::PWSTR, bindings: *const D2D1_PROPERTY_BINDING, bindingscount: u32, effectfactory: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RegisterEffectFromString<Impl: ID2D1Factory1Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, classid: &::windows::core::GUID, propertyxml: super::super::Foundation::PWSTR, bindings: *const D2D1_PROPERTY_BINDING, bindingscount: u32, effectfactory: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RegisterEffectFromString(
                 &*(&classid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType),
@@ -3163,7 +3163,7 @@ impl ID2D1Factory1Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn UnregisterEffect<Impl: ID2D1Factory1Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, classid: *const ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn UnregisterEffect<Impl: ID2D1Factory1Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, classid: &::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).UnregisterEffect(&*(&classid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -3185,7 +3185,7 @@ impl ID2D1Factory1Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetEffectProperties<Impl: ID2D1Factory1Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, effectid: *const ::windows::core::GUID, properties: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetEffectProperties<Impl: ID2D1Factory1Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, effectid: &::windows::core::GUID, properties: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetEffectProperties(&*(&effectid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&properties)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -5028,7 +5028,7 @@ impl ID2D1RenderTargetVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateSharedBitmap<Impl: ID2D1RenderTargetImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, data: *mut ::core::ffi::c_void, bitmapproperties: *const D2D1_BITMAP_PROPERTIES, bitmap: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateSharedBitmap<Impl: ID2D1RenderTargetImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, riid: &::windows::core::GUID, data: *mut ::core::ffi::c_void, bitmapproperties: *const D2D1_BITMAP_PROPERTIES, bitmap: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateSharedBitmap(
                 &*(&riid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType),
@@ -6318,7 +6318,7 @@ impl ID2D1SvgElementVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetAttributeValue<Impl: ID2D1SvgElementImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: super::super::Foundation::PWSTR, riid: *const ::windows::core::GUID, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetAttributeValue<Impl: ID2D1SvgElementImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: super::super::Foundation::PWSTR, riid: &::windows::core::GUID, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetAttributeValue(&*(&name as *const <super::super::Foundation::PWSTR as ::windows::core::Abi>::Abi as *const <super::super::Foundation::PWSTR as ::windows::core::DefaultType>::DefaultType), &*(&riid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&value)) {
                 ::core::result::Result::Ok(ok__) => {

@@ -592,7 +592,7 @@ impl ::windows::core::RuntimeName for ISideShowSession {
 }
 impl ISideShowSessionVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISideShowSessionImpl, const OFFSET: isize>() -> ISideShowSessionVtbl {
-        unsafe extern "system" fn RegisterContent<Impl: ISideShowSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, in_applicationid: *const ::windows::core::GUID, in_endpointid: *const ::windows::core::GUID, out_ppicontent: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RegisterContent<Impl: ISideShowSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, in_applicationid: &::windows::core::GUID, in_endpointid: &::windows::core::GUID, out_ppicontent: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RegisterContent(&*(&in_applicationid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), &*(&in_endpointid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&out_ppicontent)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -603,7 +603,7 @@ impl ISideShowSessionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RegisterNotifications<Impl: ISideShowSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, in_applicationid: *const ::windows::core::GUID, out_ppinotification: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RegisterNotifications<Impl: ISideShowSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, in_applicationid: &::windows::core::GUID, out_ppinotification: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RegisterNotifications(&*(&in_applicationid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&out_ppinotification)) {
                 ::core::result::Result::Ok(ok__) => {

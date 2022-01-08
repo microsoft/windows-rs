@@ -424,7 +424,7 @@ impl IInternetHostSecurityManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn QueryCustomPolicy<Impl: IInternetHostSecurityManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, pppolicy: *mut *mut u8, pcbpolicy: *mut u32, pcontext: *const u8, cbcontext: u32, dwreserved: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn QueryCustomPolicy<Impl: IInternetHostSecurityManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, guidkey: &::windows::core::GUID, pppolicy: *mut *mut u8, pcbpolicy: *mut u32, pcontext: *const u8, cbcontext: u32, dwreserved: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).QueryCustomPolicy(&*(&guidkey as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&pppolicy), ::core::mem::transmute_copy(&pcbpolicy), pcontext, cbcontext, dwreserved) {
                 ::core::result::Result::Ok(ok__) => {
@@ -886,7 +886,7 @@ impl IInternetSecurityManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn QueryCustomPolicy<Impl: IInternetSecurityManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszurl: super::super::super::Foundation::PWSTR, guidkey: *const ::windows::core::GUID, pppolicy: *mut *mut u8, pcbpolicy: *mut u32, pcontext: *const u8, cbcontext: u32, dwreserved: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn QueryCustomPolicy<Impl: IInternetSecurityManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszurl: super::super::super::Foundation::PWSTR, guidkey: &::windows::core::GUID, pppolicy: *mut *mut u8, pcbpolicy: *mut u32, pcontext: *const u8, cbcontext: u32, dwreserved: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).QueryCustomPolicy(&*(&pwszurl as *const <super::super::super::Foundation::PWSTR as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::PWSTR as ::windows::core::DefaultType>::DefaultType), &*(&guidkey as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&pppolicy), ::core::mem::transmute_copy(&pcbpolicy), pcontext, cbcontext, dwreserved) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1003,7 +1003,7 @@ impl IInternetSecurityManagerEx2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn QueryCustomPolicyEx2<Impl: IInternetSecurityManagerEx2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, puri: ::windows::core::RawPtr, guidkey: *const ::windows::core::GUID, pppolicy: *mut *mut u8, pcbpolicy: *mut u32, pcontext: *const u8, cbcontext: u32, dwreserved: usize) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn QueryCustomPolicyEx2<Impl: IInternetSecurityManagerEx2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, puri: ::windows::core::RawPtr, guidkey: &::windows::core::GUID, pppolicy: *mut *mut u8, pcbpolicy: *mut u32, pcontext: *const u8, cbcontext: u32, dwreserved: usize) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).QueryCustomPolicyEx2(&*(&puri as *const <super::IUri as ::windows::core::Abi>::Abi as *const <super::IUri as ::windows::core::DefaultType>::DefaultType), &*(&guidkey as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&pppolicy), ::core::mem::transmute_copy(&pcbpolicy), pcontext, cbcontext, dwreserved) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1065,7 +1065,7 @@ impl ::windows::core::RuntimeName for IInternetSession {
 }
 impl IInternetSessionVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInternetSessionImpl, const OFFSET: isize>() -> IInternetSessionVtbl {
-        unsafe extern "system" fn RegisterNameSpace<Impl: IInternetSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcf: ::windows::core::RawPtr, rclsid: *const ::windows::core::GUID, pwzprotocol: super::super::super::Foundation::PWSTR, cpatterns: u32, ppwzpatterns: *const super::super::super::Foundation::PWSTR, dwreserved: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RegisterNameSpace<Impl: IInternetSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcf: ::windows::core::RawPtr, rclsid: &::windows::core::GUID, pwzprotocol: super::super::super::Foundation::PWSTR, cpatterns: u32, ppwzpatterns: *const super::super::super::Foundation::PWSTR, dwreserved: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RegisterNameSpace(
                 &*(&pcf as *const <super::IClassFactory as ::windows::core::Abi>::Abi as *const <super::IClassFactory as ::windows::core::DefaultType>::DefaultType),
@@ -1094,7 +1094,7 @@ impl IInternetSessionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RegisterMimeFilter<Impl: IInternetSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcf: ::windows::core::RawPtr, rclsid: *const ::windows::core::GUID, pwztype: super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RegisterMimeFilter<Impl: IInternetSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcf: ::windows::core::RawPtr, rclsid: &::windows::core::GUID, pwztype: super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RegisterMimeFilter(
                 &*(&pcf as *const <super::IClassFactory as ::windows::core::Abi>::Abi as *const <super::IClassFactory as ::windows::core::DefaultType>::DefaultType),
@@ -1252,7 +1252,7 @@ impl IInternetZoneManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetZoneCustomPolicy<Impl: IInternetZoneManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwzone: u32, guidkey: *const ::windows::core::GUID, pppolicy: *mut *mut u8, pcbpolicy: *mut u32, urlzonereg: URLZONEREG) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetZoneCustomPolicy<Impl: IInternetZoneManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwzone: u32, guidkey: &::windows::core::GUID, pppolicy: *mut *mut u8, pcbpolicy: *mut u32, urlzonereg: URLZONEREG) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetZoneCustomPolicy(dwzone, &*(&guidkey as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&pppolicy), ::core::mem::transmute_copy(&pcbpolicy), urlzonereg) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1263,7 +1263,7 @@ impl IInternetZoneManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetZoneCustomPolicy<Impl: IInternetZoneManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwzone: u32, guidkey: *const ::windows::core::GUID, ppolicy: *const u8, cbpolicy: u32, urlzonereg: URLZONEREG) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetZoneCustomPolicy<Impl: IInternetZoneManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwzone: u32, guidkey: &::windows::core::GUID, ppolicy: *const u8, cbpolicy: u32, urlzonereg: URLZONEREG) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SetZoneCustomPolicy(dwzone, &*(&guidkey as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), ppolicy, cbpolicy, urlzonereg) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1866,7 +1866,7 @@ impl ::windows::core::RuntimeName for IWindowForBindingUI {
 }
 impl IWindowForBindingUIVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWindowForBindingUIImpl, const OFFSET: isize>() -> IWindowForBindingUIVtbl {
-        unsafe extern "system" fn GetWindow<Impl: IWindowForBindingUIImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rguidreason: *const ::windows::core::GUID, phwnd: *mut super::super::super::Foundation::HWND) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetWindow<Impl: IWindowForBindingUIImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rguidreason: &::windows::core::GUID, phwnd: *mut super::super::super::Foundation::HWND) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetWindow(&*(&rguidreason as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&phwnd)) {
                 ::core::result::Result::Ok(ok__) => {

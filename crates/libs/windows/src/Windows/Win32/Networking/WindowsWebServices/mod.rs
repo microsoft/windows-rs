@@ -78,7 +78,7 @@ unsafe impl ::windows::core::Interface for IContentPrefetcherTaskTrigger {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IContentPrefetcherTaskTriggerVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: *const ::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
@@ -12389,12 +12389,12 @@ pub unsafe fn WebAuthNAuthenticatorMakeCredential<'a, Param0: ::windows::core::I
 }
 #[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 #[inline]
-pub unsafe fn WebAuthNCancelCurrentOperation(pcancellationid: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
+pub unsafe fn WebAuthNCancelCurrentOperation(pcancellationid: &::windows::core::GUID) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WebAuthNCancelCurrentOperation(pcancellationid: *const ::windows::core::GUID) -> ::windows::core::HRESULT;
+            fn WebAuthNCancelCurrentOperation(pcancellationid: &::windows::core::GUID) -> ::windows::core::HRESULT;
         }
         WebAuthNCancelCurrentOperation(::core::mem::transmute(pcancellationid)).ok()
     }

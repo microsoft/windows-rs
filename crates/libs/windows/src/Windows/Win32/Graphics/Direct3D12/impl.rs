@@ -676,7 +676,7 @@ impl ID3D12DeviceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateCommandQueue<Impl: ID3D12DeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdesc: *const D3D12_COMMAND_QUEUE_DESC, riid: *const ::windows::core::GUID, ppcommandqueue: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateCommandQueue<Impl: ID3D12DeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdesc: *const D3D12_COMMAND_QUEUE_DESC, riid: &::windows::core::GUID, ppcommandqueue: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateCommandQueue(&*(&pdesc as *const <D3D12_COMMAND_QUEUE_DESC as ::windows::core::Abi>::Abi as *const <D3D12_COMMAND_QUEUE_DESC as ::windows::core::DefaultType>::DefaultType), &*(&riid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&ppcommandqueue)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -687,7 +687,7 @@ impl ID3D12DeviceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateCommandAllocator<Impl: ID3D12DeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, r#type: D3D12_COMMAND_LIST_TYPE, riid: *const ::windows::core::GUID, ppcommandallocator: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateCommandAllocator<Impl: ID3D12DeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, r#type: D3D12_COMMAND_LIST_TYPE, riid: &::windows::core::GUID, ppcommandallocator: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateCommandAllocator(r#type, &*(&riid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&ppcommandallocator)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -698,7 +698,7 @@ impl ID3D12DeviceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateGraphicsPipelineState<Impl: ID3D12DeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdesc: *const D3D12_GRAPHICS_PIPELINE_STATE_DESC, riid: *const ::windows::core::GUID, pppipelinestate: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateGraphicsPipelineState<Impl: ID3D12DeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdesc: *const D3D12_GRAPHICS_PIPELINE_STATE_DESC, riid: &::windows::core::GUID, pppipelinestate: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateGraphicsPipelineState(&*(&pdesc as *const <D3D12_GRAPHICS_PIPELINE_STATE_DESC as ::windows::core::Abi>::Abi as *const <D3D12_GRAPHICS_PIPELINE_STATE_DESC as ::windows::core::DefaultType>::DefaultType), &*(&riid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&pppipelinestate)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -709,7 +709,7 @@ impl ID3D12DeviceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateComputePipelineState<Impl: ID3D12DeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdesc: *const D3D12_COMPUTE_PIPELINE_STATE_DESC, riid: *const ::windows::core::GUID, pppipelinestate: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateComputePipelineState<Impl: ID3D12DeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdesc: *const D3D12_COMPUTE_PIPELINE_STATE_DESC, riid: &::windows::core::GUID, pppipelinestate: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateComputePipelineState(&*(&pdesc as *const <D3D12_COMPUTE_PIPELINE_STATE_DESC as ::windows::core::Abi>::Abi as *const <D3D12_COMPUTE_PIPELINE_STATE_DESC as ::windows::core::DefaultType>::DefaultType), &*(&riid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&pppipelinestate)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -720,7 +720,7 @@ impl ID3D12DeviceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateCommandList<Impl: ID3D12DeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, nodemask: u32, r#type: D3D12_COMMAND_LIST_TYPE, pcommandallocator: ::windows::core::RawPtr, pinitialstate: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, ppcommandlist: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateCommandList<Impl: ID3D12DeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, nodemask: u32, r#type: D3D12_COMMAND_LIST_TYPE, pcommandallocator: ::windows::core::RawPtr, pinitialstate: ::windows::core::RawPtr, riid: &::windows::core::GUID, ppcommandlist: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateCommandList(
                 nodemask,
@@ -749,7 +749,7 @@ impl ID3D12DeviceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateDescriptorHeap<Impl: ID3D12DeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdescriptorheapdesc: *const D3D12_DESCRIPTOR_HEAP_DESC, riid: *const ::windows::core::GUID, ppvheap: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateDescriptorHeap<Impl: ID3D12DeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdescriptorheapdesc: *const D3D12_DESCRIPTOR_HEAP_DESC, riid: &::windows::core::GUID, ppvheap: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateDescriptorHeap(&*(&pdescriptorheapdesc as *const <D3D12_DESCRIPTOR_HEAP_DESC as ::windows::core::Abi>::Abi as *const <D3D12_DESCRIPTOR_HEAP_DESC as ::windows::core::DefaultType>::DefaultType), &*(&riid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&ppvheap)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -771,7 +771,7 @@ impl ID3D12DeviceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateRootSignature<Impl: ID3D12DeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, nodemask: u32, pblobwithrootsignature: *const ::core::ffi::c_void, bloblengthinbytes: usize, riid: *const ::windows::core::GUID, ppvrootsignature: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateRootSignature<Impl: ID3D12DeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, nodemask: u32, pblobwithrootsignature: *const ::core::ffi::c_void, bloblengthinbytes: usize, riid: &::windows::core::GUID, ppvrootsignature: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateRootSignature(nodemask, &*(&pblobwithrootsignature as *const <::core::ffi::c_void as ::windows::core::Abi>::Abi as *const <::core::ffi::c_void as ::windows::core::DefaultType>::DefaultType), bloblengthinbytes, &*(&riid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&ppvrootsignature)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -871,7 +871,7 @@ impl ID3D12DeviceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateCommittedResource<Impl: ID3D12DeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pheapproperties: *const D3D12_HEAP_PROPERTIES, heapflags: D3D12_HEAP_FLAGS, pdesc: *const D3D12_RESOURCE_DESC, initialresourcestate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, riidresource: *const ::windows::core::GUID, ppvresource: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateCommittedResource<Impl: ID3D12DeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pheapproperties: *const D3D12_HEAP_PROPERTIES, heapflags: D3D12_HEAP_FLAGS, pdesc: *const D3D12_RESOURCE_DESC, initialresourcestate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, riidresource: &::windows::core::GUID, ppvresource: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateCommittedResource(
                 &*(&pheapproperties as *const <D3D12_HEAP_PROPERTIES as ::windows::core::Abi>::Abi as *const <D3D12_HEAP_PROPERTIES as ::windows::core::DefaultType>::DefaultType),
@@ -890,7 +890,7 @@ impl ID3D12DeviceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateHeap<Impl: ID3D12DeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdesc: *const D3D12_HEAP_DESC, riid: *const ::windows::core::GUID, ppvheap: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateHeap<Impl: ID3D12DeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdesc: *const D3D12_HEAP_DESC, riid: &::windows::core::GUID, ppvheap: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateHeap(&*(&pdesc as *const <D3D12_HEAP_DESC as ::windows::core::Abi>::Abi as *const <D3D12_HEAP_DESC as ::windows::core::DefaultType>::DefaultType), &*(&riid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&ppvheap)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -901,7 +901,7 @@ impl ID3D12DeviceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreatePlacedResource<Impl: ID3D12DeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pheap: ::windows::core::RawPtr, heapoffset: u64, pdesc: *const D3D12_RESOURCE_DESC, initialstate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, riid: *const ::windows::core::GUID, ppvresource: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreatePlacedResource<Impl: ID3D12DeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pheap: ::windows::core::RawPtr, heapoffset: u64, pdesc: *const D3D12_RESOURCE_DESC, initialstate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, riid: &::windows::core::GUID, ppvresource: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreatePlacedResource(
                 &*(&pheap as *const <ID3D12Heap as ::windows::core::Abi>::Abi as *const <ID3D12Heap as ::windows::core::DefaultType>::DefaultType),
@@ -920,7 +920,7 @@ impl ID3D12DeviceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateReservedResource<Impl: ID3D12DeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdesc: *const D3D12_RESOURCE_DESC, initialstate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, riid: *const ::windows::core::GUID, ppvresource: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateReservedResource<Impl: ID3D12DeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdesc: *const D3D12_RESOURCE_DESC, initialstate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, riid: &::windows::core::GUID, ppvresource: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateReservedResource(
                 &*(&pdesc as *const <D3D12_RESOURCE_DESC as ::windows::core::Abi>::Abi as *const <D3D12_RESOURCE_DESC as ::windows::core::DefaultType>::DefaultType),
@@ -954,7 +954,7 @@ impl ID3D12DeviceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn OpenSharedHandle<Impl: ID3D12DeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, nthandle: super::super::Foundation::HANDLE, riid: *const ::windows::core::GUID, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OpenSharedHandle<Impl: ID3D12DeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, nthandle: super::super::Foundation::HANDLE, riid: &::windows::core::GUID, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OpenSharedHandle(&*(&nthandle as *const <super::super::Foundation::HANDLE as ::windows::core::Abi>::Abi as *const <super::super::Foundation::HANDLE as ::windows::core::DefaultType>::DefaultType), &*(&riid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&ppvobj)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -998,7 +998,7 @@ impl ID3D12DeviceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateFence<Impl: ID3D12DeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, initialvalue: u64, flags: D3D12_FENCE_FLAGS, riid: *const ::windows::core::GUID, ppfence: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateFence<Impl: ID3D12DeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, initialvalue: u64, flags: D3D12_FENCE_FLAGS, riid: &::windows::core::GUID, ppfence: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateFence(initialvalue, flags, &*(&riid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&ppfence)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1024,7 +1024,7 @@ impl ID3D12DeviceVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).GetCopyableFootprints(&*(&presourcedesc as *const <D3D12_RESOURCE_DESC as ::windows::core::Abi>::Abi as *const <D3D12_RESOURCE_DESC as ::windows::core::DefaultType>::DefaultType), firstsubresource, numsubresources, baseoffset, ::core::mem::transmute_copy(&playouts), ::core::mem::transmute_copy(&pnumrows), ::core::mem::transmute_copy(&prowsizeinbytes), ::core::mem::transmute_copy(&ptotalbytes)).into()
         }
-        unsafe extern "system" fn CreateQueryHeap<Impl: ID3D12DeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdesc: *const D3D12_QUERY_HEAP_DESC, riid: *const ::windows::core::GUID, ppvheap: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateQueryHeap<Impl: ID3D12DeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdesc: *const D3D12_QUERY_HEAP_DESC, riid: &::windows::core::GUID, ppvheap: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateQueryHeap(&*(&pdesc as *const <D3D12_QUERY_HEAP_DESC as ::windows::core::Abi>::Abi as *const <D3D12_QUERY_HEAP_DESC as ::windows::core::DefaultType>::DefaultType), &*(&riid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&ppvheap)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1046,7 +1046,7 @@ impl ID3D12DeviceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateCommandSignature<Impl: ID3D12DeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdesc: *const D3D12_COMMAND_SIGNATURE_DESC, prootsignature: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, ppvcommandsignature: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateCommandSignature<Impl: ID3D12DeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdesc: *const D3D12_COMMAND_SIGNATURE_DESC, prootsignature: ::windows::core::RawPtr, riid: &::windows::core::GUID, ppvcommandsignature: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateCommandSignature(
                 &*(&pdesc as *const <D3D12_COMMAND_SIGNATURE_DESC as ::windows::core::Abi>::Abi as *const <D3D12_COMMAND_SIGNATURE_DESC as ::windows::core::DefaultType>::DefaultType),
@@ -1134,7 +1134,7 @@ impl ::windows::core::RuntimeName for ID3D12Device1 {
 }
 impl ID3D12Device1Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12Device1Impl, const OFFSET: isize>() -> ID3D12Device1Vtbl {
-        unsafe extern "system" fn CreatePipelineLibrary<Impl: ID3D12Device1Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plibraryblob: *const ::core::ffi::c_void, bloblength: usize, riid: *const ::windows::core::GUID, pppipelinelibrary: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreatePipelineLibrary<Impl: ID3D12Device1Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plibraryblob: *const ::core::ffi::c_void, bloblength: usize, riid: &::windows::core::GUID, pppipelinelibrary: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreatePipelineLibrary(&*(&plibraryblob as *const <::core::ffi::c_void as ::windows::core::Abi>::Abi as *const <::core::ffi::c_void as ::windows::core::DefaultType>::DefaultType), bloblength, &*(&riid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&pppipelinelibrary)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1178,7 +1178,7 @@ impl ::windows::core::RuntimeName for ID3D12Device2 {
 }
 impl ID3D12Device2Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12Device2Impl, const OFFSET: isize>() -> ID3D12Device2Vtbl {
-        unsafe extern "system" fn CreatePipelineState<Impl: ID3D12Device2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdesc: *const D3D12_PIPELINE_STATE_STREAM_DESC, riid: *const ::windows::core::GUID, pppipelinestate: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreatePipelineState<Impl: ID3D12Device2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdesc: *const D3D12_PIPELINE_STATE_STREAM_DESC, riid: &::windows::core::GUID, pppipelinestate: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreatePipelineState(&*(&pdesc as *const <D3D12_PIPELINE_STATE_STREAM_DESC as ::windows::core::Abi>::Abi as *const <D3D12_PIPELINE_STATE_STREAM_DESC as ::windows::core::DefaultType>::DefaultType), &*(&riid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&pppipelinestate)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1202,7 +1202,7 @@ impl ::windows::core::RuntimeName for ID3D12Device3 {
 }
 impl ID3D12Device3Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12Device3Impl, const OFFSET: isize>() -> ID3D12Device3Vtbl {
-        unsafe extern "system" fn OpenExistingHeapFromAddress<Impl: ID3D12Device3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, paddress: *const ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppvheap: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OpenExistingHeapFromAddress<Impl: ID3D12Device3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, paddress: *const ::core::ffi::c_void, riid: &::windows::core::GUID, ppvheap: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OpenExistingHeapFromAddress(&*(&paddress as *const <::core::ffi::c_void as ::windows::core::Abi>::Abi as *const <::core::ffi::c_void as ::windows::core::DefaultType>::DefaultType), &*(&riid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&ppvheap)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1213,7 +1213,7 @@ impl ID3D12Device3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn OpenExistingHeapFromFileMapping<Impl: ID3D12Device3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hfilemapping: super::super::Foundation::HANDLE, riid: *const ::windows::core::GUID, ppvheap: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OpenExistingHeapFromFileMapping<Impl: ID3D12Device3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hfilemapping: super::super::Foundation::HANDLE, riid: &::windows::core::GUID, ppvheap: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OpenExistingHeapFromFileMapping(&*(&hfilemapping as *const <super::super::Foundation::HANDLE as ::windows::core::Abi>::Abi as *const <super::super::Foundation::HANDLE as ::windows::core::DefaultType>::DefaultType), &*(&riid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&ppvheap)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1251,7 +1251,7 @@ impl ::windows::core::RuntimeName for ID3D12Device4 {
 }
 impl ID3D12Device4Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12Device4Impl, const OFFSET: isize>() -> ID3D12Device4Vtbl {
-        unsafe extern "system" fn CreateCommandList1<Impl: ID3D12Device4Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, nodemask: u32, r#type: D3D12_COMMAND_LIST_TYPE, flags: D3D12_COMMAND_LIST_FLAGS, riid: *const ::windows::core::GUID, ppcommandlist: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateCommandList1<Impl: ID3D12Device4Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, nodemask: u32, r#type: D3D12_COMMAND_LIST_TYPE, flags: D3D12_COMMAND_LIST_FLAGS, riid: &::windows::core::GUID, ppcommandlist: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateCommandList1(nodemask, r#type, flags, &*(&riid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&ppcommandlist)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1262,7 +1262,7 @@ impl ID3D12Device4Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateProtectedResourceSession<Impl: ID3D12Device4Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdesc: *const D3D12_PROTECTED_RESOURCE_SESSION_DESC, riid: *const ::windows::core::GUID, ppsession: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateProtectedResourceSession<Impl: ID3D12Device4Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdesc: *const D3D12_PROTECTED_RESOURCE_SESSION_DESC, riid: &::windows::core::GUID, ppsession: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateProtectedResourceSession(&*(&pdesc as *const <D3D12_PROTECTED_RESOURCE_SESSION_DESC as ::windows::core::Abi>::Abi as *const <D3D12_PROTECTED_RESOURCE_SESSION_DESC as ::windows::core::DefaultType>::DefaultType), &*(&riid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&ppsession)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1273,7 +1273,7 @@ impl ID3D12Device4Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateCommittedResource1<Impl: ID3D12Device4Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pheapproperties: *const D3D12_HEAP_PROPERTIES, heapflags: D3D12_HEAP_FLAGS, pdesc: *const D3D12_RESOURCE_DESC, initialresourcestate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, pprotectedsession: ::windows::core::RawPtr, riidresource: *const ::windows::core::GUID, ppvresource: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateCommittedResource1<Impl: ID3D12Device4Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pheapproperties: *const D3D12_HEAP_PROPERTIES, heapflags: D3D12_HEAP_FLAGS, pdesc: *const D3D12_RESOURCE_DESC, initialresourcestate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, pprotectedsession: ::windows::core::RawPtr, riidresource: &::windows::core::GUID, ppvresource: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateCommittedResource1(
                 &*(&pheapproperties as *const <D3D12_HEAP_PROPERTIES as ::windows::core::Abi>::Abi as *const <D3D12_HEAP_PROPERTIES as ::windows::core::DefaultType>::DefaultType),
@@ -1293,7 +1293,7 @@ impl ID3D12Device4Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateHeap1<Impl: ID3D12Device4Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdesc: *const D3D12_HEAP_DESC, pprotectedsession: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, ppvheap: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateHeap1<Impl: ID3D12Device4Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdesc: *const D3D12_HEAP_DESC, pprotectedsession: ::windows::core::RawPtr, riid: &::windows::core::GUID, ppvheap: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateHeap1(
                 &*(&pdesc as *const <D3D12_HEAP_DESC as ::windows::core::Abi>::Abi as *const <D3D12_HEAP_DESC as ::windows::core::DefaultType>::DefaultType),
@@ -1309,7 +1309,7 @@ impl ID3D12Device4Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateReservedResource1<Impl: ID3D12Device4Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdesc: *const D3D12_RESOURCE_DESC, initialstate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, pprotectedsession: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, ppvresource: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateReservedResource1<Impl: ID3D12Device4Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdesc: *const D3D12_RESOURCE_DESC, initialstate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, pprotectedsession: ::windows::core::RawPtr, riid: &::windows::core::GUID, ppvresource: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateReservedResource1(
                 &*(&pdesc as *const <D3D12_RESOURCE_DESC as ::windows::core::Abi>::Abi as *const <D3D12_RESOURCE_DESC as ::windows::core::DefaultType>::DefaultType),
@@ -1369,7 +1369,7 @@ impl ::windows::core::RuntimeName for ID3D12Device5 {
 }
 impl ID3D12Device5Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12Device5Impl, const OFFSET: isize>() -> ID3D12Device5Vtbl {
-        unsafe extern "system" fn CreateLifetimeTracker<Impl: ID3D12Device5Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, powner: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, ppvtracker: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateLifetimeTracker<Impl: ID3D12Device5Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, powner: ::windows::core::RawPtr, riid: &::windows::core::GUID, ppvtracker: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateLifetimeTracker(&*(&powner as *const <ID3D12LifetimeOwner as ::windows::core::Abi>::Abi as *const <ID3D12LifetimeOwner as ::windows::core::DefaultType>::DefaultType), &*(&riid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&ppvtracker)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1395,7 +1395,7 @@ impl ID3D12Device5Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn EnumerateMetaCommandParameters<Impl: ID3D12Device5Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, commandid: *const ::windows::core::GUID, stage: D3D12_META_COMMAND_PARAMETER_STAGE, ptotalstructuresizeinbytes: *mut u32, pparametercount: *mut u32, pparameterdescs: *mut D3D12_META_COMMAND_PARAMETER_DESC) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn EnumerateMetaCommandParameters<Impl: ID3D12Device5Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, commandid: &::windows::core::GUID, stage: D3D12_META_COMMAND_PARAMETER_STAGE, ptotalstructuresizeinbytes: *mut u32, pparametercount: *mut u32, pparameterdescs: *mut D3D12_META_COMMAND_PARAMETER_DESC) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EnumerateMetaCommandParameters(&*(&commandid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), stage, ::core::mem::transmute_copy(&ptotalstructuresizeinbytes), pparametercount, ::core::mem::transmute_copy(&pparameterdescs)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1406,7 +1406,7 @@ impl ID3D12Device5Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateMetaCommand<Impl: ID3D12Device5Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, commandid: *const ::windows::core::GUID, nodemask: u32, pcreationparametersdata: *const ::core::ffi::c_void, creationparametersdatasizeinbytes: usize, riid: *const ::windows::core::GUID, ppmetacommand: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateMetaCommand<Impl: ID3D12Device5Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, commandid: &::windows::core::GUID, nodemask: u32, pcreationparametersdata: *const ::core::ffi::c_void, creationparametersdatasizeinbytes: usize, riid: &::windows::core::GUID, ppmetacommand: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateMetaCommand(
                 &*(&commandid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType),
@@ -1424,7 +1424,7 @@ impl ID3D12Device5Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateStateObject<Impl: ID3D12Device5Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdesc: *const D3D12_STATE_OBJECT_DESC, riid: *const ::windows::core::GUID, ppstateobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateStateObject<Impl: ID3D12Device5Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdesc: *const D3D12_STATE_OBJECT_DESC, riid: &::windows::core::GUID, ppstateobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateStateObject(&*(&pdesc as *const <D3D12_STATE_OBJECT_DESC as ::windows::core::Abi>::Abi as *const <D3D12_STATE_OBJECT_DESC as ::windows::core::DefaultType>::DefaultType), &*(&riid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&ppstateobject)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1499,7 +1499,7 @@ impl ::windows::core::RuntimeName for ID3D12Device7 {
 }
 impl ID3D12Device7Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12Device7Impl, const OFFSET: isize>() -> ID3D12Device7Vtbl {
-        unsafe extern "system" fn AddToStateObject<Impl: ID3D12Device7Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, paddition: *const D3D12_STATE_OBJECT_DESC, pstateobjecttogrowfrom: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, ppnewstateobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddToStateObject<Impl: ID3D12Device7Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, paddition: *const D3D12_STATE_OBJECT_DESC, pstateobjecttogrowfrom: ::windows::core::RawPtr, riid: &::windows::core::GUID, ppnewstateobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AddToStateObject(
                 &*(&paddition as *const <D3D12_STATE_OBJECT_DESC as ::windows::core::Abi>::Abi as *const <D3D12_STATE_OBJECT_DESC as ::windows::core::DefaultType>::DefaultType),
@@ -1515,7 +1515,7 @@ impl ID3D12Device7Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateProtectedResourceSession1<Impl: ID3D12Device7Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdesc: *const D3D12_PROTECTED_RESOURCE_SESSION_DESC1, riid: *const ::windows::core::GUID, ppsession: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateProtectedResourceSession1<Impl: ID3D12Device7Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdesc: *const D3D12_PROTECTED_RESOURCE_SESSION_DESC1, riid: &::windows::core::GUID, ppsession: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateProtectedResourceSession1(&*(&pdesc as *const <D3D12_PROTECTED_RESOURCE_SESSION_DESC1 as ::windows::core::Abi>::Abi as *const <D3D12_PROTECTED_RESOURCE_SESSION_DESC1 as ::windows::core::DefaultType>::DefaultType), &*(&riid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&ppsession)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1552,7 +1552,7 @@ impl ID3D12Device8Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateCommittedResource2<Impl: ID3D12Device8Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pheapproperties: *const D3D12_HEAP_PROPERTIES, heapflags: D3D12_HEAP_FLAGS, pdesc: *const D3D12_RESOURCE_DESC1, initialresourcestate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, pprotectedsession: ::windows::core::RawPtr, riidresource: *const ::windows::core::GUID, ppvresource: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateCommittedResource2<Impl: ID3D12Device8Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pheapproperties: *const D3D12_HEAP_PROPERTIES, heapflags: D3D12_HEAP_FLAGS, pdesc: *const D3D12_RESOURCE_DESC1, initialresourcestate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, pprotectedsession: ::windows::core::RawPtr, riidresource: &::windows::core::GUID, ppvresource: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateCommittedResource2(
                 &*(&pheapproperties as *const <D3D12_HEAP_PROPERTIES as ::windows::core::Abi>::Abi as *const <D3D12_HEAP_PROPERTIES as ::windows::core::DefaultType>::DefaultType),
@@ -1572,7 +1572,7 @@ impl ID3D12Device8Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreatePlacedResource1<Impl: ID3D12Device8Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pheap: ::windows::core::RawPtr, heapoffset: u64, pdesc: *const D3D12_RESOURCE_DESC1, initialstate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, riid: *const ::windows::core::GUID, ppvresource: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreatePlacedResource1<Impl: ID3D12Device8Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pheap: ::windows::core::RawPtr, heapoffset: u64, pdesc: *const D3D12_RESOURCE_DESC1, initialstate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, riid: &::windows::core::GUID, ppvresource: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreatePlacedResource1(
                 &*(&pheap as *const <ID3D12Heap as ::windows::core::Abi>::Abi as *const <ID3D12Heap as ::windows::core::DefaultType>::DefaultType),
@@ -1614,7 +1614,7 @@ impl ::windows::core::RuntimeName for ID3D12Device9 {
 }
 impl ID3D12Device9Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12Device9Impl, const OFFSET: isize>() -> ID3D12Device9Vtbl {
-        unsafe extern "system" fn CreateShaderCacheSession<Impl: ID3D12Device9Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdesc: *const D3D12_SHADER_CACHE_SESSION_DESC, riid: *const ::windows::core::GUID, ppvsession: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateShaderCacheSession<Impl: ID3D12Device9Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdesc: *const D3D12_SHADER_CACHE_SESSION_DESC, riid: &::windows::core::GUID, ppvsession: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateShaderCacheSession(&*(&pdesc as *const <D3D12_SHADER_CACHE_SESSION_DESC as ::windows::core::Abi>::Abi as *const <D3D12_SHADER_CACHE_SESSION_DESC as ::windows::core::DefaultType>::DefaultType), &*(&riid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&ppvsession)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1636,7 +1636,7 @@ impl ID3D12Device9Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateCommandQueue1<Impl: ID3D12Device9Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdesc: *const D3D12_COMMAND_QUEUE_DESC, creatorid: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppcommandqueue: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateCommandQueue1<Impl: ID3D12Device9Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdesc: *const D3D12_COMMAND_QUEUE_DESC, creatorid: &::windows::core::GUID, riid: &::windows::core::GUID, ppcommandqueue: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateCommandQueue1(
                 &*(&pdesc as *const <D3D12_COMMAND_QUEUE_DESC as ::windows::core::Abi>::Abi as *const <D3D12_COMMAND_QUEUE_DESC as ::windows::core::DefaultType>::DefaultType),
@@ -1663,7 +1663,7 @@ impl ::windows::core::RuntimeName for ID3D12DeviceChild {
 }
 impl ID3D12DeviceChildVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12DeviceChildImpl, const OFFSET: isize>() -> ID3D12DeviceChildVtbl {
-        unsafe extern "system" fn GetDevice<Impl: ID3D12DeviceChildImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppvdevice: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetDevice<Impl: ID3D12DeviceChildImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, riid: &::windows::core::GUID, ppvdevice: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDevice(&*(&riid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&ppvdevice)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2652,7 +2652,7 @@ impl ::windows::core::RuntimeName for ID3D12Heap1 {
 }
 impl ID3D12Heap1Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12Heap1Impl, const OFFSET: isize>() -> ID3D12Heap1Vtbl {
-        unsafe extern "system" fn GetProtectedResourceSession<Impl: ID3D12Heap1Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppprotectedsession: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetProtectedResourceSession<Impl: ID3D12Heap1Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, riid: &::windows::core::GUID, ppprotectedsession: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetProtectedResourceSession(&*(&riid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&ppprotectedsession)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -3234,7 +3234,7 @@ impl ::windows::core::RuntimeName for ID3D12Object {
 }
 impl ID3D12ObjectVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12ObjectImpl, const OFFSET: isize>() -> ID3D12ObjectVtbl {
-        unsafe extern "system" fn GetPrivateData<Impl: ID3D12ObjectImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetPrivateData<Impl: ID3D12ObjectImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, guid: &::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetPrivateData(&*(&guid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), pdatasize, ::core::mem::transmute_copy(&pdata)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -3245,7 +3245,7 @@ impl ID3D12ObjectVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetPrivateData<Impl: ID3D12ObjectImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, guid: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetPrivateData<Impl: ID3D12ObjectImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, guid: &::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SetPrivateData(&*(&guid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), datasize, &*(&pdata as *const <::core::ffi::c_void as ::windows::core::Abi>::Abi as *const <::core::ffi::c_void as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -3256,7 +3256,7 @@ impl ID3D12ObjectVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetPrivateDataInterface<Impl: ID3D12ObjectImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, guid: *const ::windows::core::GUID, pdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetPrivateDataInterface<Impl: ID3D12ObjectImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, guid: &::windows::core::GUID, pdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SetPrivateDataInterface(&*(&guid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), &*(&pdata as *const <::windows::core::IUnknown as ::windows::core::Abi>::Abi as *const <::windows::core::IUnknown as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -3313,7 +3313,7 @@ impl ID3D12PipelineLibraryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn LoadGraphicsPipeline<Impl: ID3D12PipelineLibraryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pname: super::super::Foundation::PWSTR, pdesc: *const D3D12_GRAPHICS_PIPELINE_STATE_DESC, riid: *const ::windows::core::GUID, pppipelinestate: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn LoadGraphicsPipeline<Impl: ID3D12PipelineLibraryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pname: super::super::Foundation::PWSTR, pdesc: *const D3D12_GRAPHICS_PIPELINE_STATE_DESC, riid: &::windows::core::GUID, pppipelinestate: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).LoadGraphicsPipeline(
                 &*(&pname as *const <super::super::Foundation::PWSTR as ::windows::core::Abi>::Abi as *const <super::super::Foundation::PWSTR as ::windows::core::DefaultType>::DefaultType),
@@ -3329,7 +3329,7 @@ impl ID3D12PipelineLibraryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn LoadComputePipeline<Impl: ID3D12PipelineLibraryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pname: super::super::Foundation::PWSTR, pdesc: *const D3D12_COMPUTE_PIPELINE_STATE_DESC, riid: *const ::windows::core::GUID, pppipelinestate: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn LoadComputePipeline<Impl: ID3D12PipelineLibraryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pname: super::super::Foundation::PWSTR, pdesc: *const D3D12_COMPUTE_PIPELINE_STATE_DESC, riid: &::windows::core::GUID, pppipelinestate: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).LoadComputePipeline(
                 &*(&pname as *const <super::super::Foundation::PWSTR as ::windows::core::Abi>::Abi as *const <super::super::Foundation::PWSTR as ::windows::core::DefaultType>::DefaultType),
@@ -3378,7 +3378,7 @@ impl ::windows::core::RuntimeName for ID3D12PipelineLibrary1 {
 }
 impl ID3D12PipelineLibrary1Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12PipelineLibrary1Impl, const OFFSET: isize>() -> ID3D12PipelineLibrary1Vtbl {
-        unsafe extern "system" fn LoadPipeline<Impl: ID3D12PipelineLibrary1Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pname: super::super::Foundation::PWSTR, pdesc: *const D3D12_PIPELINE_STATE_STREAM_DESC, riid: *const ::windows::core::GUID, pppipelinestate: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn LoadPipeline<Impl: ID3D12PipelineLibrary1Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pname: super::super::Foundation::PWSTR, pdesc: *const D3D12_PIPELINE_STATE_STREAM_DESC, riid: &::windows::core::GUID, pppipelinestate: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).LoadPipeline(
                 &*(&pname as *const <super::super::Foundation::PWSTR as ::windows::core::Abi>::Abi as *const <super::super::Foundation::PWSTR as ::windows::core::DefaultType>::DefaultType),
@@ -3472,7 +3472,7 @@ impl ::windows::core::RuntimeName for ID3D12ProtectedSession {
 }
 impl ID3D12ProtectedSessionVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12ProtectedSessionImpl, const OFFSET: isize>() -> ID3D12ProtectedSessionVtbl {
-        unsafe extern "system" fn GetStatusFence<Impl: ID3D12ProtectedSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppfence: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetStatusFence<Impl: ID3D12ProtectedSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, riid: &::windows::core::GUID, ppfence: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetStatusFence(&*(&riid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&ppfence)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -3601,7 +3601,7 @@ impl ::windows::core::RuntimeName for ID3D12Resource1 {
 }
 impl ID3D12Resource1Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12Resource1Impl, const OFFSET: isize>() -> ID3D12Resource1Vtbl {
-        unsafe extern "system" fn GetProtectedResourceSession<Impl: ID3D12Resource1Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppprotectedsession: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetProtectedResourceSession<Impl: ID3D12Resource1Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, riid: &::windows::core::GUID, ppprotectedsession: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetProtectedResourceSession(&*(&riid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&ppprotectedsession)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -4288,11 +4288,11 @@ impl ID3D12SharingContractVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SharedFenceSignal(&*(&pfence as *const <ID3D12Fence as ::windows::core::Abi>::Abi as *const <ID3D12Fence as ::windows::core::DefaultType>::DefaultType), fencevalue).into()
         }
-        unsafe extern "system" fn BeginCapturableWork<Impl: ID3D12SharingContractImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, guid: *const ::windows::core::GUID) {
+        unsafe extern "system" fn BeginCapturableWork<Impl: ID3D12SharingContractImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, guid: &::windows::core::GUID) {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).BeginCapturableWork(&*(&guid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn EndCapturableWork<Impl: ID3D12SharingContractImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, guid: *const ::windows::core::GUID) {
+        unsafe extern "system" fn EndCapturableWork<Impl: ID3D12SharingContractImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, guid: &::windows::core::GUID) {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).EndCapturableWork(&*(&guid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -4381,7 +4381,7 @@ impl ID3D12SwapChainAssistantVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetSwapChainObject<Impl: ID3D12SwapChainAssistantImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetSwapChainObject<Impl: ID3D12SwapChainAssistantImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, riid: &::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetSwapChainObject(&*(&riid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&ppv)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -4392,7 +4392,7 @@ impl ID3D12SwapChainAssistantVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetCurrentResourceAndCommandQueue<Impl: ID3D12SwapChainAssistantImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, riidresource: *const ::windows::core::GUID, ppvresource: *mut *mut ::core::ffi::c_void, riidqueue: *const ::windows::core::GUID, ppvqueue: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetCurrentResourceAndCommandQueue<Impl: ID3D12SwapChainAssistantImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, riidresource: &::windows::core::GUID, ppvresource: *mut *mut ::core::ffi::c_void, riidqueue: &::windows::core::GUID, ppvqueue: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetCurrentResourceAndCommandQueue(&*(&riidresource as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&ppvresource), &*(&riidqueue as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&ppvqueue)) {
                 ::core::result::Result::Ok(ok__) => {

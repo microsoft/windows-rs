@@ -1025,7 +1025,7 @@ impl ::windows::core::RuntimeName for IWICBitmapSourceTransform {
 }
 impl IWICBitmapSourceTransformVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWICBitmapSourceTransformImpl, const OFFSET: isize>() -> IWICBitmapSourceTransformVtbl {
-        unsafe extern "system" fn CopyPixels<Impl: IWICBitmapSourceTransformImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, prc: *const WICRect, uiwidth: u32, uiheight: u32, pguiddstformat: *const ::windows::core::GUID, dsttransform: WICBitmapTransformOptions, nstride: u32, cbbuffersize: u32, pbbuffer: *mut u8) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CopyPixels<Impl: IWICBitmapSourceTransformImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, prc: *const WICRect, uiwidth: u32, uiheight: u32, pguiddstformat: &::windows::core::GUID, dsttransform: WICBitmapTransformOptions, nstride: u32, cbbuffersize: u32, pbbuffer: *mut u8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CopyPixels(&*(&prc as *const <WICRect as ::windows::core::Abi>::Abi as *const <WICRect as ::windows::core::DefaultType>::DefaultType), uiwidth, uiheight, &*(&pguiddstformat as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), dsttransform, nstride, cbbuffersize, ::core::mem::transmute_copy(&pbbuffer)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1162,7 +1162,7 @@ impl ::windows::core::RuntimeName for IWICColorTransform {
 }
 impl IWICColorTransformVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWICColorTransformImpl, const OFFSET: isize>() -> IWICColorTransformVtbl {
-        unsafe extern "system" fn Initialize<Impl: IWICColorTransformImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pibitmapsource: ::windows::core::RawPtr, picontextsource: ::windows::core::RawPtr, picontextdest: ::windows::core::RawPtr, pixelfmtdest: *const ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Initialize<Impl: IWICColorTransformImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pibitmapsource: ::windows::core::RawPtr, picontextsource: ::windows::core::RawPtr, picontextdest: ::windows::core::RawPtr, pixelfmtdest: &::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Initialize(
                 &*(&pibitmapsource as *const <IWICBitmapSource as ::windows::core::Abi>::Abi as *const <IWICBitmapSource as ::windows::core::DefaultType>::DefaultType),
@@ -1195,7 +1195,7 @@ impl ::windows::core::RuntimeName for IWICComponentFactory {
 }
 impl IWICComponentFactoryVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWICComponentFactoryImpl, const OFFSET: isize>() -> IWICComponentFactoryVtbl {
-        unsafe extern "system" fn CreateMetadataReader<Impl: IWICComponentFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, guidmetadataformat: *const ::windows::core::GUID, pguidvendor: *const ::windows::core::GUID, dwoptions: u32, pistream: ::windows::core::RawPtr, ppireader: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateMetadataReader<Impl: IWICComponentFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, guidmetadataformat: &::windows::core::GUID, pguidvendor: &::windows::core::GUID, dwoptions: u32, pistream: ::windows::core::RawPtr, ppireader: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateMetadataReader(
                 &*(&guidmetadataformat as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType),
@@ -1212,7 +1212,7 @@ impl IWICComponentFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateMetadataReaderFromContainer<Impl: IWICComponentFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, guidcontainerformat: *const ::windows::core::GUID, pguidvendor: *const ::windows::core::GUID, dwoptions: u32, pistream: ::windows::core::RawPtr, ppireader: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateMetadataReaderFromContainer<Impl: IWICComponentFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, guidcontainerformat: &::windows::core::GUID, pguidvendor: &::windows::core::GUID, dwoptions: u32, pistream: ::windows::core::RawPtr, ppireader: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateMetadataReaderFromContainer(
                 &*(&guidcontainerformat as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType),
@@ -1229,7 +1229,7 @@ impl IWICComponentFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateMetadataWriter<Impl: IWICComponentFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, guidmetadataformat: *const ::windows::core::GUID, pguidvendor: *const ::windows::core::GUID, dwmetadataoptions: u32, ppiwriter: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateMetadataWriter<Impl: IWICComponentFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, guidmetadataformat: &::windows::core::GUID, pguidvendor: &::windows::core::GUID, dwmetadataoptions: u32, ppiwriter: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateMetadataWriter(&*(&guidmetadataformat as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), &*(&pguidvendor as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), dwmetadataoptions, ::core::mem::transmute_copy(&ppiwriter)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1240,7 +1240,7 @@ impl IWICComponentFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateMetadataWriterFromReader<Impl: IWICComponentFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pireader: ::windows::core::RawPtr, pguidvendor: *const ::windows::core::GUID, ppiwriter: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateMetadataWriterFromReader<Impl: IWICComponentFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pireader: ::windows::core::RawPtr, pguidvendor: &::windows::core::GUID, ppiwriter: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateMetadataWriterFromReader(&*(&pireader as *const <IWICMetadataReader as ::windows::core::Abi>::Abi as *const <IWICMetadataReader as ::windows::core::DefaultType>::DefaultType), &*(&pguidvendor as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&ppiwriter)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2110,7 +2110,7 @@ impl ::windows::core::RuntimeName for IWICFormatConverter {
 }
 impl IWICFormatConverterVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWICFormatConverterImpl, const OFFSET: isize>() -> IWICFormatConverterVtbl {
-        unsafe extern "system" fn Initialize<Impl: IWICFormatConverterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pisource: ::windows::core::RawPtr, dstformat: *const ::windows::core::GUID, dither: WICBitmapDitherType, pipalette: ::windows::core::RawPtr, alphathresholdpercent: f64, palettetranslate: WICBitmapPaletteType) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Initialize<Impl: IWICFormatConverterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pisource: ::windows::core::RawPtr, dstformat: &::windows::core::GUID, dither: WICBitmapDitherType, pipalette: ::windows::core::RawPtr, alphathresholdpercent: f64, palettetranslate: WICBitmapPaletteType) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Initialize(
                 &*(&pisource as *const <IWICBitmapSource as ::windows::core::Abi>::Abi as *const <IWICBitmapSource as ::windows::core::DefaultType>::DefaultType),
@@ -2128,7 +2128,7 @@ impl IWICFormatConverterVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CanConvert<Impl: IWICFormatConverterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, srcpixelformat: *const ::windows::core::GUID, dstpixelformat: *const ::windows::core::GUID, pfcanconvert: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CanConvert<Impl: IWICFormatConverterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, srcpixelformat: &::windows::core::GUID, dstpixelformat: &::windows::core::GUID, pfcanconvert: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CanConvert(&*(&srcpixelformat as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), &*(&dstpixelformat as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&pfcanconvert)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2208,7 +2208,7 @@ impl ::windows::core::RuntimeName for IWICImagingFactory {
 }
 impl IWICImagingFactoryVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWICImagingFactoryImpl, const OFFSET: isize>() -> IWICImagingFactoryVtbl {
-        unsafe extern "system" fn CreateDecoderFromFilename<Impl: IWICImagingFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wzfilename: super::super::Foundation::PWSTR, pguidvendor: *const ::windows::core::GUID, dwdesiredaccess: u32, metadataoptions: WICDecodeOptions, ppidecoder: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateDecoderFromFilename<Impl: IWICImagingFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wzfilename: super::super::Foundation::PWSTR, pguidvendor: &::windows::core::GUID, dwdesiredaccess: u32, metadataoptions: WICDecodeOptions, ppidecoder: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateDecoderFromFilename(&*(&wzfilename as *const <super::super::Foundation::PWSTR as ::windows::core::Abi>::Abi as *const <super::super::Foundation::PWSTR as ::windows::core::DefaultType>::DefaultType), &*(&pguidvendor as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), dwdesiredaccess, metadataoptions, ::core::mem::transmute_copy(&ppidecoder)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2219,7 +2219,7 @@ impl IWICImagingFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateDecoderFromStream<Impl: IWICImagingFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pistream: ::windows::core::RawPtr, pguidvendor: *const ::windows::core::GUID, metadataoptions: WICDecodeOptions, ppidecoder: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateDecoderFromStream<Impl: IWICImagingFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pistream: ::windows::core::RawPtr, pguidvendor: &::windows::core::GUID, metadataoptions: WICDecodeOptions, ppidecoder: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateDecoderFromStream(&*(&pistream as *const <super::super::System::Com::IStream as ::windows::core::Abi>::Abi as *const <super::super::System::Com::IStream as ::windows::core::DefaultType>::DefaultType), &*(&pguidvendor as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), metadataoptions, ::core::mem::transmute_copy(&ppidecoder)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2230,7 +2230,7 @@ impl IWICImagingFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateDecoderFromFileHandle<Impl: IWICImagingFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hfile: usize, pguidvendor: *const ::windows::core::GUID, metadataoptions: WICDecodeOptions, ppidecoder: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateDecoderFromFileHandle<Impl: IWICImagingFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hfile: usize, pguidvendor: &::windows::core::GUID, metadataoptions: WICDecodeOptions, ppidecoder: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateDecoderFromFileHandle(hfile, &*(&pguidvendor as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), metadataoptions, ::core::mem::transmute_copy(&ppidecoder)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2241,7 +2241,7 @@ impl IWICImagingFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateComponentInfo<Impl: IWICImagingFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, clsidcomponent: *const ::windows::core::GUID, ppiinfo: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateComponentInfo<Impl: IWICImagingFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, clsidcomponent: &::windows::core::GUID, ppiinfo: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateComponentInfo(&*(&clsidcomponent as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&ppiinfo)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2252,7 +2252,7 @@ impl IWICImagingFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateDecoder<Impl: IWICImagingFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, guidcontainerformat: *const ::windows::core::GUID, pguidvendor: *const ::windows::core::GUID, ppidecoder: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateDecoder<Impl: IWICImagingFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, guidcontainerformat: &::windows::core::GUID, pguidvendor: &::windows::core::GUID, ppidecoder: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateDecoder(&*(&guidcontainerformat as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), &*(&pguidvendor as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&ppidecoder)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2263,7 +2263,7 @@ impl IWICImagingFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateEncoder<Impl: IWICImagingFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, guidcontainerformat: *const ::windows::core::GUID, pguidvendor: *const ::windows::core::GUID, ppiencoder: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateEncoder<Impl: IWICImagingFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, guidcontainerformat: &::windows::core::GUID, pguidvendor: &::windows::core::GUID, ppiencoder: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateEncoder(&*(&guidcontainerformat as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), &*(&pguidvendor as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&ppiencoder)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2362,7 +2362,7 @@ impl IWICImagingFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateBitmap<Impl: IWICImagingFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, uiwidth: u32, uiheight: u32, pixelformat: *const ::windows::core::GUID, option: WICBitmapCreateCacheOption, ppibitmap: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateBitmap<Impl: IWICImagingFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, uiwidth: u32, uiheight: u32, pixelformat: &::windows::core::GUID, option: WICBitmapCreateCacheOption, ppibitmap: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateBitmap(uiwidth, uiheight, &*(&pixelformat as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), option, ::core::mem::transmute_copy(&ppibitmap)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2395,7 +2395,7 @@ impl IWICImagingFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateBitmapFromMemory<Impl: IWICImagingFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, uiwidth: u32, uiheight: u32, pixelformat: *const ::windows::core::GUID, cbstride: u32, cbbuffersize: u32, pbbuffer: *const u8, ppibitmap: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateBitmapFromMemory<Impl: IWICImagingFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, uiwidth: u32, uiheight: u32, pixelformat: &::windows::core::GUID, cbstride: u32, cbbuffersize: u32, pbbuffer: *const u8, ppibitmap: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateBitmapFromMemory(uiwidth, uiheight, &*(&pixelformat as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), cbstride, cbbuffersize, pbbuffer, ::core::mem::transmute_copy(&ppibitmap)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2461,7 +2461,7 @@ impl IWICImagingFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateQueryWriter<Impl: IWICImagingFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, guidmetadataformat: *const ::windows::core::GUID, pguidvendor: *const ::windows::core::GUID, ppiquerywriter: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateQueryWriter<Impl: IWICImagingFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, guidmetadataformat: &::windows::core::GUID, pguidvendor: &::windows::core::GUID, ppiquerywriter: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateQueryWriter(&*(&guidmetadataformat as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), &*(&pguidvendor as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&ppiquerywriter)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2472,7 +2472,7 @@ impl IWICImagingFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateQueryWriterFromReader<Impl: IWICImagingFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, piqueryreader: ::windows::core::RawPtr, pguidvendor: *const ::windows::core::GUID, ppiquerywriter: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateQueryWriterFromReader<Impl: IWICImagingFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, piqueryreader: ::windows::core::RawPtr, pguidvendor: &::windows::core::GUID, ppiquerywriter: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateQueryWriterFromReader(&*(&piqueryreader as *const <IWICMetadataQueryReader as ::windows::core::Abi>::Abi as *const <IWICMetadataQueryReader as ::windows::core::DefaultType>::DefaultType), &*(&pguidvendor as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&ppiquerywriter)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -3152,7 +3152,7 @@ impl ::windows::core::RuntimeName for IWICMetadataReaderInfo {
 }
 impl IWICMetadataReaderInfoVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWICMetadataReaderInfoImpl, const OFFSET: isize>() -> IWICMetadataReaderInfoVtbl {
-        unsafe extern "system" fn GetPatterns<Impl: IWICMetadataReaderInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, guidcontainerformat: *const ::windows::core::GUID, cbsize: u32, ppattern: *mut WICMetadataPattern, pccount: *mut u32, pcbactual: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetPatterns<Impl: IWICMetadataReaderInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, guidcontainerformat: &::windows::core::GUID, cbsize: u32, ppattern: *mut WICMetadataPattern, pccount: *mut u32, pcbactual: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetPatterns(&*(&guidcontainerformat as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), cbsize, ::core::mem::transmute_copy(&ppattern), ::core::mem::transmute_copy(&pccount), ::core::mem::transmute_copy(&pcbactual)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -3163,7 +3163,7 @@ impl IWICMetadataReaderInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn MatchesPattern<Impl: IWICMetadataReaderInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, guidcontainerformat: *const ::windows::core::GUID, pistream: ::windows::core::RawPtr, pfmatches: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MatchesPattern<Impl: IWICMetadataReaderInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, guidcontainerformat: &::windows::core::GUID, pistream: ::windows::core::RawPtr, pfmatches: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MatchesPattern(&*(&guidcontainerformat as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), &*(&pistream as *const <super::super::System::Com::IStream as ::windows::core::Abi>::Abi as *const <super::super::System::Com::IStream as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&pfmatches)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -3264,7 +3264,7 @@ impl ::windows::core::RuntimeName for IWICMetadataWriterInfo {
 }
 impl IWICMetadataWriterInfoVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWICMetadataWriterInfoImpl, const OFFSET: isize>() -> IWICMetadataWriterInfoVtbl {
-        unsafe extern "system" fn GetHeader<Impl: IWICMetadataWriterInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, guidcontainerformat: *const ::windows::core::GUID, cbsize: u32, pheader: *mut WICMetadataHeader, pcbactual: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetHeader<Impl: IWICMetadataWriterInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, guidcontainerformat: &::windows::core::GUID, cbsize: u32, pheader: *mut WICMetadataHeader, pcbactual: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetHeader(&*(&guidcontainerformat as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), cbsize, ::core::mem::transmute_copy(&pheader), ::core::mem::transmute_copy(&pcbactual)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -3448,7 +3448,7 @@ impl ::windows::core::RuntimeName for IWICPersistStream {
 #[cfg(feature = "Win32_System_Com")]
 impl IWICPersistStreamVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWICPersistStreamImpl, const OFFSET: isize>() -> IWICPersistStreamVtbl {
-        unsafe extern "system" fn LoadEx<Impl: IWICPersistStreamImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pistream: ::windows::core::RawPtr, pguidpreferredvendor: *const ::windows::core::GUID, dwpersistoptions: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn LoadEx<Impl: IWICPersistStreamImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pistream: ::windows::core::RawPtr, pguidpreferredvendor: &::windows::core::GUID, dwpersistoptions: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).LoadEx(&*(&pistream as *const <super::super::System::Com::IStream as ::windows::core::Abi>::Abi as *const <super::super::System::Com::IStream as ::windows::core::DefaultType>::DefaultType), &*(&pguidpreferredvendor as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), dwpersistoptions) {
                 ::core::result::Result::Ok(ok__) => {
@@ -3620,7 +3620,7 @@ impl ::windows::core::RuntimeName for IWICPlanarBitmapSourceTransform {
 }
 impl IWICPlanarBitmapSourceTransformVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWICPlanarBitmapSourceTransformImpl, const OFFSET: isize>() -> IWICPlanarBitmapSourceTransformVtbl {
-        unsafe extern "system" fn DoesSupportTransform<Impl: IWICPlanarBitmapSourceTransformImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, puiwidth: *mut u32, puiheight: *mut u32, dsttransform: WICBitmapTransformOptions, dstplanaroptions: WICPlanarOptions, pguiddstformats: *const ::windows::core::GUID, pplanedescriptions: *mut WICBitmapPlaneDescription, cplanes: u32, pfissupported: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DoesSupportTransform<Impl: IWICPlanarBitmapSourceTransformImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, puiwidth: *mut u32, puiheight: *mut u32, dsttransform: WICBitmapTransformOptions, dstplanaroptions: WICPlanarOptions, pguiddstformats: &::windows::core::GUID, pplanedescriptions: *mut WICBitmapPlaneDescription, cplanes: u32, pfissupported: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DoesSupportTransform(puiwidth, puiheight, dsttransform, dstplanaroptions, &*(&pguiddstformats as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&pplanedescriptions), cplanes, ::core::mem::transmute_copy(&pfissupported)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -3654,7 +3654,7 @@ impl ::windows::core::RuntimeName for IWICPlanarFormatConverter {
 }
 impl IWICPlanarFormatConverterVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWICPlanarFormatConverterImpl, const OFFSET: isize>() -> IWICPlanarFormatConverterVtbl {
-        unsafe extern "system" fn Initialize<Impl: IWICPlanarFormatConverterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppplanes: *const ::windows::core::RawPtr, cplanes: u32, dstformat: *const ::windows::core::GUID, dither: WICBitmapDitherType, pipalette: ::windows::core::RawPtr, alphathresholdpercent: f64, palettetranslate: WICBitmapPaletteType) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Initialize<Impl: IWICPlanarFormatConverterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppplanes: *const ::windows::core::RawPtr, cplanes: u32, dstformat: &::windows::core::GUID, dither: WICBitmapDitherType, pipalette: ::windows::core::RawPtr, alphathresholdpercent: f64, palettetranslate: WICBitmapPaletteType) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Initialize(
                 &*(&ppplanes as *const <IWICBitmapSource as ::windows::core::Abi>::Abi as *const <IWICBitmapSource as ::windows::core::DefaultType>::DefaultType),
@@ -3673,7 +3673,7 @@ impl IWICPlanarFormatConverterVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CanConvert<Impl: IWICPlanarFormatConverterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, psrcpixelformats: *const ::windows::core::GUID, csrcplanes: u32, dstpixelformat: *const ::windows::core::GUID, pfcanconvert: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CanConvert<Impl: IWICPlanarFormatConverterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, psrcpixelformats: &::windows::core::GUID, csrcplanes: u32, dstpixelformat: &::windows::core::GUID, pfcanconvert: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CanConvert(&*(&psrcpixelformats as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), csrcplanes, &*(&dstpixelformat as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&pfcanconvert)) {
                 ::core::result::Result::Ok(ok__) => {

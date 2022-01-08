@@ -8,7 +8,7 @@ impl ::windows::core::RuntimeName for IDirect3DDevice9On12 {
 }
 impl IDirect3DDevice9On12Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDirect3DDevice9On12Impl, const OFFSET: isize>() -> IDirect3DDevice9On12Vtbl {
-        unsafe extern "system" fn GetD3D12Device<Impl: IDirect3DDevice9On12Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppvdevice: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetD3D12Device<Impl: IDirect3DDevice9On12Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, riid: &::windows::core::GUID, ppvdevice: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetD3D12Device(&*(&riid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), &*(&ppvdevice as *const <::core::ffi::c_void as ::windows::core::Abi>::Abi as *const <::core::ffi::c_void as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -19,7 +19,7 @@ impl IDirect3DDevice9On12Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn UnwrapUnderlyingResource<Impl: IDirect3DDevice9On12Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, presource: ::windows::core::RawPtr, pcommandqueue: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, ppvresource12: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn UnwrapUnderlyingResource<Impl: IDirect3DDevice9On12Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, presource: ::windows::core::RawPtr, pcommandqueue: ::windows::core::RawPtr, riid: &::windows::core::GUID, ppvresource12: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).UnwrapUnderlyingResource(
                 &*(&presource as *const <super::Direct3D9::IDirect3DResource9 as ::windows::core::Abi>::Abi as *const <super::Direct3D9::IDirect3DResource9 as ::windows::core::DefaultType>::DefaultType),

@@ -115,7 +115,7 @@ impl TearOff {
         core::mem::transmute(value << 1)
     }
 
-    unsafe fn query_interface(&self, iid: *const GUID, interface: *mut RawPtr) -> HRESULT {
+    unsafe fn query_interface(&self, iid: &GUID, interface: *mut RawPtr) -> HRESULT {
         ((*(*(self.object as *mut *mut _) as *mut IUnknownVtbl)).0)(self.object, iid, interface)
     }
 
@@ -202,7 +202,7 @@ impl TearOff {
         HRESULT(0)
     }
 
-    unsafe extern "system" fn WeakUpgrade(ptr: RawPtr, iid: *const GUID, interface: *mut RawPtr) -> HRESULT {
+    unsafe extern "system" fn WeakUpgrade(ptr: RawPtr, iid: &GUID, interface: *mut RawPtr) -> HRESULT {
         let this = Self::from_weak_ptr(ptr);
 
         this.strong_count

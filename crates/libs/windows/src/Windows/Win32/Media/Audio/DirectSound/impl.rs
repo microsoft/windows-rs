@@ -90,7 +90,7 @@ impl IDirectSoundVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Initialize<Impl: IDirectSoundImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcguiddevice: *const ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Initialize<Impl: IDirectSoundImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcguiddevice: &::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Initialize(&*(&pcguiddevice as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -887,7 +887,7 @@ impl IDirectSoundBuffer8Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetObjectInPath<Impl: IDirectSoundBuffer8Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rguidobject: *const ::windows::core::GUID, dwindex: u32, rguidinterface: *const ::windows::core::GUID, ppobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetObjectInPath<Impl: IDirectSoundBuffer8Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rguidobject: &::windows::core::GUID, dwindex: u32, rguidinterface: &::windows::core::GUID, ppobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetObjectInPath(&*(&rguidobject as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), dwindex, &*(&rguidinterface as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&ppobject)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -933,7 +933,7 @@ impl IDirectSoundCaptureVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Initialize<Impl: IDirectSoundCaptureImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcguiddevice: *const ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Initialize<Impl: IDirectSoundCaptureImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcguiddevice: &::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Initialize(&*(&pcguiddevice as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1090,7 +1090,7 @@ impl ::windows::core::RuntimeName for IDirectSoundCaptureBuffer8 {
 }
 impl IDirectSoundCaptureBuffer8Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDirectSoundCaptureBuffer8Impl, const OFFSET: isize>() -> IDirectSoundCaptureBuffer8Vtbl {
-        unsafe extern "system" fn GetObjectInPath<Impl: IDirectSoundCaptureBuffer8Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rguidobject: *const ::windows::core::GUID, dwindex: u32, rguidinterface: *const ::windows::core::GUID, ppobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetObjectInPath<Impl: IDirectSoundCaptureBuffer8Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rguidobject: &::windows::core::GUID, dwindex: u32, rguidinterface: &::windows::core::GUID, ppobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetObjectInPath(&*(&rguidobject as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), dwindex, &*(&rguidinterface as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&ppobject)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1581,7 +1581,7 @@ impl ::windows::core::RuntimeName for IDirectSoundFullDuplex {
 }
 impl IDirectSoundFullDuplexVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDirectSoundFullDuplexImpl, const OFFSET: isize>() -> IDirectSoundFullDuplexVtbl {
-        unsafe extern "system" fn Initialize<Impl: IDirectSoundFullDuplexImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcaptureguid: *const ::windows::core::GUID, prenderguid: *const ::windows::core::GUID, lpdscbufferdesc: *const DSCBUFFERDESC, lpdsbufferdesc: *const DSBUFFERDESC, hwnd: super::super::super::Foundation::HWND, dwlevel: u32, lplpdirectsoundcapturebuffer8: *mut ::windows::core::RawPtr, lplpdirectsoundbuffer8: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Initialize<Impl: IDirectSoundFullDuplexImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcaptureguid: &::windows::core::GUID, prenderguid: &::windows::core::GUID, lpdscbufferdesc: *const DSCBUFFERDESC, lpdsbufferdesc: *const DSBUFFERDESC, hwnd: super::super::super::Foundation::HWND, dwlevel: u32, lplpdirectsoundcapturebuffer8: *mut ::windows::core::RawPtr, lplpdirectsoundbuffer8: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Initialize(
                 &*(&pcaptureguid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType),

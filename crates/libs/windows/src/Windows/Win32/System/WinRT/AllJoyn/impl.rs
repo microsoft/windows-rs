@@ -6,7 +6,7 @@ impl ::windows::core::RuntimeName for IWindowsDevicesAllJoynBusAttachmentFactory
 }
 impl IWindowsDevicesAllJoynBusAttachmentFactoryInteropVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWindowsDevicesAllJoynBusAttachmentFactoryInteropImpl, const OFFSET: isize>() -> IWindowsDevicesAllJoynBusAttachmentFactoryInteropVtbl {
-        unsafe extern "system" fn CreateFromWin32Handle<Impl: IWindowsDevicesAllJoynBusAttachmentFactoryInteropImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, win32handle: u64, enableaboutdata: u8, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateFromWin32Handle<Impl: IWindowsDevicesAllJoynBusAttachmentFactoryInteropImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, win32handle: u64, enableaboutdata: u8, riid: &::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateFromWin32Handle(win32handle, enableaboutdata, &*(&riid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&ppv)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -50,7 +50,7 @@ impl ::windows::core::RuntimeName for IWindowsDevicesAllJoynBusObjectFactoryInte
 }
 impl IWindowsDevicesAllJoynBusObjectFactoryInteropVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWindowsDevicesAllJoynBusObjectFactoryInteropImpl, const OFFSET: isize>() -> IWindowsDevicesAllJoynBusObjectFactoryInteropVtbl {
-        unsafe extern "system" fn CreateFromWin32Handle<Impl: IWindowsDevicesAllJoynBusObjectFactoryInteropImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, win32handle: u64, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateFromWin32Handle<Impl: IWindowsDevicesAllJoynBusObjectFactoryInteropImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, win32handle: u64, riid: &::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateFromWin32Handle(win32handle, &*(&riid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&ppv)) {
                 ::core::result::Result::Ok(ok__) => {

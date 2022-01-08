@@ -91,7 +91,7 @@ impl IDot11AdHocInterfaceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetIEnumDot11AdHocNetworks<Impl: IDot11AdHocInterfaceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfilterguid: *const ::windows::core::GUID, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetIEnumDot11AdHocNetworks<Impl: IDot11AdHocInterfaceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfilterguid: &::windows::core::GUID, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetIEnumDot11AdHocNetworks(&*(&pfilterguid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&ppenum)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -166,7 +166,7 @@ impl ::windows::core::RuntimeName for IDot11AdHocManager {
 }
 impl IDot11AdHocManagerVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDot11AdHocManagerImpl, const OFFSET: isize>() -> IDot11AdHocManagerVtbl {
-        unsafe extern "system" fn CreateNetwork<Impl: IDot11AdHocManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: super::super::Foundation::PWSTR, password: super::super::Foundation::PWSTR, geographicalid: i32, pinterface: ::windows::core::RawPtr, psecurity: ::windows::core::RawPtr, pcontextguid: *const ::windows::core::GUID, piadhoc: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateNetwork<Impl: IDot11AdHocManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: super::super::Foundation::PWSTR, password: super::super::Foundation::PWSTR, geographicalid: i32, pinterface: ::windows::core::RawPtr, psecurity: ::windows::core::RawPtr, pcontextguid: &::windows::core::GUID, piadhoc: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateNetwork(
                 &*(&name as *const <super::super::Foundation::PWSTR as ::windows::core::Abi>::Abi as *const <super::super::Foundation::PWSTR as ::windows::core::DefaultType>::DefaultType),
@@ -200,7 +200,7 @@ impl IDot11AdHocManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetIEnumDot11AdHocNetworks<Impl: IDot11AdHocManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcontextguid: *const ::windows::core::GUID, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetIEnumDot11AdHocNetworks<Impl: IDot11AdHocManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcontextguid: &::windows::core::GUID, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetIEnumDot11AdHocNetworks(&*(&pcontextguid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&ppenum)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -222,7 +222,7 @@ impl IDot11AdHocManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetNetwork<Impl: IDot11AdHocManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, networksignature: *const ::windows::core::GUID, pnetwork: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetNetwork<Impl: IDot11AdHocManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, networksignature: &::windows::core::GUID, pnetwork: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetNetwork(&*(&networksignature as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&pnetwork)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -258,7 +258,7 @@ impl IDot11AdHocManagerNotificationSinkVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn OnNetworkRemove<Impl: IDot11AdHocManagerNotificationSinkImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, signature: *const ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OnNetworkRemove<Impl: IDot11AdHocManagerNotificationSinkImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, signature: &::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OnNetworkRemove(&*(&signature as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -280,7 +280,7 @@ impl IDot11AdHocManagerNotificationSinkVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn OnInterfaceRemove<Impl: IDot11AdHocManagerNotificationSinkImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, signature: *const ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OnInterfaceRemove<Impl: IDot11AdHocManagerNotificationSinkImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, signature: &::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OnInterfaceRemove(&*(&signature as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {

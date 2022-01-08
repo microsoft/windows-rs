@@ -6,7 +6,7 @@ impl ::windows::core::RuntimeName for IEffectivePermission {
 }
 impl IEffectivePermissionVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEffectivePermissionImpl, const OFFSET: isize>() -> IEffectivePermissionVtbl {
-        unsafe extern "system" fn GetEffectivePermission<Impl: IEffectivePermissionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pguidobjecttype: *const ::windows::core::GUID, pusersid: super::super::super::Foundation::PSID, pszservername: super::super::super::Foundation::PWSTR, psd: *mut super::super::SECURITY_DESCRIPTOR, ppobjecttypelist: *mut *mut super::super::OBJECT_TYPE_LIST, pcobjecttypelistlength: *mut u32, ppgrantedaccesslist: *mut *mut u32, pcgrantedaccesslistlength: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetEffectivePermission<Impl: IEffectivePermissionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pguidobjecttype: &::windows::core::GUID, pusersid: super::super::super::Foundation::PSID, pszservername: super::super::super::Foundation::PWSTR, psd: *mut super::super::SECURITY_DESCRIPTOR, ppobjecttypelist: *mut *mut super::super::OBJECT_TYPE_LIST, pcobjecttypelistlength: *mut u32, ppgrantedaccesslist: *mut *mut u32, pcgrantedaccesslistlength: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetEffectivePermission(
                 &*(&pguidobjecttype as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType),
@@ -129,7 +129,7 @@ impl ISecurityInformationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetAccessRights<Impl: ISecurityInformationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pguidobjecttype: *const ::windows::core::GUID, dwflags: SECURITY_INFO_PAGE_FLAGS, ppaccess: *mut *mut SI_ACCESS, pcaccesses: *mut u32, pidefaultaccess: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetAccessRights<Impl: ISecurityInformationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pguidobjecttype: &::windows::core::GUID, dwflags: SECURITY_INFO_PAGE_FLAGS, ppaccess: *mut *mut SI_ACCESS, pcaccesses: *mut u32, pidefaultaccess: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetAccessRights(&*(&pguidobjecttype as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), dwflags, &*(&ppaccess as *const <SI_ACCESS as ::windows::core::Abi>::Abi as *const <SI_ACCESS as ::windows::core::DefaultType>::DefaultType), pcaccesses, pidefaultaccess) {
                 ::core::result::Result::Ok(ok__) => {
@@ -140,7 +140,7 @@ impl ISecurityInformationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn MapGeneric<Impl: ISecurityInformationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pguidobjecttype: *const ::windows::core::GUID, paceflags: *mut u8, pmask: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MapGeneric<Impl: ISecurityInformationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pguidobjecttype: &::windows::core::GUID, paceflags: *mut u8, pmask: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MapGeneric(&*(&pguidobjecttype as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), paceflags, pmask) {
                 ::core::result::Result::Ok(ok__) => {

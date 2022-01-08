@@ -140,7 +140,7 @@ impl ::windows::core::RuntimeName for IDefaultLocation {
 }
 impl IDefaultLocationVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDefaultLocationImpl, const OFFSET: isize>() -> IDefaultLocationVtbl {
-        unsafe extern "system" fn SetReport<Impl: IDefaultLocationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, reporttype: *const ::windows::core::GUID, plocationreport: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetReport<Impl: IDefaultLocationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, reporttype: &::windows::core::GUID, plocationreport: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SetReport(&*(&reporttype as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), &*(&plocationreport as *const <ILocationReport as ::windows::core::Abi>::Abi as *const <ILocationReport as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -151,7 +151,7 @@ impl IDefaultLocationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetReport<Impl: IDefaultLocationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, reporttype: *const ::windows::core::GUID, pplocationreport: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetReport<Impl: IDefaultLocationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, reporttype: &::windows::core::GUID, pplocationreport: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetReport(&*(&reporttype as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&pplocationreport)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -485,7 +485,7 @@ impl ::windows::core::RuntimeName for ILocation {
 }
 impl ILocationVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILocationImpl, const OFFSET: isize>() -> ILocationVtbl {
-        unsafe extern "system" fn RegisterForReport<Impl: ILocationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pevents: ::windows::core::RawPtr, reporttype: *const ::windows::core::GUID, dwrequestedreportinterval: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RegisterForReport<Impl: ILocationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pevents: ::windows::core::RawPtr, reporttype: &::windows::core::GUID, dwrequestedreportinterval: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RegisterForReport(&*(&pevents as *const <ILocationEvents as ::windows::core::Abi>::Abi as *const <ILocationEvents as ::windows::core::DefaultType>::DefaultType), &*(&reporttype as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), dwrequestedreportinterval) {
                 ::core::result::Result::Ok(ok__) => {
@@ -496,7 +496,7 @@ impl ILocationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn UnregisterForReport<Impl: ILocationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, reporttype: *const ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn UnregisterForReport<Impl: ILocationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, reporttype: &::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).UnregisterForReport(&*(&reporttype as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -507,7 +507,7 @@ impl ILocationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetReport<Impl: ILocationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, reporttype: *const ::windows::core::GUID, pplocationreport: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetReport<Impl: ILocationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, reporttype: &::windows::core::GUID, pplocationreport: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetReport(&*(&reporttype as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&pplocationreport)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -518,7 +518,7 @@ impl ILocationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetReportStatus<Impl: ILocationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, reporttype: *const ::windows::core::GUID, pstatus: *mut LOCATION_REPORT_STATUS) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetReportStatus<Impl: ILocationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, reporttype: &::windows::core::GUID, pstatus: *mut LOCATION_REPORT_STATUS) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetReportStatus(&*(&reporttype as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&pstatus)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -529,7 +529,7 @@ impl ILocationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetReportInterval<Impl: ILocationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, reporttype: *const ::windows::core::GUID, pmilliseconds: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetReportInterval<Impl: ILocationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, reporttype: &::windows::core::GUID, pmilliseconds: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetReportInterval(&*(&reporttype as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&pmilliseconds)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -540,7 +540,7 @@ impl ILocationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetReportInterval<Impl: ILocationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, reporttype: *const ::windows::core::GUID, millisecondsrequested: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetReportInterval<Impl: ILocationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, reporttype: &::windows::core::GUID, millisecondsrequested: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SetReportInterval(&*(&reporttype as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), millisecondsrequested) {
                 ::core::result::Result::Ok(ok__) => {
@@ -551,7 +551,7 @@ impl ILocationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetDesiredAccuracy<Impl: ILocationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, reporttype: *const ::windows::core::GUID, pdesiredaccuracy: *mut super::Sensors::LOCATION_DESIRED_ACCURACY) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetDesiredAccuracy<Impl: ILocationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, reporttype: &::windows::core::GUID, pdesiredaccuracy: *mut super::Sensors::LOCATION_DESIRED_ACCURACY) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDesiredAccuracy(&*(&reporttype as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&pdesiredaccuracy)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -562,7 +562,7 @@ impl ILocationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetDesiredAccuracy<Impl: ILocationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, reporttype: *const ::windows::core::GUID, desiredaccuracy: super::Sensors::LOCATION_DESIRED_ACCURACY) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetDesiredAccuracy<Impl: ILocationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, reporttype: &::windows::core::GUID, desiredaccuracy: super::Sensors::LOCATION_DESIRED_ACCURACY) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SetDesiredAccuracy(&*(&reporttype as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), desiredaccuracy) {
                 ::core::result::Result::Ok(ok__) => {
@@ -573,7 +573,7 @@ impl ILocationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RequestPermissions<Impl: ILocationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hparent: super::super::Foundation::HWND, preporttypes: *const ::windows::core::GUID, count: u32, fmodal: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RequestPermissions<Impl: ILocationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hparent: super::super::Foundation::HWND, preporttypes: &::windows::core::GUID, count: u32, fmodal: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RequestPermissions(
                 &*(&hparent as *const <super::super::Foundation::HWND as ::windows::core::Abi>::Abi as *const <super::super::Foundation::HWND as ::windows::core::DefaultType>::DefaultType),
@@ -617,7 +617,7 @@ impl ::windows::core::RuntimeName for ILocationEvents {
 }
 impl ILocationEventsVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILocationEventsImpl, const OFFSET: isize>() -> ILocationEventsVtbl {
-        unsafe extern "system" fn OnLocationChanged<Impl: ILocationEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, reporttype: *const ::windows::core::GUID, plocationreport: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OnLocationChanged<Impl: ILocationEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, reporttype: &::windows::core::GUID, plocationreport: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OnLocationChanged(&*(&reporttype as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), &*(&plocationreport as *const <ILocationReport as ::windows::core::Abi>::Abi as *const <ILocationReport as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -628,7 +628,7 @@ impl ILocationEventsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn OnStatusChanged<Impl: ILocationEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, reporttype: *const ::windows::core::GUID, newstatus: LOCATION_REPORT_STATUS) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OnStatusChanged<Impl: ILocationEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, reporttype: &::windows::core::GUID, newstatus: LOCATION_REPORT_STATUS) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OnStatusChanged(&*(&reporttype as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), newstatus) {
                 ::core::result::Result::Ok(ok__) => {

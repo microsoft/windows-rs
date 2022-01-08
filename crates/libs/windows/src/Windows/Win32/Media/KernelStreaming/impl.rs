@@ -7,7 +7,7 @@ impl ::windows::core::RuntimeName for IKsAggregateControl {
 }
 impl IKsAggregateControlVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IKsAggregateControlImpl, const OFFSET: isize>() -> IKsAggregateControlVtbl {
-        unsafe extern "system" fn KsAddAggregate<Impl: IKsAggregateControlImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, aggregateclass: *const ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn KsAddAggregate<Impl: IKsAggregateControlImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, aggregateclass: &::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).KsAddAggregate(&*(&aggregateclass as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -18,7 +18,7 @@ impl IKsAggregateControlVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn KsRemoveAggregate<Impl: IKsAggregateControlImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, aggregateclass: *const ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn KsRemoveAggregate<Impl: IKsAggregateControlImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, aggregateclass: &::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).KsRemoveAggregate(&*(&aggregateclass as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -234,7 +234,7 @@ impl ::windows::core::RuntimeName for IKsPropertySet {
 }
 impl IKsPropertySetVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IKsPropertySetImpl, const OFFSET: isize>() -> IKsPropertySetVtbl {
-        unsafe extern "system" fn Set<Impl: IKsPropertySetImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propset: *const ::windows::core::GUID, id: u32, instancedata: *const ::core::ffi::c_void, instancelength: u32, propertydata: *const ::core::ffi::c_void, datalength: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Set<Impl: IKsPropertySetImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propset: &::windows::core::GUID, id: u32, instancedata: *const ::core::ffi::c_void, instancelength: u32, propertydata: *const ::core::ffi::c_void, datalength: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Set(
                 &*(&propset as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType),
@@ -252,7 +252,7 @@ impl IKsPropertySetVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Get<Impl: IKsPropertySetImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propset: *const ::windows::core::GUID, id: u32, instancedata: *const ::core::ffi::c_void, instancelength: u32, propertydata: *mut ::core::ffi::c_void, datalength: u32, bytesreturned: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Get<Impl: IKsPropertySetImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propset: &::windows::core::GUID, id: u32, instancedata: *const ::core::ffi::c_void, instancelength: u32, propertydata: *mut ::core::ffi::c_void, datalength: u32, bytesreturned: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Get(&*(&propset as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), id, &*(&instancedata as *const <::core::ffi::c_void as ::windows::core::Abi>::Abi as *const <::core::ffi::c_void as ::windows::core::DefaultType>::DefaultType), instancelength, ::core::mem::transmute_copy(&propertydata), datalength, ::core::mem::transmute_copy(&bytesreturned)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -263,7 +263,7 @@ impl IKsPropertySetVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn QuerySupported<Impl: IKsPropertySetImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propset: *const ::windows::core::GUID, id: u32, typesupport: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn QuerySupported<Impl: IKsPropertySetImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propset: &::windows::core::GUID, id: u32, typesupport: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).QuerySupported(&*(&propset as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), id, ::core::mem::transmute_copy(&typesupport)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -285,7 +285,7 @@ impl ::windows::core::RuntimeName for IKsTopology {
 }
 impl IKsTopologyVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IKsTopologyImpl, const OFFSET: isize>() -> IKsTopologyVtbl {
-        unsafe extern "system" fn CreateNodeInstance<Impl: IKsTopologyImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, nodeid: u32, flags: u32, desiredaccess: u32, unkouter: *mut ::core::ffi::c_void, interfaceid: *const ::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateNodeInstance<Impl: IKsTopologyImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, nodeid: u32, flags: u32, desiredaccess: u32, unkouter: *mut ::core::ffi::c_void, interfaceid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateNodeInstance(nodeid, flags, desiredaccess, &*(&unkouter as *const <::windows::core::IUnknown as ::windows::core::Abi>::Abi as *const <::windows::core::IUnknown as ::windows::core::DefaultType>::DefaultType), &*(&interfaceid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&interface)) {
                 ::core::result::Result::Ok(ok__) => {

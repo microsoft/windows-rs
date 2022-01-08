@@ -26,7 +26,7 @@ impl IDXCoreAdapterVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsAttributeSupported<Impl: IDXCoreAdapterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, attributeguid: *const ::windows::core::GUID) -> bool {
+        unsafe extern "system" fn IsAttributeSupported<Impl: IDXCoreAdapterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, attributeguid: &::windows::core::GUID) -> bool {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsAttributeSupported(&*(&attributeguid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -114,7 +114,7 @@ impl IDXCoreAdapterVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetFactory<Impl: IDXCoreAdapterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppvfactory: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetFactory<Impl: IDXCoreAdapterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, riid: &::windows::core::GUID, ppvfactory: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetFactory(&*(&riid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&ppvfactory)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -157,7 +157,7 @@ impl ::windows::core::RuntimeName for IDXCoreAdapterFactory {
 }
 impl IDXCoreAdapterFactoryVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDXCoreAdapterFactoryImpl, const OFFSET: isize>() -> IDXCoreAdapterFactoryVtbl {
-        unsafe extern "system" fn CreateAdapterList<Impl: IDXCoreAdapterFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, numattributes: u32, filterattributes: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppvadapterlist: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateAdapterList<Impl: IDXCoreAdapterFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, numattributes: u32, filterattributes: &::windows::core::GUID, riid: &::windows::core::GUID, ppvadapterlist: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateAdapterList(numattributes, &*(&filterattributes as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), &*(&riid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&ppvadapterlist)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -168,7 +168,7 @@ impl IDXCoreAdapterFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetAdapterByLuid<Impl: IDXCoreAdapterFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, adapterluid: *const super::super::Foundation::LUID, riid: *const ::windows::core::GUID, ppvadapter: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetAdapterByLuid<Impl: IDXCoreAdapterFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, adapterluid: *const super::super::Foundation::LUID, riid: &::windows::core::GUID, ppvadapter: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetAdapterByLuid(&*(&adapterluid as *const <super::super::Foundation::LUID as ::windows::core::Abi>::Abi as *const <super::super::Foundation::LUID as ::windows::core::DefaultType>::DefaultType), &*(&riid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&ppvadapter)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -234,7 +234,7 @@ impl ::windows::core::RuntimeName for IDXCoreAdapterList {
 }
 impl IDXCoreAdapterListVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDXCoreAdapterListImpl, const OFFSET: isize>() -> IDXCoreAdapterListVtbl {
-        unsafe extern "system" fn GetAdapter<Impl: IDXCoreAdapterListImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: u32, riid: *const ::windows::core::GUID, ppvadapter: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetAdapter<Impl: IDXCoreAdapterListImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: u32, riid: &::windows::core::GUID, ppvadapter: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetAdapter(index, &*(&riid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&ppvadapter)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -267,7 +267,7 @@ impl IDXCoreAdapterListVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetFactory<Impl: IDXCoreAdapterListImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppvfactory: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetFactory<Impl: IDXCoreAdapterListImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, riid: &::windows::core::GUID, ppvfactory: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetFactory(&*(&riid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&ppvfactory)) {
                 ::core::result::Result::Ok(ok__) => {

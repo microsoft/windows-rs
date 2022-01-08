@@ -285,7 +285,7 @@ impl ::windows::core::RuntimeName for ICallFrameWalker {
 }
 impl ICallFrameWalkerVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICallFrameWalkerImpl, const OFFSET: isize>() -> ICallFrameWalkerVtbl {
-        unsafe extern "system" fn OnWalkInterface<Impl: ICallFrameWalkerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, iid: *const ::windows::core::GUID, ppvinterface: *const *const ::core::ffi::c_void, fin: super::super::super::Foundation::BOOL, fout: super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OnWalkInterface<Impl: ICallFrameWalkerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, ppvinterface: *const *const ::core::ffi::c_void, fin: super::super::super::Foundation::BOOL, fout: super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OnWalkInterface(
                 &*(&iid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType),
@@ -448,7 +448,7 @@ impl ::windows::core::RuntimeName for IInterfaceRelated {
 }
 impl IInterfaceRelatedVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInterfaceRelatedImpl, const OFFSET: isize>() -> IInterfaceRelatedVtbl {
-        unsafe extern "system" fn SetIID<Impl: IInterfaceRelatedImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, iid: *const ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetIID<Impl: IInterfaceRelatedImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SetIID(&*(&iid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {

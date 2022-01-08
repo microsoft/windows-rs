@@ -1048,7 +1048,7 @@ impl ::windows::core::RuntimeName for IRemoteSystemAdditionalInfoProvider {
 }
 impl IRemoteSystemAdditionalInfoProviderVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystemAdditionalInfoProviderImpl, const OFFSET: isize>() -> IRemoteSystemAdditionalInfoProviderVtbl {
-        unsafe extern "system" fn GetAdditionalInfo<Impl: IRemoteSystemAdditionalInfoProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, deduplicationid: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>, riid: *const ::windows::core::GUID, mapview: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetAdditionalInfo<Impl: IRemoteSystemAdditionalInfoProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, deduplicationid: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>, riid: &::windows::core::GUID, mapview: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetAdditionalInfo(::core::mem::transmute_copy(&deduplicationid), &*(&riid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&mapview)) {
                 ::core::result::Result::Ok(ok__) => {

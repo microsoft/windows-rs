@@ -1325,7 +1325,7 @@ impl IAppPublisherVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn EnumApps<Impl: IAppPublisherImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pappcategoryid: *const ::windows::core::GUID, ppepa: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn EnumApps<Impl: IAppPublisherImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pappcategoryid: &::windows::core::GUID, ppepa: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EnumApps(&*(&pappcategoryid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&ppepa)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1868,7 +1868,7 @@ impl IApplicationDocumentListsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetList<Impl: IApplicationDocumentListsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, listtype: APPDOCLISTTYPE, citemsdesired: u32, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetList<Impl: IApplicationDocumentListsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, listtype: APPDOCLISTTYPE, citemsdesired: u32, riid: &::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetList(listtype, citemsdesired, &*(&riid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&ppv)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2040,7 +2040,7 @@ impl IAttachmentExecuteVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetClientGuid<Impl: IAttachmentExecuteImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, guid: *const ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetClientGuid<Impl: IAttachmentExecuteImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, guid: &::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SetClientGuid(&*(&guid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2300,7 +2300,7 @@ impl ::windows::core::RuntimeName for IBandHost {
 }
 impl IBandHostVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBandHostImpl, const OFFSET: isize>() -> IBandHostVtbl {
-        unsafe extern "system" fn CreateBand<Impl: IBandHostImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rclsidband: *const ::windows::core::GUID, favailable: super::super::Foundation::BOOL, fvisible: super::super::Foundation::BOOL, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateBand<Impl: IBandHostImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rclsidband: &::windows::core::GUID, favailable: super::super::Foundation::BOOL, fvisible: super::super::Foundation::BOOL, riid: &::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateBand(
                 &*(&rclsidband as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType),
@@ -2317,7 +2317,7 @@ impl IBandHostVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetBandAvailability<Impl: IBandHostImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rclsidband: *const ::windows::core::GUID, favailable: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetBandAvailability<Impl: IBandHostImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rclsidband: &::windows::core::GUID, favailable: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SetBandAvailability(&*(&rclsidband as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), &*(&favailable as *const <super::super::Foundation::BOOL as ::windows::core::Abi>::Abi as *const <super::super::Foundation::BOOL as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2328,7 +2328,7 @@ impl IBandHostVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DestroyBand<Impl: IBandHostImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rclsidband: *const ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DestroyBand<Impl: IBandHostImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rclsidband: &::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DestroyBand(&*(&rclsidband as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2412,7 +2412,7 @@ impl IBandSiteVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetBandObject<Impl: IBandSiteImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwbandid: u32, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetBandObject<Impl: IBandSiteImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwbandid: u32, riid: &::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetBandObject(dwbandid, &*(&riid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&ppv)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -3194,7 +3194,7 @@ impl IBrowserService2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateBrowserPropSheetExt<Impl: IBrowserService2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateBrowserPropSheetExt<Impl: IBrowserService2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, riid: &::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateBrowserPropSheetExt(&*(&riid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&ppv)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -3425,7 +3425,7 @@ impl IBrowserService2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn _ExecChildren<Impl: IBrowserService2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, punkbar: *mut ::core::ffi::c_void, fbroadcast: super::super::Foundation::BOOL, pguidcmdgroup: *const ::windows::core::GUID, ncmdid: u32, ncmdexecopt: u32, pvarargin: *const super::super::System::Com::VARIANT, pvarargout: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn _ExecChildren<Impl: IBrowserService2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, punkbar: *mut ::core::ffi::c_void, fbroadcast: super::super::Foundation::BOOL, pguidcmdgroup: &::windows::core::GUID, ncmdid: u32, ncmdexecopt: u32, pvarargin: *const super::super::System::Com::VARIANT, pvarargout: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this)._ExecChildren(
                 &*(&punkbar as *const <::windows::core::IUnknown as ::windows::core::Abi>::Abi as *const <::windows::core::IUnknown as ::windows::core::DefaultType>::DefaultType),
@@ -4082,7 +4082,7 @@ impl ICategoryProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetCategoryName<Impl: ICategoryProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pguid: *const ::windows::core::GUID, pszname: super::super::Foundation::PWSTR, cch: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetCategoryName<Impl: ICategoryProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pguid: &::windows::core::GUID, pszname: super::super::Foundation::PWSTR, cch: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetCategoryName(&*(&pguid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&pszname), cch) {
                 ::core::result::Result::Ok(ok__) => {
@@ -4093,7 +4093,7 @@ impl ICategoryProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateCategory<Impl: ICategoryProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pguid: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateCategory<Impl: ICategoryProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pguid: &::windows::core::GUID, riid: &::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateCategory(&*(&pguid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), &*(&riid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&ppv)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -5407,7 +5407,7 @@ impl ::windows::core::RuntimeName for ICredentialProviderFilter {
 }
 impl ICredentialProviderFilterVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICredentialProviderFilterImpl, const OFFSET: isize>() -> ICredentialProviderFilterVtbl {
-        unsafe extern "system" fn Filter<Impl: ICredentialProviderFilterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cpus: CREDENTIAL_PROVIDER_USAGE_SCENARIO, dwflags: u32, rgclsidproviders: *const ::windows::core::GUID, rgballow: *mut super::super::Foundation::BOOL, cproviders: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Filter<Impl: ICredentialProviderFilterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cpus: CREDENTIAL_PROVIDER_USAGE_SCENARIO, dwflags: u32, rgclsidproviders: &::windows::core::GUID, rgballow: *mut super::super::Foundation::BOOL, cproviders: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Filter(cpus, dwflags, &*(&rgclsidproviders as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), &*(&rgballow as *const <super::super::Foundation::BOOL as ::windows::core::Abi>::Abi as *const <super::super::Foundation::BOOL as ::windows::core::DefaultType>::DefaultType), cproviders) {
                 ::core::result::Result::Ok(ok__) => {
@@ -5523,7 +5523,7 @@ impl ::windows::core::RuntimeName for ICredentialProviderUserArray {
 }
 impl ICredentialProviderUserArrayVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICredentialProviderUserArrayImpl, const OFFSET: isize>() -> ICredentialProviderUserArrayVtbl {
-        unsafe extern "system" fn SetProviderFilter<Impl: ICredentialProviderUserArrayImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, guidprovidertofilterto: *const ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetProviderFilter<Impl: ICredentialProviderUserArrayImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, guidprovidertofilterto: &::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SetProviderFilter(&*(&guidprovidertofilterto as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -5640,7 +5640,7 @@ impl ICustomDestinationListVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn BeginList<Impl: ICustomDestinationListImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcminslots: *mut u32, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn BeginList<Impl: ICustomDestinationListImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcminslots: *mut u32, riid: &::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BeginList(::core::mem::transmute_copy(&pcminslots), &*(&riid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&ppv)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -5695,7 +5695,7 @@ impl ICustomDestinationListVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetRemovedDestinations<Impl: ICustomDestinationListImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetRemovedDestinations<Impl: ICustomDestinationListImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, riid: &::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetRemovedDestinations(&*(&riid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&ppv)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -5860,7 +5860,7 @@ impl ::windows::core::RuntimeName for IDataTransferManagerInterop {
 }
 impl IDataTransferManagerInteropVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDataTransferManagerInteropImpl, const OFFSET: isize>() -> IDataTransferManagerInteropVtbl {
-        unsafe extern "system" fn GetForWindow<Impl: IDataTransferManagerInteropImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, appwindow: super::super::Foundation::HWND, riid: *const ::windows::core::GUID, datatransfermanager: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetForWindow<Impl: IDataTransferManagerInteropImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, appwindow: super::super::Foundation::HWND, riid: &::windows::core::GUID, datatransfermanager: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetForWindow(&*(&appwindow as *const <super::super::Foundation::HWND as ::windows::core::Abi>::Abi as *const <super::super::Foundation::HWND as ::windows::core::DefaultType>::DefaultType), &*(&riid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&datatransfermanager)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -6021,7 +6021,7 @@ impl IDefaultFolderMenuInitializeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetHandlerClsid<Impl: IDefaultFolderMenuInitializeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rclsid: *const ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetHandlerClsid<Impl: IDefaultFolderMenuInitializeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rclsid: &::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SetHandlerClsid(&*(&rclsid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -6660,7 +6660,7 @@ impl IDockingWindowFrameVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn FindToolbar<Impl: IDockingWindowFrameImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszitem: super::super::Foundation::PWSTR, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FindToolbar<Impl: IDockingWindowFrameImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszitem: super::super::Foundation::PWSTR, riid: &::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FindToolbar(&*(&pwszitem as *const <super::super::Foundation::PWSTR as ::windows::core::Abi>::Abi as *const <super::super::Foundation::PWSTR as ::windows::core::DefaultType>::DefaultType), &*(&riid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&ppv)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -7252,7 +7252,7 @@ impl ::windows::core::RuntimeName for IEnumObjects {
 }
 impl IEnumObjectsVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEnumObjectsImpl, const OFFSET: isize>() -> IEnumObjectsVtbl {
-        unsafe extern "system" fn Next<Impl: IEnumObjectsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, celt: u32, riid: *const ::windows::core::GUID, rgelt: *mut *mut ::core::ffi::c_void, pceltfetched: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Next<Impl: IEnumObjectsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, celt: u32, riid: &::windows::core::GUID, rgelt: *mut *mut ::core::ffi::c_void, pceltfetched: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Next(celt, &*(&riid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&rgelt), ::core::mem::transmute_copy(&pceltfetched)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -7885,7 +7885,7 @@ impl ::windows::core::RuntimeName for IExpDispSupport {
 }
 impl IExpDispSupportVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IExpDispSupportImpl, const OFFSET: isize>() -> IExpDispSupportVtbl {
-        unsafe extern "system" fn FindConnectionPoint<Impl: IExpDispSupportImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppccp: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FindConnectionPoint<Impl: IExpDispSupportImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, riid: &::windows::core::GUID, ppccp: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FindConnectionPoint(&*(&riid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&ppccp)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -7907,7 +7907,7 @@ impl IExpDispSupportVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn OnInvoke<Impl: IExpDispSupportImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dispidmember: i32, iid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OnInvoke<Impl: IExpDispSupportImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dispidmember: i32, iid: &::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OnInvoke(
                 dispidmember,
@@ -7940,7 +7940,7 @@ impl ::windows::core::RuntimeName for IExpDispSupportXP {
 }
 impl IExpDispSupportXPVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IExpDispSupportXPImpl, const OFFSET: isize>() -> IExpDispSupportXPVtbl {
-        unsafe extern "system" fn FindCIE4ConnectionPoint<Impl: IExpDispSupportXPImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppccp: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FindCIE4ConnectionPoint<Impl: IExpDispSupportXPImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, riid: &::windows::core::GUID, ppccp: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FindCIE4ConnectionPoint(&*(&riid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&ppccp)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -7962,7 +7962,7 @@ impl IExpDispSupportXPVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn OnInvoke<Impl: IExpDispSupportXPImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dispidmember: i32, iid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OnInvoke<Impl: IExpDispSupportXPImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dispidmember: i32, iid: &::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OnInvoke(
                 dispidmember,
@@ -8165,7 +8165,7 @@ impl IExplorerBrowserVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetCurrentView<Impl: IExplorerBrowserImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetCurrentView<Impl: IExplorerBrowserImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, riid: &::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetCurrentView(&*(&riid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&ppv)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -8374,7 +8374,7 @@ impl ::windows::core::RuntimeName for IExplorerCommandProvider {
 }
 impl IExplorerCommandProviderVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IExplorerCommandProviderImpl, const OFFSET: isize>() -> IExplorerCommandProviderVtbl {
-        unsafe extern "system" fn GetCommands<Impl: IExplorerCommandProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, punksite: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetCommands<Impl: IExplorerCommandProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, punksite: *mut ::core::ffi::c_void, riid: &::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetCommands(&*(&punksite as *const <::windows::core::IUnknown as ::windows::core::Abi>::Abi as *const <::windows::core::IUnknown as ::windows::core::DefaultType>::DefaultType), &*(&riid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&ppv)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -8385,7 +8385,7 @@ impl IExplorerCommandProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetCommand<Impl: IExplorerCommandProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rguidcommandid: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetCommand<Impl: IExplorerCommandProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rguidcommandid: &::windows::core::GUID, riid: &::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetCommand(&*(&rguidcommandid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), &*(&riid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&ppv)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -8429,7 +8429,7 @@ impl ::windows::core::RuntimeName for IExplorerPaneVisibility {
 }
 impl IExplorerPaneVisibilityVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IExplorerPaneVisibilityImpl, const OFFSET: isize>() -> IExplorerPaneVisibilityVtbl {
-        unsafe extern "system" fn GetPaneState<Impl: IExplorerPaneVisibilityImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ep: *const ::windows::core::GUID, peps: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetPaneState<Impl: IExplorerPaneVisibilityImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ep: &::windows::core::GUID, peps: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetPaneState(&*(&ep as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&peps)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -8855,7 +8855,7 @@ impl IFileDialogVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetClientGuid<Impl: IFileDialogImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, guid: *const ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetClientGuid<Impl: IFileDialogImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, guid: &::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SetClientGuid(&*(&guid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -10395,7 +10395,7 @@ impl IFileSystemBindData2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetJunctionCLSID<Impl: IFileSystemBindData2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, clsid: *const ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetJunctionCLSID<Impl: IFileSystemBindData2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, clsid: &::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SetJunctionCLSID(&*(&clsid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -10577,7 +10577,7 @@ impl IFolderViewVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetFolder<Impl: IFolderViewImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetFolder<Impl: IFolderViewImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, riid: &::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetFolder(&*(&riid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&ppv)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -10610,7 +10610,7 @@ impl IFolderViewVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Items<Impl: IFolderViewImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, uflags: u32, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Items<Impl: IFolderViewImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, uflags: u32, riid: &::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Items(uflags, &*(&riid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&ppv)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -10901,7 +10901,7 @@ impl IFolderView2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetItem<Impl: IFolderView2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, iitem: i32, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetItem<Impl: IFolderView2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, iitem: i32, riid: &::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetItem(iitem, &*(&riid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&ppv)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -11178,7 +11178,7 @@ impl ::windows::core::RuntimeName for IFolderViewSettings {
 }
 impl IFolderViewSettingsVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFolderViewSettingsImpl, const OFFSET: isize>() -> IFolderViewSettingsVtbl {
-        unsafe extern "system" fn GetColumnPropertyList<Impl: IFolderViewSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetColumnPropertyList<Impl: IFolderViewSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, riid: &::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetColumnPropertyList(&*(&riid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&ppv)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -11478,7 +11478,7 @@ impl ::windows::core::RuntimeName for IHandlerActivationHost {
 }
 impl IHandlerActivationHostVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHandlerActivationHostImpl, const OFFSET: isize>() -> IHandlerActivationHostVtbl {
-        unsafe extern "system" fn BeforeCoCreateInstance<Impl: IHandlerActivationHostImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, clsidhandler: *const ::windows::core::GUID, itemsbeingactivated: ::windows::core::RawPtr, handlerinfo: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn BeforeCoCreateInstance<Impl: IHandlerActivationHostImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, clsidhandler: &::windows::core::GUID, itemsbeingactivated: ::windows::core::RawPtr, handlerinfo: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BeforeCoCreateInstance(&*(&clsidhandler as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), &*(&itemsbeingactivated as *const <IShellItemArray as ::windows::core::Abi>::Abi as *const <IShellItemArray as ::windows::core::DefaultType>::DefaultType), &*(&handlerinfo as *const <IHandlerInfo as ::windows::core::Abi>::Abi as *const <IHandlerInfo as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -11947,7 +11947,7 @@ impl IHlinkBrowseContextVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Clone<Impl: IHlinkBrowseContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, piunkouter: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppiunkobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Clone<Impl: IHlinkBrowseContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, piunkouter: *mut ::core::ffi::c_void, riid: &::windows::core::GUID, ppiunkobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Clone(&*(&piunkouter as *const <::windows::core::IUnknown as ::windows::core::Abi>::Abi as *const <::windows::core::IUnknown as ::windows::core::DefaultType>::DefaultType), &*(&riid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&ppiunkobj)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -12090,7 +12090,7 @@ impl ::windows::core::RuntimeName for IHlinkSite {
 }
 impl IHlinkSiteVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHlinkSiteImpl, const OFFSET: isize>() -> IHlinkSiteVtbl {
-        unsafe extern "system" fn QueryService<Impl: IHlinkSiteImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwsitedata: u32, guidservice: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppiunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn QueryService<Impl: IHlinkSiteImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwsitedata: u32, guidservice: &::windows::core::GUID, riid: &::windows::core::GUID, ppiunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).QueryService(dwsitedata, &*(&guidservice as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), &*(&riid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&ppiunk)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -12716,7 +12716,7 @@ impl IKnownFolderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetShellItem<Impl: IKnownFolderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwflags: u32, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetShellItem<Impl: IKnownFolderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwflags: u32, riid: &::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetShellItem(dwflags, &*(&riid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&ppv)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -12840,7 +12840,7 @@ impl IKnownFolderManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn FolderIdToCsidl<Impl: IKnownFolderManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rfid: *const ::windows::core::GUID, pncsidl: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FolderIdToCsidl<Impl: IKnownFolderManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rfid: &::windows::core::GUID, pncsidl: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FolderIdToCsidl(&*(&rfid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&pncsidl)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -12862,7 +12862,7 @@ impl IKnownFolderManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetFolder<Impl: IKnownFolderManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rfid: *const ::windows::core::GUID, ppkf: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetFolder<Impl: IKnownFolderManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rfid: &::windows::core::GUID, ppkf: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetFolder(&*(&rfid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&ppkf)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -12884,7 +12884,7 @@ impl IKnownFolderManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RegisterFolder<Impl: IKnownFolderManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rfid: *const ::windows::core::GUID, pkfd: *const KNOWNFOLDER_DEFINITION) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RegisterFolder<Impl: IKnownFolderManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rfid: &::windows::core::GUID, pkfd: *const KNOWNFOLDER_DEFINITION) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RegisterFolder(&*(&rfid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), &*(&pkfd as *const <KNOWNFOLDER_DEFINITION as ::windows::core::Abi>::Abi as *const <KNOWNFOLDER_DEFINITION as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -12895,7 +12895,7 @@ impl IKnownFolderManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn UnregisterFolder<Impl: IKnownFolderManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rfid: *const ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn UnregisterFolder<Impl: IKnownFolderManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rfid: &::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).UnregisterFolder(&*(&rfid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -12928,7 +12928,7 @@ impl IKnownFolderManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Redirect<Impl: IKnownFolderManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rfid: *const ::windows::core::GUID, hwnd: super::super::Foundation::HWND, flags: u32, psztargetpath: super::super::Foundation::PWSTR, cfolders: u32, pexclusion: *const ::windows::core::GUID, ppszerror: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Redirect<Impl: IKnownFolderManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rfid: &::windows::core::GUID, hwnd: super::super::Foundation::HWND, flags: u32, psztargetpath: super::super::Foundation::PWSTR, cfolders: u32, pexclusion: &::windows::core::GUID, ppszerror: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Redirect(
                 &*(&rfid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType),
@@ -13932,7 +13932,7 @@ impl INameSpaceTreeControlEventsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn OnBeforeContextMenu<Impl: INameSpaceTreeControlEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, psi: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OnBeforeContextMenu<Impl: INameSpaceTreeControlEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, psi: ::windows::core::RawPtr, riid: &::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OnBeforeContextMenu(&*(&psi as *const <IShellItem as ::windows::core::Abi>::Abi as *const <IShellItem as ::windows::core::DefaultType>::DefaultType), &*(&riid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&ppv)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -13943,7 +13943,7 @@ impl INameSpaceTreeControlEventsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn OnAfterContextMenu<Impl: INameSpaceTreeControlEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, psi: ::windows::core::RawPtr, pcmin: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OnAfterContextMenu<Impl: INameSpaceTreeControlEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, psi: ::windows::core::RawPtr, pcmin: ::windows::core::RawPtr, riid: &::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OnAfterContextMenu(&*(&psi as *const <IShellItem as ::windows::core::Abi>::Abi as *const <IShellItem as ::windows::core::DefaultType>::DefaultType), &*(&pcmin as *const <IContextMenu as ::windows::core::Abi>::Abi as *const <IContextMenu as ::windows::core::DefaultType>::DefaultType), &*(&riid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&ppv)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -14557,7 +14557,7 @@ impl ::windows::core::RuntimeName for IObjectProvider {
 }
 impl IObjectProviderVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IObjectProviderImpl, const OFFSET: isize>() -> IObjectProviderVtbl {
-        unsafe extern "system" fn QueryObject<Impl: IObjectProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, guidobject: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppvout: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn QueryObject<Impl: IObjectProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, guidobject: &::windows::core::GUID, riid: &::windows::core::GUID, ppvout: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).QueryObject(&*(&guidobject as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), &*(&riid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&ppvout)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -14737,7 +14737,7 @@ impl IObjectWithSelectionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetSelection<Impl: IObjectWithSelectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetSelection<Impl: IObjectWithSelectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, riid: &::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetSelection(&*(&riid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&ppv)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -14809,7 +14809,7 @@ impl ::windows::core::RuntimeName for IOpenSearchSource {
 }
 impl IOpenSearchSourceVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IOpenSearchSourceImpl, const OFFSET: isize>() -> IOpenSearchSourceVtbl {
-        unsafe extern "system" fn GetResults<Impl: IOpenSearchSourceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hwnd: super::super::Foundation::HWND, pszquery: super::super::Foundation::PWSTR, dwstartindex: u32, dwcount: u32, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetResults<Impl: IOpenSearchSourceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hwnd: super::super::Foundation::HWND, pszquery: super::super::Foundation::PWSTR, dwstartindex: u32, dwcount: u32, riid: &::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetResults(
                 &*(&hwnd as *const <super::super::Foundation::HWND as ::windows::core::Abi>::Abi as *const <super::super::Foundation::HWND as ::windows::core::DefaultType>::DefaultType),
@@ -15093,7 +15093,7 @@ impl IPackageDebugSettingsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ActivateBackgroundTask<Impl: IPackageDebugSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, taskid: *const ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ActivateBackgroundTask<Impl: IPackageDebugSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, taskid: &::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ActivateBackgroundTask(&*(&taskid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -15304,7 +15304,7 @@ impl IParseAndCreateItemVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetItem<Impl: IParseAndCreateItemImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetItem<Impl: IParseAndCreateItemImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, riid: &::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetItem(&*(&riid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&ppv)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -15660,7 +15660,7 @@ impl ::windows::core::RuntimeName for IProfferService {
 }
 impl IProfferServiceVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IProfferServiceImpl, const OFFSET: isize>() -> IProfferServiceVtbl {
-        unsafe extern "system" fn ProfferService<Impl: IProfferServiceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, serviceid: *const ::windows::core::GUID, serviceprovider: ::windows::core::RawPtr, cookie: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ProfferService<Impl: IProfferServiceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, serviceid: &::windows::core::GUID, serviceprovider: ::windows::core::RawPtr, cookie: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ProfferService(&*(&serviceid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), &*(&serviceprovider as *const <super::super::System::Com::IServiceProvider as ::windows::core::Abi>::Abi as *const <super::super::System::Com::IServiceProvider as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&cookie)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -16087,7 +16087,7 @@ impl IQueryAssociationsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetEnum<Impl: IQueryAssociationsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, flags: u32, assocenum: ASSOCENUM, pszextra: super::super::Foundation::PWSTR, riid: *const ::windows::core::GUID, ppvout: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetEnum<Impl: IQueryAssociationsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, flags: u32, assocenum: ASSOCENUM, pszextra: super::super::Foundation::PWSTR, riid: &::windows::core::GUID, ppvout: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetEnum(flags, assocenum, &*(&pszextra as *const <super::super::Foundation::PWSTR as ::windows::core::Abi>::Abi as *const <super::super::Foundation::PWSTR as ::windows::core::DefaultType>::DefaultType), &*(&riid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&ppvout)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -16698,7 +16698,7 @@ impl ::windows::core::RuntimeName for ISearchBoxInfo {
 }
 impl ISearchBoxInfoVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISearchBoxInfoImpl, const OFFSET: isize>() -> ISearchBoxInfoVtbl {
-        unsafe extern "system" fn GetCondition<Impl: ISearchBoxInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetCondition<Impl: ISearchBoxInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, riid: &::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetCondition(&*(&riid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&ppv)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -16898,7 +16898,7 @@ impl ISearchFolderItemFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetShellItem<Impl: ISearchFolderItemFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetShellItem<Impl: ISearchFolderItemFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, riid: &::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetShellItem(&*(&riid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&ppv)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -18298,7 +18298,7 @@ impl IShellFolderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn BindToObject<Impl: IShellFolderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pidl: *const Common::ITEMIDLIST, pbc: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn BindToObject<Impl: IShellFolderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pidl: *const Common::ITEMIDLIST, pbc: ::windows::core::RawPtr, riid: &::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BindToObject(
                 &*(&pidl as *const <Common::ITEMIDLIST as ::windows::core::Abi>::Abi as *const <Common::ITEMIDLIST as ::windows::core::DefaultType>::DefaultType),
@@ -18314,7 +18314,7 @@ impl IShellFolderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn BindToStorage<Impl: IShellFolderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pidl: *const Common::ITEMIDLIST, pbc: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn BindToStorage<Impl: IShellFolderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pidl: *const Common::ITEMIDLIST, pbc: ::windows::core::RawPtr, riid: &::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BindToStorage(
                 &*(&pidl as *const <Common::ITEMIDLIST as ::windows::core::Abi>::Abi as *const <Common::ITEMIDLIST as ::windows::core::DefaultType>::DefaultType),
@@ -18341,7 +18341,7 @@ impl IShellFolderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateViewObject<Impl: IShellFolderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hwndowner: super::super::Foundation::HWND, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateViewObject<Impl: IShellFolderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hwndowner: super::super::Foundation::HWND, riid: &::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateViewObject(&*(&hwndowner as *const <super::super::Foundation::HWND as ::windows::core::Abi>::Abi as *const <super::super::Foundation::HWND as ::windows::core::DefaultType>::DefaultType), &*(&riid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&ppv)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -18363,7 +18363,7 @@ impl IShellFolderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetUIObjectOf<Impl: IShellFolderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hwndowner: super::super::Foundation::HWND, cidl: u32, apidl: *const *const Common::ITEMIDLIST, riid: *const ::windows::core::GUID, rgfreserved: *mut u32, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetUIObjectOf<Impl: IShellFolderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hwndowner: super::super::Foundation::HWND, cidl: u32, apidl: *const *const Common::ITEMIDLIST, riid: &::windows::core::GUID, rgfreserved: *mut u32, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetUIObjectOf(
                 &*(&hwndowner as *const <super::super::Foundation::HWND as ::windows::core::Abi>::Abi as *const <super::super::Foundation::HWND as ::windows::core::DefaultType>::DefaultType),
@@ -19989,7 +19989,7 @@ impl ::windows::core::RuntimeName for IShellItem {
 }
 impl IShellItemVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IShellItemImpl, const OFFSET: isize>() -> IShellItemVtbl {
-        unsafe extern "system" fn BindToHandler<Impl: IShellItemImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbc: ::windows::core::RawPtr, bhid: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn BindToHandler<Impl: IShellItemImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbc: ::windows::core::RawPtr, bhid: &::windows::core::GUID, riid: &::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BindToHandler(
                 &*(&pbc as *const <super::super::System::Com::IBindCtx as ::windows::core::Abi>::Abi as *const <super::super::System::Com::IBindCtx as ::windows::core::DefaultType>::DefaultType),
@@ -20072,7 +20072,7 @@ impl ::windows::core::RuntimeName for IShellItem2 {
 }
 impl IShellItem2Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IShellItem2Impl, const OFFSET: isize>() -> IShellItem2Vtbl {
-        unsafe extern "system" fn GetPropertyStore<Impl: IShellItem2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, flags: PropertiesSystem::GETPROPERTYSTOREFLAGS, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetPropertyStore<Impl: IShellItem2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, flags: PropertiesSystem::GETPROPERTYSTOREFLAGS, riid: &::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetPropertyStore(flags, &*(&riid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&ppv)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -20083,7 +20083,7 @@ impl IShellItem2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetPropertyStoreWithCreateObject<Impl: IShellItem2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, flags: PropertiesSystem::GETPROPERTYSTOREFLAGS, punkcreateobject: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetPropertyStoreWithCreateObject<Impl: IShellItem2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, flags: PropertiesSystem::GETPROPERTYSTOREFLAGS, punkcreateobject: *mut ::core::ffi::c_void, riid: &::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetPropertyStoreWithCreateObject(flags, &*(&punkcreateobject as *const <::windows::core::IUnknown as ::windows::core::Abi>::Abi as *const <::windows::core::IUnknown as ::windows::core::DefaultType>::DefaultType), &*(&riid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&ppv)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -20094,7 +20094,7 @@ impl IShellItem2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetPropertyStoreForKeys<Impl: IShellItem2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rgkeys: *const PropertiesSystem::PROPERTYKEY, ckeys: u32, flags: PropertiesSystem::GETPROPERTYSTOREFLAGS, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetPropertyStoreForKeys<Impl: IShellItem2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rgkeys: *const PropertiesSystem::PROPERTYKEY, ckeys: u32, flags: PropertiesSystem::GETPROPERTYSTOREFLAGS, riid: &::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetPropertyStoreForKeys(&*(&rgkeys as *const <PropertiesSystem::PROPERTYKEY as ::windows::core::Abi>::Abi as *const <PropertiesSystem::PROPERTYKEY as ::windows::core::DefaultType>::DefaultType), ckeys, flags, &*(&riid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&ppv)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -20105,7 +20105,7 @@ impl IShellItem2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetPropertyDescriptionList<Impl: IShellItem2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, keytype: *const PropertiesSystem::PROPERTYKEY, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetPropertyDescriptionList<Impl: IShellItem2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, keytype: *const PropertiesSystem::PROPERTYKEY, riid: &::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetPropertyDescriptionList(&*(&keytype as *const <PropertiesSystem::PROPERTYKEY as ::windows::core::Abi>::Abi as *const <PropertiesSystem::PROPERTYKEY as ::windows::core::DefaultType>::DefaultType), &*(&riid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&ppv)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -20252,7 +20252,7 @@ impl ::windows::core::RuntimeName for IShellItemArray {
 }
 impl IShellItemArrayVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IShellItemArrayImpl, const OFFSET: isize>() -> IShellItemArrayVtbl {
-        unsafe extern "system" fn BindToHandler<Impl: IShellItemArrayImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbc: ::windows::core::RawPtr, bhid: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppvout: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn BindToHandler<Impl: IShellItemArrayImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbc: ::windows::core::RawPtr, bhid: &::windows::core::GUID, riid: &::windows::core::GUID, ppvout: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BindToHandler(
                 &*(&pbc as *const <super::super::System::Com::IBindCtx as ::windows::core::Abi>::Abi as *const <super::super::System::Com::IBindCtx as ::windows::core::DefaultType>::DefaultType),
@@ -20268,7 +20268,7 @@ impl IShellItemArrayVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetPropertyStore<Impl: IShellItemArrayImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, flags: PropertiesSystem::GETPROPERTYSTOREFLAGS, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetPropertyStore<Impl: IShellItemArrayImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, flags: PropertiesSystem::GETPROPERTYSTOREFLAGS, riid: &::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetPropertyStore(flags, &*(&riid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&ppv)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -20279,7 +20279,7 @@ impl IShellItemArrayVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetPropertyDescriptionList<Impl: IShellItemArrayImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, keytype: *const PropertiesSystem::PROPERTYKEY, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetPropertyDescriptionList<Impl: IShellItemArrayImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, keytype: *const PropertiesSystem::PROPERTYKEY, riid: &::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetPropertyDescriptionList(&*(&keytype as *const <PropertiesSystem::PROPERTYKEY as ::windows::core::Abi>::Abi as *const <PropertiesSystem::PROPERTYKEY as ::windows::core::DefaultType>::DefaultType), &*(&riid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&ppv)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -20491,7 +20491,7 @@ impl IShellItemResourcesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn OpenResource<Impl: IShellItemResourcesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcsir: *const SHELL_ITEM_RESOURCE, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OpenResource<Impl: IShellItemResourcesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcsir: *const SHELL_ITEM_RESOURCE, riid: &::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OpenResource(&*(&pcsir as *const <SHELL_ITEM_RESOURCE as ::windows::core::Abi>::Abi as *const <SHELL_ITEM_RESOURCE as ::windows::core::DefaultType>::DefaultType), &*(&riid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&ppv)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -20502,7 +20502,7 @@ impl IShellItemResourcesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateResource<Impl: IShellItemResourcesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcsir: *const SHELL_ITEM_RESOURCE, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateResource<Impl: IShellItemResourcesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcsir: *const SHELL_ITEM_RESOURCE, riid: &::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateResource(&*(&pcsir as *const <SHELL_ITEM_RESOURCE as ::windows::core::Abi>::Abi as *const <SHELL_ITEM_RESOURCE as ::windows::core::DefaultType>::DefaultType), &*(&riid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&ppv)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -20579,7 +20579,7 @@ impl IShellLibraryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn LoadLibraryFromKnownFolder<Impl: IShellLibraryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, kfidlibrary: *const ::windows::core::GUID, grfmode: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn LoadLibraryFromKnownFolder<Impl: IShellLibraryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, kfidlibrary: &::windows::core::GUID, grfmode: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).LoadLibraryFromKnownFolder(&*(&kfidlibrary as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), grfmode) {
                 ::core::result::Result::Ok(ok__) => {
@@ -20612,7 +20612,7 @@ impl IShellLibraryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetFolders<Impl: IShellLibraryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lff: LIBRARYFOLDERFILTER, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetFolders<Impl: IShellLibraryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lff: LIBRARYFOLDERFILTER, riid: &::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetFolders(lff, &*(&riid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&ppv)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -20623,7 +20623,7 @@ impl IShellLibraryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ResolveFolder<Impl: IShellLibraryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, psifoldertoresolve: ::windows::core::RawPtr, dwtimeout: u32, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ResolveFolder<Impl: IShellLibraryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, psifoldertoresolve: ::windows::core::RawPtr, dwtimeout: u32, riid: &::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ResolveFolder(&*(&psifoldertoresolve as *const <IShellItem as ::windows::core::Abi>::Abi as *const <IShellItem as ::windows::core::DefaultType>::DefaultType), dwtimeout, &*(&riid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&ppv)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -20634,7 +20634,7 @@ impl IShellLibraryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetDefaultSaveFolder<Impl: IShellLibraryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dsft: DEFAULTSAVEFOLDERTYPE, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetDefaultSaveFolder<Impl: IShellLibraryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dsft: DEFAULTSAVEFOLDERTYPE, riid: &::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDefaultSaveFolder(dsft, &*(&riid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&ppv)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -20689,7 +20689,7 @@ impl IShellLibraryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetFolderType<Impl: IShellLibraryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ftid: *const ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetFolderType<Impl: IShellLibraryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ftid: &::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SetFolderType(&*(&ftid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -20744,7 +20744,7 @@ impl IShellLibraryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SaveInKnownFolder<Impl: IShellLibraryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, kfidtosavein: *const ::windows::core::GUID, pszlibraryname: super::super::Foundation::PWSTR, lsf: LIBRARYSAVEFLAGS, ppsisavedto: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SaveInKnownFolder<Impl: IShellLibraryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, kfidtosavein: &::windows::core::GUID, pszlibraryname: super::super::Foundation::PWSTR, lsf: LIBRARYSAVEFLAGS, ppsisavedto: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SaveInKnownFolder(&*(&kfidtosavein as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), &*(&pszlibraryname as *const <super::super::Foundation::PWSTR as ::windows::core::Abi>::Abi as *const <super::super::Foundation::PWSTR as ::windows::core::DefaultType>::DefaultType), lsf, ::core::mem::transmute_copy(&ppsisavedto)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -21656,7 +21656,7 @@ impl IShellMenuVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetShellFolder<Impl: IShellMenuImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdwflags: *mut u32, ppidl: *mut *mut Common::ITEMIDLIST, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetShellFolder<Impl: IShellMenuImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdwflags: *mut u32, ppidl: *mut *mut Common::ITEMIDLIST, riid: &::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetShellFolder(::core::mem::transmute_copy(&pdwflags), ::core::mem::transmute_copy(&ppidl), &*(&riid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&ppv)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -22150,7 +22150,7 @@ impl ::windows::core::RuntimeName for IShellTaskScheduler {
 }
 impl IShellTaskSchedulerVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IShellTaskSchedulerImpl, const OFFSET: isize>() -> IShellTaskSchedulerVtbl {
-        unsafe extern "system" fn AddTask<Impl: IShellTaskSchedulerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, prt: ::windows::core::RawPtr, rtoid: *const ::windows::core::GUID, lparam: usize, dwpriority: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddTask<Impl: IShellTaskSchedulerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, prt: ::windows::core::RawPtr, rtoid: &::windows::core::GUID, lparam: usize, dwpriority: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AddTask(&*(&prt as *const <IRunnableTask as ::windows::core::Abi>::Abi as *const <IRunnableTask as ::windows::core::DefaultType>::DefaultType), &*(&rtoid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), lparam, dwpriority) {
                 ::core::result::Result::Ok(ok__) => {
@@ -22161,7 +22161,7 @@ impl IShellTaskSchedulerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveTasks<Impl: IShellTaskSchedulerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rtoid: *const ::windows::core::GUID, lparam: usize, bwaitifrunning: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveTasks<Impl: IShellTaskSchedulerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rtoid: &::windows::core::GUID, lparam: usize, bwaitifrunning: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RemoveTasks(&*(&rtoid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), lparam, &*(&bwaitifrunning as *const <super::super::Foundation::BOOL as ::windows::core::Abi>::Abi as *const <super::super::Foundation::BOOL as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -22172,7 +22172,7 @@ impl IShellTaskSchedulerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CountTasks<Impl: IShellTaskSchedulerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rtoid: *const ::windows::core::GUID) -> u32 {
+        unsafe extern "system" fn CountTasks<Impl: IShellTaskSchedulerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rtoid: &::windows::core::GUID) -> u32 {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CountTasks(&*(&rtoid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -23827,7 +23827,7 @@ impl IShellViewVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetItemObject<Impl: IShellViewImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, uitem: u32, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetItemObject<Impl: IShellViewImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, uitem: u32, riid: &::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetItemObject(uitem, &*(&riid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&ppv)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -23931,7 +23931,7 @@ impl ::windows::core::RuntimeName for IShellView3 {
 #[cfg(feature = "Win32_System_Ole")]
 impl IShellView3Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IShellView3Impl, const OFFSET: isize>() -> IShellView3Vtbl {
-        unsafe extern "system" fn CreateViewWindow3<Impl: IShellView3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, psbowner: ::windows::core::RawPtr, psvprev: ::windows::core::RawPtr, dwviewflags: u32, dwmask: FOLDERFLAGS, dwflags: FOLDERFLAGS, fvmode: FOLDERVIEWMODE, pvid: *const ::windows::core::GUID, prcview: *const super::super::Foundation::RECT, phwndview: *mut super::super::Foundation::HWND) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateViewWindow3<Impl: IShellView3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, psbowner: ::windows::core::RawPtr, psvprev: ::windows::core::RawPtr, dwviewflags: u32, dwmask: FOLDERFLAGS, dwflags: FOLDERFLAGS, fvmode: FOLDERVIEWMODE, pvid: &::windows::core::GUID, prcview: *const super::super::Foundation::RECT, phwndview: *mut super::super::Foundation::HWND) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateViewWindow3(
                 &*(&psbowner as *const <IShellBrowser as ::windows::core::Abi>::Abi as *const <IShellBrowser as ::windows::core::DefaultType>::DefaultType),
@@ -24544,7 +24544,7 @@ impl ISyncMgrConflictVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetResolutionHandler<Impl: ISyncMgrConflictImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppvresolutionhandler: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetResolutionHandler<Impl: ISyncMgrConflictImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, riid: &::windows::core::GUID, ppvresolutionhandler: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetResolutionHandler(&*(&riid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&ppvresolutionhandler)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -24813,7 +24813,7 @@ impl ISyncMgrConflictStoreVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn BindToConflict<Impl: ISyncMgrConflictStoreImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pconflictidinfo: *const SYNCMGR_CONFLICT_ID_INFO, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn BindToConflict<Impl: ISyncMgrConflictStoreImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pconflictidinfo: *const SYNCMGR_CONFLICT_ID_INFO, riid: &::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BindToConflict(&*(&pconflictidinfo as *const <SYNCMGR_CONFLICT_ID_INFO as ::windows::core::Abi>::Abi as *const <SYNCMGR_CONFLICT_ID_INFO as ::windows::core::DefaultType>::DefaultType), &*(&riid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&ppv)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -24951,7 +24951,7 @@ impl ISyncMgrControlVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn UpdateHandlerCollection<Impl: ISyncMgrControlImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rclsidcollectionid: *const ::windows::core::GUID, ncontrolflags: SYNCMGR_CONTROL_FLAGS) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn UpdateHandlerCollection<Impl: ISyncMgrControlImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rclsidcollectionid: &::windows::core::GUID, ncontrolflags: SYNCMGR_CONTROL_FLAGS) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).UpdateHandlerCollection(&*(&rclsidcollectionid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), ncontrolflags) {
                 ::core::result::Result::Ok(ok__) => {
@@ -25322,7 +25322,7 @@ impl ::windows::core::RuntimeName for ISyncMgrEventLinkUIOperation {
 }
 impl ISyncMgrEventLinkUIOperationVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISyncMgrEventLinkUIOperationImpl, const OFFSET: isize>() -> ISyncMgrEventLinkUIOperationVtbl {
-        unsafe extern "system" fn Init<Impl: ISyncMgrEventLinkUIOperationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rguideventid: *const ::windows::core::GUID, pevent: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Init<Impl: ISyncMgrEventLinkUIOperationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rguideventid: &::windows::core::GUID, pevent: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Init(&*(&rguideventid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), &*(&pevent as *const <ISyncMgrEvent as ::windows::core::Abi>::Abi as *const <ISyncMgrEvent as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -25369,7 +25369,7 @@ impl ISyncMgrEventStoreVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetEvent<Impl: ISyncMgrEventStoreImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rguideventid: *const ::windows::core::GUID, ppevent: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetEvent<Impl: ISyncMgrEventStoreImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rguideventid: &::windows::core::GUID, ppevent: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetEvent(&*(&rguideventid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&ppevent)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -25380,7 +25380,7 @@ impl ISyncMgrEventStoreVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveEvent<Impl: ISyncMgrEventStoreImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pguideventids: *const ::windows::core::GUID, cevents: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveEvent<Impl: ISyncMgrEventStoreImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pguideventids: &::windows::core::GUID, cevents: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RemoveEvent(&*(&pguideventids as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), cevents) {
                 ::core::result::Result::Ok(ok__) => {
@@ -25431,7 +25431,7 @@ impl ISyncMgrHandlerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetObject<Impl: ISyncMgrHandlerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rguidobjectid: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetObject<Impl: ISyncMgrHandlerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rguidobjectid: &::windows::core::GUID, riid: &::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetObject(&*(&rguidobjectid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), &*(&riid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&ppv)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -25541,7 +25541,7 @@ impl ISyncMgrHandlerCollectionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn BindToHandler<Impl: ISyncMgrHandlerCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszhandlerid: super::super::Foundation::PWSTR, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn BindToHandler<Impl: ISyncMgrHandlerCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszhandlerid: super::super::Foundation::PWSTR, riid: &::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BindToHandler(&*(&pszhandlerid as *const <super::super::Foundation::PWSTR as ::windows::core::Abi>::Abi as *const <super::super::Foundation::PWSTR as ::windows::core::DefaultType>::DefaultType), &*(&riid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&ppv)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -25659,7 +25659,7 @@ impl ::windows::core::RuntimeName for ISyncMgrRegister {
 }
 impl ISyncMgrRegisterVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISyncMgrRegisterImpl, const OFFSET: isize>() -> ISyncMgrRegisterVtbl {
-        unsafe extern "system" fn RegisterSyncMgrHandler<Impl: ISyncMgrRegisterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, clsidhandler: *const ::windows::core::GUID, pwszdescription: super::super::Foundation::PWSTR, dwsyncmgrregisterflags: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RegisterSyncMgrHandler<Impl: ISyncMgrRegisterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, clsidhandler: &::windows::core::GUID, pwszdescription: super::super::Foundation::PWSTR, dwsyncmgrregisterflags: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RegisterSyncMgrHandler(&*(&clsidhandler as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), &*(&pwszdescription as *const <super::super::Foundation::PWSTR as ::windows::core::Abi>::Abi as *const <super::super::Foundation::PWSTR as ::windows::core::DefaultType>::DefaultType), dwsyncmgrregisterflags) {
                 ::core::result::Result::Ok(ok__) => {
@@ -25670,7 +25670,7 @@ impl ISyncMgrRegisterVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn UnregisterSyncMgrHandler<Impl: ISyncMgrRegisterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, clsidhandler: *const ::windows::core::GUID, dwreserved: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn UnregisterSyncMgrHandler<Impl: ISyncMgrRegisterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, clsidhandler: &::windows::core::GUID, dwreserved: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).UnregisterSyncMgrHandler(&*(&clsidhandler as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), dwreserved) {
                 ::core::result::Result::Ok(ok__) => {
@@ -25681,7 +25681,7 @@ impl ISyncMgrRegisterVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetHandlerRegistrationInfo<Impl: ISyncMgrRegisterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, clsidhandler: *const ::windows::core::GUID, pdwsyncmgrregisterflags: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetHandlerRegistrationInfo<Impl: ISyncMgrRegisterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, clsidhandler: &::windows::core::GUID, pdwsyncmgrregisterflags: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetHandlerRegistrationInfo(&*(&clsidhandler as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), pdwsyncmgrregisterflags) {
                 ::core::result::Result::Ok(ok__) => {
@@ -26014,7 +26014,7 @@ impl ISyncMgrSyncItemVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetObject<Impl: ISyncMgrSyncItemImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rguidobjectid: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetObject<Impl: ISyncMgrSyncItemImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rguidobjectid: &::windows::core::GUID, riid: &::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetObject(&*(&rguidobjectid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), &*(&riid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&ppv)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -26260,7 +26260,7 @@ impl ISyncMgrSynchronizeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetItemObject<Impl: ISyncMgrSynchronizeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, itemid: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetItemObject<Impl: ISyncMgrSynchronizeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, itemid: &::windows::core::GUID, riid: &::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetItemObject(&*(&itemid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), &*(&riid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&ppv)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -26271,7 +26271,7 @@ impl ISyncMgrSynchronizeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ShowProperties<Impl: ISyncMgrSynchronizeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hwndparent: super::super::Foundation::HWND, itemid: *const ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ShowProperties<Impl: ISyncMgrSynchronizeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hwndparent: super::super::Foundation::HWND, itemid: &::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ShowProperties(&*(&hwndparent as *const <super::super::Foundation::HWND as ::windows::core::Abi>::Abi as *const <super::super::Foundation::HWND as ::windows::core::DefaultType>::DefaultType), &*(&itemid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -26293,7 +26293,7 @@ impl ISyncMgrSynchronizeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PrepareForSync<Impl: ISyncMgrSynchronizeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cbnumitems: u32, pitemids: *const ::windows::core::GUID, hwndparent: super::super::Foundation::HWND, dwreserved: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PrepareForSync<Impl: ISyncMgrSynchronizeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cbnumitems: u32, pitemids: &::windows::core::GUID, hwndparent: super::super::Foundation::HWND, dwreserved: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PrepareForSync(cbnumitems, &*(&pitemids as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), &*(&hwndparent as *const <super::super::Foundation::HWND as ::windows::core::Abi>::Abi as *const <super::super::Foundation::HWND as ::windows::core::DefaultType>::DefaultType), dwreserved) {
                 ::core::result::Result::Ok(ok__) => {
@@ -26315,7 +26315,7 @@ impl ISyncMgrSynchronizeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetItemStatus<Impl: ISyncMgrSynchronizeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pitemid: *const ::windows::core::GUID, dwsyncmgrstatus: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetItemStatus<Impl: ISyncMgrSynchronizeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pitemid: &::windows::core::GUID, dwsyncmgrstatus: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SetItemStatus(&*(&pitemid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), dwsyncmgrstatus) {
                 ::core::result::Result::Ok(ok__) => {
@@ -26326,7 +26326,7 @@ impl ISyncMgrSynchronizeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ShowError<Impl: ISyncMgrSynchronizeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hwndparent: super::super::Foundation::HWND, errorid: *const ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ShowError<Impl: ISyncMgrSynchronizeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hwndparent: super::super::Foundation::HWND, errorid: &::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ShowError(&*(&hwndparent as *const <super::super::Foundation::HWND as ::windows::core::Abi>::Abi as *const <super::super::Foundation::HWND as ::windows::core::DefaultType>::DefaultType), &*(&errorid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -26406,7 +26406,7 @@ impl ISyncMgrSynchronizeCallbackVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ShowErrorCompleted<Impl: ISyncMgrSynchronizeCallbackImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hr: ::windows::core::HRESULT, citems: u32, pitemids: *const ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ShowErrorCompleted<Impl: ISyncMgrSynchronizeCallbackImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hr: ::windows::core::HRESULT, citems: u32, pitemids: &::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ShowErrorCompleted(hr, citems, &*(&pitemids as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -26428,7 +26428,7 @@ impl ISyncMgrSynchronizeCallbackVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Progress<Impl: ISyncMgrSynchronizeCallbackImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, itemid: *const ::windows::core::GUID, psyncprogressitem: *const SYNCMGRPROGRESSITEM) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Progress<Impl: ISyncMgrSynchronizeCallbackImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, itemid: &::windows::core::GUID, psyncprogressitem: *const SYNCMGRPROGRESSITEM) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Progress(&*(&itemid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), &*(&psyncprogressitem as *const <SYNCMGRPROGRESSITEM as ::windows::core::Abi>::Abi as *const <SYNCMGRPROGRESSITEM as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -26450,7 +26450,7 @@ impl ISyncMgrSynchronizeCallbackVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DeleteLogError<Impl: ISyncMgrSynchronizeCallbackImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, errorid: *const ::windows::core::GUID, dwreserved: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DeleteLogError<Impl: ISyncMgrSynchronizeCallbackImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, errorid: &::windows::core::GUID, dwreserved: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DeleteLogError(&*(&errorid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), dwreserved) {
                 ::core::result::Result::Ok(ok__) => {
@@ -26500,7 +26500,7 @@ impl ::windows::core::RuntimeName for ISyncMgrSynchronizeInvoke {
 }
 impl ISyncMgrSynchronizeInvokeVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISyncMgrSynchronizeInvokeImpl, const OFFSET: isize>() -> ISyncMgrSynchronizeInvokeVtbl {
-        unsafe extern "system" fn UpdateItems<Impl: ISyncMgrSynchronizeInvokeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwinvokeflags: u32, clsid: *const ::windows::core::GUID, cbcookie: u32, pcookie: *const u8) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn UpdateItems<Impl: ISyncMgrSynchronizeInvokeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwinvokeflags: u32, clsid: &::windows::core::GUID, cbcookie: u32, pcookie: *const u8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).UpdateItems(dwinvokeflags, &*(&clsid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), cbcookie, pcookie) {
                 ::core::result::Result::Ok(ok__) => {
@@ -26924,7 +26924,7 @@ impl ::windows::core::RuntimeName for IThumbnailHandlerFactory {
 }
 impl IThumbnailHandlerFactoryVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IThumbnailHandlerFactoryImpl, const OFFSET: isize>() -> IThumbnailHandlerFactoryVtbl {
-        unsafe extern "system" fn GetThumbnailHandler<Impl: IThumbnailHandlerFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pidlchild: *const Common::ITEMIDLIST, pbc: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetThumbnailHandler<Impl: IThumbnailHandlerFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pidlchild: *const Common::ITEMIDLIST, pbc: ::windows::core::RawPtr, riid: &::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetThumbnailHandler(
                 &*(&pidlchild as *const <Common::ITEMIDLIST as ::windows::core::Abi>::Abi as *const <Common::ITEMIDLIST as ::windows::core::DefaultType>::DefaultType),
@@ -27233,7 +27233,7 @@ impl ITransferDestinationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateItem<Impl: ITransferDestinationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszname: super::super::Foundation::PWSTR, dwattributes: u32, ullsize: u64, flags: u32, riiditem: *const ::windows::core::GUID, ppvitem: *mut *mut ::core::ffi::c_void, riidresources: *const ::windows::core::GUID, ppvresources: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateItem<Impl: ITransferDestinationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszname: super::super::Foundation::PWSTR, dwattributes: u32, ullsize: u64, flags: u32, riiditem: &::windows::core::GUID, ppvitem: *mut *mut ::core::ffi::c_void, riidresources: &::windows::core::GUID, ppvresources: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateItem(
                 &*(&pszname as *const <super::super::Foundation::PWSTR as ::windows::core::Abi>::Abi as *const <super::super::Foundation::PWSTR as ::windows::core::DefaultType>::DefaultType),
@@ -27318,7 +27318,7 @@ impl ITransferSourceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn OpenItem<Impl: ITransferSourceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, psi: ::windows::core::RawPtr, flags: u32, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OpenItem<Impl: ITransferSourceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, psi: ::windows::core::RawPtr, flags: u32, riid: &::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OpenItem(&*(&psi as *const <IShellItem as ::windows::core::Abi>::Abi as *const <IShellItem as ::windows::core::DefaultType>::DefaultType), flags, &*(&riid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&ppv)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -27860,7 +27860,7 @@ impl ::windows::core::RuntimeName for ITrayDeskBand {
 }
 impl ITrayDeskBandVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITrayDeskBandImpl, const OFFSET: isize>() -> ITrayDeskBandVtbl {
-        unsafe extern "system" fn ShowDeskBand<Impl: ITrayDeskBandImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, clsid: *const ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ShowDeskBand<Impl: ITrayDeskBandImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, clsid: &::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ShowDeskBand(&*(&clsid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -27871,7 +27871,7 @@ impl ITrayDeskBandVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn HideDeskBand<Impl: ITrayDeskBandImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, clsid: *const ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn HideDeskBand<Impl: ITrayDeskBandImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, clsid: &::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).HideDeskBand(&*(&clsid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -27882,7 +27882,7 @@ impl ITrayDeskBandVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsDeskBandShown<Impl: ITrayDeskBandImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, clsid: *const ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsDeskBandShown<Impl: ITrayDeskBandImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, clsid: &::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsDeskBandShown(&*(&clsid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -28323,7 +28323,7 @@ impl IVirtualDesktopManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn MoveWindowToDesktop<Impl: IVirtualDesktopManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, toplevelwindow: super::super::Foundation::HWND, desktopid: *const ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MoveWindowToDesktop<Impl: IVirtualDesktopManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, toplevelwindow: super::super::Foundation::HWND, desktopid: &::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MoveWindowToDesktop(&*(&toplevelwindow as *const <super::super::Foundation::HWND as ::windows::core::Abi>::Abi as *const <super::super::Foundation::HWND as ::windows::core::DefaultType>::DefaultType), &*(&desktopid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {

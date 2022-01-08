@@ -1491,7 +1491,7 @@ impl ::windows::core::RuntimeName for IComActivityEvents {
 }
 impl IComActivityEventsVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IComActivityEventsImpl, const OFFSET: isize>() -> IComActivityEventsVtbl {
-        unsafe extern "system" fn OnActivityCreate<Impl: IComActivityEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidactivity: *const ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OnActivityCreate<Impl: IComActivityEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidactivity: &::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OnActivityCreate(&*(&pinfo as *const <COMSVCSEVENTINFO as ::windows::core::Abi>::Abi as *const <COMSVCSEVENTINFO as ::windows::core::DefaultType>::DefaultType), &*(&guidactivity as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1502,7 +1502,7 @@ impl IComActivityEventsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn OnActivityDestroy<Impl: IComActivityEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidactivity: *const ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OnActivityDestroy<Impl: IComActivityEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidactivity: &::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OnActivityDestroy(&*(&pinfo as *const <COMSVCSEVENTINFO as ::windows::core::Abi>::Abi as *const <COMSVCSEVENTINFO as ::windows::core::DefaultType>::DefaultType), &*(&guidactivity as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1513,7 +1513,7 @@ impl IComActivityEventsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn OnActivityEnter<Impl: IComActivityEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidcurrent: *const ::windows::core::GUID, guidentered: *const ::windows::core::GUID, dwthread: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OnActivityEnter<Impl: IComActivityEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidcurrent: &::windows::core::GUID, guidentered: &::windows::core::GUID, dwthread: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OnActivityEnter(&*(&pinfo as *const <COMSVCSEVENTINFO as ::windows::core::Abi>::Abi as *const <COMSVCSEVENTINFO as ::windows::core::DefaultType>::DefaultType), &*(&guidcurrent as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), &*(&guidentered as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), dwthread) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1524,7 +1524,7 @@ impl IComActivityEventsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn OnActivityTimeout<Impl: IComActivityEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidcurrent: *const ::windows::core::GUID, guidentered: *const ::windows::core::GUID, dwthread: u32, dwtimeout: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OnActivityTimeout<Impl: IComActivityEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidcurrent: &::windows::core::GUID, guidentered: &::windows::core::GUID, dwthread: u32, dwtimeout: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OnActivityTimeout(
                 &*(&pinfo as *const <COMSVCSEVENTINFO as ::windows::core::Abi>::Abi as *const <COMSVCSEVENTINFO as ::windows::core::DefaultType>::DefaultType),
@@ -1541,7 +1541,7 @@ impl IComActivityEventsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn OnActivityReenter<Impl: IComActivityEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidcurrent: *const ::windows::core::GUID, dwthread: u32, dwcalldepth: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OnActivityReenter<Impl: IComActivityEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidcurrent: &::windows::core::GUID, dwthread: u32, dwcalldepth: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OnActivityReenter(&*(&pinfo as *const <COMSVCSEVENTINFO as ::windows::core::Abi>::Abi as *const <COMSVCSEVENTINFO as ::windows::core::DefaultType>::DefaultType), &*(&guidcurrent as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), dwthread, dwcalldepth) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1552,7 +1552,7 @@ impl IComActivityEventsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn OnActivityLeave<Impl: IComActivityEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidcurrent: *const ::windows::core::GUID, guidleft: *const ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OnActivityLeave<Impl: IComActivityEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidcurrent: &::windows::core::GUID, guidleft: &::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OnActivityLeave(&*(&pinfo as *const <COMSVCSEVENTINFO as ::windows::core::Abi>::Abi as *const <COMSVCSEVENTINFO as ::windows::core::DefaultType>::DefaultType), &*(&guidcurrent as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), &*(&guidleft as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1563,7 +1563,7 @@ impl IComActivityEventsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn OnActivityLeaveSame<Impl: IComActivityEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidcurrent: *const ::windows::core::GUID, dwcalldepth: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OnActivityLeaveSame<Impl: IComActivityEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidcurrent: &::windows::core::GUID, dwcalldepth: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OnActivityLeaveSame(&*(&pinfo as *const <COMSVCSEVENTINFO as ::windows::core::Abi>::Abi as *const <COMSVCSEVENTINFO as ::windows::core::DefaultType>::DefaultType), &*(&guidcurrent as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), dwcalldepth) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1995,7 +1995,7 @@ impl ::windows::core::RuntimeName for IComInstance2Events {
 }
 impl IComInstance2EventsVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IComInstance2EventsImpl, const OFFSET: isize>() -> IComInstance2EventsVtbl {
-        unsafe extern "system" fn OnObjectCreate2<Impl: IComInstance2EventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidactivity: *const ::windows::core::GUID, clsid: *const ::windows::core::GUID, tsid: *const ::windows::core::GUID, ctxtid: u64, objectid: u64, guidpartition: *const ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OnObjectCreate2<Impl: IComInstance2EventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidactivity: &::windows::core::GUID, clsid: &::windows::core::GUID, tsid: &::windows::core::GUID, ctxtid: u64, objectid: u64, guidpartition: &::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OnObjectCreate2(
                 &*(&pinfo as *const <COMSVCSEVENTINFO as ::windows::core::Abi>::Abi as *const <COMSVCSEVENTINFO as ::windows::core::DefaultType>::DefaultType),
@@ -2037,7 +2037,7 @@ impl ::windows::core::RuntimeName for IComInstanceEvents {
 }
 impl IComInstanceEventsVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IComInstanceEventsImpl, const OFFSET: isize>() -> IComInstanceEventsVtbl {
-        unsafe extern "system" fn OnObjectCreate<Impl: IComInstanceEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidactivity: *const ::windows::core::GUID, clsid: *const ::windows::core::GUID, tsid: *const ::windows::core::GUID, ctxtid: u64, objectid: u64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OnObjectCreate<Impl: IComInstanceEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidactivity: &::windows::core::GUID, clsid: &::windows::core::GUID, tsid: &::windows::core::GUID, ctxtid: u64, objectid: u64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OnObjectCreate(
                 &*(&pinfo as *const <COMSVCSEVENTINFO as ::windows::core::Abi>::Abi as *const <COMSVCSEVENTINFO as ::windows::core::DefaultType>::DefaultType),
@@ -2155,7 +2155,7 @@ impl ::windows::core::RuntimeName for IComMethod2Events {
 }
 impl IComMethod2EventsVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IComMethod2EventsImpl, const OFFSET: isize>() -> IComMethod2EventsVtbl {
-        unsafe extern "system" fn OnMethodCall2<Impl: IComMethod2EventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, oid: u64, guidcid: *const ::windows::core::GUID, guidrid: *const ::windows::core::GUID, dwthread: u32, imeth: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OnMethodCall2<Impl: IComMethod2EventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, oid: u64, guidcid: &::windows::core::GUID, guidrid: &::windows::core::GUID, dwthread: u32, imeth: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OnMethodCall2(&*(&pinfo as *const <COMSVCSEVENTINFO as ::windows::core::Abi>::Abi as *const <COMSVCSEVENTINFO as ::windows::core::DefaultType>::DefaultType), oid, &*(&guidcid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), &*(&guidrid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), dwthread, imeth) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2166,7 +2166,7 @@ impl IComMethod2EventsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn OnMethodReturn2<Impl: IComMethod2EventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, oid: u64, guidcid: *const ::windows::core::GUID, guidrid: *const ::windows::core::GUID, dwthread: u32, imeth: u32, hresult: ::windows::core::HRESULT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OnMethodReturn2<Impl: IComMethod2EventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, oid: u64, guidcid: &::windows::core::GUID, guidrid: &::windows::core::GUID, dwthread: u32, imeth: u32, hresult: ::windows::core::HRESULT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OnMethodReturn2(
                 &*(&pinfo as *const <COMSVCSEVENTINFO as ::windows::core::Abi>::Abi as *const <COMSVCSEVENTINFO as ::windows::core::DefaultType>::DefaultType),
@@ -2185,7 +2185,7 @@ impl IComMethod2EventsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn OnMethodException2<Impl: IComMethod2EventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, oid: u64, guidcid: *const ::windows::core::GUID, guidrid: *const ::windows::core::GUID, dwthread: u32, imeth: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OnMethodException2<Impl: IComMethod2EventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, oid: u64, guidcid: &::windows::core::GUID, guidrid: &::windows::core::GUID, dwthread: u32, imeth: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OnMethodException2(&*(&pinfo as *const <COMSVCSEVENTINFO as ::windows::core::Abi>::Abi as *const <COMSVCSEVENTINFO as ::windows::core::DefaultType>::DefaultType), oid, &*(&guidcid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), &*(&guidrid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), dwthread, imeth) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2209,7 +2209,7 @@ impl ::windows::core::RuntimeName for IComMethodEvents {
 }
 impl IComMethodEventsVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IComMethodEventsImpl, const OFFSET: isize>() -> IComMethodEventsVtbl {
-        unsafe extern "system" fn OnMethodCall<Impl: IComMethodEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, oid: u64, guidcid: *const ::windows::core::GUID, guidrid: *const ::windows::core::GUID, imeth: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OnMethodCall<Impl: IComMethodEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, oid: u64, guidcid: &::windows::core::GUID, guidrid: &::windows::core::GUID, imeth: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OnMethodCall(&*(&pinfo as *const <COMSVCSEVENTINFO as ::windows::core::Abi>::Abi as *const <COMSVCSEVENTINFO as ::windows::core::DefaultType>::DefaultType), oid, &*(&guidcid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), &*(&guidrid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), imeth) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2220,7 +2220,7 @@ impl IComMethodEventsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn OnMethodReturn<Impl: IComMethodEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, oid: u64, guidcid: *const ::windows::core::GUID, guidrid: *const ::windows::core::GUID, imeth: u32, hresult: ::windows::core::HRESULT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OnMethodReturn<Impl: IComMethodEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, oid: u64, guidcid: &::windows::core::GUID, guidrid: &::windows::core::GUID, imeth: u32, hresult: ::windows::core::HRESULT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OnMethodReturn(&*(&pinfo as *const <COMSVCSEVENTINFO as ::windows::core::Abi>::Abi as *const <COMSVCSEVENTINFO as ::windows::core::DefaultType>::DefaultType), oid, &*(&guidcid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), &*(&guidrid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), imeth, hresult) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2231,7 +2231,7 @@ impl IComMethodEventsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn OnMethodException<Impl: IComMethodEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, oid: u64, guidcid: *const ::windows::core::GUID, guidrid: *const ::windows::core::GUID, imeth: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OnMethodException<Impl: IComMethodEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, oid: u64, guidcid: &::windows::core::GUID, guidrid: &::windows::core::GUID, imeth: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OnMethodException(&*(&pinfo as *const <COMSVCSEVENTINFO as ::windows::core::Abi>::Abi as *const <COMSVCSEVENTINFO as ::windows::core::DefaultType>::DefaultType), oid, &*(&guidcid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), &*(&guidrid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), imeth) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2311,7 +2311,7 @@ impl ::windows::core::RuntimeName for IComObjectConstruction2Events {
 }
 impl IComObjectConstruction2EventsVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IComObjectConstruction2EventsImpl, const OFFSET: isize>() -> IComObjectConstruction2EventsVtbl {
-        unsafe extern "system" fn OnObjectConstruct2<Impl: IComObjectConstruction2EventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidobject: *const ::windows::core::GUID, sconstructstring: super::super::Foundation::PWSTR, oid: u64, guidpartition: *const ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OnObjectConstruct2<Impl: IComObjectConstruction2EventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidobject: &::windows::core::GUID, sconstructstring: super::super::Foundation::PWSTR, oid: u64, guidpartition: &::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OnObjectConstruct2(
                 &*(&pinfo as *const <COMSVCSEVENTINFO as ::windows::core::Abi>::Abi as *const <COMSVCSEVENTINFO as ::windows::core::DefaultType>::DefaultType),
@@ -2339,7 +2339,7 @@ impl ::windows::core::RuntimeName for IComObjectConstructionEvents {
 }
 impl IComObjectConstructionEventsVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IComObjectConstructionEventsImpl, const OFFSET: isize>() -> IComObjectConstructionEventsVtbl {
-        unsafe extern "system" fn OnObjectConstruct<Impl: IComObjectConstructionEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidobject: *const ::windows::core::GUID, sconstructstring: super::super::Foundation::PWSTR, oid: u64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OnObjectConstruct<Impl: IComObjectConstructionEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidobject: &::windows::core::GUID, sconstructstring: super::super::Foundation::PWSTR, oid: u64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OnObjectConstruct(
                 &*(&pinfo as *const <COMSVCSEVENTINFO as ::windows::core::Abi>::Abi as *const <COMSVCSEVENTINFO as ::windows::core::DefaultType>::DefaultType),
@@ -2451,7 +2451,7 @@ impl ::windows::core::RuntimeName for IComObjectPool2Events {
 }
 impl IComObjectPool2EventsVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IComObjectPool2EventsImpl, const OFFSET: isize>() -> IComObjectPool2EventsVtbl {
-        unsafe extern "system" fn OnObjPoolPutObject2<Impl: IComObjectPool2EventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidobject: *const ::windows::core::GUID, nreason: i32, dwavailable: u32, oid: u64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OnObjPoolPutObject2<Impl: IComObjectPool2EventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidobject: &::windows::core::GUID, nreason: i32, dwavailable: u32, oid: u64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OnObjPoolPutObject2(&*(&pinfo as *const <COMSVCSEVENTINFO as ::windows::core::Abi>::Abi as *const <COMSVCSEVENTINFO as ::windows::core::DefaultType>::DefaultType), &*(&guidobject as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), nreason, dwavailable, oid) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2462,7 +2462,7 @@ impl IComObjectPool2EventsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn OnObjPoolGetObject2<Impl: IComObjectPool2EventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidactivity: *const ::windows::core::GUID, guidobject: *const ::windows::core::GUID, dwavailable: u32, oid: u64, guidpartition: *const ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OnObjPoolGetObject2<Impl: IComObjectPool2EventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidactivity: &::windows::core::GUID, guidobject: &::windows::core::GUID, dwavailable: u32, oid: u64, guidpartition: &::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OnObjPoolGetObject2(
                 &*(&pinfo as *const <COMSVCSEVENTINFO as ::windows::core::Abi>::Abi as *const <COMSVCSEVENTINFO as ::windows::core::DefaultType>::DefaultType),
@@ -2480,7 +2480,7 @@ impl IComObjectPool2EventsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn OnObjPoolRecycleToTx2<Impl: IComObjectPool2EventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidactivity: *const ::windows::core::GUID, guidobject: *const ::windows::core::GUID, guidtx: *const ::windows::core::GUID, objid: u64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OnObjPoolRecycleToTx2<Impl: IComObjectPool2EventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidactivity: &::windows::core::GUID, guidobject: &::windows::core::GUID, guidtx: &::windows::core::GUID, objid: u64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OnObjPoolRecycleToTx2(
                 &*(&pinfo as *const <COMSVCSEVENTINFO as ::windows::core::Abi>::Abi as *const <COMSVCSEVENTINFO as ::windows::core::DefaultType>::DefaultType),
@@ -2497,7 +2497,7 @@ impl IComObjectPool2EventsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn OnObjPoolGetFromTx2<Impl: IComObjectPool2EventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidactivity: *const ::windows::core::GUID, guidobject: *const ::windows::core::GUID, guidtx: *const ::windows::core::GUID, objid: u64, guidpartition: *const ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OnObjPoolGetFromTx2<Impl: IComObjectPool2EventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidactivity: &::windows::core::GUID, guidobject: &::windows::core::GUID, guidtx: &::windows::core::GUID, objid: u64, guidpartition: &::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OnObjPoolGetFromTx2(
                 &*(&pinfo as *const <COMSVCSEVENTINFO as ::windows::core::Abi>::Abi as *const <COMSVCSEVENTINFO as ::windows::core::DefaultType>::DefaultType),
@@ -2529,7 +2529,7 @@ impl ::windows::core::RuntimeName for IComObjectPoolEvents {
 }
 impl IComObjectPoolEventsVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IComObjectPoolEventsImpl, const OFFSET: isize>() -> IComObjectPoolEventsVtbl {
-        unsafe extern "system" fn OnObjPoolPutObject<Impl: IComObjectPoolEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidobject: *const ::windows::core::GUID, nreason: i32, dwavailable: u32, oid: u64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OnObjPoolPutObject<Impl: IComObjectPoolEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidobject: &::windows::core::GUID, nreason: i32, dwavailable: u32, oid: u64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OnObjPoolPutObject(&*(&pinfo as *const <COMSVCSEVENTINFO as ::windows::core::Abi>::Abi as *const <COMSVCSEVENTINFO as ::windows::core::DefaultType>::DefaultType), &*(&guidobject as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), nreason, dwavailable, oid) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2540,7 +2540,7 @@ impl IComObjectPoolEventsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn OnObjPoolGetObject<Impl: IComObjectPoolEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidactivity: *const ::windows::core::GUID, guidobject: *const ::windows::core::GUID, dwavailable: u32, oid: u64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OnObjPoolGetObject<Impl: IComObjectPoolEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidactivity: &::windows::core::GUID, guidobject: &::windows::core::GUID, dwavailable: u32, oid: u64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OnObjPoolGetObject(&*(&pinfo as *const <COMSVCSEVENTINFO as ::windows::core::Abi>::Abi as *const <COMSVCSEVENTINFO as ::windows::core::DefaultType>::DefaultType), &*(&guidactivity as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), &*(&guidobject as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), dwavailable, oid) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2551,7 +2551,7 @@ impl IComObjectPoolEventsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn OnObjPoolRecycleToTx<Impl: IComObjectPoolEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidactivity: *const ::windows::core::GUID, guidobject: *const ::windows::core::GUID, guidtx: *const ::windows::core::GUID, objid: u64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OnObjPoolRecycleToTx<Impl: IComObjectPoolEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidactivity: &::windows::core::GUID, guidobject: &::windows::core::GUID, guidtx: &::windows::core::GUID, objid: u64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OnObjPoolRecycleToTx(
                 &*(&pinfo as *const <COMSVCSEVENTINFO as ::windows::core::Abi>::Abi as *const <COMSVCSEVENTINFO as ::windows::core::DefaultType>::DefaultType),
@@ -2568,7 +2568,7 @@ impl IComObjectPoolEventsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn OnObjPoolGetFromTx<Impl: IComObjectPoolEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidactivity: *const ::windows::core::GUID, guidobject: *const ::windows::core::GUID, guidtx: *const ::windows::core::GUID, objid: u64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OnObjPoolGetFromTx<Impl: IComObjectPoolEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidactivity: &::windows::core::GUID, guidobject: &::windows::core::GUID, guidtx: &::windows::core::GUID, objid: u64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OnObjPoolGetFromTx(
                 &*(&pinfo as *const <COMSVCSEVENTINFO as ::windows::core::Abi>::Abi as *const <COMSVCSEVENTINFO as ::windows::core::DefaultType>::DefaultType),
@@ -2600,7 +2600,7 @@ impl ::windows::core::RuntimeName for IComObjectPoolEvents2 {
 }
 impl IComObjectPoolEvents2Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IComObjectPoolEvents2Impl, const OFFSET: isize>() -> IComObjectPoolEvents2Vtbl {
-        unsafe extern "system" fn OnObjPoolCreateObject<Impl: IComObjectPoolEvents2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidobject: *const ::windows::core::GUID, dwobjscreated: u32, oid: u64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OnObjPoolCreateObject<Impl: IComObjectPoolEvents2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidobject: &::windows::core::GUID, dwobjscreated: u32, oid: u64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OnObjPoolCreateObject(&*(&pinfo as *const <COMSVCSEVENTINFO as ::windows::core::Abi>::Abi as *const <COMSVCSEVENTINFO as ::windows::core::DefaultType>::DefaultType), &*(&guidobject as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), dwobjscreated, oid) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2611,7 +2611,7 @@ impl IComObjectPoolEvents2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn OnObjPoolDestroyObject<Impl: IComObjectPoolEvents2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidobject: *const ::windows::core::GUID, dwobjscreated: u32, oid: u64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OnObjPoolDestroyObject<Impl: IComObjectPoolEvents2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidobject: &::windows::core::GUID, dwobjscreated: u32, oid: u64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OnObjPoolDestroyObject(&*(&pinfo as *const <COMSVCSEVENTINFO as ::windows::core::Abi>::Abi as *const <COMSVCSEVENTINFO as ::windows::core::DefaultType>::DefaultType), &*(&guidobject as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), dwobjscreated, oid) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2633,7 +2633,7 @@ impl IComObjectPoolEvents2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn OnObjPoolTimeout<Impl: IComObjectPoolEvents2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidobject: *const ::windows::core::GUID, guidactivity: *const ::windows::core::GUID, dwtimeout: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OnObjPoolTimeout<Impl: IComObjectPoolEvents2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidobject: &::windows::core::GUID, guidactivity: &::windows::core::GUID, dwtimeout: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OnObjPoolTimeout(&*(&pinfo as *const <COMSVCSEVENTINFO as ::windows::core::Abi>::Abi as *const <COMSVCSEVENTINFO as ::windows::core::DefaultType>::DefaultType), &*(&guidobject as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), &*(&guidactivity as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), dwtimeout) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2644,7 +2644,7 @@ impl IComObjectPoolEvents2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn OnObjPoolCreatePool<Impl: IComObjectPoolEvents2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidobject: *const ::windows::core::GUID, dwmin: u32, dwmax: u32, dwtimeout: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OnObjPoolCreatePool<Impl: IComObjectPoolEvents2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidobject: &::windows::core::GUID, dwmin: u32, dwmax: u32, dwtimeout: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OnObjPoolCreatePool(&*(&pinfo as *const <COMSVCSEVENTINFO as ::windows::core::Abi>::Abi as *const <COMSVCSEVENTINFO as ::windows::core::DefaultType>::DefaultType), &*(&guidobject as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), dwmin, dwmax, dwtimeout) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2672,7 +2672,7 @@ impl ::windows::core::RuntimeName for IComQCEvents {
 }
 impl IComQCEventsVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IComQCEventsImpl, const OFFSET: isize>() -> IComQCEventsVtbl {
-        unsafe extern "system" fn OnQCRecord<Impl: IComQCEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, objid: u64, szqueue: super::super::Foundation::PWSTR, guidmsgid: *const ::windows::core::GUID, guidworkflowid: *const ::windows::core::GUID, msmqhr: ::windows::core::HRESULT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OnQCRecord<Impl: IComQCEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, objid: u64, szqueue: super::super::Foundation::PWSTR, guidmsgid: &::windows::core::GUID, guidworkflowid: &::windows::core::GUID, msmqhr: ::windows::core::HRESULT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OnQCRecord(
                 &*(&pinfo as *const <COMSVCSEVENTINFO as ::windows::core::Abi>::Abi as *const <COMSVCSEVENTINFO as ::windows::core::DefaultType>::DefaultType),
@@ -2701,7 +2701,7 @@ impl IComQCEventsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn OnQCReceive<Impl: IComQCEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, queueid: u64, guidmsgid: *const ::windows::core::GUID, guidworkflowid: *const ::windows::core::GUID, hr: ::windows::core::HRESULT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OnQCReceive<Impl: IComQCEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, queueid: u64, guidmsgid: &::windows::core::GUID, guidworkflowid: &::windows::core::GUID, hr: ::windows::core::HRESULT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OnQCReceive(&*(&pinfo as *const <COMSVCSEVENTINFO as ::windows::core::Abi>::Abi as *const <COMSVCSEVENTINFO as ::windows::core::DefaultType>::DefaultType), queueid, &*(&guidmsgid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), &*(&guidworkflowid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), hr) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2723,7 +2723,7 @@ impl IComQCEventsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn OnQCMoveToReTryQueue<Impl: IComQCEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidmsgid: *const ::windows::core::GUID, guidworkflowid: *const ::windows::core::GUID, retryindex: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OnQCMoveToReTryQueue<Impl: IComQCEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidmsgid: &::windows::core::GUID, guidworkflowid: &::windows::core::GUID, retryindex: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OnQCMoveToReTryQueue(&*(&pinfo as *const <COMSVCSEVENTINFO as ::windows::core::Abi>::Abi as *const <COMSVCSEVENTINFO as ::windows::core::DefaultType>::DefaultType), &*(&guidmsgid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), &*(&guidworkflowid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), retryindex) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2734,7 +2734,7 @@ impl IComQCEventsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn OnQCMoveToDeadQueue<Impl: IComQCEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidmsgid: *const ::windows::core::GUID, guidworkflowid: *const ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OnQCMoveToDeadQueue<Impl: IComQCEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidmsgid: &::windows::core::GUID, guidworkflowid: &::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OnQCMoveToDeadQueue(&*(&pinfo as *const <COMSVCSEVENTINFO as ::windows::core::Abi>::Abi as *const <COMSVCSEVENTINFO as ::windows::core::DefaultType>::DefaultType), &*(&guidmsgid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), &*(&guidworkflowid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2745,7 +2745,7 @@ impl IComQCEventsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn OnQCPlayback<Impl: IComQCEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, objid: u64, guidmsgid: *const ::windows::core::GUID, guidworkflowid: *const ::windows::core::GUID, hr: ::windows::core::HRESULT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OnQCPlayback<Impl: IComQCEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, objid: u64, guidmsgid: &::windows::core::GUID, guidworkflowid: &::windows::core::GUID, hr: ::windows::core::HRESULT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OnQCPlayback(&*(&pinfo as *const <COMSVCSEVENTINFO as ::windows::core::Abi>::Abi as *const <COMSVCSEVENTINFO as ::windows::core::DefaultType>::DefaultType), objid, &*(&guidmsgid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), &*(&guidworkflowid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), hr) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2858,7 +2858,7 @@ impl ::windows::core::RuntimeName for IComSecurityEvents {
 }
 impl IComSecurityEventsVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IComSecurityEventsImpl, const OFFSET: isize>() -> IComSecurityEventsVtbl {
-        unsafe extern "system" fn OnAuthenticate<Impl: IComSecurityEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidactivity: *const ::windows::core::GUID, objectid: u64, guidiid: *const ::windows::core::GUID, imeth: u32, cbbyteorig: u32, psidoriginaluser: *const u8, cbbytecur: u32, psidcurrentuser: *const u8, bcurrentuserinpersonatinginproc: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OnAuthenticate<Impl: IComSecurityEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidactivity: &::windows::core::GUID, objectid: u64, guidiid: &::windows::core::GUID, imeth: u32, cbbyteorig: u32, psidoriginaluser: *const u8, cbbytecur: u32, psidcurrentuser: *const u8, bcurrentuserinpersonatinginproc: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OnAuthenticate(
                 &*(&pinfo as *const <COMSVCSEVENTINFO as ::windows::core::Abi>::Abi as *const <COMSVCSEVENTINFO as ::windows::core::DefaultType>::DefaultType),
@@ -2880,7 +2880,7 @@ impl IComSecurityEventsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn OnAuthenticateFail<Impl: IComSecurityEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidactivity: *const ::windows::core::GUID, objectid: u64, guidiid: *const ::windows::core::GUID, imeth: u32, cbbyteorig: u32, psidoriginaluser: *const u8, cbbytecur: u32, psidcurrentuser: *const u8, bcurrentuserinpersonatinginproc: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OnAuthenticateFail<Impl: IComSecurityEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidactivity: &::windows::core::GUID, objectid: u64, guidiid: &::windows::core::GUID, imeth: u32, cbbyteorig: u32, psidoriginaluser: *const u8, cbbytecur: u32, psidcurrentuser: *const u8, bcurrentuserinpersonatinginproc: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OnAuthenticateFail(
                 &*(&pinfo as *const <COMSVCSEVENTINFO as ::windows::core::Abi>::Abi as *const <COMSVCSEVENTINFO as ::windows::core::DefaultType>::DefaultType),
@@ -3329,7 +3329,7 @@ impl IComThreadEventsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn OnThreadAssignApartment<Impl: IComThreadEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidactivity: *const ::windows::core::GUID, aptid: u64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OnThreadAssignApartment<Impl: IComThreadEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidactivity: &::windows::core::GUID, aptid: u64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OnThreadAssignApartment(&*(&pinfo as *const <COMSVCSEVENTINFO as ::windows::core::Abi>::Abi as *const <COMSVCSEVENTINFO as ::windows::core::DefaultType>::DefaultType), &*(&guidactivity as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), aptid) {
                 ::core::result::Result::Ok(ok__) => {
@@ -3404,7 +3404,7 @@ impl IComTrackingInfoCollectionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Item<Impl: IComTrackingInfoCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ulindex: u32, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Item<Impl: IComTrackingInfoCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ulindex: u32, riid: &::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Item(ulindex, &*(&riid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&ppv)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -3507,7 +3507,7 @@ impl ::windows::core::RuntimeName for IComTransaction2Events {
 }
 impl IComTransaction2EventsVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IComTransaction2EventsImpl, const OFFSET: isize>() -> IComTransaction2EventsVtbl {
-        unsafe extern "system" fn OnTransactionStart2<Impl: IComTransaction2EventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidtx: *const ::windows::core::GUID, tsid: *const ::windows::core::GUID, froot: super::super::Foundation::BOOL, nisolationlevel: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OnTransactionStart2<Impl: IComTransaction2EventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidtx: &::windows::core::GUID, tsid: &::windows::core::GUID, froot: super::super::Foundation::BOOL, nisolationlevel: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OnTransactionStart2(
                 &*(&pinfo as *const <COMSVCSEVENTINFO as ::windows::core::Abi>::Abi as *const <COMSVCSEVENTINFO as ::windows::core::DefaultType>::DefaultType),
@@ -3524,7 +3524,7 @@ impl IComTransaction2EventsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn OnTransactionPrepare2<Impl: IComTransaction2EventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidtx: *const ::windows::core::GUID, fvoteyes: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OnTransactionPrepare2<Impl: IComTransaction2EventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidtx: &::windows::core::GUID, fvoteyes: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OnTransactionPrepare2(&*(&pinfo as *const <COMSVCSEVENTINFO as ::windows::core::Abi>::Abi as *const <COMSVCSEVENTINFO as ::windows::core::DefaultType>::DefaultType), &*(&guidtx as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), &*(&fvoteyes as *const <super::super::Foundation::BOOL as ::windows::core::Abi>::Abi as *const <super::super::Foundation::BOOL as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -3535,7 +3535,7 @@ impl IComTransaction2EventsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn OnTransactionAbort2<Impl: IComTransaction2EventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidtx: *const ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OnTransactionAbort2<Impl: IComTransaction2EventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidtx: &::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OnTransactionAbort2(&*(&pinfo as *const <COMSVCSEVENTINFO as ::windows::core::Abi>::Abi as *const <COMSVCSEVENTINFO as ::windows::core::DefaultType>::DefaultType), &*(&guidtx as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -3546,7 +3546,7 @@ impl IComTransaction2EventsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn OnTransactionCommit2<Impl: IComTransaction2EventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidtx: *const ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OnTransactionCommit2<Impl: IComTransaction2EventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidtx: &::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OnTransactionCommit2(&*(&pinfo as *const <COMSVCSEVENTINFO as ::windows::core::Abi>::Abi as *const <COMSVCSEVENTINFO as ::windows::core::DefaultType>::DefaultType), &*(&guidtx as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -3571,7 +3571,7 @@ impl ::windows::core::RuntimeName for IComTransactionEvents {
 }
 impl IComTransactionEventsVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IComTransactionEventsImpl, const OFFSET: isize>() -> IComTransactionEventsVtbl {
-        unsafe extern "system" fn OnTransactionStart<Impl: IComTransactionEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidtx: *const ::windows::core::GUID, tsid: *const ::windows::core::GUID, froot: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OnTransactionStart<Impl: IComTransactionEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidtx: &::windows::core::GUID, tsid: &::windows::core::GUID, froot: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OnTransactionStart(
                 &*(&pinfo as *const <COMSVCSEVENTINFO as ::windows::core::Abi>::Abi as *const <COMSVCSEVENTINFO as ::windows::core::DefaultType>::DefaultType),
@@ -3587,7 +3587,7 @@ impl IComTransactionEventsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn OnTransactionPrepare<Impl: IComTransactionEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidtx: *const ::windows::core::GUID, fvoteyes: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OnTransactionPrepare<Impl: IComTransactionEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidtx: &::windows::core::GUID, fvoteyes: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OnTransactionPrepare(&*(&pinfo as *const <COMSVCSEVENTINFO as ::windows::core::Abi>::Abi as *const <COMSVCSEVENTINFO as ::windows::core::DefaultType>::DefaultType), &*(&guidtx as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), &*(&fvoteyes as *const <super::super::Foundation::BOOL as ::windows::core::Abi>::Abi as *const <super::super::Foundation::BOOL as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -3598,7 +3598,7 @@ impl IComTransactionEventsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn OnTransactionAbort<Impl: IComTransactionEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidtx: *const ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OnTransactionAbort<Impl: IComTransactionEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidtx: &::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OnTransactionAbort(&*(&pinfo as *const <COMSVCSEVENTINFO as ::windows::core::Abi>::Abi as *const <COMSVCSEVENTINFO as ::windows::core::DefaultType>::DefaultType), &*(&guidtx as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -3609,7 +3609,7 @@ impl IComTransactionEventsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn OnTransactionCommit<Impl: IComTransactionEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidtx: *const ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OnTransactionCommit<Impl: IComTransactionEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidtx: &::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OnTransactionCommit(&*(&pinfo as *const <COMSVCSEVENTINFO as ::windows::core::Abi>::Abi as *const <COMSVCSEVENTINFO as ::windows::core::DefaultType>::DefaultType), &*(&guidtx as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -3815,7 +3815,7 @@ impl ::windows::core::RuntimeName for ICreateWithLocalTransaction {
 }
 impl ICreateWithLocalTransactionVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICreateWithLocalTransactionImpl, const OFFSET: isize>() -> ICreateWithLocalTransactionVtbl {
-        unsafe extern "system" fn CreateInstanceWithSysTx<Impl: ICreateWithLocalTransactionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ptransaction: *mut ::core::ffi::c_void, rclsid: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, pobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateInstanceWithSysTx<Impl: ICreateWithLocalTransactionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ptransaction: *mut ::core::ffi::c_void, rclsid: &::windows::core::GUID, riid: &::windows::core::GUID, pobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateInstanceWithSysTx(
                 &*(&ptransaction as *const <::windows::core::IUnknown as ::windows::core::Abi>::Abi as *const <::windows::core::IUnknown as ::windows::core::DefaultType>::DefaultType),
@@ -3842,7 +3842,7 @@ impl ::windows::core::RuntimeName for ICreateWithTipTransactionEx {
 }
 impl ICreateWithTipTransactionExVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICreateWithTipTransactionExImpl, const OFFSET: isize>() -> ICreateWithTipTransactionExVtbl {
-        unsafe extern "system" fn CreateInstance<Impl: ICreateWithTipTransactionExImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrtipurl: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, rclsid: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, pobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateInstance<Impl: ICreateWithTipTransactionExImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrtipurl: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, rclsid: &::windows::core::GUID, riid: &::windows::core::GUID, pobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateInstance(
                 &*(&bstrtipurl as *const <super::super::Foundation::BSTR as ::windows::core::Abi>::Abi as *const <super::super::Foundation::BSTR as ::windows::core::DefaultType>::DefaultType),
@@ -3869,7 +3869,7 @@ impl ::windows::core::RuntimeName for ICreateWithTransactionEx {
 }
 impl ICreateWithTransactionExVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICreateWithTransactionExImpl, const OFFSET: isize>() -> ICreateWithTransactionExVtbl {
-        unsafe extern "system" fn CreateInstance<Impl: ICreateWithTransactionExImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ptransaction: ::windows::core::RawPtr, rclsid: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, pobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateInstance<Impl: ICreateWithTransactionExImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ptransaction: ::windows::core::RawPtr, rclsid: &::windows::core::GUID, riid: &::windows::core::GUID, pobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateInstance(
                 &*(&ptransaction as *const <super::DistributedTransactionCoordinator::ITransaction as ::windows::core::Abi>::Abi as *const <super::DistributedTransactionCoordinator::ITransaction as ::windows::core::DefaultType>::DefaultType),
@@ -4786,7 +4786,7 @@ impl ::windows::core::RuntimeName for IGetAppTrackerData {
 }
 impl IGetAppTrackerDataVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGetAppTrackerDataImpl, const OFFSET: isize>() -> IGetAppTrackerDataVtbl {
-        unsafe extern "system" fn GetApplicationProcesses<Impl: IGetAppTrackerDataImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, partitionid: *const ::windows::core::GUID, applicationid: *const ::windows::core::GUID, flags: u32, numapplicationprocesses: *mut u32, applicationprocesses: *mut *mut ApplicationProcessSummary) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetApplicationProcesses<Impl: IGetAppTrackerDataImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, partitionid: &::windows::core::GUID, applicationid: &::windows::core::GUID, flags: u32, numapplicationprocesses: *mut u32, applicationprocesses: *mut *mut ApplicationProcessSummary) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetApplicationProcesses(&*(&partitionid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), &*(&applicationid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), flags, ::core::mem::transmute_copy(&numapplicationprocesses), ::core::mem::transmute_copy(&applicationprocesses)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -4797,7 +4797,7 @@ impl IGetAppTrackerDataVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetApplicationProcessDetails<Impl: IGetAppTrackerDataImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, applicationinstanceid: *const ::windows::core::GUID, processid: u32, flags: u32, summary: *mut ApplicationProcessSummary, statistics: *mut ApplicationProcessStatistics, recycleinfo: *mut ApplicationProcessRecycleInfo, anycomponentshangmonitored: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetApplicationProcessDetails<Impl: IGetAppTrackerDataImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, applicationinstanceid: &::windows::core::GUID, processid: u32, flags: u32, summary: *mut ApplicationProcessSummary, statistics: *mut ApplicationProcessStatistics, recycleinfo: *mut ApplicationProcessRecycleInfo, anycomponentshangmonitored: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetApplicationProcessDetails(&*(&applicationinstanceid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), processid, flags, ::core::mem::transmute_copy(&summary), ::core::mem::transmute_copy(&statistics), ::core::mem::transmute_copy(&recycleinfo), ::core::mem::transmute_copy(&anycomponentshangmonitored)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -4808,7 +4808,7 @@ impl IGetAppTrackerDataVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetApplicationsInProcess<Impl: IGetAppTrackerDataImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, applicationinstanceid: *const ::windows::core::GUID, processid: u32, partitionid: *const ::windows::core::GUID, flags: u32, numapplicationsinprocess: *mut u32, applications: *mut *mut ApplicationSummary) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetApplicationsInProcess<Impl: IGetAppTrackerDataImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, applicationinstanceid: &::windows::core::GUID, processid: u32, partitionid: &::windows::core::GUID, flags: u32, numapplicationsinprocess: *mut u32, applications: *mut *mut ApplicationSummary) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetApplicationsInProcess(&*(&applicationinstanceid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), processid, &*(&partitionid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), flags, ::core::mem::transmute_copy(&numapplicationsinprocess), ::core::mem::transmute_copy(&applications)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -4819,7 +4819,7 @@ impl IGetAppTrackerDataVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetComponentsInProcess<Impl: IGetAppTrackerDataImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, applicationinstanceid: *const ::windows::core::GUID, processid: u32, partitionid: *const ::windows::core::GUID, applicationid: *const ::windows::core::GUID, flags: u32, numcomponentsinprocess: *mut u32, components: *mut *mut ComponentSummary) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetComponentsInProcess<Impl: IGetAppTrackerDataImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, applicationinstanceid: &::windows::core::GUID, processid: u32, partitionid: &::windows::core::GUID, applicationid: &::windows::core::GUID, flags: u32, numcomponentsinprocess: *mut u32, components: *mut *mut ComponentSummary) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetComponentsInProcess(
                 &*(&applicationinstanceid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType),
@@ -4838,7 +4838,7 @@ impl IGetAppTrackerDataVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetComponentDetails<Impl: IGetAppTrackerDataImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, applicationinstanceid: *const ::windows::core::GUID, processid: u32, clsid: *const ::windows::core::GUID, flags: u32, summary: *mut ComponentSummary, statistics: *mut ComponentStatistics, hangmonitorinfo: *mut ComponentHangMonitorInfo) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetComponentDetails<Impl: IGetAppTrackerDataImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, applicationinstanceid: &::windows::core::GUID, processid: u32, clsid: &::windows::core::GUID, flags: u32, summary: *mut ComponentSummary, statistics: *mut ComponentStatistics, hangmonitorinfo: *mut ComponentHangMonitorInfo) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetComponentDetails(&*(&applicationinstanceid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), processid, &*(&clsid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), flags, ::core::mem::transmute_copy(&summary), ::core::mem::transmute_copy(&statistics), ::core::mem::transmute_copy(&hangmonitorinfo)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -5775,7 +5775,7 @@ impl ::windows::core::RuntimeName for IObjectContext {
 }
 impl IObjectContextVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IObjectContextImpl, const OFFSET: isize>() -> IObjectContextVtbl {
-        unsafe extern "system" fn CreateInstance<Impl: IObjectContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rclsid: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateInstance<Impl: IObjectContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rclsid: &::windows::core::GUID, riid: &::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateInstance(&*(&rclsid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), &*(&riid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), &*(&ppv as *const <::core::ffi::c_void as ::windows::core::Abi>::Abi as *const <::core::ffi::c_void as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -6469,7 +6469,7 @@ impl ::windows::core::RuntimeName for ISendMethodEvents {
 }
 impl ISendMethodEventsVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISendMethodEventsImpl, const OFFSET: isize>() -> ISendMethodEventsVtbl {
-        unsafe extern "system" fn SendMethodCall<Impl: ISendMethodEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pidentity: *const ::core::ffi::c_void, riid: *const ::windows::core::GUID, dwmeth: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SendMethodCall<Impl: ISendMethodEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pidentity: *const ::core::ffi::c_void, riid: &::windows::core::GUID, dwmeth: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SendMethodCall(&*(&pidentity as *const <::core::ffi::c_void as ::windows::core::Abi>::Abi as *const <::core::ffi::c_void as ::windows::core::DefaultType>::DefaultType), &*(&riid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), dwmeth) {
                 ::core::result::Result::Ok(ok__) => {
@@ -6480,7 +6480,7 @@ impl ISendMethodEventsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SendMethodReturn<Impl: ISendMethodEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pidentity: *const ::core::ffi::c_void, riid: *const ::windows::core::GUID, dwmeth: u32, hrcall: ::windows::core::HRESULT, hrserver: ::windows::core::HRESULT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SendMethodReturn<Impl: ISendMethodEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pidentity: *const ::core::ffi::c_void, riid: &::windows::core::GUID, dwmeth: u32, hrcall: ::windows::core::HRESULT, hrserver: ::windows::core::HRESULT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SendMethodReturn(&*(&pidentity as *const <::core::ffi::c_void as ::windows::core::Abi>::Abi as *const <::core::ffi::c_void as ::windows::core::DefaultType>::DefaultType), &*(&riid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), dwmeth, hrcall, hrserver) {
                 ::core::result::Result::Ok(ok__) => {
@@ -6660,7 +6660,7 @@ impl IServicePartitionConfigVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PartitionID<Impl: IServicePartitionConfigImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, guidpartitionid: *const ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PartitionID<Impl: IServicePartitionConfigImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, guidpartitionid: &::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PartitionID(&*(&guidpartitionid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -6695,7 +6695,7 @@ impl IServicePoolVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetObject<Impl: IServicePoolImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetObject<Impl: IServicePoolImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, riid: &::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetObject(&*(&riid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), &*(&ppv as *const <::core::ffi::c_void as ::windows::core::Abi>::Abi as *const <::core::ffi::c_void as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -7492,7 +7492,7 @@ impl ::windows::core::RuntimeName for ITransactionContextEx {
 }
 impl ITransactionContextExVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITransactionContextExImpl, const OFFSET: isize>() -> ITransactionContextExVtbl {
-        unsafe extern "system" fn CreateInstance<Impl: ITransactionContextExImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rclsid: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, pobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateInstance<Impl: ITransactionContextExImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rclsid: &::windows::core::GUID, riid: &::windows::core::GUID, pobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateInstance(&*(&rclsid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), &*(&riid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&pobject)) {
                 ::core::result::Result::Ok(ok__) => {

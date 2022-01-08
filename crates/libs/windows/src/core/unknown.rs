@@ -11,7 +11,7 @@ pub struct IUnknown(core::ptr::NonNull<core::ffi::c_void>);
 
 #[doc(hidden)]
 #[repr(C)]
-pub struct IUnknownVtbl(pub unsafe extern "system" fn(this: RawPtr, iid: *const GUID, interface: *mut RawPtr) -> HRESULT, pub unsafe extern "system" fn(this: RawPtr) -> u32, pub unsafe extern "system" fn(this: RawPtr) -> u32);
+pub struct IUnknownVtbl(pub unsafe extern "system" fn(this: RawPtr, iid: &GUID, interface: *mut RawPtr) -> HRESULT, pub unsafe extern "system" fn(this: RawPtr) -> u32, pub unsafe extern "system" fn(this: RawPtr) -> u32);
 
 unsafe impl Interface for IUnknown {
     type Vtable = IUnknownVtbl;
@@ -56,12 +56,12 @@ impl core::fmt::Debug for IUnknown {
 }
 
 pub trait IUnknownImpl {
-    fn QueryInterface(&mut self,  iid: *const GUID, interface: *mut RawPtr) -> HRESULT;
+    fn QueryInterface(&mut self,  iid: &GUID, interface: *mut RawPtr) -> HRESULT;
     fn AddRef(&mut self) -> u32;
     fn Release(&mut self) -> u32;
 }
 
-pub unsafe extern "system" fn QueryInterface<T: IUnknownImpl, const OFFSET: isize>(this: RawPtr, iid: *const GUID, interface: *mut RawPtr) -> HRESULT {
+pub unsafe extern "system" fn QueryInterface<T: IUnknownImpl, const OFFSET: isize>(this: RawPtr, iid: &GUID, interface: *mut RawPtr) -> HRESULT {
     let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut T;
     (*this).QueryInterface(iid, interface)
 }

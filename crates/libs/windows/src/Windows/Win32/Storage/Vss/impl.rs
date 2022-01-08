@@ -2029,7 +2029,7 @@ impl ::windows::core::RuntimeName for IVssSnapshotMgmt {
 }
 impl IVssSnapshotMgmtVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVssSnapshotMgmtImpl, const OFFSET: isize>() -> IVssSnapshotMgmtVtbl {
-        unsafe extern "system" fn GetProviderMgmtInterface<Impl: IVssSnapshotMgmtImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, providerid: ::windows::core::GUID, interfaceid: *const ::windows::core::GUID, ppitf: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetProviderMgmtInterface<Impl: IVssSnapshotMgmtImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, providerid: ::windows::core::GUID, interfaceid: &::windows::core::GUID, ppitf: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetProviderMgmtInterface(&*(&providerid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), &*(&interfaceid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&ppitf)) {
                 ::core::result::Result::Ok(ok__) => {

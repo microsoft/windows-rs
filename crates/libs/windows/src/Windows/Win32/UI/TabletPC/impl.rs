@@ -8624,7 +8624,7 @@ impl IRealTimeStylusVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AddCustomStylusDataToQueue<Impl: IRealTimeStylusImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sq: StylusQueue, pguidid: *const ::windows::core::GUID, cbdata: u32, pbdata: *const u8) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddCustomStylusDataToQueue<Impl: IRealTimeStylusImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sq: StylusQueue, pguidid: &::windows::core::GUID, cbdata: u32, pbdata: *const u8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AddCustomStylusDataToQueue(sq, &*(&pguidid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), cbdata, pbdata) {
                 ::core::result::Result::Ok(ok__) => {
@@ -8734,7 +8734,7 @@ impl IRealTimeStylusVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetDesiredPacketDescription<Impl: IRealTimeStylusImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cproperties: u32, ppropertyguids: *const ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetDesiredPacketDescription<Impl: IRealTimeStylusImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cproperties: u32, ppropertyguids: &::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SetDesiredPacketDescription(cproperties, &*(&ppropertyguids as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -9103,7 +9103,7 @@ impl IStylusPluginVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn StylusButtonDown<Impl: IStylusPluginImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pirtssrc: ::windows::core::RawPtr, sid: u32, pguidstylusbutton: *const ::windows::core::GUID, pstyluspos: *mut super::super::Foundation::POINT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn StylusButtonDown<Impl: IStylusPluginImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pirtssrc: ::windows::core::RawPtr, sid: u32, pguidstylusbutton: &::windows::core::GUID, pstyluspos: *mut super::super::Foundation::POINT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).StylusButtonDown(
                 &*(&pirtssrc as *const <IRealTimeStylus as ::windows::core::Abi>::Abi as *const <IRealTimeStylus as ::windows::core::DefaultType>::DefaultType),
@@ -9119,7 +9119,7 @@ impl IStylusPluginVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn StylusButtonUp<Impl: IStylusPluginImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pirtssrc: ::windows::core::RawPtr, sid: u32, pguidstylusbutton: *const ::windows::core::GUID, pstyluspos: *mut super::super::Foundation::POINT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn StylusButtonUp<Impl: IStylusPluginImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pirtssrc: ::windows::core::RawPtr, sid: u32, pguidstylusbutton: &::windows::core::GUID, pstyluspos: *mut super::super::Foundation::POINT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).StylusButtonUp(
                 &*(&pirtssrc as *const <IRealTimeStylus as ::windows::core::Abi>::Abi as *const <IRealTimeStylus as ::windows::core::DefaultType>::DefaultType),
@@ -9157,7 +9157,7 @@ impl IStylusPluginVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CustomStylusDataAdded<Impl: IStylusPluginImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pirtssrc: ::windows::core::RawPtr, pguidid: *const ::windows::core::GUID, cbdata: u32, pbdata: *const u8) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CustomStylusDataAdded<Impl: IStylusPluginImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pirtssrc: ::windows::core::RawPtr, pguidid: &::windows::core::GUID, cbdata: u32, pbdata: *const u8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CustomStylusDataAdded(&*(&pirtssrc as *const <IRealTimeStylus as ::windows::core::Abi>::Abi as *const <IRealTimeStylus as ::windows::core::DefaultType>::DefaultType), &*(&pguidid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), cbdata, pbdata) {
                 ::core::result::Result::Ok(ok__) => {

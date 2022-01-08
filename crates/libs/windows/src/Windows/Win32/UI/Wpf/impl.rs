@@ -272,7 +272,7 @@ impl ::windows::core::RuntimeName for IMILBitmapEffectFactory {
 }
 impl IMILBitmapEffectFactoryVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMILBitmapEffectFactoryImpl, const OFFSET: isize>() -> IMILBitmapEffectFactoryVtbl {
-        unsafe extern "system" fn CreateEffect<Impl: IMILBitmapEffectFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pguideffect: *const ::windows::core::GUID, ppeffect: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateEffect<Impl: IMILBitmapEffectFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pguideffect: &::windows::core::GUID, ppeffect: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateEffect(&*(&pguideffect as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&ppeffect)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -785,7 +785,7 @@ impl ::windows::core::RuntimeName for IMILBitmapEffectRenderContext {
 }
 impl IMILBitmapEffectRenderContextVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMILBitmapEffectRenderContextImpl, const OFFSET: isize>() -> IMILBitmapEffectRenderContextVtbl {
-        unsafe extern "system" fn SetOutputPixelFormat<Impl: IMILBitmapEffectRenderContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, format: *const ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetOutputPixelFormat<Impl: IMILBitmapEffectRenderContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, format: &::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SetOutputPixelFormat(&*(&format as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {

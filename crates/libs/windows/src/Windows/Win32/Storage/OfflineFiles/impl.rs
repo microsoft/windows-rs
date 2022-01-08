@@ -138,7 +138,7 @@ impl ::windows::core::RuntimeName for IOfflineFilesCache {
 }
 impl IOfflineFilesCacheVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IOfflineFilesCacheImpl, const OFFSET: isize>() -> IOfflineFilesCacheVtbl {
-        unsafe extern "system" fn Synchronize<Impl: IOfflineFilesCacheImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hwndparent: super::super::Foundation::HWND, rgpszpaths: *const super::super::Foundation::PWSTR, cpaths: u32, basync: super::super::Foundation::BOOL, dwsynccontrol: u32, pisyncconflicthandler: ::windows::core::RawPtr, piprogress: ::windows::core::RawPtr, psyncid: *const ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Synchronize<Impl: IOfflineFilesCacheImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hwndparent: super::super::Foundation::HWND, rgpszpaths: *const super::super::Foundation::PWSTR, cpaths: u32, basync: super::super::Foundation::BOOL, dwsynccontrol: u32, pisyncconflicthandler: ::windows::core::RawPtr, piprogress: ::windows::core::RawPtr, psyncid: &::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Synchronize(
                 &*(&hwndparent as *const <super::super::Foundation::HWND as ::windows::core::Abi>::Abi as *const <super::super::Foundation::HWND as ::windows::core::DefaultType>::DefaultType),
@@ -756,7 +756,7 @@ impl IOfflineFilesEventsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SyncBegin<Impl: IOfflineFilesEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rsyncid: *const ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SyncBegin<Impl: IOfflineFilesEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rsyncid: &::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SyncBegin(&*(&rsyncid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -767,7 +767,7 @@ impl IOfflineFilesEventsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SyncFileResult<Impl: IOfflineFilesEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rsyncid: *const ::windows::core::GUID, pszfile: super::super::Foundation::PWSTR, hrresult: ::windows::core::HRESULT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SyncFileResult<Impl: IOfflineFilesEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rsyncid: &::windows::core::GUID, pszfile: super::super::Foundation::PWSTR, hrresult: ::windows::core::HRESULT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SyncFileResult(&*(&rsyncid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), &*(&pszfile as *const <super::super::Foundation::PWSTR as ::windows::core::Abi>::Abi as *const <super::super::Foundation::PWSTR as ::windows::core::DefaultType>::DefaultType), hrresult) {
                 ::core::result::Result::Ok(ok__) => {
@@ -811,7 +811,7 @@ impl IOfflineFilesEventsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SyncEnd<Impl: IOfflineFilesEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rsyncid: *const ::windows::core::GUID, hrresult: ::windows::core::HRESULT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SyncEnd<Impl: IOfflineFilesEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rsyncid: &::windows::core::GUID, hrresult: ::windows::core::HRESULT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SyncEnd(&*(&rsyncid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), hrresult) {
                 ::core::result::Result::Ok(ok__) => {

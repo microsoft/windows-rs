@@ -442,7 +442,7 @@ pub type PNS_DLL_INIT_FN = ::core::option::Option<unsafe extern "system" fn(dwne
 #[doc = "*Required features: 'Win32_NetworkManagement_NetShell'*"]
 pub type PNS_DLL_STOP_FN = ::core::option::Option<unsafe extern "system" fn(dwreserved: u32) -> u32>;
 #[doc = "*Required features: 'Win32_NetworkManagement_NetShell'*"]
-pub type PNS_HELPER_START_FN = ::core::option::Option<unsafe extern "system" fn(pguidparent: *const ::windows::core::GUID, dwversion: u32) -> u32>;
+pub type PNS_HELPER_START_FN = ::core::option::Option<unsafe extern "system" fn(pguidparent: &::windows::core::GUID, dwversion: u32) -> u32>;
 #[doc = "*Required features: 'Win32_NetworkManagement_NetShell'*"]
 pub type PNS_HELPER_STOP_FN = ::core::option::Option<unsafe extern "system" fn(dwreserved: u32) -> u32>;
 #[doc = "*Required features: 'Win32_NetworkManagement_NetShell', 'Win32_Foundation'*"]
@@ -525,12 +525,12 @@ pub unsafe fn RegisterContext(pchildcontext: *const NS_CONTEXT_ATTRIBUTES) -> u3
 }
 #[doc = "*Required features: 'Win32_NetworkManagement_NetShell'*"]
 #[inline]
-pub unsafe fn RegisterHelper(pguidparentcontext: *const ::windows::core::GUID, pfnregistersubcontext: *const NS_HELPER_ATTRIBUTES) -> u32 {
+pub unsafe fn RegisterHelper(pguidparentcontext: &::windows::core::GUID, pfnregistersubcontext: *const NS_HELPER_ATTRIBUTES) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RegisterHelper(pguidparentcontext: *const ::windows::core::GUID, pfnregistersubcontext: *const NS_HELPER_ATTRIBUTES) -> u32;
+            fn RegisterHelper(pguidparentcontext: &::windows::core::GUID, pfnregistersubcontext: *const NS_HELPER_ATTRIBUTES) -> u32;
         }
         ::core::mem::transmute(RegisterHelper(::core::mem::transmute(pguidparentcontext), ::core::mem::transmute(pfnregistersubcontext)))
     }

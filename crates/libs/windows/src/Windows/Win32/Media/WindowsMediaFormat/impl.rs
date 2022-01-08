@@ -584,7 +584,7 @@ impl IWMBandwidthSharingVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetType<Impl: IWMBandwidthSharingImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, guidtype: *const ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetType<Impl: IWMBandwidthSharingImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, guidtype: &::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SetType(&*(&guidtype as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -732,7 +732,7 @@ impl ::windows::core::RuntimeName for IWMCodecInfo {
 }
 impl IWMCodecInfoVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMCodecInfoImpl, const OFFSET: isize>() -> IWMCodecInfoVtbl {
-        unsafe extern "system" fn GetCodecInfoCount<Impl: IWMCodecInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, guidtype: *const ::windows::core::GUID, pccodecs: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetCodecInfoCount<Impl: IWMCodecInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, guidtype: &::windows::core::GUID, pccodecs: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetCodecInfoCount(&*(&guidtype as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&pccodecs)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -743,7 +743,7 @@ impl IWMCodecInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetCodecFormatCount<Impl: IWMCodecInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, guidtype: *const ::windows::core::GUID, dwcodecindex: u32, pcformat: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetCodecFormatCount<Impl: IWMCodecInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, guidtype: &::windows::core::GUID, dwcodecindex: u32, pcformat: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetCodecFormatCount(&*(&guidtype as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), dwcodecindex, ::core::mem::transmute_copy(&pcformat)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -754,7 +754,7 @@ impl IWMCodecInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetCodecFormat<Impl: IWMCodecInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, guidtype: *const ::windows::core::GUID, dwcodecindex: u32, dwformatindex: u32, ppistreamconfig: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetCodecFormat<Impl: IWMCodecInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, guidtype: &::windows::core::GUID, dwcodecindex: u32, dwformatindex: u32, ppistreamconfig: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetCodecFormat(&*(&guidtype as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), dwcodecindex, dwformatindex, ::core::mem::transmute_copy(&ppistreamconfig)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -777,7 +777,7 @@ impl ::windows::core::RuntimeName for IWMCodecInfo2 {
 }
 impl IWMCodecInfo2Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMCodecInfo2Impl, const OFFSET: isize>() -> IWMCodecInfo2Vtbl {
-        unsafe extern "system" fn GetCodecName<Impl: IWMCodecInfo2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, guidtype: *const ::windows::core::GUID, dwcodecindex: u32, wszname: super::super::Foundation::PWSTR, pcchname: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetCodecName<Impl: IWMCodecInfo2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, guidtype: &::windows::core::GUID, dwcodecindex: u32, wszname: super::super::Foundation::PWSTR, pcchname: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetCodecName(&*(&guidtype as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), dwcodecindex, ::core::mem::transmute_copy(&wszname), pcchname) {
                 ::core::result::Result::Ok(ok__) => {
@@ -788,7 +788,7 @@ impl IWMCodecInfo2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetCodecFormatDesc<Impl: IWMCodecInfo2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, guidtype: *const ::windows::core::GUID, dwcodecindex: u32, dwformatindex: u32, ppistreamconfig: *mut ::windows::core::RawPtr, wszdesc: super::super::Foundation::PWSTR, pcchdesc: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetCodecFormatDesc<Impl: IWMCodecInfo2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, guidtype: &::windows::core::GUID, dwcodecindex: u32, dwformatindex: u32, ppistreamconfig: *mut ::windows::core::RawPtr, wszdesc: super::super::Foundation::PWSTR, pcchdesc: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetCodecFormatDesc(&*(&guidtype as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), dwcodecindex, dwformatindex, ::core::mem::transmute_copy(&ppistreamconfig), ::core::mem::transmute_copy(&wszdesc), pcchdesc) {
                 ::core::result::Result::Ok(ok__) => {
@@ -813,7 +813,7 @@ impl ::windows::core::RuntimeName for IWMCodecInfo3 {
 }
 impl IWMCodecInfo3Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMCodecInfo3Impl, const OFFSET: isize>() -> IWMCodecInfo3Vtbl {
-        unsafe extern "system" fn GetCodecFormatProp<Impl: IWMCodecInfo3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, guidtype: *const ::windows::core::GUID, dwcodecindex: u32, dwformatindex: u32, pszname: super::super::Foundation::PWSTR, ptype: *mut WMT_ATTR_DATATYPE, pvalue: *mut u8, pdwsize: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetCodecFormatProp<Impl: IWMCodecInfo3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, guidtype: &::windows::core::GUID, dwcodecindex: u32, dwformatindex: u32, pszname: super::super::Foundation::PWSTR, ptype: *mut WMT_ATTR_DATATYPE, pvalue: *mut u8, pdwsize: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetCodecFormatProp(&*(&guidtype as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), dwcodecindex, dwformatindex, &*(&pszname as *const <super::super::Foundation::PWSTR as ::windows::core::Abi>::Abi as *const <super::super::Foundation::PWSTR as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&ptype), ::core::mem::transmute_copy(&pvalue), pdwsize) {
                 ::core::result::Result::Ok(ok__) => {
@@ -824,7 +824,7 @@ impl IWMCodecInfo3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetCodecProp<Impl: IWMCodecInfo3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, guidtype: *const ::windows::core::GUID, dwcodecindex: u32, pszname: super::super::Foundation::PWSTR, ptype: *mut WMT_ATTR_DATATYPE, pvalue: *mut u8, pdwsize: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetCodecProp<Impl: IWMCodecInfo3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, guidtype: &::windows::core::GUID, dwcodecindex: u32, pszname: super::super::Foundation::PWSTR, ptype: *mut WMT_ATTR_DATATYPE, pvalue: *mut u8, pdwsize: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetCodecProp(&*(&guidtype as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), dwcodecindex, &*(&pszname as *const <super::super::Foundation::PWSTR as ::windows::core::Abi>::Abi as *const <super::super::Foundation::PWSTR as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&ptype), ::core::mem::transmute_copy(&pvalue), pdwsize) {
                 ::core::result::Result::Ok(ok__) => {
@@ -835,7 +835,7 @@ impl IWMCodecInfo3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetCodecEnumerationSetting<Impl: IWMCodecInfo3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, guidtype: *const ::windows::core::GUID, dwcodecindex: u32, pszname: super::super::Foundation::PWSTR, r#type: WMT_ATTR_DATATYPE, pvalue: *const u8, dwsize: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetCodecEnumerationSetting<Impl: IWMCodecInfo3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, guidtype: &::windows::core::GUID, dwcodecindex: u32, pszname: super::super::Foundation::PWSTR, r#type: WMT_ATTR_DATATYPE, pvalue: *const u8, dwsize: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SetCodecEnumerationSetting(&*(&guidtype as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), dwcodecindex, &*(&pszname as *const <super::super::Foundation::PWSTR as ::windows::core::Abi>::Abi as *const <super::super::Foundation::PWSTR as ::windows::core::DefaultType>::DefaultType), r#type, pvalue, dwsize) {
                 ::core::result::Result::Ok(ok__) => {
@@ -846,7 +846,7 @@ impl IWMCodecInfo3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetCodecEnumerationSetting<Impl: IWMCodecInfo3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, guidtype: *const ::windows::core::GUID, dwcodecindex: u32, pszname: super::super::Foundation::PWSTR, ptype: *mut WMT_ATTR_DATATYPE, pvalue: *mut u8, pdwsize: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetCodecEnumerationSetting<Impl: IWMCodecInfo3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, guidtype: &::windows::core::GUID, dwcodecindex: u32, pszname: super::super::Foundation::PWSTR, ptype: *mut WMT_ATTR_DATATYPE, pvalue: *mut u8, pdwsize: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetCodecEnumerationSetting(&*(&guidtype as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), dwcodecindex, &*(&pszname as *const <super::super::Foundation::PWSTR as ::windows::core::Abi>::Abi as *const <super::super::Foundation::PWSTR as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&ptype), ::core::mem::transmute_copy(&pvalue), pdwsize) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2289,7 +2289,7 @@ impl IWMMutualExclusionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetType<Impl: IWMMutualExclusionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, guidtype: *const ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetType<Impl: IWMMutualExclusionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, guidtype: &::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SetType(&*(&guidtype as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2753,7 +2753,7 @@ impl IWMProfileVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateNewStream<Impl: IWMProfileImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, guidstreamtype: *const ::windows::core::GUID, ppconfig: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateNewStream<Impl: IWMProfileImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, guidstreamtype: &::windows::core::GUID, ppconfig: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateNewStream(&*(&guidstreamtype as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&ppconfig)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -3066,7 +3066,7 @@ impl IWMProfileManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn LoadProfileByID<Impl: IWMProfileManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, guidprofile: *const ::windows::core::GUID, ppprofile: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn LoadProfileByID<Impl: IWMProfileManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, guidprofile: &::windows::core::GUID, ppprofile: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).LoadProfileByID(&*(&guidprofile as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&ppprofile)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -3465,7 +3465,7 @@ impl ::windows::core::RuntimeName for IWMReaderAccelerator {
 }
 impl IWMReaderAcceleratorVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMReaderAcceleratorImpl, const OFFSET: isize>() -> IWMReaderAcceleratorVtbl {
-        unsafe extern "system" fn GetCodecInterface<Impl: IWMReaderAcceleratorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwoutputnum: u32, riid: *const ::windows::core::GUID, ppvcodecinterface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetCodecInterface<Impl: IWMReaderAcceleratorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwoutputnum: u32, riid: &::windows::core::GUID, ppvcodecinterface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetCodecInterface(dwoutputnum, &*(&riid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&ppvcodecinterface)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -6841,7 +6841,7 @@ impl ::windows::core::RuntimeName for IWMWriter {
 }
 impl IWMWriterVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMWriterImpl, const OFFSET: isize>() -> IWMWriterVtbl {
-        unsafe extern "system" fn SetProfileByID<Impl: IWMWriterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, guidprofile: *const ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetProfileByID<Impl: IWMWriterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, guidprofile: &::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SetProfileByID(&*(&guidprofile as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {

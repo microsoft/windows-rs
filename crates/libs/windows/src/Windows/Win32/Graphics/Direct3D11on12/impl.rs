@@ -8,7 +8,7 @@ impl ::windows::core::RuntimeName for ID3D11On12Device {
 }
 impl ID3D11On12DeviceVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D11On12DeviceImpl, const OFFSET: isize>() -> ID3D11On12DeviceVtbl {
-        unsafe extern "system" fn CreateWrappedResource<Impl: ID3D11On12DeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, presource12: *mut ::core::ffi::c_void, pflags11: *const D3D11_RESOURCE_FLAGS, instate: super::Direct3D12::D3D12_RESOURCE_STATES, outstate: super::Direct3D12::D3D12_RESOURCE_STATES, riid: *const ::windows::core::GUID, ppresource11: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateWrappedResource<Impl: ID3D11On12DeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, presource12: *mut ::core::ffi::c_void, pflags11: *const D3D11_RESOURCE_FLAGS, instate: super::Direct3D12::D3D12_RESOURCE_STATES, outstate: super::Direct3D12::D3D12_RESOURCE_STATES, riid: &::windows::core::GUID, ppresource11: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateWrappedResource(
                 &*(&presource12 as *const <::windows::core::IUnknown as ::windows::core::Abi>::Abi as *const <::windows::core::IUnknown as ::windows::core::DefaultType>::DefaultType),
@@ -45,7 +45,7 @@ impl ::windows::core::RuntimeName for ID3D11On12Device1 {
 }
 impl ID3D11On12Device1Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D11On12Device1Impl, const OFFSET: isize>() -> ID3D11On12Device1Vtbl {
-        unsafe extern "system" fn GetD3D12Device<Impl: ID3D11On12Device1Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppvdevice: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetD3D12Device<Impl: ID3D11On12Device1Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, riid: &::windows::core::GUID, ppvdevice: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetD3D12Device(&*(&riid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&ppvdevice)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -68,7 +68,7 @@ impl ::windows::core::RuntimeName for ID3D11On12Device2 {
 }
 impl ID3D11On12Device2Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D11On12Device2Impl, const OFFSET: isize>() -> ID3D11On12Device2Vtbl {
-        unsafe extern "system" fn UnwrapUnderlyingResource<Impl: ID3D11On12Device2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, presource11: ::windows::core::RawPtr, pcommandqueue: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, ppvresource12: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn UnwrapUnderlyingResource<Impl: ID3D11On12Device2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, presource11: ::windows::core::RawPtr, pcommandqueue: ::windows::core::RawPtr, riid: &::windows::core::GUID, ppvresource12: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).UnwrapUnderlyingResource(
                 &*(&presource11 as *const <super::Direct3D11::ID3D11Resource as ::windows::core::Abi>::Abi as *const <super::Direct3D11::ID3D11Resource as ::windows::core::DefaultType>::DefaultType),

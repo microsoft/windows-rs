@@ -175,7 +175,7 @@ impl ISensorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SupportsEvent<Impl: ISensorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, eventguid: *const ::windows::core::GUID, pissupported: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SupportsEvent<Impl: ISensorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, eventguid: &::windows::core::GUID, pissupported: *mut i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SupportsEvent(&*(&eventguid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&pissupported)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -197,7 +197,7 @@ impl ISensorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetEventInterest<Impl: ISensorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvalues: *const ::windows::core::GUID, count: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetEventInterest<Impl: ISensorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvalues: &::windows::core::GUID, count: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SetEventInterest(&*(&pvalues as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), count) {
                 ::core::result::Result::Ok(ok__) => {
@@ -301,7 +301,7 @@ impl ISensorCollectionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveByID<Impl: ISensorCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sensorid: *const ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveByID<Impl: ISensorCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sensorid: &::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RemoveByID(&*(&sensorid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -405,7 +405,7 @@ impl ISensorEventsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn OnEvent<Impl: ISensorEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, psensor: ::windows::core::RawPtr, eventid: *const ::windows::core::GUID, peventdata: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OnEvent<Impl: ISensorEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, psensor: ::windows::core::RawPtr, eventid: &::windows::core::GUID, peventdata: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OnEvent(
                 &*(&psensor as *const <ISensor as ::windows::core::Abi>::Abi as *const <ISensor as ::windows::core::DefaultType>::DefaultType),
@@ -420,7 +420,7 @@ impl ISensorEventsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn OnLeave<Impl: ISensorEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, id: *const ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OnLeave<Impl: ISensorEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, id: &::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OnLeave(&*(&id as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -446,7 +446,7 @@ impl ::windows::core::RuntimeName for ISensorManager {
 }
 impl ISensorManagerVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISensorManagerImpl, const OFFSET: isize>() -> ISensorManagerVtbl {
-        unsafe extern "system" fn GetSensorsByCategory<Impl: ISensorManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sensorcategory: *const ::windows::core::GUID, ppsensorsfound: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetSensorsByCategory<Impl: ISensorManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sensorcategory: &::windows::core::GUID, ppsensorsfound: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetSensorsByCategory(&*(&sensorcategory as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&ppsensorsfound)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -457,7 +457,7 @@ impl ISensorManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetSensorsByType<Impl: ISensorManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sensortype: *const ::windows::core::GUID, ppsensorsfound: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetSensorsByType<Impl: ISensorManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sensortype: &::windows::core::GUID, ppsensorsfound: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetSensorsByType(&*(&sensortype as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&ppsensorsfound)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -468,7 +468,7 @@ impl ISensorManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetSensorByID<Impl: ISensorManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sensorid: *const ::windows::core::GUID, ppsensor: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetSensorByID<Impl: ISensorManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sensorid: &::windows::core::GUID, ppsensor: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetSensorByID(&*(&sensorid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&ppsensor)) {
                 ::core::result::Result::Ok(ok__) => {

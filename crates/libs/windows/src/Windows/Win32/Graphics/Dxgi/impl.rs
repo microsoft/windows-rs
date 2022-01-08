@@ -30,7 +30,7 @@ impl IDXGIAdapterVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CheckInterfaceSupport<Impl: IDXGIAdapterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, interfacename: *const ::windows::core::GUID, pumdversion: *mut i64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CheckInterfaceSupport<Impl: IDXGIAdapterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, interfacename: &::windows::core::GUID, pumdversion: *mut i64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CheckInterfaceSupport(&*(&interfacename as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&pumdversion)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -586,7 +586,7 @@ impl ::windows::core::RuntimeName for IDXGIDeviceSubObject {
 }
 impl IDXGIDeviceSubObjectVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDXGIDeviceSubObjectImpl, const OFFSET: isize>() -> IDXGIDeviceSubObjectVtbl {
-        unsafe extern "system" fn GetDevice<Impl: IDXGIDeviceSubObjectImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppdevice: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetDevice<Impl: IDXGIDeviceSubObjectImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, riid: &::windows::core::GUID, ppdevice: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDevice(&*(&riid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&ppdevice)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -926,7 +926,7 @@ impl ::windows::core::RuntimeName for IDXGIFactory4 {
 }
 impl IDXGIFactory4Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDXGIFactory4Impl, const OFFSET: isize>() -> IDXGIFactory4Vtbl {
-        unsafe extern "system" fn EnumAdapterByLuid<Impl: IDXGIFactory4Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, adapterluid: super::super::Foundation::LUID, riid: *const ::windows::core::GUID, ppvadapter: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn EnumAdapterByLuid<Impl: IDXGIFactory4Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, adapterluid: super::super::Foundation::LUID, riid: &::windows::core::GUID, ppvadapter: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EnumAdapterByLuid(&*(&adapterluid as *const <super::super::Foundation::LUID as ::windows::core::Abi>::Abi as *const <super::super::Foundation::LUID as ::windows::core::DefaultType>::DefaultType), &*(&riid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&ppvadapter)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -937,7 +937,7 @@ impl IDXGIFactory4Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn EnumWarpAdapter<Impl: IDXGIFactory4Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppvadapter: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn EnumWarpAdapter<Impl: IDXGIFactory4Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, riid: &::windows::core::GUID, ppvadapter: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EnumWarpAdapter(&*(&riid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&ppvadapter)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -981,7 +981,7 @@ impl ::windows::core::RuntimeName for IDXGIFactory6 {
 }
 impl IDXGIFactory6Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDXGIFactory6Impl, const OFFSET: isize>() -> IDXGIFactory6Vtbl {
-        unsafe extern "system" fn EnumAdapterByGpuPreference<Impl: IDXGIFactory6Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, adapter: u32, gpupreference: DXGI_GPU_PREFERENCE, riid: *const ::windows::core::GUID, ppvadapter: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn EnumAdapterByGpuPreference<Impl: IDXGIFactory6Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, adapter: u32, gpupreference: DXGI_GPU_PREFERENCE, riid: &::windows::core::GUID, ppvadapter: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EnumAdapterByGpuPreference(adapter, gpupreference, &*(&riid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&ppvadapter)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1577,7 +1577,7 @@ impl ::windows::core::RuntimeName for IDXGIObject {
 }
 impl IDXGIObjectVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDXGIObjectImpl, const OFFSET: isize>() -> IDXGIObjectVtbl {
-        unsafe extern "system" fn SetPrivateData<Impl: IDXGIObjectImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetPrivateData<Impl: IDXGIObjectImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: &::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SetPrivateData(&*(&name as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), datasize, &*(&pdata as *const <::core::ffi::c_void as ::windows::core::Abi>::Abi as *const <::core::ffi::c_void as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1588,7 +1588,7 @@ impl IDXGIObjectVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetPrivateDataInterface<Impl: IDXGIObjectImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: *const ::windows::core::GUID, punknown: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetPrivateDataInterface<Impl: IDXGIObjectImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: &::windows::core::GUID, punknown: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SetPrivateDataInterface(&*(&name as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), &*(&punknown as *const <::windows::core::IUnknown as ::windows::core::Abi>::Abi as *const <::windows::core::IUnknown as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1599,7 +1599,7 @@ impl IDXGIObjectVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetPrivateData<Impl: IDXGIObjectImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetPrivateData<Impl: IDXGIObjectImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: &::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetPrivateData(&*(&name as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), pdatasize, ::core::mem::transmute_copy(&pdata)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1610,7 +1610,7 @@ impl IDXGIObjectVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetParent<Impl: IDXGIObjectImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppparent: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetParent<Impl: IDXGIObjectImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, riid: &::windows::core::GUID, ppparent: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetParent(&*(&riid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&ppparent)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2264,7 +2264,7 @@ impl ::windows::core::RuntimeName for IDXGISurface2 {
 }
 impl IDXGISurface2Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDXGISurface2Impl, const OFFSET: isize>() -> IDXGISurface2Vtbl {
-        unsafe extern "system" fn GetResource<Impl: IDXGISurface2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppparentresource: *mut *mut ::core::ffi::c_void, psubresourceindex: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetResource<Impl: IDXGISurface2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, riid: &::windows::core::GUID, ppparentresource: *mut *mut ::core::ffi::c_void, psubresourceindex: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetResource(&*(&riid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&ppparentresource), ::core::mem::transmute_copy(&psubresourceindex)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2306,7 +2306,7 @@ impl IDXGISwapChainVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetBuffer<Impl: IDXGISwapChainImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, buffer: u32, riid: *const ::windows::core::GUID, ppsurface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetBuffer<Impl: IDXGISwapChainImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, buffer: u32, riid: &::windows::core::GUID, ppsurface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetBuffer(buffer, &*(&riid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&ppsurface)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2476,7 +2476,7 @@ impl IDXGISwapChain1Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetCoreWindow<Impl: IDXGISwapChain1Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, refiid: *const ::windows::core::GUID, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetCoreWindow<Impl: IDXGISwapChain1Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, refiid: &::windows::core::GUID, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetCoreWindow(&*(&refiid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&ppunk)) {
                 ::core::result::Result::Ok(ok__) => {

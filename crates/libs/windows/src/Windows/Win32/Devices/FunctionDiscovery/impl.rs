@@ -230,7 +230,7 @@ impl IFunctionDiscoveryProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn InstanceQueryService<Impl: IFunctionDiscoveryProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pifunctioninstance: ::windows::core::RawPtr, iproviderinstancecontext: isize, guidservice: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppiunknown: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn InstanceQueryService<Impl: IFunctionDiscoveryProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pifunctioninstance: ::windows::core::RawPtr, iproviderinstancecontext: isize, guidservice: &::windows::core::GUID, riid: &::windows::core::GUID, ppiunknown: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).InstanceQueryService(
                 &*(&pifunctioninstance as *const <IFunctionInstance as ::windows::core::Abi>::Abi as *const <IFunctionInstance as ::windows::core::DefaultType>::DefaultType),
@@ -395,7 +395,7 @@ impl ::windows::core::RuntimeName for IFunctionDiscoveryServiceProvider {
 }
 impl IFunctionDiscoveryServiceProviderVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFunctionDiscoveryServiceProviderImpl, const OFFSET: isize>() -> IFunctionDiscoveryServiceProviderVtbl {
-        unsafe extern "system" fn Initialize<Impl: IFunctionDiscoveryServiceProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pifunctioninstance: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Initialize<Impl: IFunctionDiscoveryServiceProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pifunctioninstance: ::windows::core::RawPtr, riid: &::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Initialize(&*(&pifunctioninstance as *const <IFunctionInstance as ::windows::core::Abi>::Abi as *const <IFunctionInstance as ::windows::core::DefaultType>::DefaultType), &*(&riid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&ppv)) {
                 ::core::result::Result::Ok(ok__) => {

@@ -1243,7 +1243,7 @@ impl IDtcToXaHelperVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TranslateTridToXid<Impl: IDtcToXaHelperImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pitransaction: ::windows::core::RawPtr, pguidbqual: *const ::windows::core::GUID, pxid: *mut xid_t) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TranslateTridToXid<Impl: IDtcToXaHelperImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pitransaction: ::windows::core::RawPtr, pguidbqual: &::windows::core::GUID, pxid: *mut xid_t) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TranslateTridToXid(&*(&pitransaction as *const <ITransaction as ::windows::core::Abi>::Abi as *const <ITransaction as ::windows::core::DefaultType>::DefaultType), &*(&pguidbqual as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&pxid)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1396,7 +1396,7 @@ impl ::windows::core::RuntimeName for IGetDispenser {
 }
 impl IGetDispenserVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGetDispenserImpl, const OFFSET: isize>() -> IGetDispenserVtbl {
-        unsafe extern "system" fn GetDispenser<Impl: IGetDispenserImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, iid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetDispenser<Impl: IGetDispenserImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDispenser(&*(&iid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&ppvobject)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1618,7 +1618,7 @@ impl IResourceManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetDistributedTransactionManager<Impl: IResourceManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, iid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetDistributedTransactionManager<Impl: IResourceManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDistributedTransactionManager(&*(&iid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&ppvobject)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1674,7 +1674,7 @@ impl ::windows::core::RuntimeName for IResourceManagerFactory {
 }
 impl IResourceManagerFactoryVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IResourceManagerFactoryImpl, const OFFSET: isize>() -> IResourceManagerFactoryVtbl {
-        unsafe extern "system" fn Create<Impl: IResourceManagerFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pguidrm: *const ::windows::core::GUID, pszrmname: super::super::Foundation::PSTR, piresmgrsink: ::windows::core::RawPtr, ppresmgr: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Create<Impl: IResourceManagerFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pguidrm: &::windows::core::GUID, pszrmname: super::super::Foundation::PSTR, piresmgrsink: ::windows::core::RawPtr, ppresmgr: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(
                 &*(&pguidrm as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType),
@@ -1701,7 +1701,7 @@ impl ::windows::core::RuntimeName for IResourceManagerFactory2 {
 }
 impl IResourceManagerFactory2Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IResourceManagerFactory2Impl, const OFFSET: isize>() -> IResourceManagerFactory2Vtbl {
-        unsafe extern "system" fn CreateEx<Impl: IResourceManagerFactory2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pguidrm: *const ::windows::core::GUID, pszrmname: super::super::Foundation::PSTR, piresmgrsink: ::windows::core::RawPtr, riidrequested: *const ::windows::core::GUID, ppvresmgr: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateEx<Impl: IResourceManagerFactory2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pguidrm: &::windows::core::GUID, pszrmname: super::super::Foundation::PSTR, piresmgrsink: ::windows::core::RawPtr, riidrequested: &::windows::core::GUID, ppvresmgr: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateEx(
                 &*(&pguidrm as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType),
@@ -2147,7 +2147,7 @@ impl ::windows::core::RuntimeName for ITransactionImport {
 }
 impl ITransactionImportVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITransactionImportImpl, const OFFSET: isize>() -> ITransactionImportVtbl {
-        unsafe extern "system" fn Import<Impl: ITransactionImportImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cbtransactioncookie: u32, rgbtransactioncookie: *const u8, piid: *const ::windows::core::GUID, ppvtransaction: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Import<Impl: ITransactionImportImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cbtransactioncookie: u32, rgbtransactioncookie: *const u8, piid: &::windows::core::GUID, ppvtransaction: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Import(cbtransactioncookie, rgbtransactioncookie, &*(&piid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&ppvtransaction)) {
                 ::core::result::Result::Ok(ok__) => {

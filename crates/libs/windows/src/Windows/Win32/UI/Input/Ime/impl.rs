@@ -2649,7 +2649,7 @@ impl ::windows::core::RuntimeName for IActiveIMMRegistrar {
 }
 impl IActiveIMMRegistrarVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IActiveIMMRegistrarImpl, const OFFSET: isize>() -> IActiveIMMRegistrarVtbl {
-        unsafe extern "system" fn RegisterIME<Impl: IActiveIMMRegistrarImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rclsid: *const ::windows::core::GUID, lgid: u16, psziconfile: super::super::super::Foundation::PWSTR, pszdesc: super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RegisterIME<Impl: IActiveIMMRegistrarImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rclsid: &::windows::core::GUID, lgid: u16, psziconfile: super::super::super::Foundation::PWSTR, pszdesc: super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RegisterIME(
                 &*(&rclsid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType),
@@ -2665,7 +2665,7 @@ impl IActiveIMMRegistrarVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn UnregisterIME<Impl: IActiveIMMRegistrarImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rclsid: *const ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn UnregisterIME<Impl: IActiveIMMRegistrarImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rclsid: &::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).UnregisterIME(&*(&rclsid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -3409,7 +3409,7 @@ impl ::windows::core::RuntimeName for IImeSpecifyApplets {
 }
 impl IImeSpecifyAppletsVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IImeSpecifyAppletsImpl, const OFFSET: isize>() -> IImeSpecifyAppletsVtbl {
-        unsafe extern "system" fn GetAppletIIDList<Impl: IImeSpecifyAppletsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, refiid: *const ::windows::core::GUID, lpiidlist: *mut APPLETIDLIST) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetAppletIIDList<Impl: IImeSpecifyAppletsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, refiid: &::windows::core::GUID, lpiidlist: *mut APPLETIDLIST) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetAppletIIDList(&*(&refiid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), &*(&lpiidlist as *const <APPLETIDLIST as ::windows::core::Abi>::Abi as *const <APPLETIDLIST as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {

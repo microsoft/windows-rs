@@ -147,7 +147,7 @@ impl IDirectManipulationContentVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetViewport<Impl: IDirectManipulationContentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, object: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetViewport<Impl: IDirectManipulationContentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, riid: &::windows::core::GUID, object: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetViewport(&*(&riid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&object)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -158,7 +158,7 @@ impl IDirectManipulationContentVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetTag<Impl: IDirectManipulationContentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, object: *mut *mut ::core::ffi::c_void, id: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetTag<Impl: IDirectManipulationContentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, riid: &::windows::core::GUID, object: *mut *mut ::core::ffi::c_void, id: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetTag(&*(&riid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&object), ::core::mem::transmute_copy(&id)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -435,7 +435,7 @@ impl IDirectManipulationManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetUpdateManager<Impl: IDirectManipulationManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, object: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetUpdateManager<Impl: IDirectManipulationManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, riid: &::windows::core::GUID, object: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetUpdateManager(&*(&riid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&object)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -446,7 +446,7 @@ impl IDirectManipulationManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateViewport<Impl: IDirectManipulationManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, frameinfo: ::windows::core::RawPtr, window: super::super::Foundation::HWND, riid: *const ::windows::core::GUID, object: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateViewport<Impl: IDirectManipulationManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, frameinfo: ::windows::core::RawPtr, window: super::super::Foundation::HWND, riid: &::windows::core::GUID, object: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateViewport(
                 &*(&frameinfo as *const <IDirectManipulationFrameInfoProvider as ::windows::core::Abi>::Abi as *const <IDirectManipulationFrameInfoProvider as ::windows::core::DefaultType>::DefaultType),
@@ -462,7 +462,7 @@ impl IDirectManipulationManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateContent<Impl: IDirectManipulationManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, frameinfo: ::windows::core::RawPtr, clsid: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, object: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateContent<Impl: IDirectManipulationManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, frameinfo: ::windows::core::RawPtr, clsid: &::windows::core::GUID, riid: &::windows::core::GUID, object: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateContent(
                 &*(&frameinfo as *const <IDirectManipulationFrameInfoProvider as ::windows::core::Abi>::Abi as *const <IDirectManipulationFrameInfoProvider as ::windows::core::DefaultType>::DefaultType),
@@ -503,7 +503,7 @@ impl ::windows::core::RuntimeName for IDirectManipulationManager2 {
 }
 impl IDirectManipulationManager2Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDirectManipulationManager2Impl, const OFFSET: isize>() -> IDirectManipulationManager2Vtbl {
-        unsafe extern "system" fn CreateBehavior<Impl: IDirectManipulationManager2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, clsid: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, object: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateBehavior<Impl: IDirectManipulationManager2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, clsid: &::windows::core::GUID, riid: &::windows::core::GUID, object: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateBehavior(&*(&clsid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), &*(&riid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&object)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -525,7 +525,7 @@ impl ::windows::core::RuntimeName for IDirectManipulationManager3 {
 }
 impl IDirectManipulationManager3Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDirectManipulationManager3Impl, const OFFSET: isize>() -> IDirectManipulationManager3Vtbl {
-        unsafe extern "system" fn GetService<Impl: IDirectManipulationManager3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, clsid: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, object: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetService<Impl: IDirectManipulationManager3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, clsid: &::windows::core::GUID, riid: &::windows::core::GUID, object: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetService(&*(&clsid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), &*(&riid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&object)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -842,7 +842,7 @@ impl IDirectManipulationViewportVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetTag<Impl: IDirectManipulationViewportImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, object: *mut *mut ::core::ffi::c_void, id: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetTag<Impl: IDirectManipulationViewportImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, riid: &::windows::core::GUID, object: *mut *mut ::core::ffi::c_void, id: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetTag(&*(&riid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&object), ::core::mem::transmute_copy(&id)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -919,7 +919,7 @@ impl IDirectManipulationViewportVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetPrimaryContent<Impl: IDirectManipulationViewportImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, object: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetPrimaryContent<Impl: IDirectManipulationViewportImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, riid: &::windows::core::GUID, object: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetPrimaryContent(&*(&riid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&object)) {
                 ::core::result::Result::Ok(ok__) => {

@@ -80,9 +80,35 @@ pub fn gen(attributes: proc_macro::TokenStream, original_type: proc_macro::Token
             }
         }
         impl ::windows::core::IUnknownImpl for #impl_ident {
-            fn QueryInterface(&mut self, iid: *const ::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            fn QueryInterface(&mut self, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
                 println!("QueryInterface");
-                ::windows::core::HRESULT(0)
+                unsafe {
+                    *interface = if iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID
+                        || iid == &<::windows::core::IInspectable as ::windows::core::Interface>::IID
+                        || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID {
+                            &mut self.identity as *mut _ as _
+                    //} #queries else {
+                    } else {
+                        ::core::ptr::null_mut()
+                    };
+
+                    if !(*interface).is_null() {
+                        self.count.add_ref();
+                        return ::windows::core::HRESULT(0);
+                    }
+
+                    *interface = self.count.query(iid, &mut self.identity as *mut _ as _);
+
+                    if (*interface).is_null() {
+                        if let Some(base) = &self.base {
+                            ::windows::core::Interface::query(base, iid, interface)
+                        } else {
+                            ::windows::core::HRESULT(0x8000_4002) // E_NOINTERFACE
+                        }
+                    } else {
+                        ::windows::core::HRESULT(0)
+                    }
+                }
             }
             fn AddRef(&mut self) -> u32 {
                 println!("AddRef");

@@ -6,7 +6,7 @@ impl ::windows::core::RuntimeName for IDirectInput2A {
 }
 impl IDirectInput2AVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDirectInput2AImpl, const OFFSET: isize>() -> IDirectInput2AVtbl {
-        unsafe extern "system" fn FindDevice<Impl: IDirectInput2AImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, param0: *const ::windows::core::GUID, param1: super::super::Foundation::PSTR, param2: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FindDevice<Impl: IDirectInput2AImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, param0: &::windows::core::GUID, param1: super::super::Foundation::PSTR, param2: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FindDevice(
                 &*(&param0 as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType),
@@ -32,7 +32,7 @@ impl ::windows::core::RuntimeName for IDirectInput2W {
 }
 impl IDirectInput2WVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDirectInput2WImpl, const OFFSET: isize>() -> IDirectInput2WVtbl {
-        unsafe extern "system" fn FindDevice<Impl: IDirectInput2WImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, param0: *const ::windows::core::GUID, param1: super::super::Foundation::PWSTR, param2: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FindDevice<Impl: IDirectInput2WImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, param0: &::windows::core::GUID, param1: super::super::Foundation::PWSTR, param2: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FindDevice(
                 &*(&param0 as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType),
@@ -58,7 +58,7 @@ impl ::windows::core::RuntimeName for IDirectInput7A {
 }
 impl IDirectInput7AVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDirectInput7AImpl, const OFFSET: isize>() -> IDirectInput7AVtbl {
-        unsafe extern "system" fn CreateDeviceEx<Impl: IDirectInput7AImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, param0: *const ::windows::core::GUID, param1: *const ::windows::core::GUID, param2: *mut *mut ::core::ffi::c_void, param3: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateDeviceEx<Impl: IDirectInput7AImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, param0: &::windows::core::GUID, param1: &::windows::core::GUID, param2: *mut *mut ::core::ffi::c_void, param3: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateDeviceEx(
                 &*(&param0 as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType),
@@ -85,7 +85,7 @@ impl ::windows::core::RuntimeName for IDirectInput7W {
 }
 impl IDirectInput7WVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDirectInput7WImpl, const OFFSET: isize>() -> IDirectInput7WVtbl {
-        unsafe extern "system" fn CreateDeviceEx<Impl: IDirectInput7WImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, param0: *const ::windows::core::GUID, param1: *const ::windows::core::GUID, param2: *mut *mut ::core::ffi::c_void, param3: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateDeviceEx<Impl: IDirectInput7WImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, param0: &::windows::core::GUID, param1: &::windows::core::GUID, param2: *mut *mut ::core::ffi::c_void, param3: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateDeviceEx(
                 &*(&param0 as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType),
@@ -119,7 +119,7 @@ impl ::windows::core::RuntimeName for IDirectInput8A {
 }
 impl IDirectInput8AVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDirectInput8AImpl, const OFFSET: isize>() -> IDirectInput8AVtbl {
-        unsafe extern "system" fn CreateDevice<Impl: IDirectInput8AImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, param0: *const ::windows::core::GUID, param1: *mut ::windows::core::RawPtr, param2: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateDevice<Impl: IDirectInput8AImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, param0: &::windows::core::GUID, param1: *mut ::windows::core::RawPtr, param2: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateDevice(&*(&param0 as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&param1), &*(&param2 as *const <::windows::core::IUnknown as ::windows::core::Abi>::Abi as *const <::windows::core::IUnknown as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -141,7 +141,7 @@ impl IDirectInput8AVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetDeviceStatus<Impl: IDirectInput8AImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, param0: *const ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetDeviceStatus<Impl: IDirectInput8AImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, param0: &::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDeviceStatus(&*(&param0 as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -174,7 +174,7 @@ impl IDirectInput8AVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn FindDevice<Impl: IDirectInput8AImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, param0: *const ::windows::core::GUID, param1: super::super::Foundation::PSTR, param2: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FindDevice<Impl: IDirectInput8AImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, param0: &::windows::core::GUID, param1: super::super::Foundation::PSTR, param2: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FindDevice(
                 &*(&param0 as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType),
@@ -255,7 +255,7 @@ impl ::windows::core::RuntimeName for IDirectInput8W {
 }
 impl IDirectInput8WVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDirectInput8WImpl, const OFFSET: isize>() -> IDirectInput8WVtbl {
-        unsafe extern "system" fn CreateDevice<Impl: IDirectInput8WImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, param0: *const ::windows::core::GUID, param1: *mut ::windows::core::RawPtr, param2: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateDevice<Impl: IDirectInput8WImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, param0: &::windows::core::GUID, param1: *mut ::windows::core::RawPtr, param2: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateDevice(&*(&param0 as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&param1), &*(&param2 as *const <::windows::core::IUnknown as ::windows::core::Abi>::Abi as *const <::windows::core::IUnknown as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -277,7 +277,7 @@ impl IDirectInput8WVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetDeviceStatus<Impl: IDirectInput8WImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, param0: *const ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetDeviceStatus<Impl: IDirectInput8WImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, param0: &::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDeviceStatus(&*(&param0 as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -310,7 +310,7 @@ impl IDirectInput8WVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn FindDevice<Impl: IDirectInput8WImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, param0: *const ::windows::core::GUID, param1: super::super::Foundation::PWSTR, param2: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FindDevice<Impl: IDirectInput8WImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, param0: &::windows::core::GUID, param1: super::super::Foundation::PWSTR, param2: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FindDevice(
                 &*(&param0 as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType),
@@ -388,7 +388,7 @@ impl ::windows::core::RuntimeName for IDirectInputA {
 }
 impl IDirectInputAVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDirectInputAImpl, const OFFSET: isize>() -> IDirectInputAVtbl {
-        unsafe extern "system" fn CreateDevice<Impl: IDirectInputAImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, param0: *const ::windows::core::GUID, param1: *mut ::windows::core::RawPtr, param2: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateDevice<Impl: IDirectInputAImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, param0: &::windows::core::GUID, param1: *mut ::windows::core::RawPtr, param2: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateDevice(&*(&param0 as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&param1), &*(&param2 as *const <::windows::core::IUnknown as ::windows::core::Abi>::Abi as *const <::windows::core::IUnknown as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -410,7 +410,7 @@ impl IDirectInputAVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetDeviceStatus<Impl: IDirectInputAImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, param0: *const ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetDeviceStatus<Impl: IDirectInputAImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, param0: &::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDeviceStatus(&*(&param0 as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -462,7 +462,7 @@ impl ::windows::core::RuntimeName for IDirectInputDevice2A {
 }
 impl IDirectInputDevice2AVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDirectInputDevice2AImpl, const OFFSET: isize>() -> IDirectInputDevice2AVtbl {
-        unsafe extern "system" fn CreateEffect<Impl: IDirectInputDevice2AImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, param0: *const ::windows::core::GUID, param1: *mut DIEFFECT, param2: *mut ::windows::core::RawPtr, param3: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateEffect<Impl: IDirectInputDevice2AImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, param0: &::windows::core::GUID, param1: *mut DIEFFECT, param2: *mut ::windows::core::RawPtr, param3: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateEffect(
                 &*(&param0 as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType),
@@ -489,7 +489,7 @@ impl IDirectInputDevice2AVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetEffectInfo<Impl: IDirectInputDevice2AImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, param0: *mut DIEFFECTINFOA, param1: *const ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetEffectInfo<Impl: IDirectInputDevice2AImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, param0: *mut DIEFFECTINFOA, param1: &::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetEffectInfo(&*(&param0 as *const <DIEFFECTINFOA as ::windows::core::Abi>::Abi as *const <DIEFFECTINFOA as ::windows::core::DefaultType>::DefaultType), &*(&param1 as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -601,7 +601,7 @@ impl ::windows::core::RuntimeName for IDirectInputDevice2W {
 }
 impl IDirectInputDevice2WVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDirectInputDevice2WImpl, const OFFSET: isize>() -> IDirectInputDevice2WVtbl {
-        unsafe extern "system" fn CreateEffect<Impl: IDirectInputDevice2WImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, param0: *const ::windows::core::GUID, param1: *mut DIEFFECT, param2: *mut ::windows::core::RawPtr, param3: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateEffect<Impl: IDirectInputDevice2WImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, param0: &::windows::core::GUID, param1: *mut DIEFFECT, param2: *mut ::windows::core::RawPtr, param3: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateEffect(
                 &*(&param0 as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType),
@@ -628,7 +628,7 @@ impl IDirectInputDevice2WVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetEffectInfo<Impl: IDirectInputDevice2WImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, param0: *mut DIEFFECTINFOW, param1: *const ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetEffectInfo<Impl: IDirectInputDevice2WImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, param0: *mut DIEFFECTINFOW, param1: &::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetEffectInfo(&*(&param0 as *const <DIEFFECTINFOW as ::windows::core::Abi>::Abi as *const <DIEFFECTINFOW as ::windows::core::DefaultType>::DefaultType), &*(&param1 as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -860,7 +860,7 @@ impl IDirectInputDevice8AVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetProperty<Impl: IDirectInputDevice8AImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, param0: *const ::windows::core::GUID, param1: *mut DIPROPHEADER) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetProperty<Impl: IDirectInputDevice8AImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, param0: &::windows::core::GUID, param1: *mut DIPROPHEADER) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetProperty(&*(&param0 as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), &*(&param1 as *const <DIPROPHEADER as ::windows::core::Abi>::Abi as *const <DIPROPHEADER as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -871,7 +871,7 @@ impl IDirectInputDevice8AVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetProperty<Impl: IDirectInputDevice8AImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, param0: *const ::windows::core::GUID, param1: *mut DIPROPHEADER) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetProperty<Impl: IDirectInputDevice8AImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, param0: &::windows::core::GUID, param1: *mut DIPROPHEADER) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SetProperty(&*(&param0 as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), &*(&param1 as *const <DIPROPHEADER as ::windows::core::Abi>::Abi as *const <DIPROPHEADER as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -992,7 +992,7 @@ impl IDirectInputDevice8AVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Initialize<Impl: IDirectInputDevice8AImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, param0: super::super::Foundation::HINSTANCE, param1: u32, param2: *const ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Initialize<Impl: IDirectInputDevice8AImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, param0: super::super::Foundation::HINSTANCE, param1: u32, param2: &::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Initialize(&*(&param0 as *const <super::super::Foundation::HINSTANCE as ::windows::core::Abi>::Abi as *const <super::super::Foundation::HINSTANCE as ::windows::core::DefaultType>::DefaultType), param1, &*(&param2 as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1003,7 +1003,7 @@ impl IDirectInputDevice8AVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateEffect<Impl: IDirectInputDevice8AImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, param0: *const ::windows::core::GUID, param1: *mut DIEFFECT, param2: *mut ::windows::core::RawPtr, param3: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateEffect<Impl: IDirectInputDevice8AImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, param0: &::windows::core::GUID, param1: *mut DIEFFECT, param2: *mut ::windows::core::RawPtr, param3: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateEffect(
                 &*(&param0 as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType),
@@ -1030,7 +1030,7 @@ impl IDirectInputDevice8AVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetEffectInfo<Impl: IDirectInputDevice8AImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, param0: *mut DIEFFECTINFOA, param1: *const ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetEffectInfo<Impl: IDirectInputDevice8AImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, param0: *mut DIEFFECTINFOA, param1: &::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetEffectInfo(&*(&param0 as *const <DIEFFECTINFOA as ::windows::core::Abi>::Abi as *const <DIEFFECTINFOA as ::windows::core::DefaultType>::DefaultType), &*(&param1 as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1264,7 +1264,7 @@ impl IDirectInputDevice8WVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetProperty<Impl: IDirectInputDevice8WImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, param0: *const ::windows::core::GUID, param1: *mut DIPROPHEADER) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetProperty<Impl: IDirectInputDevice8WImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, param0: &::windows::core::GUID, param1: *mut DIPROPHEADER) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetProperty(&*(&param0 as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), &*(&param1 as *const <DIPROPHEADER as ::windows::core::Abi>::Abi as *const <DIPROPHEADER as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1275,7 +1275,7 @@ impl IDirectInputDevice8WVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetProperty<Impl: IDirectInputDevice8WImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, param0: *const ::windows::core::GUID, param1: *mut DIPROPHEADER) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetProperty<Impl: IDirectInputDevice8WImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, param0: &::windows::core::GUID, param1: *mut DIPROPHEADER) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SetProperty(&*(&param0 as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), &*(&param1 as *const <DIPROPHEADER as ::windows::core::Abi>::Abi as *const <DIPROPHEADER as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1396,7 +1396,7 @@ impl IDirectInputDevice8WVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Initialize<Impl: IDirectInputDevice8WImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, param0: super::super::Foundation::HINSTANCE, param1: u32, param2: *const ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Initialize<Impl: IDirectInputDevice8WImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, param0: super::super::Foundation::HINSTANCE, param1: u32, param2: &::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Initialize(&*(&param0 as *const <super::super::Foundation::HINSTANCE as ::windows::core::Abi>::Abi as *const <super::super::Foundation::HINSTANCE as ::windows::core::DefaultType>::DefaultType), param1, &*(&param2 as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1407,7 +1407,7 @@ impl IDirectInputDevice8WVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateEffect<Impl: IDirectInputDevice8WImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, param0: *const ::windows::core::GUID, param1: *mut DIEFFECT, param2: *mut ::windows::core::RawPtr, param3: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateEffect<Impl: IDirectInputDevice8WImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, param0: &::windows::core::GUID, param1: *mut DIEFFECT, param2: *mut ::windows::core::RawPtr, param3: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateEffect(
                 &*(&param0 as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType),
@@ -1434,7 +1434,7 @@ impl IDirectInputDevice8WVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetEffectInfo<Impl: IDirectInputDevice8WImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, param0: *mut DIEFFECTINFOW, param1: *const ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetEffectInfo<Impl: IDirectInputDevice8WImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, param0: *mut DIEFFECTINFOW, param1: &::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetEffectInfo(&*(&param0 as *const <DIEFFECTINFOW as ::windows::core::Abi>::Abi as *const <DIEFFECTINFOW as ::windows::core::DefaultType>::DefaultType), &*(&param1 as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1654,7 +1654,7 @@ impl IDirectInputDeviceAVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetProperty<Impl: IDirectInputDeviceAImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, param0: *const ::windows::core::GUID, param1: *mut DIPROPHEADER) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetProperty<Impl: IDirectInputDeviceAImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, param0: &::windows::core::GUID, param1: *mut DIPROPHEADER) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetProperty(&*(&param0 as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), &*(&param1 as *const <DIPROPHEADER as ::windows::core::Abi>::Abi as *const <DIPROPHEADER as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1665,7 +1665,7 @@ impl IDirectInputDeviceAVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetProperty<Impl: IDirectInputDeviceAImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, param0: *const ::windows::core::GUID, param1: *mut DIPROPHEADER) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetProperty<Impl: IDirectInputDeviceAImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, param0: &::windows::core::GUID, param1: *mut DIPROPHEADER) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SetProperty(&*(&param0 as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), &*(&param1 as *const <DIPROPHEADER as ::windows::core::Abi>::Abi as *const <DIPROPHEADER as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1786,7 +1786,7 @@ impl IDirectInputDeviceAVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Initialize<Impl: IDirectInputDeviceAImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, param0: super::super::Foundation::HINSTANCE, param1: u32, param2: *const ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Initialize<Impl: IDirectInputDeviceAImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, param0: super::super::Foundation::HINSTANCE, param1: u32, param2: &::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Initialize(&*(&param0 as *const <super::super::Foundation::HINSTANCE as ::windows::core::Abi>::Abi as *const <super::super::Foundation::HINSTANCE as ::windows::core::DefaultType>::DefaultType), param1, &*(&param2 as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1866,7 +1866,7 @@ impl IDirectInputDeviceWVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetProperty<Impl: IDirectInputDeviceWImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, param0: *const ::windows::core::GUID, param1: *mut DIPROPHEADER) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetProperty<Impl: IDirectInputDeviceWImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, param0: &::windows::core::GUID, param1: *mut DIPROPHEADER) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetProperty(&*(&param0 as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), &*(&param1 as *const <DIPROPHEADER as ::windows::core::Abi>::Abi as *const <DIPROPHEADER as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1877,7 +1877,7 @@ impl IDirectInputDeviceWVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetProperty<Impl: IDirectInputDeviceWImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, param0: *const ::windows::core::GUID, param1: *mut DIPROPHEADER) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetProperty<Impl: IDirectInputDeviceWImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, param0: &::windows::core::GUID, param1: *mut DIPROPHEADER) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SetProperty(&*(&param0 as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), &*(&param1 as *const <DIPROPHEADER as ::windows::core::Abi>::Abi as *const <DIPROPHEADER as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1998,7 +1998,7 @@ impl IDirectInputDeviceWVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Initialize<Impl: IDirectInputDeviceWImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, param0: super::super::Foundation::HINSTANCE, param1: u32, param2: *const ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Initialize<Impl: IDirectInputDeviceWImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, param0: super::super::Foundation::HINSTANCE, param1: u32, param2: &::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Initialize(&*(&param0 as *const <super::super::Foundation::HINSTANCE as ::windows::core::Abi>::Abi as *const <super::super::Foundation::HINSTANCE as ::windows::core::DefaultType>::DefaultType), param1, &*(&param2 as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2051,7 +2051,7 @@ impl ::windows::core::RuntimeName for IDirectInputEffect {
 }
 impl IDirectInputEffectVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDirectInputEffectImpl, const OFFSET: isize>() -> IDirectInputEffectVtbl {
-        unsafe extern "system" fn Initialize<Impl: IDirectInputEffectImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, param0: super::super::Foundation::HINSTANCE, param1: u32, param2: *const ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Initialize<Impl: IDirectInputEffectImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, param0: super::super::Foundation::HINSTANCE, param1: u32, param2: &::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Initialize(&*(&param0 as *const <super::super::Foundation::HINSTANCE as ::windows::core::Abi>::Abi as *const <super::super::Foundation::HINSTANCE as ::windows::core::DefaultType>::DefaultType), param1, &*(&param2 as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2507,7 +2507,7 @@ impl IDirectInputJoyConfigVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AddNewHardware<Impl: IDirectInputJoyConfigImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, param0: super::super::Foundation::HWND, param1: *const ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddNewHardware<Impl: IDirectInputJoyConfigImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, param0: super::super::Foundation::HWND, param1: &::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AddNewHardware(&*(&param0 as *const <super::super::Foundation::HWND as ::windows::core::Abi>::Abi as *const <super::super::Foundation::HWND as ::windows::core::DefaultType>::DefaultType), &*(&param1 as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2737,7 +2737,7 @@ impl IDirectInputJoyConfig8Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AddNewHardware<Impl: IDirectInputJoyConfig8Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, param0: super::super::Foundation::HWND, param1: *const ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddNewHardware<Impl: IDirectInputJoyConfig8Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, param0: super::super::Foundation::HWND, param1: &::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AddNewHardware(&*(&param0 as *const <super::super::Foundation::HWND as ::windows::core::Abi>::Abi as *const <super::super::Foundation::HWND as ::windows::core::DefaultType>::DefaultType), &*(&param1 as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2808,7 +2808,7 @@ impl ::windows::core::RuntimeName for IDirectInputW {
 }
 impl IDirectInputWVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDirectInputWImpl, const OFFSET: isize>() -> IDirectInputWVtbl {
-        unsafe extern "system" fn CreateDevice<Impl: IDirectInputWImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, param0: *const ::windows::core::GUID, param1: *mut ::windows::core::RawPtr, param2: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateDevice<Impl: IDirectInputWImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, param0: &::windows::core::GUID, param1: *mut ::windows::core::RawPtr, param2: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateDevice(&*(&param0 as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&param1), &*(&param2 as *const <::windows::core::IUnknown as ::windows::core::Abi>::Abi as *const <::windows::core::IUnknown as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2830,7 +2830,7 @@ impl IDirectInputWVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetDeviceStatus<Impl: IDirectInputWImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, param0: *const ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetDeviceStatus<Impl: IDirectInputWImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, param0: &::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDeviceStatus(&*(&param0 as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {

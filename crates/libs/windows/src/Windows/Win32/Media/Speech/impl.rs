@@ -112,7 +112,7 @@ impl ISpAudioVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetFormat<Impl: ISpAudioImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rguidfmtid: *const ::windows::core::GUID, pwaveformatex: *const super::Audio::WAVEFORMATEX) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetFormat<Impl: ISpAudioImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rguidfmtid: &::windows::core::GUID, pwaveformatex: *const super::Audio::WAVEFORMATEX) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SetFormat(&*(&rguidfmtid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), &*(&pwaveformatex as *const <super::Audio::WAVEFORMATEX as ::windows::core::Abi>::Abi as *const <super::Audio::WAVEFORMATEX as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1268,7 +1268,7 @@ impl ISpObjectTokenVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateInstance<Impl: ISpObjectTokenImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, punkouter: *mut ::core::ffi::c_void, dwclscontext: u32, riid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateInstance<Impl: ISpObjectTokenImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, punkouter: *mut ::core::ffi::c_void, dwclscontext: u32, riid: &::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateInstance(
                 &*(&punkouter as *const <::windows::core::IUnknown as ::windows::core::Abi>::Abi as *const <::windows::core::IUnknown as ::windows::core::DefaultType>::DefaultType),
@@ -1284,7 +1284,7 @@ impl ISpObjectTokenVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetStorageFileName<Impl: ISpObjectTokenImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, clsidcaller: *const ::windows::core::GUID, pszvaluename: super::super::Foundation::PWSTR, pszfilenamespecifier: super::super::Foundation::PWSTR, nfolder: u32, ppszfilepath: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetStorageFileName<Impl: ISpObjectTokenImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, clsidcaller: &::windows::core::GUID, pszvaluename: super::super::Foundation::PWSTR, pszfilenamespecifier: super::super::Foundation::PWSTR, nfolder: u32, ppszfilepath: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetStorageFileName(
                 &*(&clsidcaller as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType),
@@ -1301,7 +1301,7 @@ impl ISpObjectTokenVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveStorageFileName<Impl: ISpObjectTokenImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, clsidcaller: *const ::windows::core::GUID, pszkeyname: super::super::Foundation::PWSTR, fdeletefile: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveStorageFileName<Impl: ISpObjectTokenImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, clsidcaller: &::windows::core::GUID, pszkeyname: super::super::Foundation::PWSTR, fdeletefile: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RemoveStorageFileName(
                 &*(&clsidcaller as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType),
@@ -1316,7 +1316,7 @@ impl ISpObjectTokenVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Remove<Impl: ISpObjectTokenImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pclsidcaller: *const ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Remove<Impl: ISpObjectTokenImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pclsidcaller: &::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Remove(&*(&pclsidcaller as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1949,7 +1949,7 @@ impl ISpRecoContextVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetAudioOptions<Impl: ISpRecoContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, options: SPAUDIOOPTIONS, paudioformatid: *const ::windows::core::GUID, pwaveformatex: *const super::Audio::WAVEFORMATEX) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetAudioOptions<Impl: ISpRecoContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, options: SPAUDIOOPTIONS, paudioformatid: &::windows::core::GUID, pwaveformatex: *const super::Audio::WAVEFORMATEX) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SetAudioOptions(options, &*(&paudioformatid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), &*(&pwaveformatex as *const <super::Audio::WAVEFORMATEX as ::windows::core::Abi>::Abi as *const <super::Audio::WAVEFORMATEX as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2224,7 +2224,7 @@ impl ISpRecoGrammarVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn LoadCmdFromObject<Impl: ISpRecoGrammarImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rcid: *const ::windows::core::GUID, pszgrammarname: super::super::Foundation::PWSTR, options: SPLOADOPTIONS) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn LoadCmdFromObject<Impl: ISpRecoGrammarImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rcid: &::windows::core::GUID, pszgrammarname: super::super::Foundation::PWSTR, options: SPLOADOPTIONS) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).LoadCmdFromObject(&*(&rcid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), &*(&pszgrammarname as *const <super::super::Foundation::PWSTR as ::windows::core::Abi>::Abi as *const <super::super::Foundation::PWSTR as ::windows::core::DefaultType>::DefaultType), options) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2263,7 +2263,7 @@ impl ISpRecoGrammarVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn LoadCmdFromProprietaryGrammar<Impl: ISpRecoGrammarImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rguidparam: *const ::windows::core::GUID, pszstringparam: super::super::Foundation::PWSTR, pvdataprarm: *const ::core::ffi::c_void, cbdatasize: u32, options: SPLOADOPTIONS) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn LoadCmdFromProprietaryGrammar<Impl: ISpRecoGrammarImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rguidparam: &::windows::core::GUID, pszstringparam: super::super::Foundation::PWSTR, pvdataprarm: *const ::core::ffi::c_void, cbdatasize: u32, options: SPLOADOPTIONS) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).LoadCmdFromProprietaryGrammar(
                 &*(&rguidparam as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType),
@@ -2629,7 +2629,7 @@ impl ISpRecoResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ScaleAudio<Impl: ISpRecoResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, paudioformatid: *const ::windows::core::GUID, pwaveformatex: *const super::Audio::WAVEFORMATEX) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ScaleAudio<Impl: ISpRecoResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, paudioformatid: &::windows::core::GUID, pwaveformatex: *const super::Audio::WAVEFORMATEX) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ScaleAudio(&*(&paudioformatid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), &*(&pwaveformatex as *const <super::Audio::WAVEFORMATEX as ::windows::core::Abi>::Abi as *const <super::Audio::WAVEFORMATEX as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -3016,7 +3016,7 @@ impl ::windows::core::RuntimeName for ISpResourceManager {
 #[cfg(feature = "Win32_System_Com")]
 impl ISpResourceManagerVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpResourceManagerImpl, const OFFSET: isize>() -> ISpResourceManagerVtbl {
-        unsafe extern "system" fn SetObject<Impl: ISpResourceManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, guidserviceid: *const ::windows::core::GUID, punkobject: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetObject<Impl: ISpResourceManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, guidserviceid: &::windows::core::GUID, punkobject: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SetObject(&*(&guidserviceid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), &*(&punkobject as *const <::windows::core::IUnknown as ::windows::core::Abi>::Abi as *const <::windows::core::IUnknown as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -3027,7 +3027,7 @@ impl ISpResourceManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetObject<Impl: ISpResourceManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, guidserviceid: *const ::windows::core::GUID, objectclsid: *const ::windows::core::GUID, objectiid: *const ::windows::core::GUID, freleasewhenlastexternalrefreleased: super::super::Foundation::BOOL, ppobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetObject<Impl: ISpResourceManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, guidserviceid: &::windows::core::GUID, objectclsid: &::windows::core::GUID, objectiid: &::windows::core::GUID, freleasewhenlastexternalrefreleased: super::super::Foundation::BOOL, ppobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetObject(
                 &*(&guidserviceid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType),
@@ -3216,7 +3216,7 @@ impl ::windows::core::RuntimeName for ISpStream {
 #[cfg(feature = "Win32_System_Com")]
 impl ISpStreamVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpStreamImpl, const OFFSET: isize>() -> ISpStreamVtbl {
-        unsafe extern "system" fn SetBaseStream<Impl: ISpStreamImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pstream: ::windows::core::RawPtr, rguidformat: *const ::windows::core::GUID, pwaveformatex: *const super::Audio::WAVEFORMATEX) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetBaseStream<Impl: ISpStreamImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pstream: ::windows::core::RawPtr, rguidformat: &::windows::core::GUID, pwaveformatex: *const super::Audio::WAVEFORMATEX) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SetBaseStream(
                 &*(&pstream as *const <super::super::System::Com::IStream as ::windows::core::Abi>::Abi as *const <super::super::System::Com::IStream as ::windows::core::DefaultType>::DefaultType),
@@ -3242,7 +3242,7 @@ impl ISpStreamVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn BindToFile<Impl: ISpStreamImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszfilename: super::super::Foundation::PWSTR, emode: SPFILEMODE, pformatid: *const ::windows::core::GUID, pwaveformatex: *const super::Audio::WAVEFORMATEX, ulleventinterest: u64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn BindToFile<Impl: ISpStreamImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszfilename: super::super::Foundation::PWSTR, emode: SPFILEMODE, pformatid: &::windows::core::GUID, pwaveformatex: *const super::Audio::WAVEFORMATEX, ulleventinterest: u64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BindToFile(
                 &*(&pszfilename as *const <super::super::Foundation::PWSTR as ::windows::core::Abi>::Abi as *const <super::super::Foundation::PWSTR as ::windows::core::DefaultType>::DefaultType),
@@ -3284,7 +3284,7 @@ impl ::windows::core::RuntimeName for ISpStreamFormat {
 #[cfg(feature = "Win32_System_Com")]
 impl ISpStreamFormatVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpStreamFormatImpl, const OFFSET: isize>() -> ISpStreamFormatVtbl {
-        unsafe extern "system" fn GetFormat<Impl: ISpStreamFormatImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pguidformatid: *const ::windows::core::GUID, ppcomemwaveformatex: *mut *mut super::Audio::WAVEFORMATEX) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetFormat<Impl: ISpStreamFormatImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pguidformatid: &::windows::core::GUID, ppcomemwaveformatex: *mut *mut super::Audio::WAVEFORMATEX) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetFormat(&*(&pguidformatid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&ppcomemwaveformatex)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -3340,7 +3340,7 @@ impl ISpStreamFormatConverterVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetFormat<Impl: ISpStreamFormatConverterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rguidformatidofconvertedstream: *const ::windows::core::GUID, pwaveformatexofconvertedstream: *const super::Audio::WAVEFORMATEX) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetFormat<Impl: ISpStreamFormatConverterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rguidformatidofconvertedstream: &::windows::core::GUID, pwaveformatexofconvertedstream: *const super::Audio::WAVEFORMATEX) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SetFormat(&*(&rguidformatidofconvertedstream as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), &*(&pwaveformatexofconvertedstream as *const <super::Audio::WAVEFORMATEX as ::windows::core::Abi>::Abi as *const <super::Audio::WAVEFORMATEX as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {

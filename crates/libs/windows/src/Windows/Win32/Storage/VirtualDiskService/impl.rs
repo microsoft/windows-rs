@@ -1075,7 +1075,7 @@ impl IVdsLunVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Extend<Impl: IVdsLunImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ullnumberofbytestoadd: u64, pdriveidarray: *const ::windows::core::GUID, lnumberofdrives: i32, ppasync: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Extend<Impl: IVdsLunImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ullnumberofbytestoadd: u64, pdriveidarray: &::windows::core::GUID, lnumberofdrives: i32, ppasync: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Extend(ullnumberofbytestoadd, &*(&pdriveidarray as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), lnumberofdrives, ::core::mem::transmute_copy(&ppasync)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1163,7 +1163,7 @@ impl IVdsLunVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AssociateControllers<Impl: IVdsLunImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pactivecontrolleridarray: *const ::windows::core::GUID, lnumberofactivecontrollers: i32, pinactivecontrolleridarray: *const ::windows::core::GUID, lnumberofinactivecontrollers: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AssociateControllers<Impl: IVdsLunImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pactivecontrolleridarray: &::windows::core::GUID, lnumberofactivecontrollers: i32, pinactivecontrolleridarray: &::windows::core::GUID, lnumberofinactivecontrollers: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AssociateControllers(&*(&pactivecontrolleridarray as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), lnumberofactivecontrollers, &*(&pinactivecontrolleridarray as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), lnumberofinactivecontrollers) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1207,7 +1207,7 @@ impl IVdsLunVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn QueryMaxLunExtendSize<Impl: IVdsLunImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdriveidarray: *const ::windows::core::GUID, lnumberofdrives: i32, pullmaxbytestobeadded: *mut u64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn QueryMaxLunExtendSize<Impl: IVdsLunImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdriveidarray: &::windows::core::GUID, lnumberofdrives: i32, pullmaxbytestobeadded: *mut u64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).QueryMaxLunExtendSize(&*(&pdriveidarray as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), lnumberofdrives, ::core::mem::transmute_copy(&pullmaxbytestobeadded)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1288,7 +1288,7 @@ impl ::windows::core::RuntimeName for IVdsLunControllerPorts {
 }
 impl IVdsLunControllerPortsVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVdsLunControllerPortsImpl, const OFFSET: isize>() -> IVdsLunControllerPortsVtbl {
-        unsafe extern "system" fn AssociateControllerPorts<Impl: IVdsLunControllerPortsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pactivecontrollerportidarray: *const ::windows::core::GUID, lnumberofactivecontrollerports: i32, pinactivecontrollerportidarray: *const ::windows::core::GUID, lnumberofinactivecontrollerports: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AssociateControllerPorts<Impl: IVdsLunControllerPortsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pactivecontrollerportidarray: &::windows::core::GUID, lnumberofactivecontrollerports: i32, pinactivecontrollerportidarray: &::windows::core::GUID, lnumberofinactivecontrollerports: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AssociateControllerPorts(&*(&pactivecontrollerportidarray as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), lnumberofactivecontrollerports, &*(&pinactivecontrollerportidarray as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), lnumberofinactivecontrollerports) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1322,7 +1322,7 @@ impl ::windows::core::RuntimeName for IVdsLunIscsi {
 }
 impl IVdsLunIscsiVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVdsLunIscsiImpl, const OFFSET: isize>() -> IVdsLunIscsiVtbl {
-        unsafe extern "system" fn AssociateTargets<Impl: IVdsLunIscsiImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ptargetidarray: *const ::windows::core::GUID, lnumberoftargets: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AssociateTargets<Impl: IVdsLunIscsiImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ptargetidarray: &::windows::core::GUID, lnumberoftargets: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AssociateTargets(&*(&ptargetidarray as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), lnumberoftargets) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1833,7 +1833,7 @@ impl IVdsSubSystemVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetControllerStatus<Impl: IVdsSubSystemImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ponlinecontrolleridarray: *const ::windows::core::GUID, lnumberofonlinecontrollers: i32, pofflinecontrolleridarray: *const ::windows::core::GUID, lnumberofofflinecontrollers: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetControllerStatus<Impl: IVdsSubSystemImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ponlinecontrolleridarray: &::windows::core::GUID, lnumberofonlinecontrollers: i32, pofflinecontrolleridarray: &::windows::core::GUID, lnumberofofflinecontrollers: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SetControllerStatus(&*(&ponlinecontrolleridarray as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), lnumberofonlinecontrollers, &*(&pofflinecontrolleridarray as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), lnumberofofflinecontrollers) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1844,7 +1844,7 @@ impl IVdsSubSystemVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateLun<Impl: IVdsSubSystemImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, r#type: VDS_LUN_TYPE, ullsizeinbytes: u64, pdriveidarray: *const ::windows::core::GUID, lnumberofdrives: i32, pwszunmaskinglist: super::super::Foundation::PWSTR, phints: *const VDS_HINTS, ppasync: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateLun<Impl: IVdsSubSystemImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, r#type: VDS_LUN_TYPE, ullsizeinbytes: u64, pdriveidarray: &::windows::core::GUID, lnumberofdrives: i32, pwszunmaskinglist: super::super::Foundation::PWSTR, phints: *const VDS_HINTS, ppasync: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateLun(
                 r#type,
@@ -1885,7 +1885,7 @@ impl IVdsSubSystemVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn QueryMaxLunCreateSize<Impl: IVdsSubSystemImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, r#type: VDS_LUN_TYPE, pdriveidarray: *const ::windows::core::GUID, lnumberofdrives: i32, phints: *const VDS_HINTS, pullmaxlunsize: *mut u64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn QueryMaxLunCreateSize<Impl: IVdsSubSystemImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, r#type: VDS_LUN_TYPE, pdriveidarray: &::windows::core::GUID, lnumberofdrives: i32, phints: *const VDS_HINTS, pullmaxlunsize: *mut u64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).QueryMaxLunCreateSize(r#type, &*(&pdriveidarray as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), lnumberofdrives, &*(&phints as *const <VDS_HINTS as ::windows::core::Abi>::Abi as *const <VDS_HINTS as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&pullmaxlunsize)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1951,7 +1951,7 @@ impl IVdsSubSystem2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateLun2<Impl: IVdsSubSystem2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, r#type: VDS_LUN_TYPE, ullsizeinbytes: u64, pdriveidarray: *const ::windows::core::GUID, lnumberofdrives: i32, pwszunmaskinglist: super::super::Foundation::PWSTR, phints2: *const VDS_HINTS2, ppasync: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateLun2<Impl: IVdsSubSystem2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, r#type: VDS_LUN_TYPE, ullsizeinbytes: u64, pdriveidarray: &::windows::core::GUID, lnumberofdrives: i32, pwszunmaskinglist: super::super::Foundation::PWSTR, phints2: *const VDS_HINTS2, ppasync: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateLun2(
                 r#type,
@@ -1970,7 +1970,7 @@ impl IVdsSubSystem2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn QueryMaxLunCreateSize2<Impl: IVdsSubSystem2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, r#type: VDS_LUN_TYPE, pdriveidarray: *const ::windows::core::GUID, lnumberofdrives: i32, phints2: *const VDS_HINTS2, pullmaxlunsize: *mut u64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn QueryMaxLunCreateSize2<Impl: IVdsSubSystem2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, r#type: VDS_LUN_TYPE, pdriveidarray: &::windows::core::GUID, lnumberofdrives: i32, phints2: *const VDS_HINTS2, pullmaxlunsize: *mut u64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).QueryMaxLunCreateSize2(r#type, &*(&pdriveidarray as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), lnumberofdrives, &*(&phints2 as *const <VDS_HINTS2 as ::windows::core::Abi>::Abi as *const <VDS_HINTS2 as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&pullmaxlunsize)) {
                 ::core::result::Result::Ok(ok__) => {

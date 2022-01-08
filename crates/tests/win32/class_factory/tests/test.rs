@@ -23,7 +23,7 @@ struct Factory();
 
 #[allow(non_snake_case)]
 impl Factory {
-    pub fn CreateInstance(&self, outer: &Option<IUnknown>, iid: *const GUID, object: *mut RawPtr) -> HRESULT {
+    pub fn CreateInstance(&self, outer: &Option<IUnknown>, iid: &GUID, object: *mut RawPtr) -> HRESULT {
         assert!(outer.is_none());
         let unknown: IUnknown = Object().into();
         unsafe { unknown.query(iid, object) }

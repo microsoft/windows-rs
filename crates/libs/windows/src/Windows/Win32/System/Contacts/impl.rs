@@ -650,7 +650,7 @@ impl IContactAggregationGroupVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetGlobalObjectId<Impl: IContactAggregationGroupImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pglobalobjectid: *const ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetGlobalObjectId<Impl: IContactAggregationGroupImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pglobalobjectid: &::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SetGlobalObjectId(&*(&pglobalobjectid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -736,7 +736,7 @@ impl IContactAggregationGroupCollectionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn FindFirstByGlobalObjectId<Impl: IContactAggregationGroupCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pglobalobjectid: *const ::windows::core::GUID, ppgroup: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FindFirstByGlobalObjectId<Impl: IContactAggregationGroupCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pglobalobjectid: &::windows::core::GUID, ppgroup: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FindFirstByGlobalObjectId(&*(&pglobalobjectid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&ppgroup)) {
                 ::core::result::Result::Ok(ok__) => {

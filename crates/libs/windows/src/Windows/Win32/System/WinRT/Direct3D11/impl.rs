@@ -6,7 +6,7 @@ impl ::windows::core::RuntimeName for IDirect3DDxgiInterfaceAccess {
 }
 impl IDirect3DDxgiInterfaceAccessVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDirect3DDxgiInterfaceAccessImpl, const OFFSET: isize>() -> IDirect3DDxgiInterfaceAccessVtbl {
-        unsafe extern "system" fn GetInterface<Impl: IDirect3DDxgiInterfaceAccessImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, iid: *const ::windows::core::GUID, p: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetInterface<Impl: IDirect3DDxgiInterfaceAccessImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, p: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetInterface(&*(&iid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&p)) {
                 ::core::result::Result::Ok(ok__) => {

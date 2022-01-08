@@ -625,7 +625,7 @@ impl ::windows::core::RuntimeName for IUPnPDeviceFinderAddCallbackWithInterface 
 }
 impl IUPnPDeviceFinderAddCallbackWithInterfaceVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUPnPDeviceFinderAddCallbackWithInterfaceImpl, const OFFSET: isize>() -> IUPnPDeviceFinderAddCallbackWithInterfaceVtbl {
-        unsafe extern "system" fn DeviceAddedWithInterface<Impl: IUPnPDeviceFinderAddCallbackWithInterfaceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lfinddata: i32, pdevice: ::windows::core::RawPtr, pguidinterface: *const ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DeviceAddedWithInterface<Impl: IUPnPDeviceFinderAddCallbackWithInterfaceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lfinddata: i32, pdevice: ::windows::core::RawPtr, pguidinterface: &::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DeviceAddedWithInterface(lfinddata, &*(&pdevice as *const <IUPnPDevice as ::windows::core::Abi>::Abi as *const <IUPnPDevice as ::windows::core::DefaultType>::DefaultType), &*(&pguidinterface as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {

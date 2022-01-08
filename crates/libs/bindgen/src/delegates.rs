@@ -66,7 +66,7 @@ fn gen_win_delegate(def: &TypeDef, gen: &Gen) -> TokenStream {
                 Self::Invoke,
                 #(#phantoms)*
             );
-            unsafe extern "system" fn QueryInterface(this: ::windows::core::RawPtr, iid: *const ::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            unsafe extern "system" fn QueryInterface(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
                 let this = this as *mut ::windows::core::RawPtr as *mut Self;
 
                 *interface = if iid == &<#name<#(#generics)*> as ::windows::core::Interface>::IID ||

@@ -6,7 +6,7 @@ impl ::windows::core::RuntimeName for ISoftwareBitmapNative {
 }
 impl ISoftwareBitmapNativeVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISoftwareBitmapNativeImpl, const OFFSET: isize>() -> ISoftwareBitmapNativeVtbl {
-        unsafe extern "system" fn GetData<Impl: ISoftwareBitmapNativeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetData<Impl: ISoftwareBitmapNativeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, riid: &::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetData(&*(&riid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&ppv)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -29,7 +29,7 @@ impl ::windows::core::RuntimeName for ISoftwareBitmapNativeFactory {
 }
 impl ISoftwareBitmapNativeFactoryVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISoftwareBitmapNativeFactoryImpl, const OFFSET: isize>() -> ISoftwareBitmapNativeFactoryVtbl {
-        unsafe extern "system" fn CreateFromWICBitmap<Impl: ISoftwareBitmapNativeFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, data: ::windows::core::RawPtr, forcereadonly: super::super::super::super::Foundation::BOOL, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateFromWICBitmap<Impl: ISoftwareBitmapNativeFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, data: ::windows::core::RawPtr, forcereadonly: super::super::super::super::Foundation::BOOL, riid: &::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateFromWICBitmap(
                 &*(&data as *const <super::super::super::super::Graphics::Imaging::IWICBitmap as ::windows::core::Abi>::Abi as *const <super::super::super::super::Graphics::Imaging::IWICBitmap as ::windows::core::DefaultType>::DefaultType),
@@ -45,7 +45,7 @@ impl ISoftwareBitmapNativeFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateFromMF2DBuffer2<Impl: ISoftwareBitmapNativeFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, data: ::windows::core::RawPtr, subtype: *const ::windows::core::GUID, width: u32, height: u32, forcereadonly: super::super::super::super::Foundation::BOOL, mindisplayaperture: *const super::super::super::super::Media::MediaFoundation::MFVideoArea, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateFromMF2DBuffer2<Impl: ISoftwareBitmapNativeFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, data: ::windows::core::RawPtr, subtype: &::windows::core::GUID, width: u32, height: u32, forcereadonly: super::super::super::super::Foundation::BOOL, mindisplayaperture: *const super::super::super::super::Media::MediaFoundation::MFVideoArea, riid: &::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateFromMF2DBuffer2(
                 &*(&data as *const <super::super::super::super::Media::MediaFoundation::IMF2DBuffer2 as ::windows::core::Abi>::Abi as *const <super::super::super::super::Media::MediaFoundation::IMF2DBuffer2 as ::windows::core::DefaultType>::DefaultType),

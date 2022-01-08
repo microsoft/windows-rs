@@ -230,7 +230,7 @@ impl INetCfgVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn EnumComponents<Impl: INetCfgImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pguidclass: *const ::windows::core::GUID, ppenumcomponent: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn EnumComponents<Impl: INetCfgImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pguidclass: &::windows::core::GUID, ppenumcomponent: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EnumComponents(&*(&pguidclass as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&ppenumcomponent)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -252,7 +252,7 @@ impl INetCfgVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn QueryNetCfgClass<Impl: INetCfgImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pguidclass: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn QueryNetCfgClass<Impl: INetCfgImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pguidclass: &::windows::core::GUID, riid: &::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).QueryNetCfgClass(&*(&pguidclass as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), &*(&riid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&ppvobject)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1136,7 +1136,7 @@ impl ::windows::core::RuntimeName for INetCfgComponentSysPrep {
 }
 impl INetCfgComponentSysPrepVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INetCfgComponentSysPrepImpl, const OFFSET: isize>() -> INetCfgComponentSysPrepVtbl {
-        unsafe extern "system" fn SaveAdapterParameters<Impl: INetCfgComponentSysPrepImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pncsp: ::windows::core::RawPtr, pszwanswersections: super::super::Foundation::PWSTR, padapterinstanceguid: *const ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SaveAdapterParameters<Impl: INetCfgComponentSysPrepImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pncsp: ::windows::core::RawPtr, pszwanswersections: super::super::Foundation::PWSTR, padapterinstanceguid: &::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SaveAdapterParameters(
                 &*(&pncsp as *const <INetCfgSysPrep as ::windows::core::Abi>::Abi as *const <INetCfgSysPrep as ::windows::core::DefaultType>::DefaultType),
@@ -1151,7 +1151,7 @@ impl INetCfgComponentSysPrepVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RestoreAdapterParameters<Impl: INetCfgComponentSysPrepImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszwanswerfile: super::super::Foundation::PWSTR, pszwanswersection: super::super::Foundation::PWSTR, padapterinstanceguid: *const ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RestoreAdapterParameters<Impl: INetCfgComponentSysPrepImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszwanswerfile: super::super::Foundation::PWSTR, pszwanswersection: super::super::Foundation::PWSTR, padapterinstanceguid: &::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RestoreAdapterParameters(
                 &*(&pszwanswerfile as *const <super::super::Foundation::PWSTR as ::windows::core::Abi>::Abi as *const <super::super::Foundation::PWSTR as ::windows::core::DefaultType>::DefaultType),
@@ -1201,7 +1201,7 @@ impl INetCfgComponentUpperEdgeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveInterfacesFromAdapter<Impl: INetCfgComponentUpperEdgeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, padapter: ::windows::core::RawPtr, dwnuminterfaces: u32, pguidinterfaceids: *const ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveInterfacesFromAdapter<Impl: INetCfgComponentUpperEdgeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, padapter: ::windows::core::RawPtr, dwnuminterfaces: u32, pguidinterfaceids: &::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RemoveInterfacesFromAdapter(&*(&padapter as *const <INetCfgComponent as ::windows::core::Abi>::Abi as *const <INetCfgComponent as ::windows::core::DefaultType>::DefaultType), dwnuminterfaces, &*(&pguidinterfaceids as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1450,7 +1450,7 @@ impl ::windows::core::RuntimeName for IProvisioningProfileWireless {
 }
 impl IProvisioningProfileWirelessVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IProvisioningProfileWirelessImpl, const OFFSET: isize>() -> IProvisioningProfileWirelessVtbl {
-        unsafe extern "system" fn CreateProfile<Impl: IProvisioningProfileWirelessImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrxmlwirelessconfigprofile: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrxmlconnectionconfigprofile: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, padapterinstanceguid: *const ::windows::core::GUID, pulstatus: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateProfile<Impl: IProvisioningProfileWirelessImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrxmlwirelessconfigprofile: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrxmlconnectionconfigprofile: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, padapterinstanceguid: &::windows::core::GUID, pulstatus: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateProfile(
                 &*(&bstrxmlwirelessconfigprofile as *const <super::super::Foundation::BSTR as ::windows::core::Abi>::Abi as *const <super::super::Foundation::BSTR as ::windows::core::DefaultType>::DefaultType),

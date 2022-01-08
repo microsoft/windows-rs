@@ -33,7 +33,7 @@ impl ::windows::core::RuntimeName for ICompositionDrawingSurfaceInterop {
 }
 impl ICompositionDrawingSurfaceInteropVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionDrawingSurfaceInteropImpl, const OFFSET: isize>() -> ICompositionDrawingSurfaceInteropVtbl {
-        unsafe extern "system" fn BeginDraw<Impl: ICompositionDrawingSurfaceInteropImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, updaterect: *const super::super::super::Foundation::RECT, iid: *const ::windows::core::GUID, updateobject: *mut *mut ::core::ffi::c_void, updateoffset: *mut super::super::super::Foundation::POINT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn BeginDraw<Impl: ICompositionDrawingSurfaceInteropImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, updaterect: *const super::super::super::Foundation::RECT, iid: &::windows::core::GUID, updateobject: *mut *mut ::core::ffi::c_void, updateoffset: *mut super::super::super::Foundation::POINT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BeginDraw(&*(&updaterect as *const <super::super::super::Foundation::RECT as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::RECT as ::windows::core::DefaultType>::DefaultType), &*(&iid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&updateobject), ::core::mem::transmute_copy(&updateoffset)) {
                 ::core::result::Result::Ok(ok__) => {

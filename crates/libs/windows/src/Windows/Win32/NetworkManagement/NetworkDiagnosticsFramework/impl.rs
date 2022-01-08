@@ -347,7 +347,7 @@ impl ::windows::core::RuntimeName for INetDiagHelperUtilFactory {
 }
 impl INetDiagHelperUtilFactoryVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INetDiagHelperUtilFactoryImpl, const OFFSET: isize>() -> INetDiagHelperUtilFactoryVtbl {
-        unsafe extern "system" fn CreateUtilityInstance<Impl: INetDiagHelperUtilFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateUtilityInstance<Impl: INetDiagHelperUtilFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, riid: &::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateUtilityInstance(&*(&riid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&ppvobject)) {
                 ::core::result::Result::Ok(ok__) => {

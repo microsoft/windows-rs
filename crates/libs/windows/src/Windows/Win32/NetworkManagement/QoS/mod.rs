@@ -4499,12 +4499,12 @@ pub unsafe fn TcOpenInterfaceW<'a, Param0: ::windows::core::IntoParam<'a, super:
 #[doc = "*Required features: 'Win32_NetworkManagement_QoS', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn TcQueryFlowA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(pflowname: Param0, pguidparam: *const ::windows::core::GUID, pbuffersize: *mut u32, buffer: *mut ::core::ffi::c_void) -> u32 {
+pub unsafe fn TcQueryFlowA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(pflowname: Param0, pguidparam: &::windows::core::GUID, pbuffersize: *mut u32, buffer: *mut ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn TcQueryFlowA(pflowname: super::super::Foundation::PSTR, pguidparam: *const ::windows::core::GUID, pbuffersize: *mut u32, buffer: *mut ::core::ffi::c_void) -> u32;
+            fn TcQueryFlowA(pflowname: super::super::Foundation::PSTR, pguidparam: &::windows::core::GUID, pbuffersize: *mut u32, buffer: *mut ::core::ffi::c_void) -> u32;
         }
         ::core::mem::transmute(TcQueryFlowA(pflowname.into_param().abi(), ::core::mem::transmute(pguidparam), ::core::mem::transmute(pbuffersize), ::core::mem::transmute(buffer)))
     }
@@ -4514,12 +4514,12 @@ pub unsafe fn TcQueryFlowA<'a, Param0: ::windows::core::IntoParam<'a, super::sup
 #[doc = "*Required features: 'Win32_NetworkManagement_QoS', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn TcQueryFlowW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pflowname: Param0, pguidparam: *const ::windows::core::GUID, pbuffersize: *mut u32, buffer: *mut ::core::ffi::c_void) -> u32 {
+pub unsafe fn TcQueryFlowW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pflowname: Param0, pguidparam: &::windows::core::GUID, pbuffersize: *mut u32, buffer: *mut ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn TcQueryFlowW(pflowname: super::super::Foundation::PWSTR, pguidparam: *const ::windows::core::GUID, pbuffersize: *mut u32, buffer: *mut ::core::ffi::c_void) -> u32;
+            fn TcQueryFlowW(pflowname: super::super::Foundation::PWSTR, pguidparam: &::windows::core::GUID, pbuffersize: *mut u32, buffer: *mut ::core::ffi::c_void) -> u32;
         }
         ::core::mem::transmute(TcQueryFlowW(pflowname.into_param().abi(), ::core::mem::transmute(pguidparam), ::core::mem::transmute(pbuffersize), ::core::mem::transmute(buffer)))
     }
@@ -4529,12 +4529,12 @@ pub unsafe fn TcQueryFlowW<'a, Param0: ::windows::core::IntoParam<'a, super::sup
 #[doc = "*Required features: 'Win32_NetworkManagement_QoS', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn TcQueryInterface<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOLEAN>>(ifchandle: Param0, pguidparam: *const ::windows::core::GUID, notifychange: Param2, pbuffersize: *mut u32, buffer: *mut ::core::ffi::c_void) -> u32 {
+pub unsafe fn TcQueryInterface<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOLEAN>>(ifchandle: Param0, pguidparam: &::windows::core::GUID, notifychange: Param2, pbuffersize: *mut u32, buffer: *mut ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn TcQueryInterface(ifchandle: super::super::Foundation::HANDLE, pguidparam: *const ::windows::core::GUID, notifychange: super::super::Foundation::BOOLEAN, pbuffersize: *mut u32, buffer: *mut ::core::ffi::c_void) -> u32;
+            fn TcQueryInterface(ifchandle: super::super::Foundation::HANDLE, pguidparam: &::windows::core::GUID, notifychange: super::super::Foundation::BOOLEAN, pbuffersize: *mut u32, buffer: *mut ::core::ffi::c_void) -> u32;
         }
         ::core::mem::transmute(TcQueryInterface(ifchandle.into_param().abi(), ::core::mem::transmute(pguidparam), notifychange.into_param().abi(), ::core::mem::transmute(pbuffersize), ::core::mem::transmute(buffer)))
     }
@@ -4559,12 +4559,12 @@ pub unsafe fn TcRegisterClient<'a, Param1: ::windows::core::IntoParam<'a, super:
 #[doc = "*Required features: 'Win32_NetworkManagement_QoS', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn TcSetFlowA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(pflowname: Param0, pguidparam: *const ::windows::core::GUID, buffersize: u32, buffer: *const ::core::ffi::c_void) -> u32 {
+pub unsafe fn TcSetFlowA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(pflowname: Param0, pguidparam: &::windows::core::GUID, buffersize: u32, buffer: *const ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn TcSetFlowA(pflowname: super::super::Foundation::PSTR, pguidparam: *const ::windows::core::GUID, buffersize: u32, buffer: *const ::core::ffi::c_void) -> u32;
+            fn TcSetFlowA(pflowname: super::super::Foundation::PSTR, pguidparam: &::windows::core::GUID, buffersize: u32, buffer: *const ::core::ffi::c_void) -> u32;
         }
         ::core::mem::transmute(TcSetFlowA(pflowname.into_param().abi(), ::core::mem::transmute(pguidparam), ::core::mem::transmute(buffersize), ::core::mem::transmute(buffer)))
     }
@@ -4574,12 +4574,12 @@ pub unsafe fn TcSetFlowA<'a, Param0: ::windows::core::IntoParam<'a, super::super
 #[doc = "*Required features: 'Win32_NetworkManagement_QoS', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn TcSetFlowW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pflowname: Param0, pguidparam: *const ::windows::core::GUID, buffersize: u32, buffer: *const ::core::ffi::c_void) -> u32 {
+pub unsafe fn TcSetFlowW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pflowname: Param0, pguidparam: &::windows::core::GUID, buffersize: u32, buffer: *const ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn TcSetFlowW(pflowname: super::super::Foundation::PWSTR, pguidparam: *const ::windows::core::GUID, buffersize: u32, buffer: *const ::core::ffi::c_void) -> u32;
+            fn TcSetFlowW(pflowname: super::super::Foundation::PWSTR, pguidparam: &::windows::core::GUID, buffersize: u32, buffer: *const ::core::ffi::c_void) -> u32;
         }
         ::core::mem::transmute(TcSetFlowW(pflowname.into_param().abi(), ::core::mem::transmute(pguidparam), ::core::mem::transmute(buffersize), ::core::mem::transmute(buffer)))
     }
@@ -4589,12 +4589,12 @@ pub unsafe fn TcSetFlowW<'a, Param0: ::windows::core::IntoParam<'a, super::super
 #[doc = "*Required features: 'Win32_NetworkManagement_QoS', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn TcSetInterface<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(ifchandle: Param0, pguidparam: *const ::windows::core::GUID, buffersize: u32, buffer: *const ::core::ffi::c_void) -> u32 {
+pub unsafe fn TcSetInterface<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(ifchandle: Param0, pguidparam: &::windows::core::GUID, buffersize: u32, buffer: *const ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn TcSetInterface(ifchandle: super::super::Foundation::HANDLE, pguidparam: *const ::windows::core::GUID, buffersize: u32, buffer: *const ::core::ffi::c_void) -> u32;
+            fn TcSetInterface(ifchandle: super::super::Foundation::HANDLE, pguidparam: &::windows::core::GUID, buffersize: u32, buffer: *const ::core::ffi::c_void) -> u32;
         }
         ::core::mem::transmute(TcSetInterface(ifchandle.into_param().abi(), ::core::mem::transmute(pguidparam), ::core::mem::transmute(buffersize), ::core::mem::transmute(buffer)))
     }

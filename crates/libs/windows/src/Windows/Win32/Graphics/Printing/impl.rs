@@ -201,7 +201,7 @@ impl ::windows::core::RuntimeName for IPrintAsyncNotify {
 }
 impl IPrintAsyncNotifyVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintAsyncNotifyImpl, const OFFSET: isize>() -> IPrintAsyncNotifyVtbl {
-        unsafe extern "system" fn CreatePrintAsyncNotifyChannel<Impl: IPrintAsyncNotifyImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, param0: u32, param1: *const ::windows::core::GUID, param2: PrintAsyncNotifyUserFilter, param3: PrintAsyncNotifyConversationStyle, param4: ::windows::core::RawPtr, param5: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreatePrintAsyncNotifyChannel<Impl: IPrintAsyncNotifyImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, param0: u32, param1: &::windows::core::GUID, param2: PrintAsyncNotifyUserFilter, param3: PrintAsyncNotifyConversationStyle, param4: ::windows::core::RawPtr, param5: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreatePrintAsyncNotifyChannel(param0, &*(&param1 as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), param2, param3, &*(&param4 as *const <IPrintAsyncNotifyCallback as ::windows::core::Abi>::Abi as *const <IPrintAsyncNotifyCallback as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&param5)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -212,7 +212,7 @@ impl IPrintAsyncNotifyVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreatePrintAsyncNotifyRegistration<Impl: IPrintAsyncNotifyImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, param0: *const ::windows::core::GUID, param1: PrintAsyncNotifyUserFilter, param2: PrintAsyncNotifyConversationStyle, param3: ::windows::core::RawPtr, param4: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreatePrintAsyncNotifyRegistration<Impl: IPrintAsyncNotifyImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, param0: &::windows::core::GUID, param1: PrintAsyncNotifyUserFilter, param2: PrintAsyncNotifyConversationStyle, param3: ::windows::core::RawPtr, param4: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreatePrintAsyncNotifyRegistration(&*(&param0 as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), param1, param2, &*(&param3 as *const <IPrintAsyncNotifyCallback as ::windows::core::Abi>::Abi as *const <IPrintAsyncNotifyCallback as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&param4)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -555,7 +555,7 @@ impl IPrintCoreHelperVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateInstanceOfMSXMLObject<Impl: IPrintCoreHelperImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rclsid: *const ::windows::core::GUID, punkouter: *mut ::core::ffi::c_void, dwclscontext: u32, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateInstanceOfMSXMLObject<Impl: IPrintCoreHelperImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rclsid: &::windows::core::GUID, punkouter: *mut ::core::ffi::c_void, dwclscontext: u32, riid: &::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateInstanceOfMSXMLObject(
                 &*(&rclsid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType),
