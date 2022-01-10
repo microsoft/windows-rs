@@ -1119,6 +1119,8 @@ impl ::std::future::Future for IAsyncAction {
         }
     }
 }
+unsafe impl ::core::marker::Send for IAsyncAction {}
+unsafe impl ::core::marker::Sync for IAsyncAction {}
 unsafe impl ::windows::core::Interface for IAsyncAction {
     type Vtable = IAsyncActionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5a648006_843a_4da9_865b_9d26e5dfad7b);
@@ -1320,6 +1322,8 @@ impl<TProgress: ::windows::core::RuntimeType + 'static> ::std::future::Future fo
         }
     }
 }
+unsafe impl<TProgress: ::windows::core::RuntimeType + 'static> ::core::marker::Send for IAsyncActionWithProgress<TProgress> {}
+unsafe impl<TProgress: ::windows::core::RuntimeType + 'static> ::core::marker::Sync for IAsyncActionWithProgress<TProgress> {}
 unsafe impl<TProgress: ::windows::core::RuntimeType + 'static> ::windows::core::Interface for IAsyncActionWithProgress<TProgress> {
     type Vtable = IAsyncActionWithProgressVtbl<TProgress>;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_signature(<Self as ::windows::core::RuntimeType>::SIGNATURE);
@@ -1633,6 +1637,8 @@ impl<TResult: ::windows::core::RuntimeType + 'static> ::std::future::Future for 
         }
     }
 }
+unsafe impl<TResult: ::windows::core::RuntimeType + 'static> ::core::marker::Send for IAsyncOperation<TResult> {}
+unsafe impl<TResult: ::windows::core::RuntimeType + 'static> ::core::marker::Sync for IAsyncOperation<TResult> {}
 unsafe impl<TResult: ::windows::core::RuntimeType + 'static> ::windows::core::Interface for IAsyncOperation<TResult> {
     type Vtable = IAsyncOperationVtbl<TResult>;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_signature(<Self as ::windows::core::RuntimeType>::SIGNATURE);
@@ -1841,6 +1847,8 @@ impl<TResult: ::windows::core::RuntimeType + 'static, TProgress: ::windows::core
         }
     }
 }
+unsafe impl<TResult: ::windows::core::RuntimeType + 'static, TProgress: ::windows::core::RuntimeType + 'static> ::core::marker::Send for IAsyncOperationWithProgress<TResult, TProgress> {}
+unsafe impl<TResult: ::windows::core::RuntimeType + 'static, TProgress: ::windows::core::RuntimeType + 'static> ::core::marker::Sync for IAsyncOperationWithProgress<TResult, TProgress> {}
 unsafe impl<TResult: ::windows::core::RuntimeType + 'static, TProgress: ::windows::core::RuntimeType + 'static> ::windows::core::Interface for IAsyncOperationWithProgress<TResult, TProgress> {
     type Vtable = IAsyncOperationWithProgressVtbl<TResult, TProgress>;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_signature(<Self as ::windows::core::RuntimeType>::SIGNATURE);
