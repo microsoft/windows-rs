@@ -639,7 +639,40 @@ impl ::core::default::Default for GRE_CONFIG_PARAMS0 {
         unsafe { ::core::mem::zeroed() }
     }
 }
-pub type HRASCONN = isize;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct HRASCONN(pub isize);
+impl HRASCONN {
+    pub fn is_invalid(&self) -> bool {
+        *self == unsafe { ::core::mem::zeroed() }
+    }
+    pub fn ok(self) -> ::windows::core::Result<Self> {
+        if !self.is_invalid() {
+            Ok(self)
+        } else {
+            Err(::windows::core::Error::from_win32())
+        }
+    }
+}
+impl ::core::default::Default for HRASCONN {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for HRASCONN {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for HRASCONN {}
+impl ::core::fmt::Debug for HRASCONN {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HRASCONN").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for HRASCONN {
+    type Abi = Self;
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_NetworkManagement_Rras', 'Win32_Foundation', 'Win32_Security_Cryptography'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]

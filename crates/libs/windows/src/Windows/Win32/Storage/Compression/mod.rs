@@ -1,5 +1,38 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-pub type COMPRESSOR_HANDLE = isize;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct COMPRESSOR_HANDLE(pub isize);
+impl COMPRESSOR_HANDLE {
+    pub fn is_invalid(&self) -> bool {
+        *self == unsafe { ::core::mem::zeroed() }
+    }
+    pub fn ok(self) -> ::windows::core::Result<Self> {
+        if !self.is_invalid() {
+            Ok(self)
+        } else {
+            Err(::windows::core::Error::from_win32())
+        }
+    }
+}
+impl ::core::default::Default for COMPRESSOR_HANDLE {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for COMPRESSOR_HANDLE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for COMPRESSOR_HANDLE {}
+impl ::core::fmt::Debug for COMPRESSOR_HANDLE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("COMPRESSOR_HANDLE").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for COMPRESSOR_HANDLE {
+    type Abi = Self;
+}
 #[doc = "*Required features: 'Win32_Storage_Compression'*"]
 pub type COMPRESS_ALGORITHM = u32;
 #[doc = "*Required features: 'Win32_Storage_Compression'*"]

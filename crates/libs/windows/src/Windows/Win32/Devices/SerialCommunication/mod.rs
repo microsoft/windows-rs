@@ -106,4 +106,37 @@ pub unsafe fn ComDBResizeDatabase<'a, Param0: ::windows::core::IntoParam<'a, HCO
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-pub type HCOMDB = isize;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct HCOMDB(pub isize);
+impl HCOMDB {
+    pub fn is_invalid(&self) -> bool {
+        *self == unsafe { ::core::mem::zeroed() }
+    }
+    pub fn ok(self) -> ::windows::core::Result<Self> {
+        if !self.is_invalid() {
+            Ok(self)
+        } else {
+            Err(::windows::core::Error::from_win32())
+        }
+    }
+}
+impl ::core::default::Default for HCOMDB {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for HCOMDB {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for HCOMDB {}
+impl ::core::fmt::Debug for HCOMDB {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HCOMDB").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for HCOMDB {
+    type Abi = Self;
+}

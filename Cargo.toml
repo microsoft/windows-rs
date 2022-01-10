@@ -11,5 +11,6 @@ members = [
     "crates/tests/debug",
     "crates/tests/enums",
     "crates/tests/sys",
+    "crates/tests/handles",
 ]
 exclude = ["crates/tests/component"]

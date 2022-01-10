@@ -2184,12 +2184,210 @@ pub unsafe fn GetWindowsAccountDomainSid<'a, Param0: ::windows::core::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-pub type HDIAGNOSTIC_DATA_QUERY_SESSION = isize;
-pub type HDIAGNOSTIC_EVENT_CATEGORY_DESCRIPTION = isize;
-pub type HDIAGNOSTIC_EVENT_PRODUCER_DESCRIPTION = isize;
-pub type HDIAGNOSTIC_EVENT_TAG_DESCRIPTION = isize;
-pub type HDIAGNOSTIC_RECORD = isize;
-pub type HDIAGNOSTIC_REPORT = isize;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct HDIAGNOSTIC_DATA_QUERY_SESSION(pub isize);
+impl HDIAGNOSTIC_DATA_QUERY_SESSION {
+    pub fn is_invalid(&self) -> bool {
+        *self == unsafe { ::core::mem::zeroed() }
+    }
+    pub fn ok(self) -> ::windows::core::Result<Self> {
+        if !self.is_invalid() {
+            Ok(self)
+        } else {
+            Err(::windows::core::Error::from_win32())
+        }
+    }
+}
+impl ::core::default::Default for HDIAGNOSTIC_DATA_QUERY_SESSION {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for HDIAGNOSTIC_DATA_QUERY_SESSION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for HDIAGNOSTIC_DATA_QUERY_SESSION {}
+impl ::core::fmt::Debug for HDIAGNOSTIC_DATA_QUERY_SESSION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HDIAGNOSTIC_DATA_QUERY_SESSION").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for HDIAGNOSTIC_DATA_QUERY_SESSION {
+    type Abi = Self;
+}
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct HDIAGNOSTIC_EVENT_CATEGORY_DESCRIPTION(pub isize);
+impl HDIAGNOSTIC_EVENT_CATEGORY_DESCRIPTION {
+    pub fn is_invalid(&self) -> bool {
+        *self == unsafe { ::core::mem::zeroed() }
+    }
+    pub fn ok(self) -> ::windows::core::Result<Self> {
+        if !self.is_invalid() {
+            Ok(self)
+        } else {
+            Err(::windows::core::Error::from_win32())
+        }
+    }
+}
+impl ::core::default::Default for HDIAGNOSTIC_EVENT_CATEGORY_DESCRIPTION {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for HDIAGNOSTIC_EVENT_CATEGORY_DESCRIPTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for HDIAGNOSTIC_EVENT_CATEGORY_DESCRIPTION {}
+impl ::core::fmt::Debug for HDIAGNOSTIC_EVENT_CATEGORY_DESCRIPTION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HDIAGNOSTIC_EVENT_CATEGORY_DESCRIPTION").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for HDIAGNOSTIC_EVENT_CATEGORY_DESCRIPTION {
+    type Abi = Self;
+}
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct HDIAGNOSTIC_EVENT_PRODUCER_DESCRIPTION(pub isize);
+impl HDIAGNOSTIC_EVENT_PRODUCER_DESCRIPTION {
+    pub fn is_invalid(&self) -> bool {
+        *self == unsafe { ::core::mem::zeroed() }
+    }
+    pub fn ok(self) -> ::windows::core::Result<Self> {
+        if !self.is_invalid() {
+            Ok(self)
+        } else {
+            Err(::windows::core::Error::from_win32())
+        }
+    }
+}
+impl ::core::default::Default for HDIAGNOSTIC_EVENT_PRODUCER_DESCRIPTION {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for HDIAGNOSTIC_EVENT_PRODUCER_DESCRIPTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for HDIAGNOSTIC_EVENT_PRODUCER_DESCRIPTION {}
+impl ::core::fmt::Debug for HDIAGNOSTIC_EVENT_PRODUCER_DESCRIPTION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HDIAGNOSTIC_EVENT_PRODUCER_DESCRIPTION").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for HDIAGNOSTIC_EVENT_PRODUCER_DESCRIPTION {
+    type Abi = Self;
+}
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct HDIAGNOSTIC_EVENT_TAG_DESCRIPTION(pub isize);
+impl HDIAGNOSTIC_EVENT_TAG_DESCRIPTION {
+    pub fn is_invalid(&self) -> bool {
+        *self == unsafe { ::core::mem::zeroed() }
+    }
+    pub fn ok(self) -> ::windows::core::Result<Self> {
+        if !self.is_invalid() {
+            Ok(self)
+        } else {
+            Err(::windows::core::Error::from_win32())
+        }
+    }
+}
+impl ::core::default::Default for HDIAGNOSTIC_EVENT_TAG_DESCRIPTION {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for HDIAGNOSTIC_EVENT_TAG_DESCRIPTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for HDIAGNOSTIC_EVENT_TAG_DESCRIPTION {}
+impl ::core::fmt::Debug for HDIAGNOSTIC_EVENT_TAG_DESCRIPTION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HDIAGNOSTIC_EVENT_TAG_DESCRIPTION").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for HDIAGNOSTIC_EVENT_TAG_DESCRIPTION {
+    type Abi = Self;
+}
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct HDIAGNOSTIC_RECORD(pub isize);
+impl HDIAGNOSTIC_RECORD {
+    pub fn is_invalid(&self) -> bool {
+        *self == unsafe { ::core::mem::zeroed() }
+    }
+    pub fn ok(self) -> ::windows::core::Result<Self> {
+        if !self.is_invalid() {
+            Ok(self)
+        } else {
+            Err(::windows::core::Error::from_win32())
+        }
+    }
+}
+impl ::core::default::Default for HDIAGNOSTIC_RECORD {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for HDIAGNOSTIC_RECORD {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for HDIAGNOSTIC_RECORD {}
+impl ::core::fmt::Debug for HDIAGNOSTIC_RECORD {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HDIAGNOSTIC_RECORD").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for HDIAGNOSTIC_RECORD {
+    type Abi = Self;
+}
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct HDIAGNOSTIC_REPORT(pub isize);
+impl HDIAGNOSTIC_REPORT {
+    pub fn is_invalid(&self) -> bool {
+        *self == unsafe { ::core::mem::zeroed() }
+    }
+    pub fn ok(self) -> ::windows::core::Result<Self> {
+        if !self.is_invalid() {
+            Ok(self)
+        } else {
+            Err(::windows::core::Error::from_win32())
+        }
+    }
+}
+impl ::core::default::Default for HDIAGNOSTIC_REPORT {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for HDIAGNOSTIC_REPORT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for HDIAGNOSTIC_REPORT {}
+impl ::core::fmt::Debug for HDIAGNOSTIC_REPORT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HDIAGNOSTIC_REPORT").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for HDIAGNOSTIC_REPORT {
+    type Abi = Self;
+}
 #[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -2753,8 +2951,74 @@ pub unsafe fn MapGenericMask(accessmask: *mut u32, genericmapping: *const GENERI
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-pub type NCRYPT_DESCRIPTOR_HANDLE = isize;
-pub type NCRYPT_STREAM_HANDLE = isize;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct NCRYPT_DESCRIPTOR_HANDLE(pub isize);
+impl NCRYPT_DESCRIPTOR_HANDLE {
+    pub fn is_invalid(&self) -> bool {
+        *self == unsafe { ::core::mem::zeroed() }
+    }
+    pub fn ok(self) -> ::windows::core::Result<Self> {
+        if !self.is_invalid() {
+            Ok(self)
+        } else {
+            Err(::windows::core::Error::from_win32())
+        }
+    }
+}
+impl ::core::default::Default for NCRYPT_DESCRIPTOR_HANDLE {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for NCRYPT_DESCRIPTOR_HANDLE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for NCRYPT_DESCRIPTOR_HANDLE {}
+impl ::core::fmt::Debug for NCRYPT_DESCRIPTOR_HANDLE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NCRYPT_DESCRIPTOR_HANDLE").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for NCRYPT_DESCRIPTOR_HANDLE {
+    type Abi = Self;
+}
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct NCRYPT_STREAM_HANDLE(pub isize);
+impl NCRYPT_STREAM_HANDLE {
+    pub fn is_invalid(&self) -> bool {
+        *self == unsafe { ::core::mem::zeroed() }
+    }
+    pub fn ok(self) -> ::windows::core::Result<Self> {
+        if !self.is_invalid() {
+            Ok(self)
+        } else {
+            Err(::windows::core::Error::from_win32())
+        }
+    }
+}
+impl ::core::default::Default for NCRYPT_STREAM_HANDLE {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for NCRYPT_STREAM_HANDLE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for NCRYPT_STREAM_HANDLE {}
+impl ::core::fmt::Debug for NCRYPT_STREAM_HANDLE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NCRYPT_STREAM_HANDLE").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for NCRYPT_STREAM_HANDLE {
+    type Abi = Self;
+}
 #[doc = "*Required features: 'Win32_Security'*"]
 pub type OBJECT_SECURITY_INFORMATION = u32;
 #[doc = "*Required features: 'Win32_Security'*"]
@@ -3115,8 +3379,74 @@ pub unsafe fn RtlNormalizeSecurityDescriptor<'a, Param4: ::windows::core::IntoPa
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-pub type SAFER_LEVEL_HANDLE = isize;
-pub type SC_HANDLE = isize;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct SAFER_LEVEL_HANDLE(pub isize);
+impl SAFER_LEVEL_HANDLE {
+    pub fn is_invalid(&self) -> bool {
+        *self == unsafe { ::core::mem::zeroed() }
+    }
+    pub fn ok(self) -> ::windows::core::Result<Self> {
+        if !self.is_invalid() {
+            Ok(self)
+        } else {
+            Err(::windows::core::Error::from_win32())
+        }
+    }
+}
+impl ::core::default::Default for SAFER_LEVEL_HANDLE {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for SAFER_LEVEL_HANDLE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for SAFER_LEVEL_HANDLE {}
+impl ::core::fmt::Debug for SAFER_LEVEL_HANDLE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SAFER_LEVEL_HANDLE").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for SAFER_LEVEL_HANDLE {
+    type Abi = Self;
+}
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct SC_HANDLE(pub isize);
+impl SC_HANDLE {
+    pub fn is_invalid(&self) -> bool {
+        *self == unsafe { ::core::mem::zeroed() }
+    }
+    pub fn ok(self) -> ::windows::core::Result<Self> {
+        if !self.is_invalid() {
+            Ok(self)
+        } else {
+            Err(::windows::core::Error::from_win32())
+        }
+    }
+}
+impl ::core::default::Default for SC_HANDLE {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for SC_HANDLE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for SC_HANDLE {}
+impl ::core::fmt::Debug for SC_HANDLE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SC_HANDLE").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for SC_HANDLE {
+    type Abi = Self;
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]

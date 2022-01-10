@@ -43,7 +43,40 @@ pub const ACTIVATIONTYPE_FROM_STORAGE: ACTIVATIONTYPE = 4i32;
 pub const ACTIVATIONTYPE_FROM_STREAM: ACTIVATIONTYPE = 8i32;
 #[doc = "*Required features: 'Win32_System_WinRT'*"]
 pub const ACTIVATIONTYPE_FROM_FILE: ACTIVATIONTYPE = 16i32;
-pub type APARTMENT_SHUTDOWN_REGISTRATION_COOKIE = isize;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct APARTMENT_SHUTDOWN_REGISTRATION_COOKIE(pub isize);
+impl APARTMENT_SHUTDOWN_REGISTRATION_COOKIE {
+    pub fn is_invalid(&self) -> bool {
+        *self == unsafe { ::core::mem::zeroed() }
+    }
+    pub fn ok(self) -> ::windows::core::Result<Self> {
+        if !self.is_invalid() {
+            Ok(self)
+        } else {
+            Err(::windows::core::Error::from_win32())
+        }
+    }
+}
+impl ::core::default::Default for APARTMENT_SHUTDOWN_REGISTRATION_COOKIE {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for APARTMENT_SHUTDOWN_REGISTRATION_COOKIE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for APARTMENT_SHUTDOWN_REGISTRATION_COOKIE {}
+impl ::core::fmt::Debug for APARTMENT_SHUTDOWN_REGISTRATION_COOKIE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("APARTMENT_SHUTDOWN_REGISTRATION_COOKIE").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for APARTMENT_SHUTDOWN_REGISTRATION_COOKIE {
+    type Abi = Self;
+}
 #[doc = "*Required features: 'Win32_System_WinRT'*"]
 pub type AgileReferenceOptions = i32;
 #[doc = "*Required features: 'Win32_System_WinRT'*"]
@@ -259,7 +292,40 @@ pub unsafe fn GetRestrictedErrorInfo() -> ::windows::core::Result<IRestrictedErr
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-pub type HSTRING_BUFFER = isize;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct HSTRING_BUFFER(pub isize);
+impl HSTRING_BUFFER {
+    pub fn is_invalid(&self) -> bool {
+        *self == unsafe { ::core::mem::zeroed() }
+    }
+    pub fn ok(self) -> ::windows::core::Result<Self> {
+        if !self.is_invalid() {
+            Ok(self)
+        } else {
+            Err(::windows::core::Error::from_win32())
+        }
+    }
+}
+impl ::core::default::Default for HSTRING_BUFFER {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for HSTRING_BUFFER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for HSTRING_BUFFER {}
+impl ::core::fmt::Debug for HSTRING_BUFFER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HSTRING_BUFFER").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for HSTRING_BUFFER {
+    type Abi = Self;
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_WinRT', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3029,7 +3095,40 @@ pub type PINSPECT_HSTRING_CALLBACK = ::core::option::Option<unsafe extern "syste
 pub type PINSPECT_HSTRING_CALLBACK2 = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, readaddress: u64, length: u32, buffer: *mut u8) -> ::windows::core::HRESULT>;
 #[doc = "*Required features: 'Win32_System_WinRT'*"]
 pub type PINSPECT_MEMORY_CALLBACK = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, readaddress: usize, length: u32, buffer: *mut u8) -> ::windows::core::HRESULT>;
-pub type ROPARAMIIDHANDLE = isize;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct ROPARAMIIDHANDLE(pub isize);
+impl ROPARAMIIDHANDLE {
+    pub fn is_invalid(&self) -> bool {
+        *self == unsafe { ::core::mem::zeroed() }
+    }
+    pub fn ok(self) -> ::windows::core::Result<Self> {
+        if !self.is_invalid() {
+            Ok(self)
+        } else {
+            Err(::windows::core::Error::from_win32())
+        }
+    }
+}
+impl ::core::default::Default for ROPARAMIIDHANDLE {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for ROPARAMIIDHANDLE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for ROPARAMIIDHANDLE {}
+impl ::core::fmt::Debug for ROPARAMIIDHANDLE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ROPARAMIIDHANDLE").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for ROPARAMIIDHANDLE {
+    type Abi = Self;
+}
 #[doc = "*Required features: 'Win32_System_WinRT'*"]
 pub type RO_ERROR_REPORTING_FLAGS = u32;
 #[doc = "*Required features: 'Win32_System_WinRT'*"]

@@ -53,8 +53,74 @@ pub const frrvErrAnotherInstance: EFaultRepRetVal = 8i32;
 pub const frrvErrNoMemory: EFaultRepRetVal = 9i32;
 #[doc = "*Required features: 'Win32_System_ErrorReporting'*"]
 pub const frrvErrDoubleFault: EFaultRepRetVal = 10i32;
-pub type HREPORT = isize;
-pub type HREPORTSTORE = isize;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct HREPORT(pub isize);
+impl HREPORT {
+    pub fn is_invalid(&self) -> bool {
+        *self == unsafe { ::core::mem::zeroed() }
+    }
+    pub fn ok(self) -> ::windows::core::Result<Self> {
+        if !self.is_invalid() {
+            Ok(self)
+        } else {
+            Err(::windows::core::Error::from_win32())
+        }
+    }
+}
+impl ::core::default::Default for HREPORT {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for HREPORT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for HREPORT {}
+impl ::core::fmt::Debug for HREPORT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HREPORT").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for HREPORT {
+    type Abi = Self;
+}
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct HREPORTSTORE(pub isize);
+impl HREPORTSTORE {
+    pub fn is_invalid(&self) -> bool {
+        *self == unsafe { ::core::mem::zeroed() }
+    }
+    pub fn ok(self) -> ::windows::core::Result<Self> {
+        if !self.is_invalid() {
+            Ok(self)
+        } else {
+            Err(::windows::core::Error::from_win32())
+        }
+    }
+}
+impl ::core::default::Default for HREPORTSTORE {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for HREPORTSTORE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for HREPORTSTORE {}
+impl ::core::fmt::Debug for HREPORTSTORE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HREPORTSTORE").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for HREPORTSTORE {
+    type Abi = Self;
+}
 #[doc = "*Required features: 'Win32_System_ErrorReporting', 'Win32_Foundation', 'Win32_System_Diagnostics_Debug', 'Win32_System_Kernel'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 pub type PFN_WER_RUNTIME_EXCEPTION_DEBUGGER_LAUNCH = ::core::option::Option<unsafe extern "system" fn(pcontext: *const ::core::ffi::c_void, pexceptioninformation: *const WER_RUNTIME_EXCEPTION_INFORMATION, pbiscustomdebugger: *mut super::super::Foundation::BOOL, pwszdebuggerlaunch: super::super::Foundation::PWSTR, pchdebuggerlaunch: *mut u32, pbisdebuggerautolaunch: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT>;

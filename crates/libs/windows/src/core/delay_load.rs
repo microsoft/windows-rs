@@ -6,7 +6,7 @@ pub fn delay_load(library: &[u8], function: &[u8]) -> RawPtr {
     unsafe {
         let library = LoadLibraryA(PSTR(library.as_ptr() as *mut _));
 
-        if library == 0 {
+        if library.is_invalid() {
             return core::ptr::null_mut();
         }
 

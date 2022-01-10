@@ -4876,7 +4876,40 @@ pub unsafe fn GetWindowWord<'a, Param0: ::windows::core::IntoParam<'a, super::su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-pub type HACCEL = isize;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct HACCEL(pub isize);
+impl HACCEL {
+    pub fn is_invalid(&self) -> bool {
+        *self == unsafe { ::core::mem::zeroed() }
+    }
+    pub fn ok(self) -> ::windows::core::Result<Self> {
+        if !self.is_invalid() {
+            Ok(self)
+        } else {
+            Err(::windows::core::Error::from_win32())
+        }
+    }
+}
+impl ::core::default::Default for HACCEL {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for HACCEL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for HACCEL {}
+impl ::core::fmt::Debug for HACCEL {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HACCEL").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for HACCEL {
+    type Abi = Self;
+}
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
 pub type HANDEDNESS = i32;
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
@@ -4926,37 +4959,37 @@ impl ::core::default::Default for HARDWAREHOOKSTRUCT {
 }
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Graphics_Gdi'*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-pub const HBMMENU_CALLBACK: super::super::Graphics::Gdi::HBITMAP = -1i32 as _;
+pub const HBMMENU_CALLBACK: super::super::Graphics::Gdi::HBITMAP = super::super::Graphics::Gdi::HBITMAP(-1i32 as _);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Graphics_Gdi'*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-pub const HBMMENU_MBAR_CLOSE: super::super::Graphics::Gdi::HBITMAP = 5i32 as _;
+pub const HBMMENU_MBAR_CLOSE: super::super::Graphics::Gdi::HBITMAP = super::super::Graphics::Gdi::HBITMAP(5i32 as _);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Graphics_Gdi'*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-pub const HBMMENU_MBAR_CLOSE_D: super::super::Graphics::Gdi::HBITMAP = 6i32 as _;
+pub const HBMMENU_MBAR_CLOSE_D: super::super::Graphics::Gdi::HBITMAP = super::super::Graphics::Gdi::HBITMAP(6i32 as _);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Graphics_Gdi'*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-pub const HBMMENU_MBAR_MINIMIZE: super::super::Graphics::Gdi::HBITMAP = 3i32 as _;
+pub const HBMMENU_MBAR_MINIMIZE: super::super::Graphics::Gdi::HBITMAP = super::super::Graphics::Gdi::HBITMAP(3i32 as _);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Graphics_Gdi'*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-pub const HBMMENU_MBAR_MINIMIZE_D: super::super::Graphics::Gdi::HBITMAP = 7i32 as _;
+pub const HBMMENU_MBAR_MINIMIZE_D: super::super::Graphics::Gdi::HBITMAP = super::super::Graphics::Gdi::HBITMAP(7i32 as _);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Graphics_Gdi'*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-pub const HBMMENU_MBAR_RESTORE: super::super::Graphics::Gdi::HBITMAP = 2i32 as _;
+pub const HBMMENU_MBAR_RESTORE: super::super::Graphics::Gdi::HBITMAP = super::super::Graphics::Gdi::HBITMAP(2i32 as _);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Graphics_Gdi'*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-pub const HBMMENU_POPUP_CLOSE: super::super::Graphics::Gdi::HBITMAP = 8i32 as _;
+pub const HBMMENU_POPUP_CLOSE: super::super::Graphics::Gdi::HBITMAP = super::super::Graphics::Gdi::HBITMAP(8i32 as _);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Graphics_Gdi'*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-pub const HBMMENU_POPUP_MAXIMIZE: super::super::Graphics::Gdi::HBITMAP = 10i32 as _;
+pub const HBMMENU_POPUP_MAXIMIZE: super::super::Graphics::Gdi::HBITMAP = super::super::Graphics::Gdi::HBITMAP(10i32 as _);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Graphics_Gdi'*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-pub const HBMMENU_POPUP_MINIMIZE: super::super::Graphics::Gdi::HBITMAP = 11i32 as _;
+pub const HBMMENU_POPUP_MINIMIZE: super::super::Graphics::Gdi::HBITMAP = super::super::Graphics::Gdi::HBITMAP(11i32 as _);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Graphics_Gdi'*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-pub const HBMMENU_POPUP_RESTORE: super::super::Graphics::Gdi::HBITMAP = 9i32 as _;
+pub const HBMMENU_POPUP_RESTORE: super::super::Graphics::Gdi::HBITMAP = super::super::Graphics::Gdi::HBITMAP(9i32 as _);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Graphics_Gdi'*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-pub const HBMMENU_SYSTEM: super::super::Graphics::Gdi::HBITMAP = 1i32 as _;
+pub const HBMMENU_SYSTEM: super::super::Graphics::Gdi::HBITMAP = super::super::Graphics::Gdi::HBITMAP(1i32 as _);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
 pub const HCBT_ACTIVATE: u32 = 5u32;
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
@@ -4981,7 +5014,45 @@ pub const HCBT_SYSCOMMAND: u32 = 8u32;
 pub const HCF_DEFAULTDESKTOP: u32 = 512u32;
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
 pub const HCF_LOGONDESKTOP: u32 = 256u32;
-pub type HCURSOR = isize;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct HCURSOR(pub isize);
+impl HCURSOR {
+    pub fn is_invalid(&self) -> bool {
+        *self == unsafe { ::core::mem::zeroed() }
+    }
+    pub fn ok(self) -> ::windows::core::Result<Self> {
+        if !self.is_invalid() {
+            Ok(self)
+        } else {
+            Err(::windows::core::Error::from_win32())
+        }
+    }
+}
+impl ::core::default::Default for HCURSOR {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for HCURSOR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for HCURSOR {}
+impl ::core::fmt::Debug for HCURSOR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HCURSOR").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for HCURSOR {
+    type Abi = Self;
+}
+impl<'a> ::windows::core::IntoParam<'a, HICON> for HCURSOR {
+    fn into_param(self) -> ::windows::core::Param<'a, HICON> {
+        ::windows::core::Param::Owned(HICON(self.0))
+    }
+}
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
 pub const HC_ACTION: u32 = 0u32;
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
@@ -5042,15 +5113,114 @@ pub const HELP_TCARD_DATA: u32 = 16u32;
 pub const HELP_TCARD_OTHER_CALLER: u32 = 17u32;
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
 pub const HELP_WM_HELP: u32 = 12u32;
-pub type HHOOK = isize;
-pub type HICON = isize;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct HHOOK(pub isize);
+impl HHOOK {
+    pub fn is_invalid(&self) -> bool {
+        *self == unsafe { ::core::mem::zeroed() }
+    }
+    pub fn ok(self) -> ::windows::core::Result<Self> {
+        if !self.is_invalid() {
+            Ok(self)
+        } else {
+            Err(::windows::core::Error::from_win32())
+        }
+    }
+}
+impl ::core::default::Default for HHOOK {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for HHOOK {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for HHOOK {}
+impl ::core::fmt::Debug for HHOOK {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HHOOK").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for HHOOK {
+    type Abi = Self;
+}
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct HICON(pub isize);
+impl HICON {
+    pub fn is_invalid(&self) -> bool {
+        *self == unsafe { ::core::mem::zeroed() }
+    }
+    pub fn ok(self) -> ::windows::core::Result<Self> {
+        if !self.is_invalid() {
+            Ok(self)
+        } else {
+            Err(::windows::core::Error::from_win32())
+        }
+    }
+}
+impl ::core::default::Default for HICON {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for HICON {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for HICON {}
+impl ::core::fmt::Debug for HICON {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HICON").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for HICON {
+    type Abi = Self;
+}
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
 pub const HIDE_WINDOW: u32 = 0u32;
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
 pub const HKL_NEXT: u32 = 1u32;
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
 pub const HKL_PREV: u32 = 0u32;
-pub type HMENU = isize;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct HMENU(pub isize);
+impl HMENU {
+    pub fn is_invalid(&self) -> bool {
+        *self == unsafe { ::core::mem::zeroed() }
+    }
+    pub fn ok(self) -> ::windows::core::Result<Self> {
+        if !self.is_invalid() {
+            Ok(self)
+        } else {
+            Err(::windows::core::Error::from_win32())
+        }
+    }
+}
+impl ::core::default::Default for HMENU {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for HMENU {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for HMENU {}
+impl ::core::fmt::Debug for HMENU {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HMENU").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for HMENU {
+    type Abi = Self;
+}
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type HOOKPROC = ::core::option::Option<unsafe extern "system" fn(code: i32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> super::super::Foundation::LRESULT>;
@@ -5146,22 +5316,22 @@ pub const HTVSCROLL: u32 = 7u32;
 pub const HTZOOM: u32 = 9u32;
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
-pub const HWND_BOTTOM: super::super::Foundation::HWND = 1i32 as _;
+pub const HWND_BOTTOM: super::super::Foundation::HWND = super::super::Foundation::HWND(1i32 as _);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
-pub const HWND_DESKTOP: super::super::Foundation::HWND = 0i32 as _;
+pub const HWND_DESKTOP: super::super::Foundation::HWND = super::super::Foundation::HWND(0i32 as _);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
-pub const HWND_MESSAGE: super::super::Foundation::HWND = -3i32 as _;
+pub const HWND_MESSAGE: super::super::Foundation::HWND = super::super::Foundation::HWND(-3i32 as _);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
-pub const HWND_NOTOPMOST: super::super::Foundation::HWND = -2i32 as _;
+pub const HWND_NOTOPMOST: super::super::Foundation::HWND = super::super::Foundation::HWND(-2i32 as _);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
-pub const HWND_TOP: super::super::Foundation::HWND = 0i32 as _;
+pub const HWND_TOP: super::super::Foundation::HWND = super::super::Foundation::HWND(0i32 as _);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
-pub const HWND_TOPMOST: super::super::Foundation::HWND = -1i32 as _;
+pub const HWND_TOPMOST: super::super::Foundation::HWND = super::super::Foundation::HWND(-1i32 as _);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]

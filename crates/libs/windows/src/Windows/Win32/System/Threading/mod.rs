@@ -105,7 +105,40 @@ pub unsafe fn AttachThreadInput<'a, Param2: ::windows::core::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-pub type BoundaryDescriptorHandle = isize;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct BoundaryDescriptorHandle(pub isize);
+impl BoundaryDescriptorHandle {
+    pub fn is_invalid(&self) -> bool {
+        *self == unsafe { ::core::mem::zeroed() }
+    }
+    pub fn ok(self) -> ::windows::core::Result<Self> {
+        if !self.is_invalid() {
+            Ok(self)
+        } else {
+            Err(::windows::core::Error::from_win32())
+        }
+    }
+}
+impl ::core::default::Default for BoundaryDescriptorHandle {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for BoundaryDescriptorHandle {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for BoundaryDescriptorHandle {}
+impl ::core::fmt::Debug for BoundaryDescriptorHandle {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BoundaryDescriptorHandle").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for BoundaryDescriptorHandle {
+    type Abi = Self;
+}
 #[doc = "*Required features: 'Win32_System_Threading'*"]
 pub const CONDITION_VARIABLE_LOCKMODE_SHARED: u32 = 1u32;
 #[doc = "*Required features: 'Win32_System_Threading'*"]
@@ -2609,7 +2642,40 @@ pub unsafe fn IsWow64Process2<'a, Param0: ::windows::core::IntoParam<'a, super::
 }
 #[doc = "*Required features: 'Win32_System_Threading'*"]
 pub type LPFIBER_START_ROUTINE = ::core::option::Option<unsafe extern "system" fn(lpfiberparameter: *mut ::core::ffi::c_void)>;
-pub type LPPROC_THREAD_ATTRIBUTE_LIST = *mut ::core::ffi::c_void;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct LPPROC_THREAD_ATTRIBUTE_LIST(pub *mut ::core::ffi::c_void);
+impl LPPROC_THREAD_ATTRIBUTE_LIST {
+    pub fn is_invalid(&self) -> bool {
+        *self == unsafe { ::core::mem::zeroed() }
+    }
+    pub fn ok(self) -> ::windows::core::Result<Self> {
+        if !self.is_invalid() {
+            Ok(self)
+        } else {
+            Err(::windows::core::Error::from_win32())
+        }
+    }
+}
+impl ::core::default::Default for LPPROC_THREAD_ATTRIBUTE_LIST {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for LPPROC_THREAD_ATTRIBUTE_LIST {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for LPPROC_THREAD_ATTRIBUTE_LIST {}
+impl ::core::fmt::Debug for LPPROC_THREAD_ATTRIBUTE_LIST {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LPPROC_THREAD_ATTRIBUTE_LIST").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for LPPROC_THREAD_ATTRIBUTE_LIST {
+    type Abi = Self;
+}
 #[doc = "*Required features: 'Win32_System_Threading'*"]
 pub type LPTHREAD_START_ROUTINE = ::core::option::Option<unsafe extern "system" fn(lpthreadparameter: *mut ::core::ffi::c_void) -> u32>;
 #[doc = "*Required features: 'Win32_System_Threading', 'Win32_Foundation', 'Win32_System_Kernel'*"]
@@ -2694,7 +2760,40 @@ impl ::core::default::Default for MEMORY_PRIORITY_INFORMATION {
 }
 #[doc = "*Required features: 'Win32_System_Threading'*"]
 pub const MUTEX_MODIFY_STATE: u32 = 1u32;
-pub type NamespaceHandle = isize;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct NamespaceHandle(pub isize);
+impl NamespaceHandle {
+    pub fn is_invalid(&self) -> bool {
+        *self == unsafe { ::core::mem::zeroed() }
+    }
+    pub fn ok(self) -> ::windows::core::Result<Self> {
+        if !self.is_invalid() {
+            Ok(self)
+        } else {
+            Err(::windows::core::Error::from_win32())
+        }
+    }
+}
+impl ::core::default::Default for NamespaceHandle {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for NamespaceHandle {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for NamespaceHandle {}
+impl ::core::fmt::Debug for NamespaceHandle {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NamespaceHandle").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for NamespaceHandle {
+    type Abi = Self;
+}
 #[doc = "*Required features: 'Win32_System_Threading', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -3719,7 +3818,40 @@ pub type PRTL_UMS_SCHEDULER_ENTRY_POINT = ::core::option::Option<unsafe extern "
 pub type PTIMERAPCROUTINE = ::core::option::Option<unsafe extern "system" fn(lpargtocompletionroutine: *const ::core::ffi::c_void, dwtimerlowvalue: u32, dwtimerhighvalue: u32)>;
 #[doc = "*Required features: 'Win32_System_Threading'*"]
 pub type PTP_CLEANUP_GROUP_CANCEL_CALLBACK = ::core::option::Option<unsafe extern "system" fn(objectcontext: *mut ::core::ffi::c_void, cleanupcontext: *mut ::core::ffi::c_void)>;
-pub type PTP_POOL = isize;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct PTP_POOL(pub isize);
+impl PTP_POOL {
+    pub fn is_invalid(&self) -> bool {
+        *self == unsafe { ::core::mem::zeroed() }
+    }
+    pub fn ok(self) -> ::windows::core::Result<Self> {
+        if !self.is_invalid() {
+            Ok(self)
+        } else {
+            Err(::windows::core::Error::from_win32())
+        }
+    }
+}
+impl ::core::default::Default for PTP_POOL {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for PTP_POOL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for PTP_POOL {}
+impl ::core::fmt::Debug for PTP_POOL {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PTP_POOL").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for PTP_POOL {
+    type Abi = Self;
+}
 #[doc = "*Required features: 'Win32_System_Threading'*"]
 pub type PTP_SIMPLE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(instance: *mut TP_CALLBACK_INSTANCE, context: *mut ::core::ffi::c_void)>;
 #[doc = "*Required features: 'Win32_System_Threading'*"]
@@ -5717,7 +5849,40 @@ pub unsafe fn TerminateThread<'a, Param0: ::windows::core::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-pub type TimerQueueHandle = isize;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct TimerQueueHandle(pub isize);
+impl TimerQueueHandle {
+    pub fn is_invalid(&self) -> bool {
+        *self == unsafe { ::core::mem::zeroed() }
+    }
+    pub fn ok(self) -> ::windows::core::Result<Self> {
+        if !self.is_invalid() {
+            Ok(self)
+        } else {
+            Err(::windows::core::Error::from_win32())
+        }
+    }
+}
+impl ::core::default::Default for TimerQueueHandle {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for TimerQueueHandle {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for TimerQueueHandle {}
+impl ::core::fmt::Debug for TimerQueueHandle {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TimerQueueHandle").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for TimerQueueHandle {
+    type Abi = Self;
+}
 #[doc = "*Required features: 'Win32_System_Threading'*"]
 #[inline]
 pub unsafe fn TlsAlloc() -> u32 {
