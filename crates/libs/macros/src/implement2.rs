@@ -33,11 +33,15 @@ pub fn gen(attributes: proc_macro::TokenStream, original_type: proc_macro::Token
         offset
     });
 
-    // let queries = attributes.implement.iter().enumerate().map(|(count,_)| {
-    //     let vtbl_ident = implement.to_vtbl_ident();
-    //     let offset: TokenStream = format!("{}", count).into();
-    //     quote! {  }
-    // });
+    let queries = attributes.implement.iter().enumerate().map(|(count,implement)| {
+        let vtbl_ident = implement.to_vtbl_ident();
+        let offset: TokenStream = format!("{}", count).into();
+        quote! {
+            else if #vtbl_ident::matches(iid) {
+                &mut self.vtables.#offset as *mut _ as _
+            }
+        }
+    });
 
     let froms = attributes.implement.iter().enumerate().map(|(enumerate, implement)| {
         let interface_ident = implement.to_ident();
@@ -93,8 +97,7 @@ pub fn gen(attributes: proc_macro::TokenStream, original_type: proc_macro::Token
                         || iid == &<::windows::core::IInspectable as ::windows::core::Interface>::IID
                         || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID {
                             &mut self.identity as *mut _ as _
-                    //} #queries else {
-                    } else {
+                    } #(#queries)* else {
                         ::core::ptr::null_mut()
                     };
 
