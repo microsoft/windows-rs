@@ -80,7 +80,6 @@ fn gen_interface(def: &TypeDef, cfg: &Cfg, gen: &Gen) -> TokenStream {
         #runtime_name
         #cfg
         impl<#(#constraints)*> #vtbl_ident<#(#generics)*> {
-            
             pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: #impl_ident<#(#generics)*>, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> #vtbl_ident<#(#generics)*> {
                 #(#method_impls)*
                 Self(
@@ -93,6 +92,11 @@ fn gen_interface(def: &TypeDef, cfg: &Cfg, gen: &Gen) -> TokenStream {
                     #(#method_ptrs)*
                     #(#phantoms)*
                 )
+            }
+            pub fn matches(iid: &windows::core::GUID) -> bool {
+                // TODO: match this vtable's IID as well as any base IIDs for COM interfaces
+
+                iid == &<#type_ident<#(#generics)*> as ::windows::core::Interface>::IID
             }
         }
     }

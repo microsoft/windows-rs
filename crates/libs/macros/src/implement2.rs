@@ -33,6 +33,12 @@ pub fn gen(attributes: proc_macro::TokenStream, original_type: proc_macro::Token
         offset
     });
 
+    // let queries = attributes.implement.iter().enumerate().map(|(count,_)| {
+    //     let vtbl_ident = implement.to_vtbl_ident();
+    //     let offset: TokenStream = format!("{}", count).into();
+    //     quote! {  }
+    // });
+
     let froms = attributes.implement.iter().enumerate().map(|(enumerate, implement)| {
         let interface_ident = implement.to_ident();
         let offset: TokenStream = format!("{}", enumerate).into();

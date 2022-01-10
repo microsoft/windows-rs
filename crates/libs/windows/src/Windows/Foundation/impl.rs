@@ -29,6 +29,9 @@ impl IAsyncActionVtbl {
         }
         Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAsyncAction>, ::windows::core::GetTrustLevel, SetCompleted::<Impl, IMPL_OFFSET>, Completed::<Impl, IMPL_OFFSET>, GetResults::<Impl, IMPL_OFFSET>)
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAsyncAction as ::windows::core::Interface>::IID
+    }
 }
 pub trait IAsyncActionWithProgressImpl<TProgress>: Sized + IAsyncInfoImpl
 where
@@ -94,6 +97,9 @@ impl<TProgress: ::windows::core::RuntimeType + 'static> IAsyncActionWithProgress
             ::core::marker::PhantomData::<TProgress>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAsyncActionWithProgress<TProgress> as ::windows::core::Interface>::IID
+    }
 }
 pub trait IAsyncInfoImpl: Sized {
     fn Id(&self) -> ::windows::core::Result<u32>;
@@ -150,6 +156,9 @@ impl IAsyncInfoVtbl {
         }
         Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAsyncInfo>, ::windows::core::GetTrustLevel, Id::<Impl, IMPL_OFFSET>, Status::<Impl, IMPL_OFFSET>, ErrorCode::<Impl, IMPL_OFFSET>, Cancel::<Impl, IMPL_OFFSET>, Close::<Impl, IMPL_OFFSET>)
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAsyncInfo as ::windows::core::Interface>::IID
+    }
 }
 pub trait IAsyncOperationImpl<TResult>: Sized + IAsyncInfoImpl
 where
@@ -191,6 +200,9 @@ impl<TResult: ::windows::core::RuntimeType + 'static> IAsyncOperationVtbl<TResul
             }
         }
         Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAsyncOperation<TResult>>, ::windows::core::GetTrustLevel, SetCompleted::<TResult, Impl, IMPL_OFFSET>, Completed::<TResult, Impl, IMPL_OFFSET>, GetResults::<TResult, Impl, IMPL_OFFSET>, ::core::marker::PhantomData::<TResult>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAsyncOperation<TResult> as ::windows::core::Interface>::IID
     }
 }
 pub trait IAsyncOperationWithProgressImpl<TResult, TProgress>: Sized + IAsyncInfoImpl
@@ -266,6 +278,9 @@ impl<TResult: ::windows::core::RuntimeType + 'static, TProgress: ::windows::core
             ::core::marker::PhantomData::<TProgress>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAsyncOperationWithProgress<TResult, TProgress> as ::windows::core::Interface>::IID
+    }
 }
 pub trait IClosableImpl: Sized {
     fn Close(&self) -> ::windows::core::Result<()>;
@@ -280,6 +295,9 @@ impl IClosableVtbl {
             (*this).Close().into()
         }
         Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IClosable>, ::windows::core::GetTrustLevel, Close::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IClosable as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -298,6 +316,9 @@ impl IDeferralVtbl {
             (*this).Complete().into()
         }
         Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDeferral>, ::windows::core::GetTrustLevel, Complete::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IDeferral as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -324,6 +345,9 @@ impl IDeferralFactoryVtbl {
         }
         Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDeferralFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IDeferralFactory as ::windows::core::Interface>::IID
+    }
 }
 pub trait IGetActivationFactoryImpl: Sized {
     fn GetActivationFactory(&self, activatableclassid: &::windows::core::HSTRING) -> ::windows::core::Result<::windows::core::IInspectable>;
@@ -345,6 +369,9 @@ impl IGetActivationFactoryVtbl {
             }
         }
         Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGetActivationFactory>, ::windows::core::GetTrustLevel, GetActivationFactory::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IGetActivationFactory as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -395,6 +422,9 @@ impl IGuidHelperStaticsVtbl {
         }
         Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGuidHelperStatics>, ::windows::core::GetTrustLevel, CreateNewGuid::<Impl, IMPL_OFFSET>, Empty::<Impl, IMPL_OFFSET>, Equals::<Impl, IMPL_OFFSET>)
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IGuidHelperStatics as ::windows::core::Interface>::IID
+    }
 }
 pub trait IMemoryBufferImpl: Sized + IClosableImpl {
     fn CreateReference(&self) -> ::windows::core::Result<IMemoryBufferReference>;
@@ -416,6 +446,9 @@ impl IMemoryBufferVtbl {
             }
         }
         Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMemoryBuffer>, ::windows::core::GetTrustLevel, CreateReference::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMemoryBuffer as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -441,6 +474,9 @@ impl IMemoryBufferFactoryVtbl {
             }
         }
         Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMemoryBufferFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMemoryBufferFactory as ::windows::core::Interface>::IID
     }
 }
 pub trait IMemoryBufferReferenceImpl: Sized + IClosableImpl {
@@ -480,6 +516,9 @@ impl IMemoryBufferReferenceVtbl {
             (*this).RemoveClosed(&*(&cookie as *const <EventRegistrationToken as ::windows::core::Abi>::Abi as *const <EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
         Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMemoryBufferReference>, ::windows::core::GetTrustLevel, Capacity::<Impl, IMPL_OFFSET>, Closed::<Impl, IMPL_OFFSET>, RemoveClosed::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMemoryBufferReference as ::windows::core::Interface>::IID
     }
 }
 pub trait IPropertyValueImpl: Sized {
@@ -871,6 +910,9 @@ impl IPropertyValueVtbl {
             GetSizeArray::<Impl, IMPL_OFFSET>,
             GetRectArray::<Impl, IMPL_OFFSET>,
         )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPropertyValue as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1399,6 +1441,9 @@ impl IPropertyValueStaticsVtbl {
             CreateRectArray::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPropertyValueStatics as ::windows::core::Interface>::IID
+    }
 }
 pub trait IReferenceImpl<T>: Sized + IPropertyValueImpl
 where
@@ -1423,6 +1468,9 @@ impl<T: ::windows::core::RuntimeType + 'static> IReferenceVtbl<T> {
             }
         }
         Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IReference<T>>, ::windows::core::GetTrustLevel, Value::<T, Impl, IMPL_OFFSET>, ::core::marker::PhantomData::<T>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IReference<T> as ::windows::core::Interface>::IID
     }
 }
 pub trait IReferenceArrayImpl<T>: Sized + IPropertyValueImpl
@@ -1450,6 +1498,9 @@ impl<T: ::windows::core::RuntimeType + 'static> IReferenceArrayVtbl<T> {
         }
         Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IReferenceArray<T>>, ::windows::core::GetTrustLevel, Value::<T, Impl, IMPL_OFFSET>, ::core::marker::PhantomData::<T>)
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IReferenceArray<T> as ::windows::core::Interface>::IID
+    }
 }
 pub trait IStringableImpl: Sized {
     fn ToString(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -1471,6 +1522,9 @@ impl IStringableVtbl {
             }
         }
         Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStringable>, ::windows::core::GetTrustLevel, ToString::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IStringable as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1508,6 +1562,9 @@ impl IUriEscapeStaticsVtbl {
             }
         }
         Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUriEscapeStatics>, ::windows::core::GetTrustLevel, UnescapeComponent::<Impl, IMPL_OFFSET>, EscapeComponent::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IUriEscapeStatics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1750,6 +1807,9 @@ impl IUriRuntimeClassVtbl {
             CombineUri::<Impl, IMPL_OFFSET>,
         )
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IUriRuntimeClass as ::windows::core::Interface>::IID
+    }
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IUriRuntimeClassFactoryImpl: Sized {
@@ -1786,6 +1846,9 @@ impl IUriRuntimeClassFactoryVtbl {
             }
         }
         Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUriRuntimeClassFactory>, ::windows::core::GetTrustLevel, CreateUri::<Impl, IMPL_OFFSET>, CreateWithRelativeUri::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IUriRuntimeClassFactory as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1824,6 +1887,9 @@ impl IUriRuntimeClassWithAbsoluteCanonicalUriVtbl {
         }
         Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUriRuntimeClassWithAbsoluteCanonicalUri>, ::windows::core::GetTrustLevel, AbsoluteCanonicalUri::<Impl, IMPL_OFFSET>, DisplayIri::<Impl, IMPL_OFFSET>)
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IUriRuntimeClassWithAbsoluteCanonicalUri as ::windows::core::Interface>::IID
+    }
 }
 pub trait IWwwFormUrlDecoderEntryImpl: Sized {
     fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -1858,6 +1924,9 @@ impl IWwwFormUrlDecoderEntryVtbl {
         }
         Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWwwFormUrlDecoderEntry>, ::windows::core::GetTrustLevel, Name::<Impl, IMPL_OFFSET>, Value::<Impl, IMPL_OFFSET>)
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IWwwFormUrlDecoderEntry as ::windows::core::Interface>::IID
+    }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IWwwFormUrlDecoderRuntimeClassImpl: Sized + IIterableImpl<IWwwFormUrlDecoderEntry> + IVectorViewImpl<IWwwFormUrlDecoderEntry> {
@@ -1883,6 +1952,9 @@ impl IWwwFormUrlDecoderRuntimeClassVtbl {
         }
         Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWwwFormUrlDecoderRuntimeClass>, ::windows::core::GetTrustLevel, GetFirstValueByName::<Impl, IMPL_OFFSET>)
     }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IWwwFormUrlDecoderRuntimeClass as ::windows::core::Interface>::IID
+    }
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IWwwFormUrlDecoderRuntimeClassFactoryImpl: Sized {
@@ -1907,5 +1979,8 @@ impl IWwwFormUrlDecoderRuntimeClassFactoryVtbl {
             }
         }
         Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWwwFormUrlDecoderRuntimeClassFactory>, ::windows::core::GetTrustLevel, CreateWwwFormUrlDecoder::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IWwwFormUrlDecoderRuntimeClassFactory as ::windows::core::Interface>::IID
     }
 }
