@@ -1395,6 +1395,7 @@ unsafe impl ::windows::core::Abi for HANDLE {
     type Abi = Self;
 }
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct HINSTANCE(pub isize);
 impl HINSTANCE {
     pub fn is_invalid(&self) -> bool {
@@ -1419,12 +1420,6 @@ impl ::core::clone::Clone for HINSTANCE {
     }
 }
 impl ::core::marker::Copy for HINSTANCE {}
-impl ::core::cmp::PartialEq for HINSTANCE {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for HINSTANCE {}
 impl ::core::fmt::Debug for HINSTANCE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("HINSTANCE").field(&self.0).finish()
@@ -1928,6 +1923,7 @@ pub unsafe fn HeapFree<'a, Param0: ::windows::core::IntoParam<'a, HeapHandle>>(h
     unimplemented!("Unsupported target OS");
 }
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct HeapHandle(pub isize);
 impl HeapHandle {
     pub fn is_invalid(&self) -> bool {
@@ -1952,12 +1948,6 @@ impl ::core::clone::Clone for HeapHandle {
     }
 }
 impl ::core::marker::Copy for HeapHandle {}
-impl ::core::cmp::PartialEq for HeapHandle {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for HeapHandle {}
 impl ::core::fmt::Debug for HeapHandle {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("HeapHandle").field(&self.0).finish()
